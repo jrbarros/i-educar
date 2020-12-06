@@ -27,6 +27,6 @@ class Suspended
             return $next($request);
         }
 
-        return new RedirectResponse('/intranet/suspenso.php');
+        return new RedirectResponse('/Intranet/suspenso.php');
     }
 }

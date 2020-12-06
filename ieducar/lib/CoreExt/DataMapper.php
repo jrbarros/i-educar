@@ -38,7 +38,7 @@ abstract class CoreExt_DataMapper
     /**
      * Objeto de conexão com o banco de dados.
      *
-     * @var clsBanco
+     * @var Banco
      */
     protected $_dbAdapter = null;
 
@@ -47,7 +47,7 @@ abstract class CoreExt_DataMapper
      * que a mesma instância do adapter de conexão com o banco de dados seja
      * reutilizado em várias instâncias de CoreExt_DataMapper.
      *
-     * @var clsBanco
+     * @var Banco
      */
     protected static $_defaultDbAdapter = null;
 
@@ -68,9 +68,9 @@ abstract class CoreExt_DataMapper
     /**
      * Construtor.
      *
-     * @param clsBanco $db
+     * @param Banco $db
      */
-    public function __construct(clsBanco $db = null)
+    public function __construct(Banco $db = null)
     {
         if (!is_null($db)) {
             $this->_setDbAdapter($db);
@@ -80,18 +80,18 @@ abstract class CoreExt_DataMapper
     /**
      * Setter para configuração de um adapter de banco de dados padrão usado
      * nas instâncias concretas de CoreExt_DataMapper quando nenhuma instância de
-     * clsBanco é passada ao construtor.
+     * Banco é passada ao construtor.
      *
-     * @param clsBanco $db
+     * @param Banco $db
      */
-    public static function setDefaultDbAdapter(clsBanco $db = null)
+    public static function setDefaultDbAdapter(Banco $db = null)
     {
         self::$_defaultDbAdapter = $db;
     }
 
     /**
      * Reseta o adapter padrão, fazendo com que CoreExt_DataMapper instancie
-     * automaticamente uma instância de clsBanco quando necessário.
+     * automaticamente uma instância de Banco quando necessário.
      */
     public static function resetDefaultDbAdapter()
     {
@@ -102,11 +102,11 @@ abstract class CoreExt_DataMapper
      * Setter para o objeto de adapter responsável pela interação com o banco de
      * dados.
      *
-     * @param clsBanco $db
+     * @param Banco $db
      *
      * @return CoreExt_DataMapper Provê interface fluída
      */
-    protected function _setDbAdapter(clsBanco $db)
+    protected function _setDbAdapter(Banco $db)
     {
         $this->_dbAdapter = $db;
 
@@ -121,13 +121,13 @@ abstract class CoreExt_DataMapper
      *
      * - Usando o adapter provido pelo método estático setDefaultDbAdapter
      * (útil para usar várias instâncias de CoreExt_DataMapper sem a instanciação
-     * da classe clsBanco)
-     * - Ou, instanciando a classe clsBanco
+     * da classe Banco)
+     * - Ou, instanciando a classe Banco
      *
      * Usar o setter estático tem a vantagem de reduzir o overhead causado pela
-     * instanciação a clsBanco a cada novo objeto CoreExt_DataMapper.
+     * instanciação a Banco a cada novo objeto CoreExt_DataMapper.
      *
-     * @return clsBanco
+     * @return Banco
      */
     protected function _getDbAdapter()
     {
@@ -135,7 +135,7 @@ abstract class CoreExt_DataMapper
             if (!is_null(self::$_defaultDbAdapter)) {
                 $adapter = self::$_defaultDbAdapter;
             } else {
-                $adapter = new clsBanco(['fetchMode' => clsBanco::FETCH_ASSOC]);
+                $adapter = new Banco(['fetchMode' => Banco::FETCH_ASSOC]);
             }
             $this->_setDbAdapter($adapter);
         }
@@ -146,7 +146,7 @@ abstract class CoreExt_DataMapper
     /**
      * Getter público para o objeto de adapter de banco de dados.
      *
-     * @return clsBanco
+     * @return Banco
      */
     public function getDbAdapter()
     {
@@ -540,7 +540,6 @@ abstract class CoreExt_DataMapper
         $sql = $this->_getFindAllStatment($columns, $where, $orderBy);
 
         if ($this->_getDbAdapter()->execPreparedQuery($sql, $params) != false) {
-
             while ($this->_getDbAdapter()->ProximoRegistro()) {
                 $list[] = $this->_createEntityObject($this->_getDbAdapter()->Tupla());
             }

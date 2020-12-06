@@ -10,7 +10,7 @@ class PessoaFjTest extends TestCase
     {
         $pdo = $this->getConnection()->getPdo();
         $pdo->exec(
-            'INSERT INTO cadastro.pessoa (nome, data_cad, tipo, situacao, origem_gravacao, operacao) VALUES (\'Fulano\', now(), \'F\', \'P\', \'U\', \'I\')'
+            'INSERT INTO cadastro.Pessoa (nome, data_cad, tipo, situacao, origem_gravacao, operacao) VALUES (\'Fulano\', now(), \'F\', \'P\', \'U\', \'I\')'
         );
         $id = $pdo->lastInsertId('cadastro.seq_pessoa');
 
@@ -19,7 +19,7 @@ class PessoaFjTest extends TestCase
         $pessoa = $pessoaFj->detalhe();
 
         $pdo->exec(
-            "DELETE FROM cadastro.pessoa WHERE idpes = $id;"
+            "DELETE FROM cadastro.Pessoa WHERE idpes = $id;"
         );
 
         $this->assertNotNull($id);

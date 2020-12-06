@@ -2,7 +2,7 @@
 
 use iEducar\Support\Exceptions\Exception as iEducarException;
 
-require_once 'include/clsBanco.inc.php';
+require_once 'include/Banco.inc.php';
 require_once 'Core/Controller/Page/EditController.php';
 require_once 'CoreExt/Exception.php';
 require_once 'lib/Portabilis/Messenger.php';
@@ -256,7 +256,6 @@ class ApiCoreController extends Core_Controller_Page_EditController
                 'message' => $exception->getMessage(),
                 'extra' => $exception->getExtraInfo(),
             ]);
-
         } catch (Exception $e) {
             $this->messenger->append('Exception: ' . $e->getMessage(), 'error', $encodeToUtf8 = true);
         }

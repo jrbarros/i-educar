@@ -36,7 +36,7 @@ class Portabilis_View_Helper_DynamicInput_Turma extends Portabilis_View_Helper_D
 
         if ($escolaId && $ano && !$naoFiltrarAno && $this->turmasPorAno($escolaId, $ano)) {
             foreach ($resources as $id => $nome) {
-                $turma = new clsPmieducarTurma();
+                $turma = new Turma();
                 $turma->cod_turma = $id;
                 $turma = $turma->detalhe();
 
@@ -51,7 +51,7 @@ class Portabilis_View_Helper_DynamicInput_Turma extends Portabilis_View_Helper_D
 
     protected function turmasPorAno($escolaId, $ano)
     {
-        $anoLetivo = new clsPmieducarEscolaAnoLetivo();
+        $anoLetivo = new EscolaAnoLetivo();
         $anoLetivo->ref_cod_escola = $escolaId;
         $anoLetivo->ano = $ano;
         $anoLetivo = $anoLetivo->detalhe();

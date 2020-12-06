@@ -3,7 +3,7 @@
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
-require_once 'intranet/include/pmieducar/clsPmieducarAcervoAssunto.inc.php';
+require_once 'Intranet/include/pmieducar/AcervoAssunto.php';
 
 class AssuntoController extends ApiCoreController
 {
@@ -21,7 +21,7 @@ class AssuntoController extends ApiCoreController
 
     protected function getAssunto()
     {
-        $obj = new clsPmieducarAcervoAssunto();
+        $obj = new AcervoAssunto();
         $arrayAssuntos;
 
         foreach ($obj->listaAssuntosPorObra($this->getRequest()->id) as $reg) {

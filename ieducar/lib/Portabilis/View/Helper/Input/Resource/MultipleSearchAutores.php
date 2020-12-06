@@ -9,7 +9,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchAutores extends Portab
     protected function getOptions($resources)
     {
         if (empty($resources)) {
-            $resources = new clsPmieducarAcervoAutor();
+            $resources = new AcervoAutor();
             $resources = $resources->lista();
             $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'cod_acervo_autor', 'nm_autor');
         }

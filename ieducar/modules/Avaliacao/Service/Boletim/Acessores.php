@@ -481,7 +481,6 @@ trait Avaliacao_Service_Boletim_Acessores
     public function getParecerDescritivoAbstractDataMapper()
     {
         if (is_null($this->_parecerDescritivoAbstractDataMapper)) {
-
             switch ($this->getRegraAvaliacaoTipoParecerDescritivo()) {
                 case RegraAvaliacao_Model_TipoParecerDescritivo::ANUAL_GERAL:
                 case RegraAvaliacao_Model_TipoParecerDescritivo::ETAPA_GERAL:

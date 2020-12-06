@@ -14,7 +14,7 @@ class CreatePage extends Page
      */
     public function url()
     {
-        return '/intranet/public_pais_cad.php';
+        return '/Intranet/public_pais_cad.php';
     }
 
     /**

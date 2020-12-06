@@ -34,10 +34,10 @@ class BatchEnrollmentController extends Controller
         MessageBag $success = null
     ) {
         $this->breadcrumb('Desenturmar em lote', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
-        $this->menu(659); // Código: ieducar/intranet/educar_matriculas_turma_lst.php
+        $this->menu(659); // Código: ieducar/Intranet/educar_matriculas_turma_lst.php
 
         $this->setMessages($fails, $success, 'cancel');
 
@@ -66,10 +66,10 @@ class BatchEnrollmentController extends Controller
         MessageBag $success = null
     ) {
         $this->breadcrumb('Enturmar em lote', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
-        $this->menu(659); // Código: ieducar/intranet/educar_matriculas_turma_lst.php
+        $this->menu(659); // Código: ieducar/Intranet/educar_matriculas_turma_lst.php
 
         $this->setMessages($fails, $success, 'enroll');
 

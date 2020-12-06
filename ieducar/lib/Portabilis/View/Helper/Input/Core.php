@@ -1,6 +1,6 @@
 <?php
 
-require_once 'include/pmieducar/clsPermissoes.inc.php';
+require_once 'include/pmieducar/Permissoes.php';
 require_once 'App/Model/IedFinder.php';
 require_once 'lib/Portabilis/View/Helper/Application.php';
 require_once 'lib/Portabilis/Array/Utils.php';

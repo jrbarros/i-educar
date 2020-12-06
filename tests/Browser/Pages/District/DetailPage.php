@@ -32,10 +32,10 @@ class DetailPage extends Page
     public function url($onlyPath = false)
     {
         if ($onlyPath) {
-            return '/intranet/public_distrito_det.php';
+            return '/Intranet/public_distrito_det.php';
         }
 
-        return '/intranet/public_distrito_det.php?iddis=' . $this->districtId;
+        return '/Intranet/public_distrito_det.php?iddis=' . $this->districtId;
     }
 
     /**

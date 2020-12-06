@@ -15,8 +15,8 @@ DECLARE
 
   BEGIN
 
-  -- obter o nome da pessoa referente ao IDPES passado como parametro
-  v_comando := 'SELECT nome FROM cadastro.pessoa WHERE idpes = '||quote_literal(v_idpes_parametro)||';';
+  -- obter o nome da Pessoa referente ao IDPES passado como parametro
+  v_comando := 'SELECT nome FROM cadastro.Pessoa WHERE idpes = '||quote_literal(v_idpes_parametro)||';';
   FOR v_registro IN EXECUTE v_comando LOOP
     v_nome_pessoa_1 := v_registro.nome;
   END LOOP;
@@ -27,7 +27,7 @@ DECLARE
   v_nome_primeiro_ultimo_pessoa_2 := '';
   v_cont := 0;
 
-  -- primeiro e último nome da pessoa com fonética
+  -- primeiro e último nome da Pessoa com fonética
   FOR v_registro IN SELECT * FROM public.fcn_fonetiza(public.fcn_obter_primeiro_ultimo_nome(v_nome_pessoa_1)) LOOP
     v_cont := v_cont + 1;
     v_fonema := v_registro.fcn_fonetiza;

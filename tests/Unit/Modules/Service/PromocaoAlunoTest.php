@@ -355,13 +355,13 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
             ]));
 
     // Configura mock de instância de classe legada
-    $matricula = $this->getCleanMock('clsPmieducarMatricula');
+    $matricula = $this->getCleanMock('Matricula');
 
     $matricula->method('edita')
               ->will($this->returnValue(TRUE));
 
-    CoreExt_Entity::addClassToStorage('clsPmieducarMatricula', $matricula,
-          'include/pmieducar/clsPmieducarMatricula.inc.php', TRUE);
+    CoreExt_Entity::addClassToStorage('Matricula', $matricula,
+          'include/pmieducar/Matricula.php', TRUE);
 
     $this->assertTrue($service->promover());
   }

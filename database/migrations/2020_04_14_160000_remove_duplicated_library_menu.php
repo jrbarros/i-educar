@@ -28,7 +28,7 @@ class RemoveDuplicatedLibraryMenu extends Migration
         ]);
 
         Menu::query()
-            ->where('link', '/intranet/educar_categoria_lst.php')
+            ->where('link', '/Intranet/educar_categoria_lst.php')
             ->where('process', 598)
             ->update([
                 'process' => 599,

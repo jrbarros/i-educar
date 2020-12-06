@@ -7,7 +7,6 @@ require_once 'lib/Portabilis/Utils/Database.php';
 
 class CursoAlunoController extends ApiCoreController
 {
-
     public function canGetCursoDoAluno()
     {
         return $this->validatesPresenceOf('aluno_id');

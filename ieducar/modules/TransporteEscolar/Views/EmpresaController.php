@@ -13,7 +13,7 @@ class EmpresaController extends Portabilis_Controller_Page_EditController
     protected $_deleteOption = true;
 
     protected $_formMap = [
-        'pessoa' => [
+        'Pessoa' => [
             'label' => 'Pessoa responsável',
             'help' => '',
         ],
@@ -37,13 +37,13 @@ class EmpresaController extends Portabilis_Controller_Page_EditController
     protected function _preConstruct()
     {
         $this->_options = $this->mergeOptions([
-            'edit_success' => '/intranet/transporte_empresa_lst.php',
-            'delete_success' => '/intranet/transporte_empresa_lst.php'
+            'edit_success' => '/Intranet/transporte_empresa_lst.php',
+            'delete_success' => '/Intranet/transporte_empresa_lst.php'
         ], $this->_options);
         $nomeMenu = $this->getRequest()->id == null ? 'Cadastrar' : 'Editar';
 
         $this->breadcrumb("$nomeMenu empresa", [
-            url('intranet/educar_transporte_escolar_index.php') => 'Transporte escolar',
+            url('Intranet/educar_transporte_escolar_index.php') => 'Transporte escolar',
         ]);
     }
 
@@ -59,7 +59,7 @@ class EmpresaController extends Portabilis_Controller_Page_EditController
 
     public function Gerar()
     {
-        $this->url_cancelar = '/intranet/transporte_empresa_lst.php';
+        $this->url_cancelar = '/Intranet/transporte_empresa_lst.php';
 
         // Código da empresa
         $options = [
@@ -75,7 +75,7 @@ class EmpresaController extends Portabilis_Controller_Page_EditController
         $this->inputsHelper()->simpleSearchPessoaj('pessoaj', $options);
 
         // nome
-        $options = ['label' => $this->_getLabel('pessoa'), 'size' => 68];
+        $options = ['label' => $this->_getLabel('Pessoa'), 'size' => 68];
         $this->inputsHelper()->simpleSearchPessoa('nome', $options);
 
         // observações

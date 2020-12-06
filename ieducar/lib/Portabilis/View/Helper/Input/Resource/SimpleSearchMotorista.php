@@ -7,7 +7,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchMotorista extends Portab
     protected function resourceValue($id)
     {
         if ($id) {
-            $sql = 'select nome from modules.motorista, cadastro.pessoa where ref_idpes = idpes and cod_motorista = $1';
+            $sql = 'select nome from modules.motorista, cadastro.Pessoa where ref_idpes = idpes and cod_motorista = $1';
             $options = ['params' => $id, 'return_only' => 'first-field'];
             $nome = Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
 

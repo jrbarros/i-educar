@@ -75,7 +75,7 @@ class PreMatriculaController extends ApiCoreController
 
             $this->atualizaPreMatricula($matriculaId, $escolaId);
 
-            $obj_m = new clsPmieducarMatricula($matriculaId);
+            $obj_m = new Matricula($matriculaId);
 
             $det_m = $obj_m->detalhe();
             $alunoIdMatricula = $det_m['ref_cod_aluno'];
@@ -98,10 +98,10 @@ class PreMatriculaController extends ApiCoreController
 
             if ($alunoIdParametro) {
                 $aluno_id = $alunoIdParametro;
-                $obj_a = new clsPmieducarAluno($alunoIdParametro);
+                $obj_a = new Aluno($alunoIdParametro);
 
                 if ($obj_a->detalhe()) {
-                    $obj_m = new clsPmieducarMatricula($matriculaId);
+                    $obj_m = new Matricula($matriculaId);
                     $obj_m->ref_cod_aluno = $alunoIdParametro;
                     $obj_m->edita();
 
@@ -114,7 +114,7 @@ class PreMatriculaController extends ApiCoreController
                 }
             } else {
                 $aluno_id = $alunoIdMatricula;
-                $obj_a = new clsPmieducarAluno($alunoIdMatricula);
+                $obj_a = new Aluno($alunoIdMatricula);
             }
 
             $det_a = $obj_a->detalhe();
@@ -256,7 +256,7 @@ class PreMatriculaController extends ApiCoreController
 
     public function _getMaxAlunoTurno($ano, $escolaId, $serieId, $turnoId)
     {
-        $obj_t = new clsPmieducarTurma();
+        $obj_t = new Turma();
 
         $lista_t = $obj_t->lista(
             $int_cod_turma = null,
@@ -324,7 +324,7 @@ class PreMatriculaController extends ApiCoreController
 
     public function _getQtdMatriculaTurno($ano, $escolaId, $cursoId, $serieId, $turnoId)
     {
-        $obj_mt = new clsPmieducarMatriculaTurma();
+        $obj_mt = new MatriculaTurma();
 
         return (int) count($obj_mt->lista(
             $int_ref_cod_matricula = null,
@@ -366,7 +366,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function cadastraPreMatricula($escolaId, $serieId, $anoLetivo, $cursoId, $alunoId, $turnoId)
     {
-        $obj = new clsPmieducarMatricula(
+        $obj = new Matricula(
             null,
             null,
             $escolaId,
@@ -399,7 +399,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function atualizaPreMatricula($matriculaId, $escolaId)
     {
-        $preMatricula = new clsPmieducarMatricula($matriculaId);
+        $preMatricula = new Matricula($matriculaId);
         $preMatricula->ref_ref_cod_escola = $escolaId;
         $preMatricula->edita();
 
@@ -410,7 +410,7 @@ class PreMatriculaController extends ApiCoreController
     {
         // $this->messenger->append($escolaId, $serieId, $anoLetivo, $cursoId, $alunoId, $turmaId, $matriculaId);
 
-        $obj_a = new clsPmieducarAluno($alunoId);
+        $obj_a = new Aluno($alunoId);
         $obj_a->ativo = 1;
 
         if ($maeIsResponsavel) {
@@ -419,12 +419,12 @@ class PreMatriculaController extends ApiCoreController
 
         $obj_a->edita();
 
-        $obj_m = new clsPmieducarMatricula($matriculaId);
+        $obj_m = new Matricula($matriculaId);
         $obj_m->aprovado = 3;
         $obj_m->ativo = 1;
         $obj_m->edita();
 
-        $enturmacao = new clsPmieducarMatriculaTurma(
+        $enturmacao = new MatriculaTurma(
             $matriculaId,
             $turmaId,
             1,
@@ -447,7 +447,7 @@ class PreMatriculaController extends ApiCoreController
 
         foreach ($deficiencias as $id) {
             if (!empty($id)) {
-                $deficiencia = new clsCadastroFisicaDeficiencia($pessoaId, $id);
+                $deficiencia = new CadastroFisicaDeficiencia($pessoaId, $id);
                 $deficiencia->cadastra();
             }
         }
@@ -482,7 +482,7 @@ class PreMatriculaController extends ApiCoreController
             $pessoa->edita();
         }
 
-        $telefone = str_replace(["-", "(", ")", " "], "", $telefone);
+        $telefone = str_replace(['-', '(', ')', ' '], '', $telefone);
 
         $ddd_telefone = substr($telefone, 0, 2);
         $telefone = substr($telefone, 2);
@@ -491,8 +491,7 @@ class PreMatriculaController extends ApiCoreController
 
         if ($telefoneObj->detalhe()) {
             $results = $telefoneObj->edita();
-        }
-        else {
+        } else {
             $results = $telefoneObj->cadastra();
         }
 
@@ -514,7 +513,7 @@ class PreMatriculaController extends ApiCoreController
             $pessoaId = $pessoa->cadastra();
         }
 
-        $telefone = str_replace(["-", "(", ")", " "], "", $telefone);
+        $telefone = str_replace(['-', '(', ')', ' '], '', $telefone);
 
         $ddd_telefone = substr($telefone, 0, 2);
         $telefone = substr($telefone, 2);
@@ -523,8 +522,7 @@ class PreMatriculaController extends ApiCoreController
 
         if ($telefoneObj->detalhe()) {
             $results = $telefoneObj->edita();
-        }
-        else {
+        } else {
             $results = $telefoneObj->cadastra();
         }
 
@@ -579,7 +577,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function createOrUpdateAluno($pessoaId, $ativo)
     {
-        $aluno = new clsPmieducarAluno();
+        $aluno = new Aluno();
         $aluno->ref_idpes = $pessoaId;
 
         $detalhe = $aluno->detalhe();
@@ -591,7 +589,7 @@ class PreMatriculaController extends ApiCoreController
         }
 
         if ($ativo == 0) {
-            $aluno = new clsPmieducarAluno($retorno);
+            $aluno = new Aluno($retorno);
             $aluno->ativo = 0;
             $aluno->edita();
         }
@@ -601,7 +599,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function _maxAlunosTurma($turmaId)
     {
-        $obj_t = new clsPmieducarTurma($turmaId);
+        $obj_t = new Turma($turmaId);
         $det_t = $obj_t->detalhe();
         $maxAlunosTurma = $det_t['max_aluno'];
 
@@ -610,7 +608,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function _alunosMatriculadosTurma($turmaId)
     {
-        $obj_mt = new clsPmieducarMatriculaTurma($turmaId);
+        $obj_mt = new MatriculaTurma($turmaId);
 
         return count(array_filter(($obj_mt->lista(
             $int_ref_cod_matricula = null,
@@ -655,17 +653,17 @@ class PreMatriculaController extends ApiCoreController
 
             if (is_numeric($pessoaId)) {
                 $this->fetchPreparedQuery('DELETE FROM cadastro.fisica WHERE idpes = $1', $pessoaId);
-                $this->fetchPreparedQuery('DELETE FROM cadastro.pessoa WHERE idpes = $1', $pessoaId);
+                $this->fetchPreparedQuery('DELETE FROM cadastro.Pessoa WHERE idpes = $1', $pessoaId);
             }
 
             if (is_numeric($pessoaMaeId)) {
                 $this->fetchPreparedQuery('DELETE FROM cadastro.fisica WHERE idpes = $1', $pessoaMaeId);
-                $this->fetchPreparedQuery('DELETE FROM cadastro.pessoa WHERE idpes = $1', $pessoaMaeId);
+                $this->fetchPreparedQuery('DELETE FROM cadastro.Pessoa WHERE idpes = $1', $pessoaMaeId);
             }
 
             if (is_numeric($pessoaRespId)) {
                 $this->fetchPreparedQuery('DELETE FROM cadastro.fisica WHERE idpes = $1', $pessoaRespId);
-                $this->fetchPreparedQuery('DELETE FROM cadastro.pessoa WHERE idpes = $1', $pessoaRespId);
+                $this->fetchPreparedQuery('DELETE FROM cadastro.Pessoa WHERE idpes = $1', $pessoaRespId);
             }
         }
     }
@@ -708,17 +706,17 @@ class PreMatriculaController extends ApiCoreController
         if (is_numeric($pessoaId)) {
             $this->fetchPreparedQuery('DELETE FROM cadastro.fisica_deficiencia WHERE ref_idpes = $1', $pessoaId);
             $this->fetchPreparedQuery('DELETE FROM cadastro.fisica WHERE idpes = $1', $pessoaId);
-            $this->fetchPreparedQuery('DELETE FROM cadastro.pessoa WHERE idpes = $1', $pessoaId);
+            $this->fetchPreparedQuery('DELETE FROM cadastro.Pessoa WHERE idpes = $1', $pessoaId);
         }
 
         if (is_numeric($pessoaMaeId)) {
             $this->fetchPreparedQuery('DELETE FROM cadastro.fisica WHERE idpes = $1', $pessoaMaeId);
-            $this->fetchPreparedQuery('DELETE FROM cadastro.pessoa WHERE idpes = $1', $pessoaMaeId);
+            $this->fetchPreparedQuery('DELETE FROM cadastro.Pessoa WHERE idpes = $1', $pessoaMaeId);
         }
 
         if (is_numeric($pessoaRespId)) {
             $this->fetchPreparedQuery('DELETE FROM cadastro.fisica WHERE idpes = $1', $pessoaRespId);
-            $this->fetchPreparedQuery('DELETE FROM cadastro.pessoa WHERE idpes = $1', $pessoaRespId);
+            $this->fetchPreparedQuery('DELETE FROM cadastro.Pessoa WHERE idpes = $1', $pessoaRespId);
         }
     }
 

@@ -5,7 +5,6 @@ require_once 'App/Model/IedFinder.php';
 
 class RegraAvaliacao_Model_RegraRecuperacao extends CoreExt_Entity
 {
-
     protected $_data = [
         'regraAvaliacao' => null,
         'descricao' => null,

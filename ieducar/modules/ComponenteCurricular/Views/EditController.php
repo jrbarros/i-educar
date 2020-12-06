@@ -61,8 +61,8 @@ class EditController extends Core_Controller_Page_EditController
 
         $nomeMenu = $this->getRequest()->id == null ? 'Cadastrar' : 'Editar';
 
-        $this->breadcrumb( "$nomeMenu componente curricular", [
-            url('intranet/educar_index.php') => 'Escola',
+        $this->breadcrumb("$nomeMenu componente curricular", [
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 
@@ -171,7 +171,7 @@ class EditController extends Core_Controller_Page_EditController
     public function Novo()
     {
         if ($this->_save()) {
-            $this->simpleRedirect('/intranet/educar_componente_curricular_lst.php');
+            $this->simpleRedirect('/Intranet/educar_componente_curricular_lst.php');
         }
 
         return false;

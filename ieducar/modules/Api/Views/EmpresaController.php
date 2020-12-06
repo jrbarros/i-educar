@@ -22,7 +22,7 @@ class EmpresaController extends ApiCoreController
     // load resources
     protected function loadNomePessoa($id)
     {
-        $sql = 'select nome from cadastro.pessoa, modules.empresa_transporte_escolar where idpes = ref_idpes and cod_empresa_transporte_escolar = $1';
+        $sql = 'select nome from cadastro.Pessoa, modules.empresa_transporte_escolar where idpes = ref_idpes and cod_empresa_transporte_escolar = $1';
         $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -30,7 +30,7 @@ class EmpresaController extends ApiCoreController
 
     protected function loadNomePessoaj($id)
     {
-        $sql = 'select nome from cadastro.pessoa, modules.empresa_transporte_escolar emp where idpes = emp.ref_idpes and cod_empresa_transporte_escolar = $1';
+        $sql = 'select nome from cadastro.Pessoa, modules.empresa_transporte_escolar emp where idpes = emp.ref_idpes and cod_empresa_transporte_escolar = $1';
         $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -60,7 +60,7 @@ class EmpresaController extends ApiCoreController
                 'cod_empresa_transporte_escolar' => 'id',
                 'ref_idpes' => 'pessoaj',
                 'observacao' => 'observacao',
-                'ref_resp_idpes' => 'pessoa'
+                'ref_resp_idpes' => 'Pessoa'
             ];
 
             $empresa = Portabilis_Array_Utils::filter($empresa, $attrs);
@@ -111,7 +111,7 @@ class EmpresaController extends ApiCoreController
     protected function sqlsForNumericSearch()
     {
         $sqls[] = 'select distinct cod_empresa_transporte_escolar as id, nome as name from
-            modules.empresa_transporte_escolar, cadastro.pessoa where idpes = ref_idpes
+            modules.empresa_transporte_escolar, cadastro.Pessoa where idpes = ref_idpes
             and cod_empresa_transporte_escolar::varchar like $1||\'%\'';
 
         return $sqls;
@@ -120,7 +120,7 @@ class EmpresaController extends ApiCoreController
     protected function sqlsForStringSearch()
     {
         $sqls[] = 'select distinct cod_empresa_transporte_escolar as id, nome as name from
-            modules.empresa_transporte_escolar, cadastro.pessoa where idpes = ref_idpes
+            modules.empresa_transporte_escolar, cadastro.Pessoa where idpes = ref_idpes
             and lower((nome)) like \'%\'||lower(($1))||\'%\'';
 
         return $sqls;
@@ -223,7 +223,7 @@ class EmpresaController extends ApiCoreController
                 $this->appendResponse($this->delete());
 
                 echo '<script language= "JavaScript">
-                    location.href="intranet/transporte_empresa_lst.php";
+                    location.href="Intranet/transporte_empresa_lst.php";
                     </script>';
 
                 die();

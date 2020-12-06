@@ -1111,8 +1111,8 @@ abstract class CoreExt_Entity implements CoreExt_Entity_Validatable
      * );
      *
      * // em um script:
-     * $pessoa = new Pessoa(array('id' => 1, 'nome' => 'Carlos Santana'));
-     * print_r($pessoa->filterAttr('id' => 'nome');
+     * $Pessoa = new Pessoa(array('id' => 1, 'nome' => 'Carlos Santana'));
+     * print_r($Pessoa->filterAttr('id' => 'nome');
      *
      * // Iria imprimir:
      * // Array

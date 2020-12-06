@@ -1,21 +1,21 @@
 <?php
 
+use App\Models\LegacyIndividual;
 use App\Models\PersonHasPlace;
 use iEducar\Modules\Addressing\LegacyAddressingFields;
-use iEducar\Modules\Educacenso\Validator\NameValidator;
+use iEducar\Modules\Educacenso\Model\Nacionalidade;
 use iEducar\Modules\Educacenso\Validator\BirthDateValidator;
 use iEducar\Modules\Educacenso\Validator\DifferentiatedLocationValidator;
-use App\Models\LegacyIndividual;
-use iEducar\Modules\Educacenso\Model\Nacionalidade;
+use iEducar\Modules\Educacenso\Validator\NameValidator;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
 require_once 'lib/Portabilis/Date/Utils.php';
-require_once 'include/pessoa/clsPessoa_.inc.php';
-require_once 'include/pessoa/clsFisica.inc.php';
-require_once 'include/pessoa/clsCadastroFisicaRaca.inc.php';
-require_once 'intranet/include/funcoes.inc.php';
+require_once 'include/Pessoa/clsPessoa_.inc.php';
+require_once 'include/Pessoa/clsFisica.inc.php';
+require_once 'include/Pessoa/clsCadastroFisicaRaca.inc.php';
+require_once 'Intranet/include/funcoes.php';
 
 class PessoaController extends ApiCoreController
 {
@@ -69,7 +69,7 @@ class PessoaController extends ApiCoreController
                 idpes as id,
                 nome
             from
-                cadastro.pessoa
+                cadastro.Pessoa
             where true
                 and idpes = $1
         ';
@@ -88,8 +88,8 @@ class PessoaController extends ApiCoreController
             throw new Exception('CPF deve conter caracteres numéricos');
         }
 
-        $sql = 'select pessoa.idpes as id, nome from cadastro.pessoa, cadastro.fisica
-            where fisica.idpes = pessoa.idpes and cpf = $1 limit 1';
+        $sql = 'select Pessoa.idpes as id, nome from cadastro.Pessoa, cadastro.fisica
+            where fisica.idpes = Pessoa.idpes and cpf = $1 limit 1';
 
         $pessoa = $this->fetchPreparedQuery($sql, $cpf, false, 'first-row');
         $pessoa['nome'] = $this->toUtf8($pessoa['nome'], ['transform' => true]);
@@ -105,11 +105,11 @@ class PessoaController extends ApiCoreController
             idpes_mae as mae_id, idpes_responsavel as responsavel_id,
             ideciv as estadocivil, sexo, nis_pis_pasep,
             nome_social,
-            coalesce((select nome from cadastro.pessoa where idpes = fisica.idpes_pai),
+            coalesce((select nome from cadastro.Pessoa where idpes = fisica.idpes_pai),
             (select nm_pai from pmieducar.aluno where cod_aluno = $1)) as nome_pai,
-            coalesce((select nome from cadastro.pessoa where idpes = fisica.idpes_mae),
+            coalesce((select nome from cadastro.Pessoa where idpes = fisica.idpes_mae),
             (select nm_mae from pmieducar.aluno where cod_aluno = $1)) as nome_mae,
-            (select nome from cadastro.pessoa where idpes = fisica.idpes_responsavel) as nome_responsavel,
+            (select nome from cadastro.Pessoa where idpes = fisica.idpes_responsavel) as nome_responsavel,
             (select rg from cadastro.documento where documento.idpes = fisica.idpes) as rg,
             (select sigla_uf_exp_rg from cadastro.documento where documento.idpes = fisica.idpes) as uf_emissao_rg,
             (select idorg_exp_rg from cadastro.documento where documento.idpes = fisica.idpes) as orgao_emissao_rg,
@@ -303,7 +303,7 @@ class PessoaController extends ApiCoreController
     protected function loadPessoaParent()
     {
         if ($this->getRequest()->id) {
-            $_sql = ' SELECT (select nome from cadastro.pessoa where pessoa.idpes = fisica.idpes) as nome ,ideciv as estadocivil, data_nasc, sexo, falecido FROM cadastro.fisica WHERE idpes = $1; ';
+            $_sql = ' SELECT (select nome from cadastro.Pessoa where Pessoa.idpes = fisica.idpes) as nome ,ideciv as estadocivil, data_nasc, sexo, falecido FROM cadastro.fisica WHERE idpes = $1; ';
 
             $details = $this->fetchPreparedQuery($_sql, $this->getRequest()->id, false, 'first-row');
 
@@ -376,21 +376,21 @@ class PessoaController extends ApiCoreController
         // search by idpes or cpf
         $sqls[] = '
             select
-                distinct pessoa.idpes as id,
+                distinct Pessoa.idpes as id,
                 (case
                     when fisica.nome_social not like \'\' then
-                        fisica.nome_social || \' - Nome de registro: \' || pessoa.nome
+                        fisica.nome_social || \' - Nome de registro: \' || Pessoa.nome
                     else
-                        pessoa.nome
+                        Pessoa.nome
                 end) as name
             from
-                cadastro.pessoa,
+                cadastro.Pessoa,
                 cadastro.fisica
             where true
-                and fisica.idpes = pessoa.idpes
+                and fisica.idpes = Pessoa.idpes
                 and fisica.ativo = 1
                 and (
-                    pessoa.idpes::varchar like $1||\'%\'
+                    Pessoa.idpes::varchar like $1||\'%\'
                     or trim(leading \'0\' from fisica.cpf::varchar) like trim(leading \'0\' from $1)||\'%\'
                     or fisica.cpf::varchar like $1||\'%\'
                 )
@@ -402,21 +402,21 @@ class PessoaController extends ApiCoreController
         // search by rg
         $sqls[] = '
             select
-                distinct pessoa.idpes as id,
+                distinct Pessoa.idpes as id,
                 (case
                     when fisica.nome_social not like \'\' then
-                        fisica.nome_social || \' - Nome de registro: \' || pessoa.nome
+                        fisica.nome_social || \' - Nome de registro: \' || Pessoa.nome
                     else
-                        pessoa.nome
+                        Pessoa.nome
                 end) as name
             from
-                cadastro.pessoa,
+                cadastro.Pessoa,
                 cadastro.documento,
                 cadastro.fisica
             where true
-                and fisica.idpes = pessoa.idpes
+                and fisica.idpes = Pessoa.idpes
                 and fisica.ativo = 1
-                and pessoa.idpes = documento.idpes
+                and Pessoa.idpes = documento.idpes
                 and (
                     (documento.rg like $1||\'%\')
                     or trim(leading \'0\' from documento.rg) like trim(leading \'0\' from $1)||\'%\'
@@ -429,7 +429,7 @@ class PessoaController extends ApiCoreController
         return $sqls;
     }
 
-    // subscreve formatResourceValue para adicionar o rg da pessoa, ao final do valor,
+    // subscreve formatResourceValue para adicionar o rg da Pessoa, ao final do valor,
     // "<id_pessoa> - <nome_pessoa> (RG: <rg>)", ex: "1 - Lucas D'Avila (RG: 1234567)"
     protected function formatResourceValue($resource)
     {
@@ -437,7 +437,7 @@ class PessoaController extends ApiCoreController
         $rg = $this->loadRg($resource['id']);
         $nascimento = $this->loadDataNascimento($resource['id']);
 
-        // Quando informado, inclui detalhes extra sobre a pessoa, como RG e Data nascimento.
+        // Quando informado, inclui detalhes extra sobre a Pessoa, como RG e Data nascimento.
         $details = [];
 
         if ($nascimento) {
@@ -484,6 +484,7 @@ class PessoaController extends ApiCoreController
 
         if (!$validator->isValid()) {
             $this->messenger->append($validator->getMessage());
+
             return false;
         }
 
@@ -500,6 +501,7 @@ class PessoaController extends ApiCoreController
 
         if (!$validator->isValid()) {
             $this->messenger->append($validator->getMessage());
+
             return false;
         }
 
@@ -512,6 +514,7 @@ class PessoaController extends ApiCoreController
 
         if (!$validator->isValid()) {
             $this->messenger->append($validator->getMessage());
+
             return false;
         }
 
@@ -540,7 +543,7 @@ class PessoaController extends ApiCoreController
         $pessoa->idpes = $pessoaId;
         $pessoa->nome = Portabilis_String_Utils::toLatin1($this->getRequest()->nome);
 
-        $sql = 'select 1 from cadastro.pessoa WHERE idpes = $1 limit 1';
+        $sql = 'select 1 from cadastro.Pessoa WHERE idpes = $1 limit 1';
 
         if (! $pessoaId || Portabilis_Utils_Database::selectField($sql, $pessoaId) != 1) {
             $pessoa->tipo = 'F';
@@ -576,7 +579,6 @@ class PessoaController extends ApiCoreController
         $individual->nome_social = $this->getRequest()->nome_social ?? $this->getRequest()->nome_social;
 
         $individual->saveOrFail();
-
 
         $raca = new clsCadastroFisicaRaca($pessoaId, $this->getRequest()->cor_raca);
         if ($raca->existe()) {
@@ -644,17 +646,17 @@ class PessoaController extends ApiCoreController
 
     public function Gerar()
     {
-        if ($this->isRequestFor('get', 'pessoa-search')) {
+        if ($this->isRequestFor('get', 'Pessoa-search')) {
             $this->appendResponse($this->search());
-        } elseif ($this->isRequestFor('get', 'pessoa')) {
+        } elseif ($this->isRequestFor('get', 'Pessoa')) {
             $this->appendResponse($this->get());
-        } elseif ($this->isRequestFor('post', 'pessoa')) {
+        } elseif ($this->isRequestFor('post', 'Pessoa')) {
             $this->appendResponse($this->post());
         } elseif ($this->isRequestFor('get', 'info-servidor')) {
             $this->appendResponse($this->getInfoServidor());
-        } elseif ($this->isRequestFor('post', 'pessoa-endereco')) {
+        } elseif ($this->isRequestFor('post', 'Pessoa-endereco')) {
             $this->appendResponse($this->createOrUpdateEndereco());
-        } elseif ($this->isRequestFor('get', 'pessoa-parent')) {
+        } elseif ($this->isRequestFor('get', 'Pessoa-parent')) {
             $this->appendResponse($this->loadPessoaParent());
         } elseif ($this->isRequestFor('get', 'reativarPessoa')) {
             $this->appendResponse($this->reativarPessoa());
@@ -669,20 +671,20 @@ class PessoaController extends ApiCoreController
 
         return '
             select
-                distinct pessoa.idpes as id,
+                distinct Pessoa.idpes as id,
                 (case
                     when fisica.nome_social not like \'\' then
-                        fisica.nome_social || \' - Nome de registro: \' || pessoa.nome
+                        fisica.nome_social || \' - Nome de registro: \' || Pessoa.nome
                     else
-                        pessoa.nome
+                        Pessoa.nome
                 end) as name
             from
-                cadastro.pessoa
+                cadastro.Pessoa
             inner join cadastro.fisica
-                on fisica.idpes = pessoa.idpes
+                on fisica.idpes = Pessoa.idpes
             where true
                 and fisica.ativo = 1
-                and lower(coalesce(fisica.nome_social, \'\') || pessoa.nome) like \'%\'||lower(($1))||\'%\'
+                and lower(coalesce(fisica.nome_social, \'\') || Pessoa.nome) like \'%\'||lower(($1))||\'%\'
             order by
                 id,
                 name

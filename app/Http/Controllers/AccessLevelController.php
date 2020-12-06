@@ -21,8 +21,8 @@ class AccessLevelController extends Controller
     public function __construct()
     {
         $this->breadcrumb('Tipos de usuário', [
-            url('intranet/educar_configuracoes_index.php') => 'Configurações',
-            url('intranet/educar_tipo_usuario_lst.php') => 'Tipos de Usuário',
+            url('Intranet/educar_configuracoes_index.php') => 'Configurações',
+            url('Intranet/educar_tipo_usuario_lst.php') => 'Tipos de Usuário',
         ]);
     }
 

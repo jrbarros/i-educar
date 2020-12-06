@@ -108,7 +108,7 @@
                 </tr>
                 <tr>
                     <td colspan="13" align="center">
-                        <input type="button" class="btn-green botaolistagem" onclick="javascript: go('/intranet/educar_matricula_det.php?cod_matricula={{ $registration->id }}')" value=" Voltar ">
+                        <input type="button" class="btn-green botaolistagem" onclick="javascript: go('/Intranet/educar_matricula_det.php?cod_matricula={{ $registration->id }}')" value=" Voltar ">
                     </td>
                 </tr>
             </tbody>

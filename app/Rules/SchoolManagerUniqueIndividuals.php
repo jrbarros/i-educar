@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Rule;
 class SchoolManagerUniqueIndividuals implements Rule
 {
     /**
-     * Verifica se a mesma pessoa foi selecionada mais de uma vez como gestor
+     * Verifica se a mesma Pessoa foi selecionada mais de uma vez como gestor
      *
      * @param  string  $attribute
      * @param  mixed  $value

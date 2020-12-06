@@ -23,7 +23,7 @@ class ExportController extends Controller
     public function index(Request $request)
     {
         $this->breadcrumb('Exportações', [
-            url('/intranet/educar_configuracoes_index.php') => 'Configurações',
+            url('/Intranet/educar_configuracoes_index.php') => 'Configurações',
         ]);
 
         $this->menu(Process::DATA_EXPORT);
@@ -47,7 +47,7 @@ class ExportController extends Controller
     public function form(Request $request, Export $export)
     {
         $this->breadcrumb('Nova Exportação', [
-            url('/intranet/educar_configuracoes_index.php') => 'Configurações',
+            url('/Intranet/educar_configuracoes_index.php') => 'Configurações',
             route('export.index') => 'Exportações',
         ]);
 

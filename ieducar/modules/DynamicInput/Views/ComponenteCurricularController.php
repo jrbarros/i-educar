@@ -7,7 +7,6 @@ require_once 'Portabilis/Business/Professor.php';
 
 class ComponenteCurricularController extends ApiCoreController
 {
-
     protected function canGetComponentesCurriculares()
     {
         return
@@ -56,7 +55,7 @@ class ComponenteCurricularController extends ApiCoreController
             if ($isOnlyProfessor) {
                 $componentesCurriculares = Portabilis_Business_Professor::componentesCurricularesAlocado($instituicaoId, $turmaId, $ano, $userId);
             } else {
-                $sql = "
+                $sql = '
                     SELECT
                         cc.id,
                         cc.nome,
@@ -79,7 +78,7 @@ class ComponenteCurricularController extends ApiCoreController
                         AND (
                             CASE
                                 WHEN cct.etapas_especificas = 1
-                                    THEN $3 = ANY (string_to_array(cct.etapas_utilizadas,',')::int[])
+                                    THEN $3 = ANY (string_to_array(cct.etapas_utilizadas,\',\')::int[])
                                 ELSE true 
                             END
                         )
@@ -88,12 +87,12 @@ class ComponenteCurricularController extends ApiCoreController
                         ac.nome,
                         cc.ordenamento,
                         cc.nome
-                ";
+                ';
 
                 $componentesCurriculares = $this->fetchPreparedQuery($sql, [$turmaId, $ano, $etapa]);
 
                 if (count($componentesCurriculares) < 1) {
-                    $sql = "
+                    $sql = '
                         SELECT
                             cc.id,
                             cc.nome,
@@ -116,7 +115,7 @@ class ComponenteCurricularController extends ApiCoreController
                             AND (
                                 CASE
                                     WHEN esd.etapas_especificas = 1
-                                        THEN $3 = ANY (string_to_array(esd.etapas_utilizadas,',')::int[])
+                                        THEN $3 = ANY (string_to_array(esd.etapas_utilizadas,\',\')::int[])
                                     ELSE true
                                 END
                             )
@@ -125,7 +124,7 @@ class ComponenteCurricularController extends ApiCoreController
                             ac.nome,
                             cc.ordenamento,
                             cc.nome
-                    ";
+                    ';
 
                     $componentesCurriculares = $this->fetchPreparedQuery($sql, [$turmaId, $ano, $etapa]);
                 }
@@ -151,7 +150,7 @@ class ComponenteCurricularController extends ApiCoreController
             if ($isOnlyProfessor) {
                 $componentesCurriculares = Portabilis_Business_Professor::componentesCurricularesAlocado($instituicaoId, $turmaId, $ano, $userId);
             } else {
-                $sql = "
+                $sql = '
                     SELECT
                         cc.id,
                         cc.nome,
@@ -176,12 +175,12 @@ class ComponenteCurricularController extends ApiCoreController
                         ac.nome,
                         cc.ordenamento,
                         cc.nome
-                ";
+                ';
 
                 $componentesCurriculares = $this->fetchPreparedQuery($sql, [$turmaId, $ano]);
 
                 if (count($componentesCurriculares) < 1) {
-                    $sql = "
+                    $sql = '
                         SELECT
                             cc.id,
                             cc.nome,
@@ -210,7 +209,7 @@ class ComponenteCurricularController extends ApiCoreController
                             ac.nome,
                             cc.ordenamento,
                             cc.nome
-                    ";
+                    ';
 
                     $componentesCurriculares = $this->fetchPreparedQuery($sql, [$turmaId, $ano]);
                 }
@@ -235,17 +234,20 @@ class ComponenteCurricularController extends ApiCoreController
         $componentesCurriculares = (new SchoolGradeDisciplineService)->getDisciplines($escola, $serie);
 
         $options = $this->agrupaComponentesCurriculares($componentesCurriculares->toArray());
+
         return ['options' => $options];
     }
 
-    public function Gerar() {
-        if ($this->isRequestFor('get', 'componentesCurriculares'))
+    public function Gerar()
+    {
+        if ($this->isRequestFor('get', 'componentesCurriculares')) {
             $this->appendResponse($this->getComponentesCurriculares());
-        elseif($this->isRequestFor('get', 'componentesCurricularesForDiario'))
+        } elseif ($this->isRequestFor('get', 'componentesCurricularesForDiario')) {
             $this->appendResponse($this->getComponentesCurricularesForDiario());
-        elseif($this->isRequestFor('get', 'componentesCurricularesEscolaSerie'))
+        } elseif ($this->isRequestFor('get', 'componentesCurricularesEscolaSerie')) {
             $this->appendResponse($this->getComponentesCurricularesEscolaSerie());
-        else
+        } else {
             $this->notImplementedOperationError();
+        }
     }
 }

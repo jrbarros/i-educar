@@ -10,10 +10,10 @@ class RemoveSpacesInName extends Migration
     private function sql()
     {
         return <<<SQL
-            update cadastro.pessoa 
+            update cadastro.Pessoa
             set nome = trim(nome),
                 slug = trim(slug)
-            where substring(nome, length(nome), 1) = ' ' 
+            where substring(nome, length(nome), 1) = ' '
             or substring(nome, 1, 1) = ' ';
         SQL;
     }

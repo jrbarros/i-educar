@@ -6,7 +6,7 @@ require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
 require_once 'lib/Portabilis/Date/Utils.php';
-require_once 'include/funcoes.inc.php';
+require_once 'include/funcoes.php';
 
 class FilaUnicaController extends ApiCoreController
 {
@@ -21,11 +21,11 @@ class FilaUnicaController extends ApiCoreController
         $byCertidao = $this->getRequest()->by_certidao ? $this->getRequest()->by_certidao == '1' : false;
         $byId = $this->getRequest()->by_id ? $this->getRequest()->by_id == '1' : false;
 
-        $sql = "SELECT cod_aluno,
-                       pessoa.nome,
-                       pessoa.idpes,
-                       to_char(fisica.data_nasc, 'dd/mm/yyyy') AS data_nasc,
-                       replace(to_char(fisica.cpf, '000:000:000-00'), ':', '.') AS cpf,
+        $sql = 'SELECT cod_aluno,
+                       Pessoa.nome,
+                       Pessoa.idpes,
+                       to_char(fisica.data_nasc, \'dd/mm/yyyy\') AS data_nasc,
+                       replace(to_char(fisica.cpf, \'000:000:000-00\'), \':\', \'.\') AS cpf,
                        documento.num_termo,
                        documento.num_folha,
                        documento.num_livro,
@@ -33,20 +33,20 @@ class FilaUnicaController extends ApiCoreController
                        ad.postal_code AS cep,
                        ad.neighborhood AS nm_bairro,
                        ad.city_id,
-                       ad.city_id || ' - ' || ad.city AS nm_municipio,
+                       ad.city_id || \' - \' || ad.city AS nm_municipio,
                        ad.address AS nm_logradouro,
                        ad.number as numero,
                        ad.complement as complemento,
                        fisica.sexo,
                        fisica.ideciv
                   FROM pmieducar.aluno
-                 INNER JOIN cadastro.pessoa ON (pessoa.idpes = aluno.ref_idpes)
+                 INNER JOIN cadastro.Pessoa ON (Pessoa.idpes = aluno.ref_idpes)
                  INNER JOIN cadastro.fisica ON (fisica.idpes = aluno.ref_idpes)
                  INNER JOIN cadastro.documento ON (documento.idpes = aluno.ref_idpes)
                   LEFT JOIN person_has_place php ON php.person_id = aluno.ref_idpes
                   LEFT JOIN addresses ad ON ad.id = php.place_id
                   WHERE
-                 ";
+                 ';
         if ($byCertidao) {
             $sql .= "  CASE WHEN {$tipoCertidao} != 1
                                  THEN num_termo = '{$numTermo}'
@@ -54,7 +54,6 @@ class FilaUnicaController extends ApiCoreController
                                   AND num_folha = '{$numFolha}'
                             ELSE certidao_nascimento = '{$numNovaCeridao}'
                         END  ";
-
         }
 
         if ($byId) {
@@ -152,12 +151,12 @@ class FilaUnicaController extends ApiCoreController
         $aluno = $this->getRequest()->aluno_id;
 
         if ($aluno) {
-            $sql = "SELECT pessoa.idpes,
+            $sql = "SELECT Pessoa.idpes,
                     CASE
-                        WHEN fisica_aluno.idpes_pai = pessoa.idpes THEN '1'
-                        WHEN fisica_aluno.idpes_mae = pessoa.idpes THEN '2'
+                        WHEN fisica_aluno.idpes_pai = Pessoa.idpes THEN '1'
+                        WHEN fisica_aluno.idpes_mae = Pessoa.idpes THEN '2'
                         ELSE '3' END as vinculo_familiar,
-                       pessoa.nome,
+                       Pessoa.nome,
                        fisica.sexo,
                        fisica.ideciv,
                        to_char(fisica.data_nasc, 'dd/mm/yyyy') AS data_nasc,
@@ -178,7 +177,7 @@ class FilaUnicaController extends ApiCoreController
                   ON (fisica.idpes = fisica_aluno.idpes_pai AND aluno.tipo_responsavel IN ('a', 'p') )
                     OR (fisica.idpes = fisica_aluno.idpes_mae AND aluno.tipo_responsavel IN ('a', 'm') )
                     OR (fisica.idpes = fisica_aluno.idpes_responsavel AND aluno.tipo_responsavel = 'r' )
-                  INNER JOIN cadastro.pessoa ON (pessoa.idpes = fisica.idpes)
+                  INNER JOIN cadastro.Pessoa ON (Pessoa.idpes = fisica.idpes)
 
                   LEFT JOIN cadastro.documento ON (documento.idpes = fisica.idpes)
                   LEFT JOIN cadastro.fone_pessoa fpr ON (fpr.idpes = fisica.idpes
@@ -210,9 +209,9 @@ class FilaUnicaController extends ApiCoreController
             $responsaveis = Portabilis_Array_Utils::filterSet($this->fetchPreparedQuery($sql), $attrs);
 
             if (!count($responsaveis)) {
-                $sql = "SELECT pessoa.idpes,
+                $sql = "SELECT Pessoa.idpes,
                                vinculo_familiar,
-                               pessoa.nome,
+                               Pessoa.nome,
                                fisica.sexo,
                                fisica.ideciv,
                                to_char(fisica.data_nasc, 'dd/mm/yyyy') AS data_nasc,
@@ -228,7 +227,7 @@ class FilaUnicaController extends ApiCoreController
                                fpc.fone AS telefone_celular
                           FROM pmieducar.responsaveis_aluno
                          INNER JOIN cadastro.fisica ON (fisica.idpes = responsaveis_aluno.ref_idpes)
-                         INNER JOIN cadastro.pessoa ON (pessoa.idpes = responsaveis_aluno.ref_idpes)
+                         INNER JOIN cadastro.Pessoa ON (Pessoa.idpes = responsaveis_aluno.ref_idpes)
                           LEFT JOIN cadastro.documento ON (documento.idpes = responsaveis_aluno.ref_idpes)
                           LEFT JOIN cadastro.fone_pessoa fpr ON (fpr.idpes = responsaveis_aluno.ref_idpes
                                                                  AND fpr.tipo = 1)

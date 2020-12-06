@@ -16,11 +16,11 @@ class AddForeignKeysInPmieducarEscolaTable extends Migration
         Schema::table('pmieducar.escola', function (Blueprint $table) {
             $table->foreign('ref_idpes_secretario_escolar')
                ->references('idpes')
-               ->on('cadastro.pessoa');
+               ->on('cadastro.Pessoa');
 
             $table->foreign('ref_idpes_gestor')
                ->references('idpes')
-               ->on('cadastro.pessoa');
+               ->on('cadastro.Pessoa');
 
             $table->foreign('ref_idpes')
                ->references('idpes')

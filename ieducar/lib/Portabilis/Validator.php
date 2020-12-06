@@ -1,6 +1,6 @@
 <?php
 
-require_once 'include/clsBanco.inc.php';
+require_once 'include/Banco.inc.php';
 require_once 'CoreExt/Exception.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 

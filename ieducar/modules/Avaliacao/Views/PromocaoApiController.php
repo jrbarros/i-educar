@@ -261,11 +261,11 @@ class PromocaoApiController extends ApiCoreController
                 ->orderBy('sequencial');
         }
 
-        foreach($stages->get() as $stage) {
+        foreach ($stages->get() as $stage) {
             $getStages[] = $stage->sequencial;
         }
 
-        $etapas = array_map(function($arr) {
+        $etapas = array_map(function ($arr) {
             return $arr;
         }, $getStages);
 
@@ -481,6 +481,7 @@ class PromocaoApiController extends ApiCoreController
      * Verifica se a regra de avaliação não usa nota
      *
      * @param int $tipoNota
+     *
      * @return bool
      */
     private function regraNaoUsaNota($tipoNota)

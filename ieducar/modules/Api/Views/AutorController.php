@@ -3,7 +3,7 @@
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
-require_once 'intranet/include/pmieducar/clsPmieducarAcervoAcervoAutor.inc.php';
+require_once 'Intranet/include/pmieducar/AcervoAcervoAutor.php';
 
 class AutorController extends ApiCoreController
 {
@@ -21,7 +21,7 @@ class AutorController extends ApiCoreController
 
     protected function getAutor()
     {
-        $obj = new clsPmieducarAcervoAcervoAutor();
+        $obj = new AcervoAcervoAutor();
         $arrayAutores;
 
         foreach ($obj->listaAutoresPorObra($this->getRequest()->id) as $reg) {

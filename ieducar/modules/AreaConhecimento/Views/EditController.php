@@ -2,7 +2,7 @@
 
 require_once 'Core/Controller/Page/EditController.php';
 require_once 'AreaConhecimento/Model/AreaDataMapper.php';
-require_once '../intranet/include/clsBanco.inc.php';
+require_once '../Intranet/include/Banco.inc.php';
 
 class EditController extends Core_Controller_Page_EditController
 {
@@ -52,7 +52,7 @@ class EditController extends Core_Controller_Page_EditController
         $nomeMenu = $this->getRequest()->id == null ? 'Cadastrar' : 'Editar';
 
         $this->breadcrumb("$nomeMenu área de conhecimento", [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 
@@ -173,7 +173,7 @@ class EditController extends Core_Controller_Page_EditController
     {
         if (isset($this->getRequest()->id)) {
             $sql = 'SELECT id FROM modules.componente_curricular WHERE area_conhecimento_id = '. $this->getRequest()->id;
-            $db = new clsBanco();
+            $db = new Banco();
             $db->Consulta($sql);
 
             if ($db->numLinhas()) {

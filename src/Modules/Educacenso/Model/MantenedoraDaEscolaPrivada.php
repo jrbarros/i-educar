@@ -17,7 +17,7 @@ class MantenedoraDaEscolaPrivada
     public static function getDescriptiveValues()
     {
         return [
-            self::GRUPOS_EMPRESARIAIS => 'Empresa, grupos empresariais do setor privado ou pessoa física',
+            self::GRUPOS_EMPRESARIAIS => 'Empresa, grupos empresariais do setor privado ou Pessoa física',
             self::SINDICATOS_TRABALHISTAS => 'Sindicatos de trabalhadores ou patronais, associações ou cooperativas',
             self::ORGANIZACOES_NAO_GOVERNAMENTAIS => 'Organização não governamental - ONG internacional ou nacional',
             self::INSTITUICOES_SIM_FINS_LUCRATIVOS => 'Instituições sem fins lucrativos',

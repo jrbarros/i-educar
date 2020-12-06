@@ -8,7 +8,7 @@ class Slugs extends Migration
     private function sql()
     {
         return <<<SQL
-            update cadastro.pessoa
+            update cadastro.Pessoa
             set slug = trim(REGEXP_REPLACE(slug, '[^[:alnum:][:space:]]', '', 'g'))
             where slug ~ '[^[:alnum:][:space:]]'
 SQL;

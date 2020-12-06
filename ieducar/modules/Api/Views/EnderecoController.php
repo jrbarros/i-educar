@@ -5,12 +5,11 @@ use Illuminate\Support\Facades\Gate;
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
-require_once 'intranet/include/clsBanco.inc.php';
-require_once 'intranet/include/funcoes.inc.php';
+require_once 'Intranet/include/Banco.inc.php';
+require_once 'Intranet/include/funcoes.php';
 
 class EnderecoController extends ApiCoreController
 {
-
     protected function getPrimeiroEnderecoCep()
     {
         $cep = idFederal2int($this->getRequest()->cep);
@@ -66,9 +65,9 @@ class EnderecoController extends ApiCoreController
         $idBairro = $this->getRequest()->id_bairro;
         $idLog = $this->getRequest()->id_log;
 
-        $sql = 'SELECT pessoa.nome
-              FROM cadastro.pessoa
-             INNER JOIN cadastro.endereco_pessoa ON (endereco_pessoa.idpes = pessoa.idpes)
+        $sql = 'SELECT Pessoa.nome
+              FROM cadastro.Pessoa
+             INNER JOIN cadastro.endereco_pessoa ON (endereco_pessoa.idpes = Pessoa.idpes)
              WHERE endereco_pessoa.cep = $1
                AND endereco_pessoa.idbai = $2
                AND endereco_pessoa.idlog = $3 LIMIT 10;';

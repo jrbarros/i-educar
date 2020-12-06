@@ -19,7 +19,7 @@ class LegacyPerson extends EloquentBaseModel implements Transformable
     /**
      * @var string
      */
-    protected $table = 'cadastro.pessoa';
+    protected $table = 'cadastro.Pessoa';
 
     /**
      * @var string

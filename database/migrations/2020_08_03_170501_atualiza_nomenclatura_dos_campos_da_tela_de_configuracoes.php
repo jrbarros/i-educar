@@ -63,7 +63,7 @@ class AtualizaNomenclaturaDosCamposDaTelaDeConfiguracoes extends Migration
                     WHEN 'legacy.app.recaptcha.options.theme' THEN 'Tema'
                     WHEN 'legacy.app.recaptcha.private_key' THEN 'Chave privada'
                     WHEN 'legacy.app.recaptcha.public_key' THEN 'Chave pública'
-                    WHEN 'legacy.app.remove_obrigatorios_cadastro_pessoa' THEN 'Remove obrigatoriedade dos campos de pessoa física'
+                    WHEN 'legacy.app.remove_obrigatorios_cadastro_pessoa' THEN 'Remove obrigatoriedade dos campos de Pessoa física'
                     WHEN 'legacy.app.reserva_vaga.permite_indeferir_candidatura' THEN 'Permitir indeferir candidatura da reserva de vaga'
                     WHEN 'legacy.app.rg_pessoa_fisica_pais_opcional' THEN 'Tornar ocional informar RG para os pais dos alunos'
                     WHEN 'legacy.app.template.pdf.logo' THEN 'Caminho logo apresentada na impressão da agenda'

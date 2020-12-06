@@ -11,10 +11,10 @@ class GenerateSlugNameToIndividual extends Migration
     private function getSql()
     {
         return <<<SQL
-select lower(public.unaccent(f.nome_social)) || ' ' || p.slug 
+select lower(public.unaccent(f.nome_social)) || ' ' || p.slug
 from cadastro.fisica f
-inner join cadastro.pessoa p 
-on p.idpes = f.idpes 
+inner join cadastro.Pessoa p
+on p.idpes = f.idpes
 where nome_social is not null and nome_social <> ''
 SQL;
     }

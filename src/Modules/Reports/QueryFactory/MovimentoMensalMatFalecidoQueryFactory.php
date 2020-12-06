@@ -24,7 +24,7 @@ class MovimentoMensalMatFalecidoQueryFactory extends QueryFactory
     protected $query = <<<'SQL'
         select
             m.cod_matricula,
-            pessoa.nome,
+            Pessoa.nome,
             t.nm_turma
         from
             pmieducar.serie s
@@ -50,8 +50,8 @@ class MovimentoMensalMatFalecidoQueryFactory extends QueryFactory
             cadastro.fisica f
                 on f.idpes = a.ref_idpes
         inner join
-            cadastro.pessoa
-                on pessoa.idpes = f.idpes
+            cadastro.Pessoa
+                on Pessoa.idpes = f.idpes
         where true
             and e.ref_cod_instituicao = :instituicao
             and e.cod_escola = :escola
@@ -75,6 +75,6 @@ class MovimentoMensalMatFalecidoQueryFactory extends QueryFactory
             and m.aprovado = 15
             and coalesce(mt.data_exclusao, m.data_cancel) between :data_inicial::date and :data_final::date
         order by
-            pessoa.nome asc
+            Pessoa.nome asc
 SQL;
 }

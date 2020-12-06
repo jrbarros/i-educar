@@ -19,7 +19,7 @@ require_once 'CoreExt/Entity.php';
 require_once 'App/Model/IedFinder.php';
 require_once 'App/Model/Matricula.php';
 require_once 'App/Model/MatriculaSituacao.php';
-require_once 'include/pmieducar/clsPermissoes.inc.php';
+require_once 'include/pmieducar/Permissoes.php';
 require_once 'ComponenteCurricular/Model/TipoNotaComponenteSerie.php';
 require_once 'Avaliacao/Service/Boletim/Acessores.php';
 
@@ -373,6 +373,7 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
      * Carrega as faltas do aluno, sejam gerais ou por componente.
      *
      * @param bool $loadCyclicRegimeData Se true, carrega todas as faltas do ciclo, caso a regra de avaliaçao tenha essa configuraçao
+     *
      * @return $this
      *
      * @throws Exception
@@ -433,7 +434,9 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
 
     /**
      * @param bool $loadCyclicRegimeData
+     *
      * @return Avaliacao_Model_FaltaGeral[]
+     *
      * @throws Exception
      */
     private function getFaltasLancadas($loadCyclicRegimeData = false)
@@ -456,6 +459,7 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
      * Retorna as faltas de todas as series do ciclo
      *
      * @param $matricula
+     *
      * @return Avaliacao_Model_FaltaGeral[]
      */
     private function retornaFaltasCiclo($matricula)
@@ -479,7 +483,6 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
 
         return $faltas;
     }
-
 
     /**
      * Retorna os componentes de todas as séries do ciclo
@@ -856,7 +859,7 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
             }
         }
 
-        $disciplinaDispensadaTurma = clsPmieducarTurma::getDisciplinaDispensada($this->getOption('ref_cod_turma'));
+        $disciplinaDispensadaTurma = Turma::getDisciplinaDispensada($this->getOption('ref_cod_turma'));
 
         // A situação é "aprovado" por padrão
         $situacaoGeral = App_Model_MatriculaSituacao::APROVADO;
@@ -1067,10 +1070,12 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
      * Esses valores são calculados SOMENTE através das faltas já lançadas.
      *
      * @param bool $ignorarSeriesCiclo Se true, vai pegar sempre somente a serie atual para o calculo, mesmo que a regra
-     * use a progressao do regime ciclico
+     *                                 use a progressao do regime ciclico
+     *
      * @return stdClass
      *
      * @throws Exception
+     *
      * @todo Verificação de situação geral nos moldes dos componentes curriculares
      *   para falta por componente (se 0 ou diferente de componentes matrícula)
      */
@@ -1100,7 +1105,7 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
 
         $componentes = $this->getComponentes();
 
-        $disciplinaDispensadaTurma = clsPmieducarTurma::getDisciplinaDispensada($classroomId);
+        $disciplinaDispensadaTurma = Turma::getDisciplinaDispensada($classroomId);
 
         if (is_numeric($disciplinaDispensadaTurma)) {
             unset($componentes[$disciplinaDispensadaTurma]);
@@ -1123,7 +1128,6 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
                 $total = 0;
                 $etapa = 0;
             } else {
-
                 $total = array_sum(CoreExt_Entity::entityFilterAttr($faltas, 'id', 'quantidade'));
                 $etapa = array_pop($faltas)->etapa;
             }
@@ -1287,7 +1291,8 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
     {
         $codigos = $this->codigoDisciplinasAglutinadas();
 
-        return empty($codigos) || !in_array($componenteCurricularId, $codigos) || $componenteCurricularId == $this->codigoDisciplinasAglutinadas()[0];;
+        return empty($codigos) || !in_array($componenteCurricularId, $codigos) || $componenteCurricularId == $this->codigoDisciplinasAglutinadas()[0];
+        ;
     }
 
     /**
@@ -2462,7 +2467,9 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
      * Insere ou atualiza as faltas no boletim.
      *
      * @param bool $updateAverage
+     *
      * @return Avaliacao_Service_Boletim Provê interface fluída
+     *
      * @throws CoreExt_DataMapper_Exception
      */
     public function saveFaltas($updateAverage = false)
@@ -3244,7 +3251,9 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
      * Verifica se a matrícula pode ficar aprovada com dependência
      *
      * @param integer $status
+     *
      * @return bool
+     *
      * @throws App_Model_Exception
      * @throws Exception
      */
@@ -3282,7 +3291,6 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
             if ($disciplineAverage->situacao == App_Model_MatriculaSituacao::REPROVADO) {
                 $amountReproved++;
             }
-
         }
 
         return $amountReproved <= $this->getRegraAvaliacaoQtdDisciplinasDependencia();
@@ -3311,7 +3319,7 @@ class Avaliacao_Service_Boletim implements CoreExt_Configurable
             return $this->getOption('serieDiasLetivos');
         }
 
-       /** @var LegacyRegistration[] $registrations */
+        /** @var LegacyRegistration[] $registrations */
         $registrations = app(CyclicRegimeService::class)->getAllRegistrationsOfCycle($registration);
 
         $diasLetivos = 0;

@@ -5,7 +5,7 @@
     <title>i-Educar</title>
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
-    <link rel="stylesheet" type="text/css" href="{{ url('intranet/styles/login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('Intranet/styles/login.css') }}">
 
     <!-- Google Tag Manager -->
     <script>
@@ -38,7 +38,7 @@
 <div id="main">
 
     <div>
-        <img alt="Logo" width="150px" src="{{ config('legacy.config.ieducar_image') ?? url('intranet/imagens/brasao-republica.png') }}"/>
+        <img alt="Logo" width="150px" src="{{ config('legacy.config.ieducar_image') ?? url('Intranet/imagens/brasao-republica.png') }}"/>
     </div>
 
     <h1>{{ config('legacy.config.ieducar_entity_name') }}</h1>
@@ -70,13 +70,13 @@
             <div class="social-icons">
                 <p> Siga-nos nas redes sociais&nbsp;&nbsp;</p>
                 @if(config('legacy.config.facebook_url'))
-                    <a target="_blank" href="{{ config('legacy.config.facebook_url')}}"><img src="{{ url('intranet/imagens/icon-social-facebook.png') }}"></a>
+                    <a target="_blank" href="{{ config('legacy.config.facebook_url')}}"><img src="{{ url('Intranet/imagens/icon-social-facebook.png') }}"></a>
                 @endif
                 @if(config('legacy.config.linkedin_url'))
-                    <a target="_blank" href="{{ config('legacy.config.linkedin_url')}}"><img src="{{ url('intranet/imagens/icon-social-linkedin.png') }}"></a>
+                    <a target="_blank" href="{{ config('legacy.config.linkedin_url')}}"><img src="{{ url('Intranet/imagens/icon-social-linkedin.png') }}"></a>
                 @endif
                 @if(config('legacy.config.twitter_url'))
-                    <a target="_blank" href="{{ config('legacy.config.twitter_url')}}"><img src="{{ url('intranet/imagens/icon-social-twitter.png') }}"></a>
+                    <a target="_blank" href="{{ config('legacy.config.twitter_url')}}"><img src="{{ url('Intranet/imagens/icon-social-twitter.png') }}"></a>
                 @endif
             </div>
         @endif

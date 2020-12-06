@@ -1,10 +1,10 @@
 <?php
 
-require_once 'include/pmieducar/clsPmieducarMatricula.inc.php';
-require_once 'include/pmieducar/clsPmieducarSerie.inc.php';
-require_once 'include/pmieducar/clsPmieducarCurso.inc.php';
-require_once 'include/pmieducar/clsPmieducarEscolaSerieDisciplina.inc.php';
-require_once 'include/pmieducar/clsPmieducarDispensaDisciplina.inc.php';
+require_once 'include/pmieducar/Matricula.php';
+require_once 'include/pmieducar/Serie.php';
+require_once 'include/pmieducar/Curso.php';
+require_once 'include/pmieducar/EscolaSerieDisciplina.php';
+require_once 'include/pmieducar/DispensaDisciplina.php';
 require_once 'AreaConhecimento/Model/AreaDataMapper.php';
 require_once 'FormulaMedia/Model/Formula.php';
 require_once 'FormulaMedia/Model/FormulaDataMapper.php';
@@ -555,14 +555,14 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpMatriculaMock()
     {
-        $mock = $this->getCleanMock('clsPmieducarMatricula');
+        $mock = $this->getCleanMock('Matricula');
 
         $mock->expects($this->any())
             ->method('detalhe')
             ->will($this->returnValue($this->_getConfigOptions('matricula')));
 
         CoreExt_Entity::addClassToStorage(
-            'clsPmieducarMatricula',
+            'Matricula',
             $mock,
             null,
             true
@@ -635,7 +635,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpMatriculaTurmaMock()
     {
-        $mock = $this->getCleanMock('clsPmieducarMatriculaTurma');
+        $mock = $this->getCleanMock('MatriculaTurma');
 
         $mock->expects($this->any())
             ->method('lista')
@@ -643,7 +643,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
             ->will($this->returnValue($this->_getConfigOptions('matriculaTurma')));
 
         CoreExt_Entity::addClassToStorage(
-            'clsPmieducarMatriculaTurma',
+            'MatriculaTurma',
             $mock,
             null,
             true
@@ -659,14 +659,14 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpSerieMock()
     {
-        $mock = $this->getCleanMock('clsPmieducarSerie');
+        $mock = $this->getCleanMock('Serie');
 
         $mock->expects($this->any())
             ->method('detalhe')
             ->will($this->returnValue($this->_getConfigOptions('serie')));
 
         CoreExt_Entity::addClassToStorage(
-            'clsPmieducarSerie',
+            'Serie',
             $mock,
             null,
             true
@@ -682,14 +682,14 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpCursoMock()
     {
-        $mock = $this->getCleanMock('clsPmieducarCurso');
+        $mock = $this->getCleanMock('Curso');
 
         $mock->expects($this->any())
             ->method('detalhe')
             ->will($this->returnValue($this->_getConfigOptions('curso')));
 
         CoreExt_Entity::addClassToStorage(
-            'clsPmieducarCurso',
+            'Curso',
             $mock,
             null,
             true
@@ -705,7 +705,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpEscolaAnoLetivo()
     {
-        $mock = $this->getCleanMock('clsPmieducarEscolaAnoLetivo');
+        $mock = $this->getCleanMock('EscolaAnoLetivo');
 
         $mock->expects($this->any())
             ->method('lista')
@@ -713,7 +713,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
             ->will($this->returnValue($this->_getConfigOptions('escolaAnoLetivo')));
 
         CoreExt_Entity::addClassToStorage(
-            'clsPmieducarEscolaAnoLetivo',
+            'EscolaAnoLetivo',
             $mock,
             null,
             true
@@ -753,13 +753,13 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpModulo()
     {
-        $mock = $this->getCleanMock('clsPmieducarModulo');
+        $mock = $this->getCleanMock('Modulo');
 
         $mock->expects($this->any())
             ->method('detalhe')
             ->will($this->returnValue($this->_getConfigOptions('modulo')));
 
-        CoreExt_Entity::addClassToStorage('clsPmieducarModulo', $mock, null, true);
+        CoreExt_Entity::addClassToStorage('Modulo', $mock, null, true);
 
         return $this;
     }
@@ -771,14 +771,14 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpEscolaSerieDisciplinaMock()
     {
-        $mock = $this->getCleanMock('clsPmieducarEscolaSerieDisciplina');
+        $mock = $this->getCleanMock('EscolaSerieDisciplina');
 
         $mock->expects($this->any())
             ->method('lista')
             ->will($this->returnValue($this->_getConfigOptions('escolaSerieDisciplina')));
 
         CoreExt_Entity::addClassToStorage(
-            'clsPmieducarEscolaSerieDisciplina',
+            'EscolaSerieDisciplina',
             $mock,
             null,
             true
@@ -794,14 +794,14 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpDispensaDisciplinaMock()
     {
-        $mock = $this->getCleanMock('clsPmieducarDispensaDisciplina');
+        $mock = $this->getCleanMock('DispensaDisciplina');
 
         $mock->expects($this->any())
             ->method('disciplinaDispensadaEtapa')
             ->will($this->returnValue($this->_getConfigOptions('dispensaDisciplina')));
 
         CoreExt_Entity::addClassToStorage(
-            'clsPmieducarDispensaDisciplina',
+            'DispensaDisciplina',
             $mock,
             null,
             true

@@ -60,7 +60,7 @@ abstract class Core_Controller_Page_Abstract extends CoreExt_Controller_Abstract
     /**
      * Identificador do número de processo para verificação de autorização.
      *
-     * @see clsBase::verificaPermissao()
+     * @see Base::verificaPermissao()
      *
      * @var int
      */
@@ -428,7 +428,7 @@ abstract class Core_Controller_Page_Abstract extends CoreExt_Controller_Abstract
      *
      * @return string O conteúdo a ser acrescentado separado com uma quebra de linha.
      *
-     * @see clsBase::MakeBody()
+     * @see Base::MakeBody()
      */
     public function getAppendedOutput()
     {
@@ -457,7 +457,7 @@ abstract class Core_Controller_Page_Abstract extends CoreExt_Controller_Abstract
      *
      * @return string O conteúdo a ser prefixado separado com uma quebra de linha.
      *
-     * @see clsBase::MakeBody()
+     * @see Base::MakeBody()
      */
     public function getPrependedOutput()
     {

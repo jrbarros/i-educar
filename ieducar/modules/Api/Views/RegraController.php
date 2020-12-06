@@ -5,7 +5,6 @@ require_once 'lib/Portabilis/Array/Utils.php';
 
 class RegraController extends ApiCoreController
 {
-
     protected function canGetTabelasDeArredondamento()
     {
         return $this->validatesPresenceOf('instituicao_id');
@@ -264,7 +263,7 @@ class RegraController extends ApiCoreController
 
         if ($modified) {
             $params[] = $modified;
-            $modified = " AND updated_at >= $2";
+            $modified = ' AND updated_at >= $2';
         }
 
         $sql = "

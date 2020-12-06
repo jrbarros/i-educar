@@ -87,7 +87,7 @@ class MigrateAudit extends Migration
                                 WHEN rotina = 'matricula' THEN 'pmieducar.matricula'
                                 WHEN rotina = 'curso' THEN 'pmieducar.curso'
                                 WHEN rotina = 'nota_aluno' THEN 'modules.nota_aluno'
-                                WHEN rotina = 'pessoa' THEN 'cadastro.pessoa'
+                                WHEN rotina = 'Pessoa' THEN 'cadastro.Pessoa'
                                 WHEN rotina = 'turma' THEN 'pmieducar.turma'
                                 WHEN rotina = 'tipo_ocorrencia_disciplinar' THEN 'pmieducar.tipo_ocorrencia_disciplinar'
                                 WHEN rotina = 'calendario_dia_motivo' THEN 'pmieducar.calendario_dia_motivo'
@@ -162,14 +162,14 @@ class MigrateAudit extends Migration
 
                 INSERT INTO public.ieducar_audit (context, before, after, schema, "table", date)
                 SELECT
-                    cast (E'{"user_id":'|| usuario_id ||',"user_name":"' || COALESCE(pessoa.nome, 'legacy') || '","origin":"legacy"}' AS json),
+                    cast (E'{"user_id":'|| usuario_id ||',"user_name":"' || COALESCE(Pessoa.nome, 'legacy') || '","origin":"legacy"}' AS json),
                     auditoria_geral.valor_antigo,
                     auditoria_geral.valor_novo,
                     (SELECT table_schema FROM public.get_table(auditoria_geral.rotina)),
                     (SELECT table_name FROM public.get_table(auditoria_geral.rotina)),
                     auditoria_geral.data_hora
                 FROM modules.auditoria_geral
-                LEFT JOIN cadastro.pessoa ON pessoa.idpes = auditoria_geral.usuario_id;
+                LEFT JOIN cadastro.Pessoa ON Pessoa.idpes = auditoria_geral.usuario_id;
 EOL);
     }
 

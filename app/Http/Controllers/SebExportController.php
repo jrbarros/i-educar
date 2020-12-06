@@ -14,7 +14,7 @@ class SebExportController extends Controller
     public function index() : View
     {
         $this->breadcrumb('Exportação para o SEB', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
         $this->menu(Process::SEB_EXPORT);
 

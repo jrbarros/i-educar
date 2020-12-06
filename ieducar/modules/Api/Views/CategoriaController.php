@@ -3,14 +3,13 @@
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
-require_once 'intranet/include/pmieducar/clsPmieducarCategoriaAcervo.inc.php';
+require_once 'Intranet/include/pmieducar/CategoriaAcervo.php';
 
 class CategoriaController extends ApiCoreController
 {
-
     protected function getCategorias()
     {
-        $obj = new clsPmieducarCategoriaAcervo();
+        $obj = new CategoriaAcervo();
         $arrayCategorias;
 
         foreach ($obj->listaCategoriasPorObra($this->getRequest()->id) as $reg) {

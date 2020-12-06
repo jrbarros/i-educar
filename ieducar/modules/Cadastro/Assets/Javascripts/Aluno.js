@@ -363,63 +363,63 @@ var $responsavelIdField = $j('#responsavel_id');
 
 var $pessoaPaiActionBar = $j('<span>')
     .html('')
-    .addClass('pessoa-links pessoa-pai-links')
+    .addClass('Pessoa-links Pessoa-pai-links')
     .width($paiNomeField.outerWidth() - 12)
     .appendTo($paiNomeField.parent());
 
 var $pessoaMaeActionBar = $pessoaPaiActionBar
     .clone()
-    .removeClass('pessoa-pai-links')
-    .addClass('pessoa-mae-links')
+    .removeClass('Pessoa-pai-links')
+    .addClass('Pessoa-mae-links')
     .appendTo($maeNomeField.parent());
 
 var $pessoaResponsavelActionBar = $pessoaPaiActionBar
     .clone()
-    .removeClass('pessoa-pai-links')
-    .addClass('pessoa-responsavel-links')
+    .removeClass('Pessoa-pai-links')
+    .addClass('Pessoa-responsavel-links')
     .appendTo($responsavelNomeField.parent());
 
 
 var $linkToCreatePessoaPai = $j('<a>')
-    .addClass('cadastrar-pessoa-pai decorated')
-    .attr('id', 'cadastrar-pessoa-pai-link')
-    .html('Cadastrar pessoa')
+    .addClass('cadastrar-Pessoa-pai decorated')
+    .attr('id', 'cadastrar-Pessoa-pai-link')
+    .html('Cadastrar Pessoa')
     .appendTo($pessoaPaiActionBar);
 
 var $linkToEditPessoaPai = $j('<a>')
     .hide()
-    .addClass('editar-pessoa-pai decorated')
-    .attr('id', 'editar-pessoa-pai-link')
-    .html('Editar pessoa')
+    .addClass('editar-Pessoa-pai decorated')
+    .attr('id', 'editar-Pessoa-pai-link')
+    .html('Editar Pessoa')
     .appendTo($pessoaPaiActionBar);
 
 var $linkToCreatePessoaMae = $linkToCreatePessoaPai
     .clone()
-    .removeClass('cadastrar-pessoa-pai')
-    .attr('id', 'cadastrar-pessoa-mae-link')
-    .addClass('cadastrar-pessoa-mae')
+    .removeClass('cadastrar-Pessoa-pai')
+    .attr('id', 'cadastrar-Pessoa-mae-link')
+    .addClass('cadastrar-Pessoa-mae')
     .appendTo($pessoaMaeActionBar);
 
 var $linkToEditPessoaMae = $linkToEditPessoaPai
     .clone()
-    .removeClass('editar-pessoa-pai')
-    .addClass('editar-pessoa-mae')
-    .attr('id', 'editar-pessoa-mae-link')
+    .removeClass('editar-Pessoa-pai')
+    .addClass('editar-Pessoa-mae')
+    .attr('id', 'editar-Pessoa-mae-link')
     .appendTo($pessoaMaeActionBar);
 
 var $linkToCreatePessoaResponsavel = $linkToCreatePessoaPai
     .clone()
-    .removeClass('cadastrar-pessoa-pai')
-    .attr('id', 'cadastrar-pessoa-responsavel-link')
-    .addClass('cadastrar-pessoa-responsavel')
+    .removeClass('cadastrar-Pessoa-pai')
+    .attr('id', 'cadastrar-Pessoa-responsavel-link')
+    .addClass('cadastrar-Pessoa-responsavel')
     .appendTo($pessoaResponsavelActionBar)
     .css('display', 'none');
 
 var $linkToEditPessoaResponsavel = $linkToEditPessoaPai
     .clone()
-    .removeClass('editar-pessoa-pai')
-    .addClass('editar-pessoa-responsavel')
-    .attr('id', 'editar-pessoa-responsavel-link')
+    .removeClass('editar-Pessoa-pai')
+    .addClass('editar-Pessoa-responsavel')
+    .attr('id', 'editar-Pessoa-responsavel-link')
     .appendTo($pessoaResponsavelActionBar);
 
 
@@ -449,11 +449,11 @@ $j('#restricao_atividade_fisica, #acomp_medico_psicologico, #medicacao_especific
 
 resourceOptions.handlePost = function (dataResponse) {
     $nomeField.attr('disabled', 'disabled');
-    $j('.pessoa-links .cadastrar-pessoa').hide();
+    $j('.Pessoa-links .cadastrar-Pessoa').hide();
 
     if (!dataResponse.any_error_msg) {
         window.setTimeout(function () {
-            document.location = '/intranet/educar_aluno_det.php?cod_aluno=' + resource.id();
+            document.location = '/Intranet/educar_aluno_det.php?cod_aluno=' + resource.id();
         }, 500);
     } else {
         $submitButton.removeAttr('disabled').val('Gravar');
@@ -463,7 +463,7 @@ resourceOptions.handlePost = function (dataResponse) {
 resourceOptions.handlePut = function (dataResponse) {
     if (!dataResponse.any_error_msg) {
         window.setTimeout(function () {
-            document.location = '/intranet/educar_aluno_det.php?cod_aluno=' + resource.id();
+            document.location = '/Intranet/educar_aluno_det.php?cod_aluno=' + resource.id();
         }, 500);
     } else {
         $submitButton.removeAttr('disabled').val('Gravar');
@@ -904,11 +904,11 @@ resourceOptions.handleGet = function (dataResponse) {
 };
 
 
-// pessoa links callbacks
+// Pessoa links callbacks
 var changeVisibilityOfLinksToPessoaParent = function (parentType) {
     var $nomeField = $j(buildId(parentType + '_nome'));
     var $idField = $j(buildId(parentType + '_id'));
-    var $linkToEdit = $j('.pessoa-' + parentType + '-links .editar-pessoa-' + parentType);
+    var $linkToEdit = $j('.Pessoa-' + parentType + '-links .editar-Pessoa-' + parentType);
 
     if ($nomeField.val() && $idField.val()) {
         $linkToEdit.show().css('display', 'inline');
@@ -1000,7 +1000,7 @@ var handleGetPersonDetails = function (dataResponse) {
     if (alunoId && alunoId != resource.id()) {
         $submitButton.attr('disabled', 'disabled').hide();
 
-        $pessoaNotice.html('Esta pessoa já possui o aluno código ' + alunoId + ' cadastrado, ')
+        $pessoaNotice.html('Esta Pessoa já possui o aluno código ' + alunoId + ' cadastrado, ')
             .slideDown('fast');
 
         $j('<a>')
@@ -1010,7 +1010,7 @@ var handleGetPersonDetails = function (dataResponse) {
             .html('acessar cadastro.')
             .appendTo($pessoaNotice);
     } else {
-        $j('.pessoa-links .editar-pessoa')//.attr('href', '/intranet/atendidos_cad.php?cod_pessoa_fj=' + dataResponse.id)
+        $j('.Pessoa-links .editar-Pessoa')//.attr('href', '/Intranet/atendidos_cad.php?cod_pessoa_fj=' + dataResponse.id)
             .show().css('display', 'inline');
 
         $submitButton.removeAttr('disabled').show();
@@ -1117,20 +1117,20 @@ var handleGetPersonDetails = function (dataResponse) {
     $j('#tipo_responsavel').find('option').remove().end();
 
     if ($j('#pai').val() == '' && $j('#mae').val() == '') {
-        $j('#tipo_responsavel').append('<option value="outra_pessoa" selected >Outra pessoa</option>');
+        $j('#tipo_responsavel').append('<option value="outra_pessoa" selected >Outra Pessoa</option>');
         $j('#responsavel_nome').show();
-        $j('#cadastrar-pessoa-responsavel-link').show();
+        $j('#cadastrar-Pessoa-responsavel-link').show();
     } else if ($j('#pai').val() == '') {
         $j('#tipo_responsavel').append('<option value="mae" selected >M&atilde;e</option>');
-        $j('#tipo_responsavel').append('<option value="outra_pessoa" >Outra pessoa</option>');
+        $j('#tipo_responsavel').append('<option value="outra_pessoa" >Outra Pessoa</option>');
     } else if ($j('#mae').val() == '') {
         $j('#tipo_responsavel').append('<option value="pai" selected >Pai</option>');
-        $j('#tipo_responsavel').append('<option value="outra_pessoa" >Outra pessoa</option>');
+        $j('#tipo_responsavel').append('<option value="outra_pessoa" >Outra Pessoa</option>');
     } else {
         $j('#tipo_responsavel').append('<option value="mae" selected >M&atilde;e</option>');
         $j('#tipo_responsavel').append('<option value="pai" selected >Pai</option>');
         $j('#tipo_responsavel').append('<option value="pai_mae" >Pai e M&atilde;e</option>');
-        $j('#tipo_responsavel').append('<option value="outra_pessoa" >Outra pessoa</option>');
+        $j('#tipo_responsavel').append('<option value="outra_pessoa" >Outra Pessoa</option>');
     }
 
     verificaCampoZonaResidencia();
@@ -1260,7 +1260,7 @@ var getPersonDetails = function (personId) {
     };
 
     var options = {
-        url: getResourceUrlBuilder.buildUrl('/module/Api/pessoa', 'pessoa', additionalVars),
+        url: getResourceUrlBuilder.buildUrl('/module/Api/Pessoa', 'Pessoa', additionalVars),
         dataType: 'json',
         data: {},
         success: handleGetPersonDetails
@@ -1274,7 +1274,7 @@ var getPersonParentDetails = function (personId, parentType) {
     };
 
     var options = {
-        url: getResourceUrlBuilder.buildUrl('/module/Api/pessoa', 'pessoa-parent', additionalVars),
+        url: getResourceUrlBuilder.buildUrl('/module/Api/Pessoa', 'Pessoa-parent', additionalVars),
         dataType: 'json',
         data: {},
         success: function (data) {
@@ -1303,7 +1303,7 @@ var clearPersonDetails = function () {
     $j('#pessoa_id').val('');
     $j('#pai').val('');
     $j('#mae').val('');
-    $j('.pessoa-links .editar-pessoa').hide();
+    $j('.Pessoa-links .editar-Pessoa').hide();
 };
 
 // simple search options
@@ -1533,29 +1533,29 @@ function canShowParentsFields() {
         canShowParentsFields();
 
         var $pessoaActionBar = $j('<span>').html('')
-            .addClass('pessoa-links')
+            .addClass('Pessoa-links')
             .width($nomeField.outerWidth() - 12)
             .appendTo($nomeField.parent());
 
         $j('<a>').hide()
-            .addClass('cadastrar-pessoa decorated')
-            .attr('id', 'cadastrar-pessoa-link')
-            //.attr('href', '/intranet/atendidos_cad.php')
+            .addClass('cadastrar-Pessoa decorated')
+            .attr('id', 'cadastrar-Pessoa-link')
+            //.attr('href', '/Intranet/atendidos_cad.php')
             //.attr('target', '_blank')
-            .html('Cadastrar pessoa')
+            .html('Cadastrar Pessoa')
             .appendTo($pessoaActionBar);
 
         $j('<a>').hide()
-            .addClass('editar-pessoa decorated')
-            .attr('id', 'editar-pessoa-link')
+            .addClass('editar-Pessoa decorated')
+            .attr('id', 'editar-Pessoa-link')
             //.attr('href', '#')
             //.attr('target', '_blank')
-            .html('Editar pessoa')
+            .html('Editar Pessoa')
             .appendTo($pessoaActionBar);
 
         if (resource.isNew()) {
             $nomeField.focus();
-            $j('.pessoa-links .cadastrar-pessoa').show().css('display', 'inline');
+            $j('.Pessoa-links .cadastrar-Pessoa').show().css('display', 'inline');
         }
         else
             $nomeField.attr('disabled', 'disabled');
@@ -1565,10 +1565,10 @@ function canShowParentsFields() {
         var checkTipoResponsavel = function () {
             if ($j('#tipo_responsavel').val() == 'outra_pessoa') {
                 $j('#responsavel_nome').show();
-                $j('#cadastrar-pessoa-responsavel-link').show();
+                $j('#cadastrar-Pessoa-responsavel-link').show();
             } else {
                 $j('#responsavel_nome').hide();
-                $j('#cadastrar-pessoa-responsavel-link').hide();
+                $j('#cadastrar-Pessoa-responsavel-link').hide();
             }
         };
 
@@ -1718,7 +1718,7 @@ function canShowParentsFields() {
             }
         });
 
-        // MODAL pessoa-aluno
+        // MODAL Pessoa-aluno
 
 
         //  Esse simplesSearch é carregado no final do arquivo, então a sua linha deve ser escondida,
@@ -1840,11 +1840,11 @@ function canShowParentsFields() {
 
         $j('.ui-dialog:has(#dialog-recursos-prova-inep) .ui-dialog-titlebar').show();
 
-        var name = $j("#nome-pessoa-aluno"),
-            nome_social = $j("#nome-social-pessoa-aluno"),
-            sexo = $j("#sexo-pessoa-aluno"),
-            estadocivil = $j("#estado-civil-pessoa-aluno"),
-            datanasc = $j("#data-nasc-pessoa-aluno"),
+        var name = $j("#nome-Pessoa-aluno"),
+            nome_social = $j("#nome-social-Pessoa-aluno"),
+            sexo = $j("#sexo-Pessoa-aluno"),
+            estadocivil = $j("#estado-civil-Pessoa-aluno"),
+            datanasc = $j("#data-nasc-Pessoa-aluno"),
             municipio = $j("#naturalidade_aluno_pessoa-aluno"),
             municipio_id = $j("#naturalidade_aluno_id"),
             telefone_1 = $j("#telefone_fixo"),
@@ -1859,32 +1859,32 @@ function canShowParentsFields() {
             andar = $j("#andar"),
             allFields = $j([]).add(name).add(nome_social).add(sexo).add(estadocivil).add(datanasc).add(municipio).add(ddd_telefone_1).add(telefone_1).add(ddd_telefone_mov).add(telefone_mov).add(municipio_id).add(complemento).add(numero).add(letra).add(apartamento).add(bloco).add(andar);
 
-        municipio.show().toggleClass('geral text').attr('display', 'block').appendTo('#dialog-form-pessoa-aluno tr td:first-child fieldset');
+        municipio.show().toggleClass('geral text').attr('display', 'block').appendTo('#dialog-form-Pessoa-aluno tr td:first-child fieldset');
 
         $j('<label>').html('CEP').attr('for', 'postal_code').insertBefore($j('#postal_code'));
-        $j('#postal_code').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
+        $j('#postal_code').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-Pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
         $j('<label>').html('Endereço').attr('for', 'address').insertBefore($j('#address'));
-        $j('#address').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
+        $j('#address').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-Pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
         $j('<label>').html('Número').attr('for', 'number').insertBefore($j('#number'));
-        $j('#number').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
+        $j('#number').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-Pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
         $j('<label>').html('Complemento').attr('for', 'complement').insertBefore($j('#complement'));
-        $j('#complement').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
+        $j('#complement').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-Pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
         $j('<label>').html('Bairro').attr('for', 'neighborhood').insertBefore($j('#neighborhood'));
-        $j('#neighborhood').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
+        $j('#neighborhood').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-Pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
         $j('<label>').html('Município').attr('for', 'city_city').insertBefore($j('#city_city'));
-        $j('#city_city').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
+        $j('#city_city').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-Pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
 
         $j('<label>').html('País de residência').attr('for', 'pais_residencia').insertBefore($j('#pais_residencia'));
-        $j('#pais_residencia').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
+        $j('#pais_residencia').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-Pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
 
         let $label = $j('<label>').html('Zona de residência').attr('for', 'zona_localizacao_censo').insertBefore($j('#zona_localizacao_censo'));
         if ($j('#zona_localizacao_censo').hasClass('obrigatorio')) {
           $label.append($j('<span/>').addClass('campo_obrigatorio').text('*'));
         }
-        $j('#zona_localizacao_censo').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
+        $j('#zona_localizacao_censo').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-Pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
 
         $j('<label>').html('Localização diferenciada de residência').attr('for', 'localizacao_diferenciada').insertBefore($j('#localizacao_diferenciada'));
-        $j('#localizacao_diferenciada').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
+        $j('#localizacao_diferenciada').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-Pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
 
         $label = $j('<label>').html('Raça').attr('for', 'cor_raca').attr('style', 'display:block;').insertBefore($j('#cor_raca'));
         if ($j('#cor_raca').hasClass('obrigatorio')) {
@@ -1915,7 +1915,7 @@ function canShowParentsFields() {
         }
         $j('#tipo_nacionalidade').change(checkTipoNacionalidade);
 
-        $j('#dialog-form-pessoa-aluno').find(':input').css('display', 'block');
+        $j('#dialog-form-Pessoa-aluno').find(':input').css('display', 'block');
         $j('#postal_code').css('display', 'inline');
         $j('#ddd_telefone_fixo').css('display', 'inline');
         $j('#telefone_fixo').css('display', 'inline');
@@ -1925,7 +1925,7 @@ function canShowParentsFields() {
         $j('#telefone_cel_dois').css('display', 'block');
 
 
-        $j("#dialog-form-pessoa-aluno").dialog({
+        $j("#dialog-form-Pessoa-aluno").dialog({
             autoOpen: false,
             height: 'auto',
             width: 'auto',
@@ -1995,18 +1995,18 @@ function canShowParentsFields() {
             }
         });
 
-        $j('body').append('<div id="dialog-form-pessoa-parent"><form><h2></h2><table><tr><td valign="top"><fieldset><label for="nome-pessoa-parent">Nome</label>    <input type="text " name="nome-pessoa-parent" id="nome-pessoa-parent" size="49" maxlength="255" class="text">    <label for="sexo-pessoa-parent">Sexo</label>  <select class="select ui-widget-content ui-corner-all" name="sexo-pessoa-parent" id="sexo-pessoa-parent" ><option value="" selected>Sexo</option><option value="M">Masculino</option><option value="F">Feminino</option></select>    <label for="estado-civil-pessoa-parent">Estado civil</label>   <select class="select ui-widget-content ui-corner-all" name="estado-civil-pessoa-parent" id="estado-civil-pessoa-parent"  ><option id="estado-civil-pessoa-parent_" value="" selected>Estado civil</option><option id="estado-civil-pessoa-parent_2" value="2">Casado(a)</option><option id="estado-civil-pessoa-parent_6" value="6">Companheiro(a)</option><option id="estado-civil-pessoa-parent_3" value="3">Divorciado(a)</option><option id="estado-civil-pessoa-parent_4" value="4">Separado(a)</option><option id="estado-civil-pessoa-parent_1" value="1">Solteiro(a)</option><option id="estado-civil-pessoa-parent_5" value="5">Vi&uacute;vo(a)</option><option id="estado-civil-pessoa-parent_7" value="7">Não informado</option></select><label for="data-nasc-pessoa-parent"> Data de nascimento </label> <input onKeyPress="formataData(this, event);" class="" placeholder="dd/mm/yyyy" type="text" name="data-nasc-pessoa-parent" id="data-nasc-pessoa-parent" value="" size="11" maxlength="10"> <div id="falecido-modal"> <label>Falecido?</label><input type="checkbox" name="falecido-parent" id="falecido-parent" style="display:inline;"> </div></fieldset><p><a id="link_cadastro_detalhado_parent" target="_blank">Cadastro detalhado</a></p></form></div>');
+        $j('body').append('<div id="dialog-form-Pessoa-parent"><form><h2></h2><table><tr><td valign="top"><fieldset><label for="nome-Pessoa-parent">Nome</label>    <input type="text " name="nome-Pessoa-parent" id="nome-Pessoa-parent" size="49" maxlength="255" class="text">    <label for="sexo-Pessoa-parent">Sexo</label>  <select class="select ui-widget-content ui-corner-all" name="sexo-Pessoa-parent" id="sexo-Pessoa-parent" ><option value="" selected>Sexo</option><option value="M">Masculino</option><option value="F">Feminino</option></select>    <label for="estado-civil-Pessoa-parent">Estado civil</label>   <select class="select ui-widget-content ui-corner-all" name="estado-civil-Pessoa-parent" id="estado-civil-Pessoa-parent"  ><option id="estado-civil-Pessoa-parent_" value="" selected>Estado civil</option><option id="estado-civil-Pessoa-parent_2" value="2">Casado(a)</option><option id="estado-civil-Pessoa-parent_6" value="6">Companheiro(a)</option><option id="estado-civil-Pessoa-parent_3" value="3">Divorciado(a)</option><option id="estado-civil-Pessoa-parent_4" value="4">Separado(a)</option><option id="estado-civil-Pessoa-parent_1" value="1">Solteiro(a)</option><option id="estado-civil-Pessoa-parent_5" value="5">Vi&uacute;vo(a)</option><option id="estado-civil-Pessoa-parent_7" value="7">Não informado</option></select><label for="data-nasc-Pessoa-parent"> Data de nascimento </label> <input onKeyPress="formataData(this, event);" class="" placeholder="dd/mm/yyyy" type="text" name="data-nasc-Pessoa-parent" id="data-nasc-Pessoa-parent" value="" size="11" maxlength="10"> <div id="falecido-modal"> <label>Falecido?</label><input type="checkbox" name="falecido-parent" id="falecido-parent" style="display:inline;"> </div></fieldset><p><a id="link_cadastro_detalhado_parent" target="_blank">Cadastro detalhado</a></p></form></div>');
 
-        $j('#dialog-form-pessoa-parent').find(':input').css('display', 'block');
+        $j('#dialog-form-Pessoa-parent').find(':input').css('display', 'block');
 
-        var nameParent = $j("#nome-pessoa-parent"),
-            sexoParent = $j("#sexo-pessoa-parent"),
-            estadocivilParent = $j("#estado-civil-pessoa-parent"),
-            datanascParent = $j("#data-nasc-pessoa-parent"),
+        var nameParent = $j("#nome-Pessoa-parent"),
+            sexoParent = $j("#sexo-Pessoa-parent"),
+            estadocivilParent = $j("#estado-civil-Pessoa-parent"),
+            datanascParent = $j("#data-nasc-Pessoa-parent"),
             falecidoParent = $j("#falecido-parent"),
             allFields = $j([]).add(nameParent).add(sexoParent).add(estadocivilParent).add(datanascParent).add(falecidoParent);
 
-        $j("#dialog-form-pessoa-parent").dialog({
+        $j("#dialog-form-Pessoa-parent").dialog({
             autoOpen: false,
             height: 'auto',
             width: 'auto',
@@ -2022,7 +2022,7 @@ function canShowParentsFields() {
                     bValid = bValid && checkSelect(sexoParent, "sexo");
                     bValid = bValid && checkSelect(estadocivilParent, "estado civil");
 
-                    if ($j("#data-nasc-pessoa-parent").val() != '') {
+                    if ($j("#data-nasc-Pessoa-parent").val() != '') {
                         bValid = bValid && checkRegexp(datanascParent, /(^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$)/i, "O campo data de nascimento deve ser preenchido no formato dd/mm/yyyy.");
                     }
 
@@ -2056,16 +2056,16 @@ function canShowParentsFields() {
         });
 
         $j('#link_cadastro_detalhado').click(function () {
-            $j("#dialog-form-pessoa-aluno").dialog("close");
+            $j("#dialog-form-Pessoa-aluno").dialog("close");
         });
 
         $j('#link_cadastro_detalhado_parent').click(function () {
-            $j("#dialog-form-pessoa-parent").dialog("close");
+            $j("#dialog-form-Pessoa-parent").dialog("close");
         });
 
-        $j("#cadastrar-pessoa-link").click(function () {
-            $j('#link_cadastro_detalhado').attr('href', '/intranet/atendidos_cad.php');
-            $j("#dialog-form-pessoa-aluno").dialog("open");
+        $j("#cadastrar-Pessoa-link").click(function () {
+            $j('#link_cadastro_detalhado').attr('href', '/Intranet/atendidos_cad.php');
+            $j("#dialog-form-Pessoa-aluno").dialog("open");
             $j('#postal_code').val('');
             permiteEditarEndereco();
             checkTipoNacionalidade();
@@ -2074,14 +2074,14 @@ function canShowParentsFields() {
                 $j(".ui-dialog-titlebar-close").trigger('click');
             });
 
-            $j('#nome-pessoa-aluno').focus();
+            $j('#nome-Pessoa-aluno').focus();
 
-            $j('#dialog-form-pessoa-aluno form h2:first-child').html('Cadastrar pessoa aluno').css('margin-left', '0.75em');
+            $j('#dialog-form-Pessoa-aluno form h2:first-child').html('Cadastrar Pessoa aluno').css('margin-left', '0.75em');
             editar_pessoa = false;
         });
 
-        $j("#editar-pessoa-link").click(function () {
-            $j('#link_cadastro_detalhado').attr('href', '/intranet/atendidos_cad.php?cod_pessoa_fj=' + person_details.id);
+        $j("#editar-Pessoa-link").click(function () {
+            $j('#link_cadastro_detalhado').attr('href', '/Intranet/atendidos_cad.php?cod_pessoa_fj=' + person_details.id);
 
             name.val(person_details.nome);
             nome_social.val(person_details.nome_social);
@@ -2126,15 +2126,15 @@ function canShowParentsFields() {
                 $j('#city_city').val(person_details.city_id + ' - ' + person_details.city_name + ' (' + person_details.state_abbreviation + ')');
             }
 
-            $j("#dialog-form-pessoa-aluno").dialog("open");
+            $j("#dialog-form-Pessoa-aluno").dialog("open");
 
             $j(".ui-widget-overlay").click(function () {
                 $j(".ui-dialog-titlebar-close").trigger('click');
             });
 
-            $j('#nome-pessoa-aluno').focus();
+            $j('#nome-Pessoa-aluno').focus();
 
-            $j('#dialog-form-pessoa-aluno form h2:first-child').html('Editar pessoa aluno').css('margin-left', '0.75em');
+            $j('#dialog-form-Pessoa-aluno form h2:first-child').html('Editar Pessoa aluno').css('margin-left', '0.75em');
 
             editar_pessoa = true;
 
@@ -2142,7 +2142,7 @@ function canShowParentsFields() {
             checkTipoNacionalidade();
         });
 
-        $j("#cadastrar-pessoa-pai-link").click(function () {
+        $j("#cadastrar-Pessoa-pai-link").click(function () {
             if ($j('#pessoa_id').val()) {
                 openModalParent('pai');
             } else {
@@ -2151,7 +2151,7 @@ function canShowParentsFields() {
         });
 
 
-        $j("#cadastrar-pessoa-mae-link").click(function () {
+        $j("#cadastrar-Pessoa-mae-link").click(function () {
             if ($j('#pessoa_id').val()) {
                 openModalParent('mae');
             } else {
@@ -2159,7 +2159,7 @@ function canShowParentsFields() {
             }
         });
 
-        $j("#cadastrar-pessoa-responsavel-link").click(function () {
+        $j("#cadastrar-Pessoa-responsavel-link").click(function () {
             if ($j('#pessoa_id').val()) {
                 openModalParent('responsavel');
             } else {
@@ -2167,36 +2167,36 @@ function canShowParentsFields() {
             }
         });
 
-        $j("#editar-pessoa-pai-link").click(function () {
+        $j("#editar-Pessoa-pai-link").click(function () {
             if ($j('#pessoa_id').val()) {
                 openEditModalParent('pai');
             }
         });
 
 
-        $j("#editar-pessoa-mae-link").click(function () {
+        $j("#editar-Pessoa-mae-link").click(function () {
             if ($j('#pessoa_id').val()) {
                 openEditModalParent('mae');
             }
         });
 
-        $j("#editar-pessoa-responsavel-link").click(function () {
+        $j("#editar-Pessoa-responsavel-link").click(function () {
             if ($j('#pessoa_id').val()) {
                 openEditModalParent('responsavel');
             }
         });
 
         function alertSelecionarPessoaAluno() {
-            messageUtils.error('Primeiro cadastre/selecione uma pessoa para o aluno. ');
+            messageUtils.error('Primeiro cadastre/selecione uma Pessoa para o aluno. ');
         }
 
         function openModalParent(parentType) {
-            $j('#link_cadastro_detalhado_parent').attr('href', '/intranet/atendidos_cad.php?parent_type=' + parentType);
-            $j("#dialog-form-pessoa-parent").dialog("open");
+            $j('#link_cadastro_detalhado_parent').attr('href', '/Intranet/atendidos_cad.php?parent_type=' + parentType);
+            $j("#dialog-form-Pessoa-parent").dialog("open");
             $j(".ui-widget-overlay").click(function () {
                $j(".ui-dialog-titlebar-close").trigger('click');
             });
-            $j('#nome-pessoa-parent').focus();
+            $j('#nome-Pessoa-parent').focus();
             $j('#falecido-parent').attr('checked', false);
 
             var tipoPessoa = 'pai';
@@ -2218,19 +2218,19 @@ function canShowParentsFields() {
                 $j('#falecido-modal').show();
             }
 
-            $j('#dialog-form-pessoa-parent form h2:first-child').html('Cadastrar pessoa ' + tipoPessoa).css('margin-left', '0.75em');
+            $j('#dialog-form-Pessoa-parent form h2:first-child').html('Cadastrar Pessoa ' + tipoPessoa).css('margin-left', '0.75em');
 
             pessoaPaiOuMae = parentType;
             editar_pessoa = false;
         }
 
         function openEditModalParent(parentType) {
-            $j('#link_cadastro_detalhado_parent').attr('href', '/intranet/atendidos_cad.php?cod_pessoa_fj=' + $j('#' + parentType + '_id').val() + '&parent_type=' + parentType);
-            $j("#dialog-form-pessoa-parent").dialog("open");
+            $j('#link_cadastro_detalhado_parent').attr('href', '/Intranet/atendidos_cad.php?cod_pessoa_fj=' + $j('#' + parentType + '_id').val() + '&parent_type=' + parentType);
+            $j("#dialog-form-Pessoa-parent").dialog("open");
             $j(".ui-widget-overlay").click(function () {
                 $j(".ui-dialog-titlebar-close").trigger('click');
             });
-            $j('#nome-pessoa-parent').focus();
+            $j('#nome-Pessoa-parent').focus();
 
             nameParent.val(window[parentType + '_details'].nome);
             estadocivilParent.val(window[parentType + '_details'].estadocivil);
@@ -2245,7 +2245,7 @@ function canShowParentsFields() {
             }
 
 
-            $j('#dialog-form-pessoa-parent form h2:first-child').html('Editar pessoa ' + (parentType == 'mae' ? 'm&atilde;e' : parentType)).css('margin-left', '0.75em');
+            $j('#dialog-form-Pessoa-parent form h2:first-child').html('Editar Pessoa ' + (parentType == 'mae' ? 'm&atilde;e' : parentType)).css('margin-left', '0.75em');
 
             pessoaPaiOuMae = parentType;
             editar_pessoa = true;
@@ -2339,11 +2339,11 @@ function canShowParentsFields() {
             var pessoaId = dataResponse.id;
 
             if (pessoaId && pessoaId != $j('#pessoa_id').val()) {
-                $cpfNotice.html('CPF já utilizado pela pessoa código ' + pessoaId + ', ').slideDown('fast');
+                $cpfNotice.html('CPF já utilizado pela Pessoa código ' + pessoaId + ', ').slideDown('fast');
 
                 $j('<a>')
                     .addClass('decorated')
-                    .attr('href', '/intranet/atendidos_cad.php?cod_pessoa_fj=' + pessoaId)
+                    .attr('href', '/Intranet/atendidos_cad.php?cod_pessoa_fj=' + pessoaId)
                     .attr('target', '_blank')
                     .html('acessar cadastro.')
                     .appendTo($cpfNotice);
@@ -2358,7 +2358,7 @@ function canShowParentsFields() {
 
         var getPersonByCpf = function (cpf) {
             var options = {
-                url: getResourceUrlBuilder.buildUrl('/module/Api/pessoa', 'pessoa'),
+                url: getResourceUrlBuilder.buildUrl('/module/Api/Pessoa', 'Pessoa'),
                 dataType: 'json',
                 data: {cpf: cpf},
                 success: handleGetPersonByCpf,
@@ -2416,7 +2416,7 @@ function canShowParentsFields() {
         };
 
         var options = {
-            url: postResourceUrlBuilder.buildUrl('/module/Api/pessoa', 'pessoa', {}),
+            url: postResourceUrlBuilder.buildUrl('/module/Api/Pessoa', 'Pessoa', {}),
             dataType: 'json',
             data: data,
             success: function (dataResponse) {
@@ -2455,7 +2455,7 @@ function canShowParentsFields() {
             };
 
             var options = {
-                url: postResourceUrlBuilder.buildUrl('/module/Api/pessoa', 'pessoa-endereco', {}),
+                url: postResourceUrlBuilder.buildUrl('/module/Api/Pessoa', 'Pessoa-endereco', {}),
                 dataType: 'json',
                 data: data,
                 success: function (dataResponse) {

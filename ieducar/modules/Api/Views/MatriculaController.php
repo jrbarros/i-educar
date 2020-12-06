@@ -7,7 +7,7 @@ require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
 require_once 'App/Model/MatriculaSituacao.php';
-require_once 'intranet/include/clsBanco.inc.php';
+require_once 'Intranet/include/Banco.inc.php';
 require_once 'include/pmieducar/geral.inc.php';
 require_once 'Portabilis/Date/Utils.php';
 require_once 'modules/Avaliacao/Model/NotaAlunoDataMapper.php';
@@ -17,7 +17,6 @@ require_once 'lib/CoreExt/Controller/Request.php';
 
 class MatriculaController extends ApiCoreController
 {
-
     protected function canGetMatriculas()
     {
         return $this->validatesId('escola') &&
@@ -52,9 +51,9 @@ class MatriculaController extends ApiCoreController
         // opcionalmente por ano.
         return 'select aluno.cod_aluno as aluno_id,
             matricula.cod_matricula as id,
-            pessoa.nome as name
-       from cadastro.pessoa
-      inner join pmieducar.aluno on(pessoa.idpes = aluno.ref_idpes)
+            Pessoa.nome as name
+       from cadastro.Pessoa
+      inner join pmieducar.aluno on(Pessoa.idpes = aluno.ref_idpes)
       inner join pmieducar.matricula on(aluno.cod_aluno = matricula.ref_cod_aluno)
       inner join pmieducar.escola on(escola.cod_escola = matricula.ref_ref_cod_escola)
       inner join pmieducar.instituicao on (escola.ref_cod_instituicao = instituicao.cod_instituicao)
@@ -84,9 +83,9 @@ class MatriculaController extends ApiCoreController
         // seleciona por nome aluno, opcionalmente por codigo escola e opcionalmente por ano.
         return 'select aluno.cod_aluno as aluno_id,
             matricula.cod_matricula as id,
-            pessoa.nome as name
-       from cadastro.pessoa
-      inner join pmieducar.aluno on(pessoa.idpes = aluno.ref_idpes)
+            Pessoa.nome as name
+       from cadastro.Pessoa
+      inner join pmieducar.aluno on(Pessoa.idpes = aluno.ref_idpes)
       inner join pmieducar.matricula on(aluno.cod_aluno = matricula.ref_cod_aluno)
       inner join pmieducar.escola on(escola.cod_escola = matricula.ref_ref_cod_escola)
       inner join pmieducar.instituicao on (escola.ref_cod_instituicao = instituicao.cod_instituicao)
@@ -106,7 +105,7 @@ class MatriculaController extends ApiCoreController
                end)
              end)
         and (case when aprovado = 4 then not exists (select * from pmieducar.matricula m where m.ativo = 1 and m.ano = matricula.ano and m.ref_cod_aluno = aluno.cod_aluno and m.ref_ref_cod_escola = matricula.ref_ref_cod_escola and m.aprovado <> 4 ) else true end)
-        and lower((pessoa.nome)) like \'%\'||lower(($1))||\'%\'
+        and lower((Pessoa.nome)) like \'%\'||lower(($1))||\'%\'
         and (select case when $2 != 0 then matricula.ref_ref_cod_escola = $2 else true end)
         and (select case when $3 != 0 then matricula.ano = $3 else true end) limit 15';
     }
@@ -164,7 +163,7 @@ class MatriculaController extends ApiCoreController
     // load
     protected function loadNomeEscola($escolaId)
     {
-        $sql = 'select nome from cadastro.pessoa, pmieducar.escola where idpes = ref_idpes and cod_escola = $1';
+        $sql = 'select nome from cadastro.Pessoa, pmieducar.escola where idpes = ref_idpes and cod_escola = $1';
         $nome = $this->fetchPreparedQuery($sql, $escolaId, false, 'first-field');
 
         return $this->safeString($nome);
@@ -449,7 +448,7 @@ class MatriculaController extends ApiCoreController
     protected function getFrequencia()
     {
         $cod_matricula = $this->getRequest()->id;
-        $objBanco = new clsBanco();
+        $objBanco = new Banco();
         $frequencia = $objBanco->unicoCampo(" SELECT modules.frequencia_da_matricula({$cod_matricula}); ");
 
         return ['frequencia' => $frequencia];
@@ -503,7 +502,7 @@ class MatriculaController extends ApiCoreController
             $params = [$sequencial, $matriculaId];
             $this->fetchPreparedQuery($sql, $params);
 
-            $instituicaoId = (new clsBanco)->unicoCampo("select cod_instituicao from pmieducar.instituicao where ativo = 1 order by cod_instituicao asc limit 1;");
+            $instituicaoId = (new Banco)->unicoCampo('select cod_instituicao from pmieducar.instituicao where ativo = 1 order by cod_instituicao asc limit 1;');
 
             $fakeRequest = new CoreExt_Controller_Request(['data' => [
                 'oper' => 'post',
@@ -524,7 +523,7 @@ class MatriculaController extends ApiCoreController
     protected function deleteReclassificacao()
     {
         $matriculaId = $this->getRequest()->id;
-        $matricula = new clsPmieducarMatricula($matriculaId);
+        $matricula = new Matricula($matriculaId);
         $matricula = $matricula->detalhe();
         $alunoId = $matricula['ref_cod_aluno'];
         $situacaoAndamento = App_Model_MatriculaSituacao::EM_ANDAMENTO;
@@ -612,7 +611,7 @@ class MatriculaController extends ApiCoreController
         if ($this->validaDataEntrada()) {
             $matricula_id = $this->getRequest()->matricula_id;
             $data_entrada = Portabilis_Date_Utils::brToPgSQL($this->getRequest()->data_entrada);
-            $matricula = new clsPmieducarMatricula($matricula_id);
+            $matricula = new Matricula($matricula_id);
             $matricula->data_matricula = $data_entrada;
 
             if ($matricula->edita()) {
@@ -626,7 +625,7 @@ class MatriculaController extends ApiCoreController
         if ($this->validaDataSaida()) {
             $matricula_id = $this->getRequest()->matricula_id;
             $data_saida = Portabilis_Date_Utils::brToPgSQL($this->getRequest()->data_saida);
-            $matricula = new clsPmieducarMatricula($matricula_id);
+            $matricula = new Matricula($matricula_id);
             $matricula->data_cancel = $data_saida;
 
             if ($matricula->edita()) {
@@ -634,6 +633,7 @@ class MatriculaController extends ApiCoreController
                 $lastenrollment = $enrollment->lastEnrollment;
                 $lastenrollment->data_exclusao = $data_saida;
                 $lastenrollment->save();
+
                 return $this->messenger->append('Data de saida atualizada com sucesso.', 'success');
             }
         }
@@ -642,14 +642,14 @@ class MatriculaController extends ApiCoreController
     {
         if ($this->validatesPresenceOf('matricula_id') && $this->validatesPresenceOf('nova_situacao')) {
             $matriculaId = $this->getRequest()->matricula_id;
-            $matricula = new clsPmieducarMatricula($matriculaId);
+            $matricula = new Matricula($matriculaId);
             $objMatricula = $matricula->detalhe();
             $codAluno = $objMatricula['ref_cod_aluno'];
 
             $situacaoAntiga = $matricula->aprovado;
             $situacaoNova = $this->getRequest()->nova_situacao;
 
-            $enturmacoes = new clsPmieducarMatriculaTurma();
+            $enturmacoes = new MatriculaTurma();
             $enturmacoes = $enturmacoes->lista($matriculaId, null, null, null, null, null, null, null, 1);
 
             if (
@@ -659,7 +659,7 @@ class MatriculaController extends ApiCoreController
             ) {
                 if ($enturmacoes) {
                     foreach ($enturmacoes as $enturmacao) {
-                        $enturmacao = new clsPmieducarMatriculaTurma($matriculaId, $enturmacao['ref_cod_turma'], 1, null, null, date('Y-m-d H:i:s'), 0, null, $enturmacao['sequencial']);
+                        $enturmacao = new MatriculaTurma($matriculaId, $enturmacao['ref_cod_turma'], 1, null, null, date('Y-m-d H:i:s'), 0, null, $enturmacao['sequencial']);
 
                         if (!$enturmacao->edita()) {
                             return false;
@@ -669,7 +669,7 @@ class MatriculaController extends ApiCoreController
                             $enturmacao->marcaAlunoTransferido();
                         } elseif ($situacaoNova == App_Model_MatriculaSituacao::ABANDONO) {
                             $enturmacao->marcaAlunoAbandono();
-                        }elseif ($situacaoNova == App_Model_MatriculaSituacao::FALECIDO) {
+                        } elseif ($situacaoNova == App_Model_MatriculaSituacao::FALECIDO) {
                             $enturmacao->marcaAlunoFalecido();
                         }
                     }
@@ -707,7 +707,7 @@ class MatriculaController extends ApiCoreController
 
     protected function alteraFalecimentoPessoa($codAluno)
     {
-        $matriculas = new clsPmieducarMatricula();
+        $matriculas = new Matricula();
 
         $matriculas = $matriculas->lista(
             null,
@@ -725,7 +725,7 @@ class MatriculaController extends ApiCoreController
             1
         );
 
-        $aluno = new clsPmieducarAluno($codAluno);
+        $aluno = new Aluno($codAluno);
         $aluno = $aluno->detalhe();
 
         $pessoaFisica = new clsFisica($aluno['ref_idpes']);
@@ -824,7 +824,7 @@ class MatriculaController extends ApiCoreController
         $params = [];
 
         if ($modified) {
-            $where = " AND dd.updated_at >= $1";
+            $where = ' AND dd.updated_at >= $1';
             $params[] = $modified;
         }
 

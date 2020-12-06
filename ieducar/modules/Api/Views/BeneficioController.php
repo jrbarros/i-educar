@@ -3,7 +3,7 @@
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
-require_once 'intranet/include/pmieducar/clsPmieducarAlunoBeneficio.inc.php';
+require_once 'Intranet/include/pmieducar/AlunoBeneficio.php';
 
 class BeneficioController extends ApiCoreController
 {
@@ -21,7 +21,7 @@ class BeneficioController extends ApiCoreController
 
     protected function getBeneficios()
     {
-        $obj = new clsPmieducarAlunoBeneficio();
+        $obj = new AlunoBeneficio();
         $arrayBeneficios;
 
         foreach ($obj->listaBeneficiosPorAluno($this->getRequest()->id) as $reg) {

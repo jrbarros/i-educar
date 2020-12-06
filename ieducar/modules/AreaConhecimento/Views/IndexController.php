@@ -22,7 +22,7 @@ class IndexController extends Core_Controller_Page_ListController
         parent::_preRender();
 
         $this->breadcrumb('Listagem de &aacute;reas de conhecimento', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 

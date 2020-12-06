@@ -2,11 +2,10 @@
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
-require_once 'intranet/include/clsBanco.inc.php';
+require_once 'Intranet/include/Banco.inc.php';
 
 class AcervoController extends ApiCoreController
 {
-
     protected function searchOptions()
     {
         $biblioteca_id = $this->getRequest()->biblioteca_id

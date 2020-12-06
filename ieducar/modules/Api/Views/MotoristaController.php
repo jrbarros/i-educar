@@ -16,7 +16,7 @@ class MotoristaController extends ApiCoreController
     // load resources
     protected function loadNomePessoa($id)
     {
-        $sql = 'select nome from cadastro.pessoa, modules.motorista where idpes = ref_idpes and cod_motorista = $1';
+        $sql = 'select nome from cadastro.Pessoa, modules.motorista where idpes = ref_idpes and cod_motorista = $1';
         $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -24,7 +24,7 @@ class MotoristaController extends ApiCoreController
 
     protected function loadNomeEmpresa($id)
     {
-        $sql = 'select nome from cadastro.pessoa, modules.motorista ,modules.empresa_transporte_escolar emp where idpes = emp.ref_idpes and cod_empresa_transporte_escolar = ref_cod_empresa_transporte_escolar and cod_motorista = $1';
+        $sql = 'select nome from cadastro.Pessoa, modules.motorista ,modules.empresa_transporte_escolar emp where idpes = emp.ref_idpes and cod_empresa_transporte_escolar = ref_cod_empresa_transporte_escolar and cod_motorista = $1';
         $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -33,7 +33,7 @@ class MotoristaController extends ApiCoreController
     protected function sqlsForNumericSearch()
     {
         $sqls[] = 'select distinct cod_motorista as id, nome as name from
-                 modules.motorista, cadastro.pessoa where idpes = ref_idpes
+                 modules.motorista, cadastro.Pessoa where idpes = ref_idpes
                  and cod_motorista like $1||\'%\'';
 
         return $sqls;
@@ -42,7 +42,7 @@ class MotoristaController extends ApiCoreController
     protected function sqlsForStringSearch()
     {
         $sqls[] = 'select distinct cod_motorista as id, nome as name from
-                 modules.motorista, cadastro.pessoa where idpes = ref_idpes
+                 modules.motorista, cadastro.Pessoa where idpes = ref_idpes
                  and lower((nome)) like \'%\'||lower(($1))||\'%\'';
 
         return $sqls;
@@ -53,7 +53,7 @@ class MotoristaController extends ApiCoreController
         $motorista = new clsModulesMotorista();
         $motorista->cod_motorista = $id;
 
-        // após cadastro não muda mais id pessoa
+        // após cadastro não muda mais id Pessoa
         $motorista->ref_idpes = $this->getRequest()->pessoa_id;
         $motorista->cnh = $this->getRequest()->cnh;
         $motorista->tipo_cnh = Portabilis_String_Utils::toLatin1($this->getRequest()->tipo_cnh);
@@ -74,7 +74,7 @@ class MotoristaController extends ApiCoreController
 
         $attrs = [
             'cod_motorista' => 'id',
-            'ref_idpes' => 'pessoa',
+            'ref_idpes' => 'Pessoa',
             'tipo_cnh' => 'tipo_cnh',
             'ref_cod_empresa_transporte_escolar' => 'ref_cod_empresa_transporte_escolar',
             'cnh' => 'cnh',
@@ -204,7 +204,7 @@ class MotoristaController extends ApiCoreController
                 $this->appendResponse($this->delete());
 
                 echo '<script language= "JavaScript">
-                    location.href="intranet/transporte_motorista_lst.php";
+                    location.href="Intranet/transporte_motorista_lst.php";
                     </script>';
 
                 die();

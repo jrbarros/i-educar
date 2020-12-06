@@ -48,17 +48,17 @@ class LegacyMakeTestsCommand extends Command
             return $route;
         }
 
-        return '/intranet/' . $route;
+        return '/Intranet/' . $route;
     }
 
     /**
-     * Return all routes for intranet path.
+     * Return all routes for Intranet path.
      *
      * @return array
      */
     private function getRoutesFromFile()
     {
-        return file(base_path('tests/Browser/legacy/intranet.txt'), FILE_IGNORE_NEW_LINES);
+        return file(base_path('tests/Browser/legacy/Intranet.txt'), FILE_IGNORE_NEW_LINES);
     }
 
     /**

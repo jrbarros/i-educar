@@ -23,7 +23,7 @@ class MovimentoMensalMatIniQueryFactory extends QueryFactory
     protected $query = <<<'SQL'
         select
             m.cod_matricula,
-            pessoa.nome,
+            Pessoa.nome,
             t.nm_turma
         from
             pmieducar.serie s
@@ -49,8 +49,8 @@ class MovimentoMensalMatIniQueryFactory extends QueryFactory
             cadastro.fisica f
                 on f.idpes = a.ref_idpes
         inner join
-            cadastro.pessoa
-                on pessoa.idpes = f.idpes
+            cadastro.Pessoa
+                on Pessoa.idpes = f.idpes
         where true
             and e.ref_cod_instituicao = :instituicao
             and e.cod_escola = :escola
@@ -65,7 +65,7 @@ class MovimentoMensalMatIniQueryFactory extends QueryFactory
             and t.cod_turma = :turma
             and date(coalesce(mt.data_enturmacao, m.data_matricula,m.data_cadastro)) < :data_inicial::date
             and (case
-                when date(coalesce(date(mt.data_exclusao), date(m.data_cancel))) is not null then 
+                when date(coalesce(date(mt.data_exclusao), date(m.data_cancel))) is not null then
                     date(coalesce(date(mt.data_exclusao),date(m.data_cancel))) >= :data_inicial::date
                 else
                     true
@@ -77,6 +77,6 @@ class MovimentoMensalMatIniQueryFactory extends QueryFactory
                     s.ref_cod_curso = :curso
             end)
         order by
-            pessoa.nome asc
+            Pessoa.nome asc
 SQL;
 }

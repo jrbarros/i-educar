@@ -5,7 +5,7 @@ require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
 require_once 'Reports/Tipos/TipoBoletim.php';
 require_once 'App/Model/IedFinder.php';
-require_once 'include/funcoes.inc.php';
+require_once 'include/funcoes.php';
 
 class TurmaController extends ApiCoreController
 {
@@ -62,7 +62,7 @@ class TurmaController extends ApiCoreController
         }
 
         $id = $this->getRequest()->id;
-        $turma = new clsPmieducarTurma();
+        $turma = new Turma();
         $turma->cod_turma = $id;
         $turma = $turma->detalhe();
 
@@ -79,20 +79,20 @@ class TurmaController extends ApiCoreController
     {
         $codTurma = $this->getRequest()->id;
         $parametros = [$codTurma];
-        $sql = "
+        $sql = '
             SELECT
                 cod_matricula,
                 sequencial_fechamento,
                 sequencial,
-                relatorio.get_texto_sem_caracter_especial(pessoa.nome) AS aluno,
+                relatorio.get_texto_sem_caracter_especial(Pessoa.nome) AS aluno,
                 data_enturmacao,
-                CASE WHEN dependencia THEN to_char(data_enturmacao,'mmdd')::int ELSE 0 END as ord_dependencia,
-                CASE WHEN to_char(instituicao.data_base_remanejamento,'mmdd') is not null and to_char(data_enturmacao,'mmdd') > to_char(instituicao.data_base_remanejamento,'mmdd') THEN to_char(data_enturmacao,'mmdd')::int ELSE 0 END as data_aluno_order
+                CASE WHEN dependencia THEN to_char(data_enturmacao,\'mmdd\')::int ELSE 0 END as ord_dependencia,
+                CASE WHEN to_char(instituicao.data_base_remanejamento,\'mmdd\') is not null and to_char(data_enturmacao,\'mmdd\') > to_char(instituicao.data_base_remanejamento,\'mmdd\') THEN to_char(data_enturmacao,\'mmdd\')::int ELSE 0 END as data_aluno_order
             FROM pmieducar.matricula_turma
             INNER JOIN pmieducar.instituicao On (instituicao.ativo = 1)
             INNER JOIN pmieducar.matricula ON (matricula.cod_matricula = matricula_turma.ref_cod_matricula)
             INNER JOIN pmieducar.aluno ON (aluno.cod_aluno = matricula.ref_cod_aluno)
-            INNER JOIN cadastro.pessoa ON (pessoa.idpes = aluno.ref_idpes)
+            INNER JOIN cadastro.Pessoa ON (Pessoa.idpes = aluno.ref_idpes)
             WHERE ref_cod_turma = $1
             AND matricula.ativo = 1
             AND (
@@ -107,7 +107,7 @@ class TurmaController extends ApiCoreController
                     END
                 )
             ORDER BY ord_dependencia, data_aluno_order, aluno;
-        ";
+        ';
 
         $alunos = $this->fetchPreparedQuery($sql, $parametros);
         $attrs = [
@@ -130,14 +130,14 @@ class TurmaController extends ApiCoreController
                 $key + 1
             ];
 
-            $sql = "
+            $sql = '
                 UPDATE pmieducar.matricula_turma
                 SET sequencial_fechamento = $5
                 WHERE matricula_turma.ref_cod_turma = $1
                 AND matricula_turma.ref_cod_matricula = $2
                 AND sequencial_fechamento = $3
                 AND sequencial = $4
-            ";
+            ';
 
             $this->fetchPreparedQuery($sql, $parametros);
         }
@@ -146,7 +146,7 @@ class TurmaController extends ApiCoreController
     protected function ordenaAlunosDaTurmaAlfabetica()
     {
         $codTurma = $this->getRequest()->id;
-        $objMatriculaTurma = new clsPmieducarMatriculaTurma();
+        $objMatriculaTurma = new MatriculaTurma();
         $lstMatriculaTurma = $objMatriculaTurma->lista(null, $codTurma);
 
         foreach ($lstMatriculaTurma as $matricula) {
@@ -276,7 +276,7 @@ class TurmaController extends ApiCoreController
               INNER JOIN pmieducar.matricula m ON m.ref_cod_aluno = a.cod_aluno
               INNER JOIN pmieducar.matricula_turma mt ON m.cod_matricula = mt.ref_cod_matricula
               INNER JOIN pmieducar.turma t ON mt.ref_cod_turma = t.cod_turma
-              INNER JOIN cadastro.pessoa p ON p.idpes = a.ref_idpes
+              INNER JOIN cadastro.Pessoa p ON p.idpes = a.ref_idpes
               WHERE m.ativo = 1
                 AND a.ativo = 1
                 AND t.ativo = 1
@@ -353,7 +353,7 @@ class TurmaController extends ApiCoreController
         $sql = 'SELECT aluno.cod_aluno as id,
                    nota_exame.nota_exame as nota_exame
               from pmieducar.aluno
-             inner join cadastro.pessoa on(aluno.ref_idpes = pessoa.idpes)
+             inner join cadastro.Pessoa on(aluno.ref_idpes = Pessoa.idpes)
              inner join pmieducar.matricula on(aluno.cod_aluno = matricula.ref_cod_aluno)
              inner join pmieducar.matricula_turma on(matricula.cod_matricula = matricula_turma.ref_cod_matricula)
              inner join pmieducar.turma on(matricula_turma.ref_cod_turma = turma.cod_turma)
@@ -370,7 +370,7 @@ class TurmaController extends ApiCoreController
                and (case when $3 = 0 then true else $3 = nota_componente_curricular_media.componente_curricular_id end)
                and nota_componente_curricular_media.situacao = 7';
 
-        $sql .= ' ORDER BY matricula_turma.sequencial_fechamento, translate(upper(pessoa.nome),\'áéíóúýàèìòùãõâêîôûäëïöüÿçÁÉÍÓÚÝÀÈÌÒÙÃÕÂÊÎÔÛÄËÏÖÜÇ\',\'AEIOUYAEIOUAOAEIOUAEIOUYCAEIOUYAEIOUAOAEIOUAEIOUC\')';
+        $sql .= ' ORDER BY matricula_turma.sequencial_fechamento, translate(upper(Pessoa.nome),\'áéíóúýàèìòùãõâêîôûäëïöüÿçÁÉÍÓÚÝÀÈÌÒÙÃÕÂÊÎÔÛÄËÏÖÜÇ\',\'AEIOUYAEIOUAOAEIOUAEIOUYCAEIOUYAEIOUAOAEIOUAEIOUC\')';
 
         $params = [$instituicaoId, $turmaId, $disciplinaId];
         $alunos = $this->fetchPreparedQuery($sql, $params);

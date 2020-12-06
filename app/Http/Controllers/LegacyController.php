@@ -172,7 +172,7 @@ class LegacyController extends Controller
      */
     private function changeDirectory()
     {
-        chdir(base_path('ieducar/intranet'));
+        chdir(base_path('ieducar/Intranet'));
     }
 
     /**
@@ -220,7 +220,7 @@ class LegacyController extends Controller
     }
 
     /**
-     * Load intranet route file and generate a response.
+     * Load Intranet route file and generate a response.
      *
      * @param string $uri
      *
@@ -231,7 +231,7 @@ class LegacyController extends Controller
      */
     public function intranet($uri)
     {
-        return $this->requireFileFromLegacy('intranet/' . $uri);
+        return $this->requireFileFromLegacy('Intranet/' . $uri);
     }
 
     /**

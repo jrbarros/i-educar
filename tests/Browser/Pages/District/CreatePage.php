@@ -14,7 +14,7 @@ class CreatePage extends Page
      */
     public function url()
     {
-        return '/intranet/public_distrito_cad.php';
+        return '/Intranet/public_distrito_cad.php';
     }
 
     /**

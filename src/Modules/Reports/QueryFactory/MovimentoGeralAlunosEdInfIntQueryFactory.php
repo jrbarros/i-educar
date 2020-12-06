@@ -20,7 +20,7 @@ class MovimentoGeralAlunosEdInfIntQueryFactory extends QueryFactory
     protected $query = <<<'SQL'
         select
             m.cod_matricula,
-            pessoa.nome,
+            Pessoa.nome,
             turma.nm_turma
         from
             pmieducar.matricula_turma mt
@@ -34,8 +34,8 @@ class MovimentoGeralAlunosEdInfIntQueryFactory extends QueryFactory
             pmieducar.aluno a
                 on a.cod_aluno = m.ref_cod_aluno
         inner join
-            cadastro.pessoa
-                on pessoa.idpes = a.ref_idpes
+            cadastro.Pessoa
+                on Pessoa.idpes = a.ref_idpes
         where true
             and m.ref_ref_cod_escola = :escola
             and m.ativo = 1
@@ -58,6 +58,6 @@ class MovimentoGeralAlunosEdInfIntQueryFactory extends QueryFactory
             )
             and date(coalesce(mt.data_enturmacao, m.data_matricula, m.data_cadastro)) < :data_inicial::date
         order by
-            pessoa.nome asc
+            Pessoa.nome asc
 SQL;
 }

@@ -2,11 +2,11 @@ filter:
   excluded_paths:
     - 'ieducar/tests/*'
     - 'ieducar/misc/**/*'
-    - 'ieducar/intranet/scripts/jquery'
-    - 'ieducar/intranet/scripts/scriptaculous'
-    - 'ieducar/intranet/scripts/prototype'
-    - 'ieducar/intranet/scripts/select2'
-    - 'ieducar/intranet/scripts/graficos'
+    - 'ieducar/Intranet/scripts/jquery'
+    - 'ieducar/Intranet/scripts/scriptaculous'
+    - 'ieducar/Intranet/scripts/prototype'
+    - 'ieducar/Intranet/scripts/select2'
+    - 'ieducar/Intranet/scripts/graficos'
     - 'ieducar/modules/Portabilis/Assets/Plugins/AjaxChosen/'
     - 'ieducar/modules/Portabilis/Assets/Plugins/Chosen/'
 

@@ -10,7 +10,7 @@ class QueryFactory
 
     protected $defaults = [];
 
-    protected $query = '';
+    protected string $query = '';
 
     protected $params = [];
 

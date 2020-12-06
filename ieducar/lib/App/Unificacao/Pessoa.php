@@ -38,7 +38,7 @@ class App_Unificacao_Pessoa extends App_Unificacao_Base
             'coluna' => 'idpes'
         ],
         [
-            'tabela' => 'cadastro.pessoa',
+            'tabela' => 'cadastro.Pessoa',
             'coluna' => 'idpes'
         ],
         [
@@ -173,11 +173,11 @@ class App_Unificacao_Pessoa extends App_Unificacao_Base
             'coluna' => 'ref_idpes_secretario_escolar'
         ],
         [
-            'tabela' => 'cadastro.pessoa',
+            'tabela' => 'cadastro.Pessoa',
             'coluna' => 'idpes_cad'
         ],
         [
-            'tabela' => 'cadastro.pessoa',
+            'tabela' => 'cadastro.Pessoa',
             'coluna' => 'idpes_rev'
         ],
         [
@@ -232,11 +232,11 @@ class App_Unificacao_Pessoa extends App_Unificacao_Base
         ]
     ];
 
-    public function __construct($codigoUnificador, $codigosDuplicados, $codPessoaLogada, clsBanco $db, $unificationId)
+    public function __construct($codigoUnificador, $codigosDuplicados, $codPessoaLogada, Banco $db, $unificationId)
     {
         parent::__construct($codigoUnificador, $codigosDuplicados, $codPessoaLogada, $db, $unificationId);
 
-        if (is_dir(base_path('ieducar/intranet/filaunica'))) {
+        if (is_dir(base_path('ieducar/Intranet/filaunica'))) {
             $this->chavesManterTodosVinculos[] = [
                 'tabela' => 'pmieducar.responsaveis_aluno',
                 'coluna' => 'ref_idpes'
@@ -293,7 +293,7 @@ class App_Unificacao_Pessoa extends App_Unificacao_Base
         $pessoas = implode(',', (array_merge([$this->codigoUnificador], $this->codigosDuplicados)));
         $numeroAlunos = $this->db->CampoUnico("SELECT count(*) numero_alunos FROM pmieducar.aluno where ref_idpes IN ({$pessoas}) AND ativo = 1 ");
         if ($numeroAlunos > 1) {
-            throw new CoreExt_Exception('Não é permitido unificar mais de uma pessoa vinculada com alunos. Efetue primeiro a unificação de alunos e tente novamente.');
+            throw new CoreExt_Exception('Não é permitido unificar mais de uma Pessoa vinculada com alunos. Efetue primeiro a unificação de alunos e tente novamente.');
         }
     }
 }

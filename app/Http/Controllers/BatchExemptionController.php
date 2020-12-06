@@ -27,7 +27,7 @@ class BatchExemptionController extends Controller
         }
 
         $this->breadcrumb('Dispensa em lote', [
-            url('intranet/educar_configuracoes_index.php') => 'Configurações',
+            url('Intranet/educar_configuracoes_index.php') => 'Configurações',
         ]);
 
         $this->menu(Process::BATCH_EXEMPTION);

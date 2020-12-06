@@ -43,20 +43,20 @@
     @endif
 
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/main.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/styles.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/novo.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/menu.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/font-awesome.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/min-portabilis.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/mytdt.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/jquery.modal.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/custom.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/intranet/styles/flash-messages.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get("/intranet/scripts/select2/select2.min.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/novo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/font-awesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/min-portabilis.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/mytdt.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/jquery.modal.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('/Intranet/styles/flash-messages.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get("/Intranet/scripts/select2/select2.min.css") }}">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
     <link rel="stylesheet" type='text/css' href='{{ Asset::get('css/base.css') }}'>
-    <link rel="stylesheet" type="text/css" href='{{ Asset::get('/intranet/scripts/jquery/jquery-ui.min-1.9.2/css/custom/jquery-ui-1.9.2.custom.min.css') }}'>
+    <link rel="stylesheet" type="text/css" href='{{ Asset::get('/Intranet/scripts/jquery/jquery-ui.min-1.9.2/css/custom/jquery-ui-1.9.2.custom.min.css') }}'>
 
     @stack('styles')
 
@@ -68,20 +68,20 @@
     </script>
 
     <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true" charset="utf-8"></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/padrao.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/novo.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/dom.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/menu.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/ied/forms.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/ied/phpjs.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/jquery/jquery-1.8.3.min.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/jquery/jquery.modal.min.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/prototype/prototype-1.7.1.0.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/scriptaculous/effects.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/jquery.mask.min.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/padrao.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/novo.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/dom.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/menu.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/ied/forms.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/ied/phpjs.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/jquery/jquery-1.8.3.min.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/jquery/jquery.modal.min.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/prototype/prototype-1.7.1.0.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/scriptaculous/effects.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/jquery.mask.min.js") }} "></script>
     <script type='text/javascript' src='{{ Asset::get('/modules/Portabilis/Assets/Javascripts/Frontend/Inputs/SimpleSearch.js') }}'></script>
     <script type='text/javascript' src='{{ Asset::get('/modules/Portabilis/Assets/Javascripts/Utils.js') }}'></script>
-    <script type='text/javascript' src='{{ Asset::get('/intranet/scripts/jquery/jquery-ui.min-1.9.2/js/jquery-ui-1.9.2.custom.min.js') }}'></script>
+    <script type='text/javascript' src='{{ Asset::get('/Intranet/scripts/jquery/jquery-ui.min-1.9.2/js/jquery-ui-1.9.2.custom.min.js') }}'></script>
 
     <script type="text/javascript">
         window.ambiente = 'development';
@@ -167,18 +167,18 @@
                     <div class="dropdown">
                         <div class="dropbtn">{{ $loggedUser->name }}</div>
                         <div class="dropdown-content">
-                            <a href="{{ url('intranet/agenda.php') }}">Agenda</a>
-                            <a href="{{ url('intranet/index.php') }}">Calendário</a>
-                            <a href="{{ url('intranet/meusdados.php') }}">Meus dados</a>
-                            <a href="{{ url('intranet/logof.php') }}" id="logout">Sair</a>
+                            <a href="{{ url('Intranet/agenda.php') }}">Agenda</a>
+                            <a href="{{ url('Intranet/index.php') }}">Calendário</a>
+                            <a href="{{ url('Intranet/meusdados.php') }}">Meus dados</a>
+                            <a href="{{ url('Intranet/logof.php') }}" id="logout">Sair</a>
                         </div>
                     </div>
-                    <a href="{{ url('intranet/meusdados.php') }}" class="avatar" title="Meus dados">
-                        <img height="35" src="{{ url('intranet/imagens/user-perfil.png') }}" alt="Perfil">
+                    <a href="{{ url('Intranet/meusdados.php') }}" class="avatar" title="Meus dados">
+                        <img height="35" src="{{ url('Intranet/imagens/user-perfil.png') }}" alt="Perfil">
                     </a>
                     <div class="dropdown notifications">
                         <div class="dropbtn notifications">
-                            <img alt="Notificação" src="{{ url('intranet/imagens/icon-nav-notifications.png') }}">
+                            <img alt="Notificação" src="{{ url('Intranet/imagens/icon-nav-notifications.png') }}">
                             <span class="notification-balloon"></span>
                         </div>
                         <div class="dropdown-content-notifications">
@@ -297,12 +297,12 @@
     })(jQuery);
 </script>
 
-<script type="text/javascript" src="{{ Asset::get("/intranet/scripts/custom-file-input.js") }}"></script>
-<script type="text/javascript" src="{{ Asset::get("/intranet/scripts/select2/select2.full.min.js") }}"></script>
-<script type="text/javascript" src="{{ Asset::get("/intranet/scripts/select2/pt-BR.js") }}"></script>
-<script type="text/javascript" src="{{ Asset::get("/intranet/scripts/flash-messages.js") }}"></script>
+<script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/custom-file-input.js") }}"></script>
+<script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/select2/select2.full.min.js") }}"></script>
+<script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/select2/pt-BR.js") }}"></script>
+<script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/flash-messages.js") }}"></script>
 <script type="text/javascript" src="{{ Asset::get("/js/app.js") }}"></script>
-<script type="text/javascript" src="{{ Asset::get("/intranet/scripts/notifications.js") }}"></script>
+<script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/notifications.js") }}"></script>
 <script>
     getNotifications();
 

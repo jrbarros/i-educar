@@ -46,9 +46,9 @@ abstract class Core_Controller_Page_EditController extends clsCadastro implement
     protected $_nivelAcessoInsuficiente = null;
 
     /**
-     * @var clsPermissoes
+     * @var Permissoes
      */
-    protected $_clsPermissoes = null;
+    protected $_Permissoes = null;
 
     /**
      * Chama o construtor da superclasse para atribuir $tipoacao do $_POST.
@@ -238,13 +238,13 @@ abstract class Core_Controller_Page_EditController extends clsCadastro implement
     /**
      * Setter.
      *
-     * @param clsPermissoes $instance
+     * @param Permissoes $instance
      *
      * @return Core_Controller_Page_EditController
      */
-    public function setClsPermissoes(clsPermissoes $instance)
+    public function setClsPermissoes(Permissoes $instance)
     {
-        $this->_clsPermissoes = $instance;
+        $this->_Permissoes = $instance;
 
         return $this;
     }
@@ -252,16 +252,16 @@ abstract class Core_Controller_Page_EditController extends clsCadastro implement
     /**
      * Getter.
      *
-     * @return clsPermissoes
+     * @return Permissoes
      */
     public function getClsPermissoes()
     {
-        if (is_null($this->_clsPermissoes)) {
-            require_once 'include/pmieducar/clsPermissoes.inc.php';
-            $this->setClsPermissoes(new clsPermissoes());
+        if (is_null($this->_Permissoes)) {
+            require_once 'include/pmieducar/Permissoes.php';
+            $this->setClsPermissoes(new Permissoes());
         }
 
-        return $this->_clsPermissoes;
+        return $this->_Permissoes;
     }
 
     /**

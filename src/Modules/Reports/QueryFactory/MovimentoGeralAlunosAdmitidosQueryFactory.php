@@ -19,16 +19,16 @@ class MovimentoGeralAlunosAdmitidosQueryFactory extends QueryFactory
     ];
 
     protected $query = <<<'SQL'
-        select 
+        select
             m.cod_matricula,
-            pessoa.nome,
+            Pessoa.nome,
             turma.nm_turma
         from
             pmieducar.matricula m
         inner join pmieducar.aluno
             on aluno.cod_aluno = m.ref_cod_aluno
-        inner join cadastro.pessoa
-            on pessoa.idpes = aluno.ref_idpes
+        inner join cadastro.Pessoa
+            on Pessoa.idpes = aluno.ref_idpes
         inner join pmieducar.matricula_turma mt
             on mt.ref_cod_matricula = m.cod_matricula
         inner join pmieducar.turma
@@ -44,7 +44,7 @@ class MovimentoGeralAlunosAdmitidosQueryFactory extends QueryFactory
                     modules.config_movimento_geral
                 inner join pmieducar.serie
                     on serie.cod_serie = config_movimento_geral.ref_cod_serie
-                where true 
+                where true
                     and (case
                         when :seleciona_curso = 0 then
                             true
@@ -55,6 +55,6 @@ class MovimentoGeralAlunosAdmitidosQueryFactory extends QueryFactory
             and mt.sequencial = 1
             and (coalesce(mt.data_enturmacao, m.data_cadastro) > :data_inicial::date and coalesce(mt.data_enturmacao, m.data_cadastro) < data_final::date)
         order by
-            pessoa.nome asc
+            Pessoa.nome asc
 SQL;
 }

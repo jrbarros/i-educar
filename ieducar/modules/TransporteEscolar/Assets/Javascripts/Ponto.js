@@ -12,14 +12,14 @@ var submitForm = function(event) {
 resourceOptions.handlePost = function(dataResponse) {
 
   if (! dataResponse.any_error_msg)
-    window.setTimeout(function() { document.location = '/intranet/transporte_ponto_det.php?cod_ponto=' + resource.id(); }, 500);
+    window.setTimeout(function() { document.location = '/Intranet/transporte_ponto_det.php?cod_ponto=' + resource.id(); }, 500);
   else
     $submitButton.removeAttr('disabled').val('Gravar');
 }
 
 resourceOptions.handlePut = function(dataResponse) {
   if (! dataResponse.any_error_msg)
-    window.setTimeout(function() { document.location = '/intranet/transporte_ponto_det.php?cod_ponto=' + resource.id(); }, 500);
+    window.setTimeout(function() { document.location = '/Intranet/transporte_ponto_det.php?cod_ponto=' + resource.id(); }, 500);
   else
     $submitButton.removeAttr('disabled').val('Gravar');
 }

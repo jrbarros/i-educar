@@ -14,13 +14,13 @@ class ProcessamentoController extends Portabilis_Controller_Page_ListController
     {
         $pessoa_logada = $this->pessoa_logada;
 
-        $obj_permissao = new clsPermissoes();
-        $obj_permissao->permissao_cadastra(999613, $pessoa_logada, 7, '/intranet/educar_index.php');
+        $obj_permissao = new Permissoes();
+        $obj_permissao->permissao_cadastra(999613, $pessoa_logada, 7, '/Intranet/educar_index.php');
 
         parent::_preRender();
 
         $this->breadcrumb('Processamento de hist&oacute;rico escolar', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 
@@ -243,7 +243,7 @@ class ProcessamentoController extends Portabilis_Controller_Page_ListController
 
     public function getSelectGradeCurso()
     {
-        $db = new clsBanco();
+        $db = new Banco();
         $sql = 'select * from pmieducar.historico_grade_curso where ativo = 1';
         $db->Consulta($sql);
 
@@ -262,7 +262,7 @@ class ProcessamentoController extends Portabilis_Controller_Page_ListController
 
     public function validaControlePosicaoHistorico()
     {
-        $obj = new clsPmieducarInstituicao;
+        $obj = new Instituicao;
 
         $lst = $obj->lista(null, null, null, null, null, null, null, null, null, null, null, null, null, 1);
 

@@ -24,7 +24,7 @@ class LoadSettingsTest extends TestCase
             'type' => Setting::TYPE_STRING,
         ]);
 
-        $request = Request::create('/intranet/index.php');
+        $request = Request::create('/Intranet/index.php');
 
         $middleware = new LoadSettings();
 

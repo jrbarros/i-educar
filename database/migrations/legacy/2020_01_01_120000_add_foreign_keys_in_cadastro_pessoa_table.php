@@ -13,15 +13,15 @@ class AddForeignKeysInCadastroPessoaTable extends Migration
      */
     public function up()
     {
-        Schema::table('cadastro.pessoa', function (Blueprint $table) {
+        Schema::table('cadastro.Pessoa', function (Blueprint $table) {
             $table->foreign('idpes_rev')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes_cad')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
         });
     }
@@ -33,7 +33,7 @@ class AddForeignKeysInCadastroPessoaTable extends Migration
      */
     public function down()
     {
-        Schema::table('cadastro.pessoa', function (Blueprint $table) {
+        Schema::table('cadastro.Pessoa', function (Blueprint $table) {
             $table->dropForeign(['idpes_rev']);
             $table->dropForeign(['idpes_cad']);
         });

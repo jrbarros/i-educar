@@ -25,7 +25,7 @@ class UpdateSchoolClassReportCardController extends Controller
         }
 
         $this->breadcrumb('Atualização de boletins em lote', [
-            url('intranet/educar_configuracoes_index.php') => 'Configurações',
+            url('Intranet/educar_configuracoes_index.php') => 'Configurações',
         ]);
 
         $this->menu(Process::UPDATE_SCHOOL_CLASS_REPORT_CARD);

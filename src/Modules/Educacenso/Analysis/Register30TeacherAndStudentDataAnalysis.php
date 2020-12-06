@@ -34,7 +34,7 @@ class Register30TeacherAndStudentDataAnalysis implements AnalysisInterface
             $this->messages[] = [
                 'text' => "Dados para formular o registro 30 da escola {$data->nomeEscola} não encontrados. Verifique se a zona de residência do(a) aluno(a)/docente {$data->nomePessoa} foi informada.",
                 'path' => '(Pessoas > Cadastros > Pessoas físicas > Editar > Campo: Zona de residência)',
-                'linkPath' => "/intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
+                'linkPath' => "/Intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
                 'fail' => true
             ];
         }
@@ -44,7 +44,7 @@ class Register30TeacherAndStudentDataAnalysis implements AnalysisInterface
             $this->messages[] = [
                 'text' => "Dados para formular o registro 30 da escola {$data->nomeEscola} possui valor inválido. Verificamos que a zona/localização do(a) aluno(a)/docente {$data->nomePessoa} é urbana, portanto a localização diferenciada de residência não pode ser área de assentamento.",
                 'path' => '(Pessoas > Cadastros > Pessoas físicas > Editar > Campo: Localização diferenciada de residência)',
-                'linkPath' => "/intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
+                'linkPath' => "/Intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
                 'fail' => true
             ];
         }

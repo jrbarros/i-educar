@@ -174,7 +174,7 @@ class AnoController extends Core_Controller_Page_EditController
         parent::_preRender();
 
         $this->breadcrumb('Carga horária dos anos escolares', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 

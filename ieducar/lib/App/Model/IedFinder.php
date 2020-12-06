@@ -4,11 +4,10 @@ use App\Models\LegacyDiscipline;
 use App\Models\LegacyDisciplineAcademicYear;
 use App\Models\LegacySchool;
 use App\Models\LegacySchoolClass;
-use App\Models\LegacySchoolingDegree;
 use App\Models\LegacySchoolClassStage;
 use App\Models\LegacySchoolStage;
-use iEducar\Modules\Enrollments\Exceptions\StudentNotEnrolledInSchoolClass;
 use iEducar\Modules\AcademicYear\Exceptions\DisciplineNotLinkedToRegistrationException;
+use iEducar\Modules\Enrollments\Exceptions\StudentNotEnrolledInSchoolClass;
 use iEducar\Modules\EvaluationRules\Exceptions\EvaluationRuleNotDefinedInLevel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -26,9 +25,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getInstituicoes()
     {
         $instituicao = self::addClassToStorage(
-            'clsPmieducarInstituicao',
+            'Instituicao',
             null,
-            'include/pmieducar/clsPmieducarInstituicao.inc.php'
+            'include/pmieducar/Instituicao.php'
         );
 
         $instituicoes = [];
@@ -51,9 +50,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getEscola($id)
     {
         $escola = self::addClassToStorage(
-            'clsPmieducarEscola',
+            'Escola',
             null,
-            'include/pmieducar/clsPmieducarEscola.inc.php'
+            'include/pmieducar/Escola.php'
         );
 
         $escola->cod_escola = $id;
@@ -79,9 +78,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getEscolas($instituicaoId = null)
     {
         $_escolas = self::addClassToStorage(
-            'clsPmieducarEscola',
+            'Escola',
             null,
-            'include/pmieducar/clsPmieducarEscola.inc.php'
+            'include/pmieducar/Escola.php'
         );
 
         $_escolas->setOrderby('nome');
@@ -125,9 +124,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getCurso($id)
     {
         $curso = self::addClassToStorage(
-            'clsPmieducarCurso',
+            'Curso',
             null,
-            'include/pmieducar/clsPmieducarCurso.inc.php'
+            'include/pmieducar/Curso.php'
         );
 
         $curso->cod_curso = $id;
@@ -147,9 +146,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getCursos($escolaId = null)
     {
         $escola_curso = self::addClassToStorage(
-            'clsPmieducarEscolaCurso',
+            'EscolaCurso',
             null,
-            'include/pmieducar/clsPmieducarEscolaCurso.inc.php'
+            'include/pmieducar/EscolaCurso.php'
         );
 
         // Carrega os cursos
@@ -181,11 +180,11 @@ class App_Model_IedFinder extends CoreExt_Entity
      */
     public static function getInstituicao($codInstituicao)
     {
-        // Recupera clsPmieducarInstituicao do storage de classe estático
+        // Recupera Instituicao do storage de classe estático
         $instituicao = self::addClassToStorage(
-            'clsPmieducarInstituicao',
+            'Instituicao',
             null,
-            'include/pmieducar/clsPmieducarInstituicao.inc.php'
+            'include/pmieducar/Instituicao.php'
         );
 
         // Usa o atributo público para depois chamar o método detalhe()
@@ -212,11 +211,11 @@ class App_Model_IedFinder extends CoreExt_Entity
      */
     public static function getSerie($codSerie)
     {
-        // Recupera clsPmieducarSerie do storage de classe estático
+        // Recupera Serie do storage de classe estático
         $serie = self::addClassToStorage(
-            'clsPmieducarSerie',
+            'Serie',
             null,
-            'include/pmieducar/clsPmieducarSerie.inc.php'
+            'include/pmieducar/Serie.php'
         );
 
         // Usa o atributo público para depois chamar o método detalhe()
@@ -246,9 +245,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getSeries($instituicaoId = null, $escolaId = null, $cursoId = null, $ano = null)
     {
         $series = self::addClassToStorage(
-            'clsPmieducarSerie',
+            'Serie',
             null,
-            'include/pmieducar/clsPmieducarSerie.inc.php'
+            'include/pmieducar/Serie.php'
         );
 
         $series->setOrderby(' nm_serie ASC, ref_cod_curso ASC, cod_serie ASC, etapa_curso ASC');
@@ -296,11 +295,11 @@ class App_Model_IedFinder extends CoreExt_Entity
      */
     public static function getTurma($codTurma)
     {
-        // Recupera clsPmieducarTurma do storage de classe estático
+        // Recupera Turma do storage de classe estático
         $turma = self::addClassToStorage(
-            'clsPmieducarTurma',
+            'Turma',
             null,
-            'include/pmieducar/clsPmieducarTurma.inc.php'
+            'include/pmieducar/Turma.php'
         );
 
         // Usa o atributo público para depois chamar o método detalhe()
@@ -329,9 +328,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getTurmas($escolaId, $serieId = null, $ano = null, $ativo = null)
     {
         $turma = self::addClassToStorage(
-            'clsPmieducarTurma',
+            'Turma',
             null,
-            'include/pmieducar/clsPmieducarTurma.inc.php'
+            'include/pmieducar/Turma.php'
         );
 
         // Carrega as turmas da escola
@@ -396,9 +395,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getTurmasEducacenso($escolaId, $ano = null)
     {
         $turma = self::addClassToStorage(
-            'clsPmieducarTurma',
+            'Turma',
             null,
-            'include/pmieducar/clsPmieducarTurma.inc.php'
+            'include/pmieducar/Turma.php'
         );
 
         // Carrega as turmas da escola
@@ -509,9 +508,9 @@ class App_Model_IedFinder extends CoreExt_Entity
 
         $disciplinas = Cache::store('array')->remember("getEscolaSerieDisciplina:{$key}", now()->addMinute(), function () use ($serieId, $escolaId, $disciplinaId, $etapa, $ano) {
             $escolaSerieDisciplina = self::addClassToStorage(
-                'clsPmieducarEscolaSerieDisciplina',
+                'EscolaSerieDisciplina',
                 null,
-                'include/pmieducar/clsPmieducarEscolaSerieDisciplina.inc.php'
+                'include/pmieducar/EscolaSerieDisciplina.php'
             );
 
             $disciplinas = $escolaSerieDisciplina->lista($serieId, $escolaId, $disciplinaId, 1, false, $etapa, $ano);
@@ -600,7 +599,7 @@ class App_Model_IedFinder extends CoreExt_Entity
                 $ano
             );
 
-            foreach($componentesTurma as $key => $componente) {
+            foreach ($componentesTurma as $key => $componente) {
                 if ($componente->id == $disciplinaDispensada) {
                     unset($componentesTurma[$key]);
                 }
@@ -685,6 +684,7 @@ class App_Model_IedFinder extends CoreExt_Entity
                     return $componente->cargaHoraria;
                 }
             }
+
             return null;
         };
 
@@ -776,7 +776,7 @@ class App_Model_IedFinder extends CoreExt_Entity
             FROM pmieducar.matricula m
             JOIN pmieducar.aluno a
             ON a.cod_aluno = m.ref_cod_aluno
-            JOIN cadastro.pessoa p
+            JOIN cadastro.Pessoa p
             ON p.idpes = a.ref_idpes
             JOIN pmieducar.escola e
             ON m.ref_ref_cod_escola = e.cod_escola
@@ -1033,9 +1033,9 @@ class App_Model_IedFinder extends CoreExt_Entity
 
         $dispensas = Cache::store('array')->remember("getDisciplinasDispensadasPorMatricula:{$key}", now()->addMinute(), function () use ($codMatricula, $codSerie, $codEscola, $etapa, $ignorarDispensasParciais) {
             $dispensas = self::addClassToStorage(
-                'clsPmieducarDispensaDisciplina',
+                'DispensaDisciplina',
                 null,
-                'include/pmieducar/clsPmieducarDispensaDisciplina.inc.php'
+                'include/pmieducar/DispensaDisciplina.php'
             );
 
             $dispensas = $dispensas->disciplinaDispensadaEtapa($codMatricula, $codSerie, $codEscola, $etapa, $ignorarDispensasParciais);
@@ -1084,9 +1084,9 @@ class App_Model_IedFinder extends CoreExt_Entity
         $disciplina
     ) {
         $dispensas = self::addClassToStorage(
-            'clsPmieducarDispensaDisciplina',
+            'DispensaDisciplina',
             null,
-            'include/pmieducar/clsPmieducarDispensaDisciplina.inc.php'
+            'include/pmieducar/DispensaDisciplina.php'
         );
 
         $dispensas = $dispensas->disciplinaDispensadaEtapa($codMatricula, $codSerie, $codEscola);
@@ -1125,9 +1125,9 @@ class App_Model_IedFinder extends CoreExt_Entity
 
         $disciplinas = Cache::store('array')->remember("getDisciplinasDependenciaPorMatricula:{$key}", now()->addMinute(), function () use ($codMatricula, $codSerie, $codEscola) {
             $disciplinas = self::addClassToStorage(
-                'clsPmieducarDisciplinaDependencia',
+                'DisciplinaDependencia',
                 null,
-                'include/pmieducar/clsPmieducarDisciplinaDependencia.inc.php'
+                'include/pmieducar/DisciplinaDependencia.php'
             );
 
             $disciplinas = $disciplinas->lista($codMatricula, $codSerie, $codEscola);
@@ -1200,9 +1200,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getBiblioteca($id)
     {
         $biblioteca = self::addClassToStorage(
-            'clsPmieducarBiblioteca',
+            'Biblioteca',
             null,
-            'include/pmieducar/clsPmieducarBiblioteca.inc.php'
+            'include/pmieducar/Biblioteca.php'
         );
 
         $biblioteca->cod_biblioteca = $id;
@@ -1228,9 +1228,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getBibliotecas($instituicaoId = null, $escolaId = null)
     {
         $_bibliotecas = self::addClassToStorage(
-            'clsPmieducarBiblioteca',
+            'Biblioteca',
             null,
-            'include/pmieducar/clsPmieducarBiblioteca.inc.php'
+            'include/pmieducar/Biblioteca.php'
         );
 
         $bibliotecas = [];
@@ -1253,9 +1253,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getBibliotecaSituacoes($bibliotecaId = null)
     {
         $_situacoes = self::addClassToStorage(
-            'clsPmieducarSituacao',
+            'Situacao',
             null,
-            'include/pmieducar/clsPmieducarSituacao.inc.php'
+            'include/pmieducar/Situacao.php'
         );
 
         $situacoes = [];
@@ -1278,9 +1278,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getBibliotecaFontes($bibliotecaId = null)
     {
         $_fontes = self::addClassToStorage(
-            'clsPmieducarFonte',
+            'Fonte',
             null,
-            'include/pmieducar/clsPmieducarFonte.inc.php'
+            'include/pmieducar/Fonte.php'
         );
 
         $fontes = [];
@@ -1307,7 +1307,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $obra = self::addClassToStorage(
             'clsPmieducarAcervo',
             null,
-            'include/pmieducar/clsPmieducarAcervo.inc.php'
+            'include/pmieducar/Acervo.php'
         );
 
         $obra->ref_cod_biblioteca = $$bibliotecaId;
@@ -1336,9 +1336,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getAluno($escolaId, $id)
     {
         $aluno = self::addClassToStorage(
-            'clsPmieducarAluno',
+            'Aluno',
             null,
-            'include/pmieducar/clsPmieducarAluno.inc.php'
+            'include/pmieducar/Aluno.php'
         );
 
         $aluno = $aluno->lista($id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, $escolaId);
@@ -1363,9 +1363,9 @@ class App_Model_IedFinder extends CoreExt_Entity
     public static function getBibliotecaTiposCliente($bibliotecaId)
     {
         $resources = self::addClassToStorage(
-            'clsPmieducarClienteTipo',
+            'ClienteTipo',
             null,
-            'include/pmieducar/clsPmieducarClienteTipo.inc.php'
+            'include/pmieducar/ClienteTipo.php'
         );
 
         $filtered_resources = [];
@@ -1444,7 +1444,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $etapas = self::addClassToStorage(
             'clsPmieducarAnoLetivoModulo',
             null,
-            'include/pmieducar/clsPmieducarAnoLetivoModulo.inc.php'
+            'include/pmieducar/AnoLetivoModulo.php'
         );
 
         $etapas->ref_ano = $ano;
@@ -1663,7 +1663,7 @@ class App_Model_IedFinder extends CoreExt_Entity
 
     public static function usuarioNivelBibliotecaEscolar($codUsuario)
     {
-        $permissao = new clsPermissoes();
+        $permissao = new Permissoes();
         $nivel = $permissao->nivel_acesso($codUsuario);
 
         if ($nivel == App_Model_NivelTipoUsuario::ESCOLA ||

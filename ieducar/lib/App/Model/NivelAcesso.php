@@ -6,7 +6,7 @@ require_once 'CoreExt/Enum.php';
  * App_Model_NivelAcesso class.
  *
  * Define os valores inteiros usados nas comparações das verificações de
- * acesso da classe clsPermissoes.
+ * acesso da classe Permissoes.
  *
  * Esses valores são verificados com o uso do operador binário &, resultando
  * na seguinte tabela verdade:

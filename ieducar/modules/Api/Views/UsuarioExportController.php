@@ -1,8 +1,8 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'intranet/include/clsBanco.inc.php';
-require_once 'intranet/include/clsBase.inc.php';
+require_once 'Intranet/include/Banco.inc.php';
+require_once 'Intranet/include/Base.php';
 
 class UsuarioExportController extends ApiCoreController
 {
@@ -12,7 +12,7 @@ class UsuarioExportController extends ApiCoreController
         $escola = $this->getRequest()->escola;
         $status = $this->getRequest()->status;
         $tipoUser = $this->getRequest()->tipoUsuario;
-        $getUsers = new clsPmieducarUsuario();
+        $getUsers = new Usuario();
         $getUsers->setOrderby('nome ASC');
 
         $lstUsers = $getUsers->listaExportacao(

@@ -43,16 +43,16 @@
         <!-- End Google Tag Manager -->
     @endif
 
-    <link rel=stylesheet type='text/css' href='{{ Asset::get('/intranet/styles/main.css') }}'/>
-    <link rel=stylesheet type='text/css' href='{{ Asset::get('/intranet/styles/styles.css') }}'/>
-    <link rel=stylesheet type='text/css' href='{{ Asset::get('/intranet/styles/novo.css') }}'/>
-    <link rel=stylesheet type='text/css' href='{{ Asset::get('/intranet/styles/menu.css') }}'/>
-    <link rel=stylesheet type='text/css' href='{{ Asset::get('/intranet/styles/font-awesome.css') }}'/>
+    <link rel=stylesheet type='text/css' href='{{ Asset::get('/Intranet/styles/main.css') }}'/>
+    <link rel=stylesheet type='text/css' href='{{ Asset::get('/Intranet/styles/styles.css') }}'/>
+    <link rel=stylesheet type='text/css' href='{{ Asset::get('/Intranet/styles/novo.css') }}'/>
+    <link rel=stylesheet type='text/css' href='{{ Asset::get('/Intranet/styles/menu.css') }}'/>
+    <link rel=stylesheet type='text/css' href='{{ Asset::get('/Intranet/styles/font-awesome.css') }}'/>
 <!--link rel=stylesheet type='text/css' href='{{ Asset::get('styles/reset.css') }}'/>
     <link rel=stylesheet type='text/css' href='{{ Asset::get('styles/portabilis.css') }}' /-->
-    <link rel=stylesheet type='text/css' href='{{ Asset::get('/intranet/styles/min-portabilis.css') }}'/>
-    <link rel=stylesheet type='text/css' href='{{ Asset::get('/intranet/styles/mytdt.css') }}'/>
-    <link rel=stylesheet type='text/css' href='{{ Asset::get('/intranet/styles/jquery.modal.css') }}'/>
+    <link rel=stylesheet type='text/css' href='{{ Asset::get('/Intranet/styles/min-portabilis.css') }}'/>
+    <link rel=stylesheet type='text/css' href='{{ Asset::get('/Intranet/styles/mytdt.css') }}'/>
+    <link rel=stylesheet type='text/css' href='{{ Asset::get('/Intranet/styles/jquery.modal.css') }}'/>
     <script src="https://maps.google.com/maps/api/js?sensor=true" type="text/javascript" charset="utf-8"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
@@ -61,20 +61,20 @@
             r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2")
         })(document, window, 0);</script>
 
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/padrao.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/novo.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/dom.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/menu.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/ied/forms.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/ied/phpjs.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/padrao.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/novo.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/dom.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/menu.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/ied/forms.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/ied/phpjs.js") }} "></script>
 
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/jquery/jquery-1.8.3.min.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/jquery/jquery.modal.min.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/prototype/prototype-1.7.1.0.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/scriptaculous/effects.js") }} "></script>
-    <script type="text/javascript" src="{{ Asset::get("/intranet/scripts/jquery.mask.min.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/jquery/jquery-1.8.3.min.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/jquery/jquery.modal.min.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/prototype/prototype-1.7.1.0.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/scriptaculous/effects.js") }} "></script>
+    <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/jquery.mask.min.js") }} "></script>
 
-    <link rel=stylesheet type='text/css' href='{{ Asset::get('/intranet/styles/custom.css') }}'/>
+    <link rel=stylesheet type='text/css' href='{{ Asset::get('/Intranet/styles/custom.css') }}'/>
 </head>
 <body>
 
@@ -97,7 +97,7 @@
         });
     })(jQuery);</script>
 
-<script src="{{ Asset::get("/intranet/scripts/custom-file-input.js") }}"></script>
-<script type="text/javascript" src="{{ Asset::get("/intranet/scripts/select2/select2.full.min.js") }}"></script>
-<script type="text/javascript" src="{{ Asset::get("/intranet/scripts/select2/pt-BR.js") }}"></script>
-<link type="text/css" rel="stylesheet" href="{{ Asset::get("/intranet/scripts/select2/select2.min.css") }}"/>
+<script src="{{ Asset::get("/Intranet/scripts/custom-file-input.js") }}"></script>
+<script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/select2/select2.full.min.js") }}"></script>
+<script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/select2/pt-BR.js") }}"></script>
+<link type="text/css" rel="stylesheet" href="{{ Asset::get("/Intranet/scripts/select2/select2.min.css") }}"/>

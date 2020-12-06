@@ -18,7 +18,7 @@ class SettingController extends Controller
     public function index(Request $request)
     {
         $this->breadcrumb('Configurações de sistema', [
-            url('intranet/educar_configuracoes_index.php') => 'Configurações',
+            url('Intranet/educar_configuracoes_index.php') => 'Configurações',
         ]);
 
         $this->menu(Process::SETTINGS);

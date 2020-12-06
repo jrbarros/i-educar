@@ -16,12 +16,12 @@ class AddForeignKeysInCadastroDocumentoTable extends Migration
         Schema::table('cadastro.documento', function (Blueprint $table) {
             $table->foreign('idpes_rev')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes_cad')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idorg_exp_rg')

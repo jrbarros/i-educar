@@ -29,7 +29,7 @@
  * @version     $Id$
  */
 
-require_once 'include/pmieducar/clsPmieducarServidorAlocacao.inc.php';
+require_once 'include/pmieducar/ServidorAlocacao.php';
 
 /**
  * ClsPmieducarServidorAlocacaoTest class.
@@ -49,7 +49,7 @@ class ClsPmieducarServidorAlocacaoTest extends PHPUnit\Framework\TestCase
    */
   public function testSubstituirServidor()
   {
-    $stub = $this->getMockBuilder('clsPmieducarServidorAlocacao')->getMock();
+    $stub = $this->getMockBuilder('ServidorAlocacao')->getMock();
 
     $stub->expects($this->any())
          ->method('substituir_servidor')

@@ -14,7 +14,7 @@ class ListingPage extends Page
      */
     public function url()
     {
-        return '/intranet/public_uf_lst.php';
+        return '/Intranet/public_uf_lst.php';
     }
 
     /**

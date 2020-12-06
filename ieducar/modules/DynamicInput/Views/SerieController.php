@@ -5,7 +5,6 @@ require_once 'Portabilis/Business/Professor.php';
 
 class SerieController extends ApiCoreController
 {
-
     protected function canGetSeries()
     {
         return $this->validatesId('instituicao') &&
@@ -33,13 +32,13 @@ class SerieController extends ApiCoreController
                 $resources = App_Model_IedFinder::getSeries($instituicaoId = null, null, $cursoId, $ano);
             }
 
-            $options = array();
+            $options = [];
 
             foreach ($resources as $serieId => $serie) {
                 $options['__' . $serieId] = $this->toUtf8($serie);
             }
 
-            return array('options' => $options);
+            return ['options' => $options];
         }
     }
 
@@ -50,6 +49,5 @@ class SerieController extends ApiCoreController
         } else {
             $this->notImplementedOperationError();
         }
-
     }
 }

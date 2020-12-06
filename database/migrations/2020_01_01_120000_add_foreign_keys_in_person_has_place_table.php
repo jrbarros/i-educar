@@ -14,7 +14,7 @@ class AddForeignKeysInPersonHasPlaceTable extends Migration
     public function up()
     {
         Schema::table('public.person_has_place', function (Blueprint $table) {
-            $table->foreign('person_id')->on('cadastro.pessoa')->references('idpes');
+            $table->foreign('person_id')->on('cadastro.Pessoa')->references('idpes');
             $table->foreign('place_id')->on('public.places')->references('id');
         });
     }

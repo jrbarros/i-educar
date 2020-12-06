@@ -29,7 +29,7 @@ class ImportController extends Controller
 
             $importFileService->handleFile($file);
         } catch (ImportException $exception) {
-            return redirect('/intranet/educar_importacao_educacenso.php')->with('error', $exception->getMessage());
+            return redirect('/Intranet/educar_importacao_educacenso.php')->with('error', $exception->getMessage());
         }
 
         return redirect()->route('educacenso.history');
@@ -42,7 +42,7 @@ class ImportController extends Controller
     public function index(Request $request)
     {
         $this->breadcrumb('Historico de importações', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
         $this->menu(Process::EDUCACENSO_IMPORT_HISTORY);

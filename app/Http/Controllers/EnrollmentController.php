@@ -29,7 +29,7 @@ class EnrollmentController extends Controller
         EnrollmentService $enrollmentService
     ) {
         $this->breadcrumb('Enturmar matrícula', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
         $this->menu(578);
@@ -77,7 +77,7 @@ class EnrollmentController extends Controller
 
         if ($request->input('is_cancellation')) {
             DB::commit();
-            return redirect('/intranet/educar_matricula_det.php?cod_matricula=' . $registration->id)->with('success', 'Enturmação feita com sucesso.');
+            return redirect('/Intranet/educar_matricula_det.php?cod_matricula=' . $registration->id)->with('success', 'Enturmação feita com sucesso.');
         }
 
         $previousEnrollment = $enrollmentService->getPreviousEnrollmentAccordingToRelocationDate($registration);
@@ -98,6 +98,6 @@ class EnrollmentController extends Controller
 
         DB::commit();
 
-        return redirect('/intranet/educar_matricula_det.php?cod_matricula=' . $registration->id)->with('success', 'Enturmação feita com sucesso.');
+        return redirect('/Intranet/educar_matricula_det.php?cod_matricula=' . $registration->id)->with('success', 'Enturmação feita com sucesso.');
     }
 }

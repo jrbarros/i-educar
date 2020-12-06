@@ -78,7 +78,7 @@ class Register30StudentDataAnalysis implements AnalysisInterface
             $this->messages[] = [
                 'text' => "Dados para formular o registro 30 da escola {$data->nomeEscola} possui valor inválido. Verifique se a certidão de nascimento (nova) do(a) aluno(a) {$data->nomePessoa} foi preenchida corretamente.",
                 'path' => '(Pessoas > Cadastros > Pessoas físicas > Editar > Campo: Tipo certidão civil (novo formato))',
-                'linkPath' => "/intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
+                'linkPath' => "/Intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
                 'fail' => true
             ];
         }
@@ -87,7 +87,7 @@ class Register30StudentDataAnalysis implements AnalysisInterface
             $this->messages[] = [
                 'text' => "Dados para formular o registro 30 da escola {$data->nomeEscola} possui valor inválido. Verifique se a certidão de nascimento (nova) do(a) aluno(a) {$data->nomePessoa} possui 32 dígitos.",
                 'path' => '(Pessoas > Cadastros > Pessoas físicas > Editar > Campo: Tipo certidão civil (novo formato))',
-                'linkPath' => "/intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
+                'linkPath' => "/Intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
                 'fail' => true
             ];
         }
@@ -96,7 +96,7 @@ class Register30StudentDataAnalysis implements AnalysisInterface
             $this->messages[] = [
                 'text' => "Dados para formular o registro 30 da escola {$data->nomeEscola} possui valor inválido. Verificamos que o ano de registro da certidão de nascimento (nova) do(a) aluno(a) {$data->nomePessoa}, é anterior ao ano do nascimento ou posterior ao ano corrente (Posições de 11 a 14 do número da certidão).",
                 'path' => '(Pessoas > Cadastros > Pessoas físicas > Editar > Campo: Tipo certidão civil (novo formato))',
-                'linkPath' => "/intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
+                'linkPath' => "/Intranet/atendidos_cad.php?cod_pessoa_fj={$data->codigoPessoa}",
                 'fail' => true
             ];
         }

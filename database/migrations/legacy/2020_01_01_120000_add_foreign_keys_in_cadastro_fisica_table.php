@@ -16,37 +16,37 @@ class AddForeignKeysInCadastroFisicaTable extends Migration
         Schema::table('cadastro.fisica', function (Blueprint $table) {
             $table->foreign('idpes_rev')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes_cad')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes_responsavel')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes_pai')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes_mae')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes_con')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('restrict');
 
             $table->foreign('idocup')

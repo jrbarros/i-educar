@@ -23,6 +23,6 @@ class DefaultDataCadastroPessoa extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE cadastro.pessoa CASCADE;');
+        DB::raw('TRUNCATE cadastro.Pessoa CASCADE;');
     }
 }

@@ -9,7 +9,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchAssuntos extends Porta
     protected function getOptions($resources)
     {
         if (empty($resources)) {
-            $resources = new clsPmieducarAcervoAssunto();
+            $resources = new AcervoAssunto();
             $resources = $resources->lista();
             $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'cod_acervo_assunto', 'nm_assunto');
         }

@@ -32,10 +32,10 @@ class UpdatePage extends Page
     public function url($onlyPath = false)
     {
         if ($onlyPath) {
-            return '/intranet/public_municipio_cad.php';
+            return '/Intranet/public_municipio_cad.php';
         }
 
-        return '/intranet/public_municipio_cad.php?idmun=' . $this->cityId;
+        return '/Intranet/public_municipio_cad.php?idmun=' . $this->cityId;
     }
 
     /**

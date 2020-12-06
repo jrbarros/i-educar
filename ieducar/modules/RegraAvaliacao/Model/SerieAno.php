@@ -13,7 +13,7 @@ class RegraAvaliacao_Model_SerieAno extends CoreExt_Entity
     ];
     public function getDefaultValidatorCollection()
     {
-        return array();
+        return [];
     }
 
     // Override para Entity não forçar a coluna id no attributo $_data

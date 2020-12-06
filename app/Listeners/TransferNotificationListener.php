@@ -45,7 +45,7 @@ class TransferNotificationListener
             $registration->ano
         );
 
-        $link = '/intranet/educar_matricula_det.php?cod_matricula=' . $registration->getKey();
+        $link = '/Intranet/educar_matricula_det.php?cod_matricula=' . $registration->getKey();
 
         $users = $this->getUsers(Process::NOTIFY_TRANSFER, $registration->school->getKey());
 

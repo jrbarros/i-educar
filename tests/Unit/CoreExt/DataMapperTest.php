@@ -6,7 +6,7 @@ require_once __DIR__ . '/_stub/EntityCompoundDataMapper.php';
 class CoreExt_DataMapperTest extends UnitBaseTest
 {
     /**
-     * Mock de clsBanco.
+     * Mock de Banco.
      *
      * @var PHPUnit_Framework_MockObject_MockObject
      */
@@ -150,7 +150,7 @@ class CoreExt_DataMapperTest extends UnitBaseTest
     public function testRecuperaRegistroUnicoComChaveComposta()
     {
         $expectedOptions = [
-            'pessoa' => 1,
+            'Pessoa' => 1,
             'curso' => 1,
             'confirmado' => true
         ];
@@ -175,7 +175,7 @@ class CoreExt_DataMapperTest extends UnitBaseTest
     public function testRecuperaRegistroUnicoComChaveCompostaIdentificandoApenasUmaDasChaves()
     {
         $expectedOptions = [
-            'pessoa' => 1,
+            'Pessoa' => 1,
             'curso' => 1,
             'confirmado' => true
         ];
@@ -192,7 +192,7 @@ class CoreExt_DataMapperTest extends UnitBaseTest
             ->will($this->returnValue($expectedOptions));
 
         $mapper = new CoreExt_EntityCompoundDataMapperStub($this->_db);
-        $found = $mapper->find(['pessoa' => 1]);
+        $found = $mapper->find(['Pessoa' => 1]);
 
         $this->assertEquals($expected, $found);
     }

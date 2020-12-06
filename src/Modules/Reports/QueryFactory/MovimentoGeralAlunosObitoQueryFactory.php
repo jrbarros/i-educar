@@ -21,7 +21,7 @@ class MovimentoGeralAlunosObitoQueryFactory extends QueryFactory
     protected $query = <<<'SQL'
         select
             m.cod_matricula,
-            pessoa.nome,
+            Pessoa.nome,
             turma.nm_turma
         from
             pmieducar.matricula m
@@ -32,8 +32,8 @@ class MovimentoGeralAlunosObitoQueryFactory extends QueryFactory
             pmieducar.aluno
                 on aluno.cod_aluno = m.ref_cod_aluno
         inner join
-            cadastro.pessoa
-                on pessoa.idpes = aluno.ref_idpes
+            cadastro.Pessoa
+                on Pessoa.idpes = aluno.ref_idpes
         inner join
             pmieducar.turma
                 on turma.cod_turma = mt.ref_cod_turma
@@ -55,6 +55,6 @@ class MovimentoGeralAlunosObitoQueryFactory extends QueryFactory
             and m.aprovado = 15
             and coalesce(mt.data_exclusao, m.data_cancel) between :data_inicial::date and :data_final::date
         order by
-            pessoa.nome asc
+            Pessoa.nome asc
 SQL;
 }

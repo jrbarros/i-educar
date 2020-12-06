@@ -17,7 +17,7 @@ class EnrollmentHistoryController extends Controller
     public function show($id)
     {
         $this->breadcrumb('Histórico de enturmações da matrícula', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
         $this->menu(578);

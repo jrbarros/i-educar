@@ -18,17 +18,17 @@ var $pessoaNotice = $resourceNotice.clone()
 
 resourceOptions.handlePost = function(dataResponse) {
   $nomeField.attr('disabled', 'disabled');
-  $j('.pessoa-links .cadastrar-pessoa').hide();
+  $j('.Pessoa-links .cadastrar-Pessoa').hide();
 
   if (! dataResponse.any_error_msg)
-    window.setTimeout(function() { document.location = '/intranet/transporte_veiculo_det.php?cod_veiculo=' + resource.id(); }, 500);
+    window.setTimeout(function() { document.location = '/Intranet/transporte_veiculo_det.php?cod_veiculo=' + resource.id(); }, 500);
   else
     $submitButton.removeAttr('disabled').val('Gravar');
 }
 
 resourceOptions.handlePut = function(dataResponse) {
   if (! dataResponse.any_error_msg)
-    window.setTimeout(function() { document.location = '/intranet/transporte_veiculo_det.php?cod_veiculo=' + resource.id(); }, 500);
+    window.setTimeout(function() { document.location = '/Intranet/transporte_veiculo_det.php?cod_veiculo=' + resource.id(); }, 500);
   else
     $submitButton.removeAttr('disabled').val('Gravar');
 }
@@ -44,26 +44,26 @@ resourceOptions.handleGet = function(dataResponse) {
 
   $idField.val(dataResponse.id);
   $j('#descricao').val(dataResponse.descricao);
-  $j('#placa').val(dataResponse.placa);  
-  $j('#renavam').val(dataResponse.renavam);  
-  $j('#chassi').val(dataResponse.chassi);  
-  $j('#marca').val(dataResponse.marca);  
-  $j('#ano_fabricacao').val(dataResponse.ano_fabricacao);  
-  $j('#ano_modelo').val(dataResponse.ano_modelo);  
-  $j('#passageiros').val(dataResponse.passageiros);  
-  $j('#malha').val(dataResponse.malha);  
-  $j('#tipo').val(dataResponse.tipo);  
+  $j('#placa').val(dataResponse.placa);
+  $j('#renavam').val(dataResponse.renavam);
+  $j('#chassi').val(dataResponse.chassi);
+  $j('#marca').val(dataResponse.marca);
+  $j('#ano_fabricacao').val(dataResponse.ano_fabricacao);
+  $j('#ano_modelo').val(dataResponse.ano_modelo);
+  $j('#passageiros').val(dataResponse.passageiros);
+  $j('#malha').val(dataResponse.malha);
+  $j('#tipo').val(dataResponse.tipo);
   if (dataResponse.exclusivo_transporte_escolar == 'S'){
-    $j('#exclusivo_transporte_escolar').attr('checked',true);  
-    $j('#exclusivo_transporte_escolar').val('on');  
+    $j('#exclusivo_transporte_escolar').attr('checked',true);
+    $j('#exclusivo_transporte_escolar').val('on');
   }
   if (dataResponse.adaptado_necessidades_especiais == 'S'){
-    $j('#adaptado_necessidades_especiais').attr('checked',true);  
-    $j('#adaptado_necessidades_especiais').val('on');   
+    $j('#adaptado_necessidades_especiais').attr('checked',true);
+    $j('#adaptado_necessidades_especiais').val('on');
   }
 
   if (dataResponse.ativo == 'N'){
-    $j('#ativo').attr('checked',false);  
+    $j('#ativo').attr('checked',false);
     $j('#ativo').val('');
     $j('#descricao_inativo').closest('tr').show();
   }else{
@@ -71,14 +71,14 @@ resourceOptions.handleGet = function(dataResponse) {
   }
 
   if (dataResponse.motorista){
-    $j('#motorista_motorista').val(dataResponse.motorista+' - '+dataResponse.motoristaNome);  
-    $j('#motorista_id').val(dataResponse.motorista);  
+    $j('#motorista_motorista').val(dataResponse.motorista+' - '+dataResponse.motoristaNome);
+    $j('#motorista_id').val(dataResponse.motorista);
   }
 
-  $j('#descricao_inativo').val(dataResponse.descricao_inativo);  
-  $j('#empresa_empresa').val(dataResponse.empresa+' - '+dataResponse.empresaNome);  
+  $j('#descricao_inativo').val(dataResponse.descricao_inativo);
+  $j('#empresa_empresa').val(dataResponse.empresa+' - '+dataResponse.empresaNome);
   $j('#empresa_id').val(dataResponse.empresa);
-  $j('#observacao').val(dataResponse.observacao);  
+  $j('#observacao').val(dataResponse.observacao);
 
 };
 
@@ -88,11 +88,11 @@ var handleGetPersonDetails = function(dataResponse) {
 
   var alunoId = dataResponse.aluno_id;
 
-    $j('.pessoa-links .editar-pessoa').attr('href', '/intranet/atendidos_cad.php?cod_pessoa_fj=' + dataResponse.id)
+    $j('.Pessoa-links .editar-Pessoa').attr('href', '/Intranet/atendidos_cad.php?cod_pessoa_fj=' + dataResponse.id)
                                       .show().css('display', 'inline');
 
     $submitButton.removeAttr('disabled').show();
-  
+
 
   $j('#pessoa_id').val(dataResponse.id);
   $nomeField.val(dataResponse.id + ' - ' + dataResponse.nome);
@@ -106,7 +106,7 @@ var getPersonDetails = function(personId) {
   };
 
   var options = {
-    url      : getResourceUrlBuilder.buildUrl('/module/Api/pessoa', 'pessoa', additionalVars),
+    url      : getResourceUrlBuilder.buildUrl('/module/Api/Pessoa', 'Pessoa', additionalVars),
     dataType : 'json',
     data     : {},
     success  : handleGetPersonDetails
@@ -124,7 +124,7 @@ var updatePersonDetails = function() {
 
 var clearPersonDetails = function() {
   $j('#pessoa_id').val('');
-  $j('.pessoa-links .editar-pessoa').hide();
+  $j('.Pessoa-links .editar-Pessoa').hide();
 }
 
 // simple search options
@@ -158,29 +158,29 @@ function afterChangePessoa(targetWindow, pessoaId) {
 (function($) {
   $(document).ready(function() {
 
-    // pessoa
+    // Pessoa
     var $pessoaActionBar  = $j('<span>').html('')
-                                        .addClass('pessoa-links')
+                                        .addClass('Pessoa-links')
                                         .width($nomeField.outerWidth() - 12)
                                         .appendTo($nomeField.parent());
 
     $j('<a>').hide()
-             .addClass('cadastrar-pessoa decorated')
-             .attr('href', '/intranet/atendidos_cad.php')
+             .addClass('cadastrar-Pessoa decorated')
+             .attr('href', '/Intranet/atendidos_cad.php')
              .attr('target', '_blank')
-             .html('Cadastrar pessoa')
+             .html('Cadastrar Pessoa')
              .appendTo($pessoaActionBar);
 
     $j('<a>').hide()
-             .addClass('editar-pessoa decorated')
+             .addClass('editar-Pessoa decorated')
              .attr('href', '#')
              .attr('target', '_blank')
-             .html('Editar pessoa')
+             .html('Editar Pessoa')
              .appendTo($pessoaActionBar);
 
     if (resource.isNew()) {
       $nomeField.focus();
-      $j('.pessoa-links .cadastrar-pessoa').show().css('display', 'inline');
+      $j('.Pessoa-links .cadastrar-Pessoa').show().css('display', 'inline');
     }
     else
       $nomeField.attr('disabled', 'disabled');

@@ -17,16 +17,16 @@ CREATE OR REPLACE FUNCTION cadastro.fcn_aft_documento_provisorio() RETURNS trigg
 
       v_verificacao_provisorio:= 0;
 
-      -- verificar se a situação do cadastro da pessoa é provisório
+      -- verificar se a situação do cadastro da Pessoa é provisório
       FOR v_registro IN SELECT situacao FROM cadastro.pessoa WHERE idpes=v_idpes LOOP
         IF v_registro.situacao = 'P' THEN
           v_verificacao_provisorio := 1;
         END IF;
       END LOOP;
 
-      -- Verificação para atualizar ou não a situação do cadastro da pessoa para Ativo
+      -- Verificação para atualizar ou não a situação do cadastro da Pessoa para Ativo
       IF LENGTH(v_uf_expedicao) > 0 AND v_rg != '' AND v_rg != '-1' AND v_verificacao_provisorio = 1 THEN
-        EXECUTE 'UPDATE cadastro.pessoa SET situacao='||quote_literal('A')||'WHERE idpes='||quote_literal(v_idpes)||';';
+        EXECUTE 'UPDATE cadastro.Pessoa SET situacao='||quote_literal('A')||'WHERE idpes='||quote_literal(v_idpes)||';';
       END IF;
     RETURN NEW;
   END; $$;

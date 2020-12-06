@@ -57,13 +57,13 @@
     },
     "autoload": {
         "classmap": [
-            "database/seeds",
-            "database/factories",
-            "ieducar/intranet/include",
-            "ieducar/lib"
+          "database/seeds",
+          "database/factories",
+          "ieducar/Intranet/include",
+          "ieducar/lib"
         ],
         "files": [
-            "ieducar/intranet/include/funcoes.inc.php"
+          "ieducar/Intranet/include/funcoes.php"
         ],
         "psr-4": {
             "App\\": "app/",
@@ -81,7 +81,7 @@
     },
     "include-path": [
         "ieducar",
-        "ieducar/intranet",
+      "ieducar/Intranet",
         "ieducar/lib",
         "ieducar/modules"
     ],

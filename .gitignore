@@ -47,8 +47,8 @@ yarn-error.log
 Vagrantfile
 deploy/.ruby-version
 ieducar/modules/Reports
-ieducar/intranet/filaunica
-ieducar/intranet/reservavaga
+ieducar/Intranet/filaunica
+ieducar/Intranet/reservavaga
 
 
 # Docusauros

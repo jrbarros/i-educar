@@ -46,7 +46,7 @@ class AddForeignKeysInPmieducarServidorTable extends Migration
 
             $table->foreign('cod_servidor')
                ->references('idpes')
-               ->on('cadastro.pessoa');
+               ->on('cadastro.Pessoa');
 
             $table->foreign('codigo_curso_superior_3')
                ->references('id')

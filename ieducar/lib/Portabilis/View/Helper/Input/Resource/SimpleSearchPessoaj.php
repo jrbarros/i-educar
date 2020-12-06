@@ -7,7 +7,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchPessoaj extends Portabil
     protected function resourceValue($id)
     {
         if ($id) {
-            $sql = 'select nome from cadastro.pessoa where idpes = $1 and tipo=\'J\'';
+            $sql = 'select nome from cadastro.Pessoa where idpes = $1 and tipo=\'J\'';
             $options = ['params' => $id, 'return_only' => 'first-field'];
             $nome = Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
 
@@ -30,6 +30,6 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchPessoaj extends Portabil
 
     protected function inputPlaceholder($inputOptions)
     {
-        return 'Informe o código ou nome da pessoa jurídica';
+        return 'Informe o código ou nome da Pessoa jurídica';
     }
 }

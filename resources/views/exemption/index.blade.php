@@ -76,7 +76,7 @@
             <td style="font-weight:bold;">Feito em lote</td>
         </tr>
         @forelse($exemptions as $exemption)
-            @php $exemptionUrl = url('intranet/educar_dispensa_disciplina_det.php?ref_cod_matricula=' . $exemption->ref_cod_matricula . '&ref_cod_serie=' . $exemption->ref_cod_serie . '&ref_cod_escola=' . $exemption->ref_cod_escola . '&ref_cod_disciplina=' . $exemption->ref_cod_disciplina) @endphp
+            @php $exemptionUrl = url('Intranet/educar_dispensa_disciplina_det.php?ref_cod_matricula=' . $exemption->ref_cod_matricula . '&ref_cod_serie=' . $exemption->ref_cod_serie . '&ref_cod_escola=' . $exemption->ref_cod_escola . '&ref_cod_disciplina=' . $exemption->ref_cod_disciplina) @endphp
             <tr>
                 <td>
                     <a href="{{ $exemptionUrl }}" target="_blank">{{ $exemption->registration->ano }}</a>

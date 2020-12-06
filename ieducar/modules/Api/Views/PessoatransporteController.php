@@ -9,13 +9,12 @@ require_once 'Portabilis/Date/Utils.php';
 
 class PessoatransporteController extends ApiCoreController
 {
-
     protected $_processoAp = 21240; //verificar
     protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA; // verificar
 
     protected function loadNomePessoaj($id)
     {
-        $sql = 'select nome from cadastro.pessoa, modules.pessoa_transporte where idpes = ref_idpes_destino and cod_pessoa_transporte = $1';
+        $sql = 'select nome from cadastro.Pessoa, modules.pessoa_transporte where idpes = ref_idpes_destino and cod_pessoa_transporte = $1';
         $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -23,7 +22,7 @@ class PessoatransporteController extends ApiCoreController
 
     protected function loadNomePessoa($id)
     {
-        $sql = 'select nome from cadastro.pessoa, modules.pessoa_transporte where idpes = ref_idpes and cod_pessoa_transporte = $1';
+        $sql = 'select nome from cadastro.Pessoa, modules.pessoa_transporte where idpes = ref_idpes and cod_pessoa_transporte = $1';
         $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -34,7 +33,7 @@ class PessoatransporteController extends ApiCoreController
         $pt = new clsModulesPessoaTransporte();
         $pt->cod_pessoa_transporte = $id;
 
-        // após cadastro não muda mais id pessoa
+        // após cadastro não muda mais id Pessoa
         $pt->ref_idpes = $this->getRequest()->pessoa_id;
         $pt->ref_idpes_destino = $this->getRequest()->pessoaj_id;
         $pt->ref_cod_ponto_transporte_escolar = $this->getRequest()->ponto;
@@ -57,7 +56,7 @@ class PessoatransporteController extends ApiCoreController
             'ref_cod_rota_transporte_escolar' => 'rota',
             'ref_cod_ponto_transporte_escolar' => 'ponto',
             'ref_idpes_destino' => 'pessoaj',
-            'ref_idpes' => 'pessoa',
+            'ref_idpes' => 'Pessoa',
             'observacao' => 'observacao',
             'turno' => 'turno'
         ];
@@ -149,7 +148,7 @@ class PessoatransporteController extends ApiCoreController
         } elseif ($this->isRequestFor('delete', 'pessoatransporte')) {
             $this->appendResponse($this->delete());
             echo '<script language= "JavaScript">
-                location.href="intranet/transporte_pessoa_lst.php";
+                location.href="Intranet/transporte_pessoa_lst.php";
                 </script>';
 
             die();

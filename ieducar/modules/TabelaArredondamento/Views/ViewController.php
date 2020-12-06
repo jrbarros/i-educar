@@ -5,7 +5,6 @@ require_once 'TabelaArredondamento/Model/TabelaDataMapper.php';
 
 class ViewController extends Core_Controller_Page_ViewController
 {
-
     protected $_dataMapper = 'TabelaArredondamento_Model_TabelaDataMapper';
     protected $_titulo = 'Detalhes da tabela de arredondamento';
     protected $_processoAp = 949;
@@ -19,7 +18,7 @@ class ViewController extends Core_Controller_Page_ViewController
         parent::_preRender();
 
         $this->breadcrumb('Detalhe da tabela de arredondamento', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 }

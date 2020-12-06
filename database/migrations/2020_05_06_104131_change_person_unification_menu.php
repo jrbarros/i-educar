@@ -14,7 +14,7 @@ class ChangePersonUnificationMenu extends Migration
     {
         DB::table('menus')
             ->where('process', 9998878)
-            ->update(['link' => '/unificacao-pessoa']);
+            ->update(['link' => '/unificacao-Pessoa']);
     }
 
     /**
@@ -26,6 +26,6 @@ class ChangePersonUnificationMenu extends Migration
     {
         DB::table('menus')
             ->where('process', 9998878)
-            ->update(['link' => '/intranet/educar_unifica_pessoa.php']);
+            ->update(['link' => '/Intranet/educar_unifica_pessoa.php']);
     }
 }

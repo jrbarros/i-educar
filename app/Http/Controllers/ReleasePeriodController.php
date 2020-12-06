@@ -33,7 +33,7 @@ Cadastre os períodos que deseja liberar o lançamento de notas e faltas por eta
     public function index(Request $request)
     {
         $this->breadcrumb('Período de lançamento de notas e faltas por etapa', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
         $this->menu(Process::RELEASE_PERIOD);
@@ -58,7 +58,7 @@ Cadastre os períodos que deseja liberar o lançamento de notas e faltas por eta
     public function form(ReleasePeriod $releasePeriod)
     {
         $this->breadcrumb('Período de lançamento de notas e faltas por etapa', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
         $this->menu(Process::RELEASE_PERIOD);
@@ -117,7 +117,7 @@ Cadastre os períodos que deseja liberar o lançamento de notas e faltas por eta
     public function show(ReleasePeriod $releasePeriod)
     {
         $this->breadcrumb('Período de lançamento de notas e faltas por etapa', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
         $this->menu(Process::RELEASE_PERIOD);

@@ -14,7 +14,7 @@ class ListingPage extends Page
      */
     public function url()
     {
-        return '/intranet/public_bairro_lst.php';
+        return '/Intranet/public_bairro_lst.php';
     }
 
     /**

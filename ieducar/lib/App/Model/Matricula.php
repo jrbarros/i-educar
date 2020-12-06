@@ -7,7 +7,7 @@ class App_Model_Matricula
 {
     /**
      * Atualiza os dados da matrícula do aluno, promovendo-o ou retendo-o. Usa
-     * uma instância da classe legada clsPmieducarMatricula para tal.
+     * uma instância da classe legada Matricula para tal.
      *
      * @param int  $matricula
      * @param int  $usuario
@@ -18,9 +18,9 @@ class App_Model_Matricula
     public static function atualizaMatricula($matricula, $usuario, $aprovado = true)
     {
         $instance = CoreExt_Entity::addClassToStorage(
-            'clsPmieducarMatricula',
+            'Matricula',
             null,
-            'include/pmieducar/clsPmieducarMatricula.inc.php'
+            'include/pmieducar/Matricula.php'
         );
 
         $instance->cod_matricula = $matricula;
@@ -41,9 +41,9 @@ class App_Model_Matricula
     public static function setNovaSituacao($matricula, $novaSituacao)
     {
         $instance = CoreExt_Entity::addClassToStorage(
-            'clsPmieducarMatricula',
+            'Matricula',
             null,
-            'include/pmieducar/clsPmieducarMatricula.inc.php'
+            'include/pmieducar/Matricula.php'
         );
 
         $instance->cod_matricula = $matricula;

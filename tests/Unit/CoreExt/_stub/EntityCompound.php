@@ -45,7 +45,7 @@ require_once 'CoreExt/Entity.php';
 class CoreExt_EntityCompoundStub extends CoreExt_Entity
 {
   protected $_data = array(
-    'pessoa' => NULL,
+    'Pessoa' => NULL,
     'curso'  => NULL,
     'confirmado' => NULL
   );

@@ -10,9 +10,9 @@ $url = $url->url($request->get('REQUEST_URI'), ['components' => CoreExt_View_Hel
 // Configura o baseurl da request
 $request->setBaseurl(sprintf('%s/module', $url));
 
-// Configura o DataMapper para usar uma instância de clsBanco com fetch de resultados
+// Configura o DataMapper para usar uma instância de Banco com fetch de resultados
 // usando o tipo FETCH_ASSOC
-CoreExt_DataMapper::setDefaultDbAdapter(new clsBanco(['fetchMode' => clsBanco::FETCH_ASSOC]));
+CoreExt_DataMapper::setDefaultDbAdapter(new Banco(['fetchMode' => Banco::FETCH_ASSOC]));
 
 // Inicia o Front Controller
 $frontController = CoreExt_Controller_Front::getInstance();

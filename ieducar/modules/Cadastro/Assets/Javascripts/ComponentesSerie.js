@@ -119,9 +119,9 @@ function expandClose(id){
     var expand = $j('.area_conhecimento_'+id).is(':visible');
     $j('.area_conhecimento_'+id).toggle('fast');
     if(expand){
-        $j('#expandClose_'+id).css('background-image','url(/intranet/imagens/arrow-down2.png)');
+        $j('#expandClose_'+id).css('background-image','url(/Intranet/imagens/arrow-down2.png)');
     }else{
-        $j('#expandClose_'+id).css('background-image','url(/intranet/imagens/arrow-up2.png)');
+        $j('#expandClose_'+id).css('background-image','url(/Intranet/imagens/arrow-up2.png)');
     }
 }
 

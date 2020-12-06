@@ -4,7 +4,7 @@ require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 require_once 'lib/Portabilis/String/Utils.php';
 require_once 'lib/Portabilis/Date/Utils.php';
-require_once 'include/funcoes.inc.php';
+require_once 'include/funcoes.php';
 
 class ReservavagaController extends ApiCoreController
 {
@@ -31,14 +31,14 @@ class ReservavagaController extends ApiCoreController
                   FROM pmieducar.candidato_reserva_vaga
                  INNER JOIN pmieducar.aluno ON (aluno.cod_aluno = candidato_reserva_vaga.ref_cod_aluno)
                  INNER JOIN cadastro.fisica ON (fisica.idpes = aluno.ref_idpes)
-                 INNER JOIN cadastro.pessoa ON (pessoa.idpes = aluno.ref_idpes)
-                  LEFT JOIN cadastro.pessoa pessoa_responsavel ON (pessoa_responsavel.idpes = fisica.idpes_responsavel)
+                 INNER JOIN cadastro.Pessoa ON (Pessoa.idpes = aluno.ref_idpes)
+                  LEFT JOIN cadastro.Pessoa pessoa_responsavel ON (pessoa_responsavel.idpes = fisica.idpes_responsavel)
                   LEFT JOIN cadastro.fisica fisica_responsavel ON (fisica_responsavel.idpes = fisica.idpes_responsavel)
                  WHERE fisica.data_nasc = $3
                    AND candidato_reserva_vaga.ano_letivo = $2
                    AND candidato_reserva_vaga.ref_cod_escola = $4
                    AND ((candidato_reserva_vaga.situacao = \'A\') or candidato_reserva_vaga.situacao IS NULL)
-                   AND trim(pessoa.slug) = trim($1)';
+                   AND trim(Pessoa.slug) = trim($1)';
 
             $params = [$nome, $anoLetivo, Portabilis_Date_Utils::brToPgSQL($dataNascimento), $escola];
 
@@ -52,13 +52,13 @@ class ReservavagaController extends ApiCoreController
                 FROM pmieducar.candidato_reserva_vaga
                INNER JOIN pmieducar.aluno ON (aluno.cod_aluno = candidato_reserva_vaga.ref_cod_aluno)
                INNER JOIN cadastro.fisica ON (fisica.idpes = aluno.ref_idpes)
-               INNER JOIN cadastro.pessoa ON (pessoa.idpes = aluno.ref_idpes)
-                LEFT JOIN cadastro.pessoa pessoa_responsavel ON (pessoa_responsavel.idpes = fisica.idpes_responsavel)
+               INNER JOIN cadastro.Pessoa ON (Pessoa.idpes = aluno.ref_idpes)
+                LEFT JOIN cadastro.Pessoa pessoa_responsavel ON (pessoa_responsavel.idpes = fisica.idpes_responsavel)
                 LEFT JOIN cadastro.fisica fisica_responsavel ON (fisica_responsavel.idpes = fisica.idpes_responsavel)
                WHERE fisica.data_nasc = $3
                  AND ((candidato_reserva_vaga.situacao = \'A\') or candidato_reserva_vaga.situacao IS NULL)
                  AND candidato_reserva_vaga.ano_letivo = $2
-                 AND trim(pessoa.slug) = trim($1)';
+                 AND trim(Pessoa.slug) = trim($1)';
 
             $candidato = $this->fetchPreparedQuery($sql, [$nome, $anoLetivo, Portabilis_Date_Utils::brToPgSQL($dataNascimento)]);
 
@@ -81,14 +81,14 @@ class ReservavagaController extends ApiCoreController
             $sql = 'SELECT aluno.cod_aluno AS codigo
                 FROM pmieducar.aluno
                INNER JOIN cadastro.fisica ON (fisica.idpes = aluno.ref_idpes)
-               INNER JOIN cadastro.pessoa ON (pessoa.idpes = aluno.ref_idpes)
+               INNER JOIN cadastro.Pessoa ON (Pessoa.idpes = aluno.ref_idpes)
                 LEFT JOIN cadastro.fisica responsavel ON (fisica.idpes_responsavel = responsavel.idpes)
                 LEFT JOIN pmieducar.matricula ON (matricula.ref_cod_aluno = aluno.cod_aluno AND matricula.ativo = 1)
                 WHERE fisica.data_nasc = $3
                   AND responsavel.cpf = $2
                   AND matricula.aprovado = 3
                   AND matricula.ano = $4
-                  AND trim(pessoa.slug) = trim($1)';
+                  AND trim(Pessoa.slug) = trim($1)';
 
             $aluno = $this->fetchPreparedQuery($sql, [$nome, idFederal2int($cpfResponsavel), Portabilis_Date_Utils::brToPgSQL($dataNascimento), $anoReserva]);
 

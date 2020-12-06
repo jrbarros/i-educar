@@ -32,10 +32,10 @@ class UpdatePage extends Page
     public function url($onlyPath = false)
     {
         if ($onlyPath) {
-            return '/intranet/public_uf_cad.php';
+            return '/Intranet/public_uf_cad.php';
         }
 
-        return '/intranet/public_uf_cad.php?sigla_uf=' . $this->stateAbbreviation;
+        return '/Intranet/public_uf_cad.php?sigla_uf=' . $this->stateAbbreviation;
     }
 
     /**

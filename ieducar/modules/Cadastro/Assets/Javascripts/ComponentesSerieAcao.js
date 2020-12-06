@@ -162,7 +162,7 @@ function handleErroExcluiComponentesDaSerie(response){
 
 
 function redirecionaListagem(){
-    window.location.href = "/intranet/educar_componentes_serie_lst.php";
+    window.location.href = "/Intranet/educar_componentes_serie_lst.php";
 }
 
 

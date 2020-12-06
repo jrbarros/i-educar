@@ -19,8 +19,8 @@ use Avaliacao_Model_FaltaAlunoDataMapper;
 use Avaliacao_Model_FaltaComponenteDataMapper;
 use Avaliacao_Model_NotaAlunoDataMapper;
 use Avaliacao_Model_NotaComponenteDataMapper;
-use clsPmieducarDispensaDisciplina;
-use clsPmieducarDispensaDisciplinaEtapa;
+use DispensaDisciplina;
+use DispensaDisciplinaEtapa;
 use Exception;
 
 class ExemptionService
@@ -78,7 +78,7 @@ class ExemptionService
 
         if ($objetoDispensa->existe()) {
             $exemption = LegacyDisciplineExemption::findOrFail($objetoDispensa->detalhe()['cod_dispensa']);
-            $objDispensaEtapa = new clsPmieducarDispensaDisciplinaEtapa();
+            $objDispensaEtapa = new DispensaDisciplinaEtapa();
             $objDispensaEtapa->excluirTodos($exemption->getKey());
             $objetoDispensa->edita();
             $this->cadastraEtapasDaDispensa($exemption, $stages);
@@ -101,7 +101,7 @@ class ExemptionService
 
     private function handleExemptionObject(LegacyRegistration $registration, $disciplineId, $exemptionTypeId, $description)
     {
-        return new clsPmieducarDispensaDisciplina(
+        return new DispensaDisciplina(
             $registration->getKey(),
             $registration->ref_ref_cod_serie,
             $registration->ref_ref_cod_escola,
@@ -150,7 +150,7 @@ class ExemptionService
                 $exemption->ref_cod_disciplina,
                 $stage
             );
-            $objetoEtapaDaDispensa = new clsPmieducarDispensaDisciplinaEtapa($exemption->getKey(), $stage);
+            $objetoEtapaDaDispensa = new DispensaDisciplinaEtapa($exemption->getKey(), $stage);
             $objetoEtapaDaDispensa->cadastra();
         }
     }

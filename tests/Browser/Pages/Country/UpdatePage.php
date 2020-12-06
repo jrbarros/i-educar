@@ -32,10 +32,10 @@ class UpdatePage extends Page
     public function url($onlyPath = false)
     {
         if ($onlyPath) {
-            return '/intranet/public_pais_cad.php';
+            return '/Intranet/public_pais_cad.php';
         }
 
-        return '/intranet/public_pais_cad.php?idpais=' . $this->countryId;
+        return '/Intranet/public_pais_cad.php?idpais=' . $this->countryId;
     }
 
     /**

@@ -24,7 +24,7 @@ class AddForeignKeysInPmieducarCandidatoReservaVagaTable extends Migration
 
             $table->foreign('ref_cod_pessoa_cad')
                ->references('idpes')
-               ->on('cadastro.pessoa');
+               ->on('cadastro.Pessoa');
 
             $table->foreign('ref_cod_aluno')
                ->references('cod_aluno')

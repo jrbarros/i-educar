@@ -1,7 +1,7 @@
 // before page is ready
 
 function hrefToCreateParent(parentType) {
-  return '/intranet/atendidos_cad.php?parent_type=' + parentType;
+  return '/Intranet/atendidos_cad.php?parent_type=' + parentType;
 }
 
 function hrefToEditParent(parentType) {
@@ -20,7 +20,7 @@ var $cpfNotice    = $j('<span>').html('')
                                 .appendTo($cpfField.parent());
 let obrigarCamposCenso = $j('#obrigar_campos_censo');
 
-// links pessoa pai, mãe
+// links Pessoa pai, mãe
 
 var $paiNomeField = $j('#pai_nome');
 var $paiIdField   = $j('#pai_id');
@@ -30,37 +30,37 @@ var $maeIdField   = $j('#mae_id');
 
 
 var $pessoaPaiActionBar  = $j('<span>').html('')
-                                       .addClass('pessoa-links pessoa-pai-links')
+                                       .addClass('Pessoa-links Pessoa-pai-links')
                                        .width($paiNomeField.outerWidth() - 12)
                                        .appendTo($paiNomeField.parent());
 
 var $pessoaMaeActionBar = $pessoaPaiActionBar.clone()
-                                         .removeClass('pessoa-pai-links')
-                                         .addClass('pessoa-mae-links')
+                                         .removeClass('Pessoa-pai-links')
+                                         .addClass('Pessoa-mae-links')
                                          .appendTo($maeNomeField.parent());
 
-var $linkToCreatePessoaPai = $j('<a>').addClass('cadastrar-pessoa-pai decorated')
+var $linkToCreatePessoaPai = $j('<a>').addClass('cadastrar-Pessoa-pai decorated')
                                       .attr('href', hrefToCreateParent('pai'))
                                       .attr('target', '_blank')
-                                      .html('Cadastrar pessoa')
+                                      .html('Cadastrar Pessoa')
                                       .appendTo($pessoaPaiActionBar);
 
 var $linkToEditPessoaPai = $j('<a>').hide()
-                                    .addClass('editar-pessoa-pai decorated')
+                                    .addClass('editar-Pessoa-pai decorated')
                                     .attr('href', hrefToEditParent('pai'))
                                     .attr('target', '_blank')
-                                    .html('Editar pessoa')
+                                    .html('Editar Pessoa')
                                     .appendTo($pessoaPaiActionBar);
 
 var $linkToCreatePessoaMae = $linkToCreatePessoaPai.clone()
-                                                   .removeClass('cadastrar-pessoa-pai')
-                                                   .addClass('cadastrar-pessoa-mae')
+                                                   .removeClass('cadastrar-Pessoa-pai')
+                                                   .addClass('cadastrar-Pessoa-mae')
                                                    .attr('href', hrefToCreateParent('mae'))
                                                    .appendTo($pessoaMaeActionBar);
 
 var $linkToEditPessoaMae = $linkToEditPessoaPai.clone()
-                                               .removeClass('editar-pessoa-pai')
-                                               .addClass('editar-pessoa-mae')
+                                               .removeClass('editar-Pessoa-pai')
+                                               .addClass('editar-Pessoa-mae')
                                                .attr('href', hrefToEditParent('mae'))
                                                .appendTo($pessoaMaeActionBar);
 
@@ -71,10 +71,10 @@ var handleGetPersonByCpf = function(dataResponse) {
   var pessoaId = dataResponse.id;
 
   if (pessoaId && pessoaId != $j('#cod_pessoa_fj').val()) {
-    $cpfNotice.html(stringUtils.toUtf8('CPF já utilizado pela pessoa código ' + pessoaId + ', ')).slideDown('fast');
+    $cpfNotice.html(stringUtils.toUtf8('CPF já utilizado pela Pessoa código ' + pessoaId + ', ')).slideDown('fast');
 
     $j('<a>').addClass('decorated')
-             .attr('href', '/intranet/atendidos_cad.php?cod_pessoa_fj=' + pessoaId)
+             .attr('href', '/Intranet/atendidos_cad.php?cod_pessoa_fj=' + pessoaId)
              .attr('target', '_blank')
              .html('acessar cadastro.')
              .appendTo($cpfNotice);
@@ -89,7 +89,7 @@ var handleGetPersonByCpf = function(dataResponse) {
 
 var getPersonByCpf = function(cpf) {
   var options = {
-    url      : getResourceUrlBuilder.buildUrl('/module/Api/pessoa', 'pessoa'),
+    url      : getResourceUrlBuilder.buildUrl('/module/Api/Pessoa', 'Pessoa'),
     dataType : 'json',
     data     : { cpf : cpf },
     success  : handleGetPersonByCpf,
@@ -289,12 +289,12 @@ $j(document).ready(function() {
 }); // ready
 
 
-// pessoa links callbacks
+// Pessoa links callbacks
 
 var changeVisibilityOfLinksToPessoaParent = function(parentType) {
   var $nomeField  = $j(buildId(parentType + '_nome'));
   var $idField    = $j(buildId(parentType + '_id'));
-  var $linkToEdit = $j('.pessoa-' + parentType + '-links .editar-pessoa-' + parentType);
+  var $linkToEdit = $j('.Pessoa-' + parentType + '-links .editar-Pessoa-' + parentType);
 
   if($nomeField.val() && $idField.val()) {
     $linkToEdit.attr('href', hrefToEditParent(parentType));
@@ -349,7 +349,7 @@ function afterChangePessoa(targetWindow, parentType, parentId, parentName) {
 }
 
 function ativarPessoa(cod_pessoa){
-  var searchPath = '../module/Api/pessoa?oper=get&resource=reativarPessoa';
+  var searchPath = '../module/Api/Pessoa?oper=get&resource=reativarPessoa';
   var params = {id : cod_pessoa}
   if(confirm("Confirma reativa\u00e7\u00e3o do cadastro?")){
     $j.get(searchPath, params, function(data){

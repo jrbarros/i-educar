@@ -48,7 +48,7 @@
 class CoreExt_EntityDataMapperStub extends CoreExt_DataMapper
 {
   protected $_entityClass = 'CoreExt_EntityStub';
-  protected $_tableName   = 'pessoa';
+  protected $_tableName   = 'Pessoa';
   protected $_tableSchema = '';
 
   protected $_attributeMap = array(
@@ -56,17 +56,17 @@ class CoreExt_EntityDataMapperStub extends CoreExt_DataMapper
   );
 
   /**
-   * Cria a tabela pessoa para testes de integração.
+   * Cria a tabela Pessoa para testes de integração.
    *
    * SQL compatível com SQLite.
    *
    * @param  clsBancoPdo $db
    * @return mixed Retorna FALSE em caso de erro
    */
-  public static function createTable(clsBanco $db)
+  public static function createTable(Banco $db)
   {
     $sql = "
-CREATE TABLE pessoa(
+CREATE TABLE Pessoa(
   id integer primary key,
   nome character varying(100) NOT NULL,
   estado_civil character varying(20) NOT NULL DEFAULT 'solteiro',

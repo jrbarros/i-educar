@@ -1,6 +1,6 @@
 <?php
 
-require_once 'include/pmieducar/clsPmieducarConfiguracoesGerais.inc.php';
+require_once 'include/pmieducar/ConfiguracoesGerais.php';
 
 class CustomLabel
 {
@@ -29,7 +29,7 @@ class CustomLabel
 
     protected function getFromDatabase()
     {
-        $configs = new clsPmieducarConfiguracoesGerais();
+        $configs = new ConfiguracoesGerais();
         $detalhe = $configs->detalhe();
 
         return $detalhe['custom_labels'];

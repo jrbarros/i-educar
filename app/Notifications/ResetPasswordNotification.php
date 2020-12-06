@@ -32,7 +32,7 @@ class ResetPasswordNotification extends Notification
         return (new MailMessage)
             ->subject('Sua senha foi alterada')
             ->line('A sua senha foi alterada recentemente.')
-            ->line('Caso você não tenha feito esta alteração, por favor, altere a sua senha ou entre em contato com o administrador do sistema (solicitando mudança da sua senha), pois sua conta pode estar sendo usada por alguma pessoa não autorizada.')
+            ->line('Caso você não tenha feito esta alteração, por favor, altere a sua senha ou entre em contato com o administrador do sistema (solicitando mudança da sua senha), pois sua conta pode estar sendo usada por alguma Pessoa não autorizada.')
             ->action('Alterar Senha', url(route('password.request')));
     }
 

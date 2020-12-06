@@ -158,7 +158,7 @@ class EducacensoRepository
 
             FROM pmieducar.escola e
             JOIN pmieducar.instituicao i ON i.cod_instituicao = e.ref_cod_instituicao
-            INNER JOIN cadastro.pessoa p ON (e.ref_idpes = p.idpes)
+            INNER JOIN cadastro.Pessoa p ON (e.ref_idpes = p.idpes)
             INNER JOIN cadastro.juridica j ON (j.idpes = p.idpes)
             LEFT JOIN modules.educacenso_cod_escola ece ON (e.cod_escola = ece.cod_escola)
             LEFT JOIN cadastro.endereco_pessoa ep ON (ep.idpes = p.idpes)
@@ -286,13 +286,13 @@ SQL;
                 escola.instrumentos_pedagogicos as "instrumentosPedagogicos",
                 escola.compartilha_espacos_atividades_integracao AS "compartilhaEspacosAtividadesIntegracao",
                 escola.usa_espacos_equipamentos_atividades_regulares AS "usaEspacosEquipamentosAtividadesRegulares",
-                pessoa.url AS "url",
+                Pessoa.url AS "url",
                 escola.projeto_politico_pedagogico AS "projetoPoliticoPedagogico",
                 escola.qtd_vice_diretor AS "qtdViceDiretor",
                 escola.qtd_orientador_comunitario AS "qtdOrientadorComunitario"
             FROM pmieducar.escola
             INNER JOIN cadastro.juridica ON juridica.idpes = escola.ref_idpes
-            INNER JOIN cadastro.pessoa ON pessoa.idpes = escola.ref_idpes
+            INNER JOIN cadastro.Pessoa ON Pessoa.idpes = escola.ref_idpes
             LEFT JOIN modules.educacenso_cod_escola ON (escola.cod_escola = educacenso_cod_escola.cod_escola)
             WHERE TRUE
                 AND escola.cod_escola = :school
@@ -381,7 +381,7 @@ SQL;
                 dadosescola.cod_escola AS "codigoEscola",
                 fisica.idpes AS "codigoPessoa",
                 fisica.cpf AS cpf,
-                pessoa.nome AS "nomePessoa",
+                Pessoa.nome AS "nomePessoa",
                 fisica.data_nasc AS "dataNascimento",
                 (pessoa_mae.nome IS NOT NULL OR pessoa_pai.nome IS NOT NULL)::INTEGER AS "filiacao",
                 pessoa_mae.nome AS "filiacao1",
@@ -416,15 +416,15 @@ SQL;
                      ELSE 'Estrangeira' END AS "nomeNacionalidade",
                 deficiencias.array_deficiencias AS "arrayDeficiencias"
                  FROM cadastro.fisica
-                 JOIN cadastro.pessoa ON pessoa.idpes = fisica.idpes
+                 JOIN cadastro.Pessoa ON Pessoa.idpes = fisica.idpes
             LEFT JOIN cadastro.fisica_raca ON fisica_raca.ref_idpes = fisica.idpes
             LEFT JOIN cadastro.raca ON (raca.cod_raca = fisica_raca.ref_cod_raca)
-            LEFT JOIN cadastro.pessoa as pessoa_mae
+            LEFT JOIN cadastro.Pessoa as pessoa_mae
             ON fisica.idpes_mae = pessoa_mae.idpes
-            LEFT JOIN cadastro.pessoa as pessoa_pai
+            LEFT JOIN cadastro.Pessoa as pessoa_pai
             ON fisica.idpes_pai = pessoa_pai.idpes
             LEFT JOIN public.municipio municipio_nascimento ON municipio_nascimento.idmun = fisica.idmun_nascimento
-            LEFT JOIN cadastro.endereco_pessoa ON endereco_pessoa.idpes = pessoa.idpes
+            LEFT JOIN cadastro.endereco_pessoa ON endereco_pessoa.idpes = Pessoa.idpes
             LEFT JOIN public.logradouro ON logradouro.idlog = endereco_pessoa.idlog
             LEFT JOIN public.municipio ON municipio.idmun = logradouro.idmun
             LEFT JOIN public.pais ON pais.idpais = CASE WHEN fisica.nacionalidade = 3 THEN fisica.idpais_estrangeiro ELSE 76 END
@@ -492,11 +492,11 @@ SQL;
                 (ARRAY[17] <@ servidor.curso_formacao_continuada)::INT "formacaoContinuadaEducacaoGestaoEscolar",
                 (ARRAY[15] <@ servidor.curso_formacao_continuada)::INT "formacaoContinuadaEducacaoOutros",
                 (ARRAY[16] <@ servidor.curso_formacao_continuada)::INT "formacaoContinuadaEducacaoNenhum",
-                pessoa.email AS "email",
+                Pessoa.email AS "email",
                 educacenso_cod_docente.cod_docente_inep AS "inepServidor"
 
             FROM pmieducar.servidor
-                 JOIN cadastro.pessoa ON pessoa.idpes = servidor.cod_servidor
+                 JOIN cadastro.Pessoa ON Pessoa.idpes = servidor.cod_servidor
             LEFT JOIN cadastro.escolaridade ON escolaridade.idesco = servidor.ref_idesco
             LEFT JOIN modules.educacenso_cod_docente ON educacenso_cod_docente.cod_servidor = servidor.cod_servidor,
             LATERAL (

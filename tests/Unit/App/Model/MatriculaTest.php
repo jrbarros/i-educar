@@ -30,7 +30,7 @@
  */
 
 require_once 'App/Model/Matricula.php';
-require_once 'include/pmieducar/clsPmieducarMatricula.inc.php';
+require_once 'include/pmieducar/Matricula.php';
 
 /**
  * App_Model_MatriculaTest class.
@@ -47,13 +47,13 @@ class App_Model_MatriculaTest extends UnitBaseTest
 {
   public function testAtualizaMatricula()
   {
-    $matricula = $this->getCleanMock('clsPmieducarMatricula');
+    $matricula = $this->getCleanMock('Matricula');
     $matricula->expects($this->once())
               ->method('edita')
               ->will($this->returnValue(TRUE));
 
     // Guarda no repositório estático de classes
-      CoreExt_Entity::addClassToStorage('clsPmieducarMatricula', $matricula,
+      CoreExt_Entity::addClassToStorage('Matricula', $matricula,
           NULL, TRUE);
 
     App_Model_Matricula::atualizaMatricula(1, 1, TRUE);

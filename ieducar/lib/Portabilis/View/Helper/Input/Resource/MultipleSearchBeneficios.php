@@ -9,7 +9,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchBeneficios extends Por
     protected function getOptions($resources)
     {
         if (empty($resources)) {
-            $resources = new clsPmieducarAlunoBeneficio();
+            $resources = new AlunoBeneficio();
             $resources = $resources->lista();
             $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'cod_aluno_beneficio', 'nm_beneficio');
         }

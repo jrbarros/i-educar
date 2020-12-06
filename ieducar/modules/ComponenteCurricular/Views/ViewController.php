@@ -32,12 +32,12 @@ class ViewController extends Core_Controller_Page_ViewController
         parent::_preRender();
 
         $this->breadcrumb('Detalhe do componente curricular', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 
     public function setUrlCancelar(CoreExt_Entity $entry)
     {
-        $this->url_cancelar = 'intranet/educar_componente_curricular_lst.php';
+        $this->url_cancelar = 'Intranet/educar_componente_curricular_lst.php';
     }
 }

@@ -43,7 +43,7 @@ class DiarioController extends Portabilis_Controller_Page_ListController
     {
         parent::_preRender();
 
-        $this->breadcrumb('Lançamento de faltas e notas', ['/intranet/educar_index.php' => 'Escola']);
+        $this->breadcrumb('Lançamento de faltas e notas', ['/Intranet/educar_index.php' => 'Escola']);
     }
 }
 ?>

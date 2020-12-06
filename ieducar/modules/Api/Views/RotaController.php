@@ -15,7 +15,7 @@ class RotaController extends ApiCoreController
 
   protected function loadNomePessoaj($id)
   {
-      $sql = 'select nome from cadastro.pessoa, modules.rota_transporte_escolar rt where idpes = rt.ref_idpes_destino and cod_rota_transporte_escolar = $1';
+      $sql = 'select nome from cadastro.Pessoa, modules.rota_transporte_escolar rt where idpes = rt.ref_idpes_destino and cod_rota_transporte_escolar = $1';
       $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
       return $this->toUtf8($nome, ['transform' => true]);
@@ -23,7 +23,7 @@ class RotaController extends ApiCoreController
 
     protected function loadNomeEmpresa($id)
     {
-        $sql = 'select nome from cadastro.pessoa, modules.empresa_transporte_escolar emp, modules.rota_transporte_escolar rt where idpes = emp.ref_idpes and emp.cod_empresa_transporte_escolar = rt.ref_cod_empresa_transporte_escolar and rt.cod_rota_transporte_escolar = $1';
+        $sql = 'select nome from cadastro.Pessoa, modules.empresa_transporte_escolar emp, modules.rota_transporte_escolar rt where idpes = emp.ref_idpes and emp.cod_empresa_transporte_escolar = rt.ref_cod_empresa_transporte_escolar and rt.cod_rota_transporte_escolar = $1';
         $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -39,7 +39,7 @@ class RotaController extends ApiCoreController
         $rota = new clsModulesRotaTransporteEscolar();
         $rota->cod_rota_transporte_escolar = $id;
 
-        // após cadastro não muda mais id pessoa
+        // após cadastro não muda mais id Pessoa
         $rota->descricao = Portabilis_String_Utils::toLatin1($this->getRequest()->desc);
         $rota->ref_idpes_destino = $this->getRequest()->pessoaj_id;
         $rota->ano = $this->getRequest()->ano;
@@ -103,7 +103,7 @@ class RotaController extends ApiCoreController
 
         if (is_array($lista) && count($lista)>0) {
             $this->messenger->append(
-                'Não é possível excluir uma rota que está vinculada a uma pessoa.',
+                'Não é possível excluir uma rota que está vinculada a uma Pessoa.',
                 'error',
                 false,
                 'error'
@@ -190,7 +190,7 @@ class RotaController extends ApiCoreController
             if ($this->validateIfRotaIsNotInUse()) {
                 $this->appendResponse($this->delete());
                 echo '<script language= "JavaScript">
-                    location.href="intranet/transporte_rota_lst.php";
+                    location.href="Intranet/transporte_rota_lst.php";
                     </script>';
 
                 die();

@@ -12,6 +12,6 @@ class GenerateSlugNameToPerson extends Migration
      */
     public function up()
     {
-        DB::unprepared('update cadastro.pessoa set slug = lower(public.unaccent(nome)) where true;');
+        DB::unprepared('update cadastro.Pessoa set slug = lower(public.unaccent(nome)) where true;');
     }
 }

@@ -20,7 +20,7 @@ class EducacensoController extends Controller
     private function view(LegacyInstitution $institution, $records = [], $paginate = null)
     {
         $this->breadcrumb('Consulta 1ª fase - Matrícula inicial', [
-            url('intranet/educar_educacenso_index.php') => 'Educacenso',
+            url('Intranet/educar_educacenso_index.php') => 'Educacenso',
         ]);
 
         $this->menu(70);

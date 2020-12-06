@@ -18,10 +18,10 @@ class MovimentoGeralAlunosAbandonosQueryFactory extends QueryFactory
         'curso' => 0
     ];
 
-    protected $query = <<<'SQL'
+    protected string $query = <<<'SQL'
         select
             m.cod_matricula,
-            pessoa.nome,
+            Pessoa.nome,
             turma.nm_turma
         from
             pmieducar.matricula m
@@ -29,8 +29,8 @@ class MovimentoGeralAlunosAbandonosQueryFactory extends QueryFactory
             pmieducar.aluno
                 on aluno.cod_aluno = m.ref_cod_aluno
         inner join
-            cadastro.pessoa
-                on pessoa.idpes = aluno.ref_idpes
+            cadastro.Pessoa
+                on Pessoa.idpes = aluno.ref_idpes
         inner join
             pmieducar.matricula_turma mt
                 on mt.ref_cod_matricula = m.cod_matricula
@@ -56,6 +56,6 @@ class MovimentoGeralAlunosAbandonosQueryFactory extends QueryFactory
             and mt.abandono = 't'
             and coalesce(mt.data_exclusao, m.data_cancel) between :data_inicial::date and :data_final::date
         order by
-            pessoa.nome asc
+            Pessoa.nome asc
 SQL;
 }

@@ -5,7 +5,7 @@ use iEducar\Support\View\SelectOptions;
 require_once 'lib/Portabilis/Controller/Page/EditController.php';
 require_once 'Usuario/Model/FuncionarioDataMapper.php';
 require_once 'include/modules/clsModulesRotaTransporteEscolar.inc.php';
-require_once('include/clsBanco.inc.php');
+require_once('include/Banco.inc.php');
 
 class PessoatransporteController extends Portabilis_Controller_Page_EditController
 {
@@ -22,7 +22,7 @@ class PessoatransporteController extends Portabilis_Controller_Page_EditControll
             'label' => 'Código',
             'help' => '',
         ],
-        'pessoa' => [
+        'Pessoa' => [
             'label' => 'Pessoa',
             'help' => '',
         ],
@@ -51,12 +51,12 @@ class PessoatransporteController extends Portabilis_Controller_Page_EditControll
     protected function _preConstruct()
     {
         $this->_options = $this->mergeOptions([
-            'edit_success' => '/intranet/transporte_pessoa_lst.php',
-            'delete_success' => '/intranet/transporte_pessoa_lst.php'
+            'edit_success' => '/Intranet/transporte_pessoa_lst.php',
+            'delete_success' => '/Intranet/transporte_pessoa_lst.php'
         ], $this->_options);
         $nomeMenu = $this->getRequest()->id == null ? 'Cadastrar' : 'Editar';
         $this->breadcrumb("$nomeMenu usu&aacute;rio de transporte", [
-            url('intranet/educar_transporte_escolar_index.php') => 'Transporte escolar',
+            url('Intranet/educar_transporte_escolar_index.php') => 'Transporte escolar',
         ]);
     }
 
@@ -72,7 +72,7 @@ class PessoatransporteController extends Portabilis_Controller_Page_EditControll
 
     public function Gerar()
     {
-        $this->url_cancelar = '/intranet/transporte_pessoa_lst.php';
+        $this->url_cancelar = '/Intranet/transporte_pessoa_lst.php';
 
         // Código do vinculo
         $options = [
@@ -84,7 +84,7 @@ class PessoatransporteController extends Portabilis_Controller_Page_EditControll
         $this->inputsHelper()->integer('id', $options);
 
         // Pessoa
-        $options = ['label' => $this->_getLabel('pessoa'), 'required' => true];
+        $options = ['label' => $this->_getLabel('Pessoa'), 'required' => true];
         $this->inputsHelper()->simpleSearchPessoa('nome', $options);
 
         // Montar o inputsHelper->select \/

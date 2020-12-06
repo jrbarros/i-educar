@@ -5,7 +5,6 @@ require_once 'RegraAvaliacao/Model/RegraDataMapper.php';
 
 class IndexController extends Core_Controller_Page_ListController
 {
-
     protected $_dataMapper = 'RegraAvaliacao_Model_RegraDataMapper';
     protected $_titulo = 'Listagem de regras de avaliação';
     protected $_processoAp = 947;
@@ -26,7 +25,7 @@ class IndexController extends Core_Controller_Page_ListController
         parent::_preRender();
 
         $this->breadcrumb('Listagem de regras de avalia&ccedil;&otilde;es', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 }

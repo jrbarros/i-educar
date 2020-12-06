@@ -17,7 +17,7 @@ class ExemptionListController extends Controller
     public function index(Request $request)
     {
         $this->breadcrumb('Consulta de dispensas', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
         $this->menu(Process::EXEMPTION_LIST);

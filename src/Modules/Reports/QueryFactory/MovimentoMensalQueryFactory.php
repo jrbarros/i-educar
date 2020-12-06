@@ -95,8 +95,8 @@ class MovimentoMensalQueryFactory extends QueryFactory
                 and turno.id = turma.turma_turno_id
             inner join pmieducar.aluno aluno on true
                 and aluno.cod_aluno = matricula.ref_cod_aluno
-            inner join cadastro.fisica pessoa on true
-                and pessoa.idpes = aluno.ref_idpes
+            inner join cadastro.fisica Pessoa on true
+                and Pessoa.idpes = aluno.ref_idpes
             inner join pmieducar.escola escola on true
                 and escola.cod_escola = matricula.ref_ref_cod_escola
             inner join pmieducar.curso on true

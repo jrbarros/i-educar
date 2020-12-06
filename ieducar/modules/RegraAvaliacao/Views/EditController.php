@@ -8,7 +8,6 @@ require_once 'RegraAvaliacao/Model/RegraRecuperacaoDataMapper.php';
 
 class EditController extends Core_Controller_Page_EditController
 {
-
     protected $_dataMapper = 'RegraAvaliacao_Model_RegraDataMapper';
     protected $_titulo = 'Cadastro de regra de avaliação';
     protected $_processoAp = 947;
@@ -315,7 +314,7 @@ class EditController extends Core_Controller_Page_EditController
         $nomeMenu = ($this->getRequest()->id == null || $this->getRequest()->copy) ? 'Cadastrar' : 'Editar';
 
         $this->breadcrumb("$nomeMenu regra de avaliação", [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 
@@ -355,14 +354,14 @@ class EditController extends Core_Controller_Page_EditController
 
         // Nota tipo valor
         $notaTipoValor = RegraAvaliacao_Model_Nota_TipoValor::getInstance();
-            $this->campoRadio(
-            'tipoNota',
-            $this->_getLabel('tipoNota'),
-            $notaTipoValor->getEnums(),
-            $this->getEntity()->get('tipoNota'),
-            '',
-            $this->_getHelp('tipoNota')
-        );
+        $this->campoRadio(
+                'tipoNota',
+                $this->_getLabel('tipoNota'),
+                $notaTipoValor->getEnums(),
+                $this->getEntity()->get('tipoNota'),
+                '',
+                $this->_getHelp('tipoNota')
+            );
 
         // Tabela de arredondamento
         $tabelaArredondamento = $this->getDataMapper()
@@ -447,14 +446,14 @@ class EditController extends Core_Controller_Page_EditController
 
         // Tipo progressão
         $tipoProgressao = RegraAvaliacao_Model_TipoProgressao::getInstance();
-            $this->campoRadio(
-            'tipoProgressao',
-            $this->_getLabel('tipoProgressao'),
-            $tipoProgressao->getEnums(),
-            $this->getEntity()->get('tipoProgressao'),
-            '',
-            $this->_getHelp('tipoProgressao')
-        );
+        $this->campoRadio(
+                'tipoProgressao',
+                $this->_getLabel('tipoProgressao'),
+                $tipoProgressao->getEnums(),
+                $this->getEntity()->get('tipoProgressao'),
+                '',
+                $this->_getHelp('tipoProgressao')
+            );
 
         // Média
         $this->campoTexto(

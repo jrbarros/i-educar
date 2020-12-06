@@ -2,9 +2,10 @@
 use App\Models\LegacyDeficiency;
 use App\Models\LogUnification;
 use iEducar\Modules\Educacenso\Validator\DeficiencyValidator;
+
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
-require_once 'intranet/include/clsBanco.inc.php';
+require_once 'Intranet/include/Banco.inc.php';
 
 class ServidorController extends ApiCoreController
 {
@@ -39,7 +40,7 @@ class ServidorController extends ApiCoreController
     protected function sqlsForNumericSearch()
     {
         $sqls[] = 'SELECT p.idpes as id, p.nome
-                FROM cadastro.pessoa p
+                FROM cadastro.Pessoa p
                  LEFT JOIN cadastro.fisica f ON (p.idpes = f.idpes)
                  LEFT JOIN portal.funcionario fun ON (fun.ref_cod_pessoa_fj = f.idpes)
                 INNER JOIN pmieducar.servidor s ON (s.cod_servidor = p.idpes)
@@ -59,7 +60,7 @@ class ServidorController extends ApiCoreController
     protected function sqlsForStringSearch()
     {
         $sqls[] = 'SELECT p.idpes as id, p.nome
-                FROM cadastro.pessoa p
+                FROM cadastro.Pessoa p
                  LEFT JOIN cadastro.fisica f ON (p.idpes = f.idpes)
                  LEFT JOIN portal.funcionario fun ON (fun.ref_cod_pessoa_fj = f.idpes)
                 INNER JOIN pmieducar.servidor s ON (s.cod_servidor = p.idpes)
@@ -101,7 +102,7 @@ class ServidorController extends ApiCoreController
                 s.ativo as ativo,
                 greatest(p.data_rev::timestamp(0), s.updated_at) as updated_at
             FROM pmieducar.servidor s
-            INNER JOIN cadastro.pessoa p ON s.cod_servidor = p.idpes
+            INNER JOIN cadastro.Pessoa p ON s.cod_servidor = p.idpes
             WHERE s.ref_cod_instituicao = $1
             {$where}
             order by updated_at
@@ -211,6 +212,7 @@ class ServidorController extends ApiCoreController
                 } elseif (is_string($vinculo['disciplinas'])) {
                     $vinculo['disciplinas'] = explode(',', $vinculo['disciplinas']);
                 }
+
                 return $vinculo;
             }, $vinculos);
 
@@ -232,11 +234,11 @@ class ServidorController extends ApiCoreController
     {
         $servidor = $this->getRequest()->servidor_id;
 
-        $sql = 'SELECT pessoa.nome,
-                       pessoa.email,
+        $sql = 'SELECT Pessoa.nome,
+                       Pessoa.email,
                        educacenso_cod_docente.cod_docente_inep AS inep
                 FROM pmieducar.servidor
-                JOIN cadastro.pessoa ON pessoa.idpes = servidor.cod_servidor
+                JOIN cadastro.Pessoa ON Pessoa.idpes = servidor.cod_servidor
                 JOIN modules.educacenso_cod_docente ON educacenso_cod_docente.cod_servidor = servidor.cod_servidor
                 WHERE servidor.cod_servidor = $1';
 
@@ -278,6 +280,7 @@ class ServidorController extends ApiCoreController
             return true;
         } else {
             $this->messenger->append($validator->getMessage());
+
             return false;
         }
     }

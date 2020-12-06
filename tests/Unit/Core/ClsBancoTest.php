@@ -2,19 +2,19 @@
 
 use Tests\TestCase;
 
-require_once 'include/pmieducar/clsPmieducarClienteSuspensao.inc.php';
+require_once 'include/pmieducar/ClienteSuspensao.php';
 
 class ClsBancoTest extends TestCase
 {
     public function testDoCountFromObj()
     {
-        $db = new clsBanco();
+        $db = new Banco();
 
-        $obj = new clsPmieducarClienteSuspensao();
+        $obj = new ClienteSuspensao();
 
         $this->assertNotEquals(true, is_null($db->doCountFromObj($obj)));
     }
-    
+
     public function testFormatacaoDeValoresBooleanos()
     {
         $data = [
@@ -22,7 +22,7 @@ class ClsBancoTest extends TestCase
             'hasChild' => true
         ];
 
-        $db = new clsBanco();
+        $db = new Banco();
 
         $formatted = $db->formatValues($data);
         $this->assertSame('t', $formatted['hasChild']);
@@ -35,14 +35,14 @@ class ClsBancoTest extends TestCase
 
     public function testOpcaoDeLancamentoDeExcecaoEFalsePorPadrao()
     {
-        $db = new clsBanco();
+        $db = new Banco();
 
         $this->assertFalse($db->getThrowException());
     }
 
     public function testConfiguracaoDeOpcaoDeLancamentoDeExcecao()
     {
-        $db = new clsBanco();
+        $db = new Banco();
         $db->setThrowException(true);
 
         $this->assertTrue($db->getThrowException());
@@ -50,7 +50,7 @@ class ClsBancoTest extends TestCase
 
     public function testFetchTipoArrayDeResultadosDeUmaQuery()
     {
-        $db = new clsBanco();
+        $db = new Banco();
         $db->Consulta('SELECT spcname FROM pg_tablespace');
 
         $row = $db->ProximoRegistro();
@@ -62,7 +62,7 @@ class ClsBancoTest extends TestCase
 
     public function testFetchTipoAssocDeResultadosDeUmaQuery()
     {
-        $db = new clsBanco(['fetchMode' => clsBanco::FETCH_ASSOC]);
+        $db = new Banco(['fetchMode' => Banco::FETCH_ASSOC]);
         $db->Consulta('SELECT spcname FROM pg_tablespace');
 
         $row = $db->ProximoRegistro();

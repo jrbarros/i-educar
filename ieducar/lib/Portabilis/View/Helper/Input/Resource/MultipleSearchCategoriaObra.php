@@ -9,7 +9,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchCategoriaObra extends 
     protected function getOptions($resources)
     {
         if (empty($resources)) {
-            $resources = new clsPmieducarCategoriaObra();
+            $resources = new CategoriaObra();
             $resources = $resources->lista();
             $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'id', 'descricao');
         }

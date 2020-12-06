@@ -2,11 +2,10 @@
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Array/Utils.php';
-require_once 'intranet/include/clsBanco.inc.php';
+require_once 'Intranet/include/Banco.inc.php';
 
 class LogradouroController extends ApiCoreController
 {
-
     protected function searchOptions()
     {
         $municipioId = $this->getRequest()->municipio_id ? $this->getRequest()->municipio_id : 0;

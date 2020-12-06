@@ -13,7 +13,7 @@ class AddSlugNameInCadastroPessoa extends Migration
      */
     public function up()
     {
-        Schema::table('cadastro.pessoa', function (Blueprint $table) {
+        Schema::table('cadastro.Pessoa', function (Blueprint $table) {
             $table->string('slug')->nullable()->index();
         });
     }
@@ -25,7 +25,7 @@ class AddSlugNameInCadastroPessoa extends Migration
      */
     public function down()
     {
-        Schema::table('cadastro.pessoa', function (Blueprint $table) {
+        Schema::table('cadastro.Pessoa', function (Blueprint $table) {
             $table->dropColumn('slug');
         });
     }

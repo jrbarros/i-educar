@@ -105,14 +105,14 @@ abstract class UnitBaseTest extends TestCase
   }
 
   /**
-   * Retorna um mock da classe de conexão clsBanco.
-   * @return clsBanco
+   * Retorna um mock da classe de conexão Banco.
+   * @return Banco
    */
   public function getDbMock()
   {
-    // Cria um mock de clsBanco, preservando o código do método formatValues
+    // Cria um mock de Banco, preservando o código do método formatValues
     return $this->setExcludedMethods(array('formatValues'))
-                ->getCleanMock('clsBanco');
+                ->getCleanMock('Banco');
   }
 
   /**

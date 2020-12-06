@@ -16,17 +16,17 @@ class AddForeignKeysInCadastroFonePessoaTable extends Migration
         Schema::table('cadastro.fone_pessoa', function (Blueprint $table) {
             $table->foreign('idpes_rev')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes_cad')
                ->references('idpes')
-               ->on('cadastro.pessoa')
+               ->on('cadastro.Pessoa')
                ->onDelete('set null');
 
             $table->foreign('idpes')
                ->references('idpes')
-               ->on('cadastro.pessoa');
+               ->on('cadastro.Pessoa');
         });
     }
 

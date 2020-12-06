@@ -1,6 +1,6 @@
 <?php
 
-require_once 'include/clsBanco.inc.php';
+require_once 'include/Banco.inc.php';
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 
 class ConsultaBaseController extends ApiCoreController
@@ -15,7 +15,7 @@ class ConsultaBaseController extends ApiCoreController
     protected function getPDO()
     {
         if (is_null($this->pdo)) {
-            $base = new clsBanco();
+            $base = new Banco();
             $base->FraseConexao();
             $connectionString = 'pgsql:' . $base->getFraseConexao();
 
@@ -25,7 +25,8 @@ class ConsultaBaseController extends ApiCoreController
         return $this->pdo;
     }
 
-    protected function getAlunos() {
+    protected function getAlunos()
+    {
         if (!$this->canGetAlunos()) {
             return null;
         }
@@ -33,7 +34,8 @@ class ConsultaBaseController extends ApiCoreController
         return $this->getData();
     }
 
-    protected function getData() {
+    protected function getData()
+    {
         return [];
     }
 

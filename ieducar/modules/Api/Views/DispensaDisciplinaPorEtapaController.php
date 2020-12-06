@@ -37,6 +37,7 @@ class DispensaDisciplinaPorEtapaController extends ApiCoreController
             }
             $existeNota = count(array_shift($notasAlunoComponentes)) > 0;
         }
+
         return ['existe_nota' => $existeNota];
     }
 
@@ -44,6 +45,7 @@ class DispensaDisciplinaPorEtapaController extends ApiCoreController
     {
         $notaAlunoMapper = new Avaliacao_Model_NotaAlunoDataMapper();
         $notaAluno = $notaAlunoMapper->findAll([], ['matricula_id' => $matriculaId]);
+
         return $notaAluno[0]->id;
     }
 
@@ -52,6 +54,7 @@ class DispensaDisciplinaPorEtapaController extends ApiCoreController
         $notaAluno = $this->getNotaAlunoId($matriculaId);
 
         $notaComponenteCurricularMapper = new Avaliacao_Model_NotaComponenteDataMapper();
+
         return $notaComponenteCurricularMapper->findAll([], [
             'nota_aluno_id' => $notaAluno,
             'componente_curricular_id' => $disciplinaId,

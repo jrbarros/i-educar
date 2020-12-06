@@ -49,7 +49,7 @@ class Portabilis_View_Helper_Application extends CoreExt_View_Helper_Abstract
                 self::$javascriptsLoaded[] = $file;
 
                 if ($appendAssetsVersionParam) {
-                    $viewInstance->appendOutput("<script type='text/javascript' src='" . Asset::get($file) . "'></script>");
+                    $viewInstance->appendOutput('<script type=\'text/javascript\' src=\'' . Asset::get($file) . '\'></script>');
                 } else {
                     $viewInstance->appendOutput("<script type='text/javascript' src='$file'></script>");
                 }
@@ -81,7 +81,7 @@ class Portabilis_View_Helper_Application extends CoreExt_View_Helper_Abstract
                 self::$stylesheetsLoaded[] = $file;
 
                 if ($appendAssetsVersionParam) {
-                    $viewInstance->appendOutput("<link type='text/css' rel='stylesheet' href='" . Asset::get($file) . "'></script>");
+                    $viewInstance->appendOutput('<link type=\'text/css\' rel=\'stylesheet\' href=\'' . Asset::get($file) . '\'></script>');
                 } else {
                     $viewInstance->appendOutput("<link type='text/css' rel='stylesheet' href='$file'></script>");
                 }

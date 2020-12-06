@@ -10,8 +10,8 @@ class PersonLogUnificationController extends Controller
 {
     public function index(Request $request)
     {
-        $this->breadcrumb('Log de unificações de pessoa', [
-            url('intranet/educar_pessoas_index.php') => 'Pessoas',
+        $this->breadcrumb('Log de unificações de Pessoa', [
+            url('Intranet/educar_pessoas_index.php') => 'Pessoas',
         ]);
 
         $this->menu(9998878);
@@ -40,8 +40,8 @@ class PersonLogUnificationController extends Controller
     public function show(LogUnification $unification)
     {
         $this->breadcrumb('Detalhe da unificação', [
-            url('intranet/educar_index.php') => 'Escola',
-            route('person-log-unification.index') => 'Log de unificações de pessoa',
+            url('Intranet/educar_index.php') => 'Escola',
+            route('person-log-unification.index') => 'Log de unificações de Pessoa',
         ]);
 
         $this->menu(999847);

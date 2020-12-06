@@ -15,7 +15,7 @@ class InactiveMainUnification extends RuntimeException
         }
 
         if ($unification->type == Individual::class) {
-            $message = 'A pessoa está inativa ou foi unificada com outra pessoa.';
+            $message = 'A Pessoa está inativa ou foi unificada com outra Pessoa.';
         }
 
         parent::__construct($message);

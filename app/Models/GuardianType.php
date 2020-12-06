@@ -17,7 +17,7 @@ class GuardianType implements Enum
             self::FATHER => 'Pai',
             self::MOTHER => 'Mãe',
             self::BOTH => 'Pai e Mãe',
-            self::OTHER => 'Outra pessoa',
+            self::OTHER => 'Outra Pessoa',
         ];
     }
 }

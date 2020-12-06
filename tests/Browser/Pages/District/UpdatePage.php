@@ -32,10 +32,10 @@ class UpdatePage extends Page
     public function url($onlyPath = false)
     {
         if ($onlyPath) {
-            return '/intranet/public_distrito_cad.php';
+            return '/Intranet/public_distrito_cad.php';
         }
 
-        return '/intranet/public_distrito_cad.php?iddis=' . $this->districtId;
+        return '/Intranet/public_distrito_cad.php?iddis=' . $this->districtId;
     }
 
     /**

@@ -30,7 +30,7 @@
  */
 
 require_once 'FormulaMedia/Model/Formula.php';
-require_once 'include/pmieducar/clsPmieducarInstituicao.inc.php';
+require_once 'include/pmieducar/Instituicao.php';
 
 /**
  * FormulaTest class.
@@ -89,12 +89,12 @@ class FormulaTest extends UnitBaseTest
     $returnValue = array(array('cod_instituicao' => 1, 'nm_instituicao' => 'Instituição'));
 
     // Mock para instituição
-    $mock = $this->getCleanMock('clsPmieducarInstituicao');
+    $mock = $this->getCleanMock('Instituicao');
     $mock->expects($this->any())
          ->method('lista')
          ->will($this->returnValue($returnValue));
 
-    $this->_entity->addClassToStorage('clsPmieducarInstituicao', $mock);
+    $this->_entity->addClassToStorage('Instituicao', $mock);
 
     $validators = $this->_entity->getDefaultValidatorCollection();
     $this->assertInstanceOf('CoreExt_Validate_Choice', $validators['instituicao']);

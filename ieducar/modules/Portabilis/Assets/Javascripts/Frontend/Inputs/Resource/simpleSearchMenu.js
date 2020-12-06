@@ -7,7 +7,7 @@
       caminho = $j("#menu_id").val();
       if (caminho){
         if(caminho.search(".php") > -1){
-          caminhoCompleto = host + '/intranet/' + caminho;
+          caminhoCompleto = host + '/Intranet/' + caminho;
           loc.href = caminhoCompleto;
         }else{
           loc.pathname = '/' + caminho;

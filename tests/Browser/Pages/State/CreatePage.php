@@ -14,7 +14,7 @@ class CreatePage extends Page
      */
     public function url()
     {
-        return '/intranet/public_uf_cad.php';
+        return '/Intranet/public_uf_cad.php';
     }
 
     /**

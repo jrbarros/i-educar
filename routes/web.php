@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false]);
 
-Route::redirect('/', 'intranet/index.php');
+Route::redirect('/', 'Intranet/index.php');
 
 Route::any('module/Api/{uri}', 'LegacyController@api')->where('uri', '.*');
 
-Route::any('intranet/filaunica/educar_consulta.php', 'LegacyController@intranet')
+Route::any('Intranet/filaunica/educar_consulta.php', 'LegacyController@Intranet')
     ->defaults('uri', 'filaunica/educar_consulta.php');
 
-Route::any('intranet/suspenso.php', 'LegacyController@intranet')
+Route::any('Intranet/suspenso.php', 'LegacyController@Intranet')
     ->defaults('uri', 'suspenso.php');
 
 Route::group(['middleware' => ['auth']], function () {
@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::group(['middleware' => ['ieducar.navigation', 'ieducar.footer', 'ieducar.xssbypass', 'ieducar.suspended', 'auth', 'ieducar.checkresetpassword']], function () {
-    Route::get('/intranet/educar_matricula_turma_lst.php', 'LegacyController@intranet')
+    Route::get('/Intranet/educar_matricula_turma_lst.php', 'LegacyController@Intranet')
         ->defaults('uri', 'educar_matricula_turma_lst.php')
         ->name('enrollments.index');
     Route::get('/matricula/{registration}/enturmar/{schoolClass}', 'EnrollmentController@viewEnroll')
@@ -40,7 +40,7 @@ Route::group(['middleware' => ['ieducar.navigation', 'ieducar.footer', 'ieducar.
     Route::post('/enturmacao-em-lote/{schoolClass}', 'BatchEnrollmentController@enroll')
         ->name('enrollments.batch.enroll');
 
-    Route::get('/usuarios/tipos', 'LegacyController@intranet')
+    Route::get('/usuarios/tipos', 'LegacyController@Intranet')
         ->defaults('uri', 'educar_tipo_usuario_lst.php')
         ->name('usertype.index');
     Route::get('/usuarios/tipos/novo', 'AccessLevelController@new')
@@ -66,14 +66,14 @@ Route::group(['middleware' => ['ieducar.navigation', 'ieducar.footer', 'ieducar.
     Route::get('/unificacao-aluno/{unification}', 'StudentLogUnificationController@show')->name('student-log-unification.show');
     Route::get('/unificacao-aluno/{unification}/undo', 'StudentLogUnificationController@undo')->name('student-log-unification.undo');
 
-    Route::get('/unificacao-pessoa', 'PersonLogUnificationController@index')->name('person-log-unification.index');
-    Route::get('/unificacao-pessoa/{unification}', 'PersonLogUnificationController@show')->name('person-log-unification.show');
+    Route::get('/unificacao-Pessoa', 'PersonLogUnificationController@index')->name('person-log-unification.index');
+    Route::get('/unificacao-Pessoa/{unification}', 'PersonLogUnificationController@show')->name('person-log-unification.show');
 
-    Route::get('intranet/index.php', 'LegacyController@intranet')
+    Route::get('Intranet/index.php', 'LegacyController@Intranet')
         ->defaults('uri', 'index.php')
         ->name('home');
 
-    Route::get('intranet/educar_configuracoes_index.php', 'LegacyController@intranet')
+    Route::get('Intranet/educar_configuracoes_index.php', 'LegacyController@Intranet')
         ->defaults('uri', 'educar_configuracoes_index.php')
         ->name('settings');
 
@@ -84,7 +84,7 @@ Route::group(['middleware' => ['ieducar.navigation', 'ieducar.footer', 'ieducar.
 
     Route::any('module/{uri}', 'LegacyController@module')->where('uri', '.*');
     Route::any('modules/{uri}', 'LegacyController@modules')->where('uri', '.*');
-    Route::any('intranet/{uri}', 'LegacyController@intranet')->where('uri', '.*');
+    Route::any('Intranet/{uri}', 'LegacyController@Intranet')->where('uri', '.*');
 
     Route::group(['namespace' => 'Educacenso', 'prefix' => 'educacenso'], function () {
         Route::get('validar/{validator}', 'ValidatorController@validation');

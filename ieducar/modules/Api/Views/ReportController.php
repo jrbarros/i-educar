@@ -119,7 +119,7 @@ class ReportController extends ApiCoreController
             $boletimProfessorReport->addArg('orientacao', 2);
             $boletimProfessorReport->addArg('situacao', (int) $this->getRequest()->situacao ?? 0);
 
-            $configuracoes = new clsPmieducarConfiguracoesGerais();
+            $configuracoes = new ConfiguracoesGerais();
             $configuracoes = $configuracoes->detalhe();
 
             $modelo = $configuracoes['modelo_boletim_professor'];

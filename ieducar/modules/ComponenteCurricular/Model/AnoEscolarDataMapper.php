@@ -118,7 +118,7 @@ class ComponenteCurricular_Model_AnoEscolarDataMapper extends CoreExt_DataMapper
             $id = $componenteAnoEscolar->get('componenteCurricular');
             $list[$id] = $this->getComponenteDataMapper()->find(
                 $componenteAnoEscolar->get('componenteCurricular')
-              );
+            );
             $list[$id]->cargaHoraria = $componenteAnoEscolar->cargaHoraria;
         }
 

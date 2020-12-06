@@ -123,7 +123,7 @@ ModalDispensas = {
         let tr = $j('<tr>');
 
         let linkDispensas = $j('<a>').attr({
-          href: '/intranet/educar_dispensa_disciplina_lst.php?ref_cod_matricula=' + matricula.idMatricula,
+          href: '/Intranet/educar_dispensa_disciplina_lst.php?ref_cod_matricula=' + matricula.idMatricula,
           target: '_blank'
         });
 

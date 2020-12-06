@@ -94,13 +94,13 @@ class Core_Controller_Page_ViewController extends clsDetalhe implements Core_Vie
     /**
      * Getter.
      *
-     * @return clsPermissoes
+     * @return Permissoes
      */
     public function getClsPermissoes()
     {
-        require_once 'include/pmieducar/clsPermissoes.inc.php';
+        require_once 'include/pmieducar/Permissoes.php';
 
-        return new clsPermissoes();
+        return new Permissoes();
     }
 
     /**

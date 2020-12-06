@@ -29,7 +29,7 @@ class PontoController extends ApiCoreController
             $place = Place::query()->find($detalhe['idlog']);
         }
 
-        // após cadastro não muda mais id pessoa
+        // após cadastro não muda mais id Pessoa
         $ponto->descricao = Portabilis_String_Utils::toLatin1($this->getRequest()->desc);
 
         $ponto->latitude = $this->getRequest()->latitude;
@@ -240,7 +240,7 @@ class PontoController extends ApiCoreController
             if ($this->validateIfPontoIsNotInUse()) {
                 $this->appendResponse($this->delete());
                 echo '<script language= "JavaScript">
-                    location.href="intranet/transporte_ponto_lst.php";
+                    location.href="Intranet/transporte_ponto_lst.php";
                     </script>';
 
                 die();

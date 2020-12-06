@@ -13,16 +13,16 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchPessoa extends Portabili
                 select
                 (
                     case
-                        when fisica.nome_social not like \'\' then fisica.nome_social || \' - Nome de registro: \' || pessoa.nome
-                        else pessoa.nome
+                        when fisica.nome_social not like \'\' then fisica.nome_social || \' - Nome de registro: \' || Pessoa.nome
+                        else Pessoa.nome
                     end
                 ) as nome
                 from
-                    cadastro.pessoa,
+                    cadastro.Pessoa,
                     cadastro.fisica
                 where true
-                and pessoa.idpes = $1
-                and fisica.idpes = pessoa.idpes
+                and Pessoa.idpes = $1
+                and fisica.idpes = Pessoa.idpes
             ';
 
             $options = ['params' => $id, 'return_only' => 'first-field'];
@@ -35,9 +35,9 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchPessoa extends Portabili
     public function simpleSearchPessoa($attrName, $options = [])
     {
         $defaultOptions = [
-            'objectName' => 'pessoa',
+            'objectName' => 'Pessoa',
             'apiController' => 'Pessoa',
-            'apiResource' => 'pessoa-search'
+            'apiResource' => 'Pessoa-search'
         ];
 
         $options = $this->mergeOptions($options, $defaultOptions);
@@ -47,6 +47,6 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchPessoa extends Portabili
 
     protected function inputPlaceholder($inputOptions)
     {
-        return 'Informe o nome, código, CPF ou RG da pessoa';
+        return 'Informe o nome, código, CPF ou RG da Pessoa';
     }
 }

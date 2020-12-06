@@ -18,7 +18,7 @@ SELECT
         WHEN 'p' THEN 1 -- pai
         WHEN 'm' THEN 2 -- mãe
         WHEN 'a' THEN 3 -- pai e mãe
-        WHEN 'r' THEN 4 -- outra pessoa
+        WHEN 'r' THEN 4 -- outra Pessoa
         ELSE NULL
     END) AS guardian_type,
     a.aluno_estado_id AS registry_code, -- RA

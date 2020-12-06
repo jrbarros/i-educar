@@ -19,7 +19,6 @@ require_once 'Portabilis/String/Utils.php';
 
 class DiarioController extends ApiCoreController
 {
-
     protected $_processoAp = 642;
 
     protected function getRegra($matriculaId)
@@ -34,7 +33,7 @@ class DiarioController extends ApiCoreController
 
     protected function getComponentesPorTurma($turmaId)
     {
-        $objTurma = new clsPmieducarTurma($turmaId);
+        $objTurma = new Turma($turmaId);
         $detTurma = $objTurma->detalhe();
         $escolaId = $detTurma['ref_ref_cod_escola'];
         $serieId = $detTurma['ref_ref_cod_serie'];
@@ -146,8 +145,8 @@ class DiarioController extends ApiCoreController
 
             // set service
             if (!isset($this->_boletimServiceInstances[$matriculaId])) {
-                    $params = ['matricula' => $matriculaId];
-                    $this->_boletimServiceInstances[$matriculaId] = new Avaliacao_Service_Boletim($params);
+                $params = ['matricula' => $matriculaId];
+                $this->_boletimServiceInstances[$matriculaId] = new Avaliacao_Service_Boletim($params);
             }
 
             // validates service
@@ -286,7 +285,8 @@ class DiarioController extends ApiCoreController
                     $nota = new Avaliacao_Model_NotaComponente($array_nota);
 
                     $serviceBoletim->verificaNotasLancadasNasEtapasAnteriores(
-                        $etapa, $componenteCurricularId
+                        $etapa,
+                        $componenteCurricularId
                     );
 
                     $serviceBoletim->addNota($nota);
@@ -342,12 +342,14 @@ class DiarioController extends ApiCoreController
                             $notaMaximaPermitida = $regra->getNotaMaximaRecuperacao($etapa);
 
                             if (empty($notaMaximaPermitida)) {
-                                $this->messenger->append("A nota máxima para recuperação não foi definida", 'error');
+                                $this->messenger->append('A nota máxima para recuperação não foi definida', 'error');
+
                                 return false;
                             }
 
                             if ($notaRecuperacao > $notaMaximaPermitida) {
                                 $this->messenger->append("A nota {$valorNota} está acima da configurada para nota máxima para exame que é {$notaMaximaPermitida}.", 'error');
+
                                 return false;
                             }
 

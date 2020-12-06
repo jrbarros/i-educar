@@ -1,8 +1,8 @@
 <?php
 
-require_once 'include/clsBase.inc.php';
+require_once 'include/Base.php';
 
-class Core_View extends clsBase
+class Core_View extends Base
 {
     /**
      * Uma instância de CoreExt_Controller_Page_Interface.
@@ -98,7 +98,7 @@ class Core_View extends clsBase
     /**
      * Configura algumas variáveis de instância.
      *
-     * @see clsBase#Formular()
+     * @see Base#Formular()
      */
     public function Formular()
     {

@@ -49,9 +49,9 @@ class ViewController extends Core_Controller_Page_ViewController
     protected function _preRender()
     {
         $this->breadcrumb('Detalhes da regra de avaliação', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
 
-        $this->addBotao('Copiar regra',"/module/RegraAvaliacao/edit?id={$this->getRequest()->id}&copy=true" );
+        $this->addBotao('Copiar regra', "/module/RegraAvaliacao/edit?id={$this->getRequest()->id}&copy=true");
     }
 }

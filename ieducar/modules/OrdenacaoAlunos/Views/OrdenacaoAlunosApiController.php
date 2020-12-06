@@ -1,9 +1,9 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'include/pmieducar/clsPmieducarExemplar.inc.php';
-require_once 'include/pmieducar/clsPmieducarBibliotecaDia.inc.php';
-require_once 'include/pmieducar/clsPmieducarBibliotecaFeriados.inc.php';
+require_once 'include/pmieducar/Exemplar.php';
+require_once 'include/pmieducar/BibliotecaDia.php';
+require_once 'include/pmieducar/BibliotecaFeriados.php';
 require_once 'lib/Portabilis/Array/Utils.php';
 
 class OrdenacaoAlunosApiController extends ApiCoreController
@@ -98,7 +98,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
             $id = $this->getRequest()->cliente_id;
         }
 
-        $cliente = new clsPmieducarCliente($id);
+        $cliente = new Cliente($id);
         $cliente = $cliente->detalhe();
 
         if ($cliente) {
@@ -136,7 +136,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
         // #TODO Caso seja a devolução seja refatorada, separar esse trecho num método para reutilizar código
         $dias_da_semana = ['Sun' => 1, 'Mon' => 2, 'Tue' => 3, 'Wed' => 4, 'Thu' => 5, 'Fri' => 6, 'Sat' => 7];
 
-        $obj_biblioteca_dia = new clsPmieducarBibliotecaDia();
+        $obj_biblioteca_dia = new BibliotecaDia();
         $lst_biblioteca_dia = $obj_biblioteca_dia->lista($this->getRequest()->biblioteca_id);
         if (is_array($lst_biblioteca_dia) && count($lst_biblioteca_dia)) {
             foreach ($lst_biblioteca_dia as $dia_semana) {
@@ -148,7 +148,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
 
         $biblioteca_dias_folga = array_flip($biblioteca_dias_folga);
 
-        $obj_biblioteca_feriado = new clsPmieducarBibliotecaFeriados();
+        $obj_biblioteca_feriado = new BibliotecaFeriados();
         $lst_biblioteca_feriado = $obj_biblioteca_feriado->lista(null, $this->getRequest()->biblioteca_id);
         if (is_array($lst_biblioteca_feriado) && count($lst_biblioteca_feriado)) {
             foreach ($lst_biblioteca_feriado as $dia_feriado) {
@@ -166,9 +166,9 @@ class OrdenacaoAlunosApiController extends ApiCoreController
         }
 
         while (in_array(substr($data_entrega, 0, 3), $biblioteca_dias_folga) || in_array(
-                $data_entrega,
-                $biblioteca_dias_feriado
-            )) {
+            $data_entrega,
+            $biblioteca_dias_feriado
+        )) {
             $data_entrega = date('D Y-m-d ', strtotime("$data_entrega +1 day"));
             $data_entrega = dataFromPgToBr($data_entrega, 'D Y-m-d');
         }
@@ -181,7 +181,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
     protected function loadReservasForExemplar($exemplar, $clienteId = null, $reload = false)
     {
         if ($reload || !isset($this->_reservas)) {
-            $reservas = new clsPmieducarReservas();
+            $reservas = new Reservas();
             $reservas = $reservas->lista(
                 null,
                 null,
@@ -244,7 +244,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
             $exemplar = $this->loadExemplar();
         }
 
-        $emprestimo = new clsPmieducarExemplarEmprestimo();
+        $emprestimo = new ExemplarEmprestimo();
 
         $emprestimo = $emprestimo->lista(
             null,
@@ -315,7 +315,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
 
     protected function loadSituacaoForExemplar($exemplar)
     {
-        $situacao = new clsPmieducarSituacao($exemplar['situacao_id']);
+        $situacao = new Situacao($exemplar['situacao_id']);
         $situacao = $situacao->detalhe();
 
         $reservado = $this->existsReservaForExemplar($exemplar);
@@ -376,7 +376,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
         }
         if ($clientePossuiReserva) {
             if ($cont == 1) {
-                $reservas = new clsPmieducarReservas($codReserva);
+                $reservas = new Reservas($codReserva);
                 $reservas->data_retirada = date('Y-m-d H:i:s');
                 $reservas->edita();
                 $return = 'disponivel';
@@ -465,7 +465,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
     protected function loadExemplares($reload = false, $id = null)
     {
         if ($reload || !isset($this->_exemplares)) {
-            $exemplares = new clsPmieducarExemplar();
+            $exemplares = new Exemplar();
 
             $exemplares = $exemplares->lista(
                 $id,
@@ -548,7 +548,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
             $padrao = $padrao == true ? 1 : 0;
         }
 
-        $situacao = new clsPmieducarSituacao();
+        $situacao = new Situacao();
         $situacao = $situacao->lista(
             null,
             null,
@@ -589,7 +589,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
             throw new CoreExt_Exception('$newSituacao não pode ser falso em updateSituacaoExemplar.');
         }
 
-        $exemplar = new clsPmieducarExemplar();
+        $exemplar = new Exemplar();
         $exemplar->cod_exemplar = $this->getRequest()->exemplar_id;
         $exemplar->ref_cod_acervo = $this->getRequest()->acervo_id;
         $exemplar->ref_cod_situacao = $newSituacao['id'];
@@ -617,7 +617,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
             }
 
             if (!$this->messenger->hasMsgWithType('error')) {
-                $emprestimo = new clsPmieducarExemplarEmprestimo();
+                $emprestimo = new ExemplarEmprestimo();
                 $emprestimo->ref_usuario_cad = $this->getSession()->id_pessoa;
                 $emprestimo->ref_cod_cliente = $this->getRequest()->cliente_id;
                 $emprestimo->ref_cod_exemplar = $this->getRequest()->exemplar_id;
@@ -659,7 +659,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
 
             if (!$this->messenger->hasMsgWithType('error')) {
                 $_emprestimo = $this->loadEmprestimoForExemplar();
-                $emprestimo = new clsPmieducarExemplarEmprestimo();
+                $emprestimo = new ExemplarEmprestimo();
                 $emprestimo->cod_emprestimo = $_emprestimo['id'];
                 $emprestimo->ref_usuario_devolucao = $this->getSession()->id_pessoa;
                 $emprestimo->data_devolucao = date('Y-m-d');

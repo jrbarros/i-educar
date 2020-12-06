@@ -48,7 +48,7 @@ require_once 'Core/View.php';
 class Core_ViewStub extends Core_View
 {
   /**
-   * @see clsBase#MakeAll()
+   * @see Base#MakeAll()
    */
   public function MakeAll()
   {

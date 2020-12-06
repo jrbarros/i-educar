@@ -286,7 +286,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
         $tabelaArredondamentoId = $this->_data['id'];
 
         if ($tabelaArredondamentoId) {
-            $db = new clsBanco();
+            $db = new Banco();
             $db->Consulta('DELETE FROM modules.tabela_arredondamento_valor '
                 . 'WHERE tabela_arredondamento_id = ' . $tabelaArredondamentoId);
 

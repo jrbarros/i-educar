@@ -61,7 +61,7 @@ class CoreExt_ParentEntityDataMapperStub extends CoreExt_DataMapper
    * @param  clsBancoPdo $db
    * @return mixed Retorna FALSE em caso de erro
    */
-  public static function createTable(clsBanco $db)
+  public static function createTable(Banco $db)
   {
     $sql = "
 CREATE TABLE parent(

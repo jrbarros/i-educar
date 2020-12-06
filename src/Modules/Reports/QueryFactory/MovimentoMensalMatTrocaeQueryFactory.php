@@ -24,7 +24,7 @@ class MovimentoMensalMatTrocaeQueryFactory extends QueryFactory
     protected $query = <<<'SQL'
         select
             m.cod_matricula,
-            pessoa.nome,
+            Pessoa.nome,
             t.nm_turma
         from
             pmieducar.serie s
@@ -39,7 +39,7 @@ class MovimentoMensalMatTrocaeQueryFactory extends QueryFactory
                 on t.ref_ref_cod_serie = s.cod_serie
         inner join
             pmieducar.matricula_turma mt
-                on mt.ref_cod_turma = t.cod_turma 
+                on mt.ref_cod_turma = t.cod_turma
         inner join
             pmieducar.matricula m
                 on m.cod_matricula = mt.ref_cod_matricula
@@ -50,8 +50,8 @@ class MovimentoMensalMatTrocaeQueryFactory extends QueryFactory
             cadastro.fisica f
                 on f.idpes = a.ref_idpes
         inner join
-            cadastro.pessoa
-                on pessoa.idpes = f.idpes
+            cadastro.Pessoa
+                on Pessoa.idpes = f.idpes
         where true
             and e.ref_cod_instituicao = :instituicao
             and e.cod_escola = :escola
@@ -76,6 +76,6 @@ class MovimentoMensalMatTrocaeQueryFactory extends QueryFactory
             and coalesce(mt.data_enturmacao, m.data_cadastro) between :data_inicial::date and :data_final::date
             and mt.sequencial > 1
         order by
-            pessoa.nome asc
+            Pessoa.nome asc
 SQL;
 }

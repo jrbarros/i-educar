@@ -63,7 +63,7 @@ class IndexController extends Core_Controller_Page_ListController
             foreach ($headers as $label => $attr) {
                 $item[] = CoreExt_View_Helper_UrlHelper::l(
                     $entry->$attr,
-                'view',
+                    'view',
                     $options
                 );
             }
@@ -76,7 +76,7 @@ class IndexController extends Core_Controller_Page_ListController
         $this->setAcao();
 
         $this->acao_voltar = sprintf(
-      'go("/intranet/educar_servidor_det.php?cod_servidor=%d&ref_cod_instituicao=%d")',
+            'go("/Intranet/educar_servidor_det.php?cod_servidor=%d&ref_cod_instituicao=%d")',
             $this->getRequest()->servidor,
             $this->getRequest()->instituicao
         );

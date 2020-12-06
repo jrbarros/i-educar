@@ -16,7 +16,7 @@ class CreateCadastroPessoaTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = true;
-                
+
                 CREATE SEQUENCE cadastro.seq_pessoa
                     START WITH 0
                     INCREMENT BY 1
@@ -24,7 +24,7 @@ class CreateCadastroPessoaTable extends Migration
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE cadastro.pessoa (
+                CREATE TABLE cadastro.Pessoa (
                     idpes numeric(8,0) DEFAULT nextval((\'cadastro.seq_pessoa\'::text)::regclass) NOT NULL,
                     nome character varying(150) NOT NULL,
                     idpes_cad numeric(8,0),
@@ -42,8 +42,8 @@ class CreateCadastroPessoaTable extends Migration
                     CONSTRAINT ck_pessoa_situacao CHECK (((situacao = \'A\'::bpchar) OR (situacao = \'I\'::bpchar) OR (situacao = \'P\'::bpchar))),
                     CONSTRAINT ck_pessoa_tipo CHECK (((tipo = \'F\'::bpchar) OR (tipo = \'J\'::bpchar)))
                 );
-                
-                ALTER TABLE ONLY cadastro.pessoa
+
+                ALTER TABLE ONLY cadastro.Pessoa
                     ADD CONSTRAINT pk_pessoa PRIMARY KEY (idpes);
 
                 SELECT pg_catalog.setval(\'cadastro.seq_pessoa\', 3, true);
@@ -58,7 +58,7 @@ class CreateCadastroPessoaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cadastro.pessoa');
+        Schema::dropIfExists('cadastro.Pessoa');
 
         DB::unprepared('DROP SEQUENCE cadastro.seq_pessoa;');
     }

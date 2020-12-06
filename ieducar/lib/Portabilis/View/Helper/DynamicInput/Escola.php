@@ -23,7 +23,7 @@ class Portabilis_View_Helper_DynamicInput_Escola extends Portabilis_View_Helper_
         $userId = $this->getCurrentUserId();
 
         if ($instituicaoId && empty($resources)) {
-            $permissao = new clsPermissoes();
+            $permissao = new Permissoes();
             $nivel = $permissao->nivel_acesso($userId);
 
             if (
@@ -49,7 +49,7 @@ class Portabilis_View_Helper_DynamicInput_Escola extends Portabilis_View_Helper_
     public function escola($options = [])
     {
         $this->select($options);
-        Portabilis_View_Helper_Application::loadChosenLib($this->viewInstance); 
+        Portabilis_View_Helper_Application::loadChosenLib($this->viewInstance);
         Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, '/modules/DynamicInput/Assets/Javascripts/Escola.js');
     }
 }

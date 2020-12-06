@@ -18,7 +18,7 @@ class IndexController extends Core_Controller_Page_ListController
         parent::_preRender();
 
         $this->breadcrumb('Listagem de tabelas de arredondamento', [
-            url('intranet/educar_index.php') => 'Escola',
+            url('Intranet/educar_index.php') => 'Escola',
         ]);
     }
 }

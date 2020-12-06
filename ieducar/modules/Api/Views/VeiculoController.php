@@ -15,15 +15,15 @@ class VeiculoController extends ApiCoreController
 
     protected function loadNomeEmpresa($id)
     {
-        $sql = 'select nome from cadastro.pessoa, modules.empresa_transporte_escolar emp where idpes = emp.ref_idpes and emp.cod_empresa_transporte_escolar = $1';
+        $sql = 'select nome from cadastro.Pessoa, modules.empresa_transporte_escolar emp where idpes = emp.ref_idpes and emp.cod_empresa_transporte_escolar = $1';
         $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
-  }
+    }
 
     protected function loadNomeMotorista($id)
     {
-        $sql = 'select nome from cadastro.pessoa, modules.motorista where idpes = ref_idpes and cod_motorista = $1';
+        $sql = 'select nome from cadastro.Pessoa, modules.motorista where idpes = ref_idpes and cod_motorista = $1';
         $nome = $this->fetchPreparedQuery($sql, $id, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -34,7 +34,7 @@ class VeiculoController extends ApiCoreController
         $veiculo = new clsModulesVeiculo();
         $veiculo->cod_veiculo = $id;
 
-        // após cadastro não muda mais id pessoa
+        // após cadastro não muda mais id Pessoa
         $veiculo->descricao = Portabilis_String_Utils::toLatin1($this->getRequest()->descricao);
         $veiculo->placa = Portabilis_String_Utils::toLatin1($this->getRequest()->placa);
         $veiculo->renavam = $this->getRequest()->renavam;
@@ -59,10 +59,10 @@ class VeiculoController extends ApiCoreController
     protected function sqlsForNumericSearch()
     {
         $sqls[] = 'SELECT DISTINCT cod_veiculo AS id,
-                      (descricao || \', Placa: \' || placa || \', Motorista: \' || pessoa.nome) AS name
+                      (descricao || \', Placa: \' || placa || \', Motorista: \' || Pessoa.nome) AS name
                  FROM modules.veiculo
                  LEFT JOIN modules.motorista ON (motorista.cod_motorista = veiculo.ref_cod_motorista)
-                 LEFT JOIN cadastro.pessoa ON (pessoa.idpes = motorista.ref_idpes)
+                 LEFT JOIN cadastro.Pessoa ON (Pessoa.idpes = motorista.ref_idpes)
                 WHERE (cod_veiculo::varchar LIKE $1||\'%\')
                    OR (lower((placa)) LIKE \'%\'||lower(($1))||\'%\')';
 
@@ -72,10 +72,10 @@ class VeiculoController extends ApiCoreController
     protected function sqlsForStringSearch()
     {
         $sqls[] = 'SELECT DISTINCT cod_veiculo AS id,
-                      (descricao || \', Placa: \' || placa || \', Motorista: \' || pessoa.nome) AS name
+                      (descricao || \', Placa: \' || placa || \', Motorista: \' || Pessoa.nome) AS name
                  FROM modules.veiculo
                  LEFT JOIN modules.motorista ON (motorista.cod_motorista = veiculo.ref_cod_motorista)
-                 LEFT JOIN cadastro.pessoa ON (pessoa.idpes = motorista.ref_idpes)
+                 LEFT JOIN cadastro.Pessoa ON (Pessoa.idpes = motorista.ref_idpes)
                 WHERE (lower((descricao)) LIKE \'%\'||lower(($1))||\'%\')
                    OR (lower((placa)) LIKE \'%\'||lower(($1))||\'%\')';
 
@@ -228,12 +228,12 @@ class VeiculoController extends ApiCoreController
                 $this->appendResponse($this->delete());
 
                 echo '<script language= "JavaScript">
-                    location.href="intranet/transporte_veiculo_lst.php";
+                    location.href="Intranet/transporte_veiculo_lst.php";
                     </script>';
 
                 die();
             }
-        // update
+            // update
         } elseif ($this->isRequestFor('put', 'veiculo')) {
             $this->appendResponse($this->put());
         } else {

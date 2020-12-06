@@ -1,26 +1,25 @@
 <?php
 
 use App\Models\Educacenso\Registro30;
-use App\Models\LegacyDeficiency;
 use App\Models\Individual;
+use App\Models\LegacyDeficiency;
 use App\Models\LogUnification;
-use iEducar\Modules\Educacenso\Model\Deficiencias;
+use iEducar\Modules\Educacenso\Validator\BirthCertificateValidator;
 use iEducar\Modules\Educacenso\Validator\DeficiencyValidator;
 use iEducar\Modules\Educacenso\Validator\InepExamValidator;
-use iEducar\Modules\Educacenso\Validator\BirthCertificateValidator;
 use iEducar\Modules\Educacenso\Validator\NisValidator;
 use iEducar\Modules\People\CertificateType;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-require_once 'include/pessoa/clsCadastroFisicaFoto.inc.php';
+require_once 'include/Pessoa/clsCadastroFisicaFoto.inc.php';
 require_once 'image_check.php';
-require_once 'include/pmieducar/clsPmieducarAluno.inc.php';
-require_once 'include/pmieducar/clsPmieducarProjeto.inc.php';
-require_once 'include/pmieducar/clsPmieducarAlunoHistoricoAlturaPeso.inc.php';
+require_once 'include/pmieducar/Aluno.php';
+require_once 'include/pmieducar/Projeto.php';
+require_once 'include/pmieducar/AlunoHistoricoAlturaPeso.php';
 require_once 'include/modules/clsModulesFichaMedicaAluno.inc.php';
 require_once 'include/modules/clsModulesMoradiaAluno.inc.php';
-require_once 'include/pmieducar/clsPermissoes.inc.php';
+require_once 'include/pmieducar/Permissoes.php';
 require_once 'App/Model/MatriculaSituacao.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
 require_once 'Portabilis/Array/Utils.php';
@@ -32,7 +31,6 @@ require_once 'Transporte/Model/Responsavel.php';
 
 class AlunoController extends ApiCoreController
 {
-
     protected $_processoAp = 578;
     protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
 
@@ -135,7 +133,7 @@ class AlunoController extends ApiCoreController
         $existenceOptions = ['schema_name' => 'pmieducar', 'field_name' => 'ref_idpes', 'add_msg_on_error' => false];
 
         if (!$this->validatesUniquenessOf('aluno', $this->getRequest()->pessoa_id, $existenceOptions)) {
-            $this->messenger->append("Já existe um aluno cadastrado para a pessoa {$this->getRequest()->pessoa_id}.");
+            $this->messenger->append("Já existe um aluno cadastrado para a Pessoa {$this->getRequest()->pessoa_id}.");
 
             return false;
         }
@@ -179,7 +177,7 @@ class AlunoController extends ApiCoreController
             }
 
             $alunoId = $this->fetchPreparedQuery($sql, $params, true, 'first-field');
-            $configuracoes = new clsPmieducarConfiguracoesGerais();
+            $configuracoes = new ConfiguracoesGerais();
             $configuracoes = $configuracoes->detalhe();
 
             if (!empty($configuracoes['tamanho_min_rede_estadual'])) {
@@ -269,6 +267,7 @@ class AlunoController extends ApiCoreController
             return true;
         } else {
             $this->messenger->append($validator->getMessage());
+
             return false;
         }
     }
@@ -291,6 +290,7 @@ class AlunoController extends ApiCoreController
         }
 
         $this->messenger->append($validator->getMessage());
+
         return false;
     }
 
@@ -306,10 +306,11 @@ class AlunoController extends ApiCoreController
         }
 
         $this->messenger->append($validator->getMessage());
+
         return false;
     }
 
-        /**
+    /**
      * @return bool
      */
     private function validateTechnologicalResources()
@@ -318,6 +319,7 @@ class AlunoController extends ApiCoreController
 
         if (in_array('Nenhum', $technologicalResources) && count($technologicalResources) > 1) {
             $this->messenger->append('Não é possível informar mais de uma opção no campo: <strong>Possui acesso à recursos tecnológicos?</strong>, quando a opção: <b>Nenhum</b> estiver selecionada.');
+
             return false;
         }
 
@@ -341,6 +343,7 @@ class AlunoController extends ApiCoreController
         }
 
         $this->messenger->append($validator->getMessage());
+
         return false;
     }
 
@@ -352,7 +355,7 @@ class AlunoController extends ApiCoreController
     // load resources
     protected function loadNomeAluno($alunoId)
     {
-        $sql = 'select nome from cadastro.pessoa, pmieducar.aluno where idpes = ref_idpes and cod_aluno = $1';
+        $sql = 'select nome from cadastro.Pessoa, pmieducar.aluno where idpes = ref_idpes and cod_aluno = $1';
         $nome = $this->fetchPreparedQuery($sql, $alunoId, false, 'first-field');
 
         return $this->toUtf8($nome, ['transform' => true]);
@@ -557,7 +560,7 @@ class AlunoController extends ApiCoreController
         return $result;
     }
 
-    // #TODO mover updateResponsavel e updateDeficiencias para API pessoa ?
+    // #TODO mover updateResponsavel e updateDeficiencias para API Pessoa ?
     protected function updateResponsavel()
     {
         $pessoa = new clsFisica();
@@ -586,7 +589,7 @@ class AlunoController extends ApiCoreController
 
         foreach ($this->getRequest()->deficiencias as $id) {
             if (!empty($id)) {
-                $deficiencia = new clsCadastroFisicaDeficiencia($this->getRequest()->pessoa_id, $id);
+                $deficiencia = new CadastroFisicaDeficiencia($this->getRequest()->pessoa_id, $id);
                 $deficiencia->cadastra();
             }
         }
@@ -596,7 +599,7 @@ class AlunoController extends ApiCoreController
     {
         $tiposResponsavel = ['pai' => 'p', 'mae' => 'm', 'outra_pessoa' => 'r', 'pai_mae' => 'a'];
 
-        $aluno = new clsPmieducarAluno();
+        $aluno = new Aluno();
         $aluno->cod_aluno = $id;
 
         $alunoEstadoId = strtoupper($this->getRequest()->aluno_estado_id);
@@ -626,7 +629,7 @@ class AlunoController extends ApiCoreController
         $aluno->autorizado_cinco = Portabilis_String_Utils::toLatin1($this->getRequest()->autorizado_cinco);
         $aluno->parentesco_cinco = Portabilis_String_Utils::toLatin1($this->getRequest()->parentesco_cinco);
 
-        // após cadastro não muda mais id pessoa
+        // após cadastro não muda mais id Pessoa
         if (is_null($id)) {
             $aluno->ref_idpes = $this->getRequest()->pessoa_id;
         }
@@ -698,7 +701,7 @@ class AlunoController extends ApiCoreController
 
     protected function loadEscolaNome($id)
     {
-        $escola = new clsPmieducarEscola();
+        $escola = new Escola();
         $escola->cod_escola = $id;
         $escola = $escola->detalhe();
 
@@ -707,7 +710,7 @@ class AlunoController extends ApiCoreController
 
     protected function loadCursoNome($id)
     {
-        $curso = new clsPmieducarCurso();
+        $curso = new Curso();
         $curso->cod_curso = $id;
         $curso = $curso->detalhe();
 
@@ -716,7 +719,7 @@ class AlunoController extends ApiCoreController
 
     protected function loadSerieNome($id)
     {
-        $serie = new clsPmieducarSerie();
+        $serie = new Serie();
         $serie->cod_serie = $id;
         $serie = $serie->detalhe();
 
@@ -779,7 +782,7 @@ class AlunoController extends ApiCoreController
         }
 
         if (!isset($this->_tiposOcorrenciasDisciplinares[$id])) {
-            $ocorrencia = new clsPmieducarTipoOcorrenciaDisciplinar;
+            $ocorrencia = new TipoOcorrenciaDisciplinar;
             $ocorrencia->cod_tipo_ocorrencia_disciplinar = $id;
             $ocorrencia = $ocorrencia->detalhe();
 
@@ -892,16 +895,16 @@ class AlunoController extends ApiCoreController
                     distinct aluno.cod_aluno as id,
                     (case
                         when fisica.nome_social not like \'\' then
-                            fisica.nome_social || \' - Nome de registro: \' || pessoa.nome
+                            fisica.nome_social || \' - Nome de registro: \' || Pessoa.nome
                         else
-                            pessoa.nome
+                            Pessoa.nome
                     end) as name
                 from
                     pmieducar.aluno,
-                    cadastro.pessoa,
+                    cadastro.Pessoa,
                     cadastro.fisica
                 where true
-                    and pessoa.idpes = aluno.ref_idpes
+                    and Pessoa.idpes = aluno.ref_idpes
                     and fisica.idpes = aluno.ref_idpes
                     and aluno.ativo = 1
                     and aluno.cod_aluno::varchar(255) like $1||\'%\'
@@ -921,18 +924,18 @@ class AlunoController extends ApiCoreController
                     matricula.cod_matricula as matricula_id,
                     (case
                         when fisica.nome_social not like \'\' then
-                            fisica.nome_social || \' - Nome de registro: \' || pessoa.nome
+                            fisica.nome_social || \' - Nome de registro: \' || Pessoa.nome
                         else
-                            pessoa.nome
+                            Pessoa.nome
                     end) as name
                 from
                     pmieducar.matricula,
                     pmieducar.aluno,
-                    cadastro.pessoa,
+                    cadastro.Pessoa,
                     cadastro.fisica
                 where true
                     and aluno.cod_aluno = matricula.ref_cod_aluno
-                    and pessoa.idpes = aluno.ref_idpes
+                    and Pessoa.idpes = aluno.ref_idpes
                     and fisica.idpes = aluno.ref_idpes
                     and aluno.ativo = matricula.ativo
                     and matricula.ativo = 1
@@ -965,19 +968,19 @@ class AlunoController extends ApiCoreController
                     distinct aluno.cod_aluno as id,
                     (case
                         when fisica.nome_social not like \'\' then
-                            fisica.nome_social || \' - Nome de registro: \' || pessoa.nome
+                            fisica.nome_social || \' - Nome de registro: \' || Pessoa.nome
                         else
-                            pessoa.nome
+                            Pessoa.nome
                     end) as name
                 from
                     pmieducar.aluno,
-                    cadastro.pessoa,
+                    cadastro.Pessoa,
                     cadastro.fisica
                 where true
-                    and pessoa.idpes = aluno.ref_idpes
+                    and Pessoa.idpes = aluno.ref_idpes
                     and fisica.idpes = aluno.ref_idpes
                     and aluno.ativo = 1
-                    and lower(coalesce(fisica.nome_social, \'\') || pessoa.nome) like \'%\'||lower(($1))||\'%\'
+                    and lower(coalesce(fisica.nome_social, \'\') || Pessoa.nome) like \'%\'||lower(($1))||\'%\'
                     and $2 = $2
                 order by
                     name
@@ -996,18 +999,18 @@ class AlunoController extends ApiCoreController
                     matricula.cod_matricula as matricula_id,
                     (case
                         when fisica.nome_social not like \'\' then
-                            fisica.nome_social || \' - Nome de registro: \' || pessoa.nome
+                            fisica.nome_social || \' - Nome de registro: \' || Pessoa.nome
                         else
-                            pessoa.nome
+                            Pessoa.nome
                     end) as name
                 from
                     pmieducar.matricula,
                     pmieducar.aluno,
-                    cadastro.pessoa,
+                    cadastro.Pessoa,
                     cadastro.fisica
                 where true
                     and aluno.cod_aluno = matricula.ref_cod_aluno
-                    and pessoa.idpes = aluno.ref_idpes
+                    and Pessoa.idpes = aluno.ref_idpes
                     and fisica.idpes = aluno.ref_idpes
                     and aluno.ativo = matricula.ativo
                     and matricula.ativo = 1 and (
@@ -1017,7 +1020,7 @@ class AlunoController extends ApiCoreController
                                 else 1=1
                             end
                     )
-                    and pessoa.slug ilike \'%\'|| $1 ||\'%\'
+                    and Pessoa.slug ilike \'%\'|| $1 ||\'%\'
                     and matricula.aprovado in (1, 2, 3, 4, 7, 8, 9)
                 limit 15
             ) as alunos
@@ -1035,7 +1038,7 @@ class AlunoController extends ApiCoreController
         $tipo = $tipos[$aluno['tipo_responsavel']];
 
         // no antigo cadastro de aluno, caso não fosse encontrado um tipo de responsavel
-        // verificava se a pessoa possua responsavel, pai ou mãe, considerando como
+        // verificava se a Pessoa possua responsavel, pai ou mãe, considerando como
         // responsavel um destes, na respectiva ordem, sendo assim esta api mantem
         // compatibilidade com o antigo cadastro.
         if (!$tipo) {
@@ -1130,7 +1133,7 @@ class AlunoController extends ApiCoreController
         if ($this->canGet()) {
             $id = $this->getRequest()->id;
 
-            $aluno = new clsPmieducarAluno();
+            $aluno = new Aluno();
             $aluno->cod_aluno = $id;
             $aluno = $aluno->detalhe();
 
@@ -1252,7 +1255,6 @@ class AlunoController extends ApiCoreController
     protected function getTodosAlunos()
     {
         if ($this->canGetTodosAlunos()) {
-
             $modified = $this->getRequest()->modified;
             $escola = $this->getRequest()->escola;
             $ano = $this->getRequest()->ano ?? null;
@@ -1281,7 +1283,7 @@ class AlunoController extends ApiCoreController
             }
 
             if ($cursando) {
-                $whereCursando = " AND aprovado = 3";
+                $whereCursando = ' AND aprovado = 3';
             }
 
             $sql = "
@@ -1299,7 +1301,7 @@ class AlunoController extends ApiCoreController
                     END
                 ) as deleted_at
                 FROM pmieducar.aluno a
-                INNER JOIN cadastro.pessoa p ON p.idpes = a.ref_idpes
+                INNER JOIN cadastro.Pessoa p ON p.idpes = a.ref_idpes
                 INNER JOIN cadastro.fisica f ON f.idpes = p.idpes
                 LEFT JOIN cadastro.fisica_foto ff ON p.idpes = ff.idpes
                 WHERE TRUE
@@ -1323,7 +1325,7 @@ class AlunoController extends ApiCoreController
                 greatest(p.data_rev::timestamp(0), f.data_rev::timestamp(0), aluno_excluidos.updated_at, ff.updated_at) as updated_at,
                 aluno_excluidos.deleted_at as deleted_at
                 FROM pmieducar.aluno_excluidos
-                LEFT JOIN cadastro.pessoa p ON p.idpes = aluno_excluidos.ref_idpes
+                LEFT JOIN cadastro.Pessoa p ON p.idpes = aluno_excluidos.ref_idpes
                 LEFT JOIN cadastro.fisica f ON f.idpes = p.idpes
                 LEFT JOIN cadastro.fisica_foto ff ON p.idpes = ff.idpes
                 WHERE TRUE
@@ -1385,10 +1387,10 @@ class AlunoController extends ApiCoreController
 
             if (is_numeric($idpesGuardian) && $this->checkAlunoIdpesGuardian($idpesGuardian, $alunoId)) {
                 $sql = '
-                    SELECT cod_aluno as aluno_id, pessoa.nome as nome_aluno
+                    SELECT cod_aluno as aluno_id, Pessoa.nome as nome_aluno
                     FROM pmieducar.aluno
                     INNER JOIN cadastro.fisica ON (aluno.ref_idpes = fisica.idpes)
-                    INNER JOIN cadastro.pessoa ON (pessoa.idpes = fisica.idpes)
+                    INNER JOIN cadastro.Pessoa ON (Pessoa.idpes = fisica.idpes)
                     WHERE idpes_pai = $1
                     OR idpes_mae = $1
                     OR idpes_responsavel = $1
@@ -1412,7 +1414,7 @@ class AlunoController extends ApiCoreController
     protected function getMatriculas()
     {
         if ($this->canGetMatriculas()) {
-            $matriculas = new clsPmieducarMatricula();
+            $matriculas = new Matricula();
             $matriculas->setOrderby('ano DESC, coalesce(m.data_matricula, m.data_cadastro) DESC, (CASE WHEN dependencia THEN 1 ELSE 0 END), ref_ref_cod_serie DESC, cod_matricula DESC, aprovado');
 
             $only_valid_boletim = $this->getRequest()->only_valid_boletim;
@@ -1517,7 +1519,8 @@ class AlunoController extends ApiCoreController
         $paiId = $this->getRequest()->pai_id;
 
         if (!empty($maeId) && !empty($paiId) && $maeId == $paiId) {
-            $this->messenger->append('Não é possível informar a mesma pessoa para Pai e Mãe.');
+            $this->messenger->append('Não é possível informar a mesma Pessoa para Pai e Mãe.');
+
             return false;
         }
 
@@ -1558,7 +1561,7 @@ class AlunoController extends ApiCoreController
 
     public function updateBeneficios($id)
     {
-        $obj = new clsPmieducarAlunoBeneficio();
+        $obj = new AlunoBeneficio();
         $obj->deletaBeneficiosDoAluno($id);
 
         foreach ($this->getRequest()->beneficios as $beneficioId) {
@@ -1575,7 +1578,7 @@ class AlunoController extends ApiCoreController
 
     public function saveProjetos($alunoId)
     {
-        $obj = new clsPmieducarProjeto();
+        $obj = new Projeto();
         $obj->deletaProjetosDoAluno($alunoId);
 
         foreach ($this->getRequest()->projeto_turno as $key => $value) {
@@ -1603,7 +1606,7 @@ class AlunoController extends ApiCoreController
 
     public function saveHistoricoAlturaPeso($alunoId)
     {
-        $obj = new clsPmieducarAlunoHistoricoAlturaPeso($alunoId);
+        $obj = new AlunoHistoricoAlturaPeso($alunoId);
 
         // exclui todos
         $obj->excluir();
@@ -1697,7 +1700,7 @@ class AlunoController extends ApiCoreController
         $id = $det['cod_pessoa_transporte'];
 
         $pt = new clsModulesPessoaTransporte($id);
-        // após cadastro não muda mais id pessoa
+        // após cadastro não muda mais id Pessoa
         $pt->ref_idpes = $ref_idpes;
         $pt->ref_idpes_destino = $this->getRequest()->pessoaj_id;
         $pt->ref_cod_ponto_transporte_escolar = $this->getRequest()->transporte_ponto;
@@ -1712,7 +1715,7 @@ class AlunoController extends ApiCoreController
         $id = $this->getRequest()->id;
 
         if ($this->canEnable()) {
-            $aluno = new clsPmieducarAluno();
+            $aluno = new Aluno();
             $aluno->cod_aluno = $id;
             $aluno->ref_usuario_exc = $this->getSession()->id_pessoa;
             $aluno->ativo = 1;
@@ -1734,7 +1737,7 @@ class AlunoController extends ApiCoreController
 
         if (!$matriculaAtiva) {
             if ($this->canDelete()) {
-                $aluno = new clsPmieducarAluno();
+                $aluno = new Aluno();
                 $aluno->cod_aluno = $id;
                 $aluno->ref_usuario_exc = $this->getSession()->id_pessoa;
 
@@ -1817,7 +1820,7 @@ class AlunoController extends ApiCoreController
 
     protected function createOrUpdateDocumentos($pessoaId)
     {
-        $documentos = new clsDocumento();
+        $documentos = new Documento();
         $documentos->idpes = $pessoaId;
 
         // o tipo certidão novo padrão é apenas para exibição ao usuário,
@@ -1859,8 +1862,8 @@ class AlunoController extends ApiCoreController
         $documentos->passaporte = addslashes($this->getRequest()->passaporte);
 
         // Alteração de documentos compativel com a versão anterior do cadastro,
-        // onde era possivel criar uma pessoa, não informando os documentos,
-        // o que não criaria o registro do documento, sendo assim, ao editar uma pessoa,
+        // onde era possivel criar uma Pessoa, não informando os documentos,
+        // o que não criaria o registro do documento, sendo assim, ao editar uma Pessoa,
         // o registro do documento será criado, caso não exista.
 
         $sql = 'select 1 from cadastro.documento WHERE idpes = $1 limit 1';
@@ -1885,7 +1888,7 @@ class AlunoController extends ApiCoreController
     {
         $this->pessoa_logada = Session::get('id_pessoa');
 
-        $acesso = new clsPermissoes();
+        $acesso = new Permissoes();
 
         return $acesso->permissao_cadastra(626, $this->pessoa_logada, 7, null, true);
     }
@@ -1924,7 +1927,7 @@ class AlunoController extends ApiCoreController
                 INNER JOIN pmieducar.matricula m ON m.ref_cod_aluno = a.cod_aluno
                 INNER JOIN pmieducar.matricula_turma mt ON m.cod_matricula = mt.ref_cod_matricula
                 INNER JOIN pmieducar.turma t ON mt.ref_cod_turma = t.cod_turma
-                INNER JOIN cadastro.pessoa p ON p.idpes = a.ref_idpes
+                INNER JOIN cadastro.Pessoa p ON p.idpes = a.ref_idpes
                 INNER JOIN pmieducar.serie s ON s.cod_serie = m.ref_ref_cod_serie
                 INNER JOIN pmieducar.curso c ON c.cod_curso = m.ref_cod_curso
                 INNER JOIN pmieducar.escola e ON e.cod_escola = m.ref_ref_cod_escola
@@ -2017,7 +2020,7 @@ class AlunoController extends ApiCoreController
 
         $unificationsQuery = LogUnification::query();
         $unificationsQuery->whereHas('studentMain', function ($studentQuery) use ($arrayEscola) {
-            $studentQuery->whereHas('registrations', function ($registrationsQuery) use ($arrayEscola){
+            $studentQuery->whereHas('registrations', function ($registrationsQuery) use ($arrayEscola) {
                 $registrationsQuery->whereIn('school_id', $arrayEscola);
             });
         });

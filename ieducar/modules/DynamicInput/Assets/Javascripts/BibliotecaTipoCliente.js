@@ -14,7 +14,7 @@
       if ($bibliotecaField.val() && $bibliotecaField.is(':enabled')) {
         $tipoClienteField.children().first().html('Aguarde carregando...');
 
-        var path = '/intranet/educar_cliente_tipo_xml.php';
+        var path = '/Intranet/educar_cliente_tipo_xml.php';
         var urlForGetTipoCliente = getResourceUrlBuilder.buildUrl(path, '', {
                                                             bib : $bibliotecaField.attr('value') });
 

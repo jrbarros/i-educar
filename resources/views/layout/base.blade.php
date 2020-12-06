@@ -6,7 +6,7 @@
     <title>i-Educar @if(isset($title)) - {!! $title !!} @endif</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet" href="{{ Asset::get('css/vue-multiselect.min.css') }}">
-    <link rel="stylesheet" href="{{ Asset::get('intranet/styles/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ Asset::get('Intranet/styles/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ Asset::get('css/base.css') }}">
     @stack('styles')
     @stack('scripts')
@@ -22,17 +22,17 @@
             <div class="dropdown">
                 <div class="dropbtn">{{ $loggedUser->name }}</div>
                 <div class="dropdown-content">
-                    <a href="{{ url('intranet/agenda.php') }}">Agenda</a>
-                    <a href="{{ url('intranet/index.php') }}">Calendário</a>
-                    <a href="{{ url('intranet/meusdados.php') }}">Meus dados</a>
-                    <a href="{{ url('intranet/logof.php') }}" id="logout">Sair</a>
+                    <a href="{{ url('Intranet/agenda.php') }}">Agenda</a>
+                    <a href="{{ url('Intranet/index.php') }}">Calendário</a>
+                    <a href="{{ url('Intranet/meusdados.php') }}">Meus dados</a>
+                    <a href="{{ url('Intranet/logof.php') }}" id="logout">Sair</a>
                 </div>
             </div>
-            <a href="{{ url('intranet/meusdados.php') }}" class="avatar" title="Meus dados">
-                <img height="35" src="{{ url('intranet/imagens/user-perfil.png') }}" alt="Perfil">
+            <a href="{{ url('Intranet/meusdados.php') }}" class="avatar" title="Meus dados">
+                <img height="35" src="{{ url('Intranet/imagens/user-perfil.png') }}" alt="Perfil">
             </a>
             <a href="#" class="notifications">
-                <img alt="Notificação" id="notificacao" src="{{ url('intranet/imagens/icon-nav-notifications.png') }}">
+                <img alt="Notificação" id="notificacao" src="{{ url('Intranet/imagens/icon-nav-notifications.png') }}">
             </a>
         </div>
     </header>

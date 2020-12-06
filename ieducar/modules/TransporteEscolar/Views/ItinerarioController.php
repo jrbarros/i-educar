@@ -28,8 +28,8 @@ class ItinerarioController extends Portabilis_Controller_Page_EditController
     protected function _preConstruct()
     {
         $this->_options = $this->mergeOptions([
-            'edit_success' => '/intranet/transporte_rota_lst.php',
-            'delete_sucess' => '/intranet/transporte_rota_lst.php'
+            'edit_success' => '/Intranet/transporte_rota_lst.php',
+            'delete_sucess' => '/Intranet/transporte_rota_lst.php'
         ], $this->_options);
     }
 
@@ -47,10 +47,10 @@ class ItinerarioController extends Portabilis_Controller_Page_EditController
     {
         $id = (isset($_GET['id']) ? $_GET['id'] : 0);
         if ($id == 0 || !$this->verificaIdRota($id)) {
-            $this->simpleRedirect('/intranet/transporte_rota_lst.php');
+            $this->simpleRedirect('/Intranet/transporte_rota_lst.php');
         }
 
-        $this->url_cancelar = '/intranet/transporte_rota_det.php?cod_rota=' . $id . '';
+        $this->url_cancelar = '/Intranet/transporte_rota_det.php?cod_rota=' . $id . '';
 
         // Código da rota
         $options = [
@@ -74,9 +74,9 @@ class ItinerarioController extends Portabilis_Controller_Page_EditController
       <tr>
         <th>Ponto</th>
         <th>Hora</th>
-        <th>Tipo</th> 
+        <th>Tipo</th>
         <th>Veiculo</th>
-        
+
         <th>A&ccedil;&atilde;o</th>
       </tr>
       <tr class=\'ponto\'>
@@ -88,11 +88,11 @@ class ItinerarioController extends Portabilis_Controller_Page_EditController
             <option value=\'I\'>Ida</option>
             <option value=\'V\'>Volta</option>
           </select>
-        </td>              
+        </td>
         <td>
           <input class=\'nome obrigatorio disable-on-search change-state-with-parent\'></input>
         </td>
-  
+
         <td>
           <a class=\'remove-disciplina-line\' href=\'#\'>Remover</a>
         </td>
@@ -106,15 +106,15 @@ class ItinerarioController extends Portabilis_Controller_Page_EditController
             <option value=\'I\'>Ida</option>
             <option value=\'V\'>Volta</option>
           </select>
-        </td>              
+        </td>
         <td>
           <input class=\'nome obrigatorio disable-on-search change-state-with-parent\'></input>
         </td>
-  
+
         <td>
           <a class=\'remove-disciplina-line\' href=\'#\'>Remover</a>
         </td>
-      </tr>      
+      </tr>
       <tr class=\'actions\'>
         <td colspan=\'4\'>
           <input type=\'button\' class=\'action\' id=\'new-disciplina-line\' name=\'new-line\' value=\'Adicionar ponto\'></input>

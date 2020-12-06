@@ -56,10 +56,10 @@ class CoreExt_Config implements Countable, Iterator
      * ser sobrescrita por um storage de configuração externa ao código, como o
      * arquivo ini. Um exemplo seria para a criação de um arquivo on the fly no
      * filesystem. No código pode ser assumido que o local padrão será
-     * intranet/tmp mas, se esse valor puder ser sobrescrito pelo ini, esse método
+     * Intranet/tmp mas, se esse valor puder ser sobrescrito pelo ini, esse método
      * deverá ser utilizado:
      * <code>
-     * $dir = $config->get($config->app->filesystem->tmp_dir, 'intranet/tmp');
+     * $dir = $config->get($config->app->filesystem->tmp_dir, 'Intranet/tmp');
      * </code>
      *
      * Se a variável de configuração não for sobrescrita por um arquivo ini ou

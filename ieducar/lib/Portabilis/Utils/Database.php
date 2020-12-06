@@ -14,7 +14,7 @@ class Portabilis_Utils_Database
     public static function db()
     {
         if (!isset(self::$_db)) {
-            self::$_db = new clsBanco();
+            self::$_db = new Banco();
         }
 
         return self::$_db;
@@ -97,6 +97,6 @@ class Portabilis_Utils_Database
 
     public static function pgArrayToArray($value): array
     {
-        return !empty($value) ? explode(',', str_replace(array('{', "}"), '', $value)) : [];
+        return !empty($value) ? explode(',', str_replace(['{', '}'], '', $value)) : [];
     }
 }

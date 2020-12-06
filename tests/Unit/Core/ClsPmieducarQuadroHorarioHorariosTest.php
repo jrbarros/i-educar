@@ -2,7 +2,7 @@
 
 use Tests\TestCase;
 
-require_once 'include/pmieducar/clsPmieducarQuadroHorarioHorarios.inc.php';
+require_once 'include/pmieducar/QuadroHorarioHorarios.php';
 
 class ClsPmieducarQuadroHorarioHorariosTest extends TestCase
 {
@@ -11,7 +11,7 @@ class ClsPmieducarQuadroHorarioHorariosTest extends TestCase
      */
     public function testSubstituirServidor()
     {
-        $stub = $this->getMockBuilder('clsPmieducarQuadroHorarioHorarios')->getMock();
+        $stub = $this->getMockBuilder('QuadroHorarioHorarios')->getMock();
 
         $stub->expects($this->any())
             ->method('substituir_servidor')
