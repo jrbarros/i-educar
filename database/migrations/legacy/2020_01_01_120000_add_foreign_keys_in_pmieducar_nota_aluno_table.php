@@ -28,7 +28,7 @@ class AddForeignKeysInPmieducarNotaAlunoTable extends Migration
 
             $table->foreign('ref_cod_matricula')
                ->references('cod_matricula')
-               ->on('pmieducar.matricula')
+               ->on('pmieducar.Matricula')
                ->onUpdate('restrict')
                ->onDelete('restrict');
 

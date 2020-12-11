@@ -67,26 +67,26 @@ class MovimentoMensalQueryFactory extends QueryFactory
                 enturmacao.sequencial,
                 sexo = 'F' as feminino,
                 sexo = 'M' as masculino,
-                matricula.ativo = 1 as matricula_ativa,
-                matricula.aprovado = 4 transferido,
-                matricula.aprovado = 5 as reclassificado,
-                matricula.aprovado = 6 as abandono,
-                matricula.aprovado = 15 as falecido,
-                matricula.matricula_reclassificacao = 1 as entrada_reclassificado,
+                Matricula.ativo = 1 as matricula_ativa,
+                Matricula.aprovado = 4 transferido,
+                Matricula.aprovado = 5 as reclassificado,
+                Matricula.aprovado = 6 as abandono,
+                Matricula.aprovado = 15 as falecido,
+                Matricula.matricula_reclassificacao = 1 as entrada_reclassificado,
                 enturmacao.ativo = 0 as enturmacao_inativa,
                 enturmacao.transferido as enturmacao_transferida,
                 enturmacao.abandono as enturmacao_abandono,
                 dependencia not in (true) as sem_dependencia,
-                coalesce(enturmacao.data_enturmacao, matricula.data_matricula, matricula.data_cadastro) <= date(:data_inicial) as entrou_antes_inicio,
-                coalesce(enturmacao.data_enturmacao, matricula.data_matricula, matricula.data_cadastro) <= date(:data_final) as entrou_antes_fim,
-                (coalesce(enturmacao.data_enturmacao, matricula.data_cadastro) > date(:data_inicial) and coalesce(enturmacao.data_enturmacao, matricula.data_cadastro) < date(:data_final)) as entrou_durante,
-                coalesce(enturmacao.data_exclusao, matricula.data_cancel) is null or coalesce(enturmacao.data_exclusao, matricula.data_cancel) >= date(:data_inicial) as saiu_depois_inicio,
-                coalesce(enturmacao.data_exclusao, matricula.data_cancel) is null or coalesce(enturmacao.data_exclusao, matricula.data_cancel) > date(:data_final) as saiu_depois_fim,
-                coalesce(enturmacao.data_exclusao, matricula.data_cancel) between date(:data_inicial) and date(:data_final) as saiu_durante,
-                (select max(sequencial) from pmieducar.matricula_turma where matricula_turma.ref_cod_matricula = matricula.cod_matricula) as maior_sequencial
+                coalesce(enturmacao.data_enturmacao, Matricula.data_matricula, Matricula.data_cadastro) <= date(:data_inicial) as entrou_antes_inicio,
+                coalesce(enturmacao.data_enturmacao, Matricula.data_matricula, Matricula.data_cadastro) <= date(:data_final) as entrou_antes_fim,
+                (coalesce(enturmacao.data_enturmacao, Matricula.data_cadastro) > date(:data_inicial) and coalesce(enturmacao.data_enturmacao, Matricula.data_cadastro) < date(:data_final)) as entrou_durante,
+                coalesce(enturmacao.data_exclusao, Matricula.data_cancel) is null or coalesce(enturmacao.data_exclusao, Matricula.data_cancel) >= date(:data_inicial) as saiu_depois_inicio,
+                coalesce(enturmacao.data_exclusao, Matricula.data_cancel) is null or coalesce(enturmacao.data_exclusao, Matricula.data_cancel) > date(:data_final) as saiu_depois_fim,
+                coalesce(enturmacao.data_exclusao, Matricula.data_cancel) between date(:data_inicial) and date(:data_final) as saiu_durante,
+                (select max(sequencial) from pmieducar.matricula_turma where matricula_turma.ref_cod_matricula = Matricula.cod_matricula) as maior_sequencial
             from pmieducar.matricula_turma enturmacao
-            inner join pmieducar.matricula matricula on true
-                and matricula.cod_matricula = enturmacao.ref_cod_matricula
+            inner join pmieducar.Matricula Matricula on true
+                and Matricula.cod_matricula = enturmacao.ref_cod_matricula
             inner join pmieducar.turma turma on true
                 and turma.cod_turma = enturmacao.ref_cod_turma
             inner join pmieducar.serie serie on true
@@ -94,17 +94,17 @@ class MovimentoMensalQueryFactory extends QueryFactory
             inner join pmieducar.turma_turno turno on true
                 and turno.id = turma.turma_turno_id
             inner join pmieducar.aluno aluno on true
-                and aluno.cod_aluno = matricula.ref_cod_aluno
+                and aluno.cod_aluno = Matricula.ref_cod_aluno
             inner join cadastro.fisica Pessoa on true
                 and Pessoa.idpes = aluno.ref_idpes
             inner join pmieducar.escola escola on true
-                and escola.cod_escola = matricula.ref_ref_cod_escola
+                and escola.cod_escola = Matricula.ref_ref_cod_escola
             inner join pmieducar.curso on true
                 and curso.cod_curso = turma.ref_cod_curso
             where true
                 and escola.ref_cod_instituicao = :instituicao
-                and matricula.ref_ref_cod_escola = :escola
-                and matricula.ano = :ano
+                and Matricula.ref_ref_cod_escola = :escola
+                and Matricula.ano = :ano
                 and turma.ativo = 1
                 and
                 (

@@ -30,7 +30,7 @@
  */
 
 require_once 'FormulaMedia/Validate/Formula.php';
-require_once 'FormulaMedia/Validate/Exception.php';
+require_once 'FormulaMedia/Validate/CoreExtensionException.php';
 
 /**
  * ValidateFormulaTest class.

@@ -13,7 +13,7 @@ class AddIndexInFaltaGeralTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.falta_geral', function (Blueprint $table) {
+        Schema::table('Modules.falta_geral', function (Blueprint $table) {
             $table->index(['id']);
         });
     }
@@ -25,7 +25,7 @@ class AddIndexInFaltaGeralTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.falta_geral', function (Blueprint $table) {
+        Schema::table('Modules.falta_geral', function (Blueprint $table) {
             $table->dropIndex(['id']);
         });
     }

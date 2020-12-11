@@ -13,7 +13,7 @@ class AddForeignKeysInModulesEducacensoCodTurmaTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.educacenso_cod_turma', function (Blueprint $table) {
+        Schema::table('Modules.educacenso_cod_turma', function (Blueprint $table) {
             $table->foreign('cod_turma')
                ->references('cod_turma')
                ->on('pmieducar.turma')
@@ -28,7 +28,7 @@ class AddForeignKeysInModulesEducacensoCodTurmaTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.educacenso_cod_turma', function (Blueprint $table) {
+        Schema::table('Modules.educacenso_cod_turma', function (Blueprint $table) {
             $table->dropForeign(['cod_turma']);
         });
     }

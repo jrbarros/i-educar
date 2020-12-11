@@ -12,7 +12,7 @@ class UpdateComponentName extends Migration
      */
     public function up()
     {
-        DB::statement('UPDATE modules.componente_curricular SET nome = replace(nome, \'extrangeira\', \'estrangeira\') WHERE nome ILIKE \'%extrangeira%\';');
+        DB::statement('UPDATE Modules.componente_curricular SET nome = replace(nome, \'extrangeira\', \'estrangeira\') WHERE nome ILIKE \'%extrangeira%\';');
     }
 
     /**
@@ -22,6 +22,6 @@ class UpdateComponentName extends Migration
      */
     public function down()
     {
-        DB::statement('UPDATE modules.componente_curricular set nome = replace(nome, \'estrangeira\', \'extrangeira\') WHERE nome ILIKE \'%estrangeira%\';');
+        DB::statement('UPDATE Modules.componente_curricular set nome = replace(nome, \'estrangeira\', \'extrangeira\') WHERE nome ILIKE \'%estrangeira%\';');
     }
 }

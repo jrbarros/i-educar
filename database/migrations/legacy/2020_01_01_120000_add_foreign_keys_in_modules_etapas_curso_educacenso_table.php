@@ -13,10 +13,10 @@ class AddForeignKeysInModulesEtapasCursoEducacensoTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.etapas_curso_educacenso', function (Blueprint $table) {
+        Schema::table('Modules.etapas_curso_educacenso', function (Blueprint $table) {
             $table->foreign('etapa_id')
                ->references('id')
-               ->on('modules.etapas_educacenso');
+               ->on('Modules.etapas_educacenso');
 
             $table->foreign('curso_id')
                ->references('cod_curso')
@@ -31,7 +31,7 @@ class AddForeignKeysInModulesEtapasCursoEducacensoTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.etapas_curso_educacenso', function (Blueprint $table) {
+        Schema::table('Modules.etapas_curso_educacenso', function (Blueprint $table) {
             $table->dropForeign(['etapa_id']);
             $table->dropForeign(['curso_id']);
         });

@@ -17,15 +17,15 @@ class CreateModulesPontoTransporteEscolarTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE SEQUENCE modules.ponto_transporte_escolar_seq
+                CREATE SEQUENCE Modules.ponto_transporte_escolar_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.ponto_transporte_escolar (
-                    cod_ponto_transporte_escolar integer DEFAULT nextval(\'modules.ponto_transporte_escolar_seq\'::regclass) NOT NULL,
+                CREATE TABLE Modules.ponto_transporte_escolar (
+                    cod_ponto_transporte_escolar integer DEFAULT nextval(\'Modules.ponto_transporte_escolar_seq\'::regclass) NOT NULL,
                     descricao character varying(70) NOT NULL,
                     cep numeric(8,0),
                     idlog numeric(6,0),
@@ -35,11 +35,11 @@ class CreateModulesPontoTransporteEscolarTable extends Migration
                     latitude character varying(20),
                     longitude character varying(20)
                 );
-                
-                ALTER TABLE ONLY modules.ponto_transporte_escolar
+
+                ALTER TABLE ONLY Modules.ponto_transporte_escolar
                     ADD CONSTRAINT ponto_transporte_escolar_cod_ponto_transporte_escolar_pkey PRIMARY KEY (cod_ponto_transporte_escolar);
 
-                SELECT pg_catalog.setval(\'modules.ponto_transporte_escolar_seq\', 1, false);
+                SELECT pg_catalog.setval(\'Modules.ponto_transporte_escolar_seq\', 1, false);
             '
         );
     }
@@ -51,8 +51,8 @@ class CreateModulesPontoTransporteEscolarTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.ponto_transporte_escolar');
+        Schema::dropIfExists('Modules.ponto_transporte_escolar');
 
-        DB::unprepared('DROP SEQUENCE modules.ponto_transporte_escolar_seq;');
+        DB::unprepared('DROP SEQUENCE Modules.ponto_transporte_escolar_seq;');
     }
 }

@@ -16,15 +16,15 @@ class CreateModulesParecerComponenteCurricularTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.parecer_componente_curricular_id_seq
+
+                CREATE SEQUENCE Modules.parecer_componente_curricular_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.parecer_componente_curricular (
+                CREATE TABLE Modules.parecer_componente_curricular (
                     id integer NOT NULL,
                     parecer_aluno_id integer NOT NULL,
                     componente_curricular_id integer NOT NULL,
@@ -32,16 +32,16 @@ class CreateModulesParecerComponenteCurricularTable extends Migration
                     etapa character varying(2) NOT NULL
                 );
 
-                ALTER SEQUENCE modules.parecer_componente_curricular_id_seq OWNED BY modules.parecer_componente_curricular.id;
+                ALTER SEQUENCE Modules.parecer_componente_curricular_id_seq OWNED BY Modules.parecer_componente_curricular.id;
 
-                ALTER TABLE ONLY modules.parecer_componente_curricular
+                ALTER TABLE ONLY Modules.parecer_componente_curricular
                     ADD CONSTRAINT parecer_componente_curricular_pkey PRIMARY KEY (parecer_aluno_id, componente_curricular_id, etapa);
 
-                ALTER TABLE ONLY modules.parecer_componente_curricular ALTER COLUMN id SET DEFAULT nextval(\'modules.parecer_componente_curricular_id_seq\'::regclass);
-                
-                CREATE UNIQUE INDEX alunocomponenteetapa ON modules.parecer_componente_curricular USING btree (parecer_aluno_id, componente_curricular_id, etapa);
+                ALTER TABLE ONLY Modules.parecer_componente_curricular ALTER COLUMN id SET DEFAULT nextval(\'Modules.parecer_componente_curricular_id_seq\'::regclass);
 
-                SELECT pg_catalog.setval(\'modules.parecer_componente_curricular_id_seq\', 1, false);
+                CREATE UNIQUE INDEX alunocomponenteetapa ON Modules.parecer_componente_curricular USING btree (parecer_aluno_id, componente_curricular_id, etapa);
+
+                SELECT pg_catalog.setval(\'Modules.parecer_componente_curricular_id_seq\', 1, false);
             '
         );
     }
@@ -53,6 +53,6 @@ class CreateModulesParecerComponenteCurricularTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.parecer_componente_curricular');
+        Schema::dropIfExists('Modules.parecer_componente_curricular');
     }
 }

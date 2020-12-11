@@ -13,10 +13,10 @@ class AddForeignKeysInModulesComponenteCurricularTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.componente_curricular', function (Blueprint $table) {
+        Schema::table('Modules.componente_curricular', function (Blueprint $table) {
             $table->foreign(['area_conhecimento_id', 'instituicao_id'])
                ->references(['id', 'instituicao_id'])
-               ->on('modules.area_conhecimento')
+               ->on('Modules.area_conhecimento')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });
@@ -29,7 +29,7 @@ class AddForeignKeysInModulesComponenteCurricularTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.componente_curricular', function (Blueprint $table) {
+        Schema::table('Modules.componente_curricular', function (Blueprint $table) {
             $table->dropForeign(['area_conhecimento_id', 'instituicao_id']);
         });
     }

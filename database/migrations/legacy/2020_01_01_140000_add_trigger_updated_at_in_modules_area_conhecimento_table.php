@@ -14,7 +14,7 @@ class AddTriggerUpdatedAtInModulesAreaConhecimentoTable extends Migration
      */
     public function up()
     {
-        $this->createUpdatedAtTrigger('modules.area_conhecimento');
+        $this->createUpdatedAtTrigger('Modules.area_conhecimento');
     }
 
     /**
@@ -24,6 +24,6 @@ class AddTriggerUpdatedAtInModulesAreaConhecimentoTable extends Migration
      */
     public function down()
     {
-        $this->dropUpdatedAtTrigger('modules.area_conhecimento');
+        $this->dropUpdatedAtTrigger('Modules.area_conhecimento');
     }
 }

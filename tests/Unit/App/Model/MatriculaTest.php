@@ -26,11 +26,11 @@
  * @package     App_Model
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
- * @version     $Id: /ieducar/branches/1.1.0-avaliacao/ieducar/tests/unit/App/Model/IedFinderTest.php 1046 2009-12-21T17:30:49.663282Z eriksencosta  $
+ * @version     $Id: /Ieducar/branches/1.1.0-avaliacao/Ieducar/tests/unit/App/Model/IedFinderTest.php 1046 2009-12-21T17:30:49.663282Z eriksencosta  $
  */
 
 require_once 'App/Model/Matricula.php';
-require_once 'include/pmieducar/Matricula.php';
+require_once 'Source/pmieducar/Matricula.php';
 
 /**
  * App_Model_MatriculaTest class.

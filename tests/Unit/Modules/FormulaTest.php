@@ -26,11 +26,11 @@
  * @package     FormulaMedia
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
- * @version     $Id: /ieducar/branches/1.1.0-avaliacao/ieducar/modules/AreaConhecimento/_tests/AreaTest.php 862 2009-12-04T18:55:17.468486Z eriksen  $
+ * @version     $Id: /Ieducar/branches/1.1.0-avaliacao/Ieducar/Modules/AreaConhecimento/_tests/AreaTest.php 862 2009-12-04T18:55:17.468486Z eriksen  $
  */
 
 require_once 'FormulaMedia/Model/Formula.php';
-require_once 'include/pmieducar/Instituicao.php';
+require_once 'Source/pmieducar/Instituicao.php';
 
 /**
  * FormulaTest class.

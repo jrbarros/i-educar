@@ -16,16 +16,16 @@ class CreatePortalAcessoTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = true;
-                
-                CREATE SEQUENCE portal.acesso_cod_acesso_seq
+
+                CREATE SEQUENCE Portal.acesso_cod_acesso_seq
                     START WITH 0
                     INCREMENT BY 1
                     MINVALUE 0
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE portal.acesso (
-                    cod_acesso integer DEFAULT nextval(\'portal.acesso_cod_acesso_seq\'::regclass) NOT NULL,
+                CREATE TABLE Portal.acesso (
+                    cod_acesso integer DEFAULT nextval(\'Portal.acesso_cod_acesso_seq\'::regclass) NOT NULL,
                     data_hora timestamp without time zone NOT NULL,
                     ip_externo character varying(50) DEFAULT \'\'::character varying NOT NULL,
                     ip_interno character varying(255) DEFAULT \'\'::character varying NOT NULL,
@@ -33,11 +33,11 @@ class CreatePortalAcessoTable extends Migration
                     obs text,
                     sucesso boolean DEFAULT true NOT NULL
                 );
-                
-                ALTER TABLE ONLY portal.acesso
+
+                ALTER TABLE ONLY Portal.acesso
                     ADD CONSTRAINT acesso_pk PRIMARY KEY (cod_acesso);
 
-                SELECT pg_catalog.setval(\'portal.acesso_cod_acesso_seq\', 19, true);
+                SELECT pg_catalog.setval(\'Portal.acesso_cod_acesso_seq\', 19, true);
             '
         );
     }
@@ -49,8 +49,8 @@ class CreatePortalAcessoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portal.acesso');
+        Schema::dropIfExists('Portal.acesso');
 
-        DB::unprepared('DROP SEQUENCE portal.acesso_cod_acesso_seq;');
+        DB::unprepared('DROP SEQUENCE Portal.acesso_cod_acesso_seq;');
     }
 }

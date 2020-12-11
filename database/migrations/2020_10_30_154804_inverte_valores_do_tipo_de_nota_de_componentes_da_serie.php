@@ -13,7 +13,7 @@ class InverteValoresDoTipoDeNotaDeComponentesDaSerie extends Migration
     public function up()
     {
         DB::statement('
-            UPDATE modules.componente_curricular_ano_escolar
+            UPDATE Modules.componente_curricular_ano_escolar
             SET tipo_nota = (
                 CASE tipo_nota
                     WHEN 1 THEN 2
@@ -32,7 +32,7 @@ class InverteValoresDoTipoDeNotaDeComponentesDaSerie extends Migration
     public function down()
     {
         DB::statement('
-            UPDATE modules.componente_curricular_ano_escolar
+            UPDATE Modules.componente_curricular_ano_escolar
             SET tipo_nota = (
                 CASE tipo_nota
                     WHEN 1 THEN 2

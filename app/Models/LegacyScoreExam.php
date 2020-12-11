@@ -10,7 +10,7 @@ class LegacyScoreExam extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.nota_exame';
+    protected $table = 'Modules.nota_exame';
 
     /**
      * @var string

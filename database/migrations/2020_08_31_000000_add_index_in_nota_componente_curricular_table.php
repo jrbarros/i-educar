@@ -13,7 +13,7 @@ class AddIndexInNotaComponenteCurricularTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.nota_componente_curricular', function (Blueprint $table) {
+        Schema::table('Modules.nota_componente_curricular', function (Blueprint $table) {
             $table->index(['id']);
         });
     }
@@ -25,7 +25,7 @@ class AddIndexInNotaComponenteCurricularTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.nota_componente_curricular', function (Blueprint $table) {
+        Schema::table('Modules.nota_componente_curricular', function (Blueprint $table) {
             $table->dropIndex(['id']);
         });
     }

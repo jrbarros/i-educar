@@ -19,7 +19,7 @@ class LegacyEvaluationRule extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.regra_avaliacao';
+    protected $table = 'Modules.regra_avaliacao';
 
     /**
      * @var string

@@ -25,7 +25,7 @@ class AddFunctionModulesFrequenciaEtapaPadraoAnoEscolarUm extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP FUNCTION modules.frequencia_etapa_padrao_ano_escolar_um(cod_matricula_aluno integer, cod_etapa integer, id_componente_curricular integer);'
+            'DROP FUNCTION Modules.frequencia_etapa_padrao_ano_escolar_um(cod_matricula_aluno integer, cod_etapa integer, id_componente_curricular integer);'
         );
     }
 }

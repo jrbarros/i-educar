@@ -16,15 +16,15 @@ class CreateModulesFaltaComponenteCurricularTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.falta_componente_curricular_id_seq
+
+                CREATE SEQUENCE Modules.falta_componente_curricular_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.falta_componente_curricular (
+                CREATE TABLE Modules.falta_componente_curricular (
                     id integer NOT NULL,
                     falta_aluno_id integer NOT NULL,
                     componente_curricular_id integer NOT NULL,
@@ -32,16 +32,16 @@ class CreateModulesFaltaComponenteCurricularTable extends Migration
                     etapa character varying(2) NOT NULL
                 );
 
-                ALTER SEQUENCE modules.falta_componente_curricular_id_seq OWNED BY modules.falta_componente_curricular.id;
-                
-                ALTER TABLE ONLY modules.falta_componente_curricular
+                ALTER SEQUENCE Modules.falta_componente_curricular_id_seq OWNED BY Modules.falta_componente_curricular.id;
+
+                ALTER TABLE ONLY Modules.falta_componente_curricular
                     ADD CONSTRAINT falta_componente_curricular_pkey PRIMARY KEY (falta_aluno_id, componente_curricular_id, etapa);
 
-                ALTER TABLE ONLY modules.falta_componente_curricular ALTER COLUMN id SET DEFAULT nextval(\'modules.falta_componente_curricular_id_seq\'::regclass);
-                
-                CREATE INDEX idx_falta_componente_curricular_id1 ON modules.falta_componente_curricular USING btree (falta_aluno_id, componente_curricular_id, etapa);
+                ALTER TABLE ONLY Modules.falta_componente_curricular ALTER COLUMN id SET DEFAULT nextval(\'Modules.falta_componente_curricular_id_seq\'::regclass);
 
-                SELECT pg_catalog.setval(\'modules.falta_componente_curricular_id_seq\', 1, true);
+                CREATE INDEX idx_falta_componente_curricular_id1 ON Modules.falta_componente_curricular USING btree (falta_aluno_id, componente_curricular_id, etapa);
+
+                SELECT pg_catalog.setval(\'Modules.falta_componente_curricular_id_seq\', 1, true);
             '
         );
     }
@@ -53,6 +53,6 @@ class CreateModulesFaltaComponenteCurricularTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.falta_componente_curricular');
+        Schema::dropIfExists('Modules.falta_componente_curricular');
     }
 }

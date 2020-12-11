@@ -172,7 +172,7 @@ class LegacyController extends Controller
      */
     private function changeDirectory()
     {
-        chdir(base_path('ieducar/Intranet'));
+        chdir(base_path('Ieducar/Intranet'));
     }
 
     /**
@@ -235,7 +235,7 @@ class LegacyController extends Controller
     }
 
     /**
-     * Load module route file and generate a response.
+     * Load Module route file and generate a response.
      *
      * @return Response
      *
@@ -244,11 +244,11 @@ class LegacyController extends Controller
      */
     public function module()
     {
-        return $this->requireFileFromLegacy('module/index.php');
+        return $this->requireFileFromLegacy('Module/index.php');
     }
 
     /**
-     * Load modules route file and generate a response.
+     * Load Modules route file and generate a response.
      *
      * @param string $uri
      *
@@ -259,11 +259,11 @@ class LegacyController extends Controller
      */
     public function modules($uri)
     {
-        return $this->requireFileFromLegacy('modules/' . $uri);
+        return $this->requireFileFromLegacy('Modules/' . $uri);
     }
 
     /**
-     * Load module route file and generate a response for API.
+     * Load Module route file and generate a response for API.
      *
      * @return Response
      *
@@ -272,6 +272,6 @@ class LegacyController extends Controller
      */
     public function api()
     {
-        return $this->requireFileFromLegacy('module/index.php');
+        return $this->requireFileFromLegacy('Module/index.php');
     }
 }

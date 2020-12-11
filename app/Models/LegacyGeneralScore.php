@@ -10,7 +10,7 @@ class LegacyGeneralScore extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.nota_geral';
+    protected $table = 'Modules.nota_geral';
 
     /**
      * @var array

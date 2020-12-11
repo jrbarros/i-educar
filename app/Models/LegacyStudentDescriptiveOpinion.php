@@ -12,7 +12,7 @@ class LegacyStudentDescriptiveOpinion extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.parecer_aluno';
+    protected $table = 'Modules.parecer_aluno';
 
     /**
      * @var array

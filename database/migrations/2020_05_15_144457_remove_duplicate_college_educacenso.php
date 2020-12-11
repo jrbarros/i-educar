@@ -13,7 +13,7 @@ class RemoveDuplicateCollegeEducacenso extends Migration
     public function up()
     {
         DB::statement("
-            DELETE FROM modules.educacenso_ies
+            DELETE FROM Modules.educacenso_ies
             WHERE ies_id IN (
                 5812, 5813, 5815, 5816, 4539, 3316, 1143, 5007, 5353, 14236, 3461, 3474, 3484, 4994, 4930,
                 5435, 5031, 5293, 5487, 5364, 5528, 5354, 5397, 5497, 5486, 4643, 5094, 5357, 4972, 5526,

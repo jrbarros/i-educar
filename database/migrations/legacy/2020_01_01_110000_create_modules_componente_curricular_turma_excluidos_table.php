@@ -13,7 +13,7 @@ class CreateModulesComponenteCurricularTurmaExcluidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules.componente_curricular_turma_excluidos', function (Blueprint $table) {
+        Schema::create('Modules.componente_curricular_turma_excluidos', function (Blueprint $table) {
             $table->integer('componente_curricular_id');
             $table->integer('ano_escolar_id');
             $table->integer('escola_id');
@@ -34,6 +34,6 @@ class CreateModulesComponenteCurricularTurmaExcluidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.componente_curricular_turma_excluidos');
+        Schema::dropIfExists('Modules.componente_curricular_turma_excluidos');
     }
 }

@@ -17,7 +17,7 @@ class LegacyModuleRewriteController extends Controller
      */
     public function rewrite($module, $path, $resource)
     {
-        $filename = base_path("ieducar/Intranet/{$path}/{$resource}");
+        $filename = base_path("Ieducar/Intranet/{$path}/{$resource}");
 
         $contentFile = file_get_contents($filename);
         $contentType = mime_content_type($filename);

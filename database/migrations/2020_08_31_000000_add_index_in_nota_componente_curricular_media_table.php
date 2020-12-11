@@ -13,7 +13,7 @@ class AddIndexInNotaComponenteCurricularMediaTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.nota_componente_curricular_media', function (Blueprint $table) {
+        Schema::table('Modules.nota_componente_curricular_media', function (Blueprint $table) {
             $table->index(['componente_curricular_id']);
             $table->index(['nota_aluno_id']);
             $table->index(['etapa']);
@@ -27,7 +27,7 @@ class AddIndexInNotaComponenteCurricularMediaTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.nota_componente_curricular_media', function (Blueprint $table) {
+        Schema::table('Modules.nota_componente_curricular_media', function (Blueprint $table) {
             $table->dropIndex(['componente_curricular_id']);
             $table->dropIndex(['nota_aluno_id']);
             $table->dropIndex(['etapa']);

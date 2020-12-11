@@ -13,10 +13,10 @@ class AddForeignKeysInModulesNotaExameTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.nota_exame', function (Blueprint $table) {
+        Schema::table('Modules.nota_exame', function (Blueprint $table) {
             $table->foreign('ref_cod_matricula')
                ->references('cod_matricula')
-               ->on('pmieducar.matricula')
+               ->on('pmieducar.Matricula')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });
@@ -29,7 +29,7 @@ class AddForeignKeysInModulesNotaExameTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.nota_exame', function (Blueprint $table) {
+        Schema::table('Modules.nota_exame', function (Blueprint $table) {
             $table->dropForeign(['ref_cod_matricula']);
         });
     }

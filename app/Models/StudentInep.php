@@ -16,7 +16,7 @@ class StudentInep extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.educacenso_cod_aluno';
+    protected $table = 'Modules.educacenso_cod_aluno';
 
     /**
      * @var string

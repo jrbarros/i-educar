@@ -26,7 +26,7 @@ class LegacyRegistration extends Model
     /**
      * @var string
      */
-    protected $table = 'pmieducar.matricula';
+    protected $table = 'pmieducar.Matricula';
 
     /**
      * @var string

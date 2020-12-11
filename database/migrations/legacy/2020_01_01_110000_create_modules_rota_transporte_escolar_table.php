@@ -17,15 +17,15 @@ class CreateModulesRotaTransporteEscolarTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE SEQUENCE modules.rota_transporte_escolar_seq
+                CREATE SEQUENCE Modules.rota_transporte_escolar_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.rota_transporte_escolar (
-                    cod_rota_transporte_escolar integer DEFAULT nextval(\'modules.rota_transporte_escolar_seq\'::regclass) NOT NULL,
+                CREATE TABLE Modules.rota_transporte_escolar (
+                    cod_rota_transporte_escolar integer DEFAULT nextval(\'Modules.rota_transporte_escolar_seq\'::regclass) NOT NULL,
                     ref_idpes_destino integer NOT NULL,
                     descricao character varying(50) NOT NULL,
                     ano integer NOT NULL,
@@ -36,10 +36,10 @@ class CreateModulesRotaTransporteEscolarTable extends Migration
                     tercerizado character(1) NOT NULL
                 );
 
-                ALTER TABLE ONLY modules.rota_transporte_escolar
+                ALTER TABLE ONLY Modules.rota_transporte_escolar
                     ADD CONSTRAINT rota_transporte_escolar_cod_rota_transporte_escolar_pkey PRIMARY KEY (cod_rota_transporte_escolar);
 
-                SELECT pg_catalog.setval(\'modules.rota_transporte_escolar_seq\', 1, false);
+                SELECT pg_catalog.setval(\'Modules.rota_transporte_escolar_seq\', 1, false);
             '
         );
     }
@@ -51,8 +51,8 @@ class CreateModulesRotaTransporteEscolarTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.rota_transporte_escolar');
+        Schema::dropIfExists('Modules.rota_transporte_escolar');
 
-        DB::unprepared('DROP SEQUENCE modules.rota_transporte_escolar_seq;');
+        DB::unprepared('DROP SEQUENCE Modules.rota_transporte_escolar_seq;');
     }
 }

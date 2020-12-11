@@ -336,7 +336,7 @@ class LegacySchoolClass extends Model
     {
         return $this->belongsToMany(
             LegacyDiscipline::class,
-            'modules.componente_curricular_turma',
+            'Modules.componente_curricular_turma',
             'turma_id',
             'componente_curricular_id'
         )->withPivot([
@@ -356,7 +356,7 @@ class LegacySchoolClass extends Model
     {
         return $this->belongsToMany(
             LegacyDiscipline::class,
-            'modules.componente_curricular_ano_escolar',
+            'Modules.componente_curricular_ano_escolar',
             'ano_escolar_id',
             'componente_curricular_id',
             'ref_ref_cod_serie',

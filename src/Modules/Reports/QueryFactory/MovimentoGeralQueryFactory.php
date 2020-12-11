@@ -27,7 +27,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
                 inner join pmieducar.turma on turma.cod_turma = mt.ref_cod_turma
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on (a.cod_aluno = m.ref_cod_aluno)
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -38,7 +38,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and turma.turma_turno_id = 4
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 0
@@ -55,7 +55,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
                 inner join pmieducar.turma on turma.cod_turma = mt.ref_cod_turma
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -66,7 +66,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and turma.turma_turno_id <> 4
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 0
@@ -83,7 +83,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -93,7 +93,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 1
@@ -110,7 +110,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -120,7 +120,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 2
@@ -137,7 +137,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -147,7 +147,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 3
@@ -164,7 +164,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -174,7 +174,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 4
@@ -191,7 +191,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -201,7 +201,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 5
@@ -218,7 +218,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -228,7 +228,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 6
@@ -245,7 +245,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -255,7 +255,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 7
@@ -272,7 +272,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -282,7 +282,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 8
@@ -299,7 +299,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(distinct(m.cod_matricula))
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -309,7 +309,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and coluna = 9
@@ -325,7 +325,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             ) as ano_9,
             (
                 select count(cod_matricula)
-                from pmieducar.matricula m
+                from pmieducar.Matricula m
                 inner join pmieducar.matricula_turma mt on mt.ref_cod_matricula = m.cod_matricula
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -333,9 +333,9 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.ativo = 1
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
-                        where true 
+                        where true
                             and (case
                                 when :seleciona_curso = 0 then
                                     true
@@ -348,14 +348,14 @@ class MovimentoGeralQueryFactory extends QueryFactory
             ) as admitidos,
             (
                 select count(cod_matricula)
-                from pmieducar.matricula m
+                from pmieducar.Matricula m
                 inner join pmieducar.matricula_turma mt on mt.ref_cod_matricula = m.cod_matricula
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
                     and m.ano = :ano
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and (case
@@ -371,14 +371,14 @@ class MovimentoGeralQueryFactory extends QueryFactory
             ) as transf,
             (
                 select count(cod_matricula)
-                from pmieducar.matricula m
+                from pmieducar.Matricula m
                 inner join pmieducar.matricula_turma mt on mt.ref_cod_matricula = m.cod_matricula
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
                     and m.ano = :ano
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and (case
@@ -395,7 +395,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(m.cod_matricula)
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -404,7 +404,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and (case
@@ -425,7 +425,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
             (
                 select count(m.cod_matricula)
                 from pmieducar.matricula_turma mt
-                inner join pmieducar.matricula m on m.cod_matricula = mt.ref_cod_matricula
+                inner join pmieducar.Matricula m on m.cod_matricula = mt.ref_cod_matricula
                 inner join pmieducar.aluno a on a.cod_aluno = m.ref_cod_aluno
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
@@ -434,7 +434,7 @@ class MovimentoGeralQueryFactory extends QueryFactory
                     and m.dependencia not in (true)
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and (case
@@ -449,14 +449,14 @@ class MovimentoGeralQueryFactory extends QueryFactory
             ) as recla,
             (
                 select count(m.cod_matricula)
-                from pmieducar.matricula m
+                from pmieducar.Matricula m
                 inner join pmieducar.matricula_turma mt on mt.ref_cod_matricula = m.cod_matricula
                 where true
                     and m.ref_ref_cod_escola = escola.cod_escola
                     and m.ano = :ano
                     and m.ref_ref_cod_serie in (
                         select ref_cod_serie
-                        from modules.config_movimento_geral
+                        from Modules.config_movimento_geral
                         inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                         where true
                             and (case

@@ -13,7 +13,7 @@ class AddForeignKeysInModulesConfigMovimentoGeralTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.config_movimento_geral', function (Blueprint $table) {
+        Schema::table('Modules.config_movimento_geral', function (Blueprint $table) {
             $table->foreign('ref_cod_serie')
                ->references('cod_serie')
                ->on('pmieducar.serie');
@@ -27,7 +27,7 @@ class AddForeignKeysInModulesConfigMovimentoGeralTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.config_movimento_geral', function (Blueprint $table) {
+        Schema::table('Modules.config_movimento_geral', function (Blueprint $table) {
             $table->dropForeign(['ref_cod_serie']);
         });
     }

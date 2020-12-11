@@ -23,6 +23,6 @@ class DefaultDataModulesEtapasEducacenso extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE modules.etapas_educacenso CASCADE;');
+        DB::raw('TRUNCATE Modules.etapas_educacenso CASCADE;');
     }
 }

@@ -49,7 +49,7 @@ require_once __DIR__.'/EntityCompound.php';
 class CoreExt_EntityCompoundDataMapperStub extends CoreExt_DataMapper
 {
   protected $_entityClass = 'CoreExt_EntityCompoundStub';
-  protected $_tableName   = 'matricula';
+  protected $_tableName   = 'Matricula';
   protected $_tableSchema = '';
 
   protected $_attributeMap = array(
@@ -73,7 +73,7 @@ class CoreExt_EntityCompoundDataMapperStub extends CoreExt_DataMapper
   public static function createTable(Banco $db)
   {
     $sql = "
-CREATE TABLE matricula(
+CREATE TABLE Matricula(
   pessoa_id integer NOT NULL,
   curso_id integer NOT NULL,
   confirmado char(1) NULL DEFAULT 't',

@@ -10,7 +10,7 @@ class LegacyGeneralAbsence extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.falta_geral';
+    protected $table = 'Modules.falta_geral';
 
     /**
      * @var array

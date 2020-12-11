@@ -59,7 +59,7 @@ class CoreExt_SingletonTest extends TestCase
   }
 
   /**
-   * @expectedException CoreExt_Exception
+   * @expectedException CoreExtensionException
    */
   public function testClasseQueNaoImplementaMetodoLancaExcecao()
   {

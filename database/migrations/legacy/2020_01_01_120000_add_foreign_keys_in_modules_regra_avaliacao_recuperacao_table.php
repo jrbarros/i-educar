@@ -13,10 +13,10 @@ class AddForeignKeysInModulesRegraAvaliacaoRecuperacaoTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.regra_avaliacao_recuperacao', function (Blueprint $table) {
+        Schema::table('Modules.regra_avaliacao_recuperacao', function (Blueprint $table) {
             $table->foreign('regra_avaliacao_id')
                ->references('id')
-               ->on('modules.regra_avaliacao')
+               ->on('Modules.regra_avaliacao')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });
@@ -29,7 +29,7 @@ class AddForeignKeysInModulesRegraAvaliacaoRecuperacaoTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.regra_avaliacao_recuperacao', function (Blueprint $table) {
+        Schema::table('Modules.regra_avaliacao_recuperacao', function (Blueprint $table) {
             $table->dropForeign(['regra_avaliacao_id']);
         });
     }

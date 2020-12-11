@@ -13,7 +13,7 @@ class AddForeignKeysInPmieducarMatriculaTable extends Migration
      */
     public function up()
     {
-        Schema::table('pmieducar.matricula', function (Blueprint $table) {
+        Schema::table('pmieducar.Matricula', function (Blueprint $table) {
             $table->foreign('ref_ref_cod_serie')
                ->references('cod_serie')
                ->on('pmieducar.serie')
@@ -57,7 +57,7 @@ class AddForeignKeysInPmieducarMatriculaTable extends Migration
      */
     public function down()
     {
-        Schema::table('pmieducar.matricula', function (Blueprint $table) {
+        Schema::table('pmieducar.Matricula', function (Blueprint $table) {
             $table->dropForeign(['ref_ref_cod_serie']);
             $table->dropForeign(['ref_ref_cod_escola']);
             $table->dropForeign(['ref_cod_reserva_vaga']);

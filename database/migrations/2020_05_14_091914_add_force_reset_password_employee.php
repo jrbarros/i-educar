@@ -13,7 +13,7 @@ class AddForceResetPasswordEmployee extends Migration
      */
     public function up()
     {
-        Schema::table('portal.funcionario', function (Blueprint $table) {
+        Schema::table('Portal.funcionario', function (Blueprint $table) {
             $table->boolean('force_reset_password')->default(false);
         });
     }
@@ -25,7 +25,7 @@ class AddForceResetPasswordEmployee extends Migration
      */
     public function down()
     {
-        Schema::table('portal.funcionario', function (Blueprint $table) {
+        Schema::table('Portal.funcionario', function (Blueprint $table) {
             $table->dropColumn('force_reset_password');
         });
     }

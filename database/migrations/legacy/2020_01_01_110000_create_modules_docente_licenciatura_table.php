@@ -17,14 +17,14 @@ class CreateModulesDocenteLicenciaturaTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE SEQUENCE modules.docente_licenciatura_id_seq
+                CREATE SEQUENCE Modules.docente_licenciatura_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.docente_licenciatura (
+                CREATE TABLE Modules.docente_licenciatura (
                     id integer NOT NULL,
                     servidor_id integer NOT NULL,
                     licenciatura integer NOT NULL,
@@ -36,19 +36,19 @@ class CreateModulesDocenteLicenciaturaTable extends Migration
                     updated_at timestamp without time zone
                 );
 
-                ALTER SEQUENCE modules.docente_licenciatura_id_seq OWNED BY modules.docente_licenciatura.id;
-                
-                ALTER TABLE ONLY modules.docente_licenciatura
+                ALTER SEQUENCE Modules.docente_licenciatura_id_seq OWNED BY Modules.docente_licenciatura.id;
+
+                ALTER TABLE ONLY Modules.docente_licenciatura
                     ADD CONSTRAINT docente_licenciatura_curso_unique UNIQUE (servidor_id, curso_id, ies_id);
 
-                ALTER TABLE ONLY modules.docente_licenciatura
+                ALTER TABLE ONLY Modules.docente_licenciatura
                     ADD CONSTRAINT docente_licenciatura_pk PRIMARY KEY (id);
 
-                ALTER TABLE ONLY modules.docente_licenciatura ALTER COLUMN id SET DEFAULT nextval(\'modules.docente_licenciatura_id_seq\'::regclass);
-                
-                CREATE INDEX docente_licenciatura_ies_idx ON modules.docente_licenciatura USING btree (ies_id);
+                ALTER TABLE ONLY Modules.docente_licenciatura ALTER COLUMN id SET DEFAULT nextval(\'Modules.docente_licenciatura_id_seq\'::regclass);
 
-                SELECT pg_catalog.setval(\'modules.docente_licenciatura_id_seq\', 1, false);
+                CREATE INDEX docente_licenciatura_ies_idx ON Modules.docente_licenciatura USING btree (ies_id);
+
+                SELECT pg_catalog.setval(\'Modules.docente_licenciatura_id_seq\', 1, false);
             '
         );
     }
@@ -60,6 +60,6 @@ class CreateModulesDocenteLicenciaturaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.docente_licenciatura');
+        Schema::dropIfExists('Modules.docente_licenciatura');
     }
 }

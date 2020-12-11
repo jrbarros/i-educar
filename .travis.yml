@@ -37,8 +37,8 @@ matrix:
         - DB_DATABASE=travis
         - DB_USERNAME=postgres
         - DB_PASSWORD=
-        - API_ACCESS_KEY=ieducar-access-key
-        - API_SECRET_KEY=ieducar-secret-key
+        - API_ACCESS_KEY=Ieducar-access-key
+        - API_SECRET_KEY=Ieducar-secret-key
 
     - language: php
 
@@ -75,5 +75,5 @@ matrix:
         - DB_DATABASE=travis
         - DB_USERNAME=postgres
         - DB_PASSWORD=
-        - API_ACCESS_KEY=ieducar-access-key
-        - API_SECRET_KEY=ieducar-secret-key
+        - API_ACCESS_KEY=Ieducar-access-key
+        - API_SECRET_KEY=Ieducar-secret-key

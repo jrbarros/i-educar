@@ -17,14 +17,14 @@ class CreateModulesMediaGeralTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE TABLE modules.media_geral (
+                CREATE TABLE Modules.media_geral (
                     nota_aluno_id integer NOT NULL,
                     media numeric(8,4) DEFAULT 0,
                     media_arredondada character varying(10) DEFAULT 0,
                     etapa character varying(2) NOT NULL
                 );
-                
-                ALTER TABLE ONLY modules.media_geral
+
+                ALTER TABLE ONLY Modules.media_geral
                     ADD CONSTRAINT media_geral_pkey PRIMARY KEY (nota_aluno_id, etapa);
             '
         );
@@ -37,6 +37,6 @@ class CreateModulesMediaGeralTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.media_geral');
+        Schema::dropIfExists('Modules.media_geral');
     }
 }

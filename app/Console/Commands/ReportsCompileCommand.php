@@ -27,7 +27,7 @@ class ReportsCompileCommand extends Command
      */
     protected function getJasperFiles()
     {
-        return base_path('ieducar/modules/Reports/ReportSources');
+        return base_path('Ieducar/Modules/Reports/ReportSources');
     }
 
     /**

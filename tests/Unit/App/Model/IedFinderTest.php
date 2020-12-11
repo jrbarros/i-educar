@@ -32,14 +32,14 @@
 use iEducar\Modules\Enrollments\Exceptions\StudentNotEnrolledInSchoolClass;
 
 require_once 'App/Model/IedFinder.php';
-require_once 'include/pmieducar/Instituicao.php';
-require_once 'include/pmieducar/Serie.php';
-require_once 'include/pmieducar/Matricula.php';
-require_once 'include/pmieducar/MatriculaTurma.php';
-require_once 'include/pmieducar/EscolaSerieDisciplina.php';
-require_once 'include/pmieducar/EscolaAnoLetivo.php';
-require_once 'include/pmieducar/AnoLetivoModulo.php';
-require_once 'include/pmieducar/Turma.php';
+require_once 'Source/pmieducar/Instituicao.php';
+require_once 'Source/pmieducar/Serie.php';
+require_once 'Source/pmieducar/Matricula.php';
+require_once 'Source/pmieducar/MatriculaTurma.php';
+require_once 'Source/pmieducar/EscolaSerieDisciplina.php';
+require_once 'Source/pmieducar/EscolaAnoLetivo.php';
+require_once 'Source/pmieducar/AnoLetivoModulo.php';
+require_once 'Source/pmieducar/Turma.php';
 require_once 'RegraAvaliacao/Model/RegraDataMapper.php';
 require_once 'FormulaMedia/Model/FormulaDataMapper.php';
 require_once 'TabelaArredondamento/Model/TabelaDataMapper.php';
@@ -65,7 +65,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
   /**
    * @todo Refatorar método para uma classe stub, no diretório do módulo
    *   TabelaArredondamento
-   * @todo Está copiado em modules/Avaliacao/_tests/BoletimTest.php
+   * @todo Está copiado em Modules/Avaliacao/_tests/BoletimTest.php
    */
   protected function _getTabelaArredondamento()
   {

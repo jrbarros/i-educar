@@ -13,7 +13,7 @@ class CreateModulesRegraAvaliacaoRecuperacaoExcluidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules.regra_avaliacao_recuperacao_excluidos', function (Blueprint $table) {
+        Schema::create('Modules.regra_avaliacao_recuperacao_excluidos', function (Blueprint $table) {
             $table->integer('id');
             $table->integer('regra_avaliacao_id');
             $table->string('descricao');
@@ -33,6 +33,6 @@ class CreateModulesRegraAvaliacaoRecuperacaoExcluidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.regra_avaliacao_recuperacao_excluidos');
+        Schema::dropIfExists('Modules.regra_avaliacao_recuperacao_excluidos');
     }
 }

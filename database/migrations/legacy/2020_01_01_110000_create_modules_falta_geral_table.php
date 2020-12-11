@@ -16,31 +16,31 @@ class CreateModulesFaltaGeralTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.falta_geral_id_seq
+
+                CREATE SEQUENCE Modules.falta_geral_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.falta_geral (
+                CREATE TABLE Modules.falta_geral (
                     id integer NOT NULL,
                     falta_aluno_id integer NOT NULL,
                     quantidade integer DEFAULT 0,
                     etapa character varying(2) NOT NULL
                 );
 
-                ALTER SEQUENCE modules.falta_geral_id_seq OWNED BY modules.falta_geral.id;
-                
-                ALTER TABLE ONLY modules.falta_geral
+                ALTER SEQUENCE Modules.falta_geral_id_seq OWNED BY Modules.falta_geral.id;
+
+                ALTER TABLE ONLY Modules.falta_geral
                     ADD CONSTRAINT falta_geral_pkey PRIMARY KEY (falta_aluno_id, etapa);
 
-                ALTER TABLE ONLY modules.falta_geral ALTER COLUMN id SET DEFAULT nextval(\'modules.falta_geral_id_seq\'::regclass);
-                
-                CREATE INDEX idx_falta_geral_falta_aluno_id ON modules.falta_geral USING btree (falta_aluno_id);
+                ALTER TABLE ONLY Modules.falta_geral ALTER COLUMN id SET DEFAULT nextval(\'Modules.falta_geral_id_seq\'::regclass);
 
-                SELECT pg_catalog.setval(\'modules.falta_geral_id_seq\', 1, false);
+                CREATE INDEX idx_falta_geral_falta_aluno_id ON Modules.falta_geral USING btree (falta_aluno_id);
+
+                SELECT pg_catalog.setval(\'Modules.falta_geral_id_seq\', 1, false);
             '
         );
     }
@@ -52,6 +52,6 @@ class CreateModulesFaltaGeralTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.falta_geral');
+        Schema::dropIfExists('Modules.falta_geral');
     }
 }

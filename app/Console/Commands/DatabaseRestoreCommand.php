@@ -118,8 +118,8 @@ class DatabaseRestoreCommand extends Command
     private function getAuditTables()
     {
         return [
-            'modules.auditoria',
-            'modules.auditoria_geral',
+            'Modules.auditoria',
+            'Modules.auditoria_geral',
         ];
     }
 
@@ -180,7 +180,7 @@ class DatabaseRestoreCommand extends Command
      */
     private function alterSearchPathInDatabase($database)
     {
-        $definition = 'echo "ALTER DATABASE %s SET search_path = \"\$user\", public, portal, cadastro, historico, pmieducar, urbano, modules;" | psql -h %s -p %s -U %s';
+        $definition = 'echo "ALTER DATABASE %s SET search_path = \"\$user\", public, Portal, cadastro, historico, pmieducar, urbano, Modules;" | psql -h %s -p %s -U %s';
 
         $command = sprintf(
             $definition,

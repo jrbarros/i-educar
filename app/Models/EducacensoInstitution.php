@@ -9,7 +9,7 @@ class EducacensoInstitution extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.educacenso_ies';
+    protected $table = 'Modules.educacenso_ies';
 
     /**
      * @var string

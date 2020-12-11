@@ -12,7 +12,7 @@ class LegacyStudentAbsence extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.falta_aluno';
+    protected $table = 'Modules.falta_aluno';
 
     /**
      * @var array

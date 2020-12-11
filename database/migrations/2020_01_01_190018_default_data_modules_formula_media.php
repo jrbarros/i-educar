@@ -23,6 +23,6 @@ class DefaultDataModulesFormulaMedia extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE modules.formula_media CASCADE;');
+        DB::raw('TRUNCATE Modules.formula_media CASCADE;');
     }
 }

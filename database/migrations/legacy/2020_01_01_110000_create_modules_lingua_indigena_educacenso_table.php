@@ -16,13 +16,13 @@ class CreateModulesLinguaIndigenaEducacensoTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE TABLE modules.lingua_indigena_educacenso (
+
+                CREATE TABLE Modules.lingua_indigena_educacenso (
                     id integer NOT NULL,
                     lingua character varying(255)
                 );
-                
-                ALTER TABLE ONLY modules.lingua_indigena_educacenso
+
+                ALTER TABLE ONLY Modules.lingua_indigena_educacenso
                     ADD CONSTRAINT lingua_indigena_educacenso_pk PRIMARY KEY (id);
             '
         );
@@ -35,6 +35,6 @@ class CreateModulesLinguaIndigenaEducacensoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.lingua_indigena_educacenso');
+        Schema::dropIfExists('Modules.lingua_indigena_educacenso');
     }
 }

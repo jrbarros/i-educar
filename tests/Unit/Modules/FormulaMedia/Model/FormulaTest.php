@@ -19,7 +19,7 @@ class FormulaTest extends TestCase
     {
         parent::setUp();
 
-        require_once 'modules/FormulaMedia/Model/Formula.php';
+        require_once 'Modules/FormulaMedia/Model/Formula.php';
 
         $this->formula = new FormulaMedia_Model_Formula();
     }

@@ -16,15 +16,15 @@ class CreateModulesFormulaMediaTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.formula_media_id_seq
+
+                CREATE SEQUENCE Modules.formula_media_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.formula_media (
+                CREATE TABLE Modules.formula_media (
                     id integer NOT NULL,
                     instituicao_id integer NOT NULL,
                     nome character varying(50) NOT NULL,
@@ -33,14 +33,14 @@ class CreateModulesFormulaMediaTable extends Migration
                     substitui_menor_nota_rc smallint DEFAULT 0 NOT NULL
                 );
 
-                ALTER SEQUENCE modules.formula_media_id_seq OWNED BY modules.formula_media.id;
-                
-                ALTER TABLE ONLY modules.formula_media
+                ALTER SEQUENCE Modules.formula_media_id_seq OWNED BY Modules.formula_media.id;
+
+                ALTER TABLE ONLY Modules.formula_media
                     ADD CONSTRAINT formula_media_pkey PRIMARY KEY (id, instituicao_id);
 
-                ALTER TABLE ONLY modules.formula_media ALTER COLUMN id SET DEFAULT nextval(\'modules.formula_media_id_seq\'::regclass);
-                
-                SELECT pg_catalog.setval(\'modules.formula_media_id_seq\', 2, true);
+                ALTER TABLE ONLY Modules.formula_media ALTER COLUMN id SET DEFAULT nextval(\'Modules.formula_media_id_seq\'::regclass);
+
+                SELECT pg_catalog.setval(\'Modules.formula_media_id_seq\', 2, true);
             '
         );
     }
@@ -52,6 +52,6 @@ class CreateModulesFormulaMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.formula_media');
+        Schema::dropIfExists('Modules.formula_media');
     }
 }

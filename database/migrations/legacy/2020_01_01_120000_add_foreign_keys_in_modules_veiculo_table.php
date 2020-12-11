@@ -13,16 +13,16 @@ class AddForeignKeysInModulesVeiculoTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.veiculo', function (Blueprint $table) {
+        Schema::table('Modules.veiculo', function (Blueprint $table) {
             $table->foreign('ref_cod_tipo_veiculo')
                ->references('cod_tipo_veiculo')
-               ->on('modules.tipo_veiculo')
+               ->on('Modules.tipo_veiculo')
                ->onUpdate('restrict')
                ->onDelete('restrict');
 
             $table->foreign('ref_cod_empresa_transporte_escolar')
                ->references('cod_empresa_transporte_escolar')
-               ->on('modules.empresa_transporte_escolar');
+               ->on('Modules.empresa_transporte_escolar');
         });
     }
 
@@ -33,7 +33,7 @@ class AddForeignKeysInModulesVeiculoTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.veiculo', function (Blueprint $table) {
+        Schema::table('Modules.veiculo', function (Blueprint $table) {
             $table->dropForeign(['ref_cod_tipo_veiculo']);
             $table->dropForeign(['ref_cod_empresa_transporte_escolar']);
         });

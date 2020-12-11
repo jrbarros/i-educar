@@ -64,7 +64,7 @@ class CoreExt_Controller_Dispatcher_Strategy_PageStrategyTest extends PHPUnit\Fr
   }
 
   /**
-   * @expectedException CoreExt_Exception_FileNotFoundException
+   * @expectedException CoreExtension_Exception_FileNotFoundException
    */
   public function testRequisicaoAControllerNaoExistenteLancaExcecao()
   {

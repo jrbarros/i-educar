@@ -16,15 +16,15 @@ class CreateModulesEducacensoIesTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.educacenso_ies_id_seq
+
+                CREATE SEQUENCE Modules.educacenso_ies_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.educacenso_ies (
+                CREATE TABLE Modules.educacenso_ies (
                     id integer NOT NULL,
                     ies_id integer NOT NULL,
                     nome character varying(255) NOT NULL,
@@ -36,16 +36,16 @@ class CreateModulesEducacensoIesTable extends Migration
                     updated_at timestamp without time zone
                 );
 
-                ALTER SEQUENCE modules.educacenso_ies_id_seq OWNED BY modules.educacenso_ies.id;
-                
-                ALTER TABLE ONLY modules.educacenso_ies
+                ALTER SEQUENCE Modules.educacenso_ies_id_seq OWNED BY Modules.educacenso_ies.id;
+
+                ALTER TABLE ONLY Modules.educacenso_ies
                     ADD CONSTRAINT educacenso_ies_pk PRIMARY KEY (id);
 
-                ALTER TABLE ONLY modules.educacenso_ies ALTER COLUMN id SET DEFAULT nextval(\'modules.educacenso_ies_id_seq\'::regclass);
-                
-                CREATE INDEX idx_educacenso_ies_ies_id ON modules.educacenso_ies USING btree (ies_id);
+                ALTER TABLE ONLY Modules.educacenso_ies ALTER COLUMN id SET DEFAULT nextval(\'Modules.educacenso_ies_id_seq\'::regclass);
 
-                SELECT pg_catalog.setval(\'modules.educacenso_ies_id_seq\', 6179, true);
+                CREATE INDEX idx_educacenso_ies_ies_id ON Modules.educacenso_ies USING btree (ies_id);
+
+                SELECT pg_catalog.setval(\'Modules.educacenso_ies_id_seq\', 6179, true);
             '
         );
     }
@@ -57,6 +57,6 @@ class CreateModulesEducacensoIesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.educacenso_ies');
+        Schema::dropIfExists('Modules.educacenso_ies');
     }
 }

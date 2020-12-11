@@ -10,7 +10,7 @@ class LegacyDisciplineScoreAverage extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.nota_componente_curricular_media';
+    protected $table = 'Modules.nota_componente_curricular_media';
 
     /**
      * @var string

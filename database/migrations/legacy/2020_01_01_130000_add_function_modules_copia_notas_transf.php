@@ -25,7 +25,7 @@ class AddFunctionModulesCopiaNotasTransf extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP FUNCTION modules.copia_notas_transf(old_matricula_id integer, new_matricula_id integer);'
+            'DROP FUNCTION Modules.copia_notas_transf(old_matricula_id integer, new_matricula_id integer);'
         );
     }
 }

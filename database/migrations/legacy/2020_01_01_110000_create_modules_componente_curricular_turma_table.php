@@ -17,7 +17,7 @@ class CreateModulesComponenteCurricularTurmaTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE TABLE modules.componente_curricular_turma (
+                CREATE TABLE Modules.componente_curricular_turma (
                     componente_curricular_id integer NOT NULL,
                     ano_escolar_id integer NOT NULL,
                     escola_id integer NOT NULL,
@@ -28,11 +28,11 @@ class CreateModulesComponenteCurricularTurmaTable extends Migration
                     etapas_utilizadas character varying,
                     updated_at timestamp without time zone DEFAULT now() NOT NULL
                 );
-                
-                ALTER TABLE ONLY modules.componente_curricular_turma
+
+                ALTER TABLE ONLY Modules.componente_curricular_turma
                     ADD CONSTRAINT componente_curricular_turma_pkey PRIMARY KEY (componente_curricular_id, turma_id);
-                    
-                CREATE INDEX componente_curricular_turma_turma_idx ON modules.componente_curricular_turma USING btree (turma_id);
+
+                CREATE INDEX componente_curricular_turma_turma_idx ON Modules.componente_curricular_turma USING btree (turma_id);
             '
         );
     }
@@ -44,6 +44,6 @@ class CreateModulesComponenteCurricularTurmaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.componente_curricular_turma');
+        Schema::dropIfExists('Modules.componente_curricular_turma');
     }
 }

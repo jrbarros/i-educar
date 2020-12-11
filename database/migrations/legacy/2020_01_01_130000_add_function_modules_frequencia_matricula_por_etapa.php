@@ -25,7 +25,7 @@ class AddFunctionModulesFrequenciaMatriculaPorEtapa extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP FUNCTION modules.frequencia_matricula_por_etapa(matricula integer, etapa character varying);'
+            'DROP FUNCTION Modules.frequencia_matricula_por_etapa(Matricula integer, etapa character varying);'
         );
     }
 }

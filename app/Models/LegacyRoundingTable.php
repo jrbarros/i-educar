@@ -10,7 +10,7 @@ class LegacyRoundingTable extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.tabela_arredondamento';
+    protected $table = 'Modules.tabela_arredondamento';
 
     /**
      * @var array

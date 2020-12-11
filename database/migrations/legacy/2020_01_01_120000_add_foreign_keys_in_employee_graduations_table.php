@@ -14,8 +14,8 @@ class AddForeignKeysInEmployeeGraduationsTable extends Migration
     public function up()
     {
         Schema::table('employee_graduations', function (Blueprint $table) {
-            $table->foreign('course_id')->on('modules.educacenso_curso_superior')->references('id');
-            $table->foreign('college_id')->on('modules.educacenso_ies')->references('id');
+            $table->foreign('course_id')->on('Modules.educacenso_curso_superior')->references('id');
+            $table->foreign('college_id')->on('Modules.educacenso_ies')->references('id');
             $table->foreign('discipline_id')->on('employee_graduation_disciplines')->references('id');
         });
     }

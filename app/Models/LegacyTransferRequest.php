@@ -42,7 +42,7 @@ class LegacyTransferRequest extends Model
     public $timestamps = false;
 
     /**
-     * Relação com a matricula de saída.
+     * Relação com a Matricula de saída.
      *
      * @return BelongsTo
      */
@@ -52,7 +52,7 @@ class LegacyTransferRequest extends Model
     }
 
     /**
-     * Relação com a matricula de entrada.
+     * Relação com a Matricula de entrada.
      *
      * @return BelongsTo
      */

@@ -33,6 +33,6 @@ class EmailTracker implements Tracker
 
     private function getRecipient()
     {
-        return config('legacy.modules.error.email_recipient');
+        return config('legacy.Modules.error.email_recipient');
     }
 }

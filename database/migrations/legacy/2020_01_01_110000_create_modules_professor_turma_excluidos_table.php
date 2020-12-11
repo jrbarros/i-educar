@@ -13,7 +13,7 @@ class CreateModulesProfessorTurmaExcluidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules.professor_turma_excluidos', function (Blueprint $table) {
+        Schema::create('Modules.professor_turma_excluidos', function (Blueprint $table) {
             $table->integer('id');
             $table->integer('ano');
             $table->integer('instituicao_id');
@@ -35,6 +35,6 @@ class CreateModulesProfessorTurmaExcluidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.professor_turma_excluidos');
+        Schema::dropIfExists('Modules.professor_turma_excluidos');
     }
 }

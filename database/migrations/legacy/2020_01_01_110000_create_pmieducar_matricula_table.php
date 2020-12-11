@@ -16,7 +16,7 @@ class CreatePmieducarMatriculaTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = true;
-                
+
                 CREATE SEQUENCE pmieducar.matricula_cod_matricula_seq
                     START WITH 0
                     INCREMENT BY 1
@@ -24,7 +24,7 @@ class CreatePmieducarMatriculaTable extends Migration
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE pmieducar.matricula (
+                CREATE TABLE pmieducar.Matricula (
                     cod_matricula integer DEFAULT nextval(\'pmieducar.matricula_cod_matricula_seq\'::regclass) NOT NULL,
                     ref_cod_reserva_vaga integer,
                     ref_ref_cod_escola integer,
@@ -55,15 +55,15 @@ class CreatePmieducarMatriculaTable extends Migration
                     data_saida_escola date,
 	                updated_at timestamp NULL DEFAULT now()
                 );
-                
-                ALTER TABLE ONLY pmieducar.matricula
+
+                ALTER TABLE ONLY pmieducar.Matricula
                     ADD CONSTRAINT matricula_pkey PRIMARY KEY (cod_matricula);
 
-                CREATE INDEX idx_matricula_cod_escola_aluno ON pmieducar.matricula USING btree (ref_ref_cod_escola, ref_cod_aluno);
+                CREATE INDEX idx_matricula_cod_escola_aluno ON pmieducar.Matricula USING btree (ref_ref_cod_escola, ref_cod_aluno);
 
-                CREATE INDEX matricula_ano_idx ON pmieducar.matricula USING btree (ano);
+                CREATE INDEX matricula_ano_idx ON pmieducar.Matricula USING btree (ano);
 
-                CREATE INDEX matricula_ativo_idx ON pmieducar.matricula USING btree (ativo);
+                CREATE INDEX matricula_ativo_idx ON pmieducar.Matricula USING btree (ativo);
 
                 SELECT pg_catalog.setval(\'pmieducar.matricula_cod_matricula_seq\', 2, true);
             '
@@ -77,7 +77,7 @@ class CreatePmieducarMatriculaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pmieducar.matricula');
+        Schema::dropIfExists('pmieducar.Matricula');
 
         DB::unprepared('DROP SEQUENCE pmieducar.matricula_cod_matricula_seq;');
     }

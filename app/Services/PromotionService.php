@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\LegacyEnrollment;
 use CoreExt_Controller_Request;
-use CoreExt_Exception;
+use CoreExtensionException;
 use PromocaoApiController;
 
 class PromotionService
@@ -41,7 +41,7 @@ class PromotionService
 
         try {
             $promocaoApi->Gerar();
-        } catch (CoreExt_Exception $exception) {
+        } catch (CoreExtensionException $exception) {
             // Quando o aluno não possuir enturmação na escola que está
             // cancelando a matrícula, uma Exception era lançada ao
             // instanciar o ServiceBoletim, este catch garante que não irá

@@ -55,7 +55,7 @@ class Avaliacao_Service_FaltaAlunoTest extends Avaliacao_Service_TestCommon
     $mock = $this->getCleanMock('Avaliacao_Model_FaltaAlunoDataMapper');
     $mock->expects($this->at(0))
          ->method('findAll')
-         ->with(array(), array('matricula' => $this->_getConfigOption('matricula', 'cod_matricula')))
+         ->with(array(), array('Matricula' => $this->_getConfigOption('Matricula', 'cod_matricula')))
          ->will($this->returnValue(array()));
 
     $mock->expects($this->at(1))
@@ -65,7 +65,7 @@ class Avaliacao_Service_FaltaAlunoTest extends Avaliacao_Service_TestCommon
 
     $mock->expects($this->at(2))
          ->method('findAll')
-         ->with(array(), array('matricula' => $this->_getConfigOption('matricula', 'cod_matricula')))
+         ->with(array(), array('Matricula' => $this->_getConfigOption('Matricula', 'cod_matricula')))
          ->will($this->returnValue(array($faltaAluno)));
 
     $this->_setFaltaAlunoDataMapperMock($mock);

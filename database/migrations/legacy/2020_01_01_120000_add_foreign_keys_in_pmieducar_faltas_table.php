@@ -16,7 +16,7 @@ class AddForeignKeysInPmieducarFaltasTable extends Migration
         Schema::table('pmieducar.faltas', function (Blueprint $table) {
             $table->foreign('ref_cod_matricula')
                ->references('cod_matricula')
-               ->on('pmieducar.matricula')
+               ->on('pmieducar.Matricula')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });

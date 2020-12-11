@@ -36,7 +36,7 @@ return [
     |
     */
 
-    'path' => env('LEGACY_PATH', 'ieducar'),
+    'path' => env('LEGACY_PATH', 'Ieducar'),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return [
     'migrations' => [
         database_path('migrations/extras'),
         database_path('migrations/legacy'),
-        base_path('ieducar/modules/Reports/database/migrations'),
+        base_path('Ieducar/Modules/Reports/database/migrations'),
     ],
 
     'env' => env('LEGACY_ENV', 'local'),
@@ -132,7 +132,7 @@ return [
         'auditoria' => [
             'notas' => '1',
         ],
-        'matricula' => [
+        'Matricula' => [
             'dependencia' => '1',
             'multiplas_matriculas' => '0',
         ],
@@ -179,9 +179,9 @@ return [
         'uppercase_names' => 0,
     ],
 
-    'modules' => [
+    'Modules' => [
         'error' => [
-            'link_to_support' => 'https://forum.ieducar.org/',
+            'link_to_support' => 'https://forum.Ieducar.org/',
             'send_notification_email' => true,
             'notification_email' => '1',
             'show_details' => true,
@@ -204,7 +204,7 @@ return [
         'logo_file_name' => env('REPORTS_LOGO', 'brasil.png'),
         'show_error_details' => true,
         'default_factory' => env('REPORTS_FACTORY', 'Portabilis_Report_ReportFactoryPHPJasper'),
-        'source_path' => env('REPORTS_SOURCE_PATH', base_path('ieducar/modules/Reports/ReportSources/')),
+        'source_path' => env('REPORTS_SOURCE_PATH', base_path('Ieducar/Modules/Reports/ReportSources/')),
         'diario_classe' => [
             'dias_temporarios' => '30',
         ],

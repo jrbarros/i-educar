@@ -13,7 +13,7 @@ class RemoveAuditTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('modules.auditoria_geral');
+        Schema::dropIfExists('Modules.auditoria_geral');
     }
 
     /**
@@ -27,14 +27,14 @@ class RemoveAuditTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE SEQUENCE modules.auditoria_geral_id_seq
+                CREATE SEQUENCE Modules.auditoria_geral_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.auditoria_geral (
+                CREATE TABLE Modules.auditoria_geral (
                     usuario_id integer,
                     operacao smallint,
                     rotina character varying(50),
@@ -46,11 +46,11 @@ class RemoveAuditTable extends Migration
                     query text
                 );
 
-                ALTER SEQUENCE modules.auditoria_geral_id_seq OWNED BY modules.auditoria_geral.id;
+                ALTER SEQUENCE Modules.auditoria_geral_id_seq OWNED BY Modules.auditoria_geral.id;
 
-                ALTER TABLE ONLY modules.auditoria_geral ALTER COLUMN id SET DEFAULT nextval(\'modules.auditoria_geral_id_seq\'::regclass);
+                ALTER TABLE ONLY Modules.auditoria_geral ALTER COLUMN id SET DEFAULT nextval(\'Modules.auditoria_geral_id_seq\'::regclass);
 
-                SELECT pg_catalog.setval(\'modules.auditoria_geral_id_seq\', 1, false);
+                SELECT pg_catalog.setval(\'Modules.auditoria_geral_id_seq\', 1, false);
             '
         );
     }

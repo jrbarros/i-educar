@@ -13,10 +13,10 @@ class AddForeignKeysInPortalFuncionarioTable extends Migration
      */
     public function up()
     {
-        Schema::table('portal.funcionario', function (Blueprint $table) {
+        Schema::table('Portal.funcionario', function (Blueprint $table) {
             $table->foreign('ref_ref_cod_pessoa_fj')
                ->references('ref_cod_pessoa_fj')
-               ->on('portal.funcionario')
+               ->on('Portal.funcionario')
                ->onUpdate('restrict')
                ->onDelete('restrict');
 
@@ -35,7 +35,7 @@ class AddForeignKeysInPortalFuncionarioTable extends Migration
      */
     public function down()
     {
-        Schema::table('portal.funcionario', function (Blueprint $table) {
+        Schema::table('Portal.funcionario', function (Blueprint $table) {
             $table->dropForeign(['ref_ref_cod_pessoa_fj']);
             $table->dropForeign(['ref_cod_pessoa_fj']);
         });

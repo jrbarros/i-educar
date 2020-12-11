@@ -7,7 +7,7 @@ use App\Models\Student;
 class StudentService
 {
     /**
-     * Verifica se o aluno tem alguma matricula em andamento
+     * Verifica se o aluno tem alguma Matricula em andamento
      *
      * @param int $studentId
      * @param int|null $levelId

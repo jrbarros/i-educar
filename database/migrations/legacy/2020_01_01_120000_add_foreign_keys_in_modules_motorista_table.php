@@ -13,7 +13,7 @@ class AddForeignKeysInModulesMotoristaTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.motorista', function (Blueprint $table) {
+        Schema::table('Modules.motorista', function (Blueprint $table) {
             $table->foreign('ref_idpes')
                ->references('idpes')
                ->on('cadastro.fisica')
@@ -22,7 +22,7 @@ class AddForeignKeysInModulesMotoristaTable extends Migration
 
             $table->foreign('ref_cod_empresa_transporte_escolar')
                ->references('cod_empresa_transporte_escolar')
-               ->on('modules.empresa_transporte_escolar')
+               ->on('Modules.empresa_transporte_escolar')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });
@@ -35,7 +35,7 @@ class AddForeignKeysInModulesMotoristaTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.motorista', function (Blueprint $table) {
+        Schema::table('Modules.motorista', function (Blueprint $table) {
             $table->dropForeign(['ref_idpes']);
             $table->dropForeign(['ref_cod_empresa_transporte_escolar']);
         });

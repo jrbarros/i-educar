@@ -17,13 +17,13 @@ class CreatePortalAgendaResponsavelTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE TABLE portal.agenda_responsavel (
+                CREATE TABLE Portal.agenda_responsavel (
                     ref_cod_agenda integer NOT NULL,
                     ref_ref_cod_pessoa_fj integer NOT NULL,
                     principal smallint
                 );
-                
-                ALTER TABLE ONLY portal.agenda_responsavel
+
+                ALTER TABLE ONLY Portal.agenda_responsavel
                     ADD CONSTRAINT agenda_responsavel_pkey PRIMARY KEY (ref_cod_agenda, ref_ref_cod_pessoa_fj);
             '
         );
@@ -36,6 +36,6 @@ class CreatePortalAgendaResponsavelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portal.agenda_responsavel');
+        Schema::dropIfExists('Portal.agenda_responsavel');
     }
 }

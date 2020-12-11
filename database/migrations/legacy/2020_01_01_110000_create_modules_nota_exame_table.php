@@ -17,7 +17,7 @@ class CreateModulesNotaExameTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE TABLE modules.nota_exame (
+                CREATE TABLE Modules.nota_exame (
                     ref_cod_matricula integer NOT NULL,
                     ref_cod_componente_curricular integer NOT NULL,
                     nota_exame numeric(6,3)
@@ -33,6 +33,6 @@ class CreateModulesNotaExameTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.nota_exame');
+        Schema::dropIfExists('Modules.nota_exame');
     }
 }

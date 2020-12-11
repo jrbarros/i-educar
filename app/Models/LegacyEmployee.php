@@ -21,7 +21,7 @@ class LegacyEmployee extends EloquentBaseModel implements Transformable
     /**
      * @var string
      */
-    protected $table = 'portal.funcionario';
+    protected $table = 'Portal.funcionario';
 
     /**
      * @var string
@@ -35,7 +35,7 @@ class LegacyEmployee extends EloquentBaseModel implements Transformable
 
     protected $fillable = [
         'ref_cod_pessoa_fj',
-        'matricula',
+        'Matricula',
         'senha',
         'ativo',
         'force_reset_password',

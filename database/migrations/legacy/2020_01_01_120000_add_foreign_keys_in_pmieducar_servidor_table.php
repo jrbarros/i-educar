@@ -34,15 +34,15 @@ class AddForeignKeysInPmieducarServidorTable extends Migration
 
             $table->foreign('instituicao_curso_superior_3')
                ->references('id')
-               ->on('modules.educacenso_ies');
+               ->on('Modules.educacenso_ies');
 
             $table->foreign('instituicao_curso_superior_2')
                ->references('id')
-               ->on('modules.educacenso_ies');
+               ->on('Modules.educacenso_ies');
 
             $table->foreign('instituicao_curso_superior_1')
                ->references('id')
-               ->on('modules.educacenso_ies');
+               ->on('Modules.educacenso_ies');
 
             $table->foreign('cod_servidor')
                ->references('idpes')
@@ -50,17 +50,17 @@ class AddForeignKeysInPmieducarServidorTable extends Migration
 
             $table->foreign('codigo_curso_superior_3')
                ->references('id')
-               ->on('modules.educacenso_curso_superior')
+               ->on('Modules.educacenso_curso_superior')
                ->onDelete('set null');
 
             $table->foreign('codigo_curso_superior_2')
                ->references('id')
-               ->on('modules.educacenso_curso_superior')
+               ->on('Modules.educacenso_curso_superior')
                ->onDelete('set null');
 
             $table->foreign('codigo_curso_superior_1')
                ->references('id')
-               ->on('modules.educacenso_curso_superior')
+               ->on('Modules.educacenso_curso_superior')
                ->onDelete('set null');
         });
     }

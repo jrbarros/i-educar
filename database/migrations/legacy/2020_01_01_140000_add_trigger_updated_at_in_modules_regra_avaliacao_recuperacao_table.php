@@ -14,7 +14,7 @@ class AddTriggerUpdatedAtInModulesRegraAvaliacaoRecuperacaoTable extends Migrati
      */
     public function up()
     {
-        $this->createUpdatedAtTrigger('modules.regra_avaliacao_recuperacao');
+        $this->createUpdatedAtTrigger('Modules.regra_avaliacao_recuperacao');
     }
 
     /**
@@ -24,6 +24,6 @@ class AddTriggerUpdatedAtInModulesRegraAvaliacaoRecuperacaoTable extends Migrati
      */
     public function down()
     {
-        $this->dropUpdatedAtTrigger('modules.regra_avaliacao_recuperacao');
+        $this->dropUpdatedAtTrigger('Modules.regra_avaliacao_recuperacao');
     }
 }

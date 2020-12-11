@@ -10,7 +10,7 @@ class LegacyDiscipline extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.componente_curricular';
+    protected $table = 'Modules.componente_curricular';
 
     /**
      * @var string

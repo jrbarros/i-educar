@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class LegacyDisciplineAcademicYear extends Pivot
 {
-    protected $table = 'modules.componente_curricular_ano_escolar';
+    protected $table = 'Modules.componente_curricular_ano_escolar';
 
     protected $primaryKey = 'componente_curricular_id';
 
@@ -19,6 +19,6 @@ class LegacyDisciplineAcademicYear extends Pivot
     ];
 
     public $timestamps = false;
-    
+
     public $incrementing = false;
 }

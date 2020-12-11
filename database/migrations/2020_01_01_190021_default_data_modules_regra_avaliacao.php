@@ -23,6 +23,6 @@ class DefaultDataModulesRegraAvaliacao extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE modules.regra_avaliacao CASCADE;');
+        DB::raw('TRUNCATE Modules.regra_avaliacao CASCADE;');
     }
 }

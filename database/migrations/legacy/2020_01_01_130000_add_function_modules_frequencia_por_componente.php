@@ -25,7 +25,7 @@ class AddFunctionModulesFrequenciaPorComponente extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP FUNCTION modules.frequencia_por_componente(cod_matricula_id integer, cod_disciplina_id integer, cod_turma_id integer);'
+            'DROP FUNCTION Modules.frequencia_por_componente(cod_matricula_id integer, cod_disciplina_id integer, cod_turma_id integer);'
         );
     }
 }

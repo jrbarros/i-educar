@@ -16,9 +16,9 @@ class CreateSchemas extends Migration
         DB::unprepared(
             '
                 CREATE SCHEMA cadastro;
-                CREATE SCHEMA modules;
+                CREATE SCHEMA Modules;
                 CREATE SCHEMA pmieducar;
-                CREATE SCHEMA portal;
+                CREATE SCHEMA Portal;
                 CREATE SCHEMA relatorio;
                 CREATE SCHEMA urbano;
             '
@@ -35,9 +35,9 @@ class CreateSchemas extends Migration
         DB::unprepared(
             '
                 DROP SCHEMA cadastro;
-                DROP SCHEMA modules;
+                DROP SCHEMA Modules;
                 DROP SCHEMA pmieducar;
-                DROP SCHEMA portal;
+                DROP SCHEMA Portal;
                 DROP SCHEMA relatorio;
                 DROP SCHEMA urbano;
             '

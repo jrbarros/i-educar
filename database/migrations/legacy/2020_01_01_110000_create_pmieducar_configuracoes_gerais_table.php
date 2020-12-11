@@ -30,9 +30,9 @@ class CreatePmieducarConfiguracoesGeraisTable extends Migration
                     active_on_ieducar smallint DEFAULT 1,
                     ieducar_image character varying(255) DEFAULT NULL::character varying,
                     ieducar_entity_name character varying(255) DEFAULT NULL::character varying,
-                    ieducar_login_footer text DEFAULT \'<p>Comunidade i-Educar - <a class="light" href="https://forum.ieducar.org/" target="_blank"> Obter Suporte </a></p>\'::character varying,
-                    ieducar_external_footer text DEFAULT \'<p>Conheça mais sobre o i-Educar, acesse nosso <a href="https://ieducar.org/blog/">blog</a>.</p>\'::character varying,
-                    ieducar_internal_footer text DEFAULT \'<p>Conheça mais sobre o i-Educar, acesse nosso <a href="https://ieducar.org/blog/">blog</a>.</p>\'::character varying,
+                    ieducar_login_footer text DEFAULT \'<p>Comunidade i-Educar - <a class="light" href="https://forum.Ieducar.org/" target="_blank"> Obter Suporte </a></p>\'::character varying,
+                    ieducar_external_footer text DEFAULT \'<p>Conheça mais sobre o i-Educar, acesse nosso <a href="https://Ieducar.org/blog/">blog</a>.</p>\'::character varying,
+                    ieducar_internal_footer text DEFAULT \'<p>Conheça mais sobre o i-Educar, acesse nosso <a href="https://Ieducar.org/blog/">blog</a>.</p>\'::character varying,
                     facebook_url character varying(255) DEFAULT \'https://www.facebook.com/portabilis\'::character varying,
                     twitter_url character varying(255) DEFAULT \'https://twitter.com/portabilis\'::character varying,
                     linkedin_url character varying(255) DEFAULT \'https://www.linkedin.com/company/portabilis-tecnologia\'::character varying,
@@ -43,8 +43,8 @@ class CreatePmieducarConfiguracoesGeraisTable extends Migration
                     emitir_ato_autorizativo bool NOT NULL DEFAULT false,
                     emitir_ato_criacao_credenciamento bool NOT NULL DEFAULT false
                 );
-                
-                ALTER TABLE pmieducar.configuracoes_gerais 
+
+                ALTER TABLE pmieducar.configuracoes_gerais
                     ADD CONSTRAINT configuracoes_gerais_pkey PRIMARY KEY (ref_cod_instituicao);
             '
         );

@@ -16,7 +16,7 @@ class EmployeeInep extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.educacenso_cod_docente';
+    protected $table = 'Modules.educacenso_cod_docente';
 
     /**
      * @var string

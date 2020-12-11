@@ -13,7 +13,7 @@ class AddIndexInNotaExameTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.nota_exame', function (Blueprint $table) {
+        Schema::table('Modules.nota_exame', function (Blueprint $table) {
             $table->index(['ref_cod_matricula']);
             $table->index(['ref_cod_componente_curricular']);
         });
@@ -26,7 +26,7 @@ class AddIndexInNotaExameTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.nota_exame', function (Blueprint $table) {
+        Schema::table('Modules.nota_exame', function (Blueprint $table) {
             $table->dropIndex(['ref_cod_matricula']);
             $table->dropIndex(['ref_cod_componente_curricular']);
         });

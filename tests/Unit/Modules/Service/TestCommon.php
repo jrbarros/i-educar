@@ -1,10 +1,10 @@
 <?php
 
-require_once 'include/pmieducar/Matricula.php';
-require_once 'include/pmieducar/Serie.php';
-require_once 'include/pmieducar/Curso.php';
-require_once 'include/pmieducar/EscolaSerieDisciplina.php';
-require_once 'include/pmieducar/DispensaDisciplina.php';
+require_once 'Source/pmieducar/Matricula.php';
+require_once 'Source/pmieducar/Serie.php';
+require_once 'Source/pmieducar/Curso.php';
+require_once 'Source/pmieducar/EscolaSerieDisciplina.php';
+require_once 'Source/pmieducar/DispensaDisciplina.php';
 require_once 'AreaConhecimento/Model/AreaDataMapper.php';
 require_once 'FormulaMedia/Model/Formula.php';
 require_once 'FormulaMedia/Model/FormulaDataMapper.php';
@@ -163,7 +163,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
         // Armazena valores de configuração para serem usados nas diferentes
         // instâncias de objetos legados e novos
         $this->_setConfigOptions('usuario', ['cod_usuario' => 1])
-            ->_setConfigOptions('matricula', $this->_getMatricula())
+            ->_setConfigOptions('Matricula', $this->_getMatricula())
             ->_setConfigOptions('matriculaTurma', $this->_getMatriculaTurma())
             ->_setConfigOptions('serie', $this->_getSerie())
             ->_setConfigOptions('curso', $this->_getCurso())
@@ -228,7 +228,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
     protected function _getServiceOptions()
     {
         return [
-            'matricula' => $this->_getConfigOption('matricula', 'cod_matricula'),
+            'Matricula' => $this->_getConfigOption('Matricula', 'cod_matricula'),
             'usuario' => $this->_getConfigOption('usuario', 'cod_usuario'),
             'RegraDataMapper' => $this->_getConfigOption('mappers', 'RegraDataMapper'),
             'ComponenteDataMapper' => $this->_getConfigOption('mappers', 'ComponenteDataMapper'),
@@ -505,12 +505,12 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _getNotaAluno()
     {
-        $matricula = $this->_getConfigOption('matricula', 'cod_matricula');
+        $matricula = $this->_getConfigOption('Matricula', 'cod_matricula');
 
         return [
             'instance' => new Avaliacao_Model_NotaAluno([
             'id' => 1,
-            'matricula' => $matricula
+            'Matricula' => $matricula
         ])];
     }
 
@@ -521,12 +521,12 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _getFaltaAluno()
     {
-        $matricula = $this->_getConfigOption('matricula', 'cod_matricula');
+        $matricula = $this->_getConfigOption('Matricula', 'cod_matricula');
 
         return [
             'instance' => new Avaliacao_Model_FaltaAluno([
             'id' => 1,
-            'matricula' => $matricula,
+            'Matricula' => $matricula,
             'tipoFalta' => $this->_getRegraOption('tipoPresenca')
         ])];
     }
@@ -538,12 +538,12 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _getParecerDescritivoAluno()
     {
-        $matricula = $this->_getConfigOption('matricula', 'cod_matricula');
+        $matricula = $this->_getConfigOption('Matricula', 'cod_matricula');
 
         return [
             'instance' => new Avaliacao_Model_ParecerDescritivoAluno([
             'id' => 1,
-            'matricula' => $matricula,
+            'Matricula' => $matricula,
             'parecerDescritivo' => $this->_getRegraOption('parecerDescritivo')
         ])];
     }
@@ -559,7 +559,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
 
         $mock->expects($this->any())
             ->method('detalhe')
-            ->will($this->returnValue($this->_getConfigOptions('matricula')));
+            ->will($this->returnValue($this->_getConfigOptions('Matricula')));
 
         CoreExt_Entity::addClassToStorage(
             'Matricula',
@@ -1043,7 +1043,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
             $mock = $this->getCleanMock('Avaliacao_Model_NotaAlunoDataMapper');
             $mock->expects($this->at(0))
                 ->method('findAll')
-                ->with([], ['matricula' => $notaAluno->matricula])
+                ->with([], ['Matricula' => $notaAluno->matricula])
                 ->will($this->returnValue([$notaAluno]));
 
             $this->_setNotaAlunoDataMapperMock($mock);
@@ -1065,7 +1065,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
             $mock = $this->getCleanMock('Avaliacao_Model_NotaComponenteDataMapper');
             $mock->expects($this->at(0))
                 ->method('findAll')
-                ->with([], ['notaAluno' => $this->_getConfigOption('matricula', 'cod_matricula')], ['etapa' => 'ASC'])
+                ->with([], ['notaAluno' => $this->_getConfigOption('Matricula', 'cod_matricula')], ['etapa' => 'ASC'])
                 ->will($this->returnValue([]));
 
             $this->_setNotaComponenteDataMapperMock($mock);
@@ -1113,7 +1113,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
             $mock = $this->getCleanMock('Avaliacao_Model_FaltaAlunoDataMapper');
             $mock->expects($this->at(0))
                 ->method('findAll')
-                ->with([], ['matricula' => $this->_getConfigOption('matricula', 'cod_matricula')])
+                ->with([], ['Matricula' => $this->_getConfigOption('Matricula', 'cod_matricula')])
                 ->will($this->returnValue([$faltaAluno]));
 
             $this->_setFaltaAlunoDataMapperMock($mock);
@@ -1165,7 +1165,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
 
                 $mock->expects($matcher)
                     ->method('findAll')
-                    ->with([], ['matricula' => $this->_getConfigOption('matricula', 'cod_matricula')])
+                    ->with([], ['Matricula' => $this->_getConfigOption('Matricula', 'cod_matricula')])
                     ->will($this->returnValue([$parecerAluno]));
             }
 

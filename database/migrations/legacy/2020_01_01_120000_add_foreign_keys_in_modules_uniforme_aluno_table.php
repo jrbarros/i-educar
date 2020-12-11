@@ -13,7 +13,7 @@ class AddForeignKeysInModulesUniformeAlunoTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.uniforme_aluno', function (Blueprint $table) {
+        Schema::table('Modules.uniforme_aluno', function (Blueprint $table) {
             $table->foreign('ref_cod_aluno')
                ->references('cod_aluno')
                ->on('pmieducar.aluno')
@@ -29,7 +29,7 @@ class AddForeignKeysInModulesUniformeAlunoTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.uniforme_aluno', function (Blueprint $table) {
+        Schema::table('Modules.uniforme_aluno', function (Blueprint $table) {
             $table->dropForeign(['ref_cod_aluno']);
         });
     }

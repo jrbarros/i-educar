@@ -13,7 +13,7 @@ class AddIndexInParecerGeralTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.parecer_geral', function (Blueprint $table) {
+        Schema::table('Modules.parecer_geral', function (Blueprint $table) {
             $table->index(['id']);
         });
     }
@@ -25,7 +25,7 @@ class AddIndexInParecerGeralTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.parecer_geral', function (Blueprint $table) {
+        Schema::table('Modules.parecer_geral', function (Blueprint $table) {
             $table->dropIndex(['id']);
         });
     }

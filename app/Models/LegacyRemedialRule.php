@@ -9,7 +9,7 @@ class LegacyRemedialRule extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.regra_avaliacao_recuperacao';
+    protected $table = 'Modules.regra_avaliacao_recuperacao';
 
     /**
      * @var array

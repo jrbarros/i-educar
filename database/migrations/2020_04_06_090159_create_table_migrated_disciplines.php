@@ -22,8 +22,8 @@ class CreateTableMigratedDisciplines extends Migration
             $table->integer('created_by')->nullable();
             $table->timestamps();
 
-            $table->foreign('old_discipline_id')->references('id')->on('modules.componente_curricular');
-            $table->foreign('new_discipline_id')->references('id')->on('modules.componente_curricular');
+            $table->foreign('old_discipline_id')->references('id')->on('Modules.componente_curricular');
+            $table->foreign('new_discipline_id')->references('id')->on('Modules.componente_curricular');
         });
     }
 

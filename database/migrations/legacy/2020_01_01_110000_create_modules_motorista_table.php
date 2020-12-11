@@ -17,15 +17,15 @@ class CreateModulesMotoristaTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE SEQUENCE modules.motorista_seq
+                CREATE SEQUENCE Modules.motorista_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.motorista (
-                    cod_motorista integer DEFAULT nextval(\'modules.motorista_seq\'::regclass) NOT NULL,
+                CREATE TABLE Modules.motorista (
+                    cod_motorista integer DEFAULT nextval(\'Modules.motorista_seq\'::regclass) NOT NULL,
                     ref_idpes integer NOT NULL,
                     cnh character varying(15),
                     tipo_cnh character varying(2),
@@ -34,11 +34,11 @@ class CreateModulesMotoristaTable extends Migration
                     ref_cod_empresa_transporte_escolar integer NOT NULL,
                     observacao character varying(255)
                 );
-                
-                ALTER TABLE ONLY modules.motorista
+
+                ALTER TABLE ONLY Modules.motorista
                     ADD CONSTRAINT motorista_pkey PRIMARY KEY (cod_motorista);
 
-                SELECT pg_catalog.setval(\'modules.motorista_seq\', 1, false);
+                SELECT pg_catalog.setval(\'Modules.motorista_seq\', 1, false);
             '
         );
     }
@@ -50,8 +50,8 @@ class CreateModulesMotoristaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.motorista');
+        Schema::dropIfExists('Modules.motorista');
 
-        DB::unprepared('DROP SEQUENCE modules.motorista_seq;');
+        DB::unprepared('DROP SEQUENCE Modules.motorista_seq;');
     }
 }

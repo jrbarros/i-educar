@@ -25,7 +25,7 @@ class AddFunctionModulesPreveDataEmprestimo extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP FUNCTION modules.preve_data_emprestimo(biblioteca_id integer, data_prevista date);'
+            'DROP FUNCTION Modules.preve_data_emprestimo(biblioteca_id integer, data_prevista date);'
         );
     }
 }

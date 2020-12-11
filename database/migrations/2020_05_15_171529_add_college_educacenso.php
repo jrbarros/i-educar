@@ -13,7 +13,7 @@ class AddCollegeEducacenso extends Migration
     public function up()
     {
         DB::unprepared("
-            INSERT INTO modules.educacenso_ies (ies_id, nome, tipo_instituicao_id, dependencia_administrativa_id, user_id, created_at) VALUES
+            INSERT INTO Modules.educacenso_ies (ies_id, nome, tipo_instituicao_id, dependencia_administrativa_id, user_id, created_at) VALUES
             (6182,'FACULDADE DE EDUCACAO TECNOLOGICA DO ESTADO DO RIO DE JANEIRO FAETERJ',2,4,1,now()),
             (11697,'FACULDADE SERIGY',2,4,1,now()),
             (12533,'FACULDADE DOM BOSCO DE CAPITAO LEONIDAS MARQUES',1,4,1,now()),
@@ -344,7 +344,7 @@ class AddCollegeEducacenso extends Migration
             (23705,'FACULDADE DE TECNOLOGIA DE FRANCO DA ROCHA',1,2,1,now()),
             (23713,'FACULDADE DE EDUCACAO TECNOLOGICA BARRA MANSA',1,2,1,now()),
             (23725,'ESCOLA SUPERIOR DE GESTAO',1,2,1,now()),
-            (24462,'CENTRO DE EDUCACAO TECNOLOGICO DA FUNDACAO INDAIATUBANA DE EDUCACAO E CULTURA',1,3,1,now());     
+            (24462,'CENTRO DE EDUCACAO TECNOLOGICO DA FUNDACAO INDAIATUBANA DE EDUCACAO E CULTURA',1,3,1,now());
         ");
     }
 

@@ -13,10 +13,10 @@ class AddForeignKeysInModulesNotaGeralTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.nota_geral', function (Blueprint $table) {
+        Schema::table('Modules.nota_geral', function (Blueprint $table) {
             $table->foreign('nota_aluno_id')
                ->references('id')
-               ->on('modules.nota_aluno')
+               ->on('Modules.nota_aluno')
                ->onDelete('cascade');
         });
     }
@@ -28,7 +28,7 @@ class AddForeignKeysInModulesNotaGeralTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.nota_geral', function (Blueprint $table) {
+        Schema::table('Modules.nota_geral', function (Blueprint $table) {
             $table->dropForeign(['nota_aluno_id']);
         });
     }

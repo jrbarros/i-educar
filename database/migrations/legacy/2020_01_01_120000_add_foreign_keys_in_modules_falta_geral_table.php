@@ -13,10 +13,10 @@ class AddForeignKeysInModulesFaltaGeralTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.falta_geral', function (Blueprint $table) {
+        Schema::table('Modules.falta_geral', function (Blueprint $table) {
             $table->foreign('falta_aluno_id')
                ->references('id')
-               ->on('modules.falta_aluno')
+               ->on('Modules.falta_aluno')
                ->onDelete('cascade');
         });
     }
@@ -28,7 +28,7 @@ class AddForeignKeysInModulesFaltaGeralTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.falta_geral', function (Blueprint $table) {
+        Schema::table('Modules.falta_geral', function (Blueprint $table) {
             $table->dropForeign(['falta_aluno_id']);
         });
     }

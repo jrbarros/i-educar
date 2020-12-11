@@ -65,7 +65,7 @@ class LegacyUserProvider implements UserProvider
     public function retrieveByCredentials(array $credentials)
     {
         return User::query()->whereHas('employee', function ($query) use ($credentials) {
-            $query->where('matricula', $credentials['login']);
+            $query->where('Matricula', $credentials['login']);
         })->first();
     }
 

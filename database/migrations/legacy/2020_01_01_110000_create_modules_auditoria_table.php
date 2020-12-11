@@ -17,7 +17,7 @@ class CreateModulesAuditoriaTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE TABLE modules.auditoria (
+                CREATE TABLE Modules.auditoria (
                     usuario character varying(300),
                     operacao smallint,
                     rotina character varying(300),
@@ -36,6 +36,6 @@ class CreateModulesAuditoriaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.auditoria');
+        Schema::dropIfExists('Modules.auditoria');
     }
 }

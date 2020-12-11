@@ -54,7 +54,7 @@ class ParecerDescritivoAlunoTest extends UnitBaseTest
   public function testEntityValidators()
   {
     $validators = $this->_entity->getDefaultValidatorCollection();
-    $this->assertInstanceOf('CoreExt_Validate_Numeric', $validators['matricula']);
+    $this->assertInstanceOf('CoreExt_Validate_Numeric', $validators['Matricula']);
     $this->assertInstanceOf('CoreExt_Validate_Choice',  $validators['parecerDescritivo']);
   }
 }

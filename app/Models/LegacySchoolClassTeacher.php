@@ -19,7 +19,7 @@ class LegacySchoolClassTeacher extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.professor_turma';
+    protected $table = 'Modules.professor_turma';
 
     /**
      * @var bool

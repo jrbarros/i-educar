@@ -17,27 +17,27 @@ class CreateModulesConfigMovimentoGeralTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE SEQUENCE modules.config_movimento_geral_id_seq
+                CREATE SEQUENCE Modules.config_movimento_geral_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.config_movimento_geral (
+                CREATE TABLE Modules.config_movimento_geral (
                     id integer NOT NULL,
                     ref_cod_serie integer NOT NULL,
                     coluna integer NOT NULL
                 );
 
-                ALTER SEQUENCE modules.config_movimento_geral_id_seq OWNED BY modules.config_movimento_geral.id;
-                
-                ALTER TABLE ONLY modules.config_movimento_geral
+                ALTER SEQUENCE Modules.config_movimento_geral_id_seq OWNED BY Modules.config_movimento_geral.id;
+
+                ALTER TABLE ONLY Modules.config_movimento_geral
                     ADD CONSTRAINT cod_config_movimento_geral_pkey PRIMARY KEY (id);
 
-                ALTER TABLE ONLY modules.config_movimento_geral ALTER COLUMN id SET DEFAULT nextval(\'modules.config_movimento_geral_id_seq\'::regclass);
-                
-                SELECT pg_catalog.setval(\'modules.config_movimento_geral_id_seq\', 1, false);
+                ALTER TABLE ONLY Modules.config_movimento_geral ALTER COLUMN id SET DEFAULT nextval(\'Modules.config_movimento_geral_id_seq\'::regclass);
+
+                SELECT pg_catalog.setval(\'Modules.config_movimento_geral_id_seq\', 1, false);
             '
         );
     }
@@ -49,6 +49,6 @@ class CreateModulesConfigMovimentoGeralTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.config_movimento_geral');
+        Schema::dropIfExists('Modules.config_movimento_geral');
     }
 }

@@ -16,35 +16,35 @@ class CreateModulesFaltaAlunoTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.falta_aluno_id_seq
+
+                CREATE SEQUENCE Modules.falta_aluno_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.falta_aluno (
+                CREATE TABLE Modules.falta_aluno (
                     id integer NOT NULL,
                     matricula_id integer NOT NULL,
                     tipo_falta smallint NOT NULL
                 );
 
-                ALTER SEQUENCE modules.falta_aluno_id_seq OWNED BY modules.falta_aluno.id;
-                
-                ALTER TABLE ONLY modules.falta_aluno
+                ALTER SEQUENCE Modules.falta_aluno_id_seq OWNED BY Modules.falta_aluno.id;
+
+                ALTER TABLE ONLY Modules.falta_aluno
                     ADD CONSTRAINT falta_aluno_pkey PRIMARY KEY (id);
 
-                ALTER TABLE ONLY modules.falta_aluno
+                ALTER TABLE ONLY Modules.falta_aluno
                     ADD CONSTRAINT modules_falta_aluno_matricula_id_unique UNIQUE (matricula_id);
 
-                ALTER TABLE ONLY modules.falta_aluno ALTER COLUMN id SET DEFAULT nextval(\'modules.falta_aluno_id_seq\'::regclass);
-                
-                CREATE INDEX idx_falta_aluno_matricula_id ON modules.falta_aluno USING btree (matricula_id);
+                ALTER TABLE ONLY Modules.falta_aluno ALTER COLUMN id SET DEFAULT nextval(\'Modules.falta_aluno_id_seq\'::regclass);
 
-                CREATE INDEX idx_falta_aluno_matricula_id_tipo ON modules.falta_aluno USING btree (matricula_id, tipo_falta);
+                CREATE INDEX idx_falta_aluno_matricula_id ON Modules.falta_aluno USING btree (matricula_id);
 
-                SELECT pg_catalog.setval(\'modules.falta_aluno_id_seq\', 2, true);
+                CREATE INDEX idx_falta_aluno_matricula_id_tipo ON Modules.falta_aluno USING btree (matricula_id, tipo_falta);
+
+                SELECT pg_catalog.setval(\'Modules.falta_aluno_id_seq\', 2, true);
             '
         );
     }
@@ -56,6 +56,6 @@ class CreateModulesFaltaAlunoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.falta_aluno');
+        Schema::dropIfExists('Modules.falta_aluno');
     }
 }

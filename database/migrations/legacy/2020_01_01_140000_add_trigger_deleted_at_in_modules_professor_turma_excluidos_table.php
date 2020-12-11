@@ -14,7 +14,7 @@ class AddTriggerDeletedAtInModulesProfessorTurmaExcluidosTable extends Migration
      */
     public function up()
     {
-        $this->whenDeletedMoveTo('modules.professor_turma', 'modules.professor_turma_excluidos', [
+        $this->whenDeletedMoveTo('Modules.professor_turma', 'Modules.professor_turma_excluidos', [
             'id',
             'ano',
             'instituicao_id',
@@ -34,6 +34,6 @@ class AddTriggerDeletedAtInModulesProfessorTurmaExcluidosTable extends Migration
      */
     public function down()
     {
-        $this->dropTriggerWhenDeleted('modules.professor_turma');
+        $this->dropTriggerWhenDeleted('Modules.professor_turma');
     }
 }

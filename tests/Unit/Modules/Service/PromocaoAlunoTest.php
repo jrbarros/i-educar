@@ -74,14 +74,14 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
         ->method('getOption')
         ->will($this->returnValueMap([
             ['aprovado', App_Model_MatriculaSituacao::EM_ANDAMENTO],
-            ['matricula', 1]
+            ['Matricula', 1]
         ]));
 
     $service->expects($this->any())
         ->method('getRegraAvaliacaoTipoProgressao')
         ->will($this->returnValue(0));
 
-    $this->expectException('CoreExt_Service_Exception');
+    $this->expectException('CoreExtension_Service_Exception');
     $service->promover();
   }
 
@@ -126,7 +126,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $situacao->retidoFalta = FALSE;
     $situacao->aprovadoComDependencia = FALSE;
 
-    $codMatricula = $this->_getConfigOption('matricula', 'cod_matricula');
+    $codMatricula = $this->_getConfigOption('Matricula', 'cod_matricula');
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
     $service = $this->setExcludedMethods(array('promover'))
@@ -140,7 +140,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 
     $service->method('getOption')
             ->will($this->returnValueMap([
-                ['matricula', $codMatricula],
+                ['Matricula', $codMatricula],
                 ['usuario', $codUsuario]
             ]));
 
@@ -159,7 +159,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $situacao->recuperacao = FALSE;
     $situacao->retidoFalta = TRUE;
 
-    $codMatricula = $this->_getConfigOption('matricula', 'cod_matricula');
+    $codMatricula = $this->_getConfigOption('Matricula', 'cod_matricula');
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
     $service = $this->setExcludedMethods(array('promover'))
@@ -173,7 +173,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 
     $service->method('getOption')
             ->will($this->returnValueMap([
-                ['matricula', $codMatricula],
+                ['Matricula', $codMatricula],
                 ['usuario', $codUsuario]
             ]));
 
@@ -193,7 +193,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $situacao->retidoFalta = TRUE;  // Não considera retenção por falta
     $situacao->aprovadoComDependencia = FALSE;
 
-    $codMatricula = $this->_getConfigOption('matricula', 'cod_matricula');
+    $codMatricula = $this->_getConfigOption('Matricula', 'cod_matricula');
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
     // Mock para RegraAvaliacao_Model_Regra
@@ -209,7 +209,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 
     $service->method('getOption')
             ->will($this->returnValueMap([
-                ['matricula', $codMatricula],
+                ['Matricula', $codMatricula],
                 ['usuario', $codUsuario]
             ]));
 
@@ -228,7 +228,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $situacao->recuperacao = FALSE;
     $situacao->retidoFalta = FALSE;
 
-    $codMatricula = $this->_getConfigOption('matricula', 'cod_matricula');
+    $codMatricula = $this->_getConfigOption('Matricula', 'cod_matricula');
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
 
@@ -243,7 +243,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 
     $service->method('getOption')
             ->will($this->returnValueMap([
-                ['matricula', $codMatricula],
+                ['Matricula', $codMatricula],
                 ['usuario', $codUsuario]
             ]));
 
@@ -262,7 +262,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $situacao->recuperacao = FALSE;
     $situacao->retidoFalta = FALSE;
 
-    $codMatricula = $this->_getConfigOption('matricula', 'cod_matricula');
+    $codMatricula = $this->_getConfigOption('Matricula', 'cod_matricula');
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
 
@@ -277,7 +277,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 
     $service->method('getOption')
             ->will($this->returnValueMap([
-                ['matricula', $codMatricula],
+                ['Matricula', $codMatricula],
                 ['usuario', $codUsuario]
             ]));
 
@@ -296,7 +296,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $situacao->recuperacao = FALSE;
     $situacao->retidoFalta = FALSE;
 
-    $codMatricula = $this->_getConfigOption('matricula', 'cod_matricula');
+    $codMatricula = $this->_getConfigOption('Matricula', 'cod_matricula');
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
     $service = $this->setExcludedMethods(array('save'))
@@ -335,7 +335,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $situacao->recuperacao = FALSE;
     $situacao->retidoFalta = FALSE;
 
-    $codMatricula = $this->_getConfigOption('matricula', 'cod_matricula');
+    $codMatricula = $this->_getConfigOption('Matricula', 'cod_matricula');
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
 
@@ -350,7 +350,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 
     $service->method('getOption')
             ->will($this->returnValueMap([
-                ['matricula', $codMatricula],
+                ['Matricula', $codMatricula],
                 ['usuario', $codUsuario]
             ]));
 
@@ -361,7 +361,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
               ->will($this->returnValue(TRUE));
 
     CoreExt_Entity::addClassToStorage('Matricula', $matricula,
-          'include/pmieducar/Matricula.php', TRUE);
+          'Source/pmieducar/Matricula.php', TRUE);
 
     $this->assertTrue($service->promover());
   }

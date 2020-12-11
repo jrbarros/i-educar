@@ -8,7 +8,7 @@ Auth::routes(['register' => false]);
 
 Route::redirect('/', 'Intranet/index.php');
 
-Route::any('module/Api/{uri}', 'LegacyController@api')->where('uri', '.*');
+Route::any('Module/Api/{uri}', 'LegacyController@api')->where('uri', '.*');
 
 Route::any('Intranet/filaunica/educar_consulta.php', 'LegacyController@Intranet')
     ->defaults('uri', 'filaunica/educar_consulta.php');
@@ -21,13 +21,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('alterar-senha', 'PasswordController@change')->name('post-change-password');
 });
 
-Route::group(['middleware' => ['ieducar.navigation', 'ieducar.footer', 'ieducar.xssbypass', 'ieducar.suspended', 'auth', 'ieducar.checkresetpassword']], function () {
+Route::group(['middleware' => ['Ieducar.navigation', 'Ieducar.footer', 'Ieducar.xssbypass', 'Ieducar.suspended', 'auth', 'Ieducar.checkresetpassword']], function () {
     Route::get('/Intranet/educar_matricula_turma_lst.php', 'LegacyController@Intranet')
         ->defaults('uri', 'educar_matricula_turma_lst.php')
         ->name('enrollments.index');
-    Route::get('/matricula/{registration}/enturmar/{schoolClass}', 'EnrollmentController@viewEnroll')
+    Route::get('/Matricula/{registration}/enturmar/{schoolClass}', 'EnrollmentController@viewEnroll')
         ->name('enrollments.enroll.create');
-    Route::post('/matricula/{registration}/enturmar/{schoolClass}', 'EnrollmentController@enroll')
+    Route::post('/Matricula/{registration}/enturmar/{schoolClass}', 'EnrollmentController@enroll')
         ->name('enrollments.enroll');
     Route::get('/enrollment-history/{id}', 'EnrollmentHistoryController@show')
         ->name('enrollments.enrollment-history');
@@ -77,13 +77,13 @@ Route::group(['middleware' => ['ieducar.navigation', 'ieducar.footer', 'ieducar.
         ->defaults('uri', 'educar_configuracoes_index.php')
         ->name('settings');
 
-    Route::any('module/{module}/{path}/{resource}', 'LegacyModuleRewriteController@rewrite')
-        ->where('module', '.*')
+    Route::any('Module/{Module}/{path}/{resource}', 'LegacyModuleRewriteController@rewrite')
+        ->where('Module', '.*')
         ->where('path', 'imagens|scripts|styles')
         ->where('resource', '.*');
 
-    Route::any('module/{uri}', 'LegacyController@module')->where('uri', '.*');
-    Route::any('modules/{uri}', 'LegacyController@modules')->where('uri', '.*');
+    Route::any('Module/{uri}', 'LegacyController@Module')->where('uri', '.*');
+    Route::any('Modules/{uri}', 'LegacyController@Modules')->where('uri', '.*');
     Route::any('Intranet/{uri}', 'LegacyController@Intranet')->where('uri', '.*');
 
     Route::group(['namespace' => 'Educacenso', 'prefix' => 'educacenso'], function () {

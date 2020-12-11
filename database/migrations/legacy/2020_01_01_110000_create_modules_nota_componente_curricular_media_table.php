@@ -17,7 +17,7 @@ class CreateModulesNotaComponenteCurricularMediaTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE TABLE modules.nota_componente_curricular_media (
+                CREATE TABLE Modules.nota_componente_curricular_media (
                     nota_aluno_id integer NOT NULL,
                     componente_curricular_id integer NOT NULL,
                     media numeric(8,4) DEFAULT 0,
@@ -26,8 +26,8 @@ class CreateModulesNotaComponenteCurricularMediaTable extends Migration
                     situacao integer,
 	                bloqueada bool NOT NULL DEFAULT false
                 );
-                
-                ALTER TABLE ONLY modules.nota_componente_curricular_media
+
+                ALTER TABLE ONLY Modules.nota_componente_curricular_media
                     ADD CONSTRAINT nota_componente_curricular_media_pkey PRIMARY KEY (nota_aluno_id, componente_curricular_id);
             '
         );
@@ -40,6 +40,6 @@ class CreateModulesNotaComponenteCurricularMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.nota_componente_curricular_media');
+        Schema::dropIfExists('Modules.nota_componente_curricular_media');
     }
 }

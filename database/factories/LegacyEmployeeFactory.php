@@ -12,7 +12,7 @@ $factory->define(LegacyEmployee::class, function (Faker $faker) {
         'ref_cod_pessoa_fj' => function () {
             return factory(LegacyIndividual::class)->create()->idpes;
         },
-        'matricula' => $faker->randomDigitNotNull,
+        'Matricula' => $faker->randomDigitNotNull,
         'senha' => $faker->randomDigitNotNull,
         'ativo' => 1
     ];

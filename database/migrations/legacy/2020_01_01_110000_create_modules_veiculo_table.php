@@ -17,15 +17,15 @@ class CreateModulesVeiculoTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE SEQUENCE modules.veiculo_seq
+                CREATE SEQUENCE Modules.veiculo_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.veiculo (
-                    cod_veiculo integer DEFAULT nextval(\'modules.veiculo_seq\'::regclass) NOT NULL,
+                CREATE TABLE Modules.veiculo (
+                    cod_veiculo integer DEFAULT nextval(\'Modules.veiculo_seq\'::regclass) NOT NULL,
                     descricao character varying(255) NOT NULL,
                     placa character varying(10),
                     renavam character varying(15) NOT NULL,
@@ -44,11 +44,11 @@ class CreateModulesVeiculoTable extends Migration
                     ref_cod_motorista integer,
                     observacao character varying(255)
                 );
-                
-                ALTER TABLE ONLY modules.veiculo
+
+                ALTER TABLE ONLY Modules.veiculo
                     ADD CONSTRAINT veiculo_pkey PRIMARY KEY (cod_veiculo);
 
-                SELECT pg_catalog.setval(\'modules.veiculo_seq\', 1, false);
+                SELECT pg_catalog.setval(\'Modules.veiculo_seq\', 1, false);
             '
         );
     }
@@ -60,8 +60,8 @@ class CreateModulesVeiculoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.veiculo');
+        Schema::dropIfExists('Modules.veiculo');
 
-        DB::unprepared('DROP SEQUENCE modules.veiculo_seq;');
+        DB::unprepared('DROP SEQUENCE Modules.veiculo_seq;');
     }
 }

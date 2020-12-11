@@ -53,7 +53,7 @@ class LegacyGrade extends Model
     {
         return $this->belongsToMany(
             LegacyEvaluationRule::class,
-            'modules.regra_avaliacao_serie_ano',
+            'Modules.regra_avaliacao_serie_ano',
             'serie_id',
             'regra_avaliacao_id'
         )->withPivot('ano_letivo', 'regra_avaliacao_diferenciada_id');

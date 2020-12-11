@@ -10,7 +10,7 @@ class LegacyDisciplineScore extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.nota_componente_curricular';
+    protected $table = 'Modules.nota_componente_curricular';
 
     /**
      * @var string

@@ -59,16 +59,17 @@
         "classmap": [
           "database/seeds",
           "database/factories",
-          "ieducar/Intranet/include",
-          "ieducar/lib"
+          "Ieducar/Intranet/Source",
+          "Ieducar/Lib"
         ],
         "files": [
-          "ieducar/Intranet/include/funcoes.php"
+          "Ieducar/Intranet/Source/funcoes.php"
         ],
         "psr-4": {
             "App\\": "app/",
             "iEducar\\": "src",
-            "iEducar\\Packages\\Reports\\": "ieducar/modules/Reports/src"
+            "iEducarLegacy\\": "Ieducar",
+            "iEducar\\Packages\\Reports\\": "Ieducar/Modules/Reports/src"
         }
     },
     "autoload-dev": {
@@ -80,10 +81,10 @@
         ]
     },
     "include-path": [
-        "ieducar",
-      "ieducar/Intranet",
-        "ieducar/lib",
-        "ieducar/modules"
+      "Ieducar",
+      "Ieducar/Intranet",
+      "Ieducar/Lib",
+      "Ieducar/Modules"
     ],
     "extra": {
         "laravel": {

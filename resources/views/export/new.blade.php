@@ -1,7 +1,7 @@
 @extends('layout.default')
 
 @push('styles')
-  <link rel="stylesheet" type="text/css" href="{{ Asset::get('css/ieducar.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ Asset::get('css/Ieducar.css') }}" />
 @endpush
 
 @section('content')
@@ -152,7 +152,7 @@
   });
   </script>
 
-  <script type="text/javascript" src="{{ Asset::get("/modules/Portabilis/Assets/Javascripts/ClientApi.js") }}"></script>
-  <script type="text/javascript" src="{{ Asset::get("/modules/DynamicInput/Assets/Javascripts/DynamicInput.js") }}"></script>
-  <script type="text/javascript" src="{{ Asset::get("/modules/DynamicInput/Assets/Javascripts/Escola.js") }}"></script>
+  <script type="text/javascript" src="{{ Asset::get("/Modules/Portabilis/Assets/Javascripts/ClientApi.js") }}"></script>
+  <script type="text/javascript" src="{{ Asset::get("/Modules/DynamicInput/Assets/Javascripts/DynamicInput.js") }}"></script>
+  <script type="text/javascript" src="{{ Asset::get("/Modules/DynamicInput/Assets/Javascripts/Escola.js") }}"></script>
 @endpush

@@ -13,16 +13,16 @@ class AddForeignKeysInModulesProfessorTurmaDisciplinaTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.professor_turma_disciplina', function (Blueprint $table) {
+        Schema::table('Modules.professor_turma_disciplina', function (Blueprint $table) {
             $table->foreign('professor_turma_id')
                ->references('id')
-               ->on('modules.professor_turma')
+               ->on('Modules.professor_turma')
                ->onUpdate('restrict')
                ->onDelete('restrict');
 
             $table->foreign('componente_curricular_id')
                ->references('id')
-               ->on('modules.componente_curricular')
+               ->on('Modules.componente_curricular')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });
@@ -35,7 +35,7 @@ class AddForeignKeysInModulesProfessorTurmaDisciplinaTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.professor_turma_disciplina', function (Blueprint $table) {
+        Schema::table('Modules.professor_turma_disciplina', function (Blueprint $table) {
             $table->dropForeign(['professor_turma_id']);
             $table->dropForeign(['componente_curricular_id']);
         });

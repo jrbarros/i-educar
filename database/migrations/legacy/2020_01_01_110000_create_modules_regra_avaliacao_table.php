@@ -16,15 +16,15 @@ class CreateModulesRegraAvaliacaoTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.regra_avaliacao_id_seq
+
+                CREATE SEQUENCE Modules.regra_avaliacao_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.regra_avaliacao (
+                CREATE TABLE Modules.regra_avaliacao (
                     id integer NOT NULL,
                     instituicao_id integer NOT NULL,
                     formula_media_id integer NULL,
@@ -58,16 +58,16 @@ class CreateModulesRegraAvaliacaoTable extends Migration
                     disciplinas_aglutinadas varchar(191) NULL
                 );
 
-                ALTER SEQUENCE modules.regra_avaliacao_id_seq OWNED BY modules.regra_avaliacao.id;
-                
-                ALTER TABLE ONLY modules.regra_avaliacao
+                ALTER SEQUENCE Modules.regra_avaliacao_id_seq OWNED BY Modules.regra_avaliacao.id;
+
+                ALTER TABLE ONLY Modules.regra_avaliacao
                     ADD CONSTRAINT regra_avaliacao_pkey PRIMARY KEY (id, instituicao_id);
 
-                ALTER TABLE ONLY modules.regra_avaliacao ALTER COLUMN id SET DEFAULT nextval(\'modules.regra_avaliacao_id_seq\'::regclass);
-                
-                CREATE UNIQUE INDEX regra_avaliacao_id_key ON modules.regra_avaliacao USING btree (id);
+                ALTER TABLE ONLY Modules.regra_avaliacao ALTER COLUMN id SET DEFAULT nextval(\'Modules.regra_avaliacao_id_seq\'::regclass);
 
-                SELECT pg_catalog.setval(\'modules.regra_avaliacao_id_seq\', 2, true);
+                CREATE UNIQUE INDEX regra_avaliacao_id_key ON Modules.regra_avaliacao USING btree (id);
+
+                SELECT pg_catalog.setval(\'Modules.regra_avaliacao_id_seq\', 2, true);
             '
         );
     }
@@ -79,6 +79,6 @@ class CreateModulesRegraAvaliacaoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.regra_avaliacao');
+        Schema::dropIfExists('Modules.regra_avaliacao');
     }
 }

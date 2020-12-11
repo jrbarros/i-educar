@@ -17,7 +17,7 @@ class CreateModulesEducacensoCodDocenteTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE TABLE modules.educacenso_cod_docente (
+                CREATE TABLE Modules.educacenso_cod_docente (
                     cod_servidor integer NOT NULL,
                     cod_docente_inep bigint NOT NULL,
                     nome_inep character varying(255),
@@ -25,8 +25,8 @@ class CreateModulesEducacensoCodDocenteTable extends Migration
                     created_at timestamp without time zone NOT NULL,
                     updated_at timestamp without time zone
                 );
-                
-                ALTER TABLE ONLY modules.educacenso_cod_docente
+
+                ALTER TABLE ONLY Modules.educacenso_cod_docente
                     ADD CONSTRAINT educacenso_cod_docente_pk PRIMARY KEY (cod_servidor, cod_docente_inep);
             '
         );
@@ -39,6 +39,6 @@ class CreateModulesEducacensoCodDocenteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.educacenso_cod_docente');
+        Schema::dropIfExists('Modules.educacenso_cod_docente');
     }
 }

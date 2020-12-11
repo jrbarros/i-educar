@@ -1,14 +1,14 @@
 filter:
   excluded_paths:
-    - 'ieducar/tests/*'
-    - 'ieducar/misc/**/*'
-    - 'ieducar/Intranet/scripts/jquery'
-    - 'ieducar/Intranet/scripts/scriptaculous'
-    - 'ieducar/Intranet/scripts/prototype'
-    - 'ieducar/Intranet/scripts/select2'
-    - 'ieducar/Intranet/scripts/graficos'
-    - 'ieducar/modules/Portabilis/Assets/Plugins/AjaxChosen/'
-    - 'ieducar/modules/Portabilis/Assets/Plugins/Chosen/'
+    - 'Ieducar/tests/*'
+    - 'Ieducar/misc/**/*'
+    - 'Ieducar/Intranet/scripts/jquery'
+    - 'Ieducar/Intranet/scripts/scriptaculous'
+    - 'Ieducar/Intranet/scripts/prototype'
+    - 'Ieducar/Intranet/scripts/select2'
+    - 'Ieducar/Intranet/scripts/graficos'
+    - 'Ieducar/Modules/Portabilis/Assets/Plugins/AjaxChosen/'
+    - 'Ieducar/Modules/Portabilis/Assets/Plugins/Chosen/'
 
 checks:
   php:

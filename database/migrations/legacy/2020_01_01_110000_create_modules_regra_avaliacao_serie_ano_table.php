@@ -16,16 +16,16 @@ class CreateModulesRegraAvaliacaoSerieAnoTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE TABLE modules.regra_avaliacao_serie_ano (
+
+                CREATE TABLE Modules.regra_avaliacao_serie_ano (
                     serie_id integer NOT NULL,
                     regra_avaliacao_id integer NOT NULL,
                     regra_avaliacao_diferenciada_id integer,
                     ano_letivo smallint NOT NULL,
 	                updated_at timestamp NOT NULL DEFAULT now()
                 );
-                
-                ALTER TABLE ONLY modules.regra_avaliacao_serie_ano
+
+                ALTER TABLE ONLY Modules.regra_avaliacao_serie_ano
                     ADD CONSTRAINT regra_avaliacao_serie_ano_pkey PRIMARY KEY (serie_id, ano_letivo);
             '
         );
@@ -38,6 +38,6 @@ class CreateModulesRegraAvaliacaoSerieAnoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.regra_avaliacao_serie_ano');
+        Schema::dropIfExists('Modules.regra_avaliacao_serie_ano');
     }
 }

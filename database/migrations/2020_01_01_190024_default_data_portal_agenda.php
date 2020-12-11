@@ -23,6 +23,6 @@ class DefaultDataPortalAgenda extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE portal.agenda CASCADE;');
+        DB::raw('TRUNCATE Portal.agenda CASCADE;');
     }
 }

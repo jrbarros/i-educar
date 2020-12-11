@@ -22,13 +22,13 @@ class AddForeignKeysInPmieducarTransferenciaSolicitacaoTable extends Migration
 
             $table->foreign('ref_cod_matricula_saida')
                ->references('cod_matricula')
-               ->on('pmieducar.matricula')
+               ->on('pmieducar.Matricula')
                ->onUpdate('restrict')
                ->onDelete('restrict');
 
             $table->foreign('ref_cod_matricula_entrada')
                ->references('cod_matricula')
-               ->on('pmieducar.matricula')
+               ->on('pmieducar.Matricula')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });

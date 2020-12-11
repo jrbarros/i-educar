@@ -17,7 +17,7 @@ class CreatePortalAgendaCompromissoTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE TABLE portal.agenda_compromisso (
+                CREATE TABLE Portal.agenda_compromisso (
                     cod_agenda_compromisso integer NOT NULL,
                     versao integer NOT NULL,
                     ref_cod_agenda integer NOT NULL,
@@ -31,8 +31,8 @@ class CreatePortalAgendaCompromissoTable extends Migration
                     data_cadastro timestamp without time zone NOT NULL,
                     data_fim timestamp without time zone
                 );
-                
-                ALTER TABLE ONLY portal.agenda_compromisso
+
+                ALTER TABLE ONLY Portal.agenda_compromisso
                     ADD CONSTRAINT agenda_compromisso_pkey PRIMARY KEY (cod_agenda_compromisso, versao, ref_cod_agenda);
             '
         );
@@ -45,6 +45,6 @@ class CreatePortalAgendaCompromissoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portal.agenda_compromisso');
+        Schema::dropIfExists('Portal.agenda_compromisso');
     }
 }

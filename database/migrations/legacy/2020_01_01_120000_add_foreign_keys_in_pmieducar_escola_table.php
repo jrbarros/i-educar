@@ -42,7 +42,7 @@ class AddForeignKeysInPmieducarEscolaTable extends Migration
 
             $table->foreign('codigo_ies')
                 ->references('id')
-                ->on('modules.educacenso_ies');
+                ->on('Modules.educacenso_ies');
         });
     }
 

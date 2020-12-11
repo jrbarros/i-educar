@@ -15,7 +15,7 @@ class LegacyStudentTransport extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.transporte_aluno';
+    protected $table = 'Modules.transporte_aluno';
 
     /**
      * @var string

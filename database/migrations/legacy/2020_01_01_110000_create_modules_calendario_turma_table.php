@@ -17,15 +17,15 @@ class CreateModulesCalendarioTurmaTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE TABLE modules.calendario_turma (
+                CREATE TABLE Modules.calendario_turma (
                     calendario_ano_letivo_id integer NOT NULL,
                     ano integer NOT NULL,
                     mes integer NOT NULL,
                     dia integer NOT NULL,
                     turma_id integer NOT NULL
                 );
-                
-                ALTER TABLE ONLY modules.calendario_turma
+
+                ALTER TABLE ONLY Modules.calendario_turma
                     ADD CONSTRAINT calendario_turma_pk PRIMARY KEY (calendario_ano_letivo_id, ano, mes, dia, turma_id);
             '
         );
@@ -38,6 +38,6 @@ class CreateModulesCalendarioTurmaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.calendario_turma');
+        Schema::dropIfExists('Modules.calendario_turma');
     }
 }

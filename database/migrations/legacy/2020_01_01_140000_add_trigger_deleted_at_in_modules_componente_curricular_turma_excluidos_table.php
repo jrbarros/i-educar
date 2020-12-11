@@ -14,7 +14,7 @@ class AddTriggerDeletedAtInModulesComponenteCurricularTurmaExcluidosTable extend
      */
     public function up()
     {
-        $this->whenDeletedMoveTo('modules.componente_curricular_turma', 'modules.componente_curricular_turma_excluidos', [
+        $this->whenDeletedMoveTo('Modules.componente_curricular_turma', 'Modules.componente_curricular_turma_excluidos', [
             'componente_curricular_id',
             'ano_escolar_id',
             'escola_id',
@@ -33,6 +33,6 @@ class AddTriggerDeletedAtInModulesComponenteCurricularTurmaExcluidosTable extend
      */
     public function down()
     {
-        $this->dropTriggerWhenDeleted('modules.componente_curricular_turma');
+        $this->dropTriggerWhenDeleted('Modules.componente_curricular_turma');
     }
 }

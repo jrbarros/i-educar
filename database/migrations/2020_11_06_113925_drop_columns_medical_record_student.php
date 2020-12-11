@@ -13,7 +13,7 @@ class DropColumnsMedicalRecordStudent extends Migration
      */
     public function up()
     {
-        Schema::table('modules.ficha_medica_aluno', function (Blueprint $table) {
+        Schema::table('Modules.ficha_medica_aluno', function (Blueprint $table) {
             $table->dropColumn('hospital_clinica');
             $table->dropColumn('hospital_clinica_endereco');
             $table->dropColumn('hospital_clinica_telefone');
@@ -27,7 +27,7 @@ class DropColumnsMedicalRecordStudent extends Migration
      */
     public function down()
     {
-        Schema::table('modules.ficha_medica_aluno', function (Blueprint $table) {
+        Schema::table('Modules.ficha_medica_aluno', function (Blueprint $table) {
             $table->string('hospital_clinica')->nullable();
             $table->string('hospital_clinica_endereco')->nullable();
             $table->string('hospital_clinica_telefone')->nullable();

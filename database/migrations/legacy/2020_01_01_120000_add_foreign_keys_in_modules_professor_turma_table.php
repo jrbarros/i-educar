@@ -13,7 +13,7 @@ class AddForeignKeysInModulesProfessorTurmaTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.professor_turma', function (Blueprint $table) {
+        Schema::table('Modules.professor_turma', function (Blueprint $table) {
             $table->foreign('turno_id')
                ->references('id')
                ->on('pmieducar.turma_turno')
@@ -41,7 +41,7 @@ class AddForeignKeysInModulesProfessorTurmaTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.professor_turma', function (Blueprint $table) {
+        Schema::table('Modules.professor_turma', function (Blueprint $table) {
             $table->dropForeign(['turno_id']);
             $table->dropForeign(['turma_id']);
             $table->dropForeign(['servidor_id', 'instituicao_id']);

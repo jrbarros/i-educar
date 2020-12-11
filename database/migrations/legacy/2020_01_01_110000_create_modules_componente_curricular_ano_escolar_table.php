@@ -17,7 +17,7 @@ class CreateModulesComponenteCurricularAnoEscolarTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE TABLE modules.componente_curricular_ano_escolar (
+                CREATE TABLE Modules.componente_curricular_ano_escolar (
                     componente_curricular_id integer NOT NULL,
                     ano_escolar_id integer NOT NULL,
                     carga_horaria numeric(7,3),
@@ -26,7 +26,7 @@ class CreateModulesComponenteCurricularAnoEscolarTable extends Migration
 	                updated_at timestamp NULL DEFAULT now()
                 );
 
-                ALTER TABLE ONLY modules.componente_curricular_ano_escolar
+                ALTER TABLE ONLY Modules.componente_curricular_ano_escolar
                     ADD CONSTRAINT componente_curricular_ano_escolar_pkey PRIMARY KEY (componente_curricular_id, ano_escolar_id);
             '
         );
@@ -39,6 +39,6 @@ class CreateModulesComponenteCurricularAnoEscolarTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.componente_curricular_ano_escolar');
+        Schema::dropIfExists('Modules.componente_curricular_ano_escolar');
     }
 }

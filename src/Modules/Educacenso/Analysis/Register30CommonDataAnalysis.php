@@ -170,7 +170,7 @@ class Register30CommonDataAnalysis implements AnalysisInterface
             $linkPath = "/Intranet/educar_servidor_cad.php?cod_servidor={$data->codigoServidor}&ref_cod_instituicao=" . LegacyInstitution::active()->first()->cod_instituicao;
             if ($data->isStudent()) {
                 $path = '(Escola > Cadastros > Alunos > Editar > Aba: Dados pessoais > Campo: Deficiências / habilidades especiais)';
-                $linkPath = "/module/Cadastro/aluno?id={$data->codigoAluno}";
+                $linkPath = "/Module/Cadastro/aluno?id={$data->codigoAluno}";
             }
 
             $this->messages[] = [

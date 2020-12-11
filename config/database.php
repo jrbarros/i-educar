@@ -123,7 +123,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'predis'),
-            'prefix' => 'ieducar-',
+            'prefix' => 'Ieducar-',
         ],
 
         'default' => [

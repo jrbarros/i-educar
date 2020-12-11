@@ -29,7 +29,7 @@ class MovimentoGeralAlunosAnosQueryFactory extends QueryFactory
             pmieducar.turma
                 on turma.cod_turma = mt.ref_cod_turma
         inner join
-            pmieducar.matricula m
+            pmieducar.Matricula m
                 on m.cod_matricula = mt.ref_cod_matricula
         inner join
             pmieducar.aluno a
@@ -45,7 +45,7 @@ class MovimentoGeralAlunosAnosQueryFactory extends QueryFactory
             and m.dependencia not in (true)
             and m.ref_ref_cod_serie in (
                 select ref_cod_serie
-                from modules.config_movimento_geral
+                from Modules.config_movimento_geral
                 inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                 where true
                     and coluna = :ano_coluna

@@ -23,6 +23,6 @@ class DefaultDataModulesEducacensoOrgaoRegional extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE modules.educacenso_orgao_regional CASCADE;');
+        DB::raw('TRUNCATE Modules.educacenso_orgao_regional CASCADE;');
     }
 }

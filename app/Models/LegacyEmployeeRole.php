@@ -22,7 +22,7 @@ class LegacyEmployeeRole extends Model
      */
     protected $fillable = [
         'cod_servidor_funcao',
-        'matricula',
+        'Matricula',
         'ref_cod_funcao',
         'ref_cod_servidor',
         'ref_ref_cod_instituicao',

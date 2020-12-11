@@ -32,7 +32,7 @@ return [
     */
     'fractal'    => [
         'params'     => [
-            'include' => 'include'
+            'Source' => 'Source'
         ],
         'serializer' => League\Fractal\Serializer\DataArraySerializer::class
     ],

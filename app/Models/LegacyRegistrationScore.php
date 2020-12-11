@@ -10,7 +10,7 @@ class LegacyRegistrationScore extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.nota_aluno';
+    protected $table = 'Modules.nota_aluno';
 
     /**
      * @var string

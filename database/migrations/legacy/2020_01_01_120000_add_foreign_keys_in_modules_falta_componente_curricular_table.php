@@ -13,10 +13,10 @@ class AddForeignKeysInModulesFaltaComponenteCurricularTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.falta_componente_curricular', function (Blueprint $table) {
+        Schema::table('Modules.falta_componente_curricular', function (Blueprint $table) {
             $table->foreign('falta_aluno_id')
                ->references('id')
-               ->on('modules.falta_aluno')
+               ->on('Modules.falta_aluno')
                ->onDelete('cascade');
         });
     }
@@ -28,7 +28,7 @@ class AddForeignKeysInModulesFaltaComponenteCurricularTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.falta_componente_curricular', function (Blueprint $table) {
+        Schema::table('Modules.falta_componente_curricular', function (Blueprint $table) {
             $table->dropForeign(['falta_aluno_id']);
         });
     }

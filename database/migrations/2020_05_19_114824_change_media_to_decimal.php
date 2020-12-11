@@ -13,7 +13,7 @@ class ChangeMediaToDecimal extends Migration
      */
     public function up()
     {
-        Schema::table('modules.regra_avaliacao', function (Blueprint $table) {
+        Schema::table('Modules.regra_avaliacao', function (Blueprint $table) {
             $table->decimal('media', 6, 3)->change();
             $table->decimal('media_recuperacao', 6, 3)->change();
         });
@@ -26,7 +26,7 @@ class ChangeMediaToDecimal extends Migration
      */
     public function down()
     {
-        Schema::table('modules.regra_avaliacao', function (Blueprint $table) {
+        Schema::table('Modules.regra_avaliacao', function (Blueprint $table) {
             $table->decimal('media', 5, 3)->change();
             $table->decimal('media_recuperacao', 5, 3)->change();
         });

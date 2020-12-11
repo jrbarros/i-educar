@@ -17,14 +17,14 @@ class CreateModulesComponenteCurricularTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE SEQUENCE modules.componente_curricular_id_seq
+                CREATE SEQUENCE Modules.componente_curricular_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.componente_curricular (
+                CREATE TABLE Modules.componente_curricular (
                     id integer NOT NULL,
                     instituicao_id integer NOT NULL,
                     area_conhecimento_id integer NOT NULL,
@@ -35,19 +35,19 @@ class CreateModulesComponenteCurricularTable extends Migration
                     ordenamento integer DEFAULT 99999,
 	                updated_at timestamp NULL DEFAULT now()
                 );
-                
-                ALTER TABLE ONLY modules.componente_curricular
+
+                ALTER TABLE ONLY Modules.componente_curricular
                     ADD CONSTRAINT componente_curricular_pkey PRIMARY KEY (id, instituicao_id);
-                    
-                ALTER SEQUENCE modules.componente_curricular_id_seq OWNED BY modules.componente_curricular.id;
-                
-                ALTER TABLE ONLY modules.componente_curricular ALTER COLUMN id SET DEFAULT nextval(\'modules.componente_curricular_id_seq\'::regclass);
-                
-                CREATE INDEX componente_curricular_area_conhecimento_key ON modules.componente_curricular USING btree (area_conhecimento_id);
 
-                CREATE UNIQUE INDEX componente_curricular_id_key ON modules.componente_curricular USING btree (id);
+                ALTER SEQUENCE Modules.componente_curricular_id_seq OWNED BY Modules.componente_curricular.id;
 
-                SELECT pg_catalog.setval(\'modules.componente_curricular_id_seq\', 2, true);
+                ALTER TABLE ONLY Modules.componente_curricular ALTER COLUMN id SET DEFAULT nextval(\'Modules.componente_curricular_id_seq\'::regclass);
+
+                CREATE INDEX componente_curricular_area_conhecimento_key ON Modules.componente_curricular USING btree (area_conhecimento_id);
+
+                CREATE UNIQUE INDEX componente_curricular_id_key ON Modules.componente_curricular USING btree (id);
+
+                SELECT pg_catalog.setval(\'Modules.componente_curricular_id_seq\', 2, true);
             '
         );
     }
@@ -59,6 +59,6 @@ class CreateModulesComponenteCurricularTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.componente_curricular');
+        Schema::dropIfExists('Modules.componente_curricular');
     }
 }

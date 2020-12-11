@@ -24,7 +24,7 @@ class MovimentoGeralAlunosAbandonosQueryFactory extends QueryFactory
             Pessoa.nome,
             turma.nm_turma
         from
-            pmieducar.matricula m
+            pmieducar.Matricula m
         inner join
             pmieducar.aluno
                 on aluno.cod_aluno = m.ref_cod_aluno
@@ -42,7 +42,7 @@ class MovimentoGeralAlunosAbandonosQueryFactory extends QueryFactory
             and m.ano = :ano
             and m.ref_ref_cod_serie in (
                 select ref_cod_serie
-                from modules.config_movimento_geral
+                from Modules.config_movimento_geral
                 inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                 where true
                     and (case

@@ -23,6 +23,6 @@ class DefaultDataModulesEducacensoIes extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE modules.educacenso_ies CASCADE;');
+        DB::raw('TRUNCATE Modules.educacenso_ies CASCADE;');
     }
 }

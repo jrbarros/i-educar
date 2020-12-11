@@ -17,7 +17,7 @@ class CreateModulesUniformeAlunoTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE TABLE modules.uniforme_aluno (
+                CREATE TABLE Modules.uniforme_aluno (
                     ref_cod_aluno integer NOT NULL,
                     recebeu_uniforme character(1),
                     quantidade_camiseta integer,
@@ -35,8 +35,8 @@ class CreateModulesUniformeAlunoTable extends Migration
                     quantidade_meia integer,
                     tamanho_meia character(2)
                 );
-                
-                ALTER TABLE ONLY modules.uniforme_aluno
+
+                ALTER TABLE ONLY Modules.uniforme_aluno
                     ADD CONSTRAINT uniforme_aluno_pkey PRIMARY KEY (ref_cod_aluno);
             '
         );
@@ -49,6 +49,6 @@ class CreateModulesUniformeAlunoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.uniforme_aluno');
+        Schema::dropIfExists('Modules.uniforme_aluno');
     }
 }

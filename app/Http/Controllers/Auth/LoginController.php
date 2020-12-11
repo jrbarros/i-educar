@@ -41,7 +41,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
 
         if (empty($request->query('force'))) {
-            $this->middleware('ieducar.suspended')->except('login');
+            $this->middleware('Ieducar.suspended')->except('login');
         }
     }
 

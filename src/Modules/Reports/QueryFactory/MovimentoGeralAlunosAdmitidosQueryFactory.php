@@ -24,7 +24,7 @@ class MovimentoGeralAlunosAdmitidosQueryFactory extends QueryFactory
             Pessoa.nome,
             turma.nm_turma
         from
-            pmieducar.matricula m
+            pmieducar.Matricula m
         inner join pmieducar.aluno
             on aluno.cod_aluno = m.ref_cod_aluno
         inner join cadastro.Pessoa
@@ -41,7 +41,7 @@ class MovimentoGeralAlunosAdmitidosQueryFactory extends QueryFactory
                 select
                     ref_cod_serie
                 from
-                    modules.config_movimento_geral
+                    Modules.config_movimento_geral
                 inner join pmieducar.serie
                     on serie.cod_serie = config_movimento_geral.ref_cod_serie
                 where true

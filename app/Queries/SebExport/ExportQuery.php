@@ -24,11 +24,11 @@ class ExportQuery
     {
         $this->query->select(
             [
-                'matricula.ano',
+                'Matricula.ano',
                 'educacenso_cod_escola.cod_escola_inep as inep_escola',
                 'fisica.cpf',
                 'fisica.nome_social',
-                'matricula.cod_matricula',
+                'Matricula.cod_matricula',
                 'turma.etapa_educacenso',
                 'aluno.emancipado',
                 'fisica_mae.cpf as cpf_mae',
@@ -40,14 +40,14 @@ class ExportQuery
 
     private function join() : void
     {
-        $this->query->join('pmieducar.aluno', 'aluno.cod_aluno', 'matricula.ref_cod_aluno');
+        $this->query->join('pmieducar.aluno', 'aluno.cod_aluno', 'Matricula.ref_cod_aluno');
         $this->query->join('cadastro.fisica', 'fisica.idpes', 'aluno.ref_idpes');
-        $this->query->join('pmieducar.escola', 'escola.cod_escola', 'matricula.ref_ref_cod_escola');
-        $this->query->join('modules.educacenso_cod_escola', 'educacenso_cod_escola.cod_escola', 'escola.cod_escola');
+        $this->query->join('pmieducar.escola', 'escola.cod_escola', 'Matricula.ref_ref_cod_escola');
+        $this->query->join('Modules.educacenso_cod_escola', 'educacenso_cod_escola.cod_escola', 'escola.cod_escola');
         $this->query->join(
             'pmieducar.matricula_turma',
             function ($query) {
-                $query->whereColumn('matricula_turma.ref_cod_matricula', 'matricula.cod_matricula');
+                $query->whereColumn('matricula_turma.ref_cod_matricula', 'Matricula.cod_matricula');
                 $query->where('matricula_turma.ativo', 1);
             }
         );
@@ -60,9 +60,9 @@ class ExportQuery
     private function filter(array $filters) : void
     {
         $this->query->where('escola.ref_cod_instituicao', $filters['ref_cod_instituicao']);
-        $this->query->where('matricula.ano', $filters['ano']);
+        $this->query->where('Matricula.ano', $filters['ano']);
         $this->query->whereNotNull('turma.etapa_educacenso');
-        $this->query->where('matricula.aprovado', App_Model_MatriculaSituacao::EM_ANDAMENTO);
+        $this->query->where('Matricula.aprovado', App_Model_MatriculaSituacao::EM_ANDAMENTO);
 
         if (!empty($filters['ref_cod_escola'])) {
             $this->query->where('escola.cod_escola', $filters['ref_cod_escola']);

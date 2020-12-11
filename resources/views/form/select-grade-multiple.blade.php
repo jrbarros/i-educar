@@ -7,12 +7,12 @@
 </span>
 
 @push('scripts')
-    <link type='text/css' rel='stylesheet' href='{{ Asset::get("/modules/Portabilis/Assets/Plugins/Chosen/chosen.css") }}'>
-    <script type='text/javascript' src='{{ Asset::get('/modules/Portabilis/Assets/Plugins/Chosen/chosen.jquery.min.js') }}'></script>
+    <link type='text/css' rel='stylesheet' href='{{ Asset::get("/Modules/Portabilis/Assets/Plugins/Chosen/chosen.css") }}'>
+    <script type='text/javascript' src='{{ Asset::get('/Modules/Portabilis/Assets/Plugins/Chosen/chosen.jquery.min.js') }}'></script>
     <script type="text/javascript"
-            src="{{ Asset::get("/modules/Portabilis/Assets/Javascripts/Frontend/Inputs/MultipleSearch.js") }}"></script>
+            src="{{ Asset::get("/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/MultipleSearch.js") }}"></script>
     <script type="text/javascript"
-            src="{{ Asset::get("/modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/MultipleSearchSerie.js") }}"></script>
+            src="{{ Asset::get("/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/MultipleSearchSerie.js") }}"></script>
     <script type='text/javascript'>
         (function ($) {
             $(document).ready(function () {
@@ -45,7 +45,7 @@
                     if ($instituicaoField.val() && $cursoField.val() && $cursoField.is(':enabled')) {
                         $serieField.children().first().html('Aguarde carregando...');
 
-                        var urlForGetSeries = getResourceUrlBuilder.buildUrl('/module/DynamicInput/serie', 'series', {
+                        var urlForGetSeries = getResourceUrlBuilder.buildUrl('/Module/DynamicInput/serie', 'series', {
                             instituicao_id: $instituicaoField.val(),
                             escola_id: $escolaField.val(),
                             curso_id: $cursoField.val(),

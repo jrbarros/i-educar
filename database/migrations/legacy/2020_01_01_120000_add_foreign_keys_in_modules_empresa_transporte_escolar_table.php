@@ -13,7 +13,7 @@ class AddForeignKeysInModulesEmpresaTransporteEscolarTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.empresa_transporte_escolar', function (Blueprint $table) {
+        Schema::table('Modules.empresa_transporte_escolar', function (Blueprint $table) {
             $table->foreign('ref_resp_idpes')
                ->references('idpes')
                ->on('cadastro.fisica')
@@ -33,7 +33,7 @@ class AddForeignKeysInModulesEmpresaTransporteEscolarTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.empresa_transporte_escolar', function (Blueprint $table) {
+        Schema::table('Modules.empresa_transporte_escolar', function (Blueprint $table) {
             $table->dropForeign(['ref_resp_idpes']);
             $table->dropForeign(['ref_idpes']);
         });

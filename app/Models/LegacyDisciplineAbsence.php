@@ -10,7 +10,7 @@ class LegacyDisciplineAbsence extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.falta_componente_curricular';
+    protected $table = 'Modules.falta_componente_curricular';
 
     /**
      * @var array

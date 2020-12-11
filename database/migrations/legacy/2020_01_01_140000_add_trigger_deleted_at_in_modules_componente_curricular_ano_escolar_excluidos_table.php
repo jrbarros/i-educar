@@ -14,7 +14,7 @@ class AddTriggerDeletedAtInModulesComponenteCurricularAnoEscolarExcluidosTable e
      */
     public function up()
     {
-        $this->whenDeletedMoveTo('modules.componente_curricular_ano_escolar', 'modules.componente_curricular_ano_escolar_excluidos', [
+        $this->whenDeletedMoveTo('Modules.componente_curricular_ano_escolar', 'Modules.componente_curricular_ano_escolar_excluidos', [
             'componente_curricular_id',
             'ano_escolar_id',
             'carga_horaria',
@@ -30,6 +30,6 @@ class AddTriggerDeletedAtInModulesComponenteCurricularAnoEscolarExcluidosTable e
      */
     public function down()
     {
-        $this->dropTriggerWhenDeleted('modules.componente_curricular_ano_escolar');
+        $this->dropTriggerWhenDeleted('Modules.componente_curricular_ano_escolar');
     }
 }

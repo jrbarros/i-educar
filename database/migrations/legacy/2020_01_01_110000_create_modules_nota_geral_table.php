@@ -16,26 +16,26 @@ class CreateModulesNotaGeralTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.nota_geral_id_seq
+
+                CREATE SEQUENCE Modules.nota_geral_id_seq
                     START WITH 958638
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.nota_geral (
-                    id integer DEFAULT nextval(\'modules.nota_geral_id_seq\'::regclass) NOT NULL,
+                CREATE TABLE Modules.nota_geral (
+                    id integer DEFAULT nextval(\'Modules.nota_geral_id_seq\'::regclass) NOT NULL,
                     nota_aluno_id integer NOT NULL,
                     nota numeric(8,4) DEFAULT 0,
                     nota_arredondada character varying(10) DEFAULT 0,
                     etapa character varying(2) NOT NULL
                 );
-                
-                ALTER TABLE ONLY modules.nota_geral
+
+                ALTER TABLE ONLY Modules.nota_geral
                     ADD CONSTRAINT nota_geral_pkey PRIMARY KEY (id);
 
-                SELECT pg_catalog.setval(\'modules.nota_geral_id_seq\', 958638, false);
+                SELECT pg_catalog.setval(\'Modules.nota_geral_id_seq\', 958638, false);
             '
         );
     }
@@ -47,8 +47,8 @@ class CreateModulesNotaGeralTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.nota_geral');
+        Schema::dropIfExists('Modules.nota_geral');
 
-        DB::unprepared('DROP SEQUENCE modules.nota_geral_id_seq;');
+        DB::unprepared('DROP SEQUENCE Modules.nota_geral_id_seq;');
     }
 }

@@ -17,15 +17,15 @@ class CreateModulesTransporteAlunoTable extends Migration
             '
                 SET default_with_oids = false;
 
-                CREATE TABLE modules.transporte_aluno (
+                CREATE TABLE Modules.transporte_aluno (
                     aluno_id integer NOT NULL,
                     responsavel integer NOT NULL,
                     user_id integer NOT NULL,
                     created_at timestamp without time zone NOT NULL,
                     updated_at timestamp without time zone
                 );
-                
-                ALTER TABLE ONLY modules.transporte_aluno
+
+                ALTER TABLE ONLY Modules.transporte_aluno
                     ADD CONSTRAINT transporte_aluno_pk PRIMARY KEY (aluno_id);
             '
         );
@@ -38,6 +38,6 @@ class CreateModulesTransporteAlunoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.transporte_aluno');
+        Schema::dropIfExists('Modules.transporte_aluno');
     }
 }

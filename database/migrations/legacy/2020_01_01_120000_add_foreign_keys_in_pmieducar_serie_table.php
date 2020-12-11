@@ -16,13 +16,13 @@ class AddForeignKeysInPmieducarSerieTable extends Migration
         Schema::table('pmieducar.serie', function (Blueprint $table) {
             $table->foreign('regra_avaliacao_id')
                ->references('id')
-               ->on('modules.regra_avaliacao')
+               ->on('Modules.regra_avaliacao')
                ->onUpdate('restrict')
                ->onDelete('restrict');
 
             $table->foreign('regra_avaliacao_diferenciada_id')
                ->references('id')
-               ->on('modules.regra_avaliacao')
+               ->on('Modules.regra_avaliacao')
                ->onDelete('restrict');
 
             $table->foreign('ref_cod_curso')

@@ -13,16 +13,16 @@ class AddForeignKeysInPortalAgendaCompromissoTable extends Migration
      */
     public function up()
     {
-        Schema::table('portal.agenda_compromisso', function (Blueprint $table) {
+        Schema::table('Portal.agenda_compromisso', function (Blueprint $table) {
             $table->foreign('ref_ref_cod_pessoa_cad')
                ->references('ref_cod_pessoa_fj')
-               ->on('portal.funcionario')
+               ->on('Portal.funcionario')
                ->onUpdate('restrict')
                ->onDelete('restrict');
 
             $table->foreign('ref_cod_agenda')
                ->references('cod_agenda')
-               ->on('portal.agenda')
+               ->on('Portal.agenda')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });
@@ -35,7 +35,7 @@ class AddForeignKeysInPortalAgendaCompromissoTable extends Migration
      */
     public function down()
     {
-        Schema::table('portal.agenda_compromisso', function (Blueprint $table) {
+        Schema::table('Portal.agenda_compromisso', function (Blueprint $table) {
             $table->dropForeign(['ref_ref_cod_pessoa_cad']);
             $table->dropForeign(['ref_cod_agenda']);
         });

@@ -9,7 +9,7 @@
 @endsection
 
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('css/ieducar.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('css/Ieducar.css') }}" />
 @endpush
 
 @push('end')

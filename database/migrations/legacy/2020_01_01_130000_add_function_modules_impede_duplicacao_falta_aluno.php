@@ -25,7 +25,7 @@ class AddFunctionModulesImpedeDuplicacaoFaltaAluno extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP FUNCTION modules.impede_duplicacao_falta_aluno();'
+            'DROP FUNCTION Modules.impede_duplicacao_falta_aluno();'
         );
     }
 }

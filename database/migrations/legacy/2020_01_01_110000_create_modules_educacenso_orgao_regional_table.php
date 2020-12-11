@@ -16,13 +16,13 @@ class CreateModulesEducacensoOrgaoRegionalTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE TABLE modules.educacenso_orgao_regional (
+
+                CREATE TABLE Modules.educacenso_orgao_regional (
                     sigla_uf character varying(2) NOT NULL,
                     codigo character varying(5) NOT NULL
                 );
-                
-                ALTER TABLE ONLY modules.educacenso_orgao_regional
+
+                ALTER TABLE ONLY Modules.educacenso_orgao_regional
                     ADD CONSTRAINT pk_educacenso_orgao_regional PRIMARY KEY (sigla_uf, codigo);
             '
         );
@@ -35,6 +35,6 @@ class CreateModulesEducacensoOrgaoRegionalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.educacenso_orgao_regional');
+        Schema::dropIfExists('Modules.educacenso_orgao_regional');
     }
 }

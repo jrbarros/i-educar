@@ -17,9 +17,9 @@ class CreatePortalFuncionarioTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE TABLE portal.funcionario (
+                CREATE TABLE Portal.funcionario (
                     ref_cod_pessoa_fj integer DEFAULT 0 NOT NULL,
-                    matricula character varying(12),
+                    Matricula character varying(12),
                     senha varchar(191) NULL,
                     ativo smallint,
                     ref_sec integer,
@@ -47,8 +47,8 @@ class CreatePortalFuncionarioTable extends Migration
                     atualizou_cadastro smallint,
 	                data_expiracao date NULL
                 );
-                
-                ALTER TABLE ONLY portal.funcionario
+
+                ALTER TABLE ONLY Portal.funcionario
                     ADD CONSTRAINT funcionario_pk PRIMARY KEY (ref_cod_pessoa_fj);
             '
         );
@@ -61,6 +61,6 @@ class CreatePortalFuncionarioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portal.funcionario');
+        Schema::dropIfExists('Portal.funcionario');
     }
 }

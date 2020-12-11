@@ -138,7 +138,7 @@ class ImportUsersService implements ToCollection
 
         $employee = LegacyEmployee::create([
             'ref_cod_pessoa_fj' => $individual->getKey(),
-            'matricula' => $user,
+            'Matricula' => $user,
             'senha' => Hash::make($password),
             'ativo' => 1,
             'force_reset_password' => $forceResetPassword,
@@ -157,7 +157,7 @@ class ImportUsersService implements ToCollection
 
     private function loginExists(string $user)
     {
-        return LegacyEmployee::where('matricula', $user)->exists();
+        return LegacyEmployee::where('Matricula', $user)->exists();
     }
 
     /**

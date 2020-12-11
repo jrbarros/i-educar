@@ -31,7 +31,7 @@ class ReportsInstallCommand extends Command
         $migrate = $this->option('no-migrate') === false;
 
         passthru('chmod +x vendor/cossou/jasperphp/src/JasperStarter/bin/jasperstarter');
-        passthru('chmod 777 ieducar/modules/Reports/ReportSources');
+        passthru('chmod 777 Ieducar/Modules/Reports/ReportSources');
 
         if ($compile) {
             $this->call('reports:compile');

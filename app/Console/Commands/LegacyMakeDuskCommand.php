@@ -55,9 +55,9 @@ class LegacyMakeDuskCommand extends Command
 
         if (Str::startsWith($path, 'Intranet')) {
             $path = 'Intranet';
-        } elseif (Str::startsWith($path, 'modules')) {
+        } elseif (Str::startsWith($path, 'Modules')) {
             $path = 'Modules';
-        } elseif (Str::startsWith($path, 'module')) {
+        } elseif (Str::startsWith($path, 'Module')) {
             $path = 'Module';
         }
 

@@ -25,7 +25,7 @@ class AddFunctionModulesFrequenciaDaMatricula extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP FUNCTION modules.frequencia_da_matricula(p_matricula_id integer);'
+            'DROP FUNCTION Modules.frequencia_da_matricula(p_matricula_id integer);'
         );
     }
 }

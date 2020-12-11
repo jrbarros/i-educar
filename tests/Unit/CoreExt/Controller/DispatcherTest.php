@@ -52,16 +52,16 @@ class CoreExt_Controller_DispatcherTest extends PHPUnit\Framework\TestCase
     2 => array('uri' => 'http://www.example.com/controller/action'),
     3 => array('uri' => 'http://www.example.com/index.php/controller/action'),
     4 => array(
-      'uri' => 'http://www.example.com/module/controller/action',
-      'baseurl' => 'http://www.example.com/module'
+      'uri' => 'http://www.example.com/Module/controller/action',
+      'baseurl' => 'http://www.example.com/Module'
     ),
     5 => array(
-      'uri' => 'http://www.example.com/module/index.php/controller/action',
-      'baseurl' => 'http://www.example.com/module'
+      'uri' => 'http://www.example.com/Module/index.php/controller/action',
+      'baseurl' => 'http://www.example.com/Module'
     ),
     6 => array(
-      'uri' => 'http://www.example.com/module/controller',
-      'baseurl' => 'http://www.example.com/module'
+      'uri' => 'http://www.example.com/Module/controller',
+      'baseurl' => 'http://www.example.com/Module'
     )
   );
 
@@ -72,7 +72,7 @@ class CoreExt_Controller_DispatcherTest extends PHPUnit\Framework\TestCase
   protected function setUp(): void
   {
     $_SERVER['REQUEST_URI'] = $this->_uris[0]['uri'];
-    $_SERVER['SCRIPT_FILENAME'] = '/var/www/ieducar/index.php';
+    $_SERVER['SCRIPT_FILENAME'] = '/var/www/Ieducar/index.php';
     $this->_dispatcher = new CoreExt_Controller_Dispatcher_AbstractStub();
   }
 

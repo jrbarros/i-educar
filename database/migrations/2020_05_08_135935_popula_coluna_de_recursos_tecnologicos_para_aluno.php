@@ -13,7 +13,7 @@ class PopulaColunaDeRecursosTecnologicosParaAluno extends Migration
     public function up()
     {
         DB::statement("
-            UPDATE modules.moradia_aluno
+            UPDATE Modules.moradia_aluno
             SET recursos_tecnologicos = (
                 CASE
                     WHEN computador = 'S' AND celular = 'S'
@@ -36,7 +36,7 @@ class PopulaColunaDeRecursosTecnologicosParaAluno extends Migration
     public function down()
     {
         DB::statement("
-            UPDATE modules.moradia_aluno
+            UPDATE Modules.moradia_aluno
             SET recursos_tecnologicos = null;
         ");
     }

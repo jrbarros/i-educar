@@ -13,7 +13,7 @@ class AddForeignKeysInModulesCalendarioTurmaTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.calendario_turma', function (Blueprint $table) {
+        Schema::table('Modules.calendario_turma', function (Blueprint $table) {
             $table->foreign(['calendario_ano_letivo_id', 'mes', 'dia'])
                ->references(['ref_cod_calendario_ano_letivo', 'mes', 'dia'])
                ->on('pmieducar.calendario_dia')
@@ -28,7 +28,7 @@ class AddForeignKeysInModulesCalendarioTurmaTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.calendario_turma', function (Blueprint $table) {
+        Schema::table('Modules.calendario_turma', function (Blueprint $table) {
             $table->dropForeign(['calendario_ano_letivo_id', 'mes', 'dia']);
         });
     }

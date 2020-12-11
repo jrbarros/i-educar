@@ -46,9 +46,9 @@ yarn-error.log
 /deploy
 Vagrantfile
 deploy/.ruby-version
-ieducar/modules/Reports
-ieducar/Intranet/filaunica
-ieducar/Intranet/reservavaga
+Ieducar/Modules/Reports
+Ieducar/Intranet/filaunica
+Ieducar/Intranet/reservavaga
 
 
 # Docusauros
@@ -64,7 +64,7 @@ website/i18n/*
 !website/i18n/en.json
 
 # this is the code coverage generated when running phpunit.
-ieducar/tests/log
+Ieducar/tests/log
 
 programmatic-types.graphql
 schema-directives.graphql

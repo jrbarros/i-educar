@@ -41,7 +41,7 @@ class MovimentoMensalMatAdmitQueryFactory extends QueryFactory
             pmieducar.matricula_turma mt
                 on mt.ref_cod_turma = t.cod_turma
         inner join
-            pmieducar.matricula m
+            pmieducar.Matricula m
                 on m.cod_matricula = mt.ref_cod_matricula
         inner join
             pmieducar.aluno a

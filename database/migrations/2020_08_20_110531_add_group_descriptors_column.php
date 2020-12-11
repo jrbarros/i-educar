@@ -13,7 +13,7 @@ class AddGroupDescriptorsColumn extends Migration
      */
     public function up()
     {
-        Schema::table('modules.area_conhecimento', function (Blueprint $table) {
+        Schema::table('Modules.area_conhecimento', function (Blueprint $table) {
             $table->boolean('agrupar_descritores')->default(false);
         });
     }
@@ -25,7 +25,7 @@ class AddGroupDescriptorsColumn extends Migration
      */
     public function down()
     {
-        Schema::table('modules.area_conhecimento', function (Blueprint $table) {
+        Schema::table('Modules.area_conhecimento', function (Blueprint $table) {
             $table->dropColumn('agrupar_descritores');
         });
     }

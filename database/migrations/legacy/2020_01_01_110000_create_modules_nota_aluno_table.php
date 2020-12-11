@@ -16,34 +16,34 @@ class CreateModulesNotaAlunoTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.nota_aluno_id_seq
+
+                CREATE SEQUENCE Modules.nota_aluno_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.nota_aluno (
+                CREATE TABLE Modules.nota_aluno (
                     id integer NOT NULL,
                     matricula_id integer NOT NULL
                 );
 
-                ALTER SEQUENCE modules.nota_aluno_id_seq OWNED BY modules.nota_aluno.id;
-                
-                ALTER TABLE ONLY modules.nota_aluno
+                ALTER SEQUENCE Modules.nota_aluno_id_seq OWNED BY Modules.nota_aluno.id;
+
+                ALTER TABLE ONLY Modules.nota_aluno
                     ADD CONSTRAINT nota_aluno_pkey PRIMARY KEY (id);
 
-                ALTER TABLE ONLY modules.nota_aluno
+                ALTER TABLE ONLY Modules.nota_aluno
                     ADD CONSTRAINT modules_nota_aluno_matricula_id_unique UNIQUE (matricula_id);
 
-                ALTER TABLE ONLY modules.nota_aluno ALTER COLUMN id SET DEFAULT nextval(\'modules.nota_aluno_id_seq\'::regclass);
-                
-                CREATE INDEX idx_nota_aluno_matricula ON modules.nota_aluno USING btree (matricula_id);
+                ALTER TABLE ONLY Modules.nota_aluno ALTER COLUMN id SET DEFAULT nextval(\'Modules.nota_aluno_id_seq\'::regclass);
 
-                CREATE INDEX idx_nota_aluno_matricula_id ON modules.nota_aluno USING btree (id, matricula_id);
+                CREATE INDEX idx_nota_aluno_matricula ON Modules.nota_aluno USING btree (matricula_id);
 
-                SELECT pg_catalog.setval(\'modules.nota_aluno_id_seq\', 2, true);
+                CREATE INDEX idx_nota_aluno_matricula_id ON Modules.nota_aluno USING btree (id, matricula_id);
+
+                SELECT pg_catalog.setval(\'Modules.nota_aluno_id_seq\', 2, true);
             '
         );
     }
@@ -55,6 +55,6 @@ class CreateModulesNotaAlunoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.nota_aluno');
+        Schema::dropIfExists('Modules.nota_aluno');
     }
 }

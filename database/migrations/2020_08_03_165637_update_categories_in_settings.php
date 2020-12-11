@@ -41,13 +41,13 @@ class UpdateCategoriesInSettings extends Migration
                     WHEN 'legacy.app.recaptcha.options.theme' THEN 6
                     WHEN 'legacy.app.recaptcha.private_key' THEN 6
                     WHEN 'legacy.app.recaptcha.public_key' THEN 6
-                    WHEN 'legacy.modules.error.email_recipient' THEN 7
-                    WHEN 'legacy.modules.error.honeybadger_key' THEN 7
-                    WHEN 'legacy.modules.error.link_to_support' THEN 7
-                    WHEN 'legacy.modules.error.send_notification_email' THEN 7
-                    WHEN 'legacy.modules.error.show_details' THEN 7
-                    WHEN 'legacy.modules.error.track' THEN 7
-                    WHEN 'legacy.modules.error.tracker_name' THEN 7
+                    WHEN 'legacy.Modules.error.email_recipient' THEN 7
+                    WHEN 'legacy.Modules.error.honeybadger_key' THEN 7
+                    WHEN 'legacy.Modules.error.link_to_support' THEN 7
+                    WHEN 'legacy.Modules.error.send_notification_email' THEN 7
+                    WHEN 'legacy.Modules.error.show_details' THEN 7
+                    WHEN 'legacy.Modules.error.track' THEN 7
+                    WHEN 'legacy.Modules.error.tracker_name' THEN 7
                     WHEN 'preregistration.active' THEN 8
                     WHEN 'preregistration.city' THEN 8
                     WHEN 'preregistration.enabled' THEN 8
@@ -112,8 +112,8 @@ class UpdateCategoriesInSettings extends Migration
                     WHEN 'legacy.app.filaunica.ordenacao' THEN 10
                     WHEN 'legacy.app.filaunica.trabalho_obrigatorio' THEN 10
                     WHEN 'legacy.app.fisica.exigir_cartao_sus' THEN 10
-                    WHEN 'legacy.app.matricula.dependencia' THEN 10
-                    WHEN 'legacy.app.matricula.multiplas_matriculas' THEN 10
+                    WHEN 'legacy.app.Matricula.dependencia' THEN 10
+                    WHEN 'legacy.app.Matricula.multiplas_matriculas' THEN 10
                     WHEN 'legacy.app.mostrar_aplicacao' THEN 10
                     WHEN 'legacy.app.processar_historicos_conceituais' THEN 10
                     WHEN 'legacy.app.projetos.ignorar_turno_igual_matricula' THEN 10

@@ -9,7 +9,7 @@ return [
      |
      | Debugbar is enabled by default, when debug is set to true in app.php.
      | You can override the value by setting enable to true or false instead of null.
-     | 
+     |
      | You can provide an array of URI's that must be ignored (eg. 'api/*')
      |
      */
@@ -45,7 +45,7 @@ return [
      |--------------------------------------------------------------------------
      |
      | Vendor files are included by default, but can be set to false.
-     | This can also be set to 'js' or 'css', to only include javascript or css vendor files.
+     | This can also be set to 'js' or 'css', to only Source javascript or css vendor files.
      | Vendor files are for css: font-awesome (including fonts) and highlight.js (css files)
      | and for js: jquery and and highlight.js
      | So if you want syntax highlighting, set it to true.
@@ -79,7 +79,7 @@ return [
      |
      */
     'error_handler' => false,
-    
+
     /*
      |--------------------------------------------------------------------------
      | Clockwork integration

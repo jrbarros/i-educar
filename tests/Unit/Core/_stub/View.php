@@ -23,29 +23,29 @@
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     Core_View
+ * @package     CoreView
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
  * @version     $Id$
  */
 
-require_once 'Core/View.php';
+require_once 'Core/CoreView.php';
 
 /**
  * Core_ViewStub class.
  *
- * Stub para Core_View, substituindo alguns métodos para evitar conexão com
+ * Stub para CoreView, substituindo alguns métodos para evitar conexão com
  * o banco de dados e a geração de código HTML.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     Core_View
+ * @package     CoreView
  * @subpackage  UnitTests
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
  */
-class Core_ViewStub extends Core_View
+class Core_ViewStub extends CoreView
 {
   /**
    * @see Base#MakeAll()

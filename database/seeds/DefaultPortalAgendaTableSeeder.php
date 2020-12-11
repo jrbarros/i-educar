@@ -12,7 +12,7 @@ class DefaultPortalAgendaTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('portal.agenda')->insert([
+        DB::table('Portal.agenda')->insert([
             'cod_agenda' => 1,
             'ref_ref_cod_pessoa_cad' => 1,
             'nm_agenda' => 'Administrador',

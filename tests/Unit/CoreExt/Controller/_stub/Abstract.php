@@ -29,10 +29,10 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Controller/Abstract.php';
+require_once 'CoreExt/Controller/CoreControllerPageAbstract.php';
 
 /**
- * CoreExt_Controller_Abstract class.
+ * CoreExtControllerAbstract class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar

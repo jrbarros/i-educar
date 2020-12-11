@@ -160,7 +160,7 @@ class EducacensoRepository
             JOIN pmieducar.instituicao i ON i.cod_instituicao = e.ref_cod_instituicao
             INNER JOIN cadastro.Pessoa p ON (e.ref_idpes = p.idpes)
             INNER JOIN cadastro.juridica j ON (j.idpes = p.idpes)
-            LEFT JOIN modules.educacenso_cod_escola ece ON (e.cod_escola = ece.cod_escola)
+            LEFT JOIN Modules.educacenso_cod_escola ece ON (e.cod_escola = ece.cod_escola)
             LEFT JOIN cadastro.endereco_pessoa ep ON (ep.idpes = p.idpes)
             LEFT JOIN public.bairro ON (bairro.idbai = ep.idbai)
             LEFT JOIN public.municipio ON (municipio.idmun = bairro.idmun)
@@ -293,7 +293,7 @@ SQL;
             FROM pmieducar.escola
             INNER JOIN cadastro.juridica ON juridica.idpes = escola.ref_idpes
             INNER JOIN cadastro.Pessoa ON Pessoa.idpes = escola.ref_idpes
-            LEFT JOIN modules.educacenso_cod_escola ON (escola.cod_escola = educacenso_cod_escola.cod_escola)
+            LEFT JOIN Modules.educacenso_cod_escola ON (escola.cod_escola = educacenso_cod_escola.cod_escola)
             WHERE TRUE
                 AND escola.cod_escola = :school
         ';
@@ -336,12 +336,12 @@ SQL;
         $disciplineIds = implode(', ', $disciplineIds);
         $sql = "
             SELECT componente_curricular.nome
-            from modules.componente_curricular
+            from Modules.componente_curricular
             WHERE componente_curricular.id IN ({$disciplineIds})
             AND not exists (
                 SELECT 1
-                FROM modules.professor_turma_disciplina
-                JOIN modules.professor_turma
+                FROM Modules.professor_turma_disciplina
+                JOIN Modules.professor_turma
                 ON professor_turma.id = professor_turma_disciplina.professor_turma_id
                 WHERE professor_turma.turma_id = :classroomId
                 AND professor_turma_disciplina.componente_curricular_id = componente_curricular.id
@@ -432,7 +432,7 @@ SQL;
                  SELECT educacenso_cod_escola.cod_escola_inep,
                         educacenso_cod_escola.cod_escola,
                         relatorio.get_nome_escola(educacenso_cod_escola.cod_escola) AS nomeescola
-                 FROM modules.educacenso_cod_escola
+                 FROM Modules.educacenso_cod_escola
                  WHERE educacenso_cod_escola.cod_escola = :school
                  ) dadosescola ON true
             LEFT JOIN LATERAL (
@@ -498,15 +498,15 @@ SQL;
             FROM pmieducar.servidor
                  JOIN cadastro.Pessoa ON Pessoa.idpes = servidor.cod_servidor
             LEFT JOIN cadastro.escolaridade ON escolaridade.idesco = servidor.ref_idesco
-            LEFT JOIN modules.educacenso_cod_docente ON educacenso_cod_docente.cod_servidor = servidor.cod_servidor,
+            LEFT JOIN Modules.educacenso_cod_docente ON educacenso_cod_docente.cod_servidor = servidor.cod_servidor,
             LATERAL (
                 SELECT ARRAY_REMOVE(ARRAY_AGG(educacenso_curso_superior.curso_id), NULL) course_id,
                        ARRAY_REMOVE(ARRAY_AGG(completion_year), NULL) completion_year,
                        ARRAY_REMOVE(ARRAY_AGG(educacenso_ies.ies_id), NULL) college_id,
                        ARRAY_REMOVE(ARRAY_AGG(discipline_id), NULL) discipline_id
                  FROM employee_graduations
-                 JOIN modules.educacenso_curso_superior ON educacenso_curso_superior.id = employee_graduations.course_id
-                 JOIN modules.educacenso_ies ON educacenso_ies.id = employee_graduations.college_id
+                 JOIN Modules.educacenso_curso_superior ON educacenso_curso_superior.id = employee_graduations.course_id
+                 JOIN Modules.educacenso_ies ON educacenso_ies.id = employee_graduations.college_id
                 WHERE employee_graduations.employee_id = servidor.cod_servidor
             ) AS tbl_formacoes
             WHERE servidor.cod_servidor IN ({$stringPersonId})
@@ -546,7 +546,7 @@ SQL;
             FROM pmieducar.aluno
                  JOIN cadastro.fisica ON fisica.idpes = aluno.ref_idpes
             LEFT JOIN cadastro.documento ON documento.idpes = fisica.idpes
-            LEFT JOIN modules.educacenso_cod_aluno ON educacenso_cod_aluno.cod_aluno = aluno.cod_aluno
+            LEFT JOIN Modules.educacenso_cod_aluno ON educacenso_cod_aluno.cod_aluno = aluno.cod_aluno
             WHERE aluno.cod_aluno IN ({$stringStudentId})
 SQL;
 

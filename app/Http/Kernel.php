@@ -63,13 +63,13 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'ieducar.navigation' => \App\Http\Middleware\Navigation::class,
-        'ieducar.setlayoutvariables' => \App\Http\Middleware\SetLayoutVariables::class,
-        'ieducar.footer' => \App\Http\Middleware\Footer::class,
-        'ieducar.xssbypass' => \App\Http\Middleware\XssByPass::class,
-        'ieducar.suspended' => \App\Http\Middleware\Suspended::class,
+        'Ieducar.navigation' => \App\Http\Middleware\Navigation::class,
+        'Ieducar.setlayoutvariables' => \App\Http\Middleware\SetLayoutVariables::class,
+        'Ieducar.footer' => \App\Http\Middleware\Footer::class,
+        'Ieducar.xssbypass' => \App\Http\Middleware\XssByPass::class,
+        'Ieducar.suspended' => \App\Http\Middleware\Suspended::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'ieducar.checkresetpassword' => \App\Http\Middleware\CheckResetPassword::class
+        'Ieducar.checkresetpassword' => \App\Http\Middleware\CheckResetPassword::class
     ];
 
     /**

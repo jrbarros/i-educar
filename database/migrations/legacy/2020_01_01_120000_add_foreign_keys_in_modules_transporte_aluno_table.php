@@ -13,7 +13,7 @@ class AddForeignKeysInModulesTransporteAlunoTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.transporte_aluno', function (Blueprint $table) {
+        Schema::table('Modules.transporte_aluno', function (Blueprint $table) {
             $table->foreign('aluno_id')
                ->references('cod_aluno')
                ->on('pmieducar.aluno')
@@ -28,7 +28,7 @@ class AddForeignKeysInModulesTransporteAlunoTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.transporte_aluno', function (Blueprint $table) {
+        Schema::table('Modules.transporte_aluno', function (Blueprint $table) {
             $table->dropForeign(['aluno_id']);
         });
     }

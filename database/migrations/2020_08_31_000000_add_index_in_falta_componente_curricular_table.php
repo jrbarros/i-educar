@@ -13,7 +13,7 @@ class AddIndexInFaltaComponenteCurricularTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.falta_componente_curricular', function (Blueprint $table) {
+        Schema::table('Modules.falta_componente_curricular', function (Blueprint $table) {
             $table->index(['id']);
         });
     }
@@ -25,7 +25,7 @@ class AddIndexInFaltaComponenteCurricularTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.falta_componente_curricular', function (Blueprint $table) {
+        Schema::table('Modules.falta_componente_curricular', function (Blueprint $table) {
             $table->dropIndex(['id']);
         });
     }

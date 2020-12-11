@@ -13,7 +13,7 @@ class AddIndexInNotaGeralTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.nota_geral', function (Blueprint $table) {
+        Schema::table('Modules.nota_geral', function (Blueprint $table) {
             $table->index(['nota_aluno_id']);
             $table->index(['etapa']);
         });
@@ -26,7 +26,7 @@ class AddIndexInNotaGeralTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.nota_geral', function (Blueprint $table) {
+        Schema::table('Modules.nota_geral', function (Blueprint $table) {
             $table->dropIndex(['nota_aluno_id']);
             $table->dropIndex(['etapa']);
         });

@@ -25,7 +25,7 @@ class AddFunctionRelatorioGetMediaRecuperacaoSemestral extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP FUNCTION relatorio.get_media_recuperacao_semestral(matricula integer, componente integer);'
+            'DROP FUNCTION relatorio.get_media_recuperacao_semestral(Matricula integer, componente integer);'
         );
     }
 }

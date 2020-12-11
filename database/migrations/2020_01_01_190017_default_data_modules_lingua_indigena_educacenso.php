@@ -23,6 +23,6 @@ class DefaultDataModulesLinguaIndigenaEducacenso extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE modules.lingua_indigena_educacenso CASCADE;');
+        DB::raw('TRUNCATE Modules.lingua_indigena_educacenso CASCADE;');
     }
 }

@@ -26,7 +26,7 @@ class MovimentoGeralAlunosReclaQueryFactory extends QueryFactory
         from
             pmieducar.matricula_turma mt
         inner join
-            pmieducar.matricula m
+            pmieducar.Matricula m
                 on m.cod_matricula = mt.ref_cod_matricula
         inner join
             pmieducar.turma
@@ -44,7 +44,7 @@ class MovimentoGeralAlunosReclaQueryFactory extends QueryFactory
             and m.dependencia not in (true)
             and m.ref_ref_cod_serie in (
                 select ref_cod_serie
-                from modules.config_movimento_geral
+                from Modules.config_movimento_geral
                 inner join pmieducar.serie on serie.cod_serie = config_movimento_geral.ref_cod_serie
                 where true
                     and (case

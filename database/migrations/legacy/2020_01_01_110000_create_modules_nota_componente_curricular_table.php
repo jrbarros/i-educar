@@ -16,15 +16,15 @@ class CreateModulesNotaComponenteCurricularTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.nota_componente_curricular_id_seq
+
+                CREATE SEQUENCE Modules.nota_componente_curricular_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.nota_componente_curricular (
+                CREATE TABLE Modules.nota_componente_curricular (
                     id integer NOT NULL,
                     nota_aluno_id integer NOT NULL,
                     componente_curricular_id integer NOT NULL,
@@ -36,20 +36,20 @@ class CreateModulesNotaComponenteCurricularTable extends Migration
                     nota_recuperacao_especifica character varying(10)
                 );
 
-                ALTER SEQUENCE modules.nota_componente_curricular_id_seq OWNED BY modules.nota_componente_curricular.id;
-                
-                ALTER TABLE ONLY modules.nota_componente_curricular
+                ALTER SEQUENCE Modules.nota_componente_curricular_id_seq OWNED BY Modules.nota_componente_curricular.id;
+
+                ALTER TABLE ONLY Modules.nota_componente_curricular
                     ADD CONSTRAINT nota_componente_curricular_pkey PRIMARY KEY (nota_aluno_id, componente_curricular_id, etapa);
 
-                ALTER TABLE ONLY modules.nota_componente_curricular ALTER COLUMN id SET DEFAULT nextval(\'modules.nota_componente_curricular_id_seq\'::regclass);
-                
-                CREATE INDEX idx_nota_componente_curricular_etapa ON modules.nota_componente_curricular USING btree (nota_aluno_id, componente_curricular_id, etapa);
+                ALTER TABLE ONLY Modules.nota_componente_curricular ALTER COLUMN id SET DEFAULT nextval(\'Modules.nota_componente_curricular_id_seq\'::regclass);
 
-                CREATE INDEX idx_nota_componente_curricular_etp ON modules.nota_componente_curricular USING btree (componente_curricular_id, etapa);
+                CREATE INDEX idx_nota_componente_curricular_etapa ON Modules.nota_componente_curricular USING btree (nota_aluno_id, componente_curricular_id, etapa);
 
-                CREATE INDEX idx_nota_componente_curricular_id ON modules.nota_componente_curricular USING btree (componente_curricular_id);
+                CREATE INDEX idx_nota_componente_curricular_etp ON Modules.nota_componente_curricular USING btree (componente_curricular_id, etapa);
 
-                SELECT pg_catalog.setval(\'modules.nota_componente_curricular_id_seq\', 1, true);
+                CREATE INDEX idx_nota_componente_curricular_id ON Modules.nota_componente_curricular USING btree (componente_curricular_id);
+
+                SELECT pg_catalog.setval(\'Modules.nota_componente_curricular_id_seq\', 1, true);
             '
         );
     }
@@ -61,6 +61,6 @@ class CreateModulesNotaComponenteCurricularTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.nota_componente_curricular');
+        Schema::dropIfExists('Modules.nota_componente_curricular');
     }
 }

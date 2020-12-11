@@ -26,7 +26,7 @@
  * @package     CoreExt_DataMapper
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
- * @version     $Id: /ieducar/branches/1.1.0-dev/ieducar/tests/unit/CoreExt/_stub/Entity.php 586 2009-10-14T23:26:48.478692Z eriksen  $
+ * @version     $Id: /Ieducar/branches/1.1.0-dev/Ieducar/tests/unit/CoreExt/_stub/Entity.php 586 2009-10-14T23:26:48.478692Z eriksen  $
  */
 
 

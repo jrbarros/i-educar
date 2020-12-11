@@ -14,7 +14,7 @@ class CreateModulesComponenteCurricularAnoEscolarExcluidosTable extends Migratio
      */
     public function up()
     {
-        Schema::create('modules.componente_curricular_ano_escolar_excluidos', function (Blueprint $table) {
+        Schema::create('Modules.componente_curricular_ano_escolar_excluidos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('componente_curricular_id');
             $table->integer('ano_escolar_id');
@@ -25,8 +25,8 @@ class CreateModulesComponenteCurricularAnoEscolarExcluidosTable extends Migratio
             $table->softDeletes();
         });
 
-        DB::statement('ALTER TABLE modules.componente_curricular_ano_escolar_excluidos ALTER COLUMN anos_letivos TYPE smallint[] USING anos_letivos::smallint[]');
-        DB::statement('ALTER TABLE modules.componente_curricular_ano_escolar_excluidos ALTER COLUMN anos_letivos SET DEFAULT \'{}\'::smallint[]');
+        DB::statement('ALTER TABLE Modules.componente_curricular_ano_escolar_excluidos ALTER COLUMN anos_letivos TYPE smallint[] USING anos_letivos::smallint[]');
+        DB::statement('ALTER TABLE Modules.componente_curricular_ano_escolar_excluidos ALTER COLUMN anos_letivos SET DEFAULT \'{}\'::smallint[]');
     }
 
     /**
@@ -36,6 +36,6 @@ class CreateModulesComponenteCurricularAnoEscolarExcluidosTable extends Migratio
      */
     public function down()
     {
-        Schema::dropIfExists('modules.componente_curricular_ano_escolar_excluidos');
+        Schema::dropIfExists('Modules.componente_curricular_ano_escolar_excluidos');
     }
 }

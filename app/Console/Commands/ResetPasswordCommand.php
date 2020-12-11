@@ -48,11 +48,11 @@ class ResetPasswordCommand extends Command
         foreach ($this->getConnections() as $connection) {
             DB::setDefaultConnection($connection);
 
-            if (!LegacyEmployee::where('matricula', $username)->exists()) {
+            if (!LegacyEmployee::where('Matricula', $username)->exists()) {
                 continue;
             }
 
-            $employee = LegacyEmployee::where('matricula', $username)->first();
+            $employee = LegacyEmployee::where('Matricula', $username)->first();
             $employee->senha = Hash::make($newPassword);
             $employee->save();
         }

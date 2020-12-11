@@ -35,7 +35,7 @@ require_once __DIR__.'/../../../../CoreExt/_stub/EntityDataMapper.php';
 /**
  * Core_Controller_Page_AbstractStub class.
  *
- * Stub para testes da class Core_Controller_Page_Abstract. Muda algumas
+ * Stub para testes da class CoreControllerPageAbstract. Muda algumas
  * variáveis de instância para public, afim de fazer testes de inicialização
  * automática de valores.
  *
@@ -44,11 +44,11 @@ require_once __DIR__.'/../../../../CoreExt/_stub/EntityDataMapper.php';
  * @license     @@license@@
  * @package     Core_Controller
  * @subpackage  UnitTests
- * @see         Core_Controller_Page_Abstract
+ * @see         CoreControllerPageAbstract
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
  */
-class Core_Controller_Page_AbstractStub extends Core_Controller_Page_Abstract
+class Core_Controller_Page_AbstractStub extends CoreControllerPageAbstract
 {
   public $_dataMapper = NULL;
   public $_processoAp = NULL;

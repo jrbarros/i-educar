@@ -10,7 +10,7 @@ class SchoolClassInep extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.educacenso_cod_turma';
+    protected $table = 'Modules.educacenso_cod_turma';
 
     /**
      * @var string

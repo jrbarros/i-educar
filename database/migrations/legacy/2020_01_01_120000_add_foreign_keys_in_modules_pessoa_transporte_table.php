@@ -13,7 +13,7 @@ class AddForeignKeysInModulesPessoaTransporteTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.pessoa_transporte', function (Blueprint $table) {
+        Schema::table('Modules.pessoa_transporte', function (Blueprint $table) {
             $table->foreign('ref_idpes')
                ->references('idpes')
                ->on('cadastro.fisica')
@@ -26,11 +26,11 @@ class AddForeignKeysInModulesPessoaTransporteTable extends Migration
 
             $table->foreign('ref_cod_rota_transporte_escolar')
                ->references('cod_rota_transporte_escolar')
-               ->on('modules.rota_transporte_escolar');
+               ->on('Modules.rota_transporte_escolar');
 
             $table->foreign('ref_cod_ponto_transporte_escolar')
                ->references('cod_ponto_transporte_escolar')
-               ->on('modules.ponto_transporte_escolar');
+               ->on('Modules.ponto_transporte_escolar');
         });
     }
 
@@ -41,7 +41,7 @@ class AddForeignKeysInModulesPessoaTransporteTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.pessoa_transporte', function (Blueprint $table) {
+        Schema::table('Modules.pessoa_transporte', function (Blueprint $table) {
             $table->dropForeign(['ref_idpes']);
             $table->dropForeign(['ref_idpes_destino']);
             $table->dropForeign(['ref_cod_rota_transporte_escolar']);

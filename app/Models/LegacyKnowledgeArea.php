@@ -9,7 +9,7 @@ class LegacyKnowledgeArea extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.area_conhecimento';
+    protected $table = 'Modules.area_conhecimento';
 
     /**
      * @var string

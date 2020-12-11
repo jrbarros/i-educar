@@ -10,7 +10,7 @@ class LegacyDisciplineDescriptiveOpinion extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.parecer_componente_curricular';
+    protected $table = 'Modules.parecer_componente_curricular';
 
     /**
      * @var array

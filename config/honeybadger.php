@@ -4,7 +4,7 @@ return [
     'api_key' => env('HONEYBADGER_API_KEY'),
     'environment' => [
         'filter' => [],
-        'include' => [],
+        'Source' => [],
     ],
     'request' => [
         'filter' => [],

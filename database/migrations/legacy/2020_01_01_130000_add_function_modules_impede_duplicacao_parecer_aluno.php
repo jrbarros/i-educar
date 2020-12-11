@@ -25,7 +25,7 @@ class AddFunctionModulesImpedeDuplicacaoParecerAluno extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP FUNCTION modules.impede_duplicacao_parecer_aluno();'
+            'DROP FUNCTION Modules.impede_duplicacao_parecer_aluno();'
         );
     }
 }

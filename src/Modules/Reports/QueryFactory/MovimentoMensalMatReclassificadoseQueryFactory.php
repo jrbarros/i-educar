@@ -36,7 +36,7 @@ class MovimentoMensalMatReclassificadoseQueryFactory extends QueryFactory
             and t.ref_ref_cod_serie = s.cod_serie
         inner join pmieducar.matricula_turma mt on true
             and mt.ref_cod_turma = t.cod_turma
-        inner join pmieducar.matricula m on true
+        inner join pmieducar.Matricula m on true
             and m.cod_matricula = mt.ref_cod_matricula
         inner join pmieducar.aluno a on true
             and a.cod_aluno = m.ref_cod_aluno

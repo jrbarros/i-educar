@@ -10,7 +10,7 @@ class LegacyGeneralDescriptiveOpinion extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.parecer_geral';
+    protected $table = 'Modules.parecer_geral';
 
     /**
      * @var array

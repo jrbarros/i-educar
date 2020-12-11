@@ -14,7 +14,7 @@ class AddTriggerDeletedAtInModulesRegraAvaliacaoSerieAnoExcluidosTable extends M
      */
     public function up()
     {
-        $this->whenDeletedMoveTo('modules.regra_avaliacao_serie_ano', 'modules.regra_avaliacao_serie_ano_excluidos', [
+        $this->whenDeletedMoveTo('Modules.regra_avaliacao_serie_ano', 'Modules.regra_avaliacao_serie_ano_excluidos', [
             'serie_id',
             'regra_avaliacao_id',
             'regra_avaliacao_diferenciada_id',
@@ -29,6 +29,6 @@ class AddTriggerDeletedAtInModulesRegraAvaliacaoSerieAnoExcluidosTable extends M
      */
     public function down()
     {
-        $this->dropTriggerWhenDeleted('modules.regra_avaliacao_serie_ano');
+        $this->dropTriggerWhenDeleted('Modules.regra_avaliacao_serie_ano');
     }
 }

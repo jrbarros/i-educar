@@ -16,31 +16,31 @@ class CreateModulesParecerGeralTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.parecer_geral_id_seq
+
+                CREATE SEQUENCE Modules.parecer_geral_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.parecer_geral (
+                CREATE TABLE Modules.parecer_geral (
                     id integer NOT NULL,
                     parecer_aluno_id integer NOT NULL,
                     parecer text,
                     etapa character varying(2) NOT NULL
                 );
 
-                ALTER SEQUENCE modules.parecer_geral_id_seq OWNED BY modules.parecer_geral.id;
+                ALTER SEQUENCE Modules.parecer_geral_id_seq OWNED BY Modules.parecer_geral.id;
 
-                ALTER TABLE ONLY modules.parecer_geral
+                ALTER TABLE ONLY Modules.parecer_geral
                     ADD CONSTRAINT parecer_geral_pkey PRIMARY KEY (parecer_aluno_id, etapa);
 
-                ALTER TABLE ONLY modules.parecer_geral ALTER COLUMN id SET DEFAULT nextval(\'modules.parecer_geral_id_seq\'::regclass);
-                
-                CREATE INDEX idx_parecer_geral_parecer_aluno_etp ON modules.parecer_geral USING btree (parecer_aluno_id, etapa);
+                ALTER TABLE ONLY Modules.parecer_geral ALTER COLUMN id SET DEFAULT nextval(\'Modules.parecer_geral_id_seq\'::regclass);
 
-                SELECT pg_catalog.setval(\'modules.parecer_geral_id_seq\', 1, false);
+                CREATE INDEX idx_parecer_geral_parecer_aluno_etp ON Modules.parecer_geral USING btree (parecer_aluno_id, etapa);
+
+                SELECT pg_catalog.setval(\'Modules.parecer_geral_id_seq\', 1, false);
             '
         );
     }
@@ -52,6 +52,6 @@ class CreateModulesParecerGeralTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.parecer_geral');
+        Schema::dropIfExists('Modules.parecer_geral');
     }
 }

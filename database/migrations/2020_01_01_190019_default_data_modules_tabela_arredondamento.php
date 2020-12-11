@@ -23,6 +23,6 @@ class DefaultDataModulesTabelaArredondamento extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE modules.tabela_arredondamento CASCADE;');
+        DB::raw('TRUNCATE Modules.tabela_arredondamento CASCADE;');
     }
 }

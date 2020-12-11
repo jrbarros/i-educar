@@ -23,6 +23,6 @@ class DefaultDataPortalFuncionarioVinculo extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE portal.funcionario_vinculo CASCADE;');
+        DB::raw('TRUNCATE Portal.funcionario_vinculo CASCADE;');
     }
 }

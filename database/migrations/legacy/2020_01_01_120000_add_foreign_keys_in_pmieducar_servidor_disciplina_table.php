@@ -22,7 +22,7 @@ class AddForeignKeysInPmieducarServidorDisciplinaTable extends Migration
 
             $table->foreign('ref_cod_disciplina')
                ->references('id')
-               ->on('modules.componente_curricular')
+               ->on('Modules.componente_curricular')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });

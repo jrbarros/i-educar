@@ -70,7 +70,7 @@ class CoreExt_Controller_Dispatcher_Strategy_FrontStrategyTest extends PHPUnit\F
   }
 
   /**
-   * @expectedException CoreExt_Controller_Dispatcher_Exception
+   * @expectedException CoreExtension_Controller_Dispatcher_Exception
    */
   public function testRequisicaoAControllerNaoExistenteLancaExcecao()
   {

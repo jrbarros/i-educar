@@ -16,7 +16,7 @@ class AddForeignKeysInPmieducarMatriculaOcorrenciaDisciplinarTable extends Migra
         Schema::table('pmieducar.matricula_ocorrencia_disciplinar', function (Blueprint $table) {
             $table->foreign('ref_cod_matricula')
                ->references('cod_matricula')
-               ->on('pmieducar.matricula')
+               ->on('pmieducar.Matricula')
                ->onUpdate('restrict')
                ->onDelete('restrict');
 

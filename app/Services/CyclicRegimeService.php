@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 class CyclicRegimeService
 {
     /**
-     * Retorna todas as matriculas de um ciclo a partir de uma matricula
+     * Retorna todas as matriculas de um ciclo a partir de uma Matricula
      *
      * @param int $registration
      * @return LegacyRegistration[]

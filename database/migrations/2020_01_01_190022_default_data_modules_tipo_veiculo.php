@@ -23,6 +23,6 @@ class DefaultDataModulesTipoVeiculo extends Migration
      */
     public function down()
     {
-        DB::raw('TRUNCATE modules.tipo_veiculo CASCADE;');
+        DB::raw('TRUNCATE Modules.tipo_veiculo CASCADE;');
     }
 }

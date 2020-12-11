@@ -17,7 +17,7 @@ class CreateModulesMoradiaAlunoTable extends Migration
             '
                 SET default_with_oids = true;
 
-                CREATE TABLE modules.moradia_aluno (
+                CREATE TABLE Modules.moradia_aluno (
                     ref_cod_aluno integer NOT NULL,
                     moradia character(1),
                     material character(1) DEFAULT \'A\'::bpchar,
@@ -49,8 +49,8 @@ class CreateModulesMoradiaAlunoTable extends Migration
                     fossa character(1),
                     lixo character(1)
                 );
-                
-                ALTER TABLE ONLY modules.moradia_aluno
+
+                ALTER TABLE ONLY Modules.moradia_aluno
                     ADD CONSTRAINT moradia_aluno_pkei PRIMARY KEY (ref_cod_aluno);
             '
         );
@@ -63,6 +63,6 @@ class CreateModulesMoradiaAlunoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.moradia_aluno');
+        Schema::dropIfExists('Modules.moradia_aluno');
     }
 }

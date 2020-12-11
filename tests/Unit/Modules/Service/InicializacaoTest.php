@@ -45,7 +45,7 @@ require_once __DIR__.'/TestCommon.php';
 class Avaliacao_Service_InicializacaoTest extends Avaliacao_Service_TestCommon
 {
   /**
-   * @expectedException CoreExt_Service_Exception
+   * @expectedException CoreExtension_Service_Exception
    */
   public function testInstanciaLancaExcecaoCasoCodigoDeMatriculaNaoSejaInformado()
   {
@@ -57,7 +57,7 @@ class Avaliacao_Service_InicializacaoTest extends Avaliacao_Service_TestCommon
    */
   public function testInstanciaLancaExcecaoComOpcaoNaoAceitaPelaClasse()
   {
-    new Avaliacao_Service_Boletim(array('matricula' => 1, 'foo' => 'bar'));
+    new Avaliacao_Service_Boletim(array('Matricula' => 1, 'foo' => 'bar'));
   }
 
   public function testDadosDeMatriculaInicializados()
@@ -70,7 +70,7 @@ class Avaliacao_Service_InicializacaoTest extends Avaliacao_Service_TestCommon
     $this->assertEquals($this->_getConfigOption('usuario', 'cod_usuario'),
       $options['usuario']);
 
-    $this->assertEquals($this->_getConfigOption('matricula', 'aprovado'),
+    $this->assertEquals($this->_getConfigOption('Matricula', 'aprovado'),
       $options['aprovado']);
 
     $this->assertEquals($this->_getConfigOption('curso', 'hora_falta'),

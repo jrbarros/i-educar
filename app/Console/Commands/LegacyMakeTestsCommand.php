@@ -44,7 +44,7 @@ class LegacyMakeTestsCommand extends Command
      */
     private function parseRoute($route)
     {
-        if (Str::contains($route, 'module'))  {
+        if (Str::contains($route, 'Module'))  {
             return $route;
         }
 

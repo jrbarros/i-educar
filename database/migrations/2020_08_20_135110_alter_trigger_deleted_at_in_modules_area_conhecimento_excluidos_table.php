@@ -13,8 +13,8 @@ class AlterTriggerDeletedAtInModulesAreaConhecimentoExcluidosTable extends Migra
      */
     public function up()
     {
-        $this->dropTriggerWhenDeleted('modules.area_conhecimento');
-        $this->whenDeletedMoveTo('modules.area_conhecimento', 'modules.area_conhecimento_excluidos', [
+        $this->dropTriggerWhenDeleted('Modules.area_conhecimento');
+        $this->whenDeletedMoveTo('Modules.area_conhecimento', 'Modules.area_conhecimento_excluidos', [
             'id',
             'instituicao_id',
             'nome',
@@ -31,8 +31,8 @@ class AlterTriggerDeletedAtInModulesAreaConhecimentoExcluidosTable extends Migra
      */
     public function down()
     {
-        $this->dropTriggerWhenDeleted('modules.area_conhecimento');
-        $this->whenDeletedMoveTo('modules.area_conhecimento', 'modules.area_conhecimento_excluidos', [
+        $this->dropTriggerWhenDeleted('Modules.area_conhecimento');
+        $this->whenDeletedMoveTo('Modules.area_conhecimento', 'Modules.area_conhecimento_excluidos', [
             'id',
             'instituicao_id',
             'nome',

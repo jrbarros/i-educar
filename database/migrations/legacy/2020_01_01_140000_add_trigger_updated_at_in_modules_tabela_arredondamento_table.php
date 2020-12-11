@@ -14,7 +14,7 @@ class AddTriggerUpdatedAtInModulesTabelaArredondamentoTable extends Migration
      */
     public function up()
     {
-        $this->createUpdatedAtTrigger('modules.tabela_arredondamento');
+        $this->createUpdatedAtTrigger('Modules.tabela_arredondamento');
     }
 
     /**
@@ -24,6 +24,6 @@ class AddTriggerUpdatedAtInModulesTabelaArredondamentoTable extends Migration
      */
     public function down()
     {
-        $this->dropUpdatedAtTrigger('modules.tabela_arredondamento');
+        $this->dropUpdatedAtTrigger('Modules.tabela_arredondamento');
     }
 }

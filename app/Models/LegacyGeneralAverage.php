@@ -10,7 +10,7 @@ class LegacyGeneralAverage extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.media_geral';
+    protected $table = 'Modules.media_geral';
 
     /**
      * @var array

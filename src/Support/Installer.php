@@ -175,7 +175,7 @@ class Installer
     {
         try {
             $conn = $this->getConnection();
-            $query = $conn->prepare('SELECT 1 AS installed FROM portal.funcionario WHERE matricula = ?');
+            $query = $conn->prepare('SELECT 1 AS installed FROM Portal.funcionario WHERE Matricula = ?');
             $query->execute(['admin']);
             $result = $query->fetch(\PDO::FETCH_ASSOC);
 

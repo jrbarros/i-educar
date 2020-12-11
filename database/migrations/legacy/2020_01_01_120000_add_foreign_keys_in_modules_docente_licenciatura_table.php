@@ -13,10 +13,10 @@ class AddForeignKeysInModulesDocenteLicenciaturaTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.docente_licenciatura', function (Blueprint $table) {
+        Schema::table('Modules.docente_licenciatura', function (Blueprint $table) {
             $table->foreign('ies_id')
                ->references('id')
-               ->on('modules.educacenso_ies')
+               ->on('Modules.educacenso_ies')
                ->onDelete('restrict');
         });
     }
@@ -28,7 +28,7 @@ class AddForeignKeysInModulesDocenteLicenciaturaTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.docente_licenciatura', function (Blueprint $table) {
+        Schema::table('Modules.docente_licenciatura', function (Blueprint $table) {
             $table->dropForeign(['ies_id']);
         });
     }

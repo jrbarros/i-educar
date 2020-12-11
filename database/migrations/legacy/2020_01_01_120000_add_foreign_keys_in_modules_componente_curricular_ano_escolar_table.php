@@ -13,10 +13,10 @@ class AddForeignKeysInModulesComponenteCurricularAnoEscolarTable extends Migrati
      */
     public function up()
     {
-        Schema::table('modules.componente_curricular_ano_escolar', function (Blueprint $table) {
+        Schema::table('Modules.componente_curricular_ano_escolar', function (Blueprint $table) {
             $table->foreign('componente_curricular_id')
                ->references('id')
-               ->on('modules.componente_curricular')
+               ->on('Modules.componente_curricular')
                ->onUpdate('restrict')
                ->onDelete('restrict');
         });
@@ -29,7 +29,7 @@ class AddForeignKeysInModulesComponenteCurricularAnoEscolarTable extends Migrati
      */
     public function down()
     {
-        Schema::table('modules.componente_curricular_ano_escolar', function (Blueprint $table) {
+        Schema::table('Modules.componente_curricular_ano_escolar', function (Blueprint $table) {
             $table->dropForeign(['componente_curricular_id']);
         });
     }

@@ -13,7 +13,7 @@ class AdicionaColunaDeRecursosTecnologicosDisponiveisParaAluno extends Migration
      */
     public function up()
     {
-        Schema::table('modules.moradia_aluno', function (Blueprint $table) {
+        Schema::table('Modules.moradia_aluno', function (Blueprint $table) {
             $table->json('recursos_tecnologicos')->nullable();
         });
     }
@@ -25,7 +25,7 @@ class AdicionaColunaDeRecursosTecnologicosDisponiveisParaAluno extends Migration
      */
     public function down()
     {
-        Schema::table('modules.moradia_aluno', function (Blueprint $table) {
+        Schema::table('Modules.moradia_aluno', function (Blueprint $table) {
             $table->dropColumn('recursos_tecnologicos');
         });
     }

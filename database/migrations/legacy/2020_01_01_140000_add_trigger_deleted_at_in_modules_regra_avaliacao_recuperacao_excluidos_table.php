@@ -14,7 +14,7 @@ class AddTriggerDeletedAtInModulesRegraAvaliacaoRecuperacaoExcluidosTable extend
      */
     public function up()
     {
-        $this->whenDeletedMoveTo('modules.regra_avaliacao_recuperacao', 'modules.regra_avaliacao_recuperacao_excluidos', [
+        $this->whenDeletedMoveTo('Modules.regra_avaliacao_recuperacao', 'Modules.regra_avaliacao_recuperacao_excluidos', [
             'id',
             'regra_avaliacao_id',
             'descricao',
@@ -32,6 +32,6 @@ class AddTriggerDeletedAtInModulesRegraAvaliacaoRecuperacaoExcluidosTable extend
      */
     public function down()
     {
-        $this->dropTriggerWhenDeleted('modules.regra_avaliacao_recuperacao');
+        $this->dropTriggerWhenDeleted('Modules.regra_avaliacao_recuperacao');
     }
 }

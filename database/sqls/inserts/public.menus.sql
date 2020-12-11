@@ -7,7 +7,7 @@ INSERT INTO public.menus VALUES (6, NULL, 'Transporte escolar', NULL, '/Intranet
 INSERT INTO public.menus VALUES (7, NULL, 'Biblioteca', NULL, '/Intranet/educar_biblioteca_index.php', 'fa-book', 8, 1, 57, 57, NULL, true, NULL, NULL);
 INSERT INTO public.menus VALUES (8, NULL, 'Configurações', NULL, '/Intranet/educar_configuracoes_index.php', 'fa-gear', 9, 1, 25, 25, NULL, true, NULL, NULL);
 INSERT INTO public.menus VALUES (9, 2, 'Cadastros', NULL, NULL, NULL, 1, 2, NULL, 999929, 7, true, NULL, NULL);
-INSERT INTO public.menus VALUES (74, 13, 'Atualização de matrículas', 'Atualização de matrículas', '/module/Avaliacao/Promocao', NULL, 2, 3, 644, 644, 999910, true, NULL, NULL);
+INSERT INTO public.menus VALUES (74, 13, 'Atualização de matrículas', 'Atualização de matrículas', '/Module/Avaliacao/Promocao', NULL, 2, 3, 644, 644, 999910, true, NULL, NULL);
 INSERT INTO public.menus VALUES (10, 2, 'Ferramentas', NULL, NULL, NULL, 2, 2, NULL, 9998876, 7, true, NULL, NULL);
 INSERT INTO public.menus VALUES (11, 8, 'Permissões', NULL, NULL, NULL, 1, 2, NULL, 999908, 25, true, NULL, NULL);
 INSERT INTO public.menus VALUES (12, 8, 'Configurações', NULL, NULL, NULL, 2, 2, NULL, 999909, 25, true, NULL, NULL);
@@ -38,7 +38,7 @@ INSERT INTO public.menus VALUES (37, 21, 'Obras', 'Obras', '/Intranet/educar_ace
 INSERT INTO public.menus VALUES (38, 21, 'Exemplares', 'Exemplares', '/Intranet/educar_exemplar_lst.php', NULL, 4, 3, 606, 15879, 15858, true, NULL, NULL);
 INSERT INTO public.menus VALUES (39, 21, 'Clientes', 'Clientes', '/Intranet/educar_cliente_lst.php', NULL, 5, 3, 603, 15892, 15858, true, NULL, NULL);
 INSERT INTO public.menus VALUES (40, 22, 'Reservas', 'Reservas de exemplares', '/Intranet/educar_reservas_lst.php', NULL, 1, 3, 609, 15869, 15859, true, NULL, NULL);
-INSERT INTO public.menus VALUES (41, 22, 'Empréstimos', 'Empréstimos de exemplares', '/module/Biblioteca/emprestimo', NULL, 2, 3, 610, 15894, 15859, true, NULL, NULL);
+INSERT INTO public.menus VALUES (41, 22, 'Empréstimos', 'Empréstimos de exemplares', '/Module/Biblioteca/emprestimo', NULL, 2, 3, 610, 15894, 15859, true, NULL, NULL);
 INSERT INTO public.menus VALUES (42, 22, 'Devoluções', 'Devoluções de exemplares', '/Intranet/educar_exemplar_devolucao_lst.php', NULL, 3, 3, 628, 15895, 15859, true, NULL, NULL);
 INSERT INTO public.menus VALUES (43, 22, 'Dívidas', 'Dívidas de exemplares', '/Intranet/educar_pagamento_multa_lst.php', NULL, 4, 3, 622, 15893, 15859, true, NULL, NULL);
 INSERT INTO public.menus VALUES (44, 27, 'Empresas', 'Empresas do transporte', '/Intranet/transporte_empresa_lst.php', NULL, 0, 3, 21235, 21235, 20710, true, NULL, NULL);
@@ -54,7 +54,7 @@ INSERT INTO public.menus VALUES (53, 14, 'Escolas', 'Escolas', '/Intranet/educar
 INSERT INTO public.menus VALUES (54, 14, 'Instituição', 'Instituição', '/Intranet/educar_instituicao_lst.php', NULL, 4, 3, 559, 21128, 21122, true, NULL, NULL);
 INSERT INTO public.menus VALUES (55, 14, 'Infraestrutura', 'Infraestrutura da escola', '/Intranet/educar_infra_predio_comodo_lst.php', NULL, 5, 3, 574, 21207, 21122, true, NULL, NULL);
 INSERT INTO public.menus VALUES (56, 14, 'Calendários', 'Calendários', '/Intranet/educar_calendario_ano_letivo_lst.php', NULL, 6, 3, 620, 21199, 21122, true, NULL, NULL);
-INSERT INTO public.menus VALUES (57, 14, 'Regras de avaliação', 'Regras de avaliação', '/module/RegraAvaliacao/index', NULL, 7, 3, 947, 21227, 21122, true, NULL, NULL);
+INSERT INTO public.menus VALUES (57, 14, 'Regras de avaliação', 'Regras de avaliação', '/Module/RegraAvaliacao/index', NULL, 7, 3, 947, 21227, 21122, true, NULL, NULL);
 INSERT INTO public.menus VALUES (58, 14, 'Componentes curriculares', 'Componentes curriculares', '/Intranet/educar_componente_curricular_lst.php', NULL, 8, 3, 946, 21195, 21122, true, NULL, NULL);
 INSERT INTO public.menus VALUES (59, 14, 'Cursos', 'Cursos', '/Intranet/educar_curso_lst.php', NULL, 10, 3, 566, 21202, 21122, true, NULL, NULL);
 INSERT INTO public.menus VALUES (60, 14, 'Séries', 'Séries', '/Intranet/educar_serie_lst.php', NULL, 11, 3, 583, 21201, 21122, true, NULL, NULL);
@@ -65,7 +65,7 @@ INSERT INTO public.menus VALUES (64, 15, 'Enturmações em lote', 'Enturmações
 INSERT INTO public.menus VALUES (65, 19, 'Documentação padrão', 'Documentação padrão', '/Intranet/DocumentacaoPadrao.php', NULL, 6, 3, 999861, 999865, 21127, true, NULL, NULL);
 INSERT INTO public.menus VALUES (66, 11, 'Tipos de usuário', 'Tipos de usuário', '/Intranet/educar_tipo_usuario_lst.php   ', NULL, 3, 3, 554, 554, 999908, true, NULL, NULL);
 INSERT INTO public.menus VALUES (67, 11, 'Usuários', 'Usuários', '/Intranet/educar_usuario_lst.php', NULL, 3, 3, 555, 555, 999908, true, NULL, NULL);
-INSERT INTO public.menus VALUES (68, 12, 'Configuração movimento geral', 'Configuração movimento geral', '/module/Configuracao/ConfiguracaoMovimentoGeral', NULL, 3, 3, 9998867, 9998867, 999909, true, NULL, NULL);
+INSERT INTO public.menus VALUES (68, 12, 'Configuração movimento geral', 'Configuração movimento geral', '/Module/Configuracao/ConfiguracaoMovimentoGeral', NULL, 3, 3, 9998867, 9998867, 999909, true, NULL, NULL);
 INSERT INTO public.menus VALUES (69, 12, 'Configurações gerais', 'Configurações gerais', '/Intranet/educar_configuracoes_gerais.php', NULL, 3, 3, 999873, 999873, 999909, true, NULL, NULL);
 INSERT INTO public.menus VALUES (70, 12, 'Customização de labels', 'Customização de labels', '/Intranet/educar_configuracoes_labels.php', NULL, 4, 3, 9998869, 9998869, 999909, true, NULL, NULL);
 INSERT INTO public.menus VALUES (71, 13, 'Auditoria geral', 'Auditoria geral', '/Intranet/educar_auditoria_geral_lst.php', NULL, 0, 3, 9998851, 9998851, 999910, true, NULL, NULL);
@@ -74,9 +74,9 @@ INSERT INTO public.menus VALUES (73, 13, 'Exportação de usuários', 'Exportaç
 INSERT INTO public.menus VALUES (75, 32, 'Tipos', NULL, NULL, NULL, 1, 3, NULL, 999912, 999911, true, NULL, NULL);
 INSERT INTO public.menus VALUES (76, 32, 'Servidores', 'Servidores', '/Intranet/educar_servidor_lst.php', NULL, 2, 3, 635, 21130, 999911, true, NULL, NULL);
 INSERT INTO public.menus VALUES (77, 32, 'Quadros de horários', 'Quadros de horários', '/Intranet/educar_quadro_horario_lst.php', NULL, 3, 3, 641, 21137, 999911, true, NULL, NULL);
-INSERT INTO public.menus VALUES (78, 16, 'Faltas e notas', 'Lançamento de faltas e notas', '/module/Avaliacao/diario', NULL, 0, 3, 642, 21152, 999920, true, NULL, NULL);
+INSERT INTO public.menus VALUES (78, 16, 'Faltas e notas', 'Lançamento de faltas e notas', '/Module/Avaliacao/diario', NULL, 0, 3, 642, 21152, 999920, true, NULL, NULL);
 INSERT INTO public.menus VALUES (79, 16, 'Ocorrências disciplinares', 'Lançamento de ocorrências disciplinares', '/Intranet/educar_matricula_ocorrencia_disciplinar_cad.php', NULL, 0, 3, 21145, 21145, 999920, true, NULL, NULL);
-INSERT INTO public.menus VALUES (80, 17, 'Históricos escolares', 'Processamento de históricos escolares', '/module/HistoricoEscolar/processamento', NULL, 1, 3, 999613, 999613, 999921, true, NULL, NULL);
+INSERT INTO public.menus VALUES (80, 17, 'Históricos escolares', 'Processamento de históricos escolares', '/Module/HistoricoEscolar/processamento', NULL, 1, 3, 999613, 999613, 999921, true, NULL, NULL);
 INSERT INTO public.menus VALUES (81, 20, 'Consultas', NULL, NULL, NULL, 1, 3, NULL, 9998890, 999926, true, NULL, NULL);
 INSERT INTO public.menus VALUES (82, 20, 'Unificações', NULL, NULL, NULL, 1, 3, NULL, 999927, 999926, true, NULL, NULL);
 INSERT INTO public.menus VALUES (83, 20, 'Parâmetros', NULL, NULL, NULL, 2, 3, NULL, 999928, 999926, true, NULL, NULL);
@@ -134,8 +134,8 @@ INSERT INTO public.menus VALUES (140, 116, 'Tipos de turma', 'Tipos de turma', '
 INSERT INTO public.menus VALUES (141, 118, 'Tipos de evento do calendário', 'Tipos de evento do calendário', '/Intranet/educar_calendario_dia_motivo_lst.php', NULL, 0, 5, 576, 21209, 21169, true, NULL, NULL);
 INSERT INTO public.menus VALUES (142, 109, 'Tipos de benefício', 'Tipos de benefício do aluno', '/Intranet/educar_aluno_beneficio_lst.php', NULL, 0, 5, 581, 21210, 21171, true, NULL, NULL);
 INSERT INTO public.menus VALUES (143, 109, 'Tipos de projeto', 'Tipos de projeto do aluno', '/Intranet/educar_projeto_lst.php', NULL, 0, 5, 21250, 21250, 21171, true, NULL, NULL);
-INSERT INTO public.menus VALUES (144, 111, 'Fórmulas de cálculo de média', 'Fórmulas de cálculo de média', '/module/FormulaMedia/index', NULL, 0, 5, 948, 21228, 21226, true, NULL, NULL);
-INSERT INTO public.menus VALUES (145, 111, 'Tabelas de arredondamento', 'Tabelas de arredondamento de nota', '/module/TabelaArredondamento/index', NULL, 0, 5, 949, 21229, 21226, true, NULL, NULL);
+INSERT INTO public.menus VALUES (144, 111, 'Fórmulas de cálculo de média', 'Fórmulas de cálculo de média', '/Module/FormulaMedia/index', NULL, 0, 5, 948, 21228, 21226, true, NULL, NULL);
+INSERT INTO public.menus VALUES (145, 111, 'Tabelas de arredondamento', 'Tabelas de arredondamento de nota', '/Module/TabelaArredondamento/index', NULL, 0, 5, 949, 21229, 21226, true, NULL, NULL);
 INSERT INTO public.menus VALUES (146, 101, 'Assuntos', 'Assuntos de obras', '/Intranet/educar_acervo_assunto_lst.php', NULL, 0, 5, 592, 15877, 999901, true, NULL, NULL);
 INSERT INTO public.menus VALUES (147, 101, 'Autores', 'Autores de obras', '/Intranet/educar_acervo_autor_lst.php', NULL, 0, 5, 594, 15881, 999901, true, NULL, NULL);
 INSERT INTO public.menus VALUES (148, 101, 'Categorias', 'Categorias de obras', '/Intranet/educar_categoria_lst.php', NULL, 0, 5, 599, 999866, 999901, true, NULL, NULL);
@@ -152,7 +152,7 @@ INSERT INTO public.menus VALUES (158, 110, 'Tipos de abandono', 'Tipos de abando
 INSERT INTO public.menus VALUES (159, 110, 'Tipos de ocorrência disciplinar', 'Tipos de ocorrência disciplinar da matrícula', '/Intranet/educar_tipo_ocorrencia_disciplinar_lst.php', NULL, 0, 5, 580, 21173, 999918, true, NULL, NULL);
 INSERT INTO public.menus VALUES (160, 110, 'Tipos de transferência', 'Tipos de transferência da matrícula', '/Intranet/educar_transferencia_tipo_lst.php', NULL, 0, 5, 575, 21174, 999918, true, NULL, NULL);
 INSERT INTO public.menus VALUES (161, 112, 'Tipos de dispensa', 'Tipos de dispensa da disciplina', '/Intranet/educar_tipo_dispensa_lst.php', NULL, 0, 5, 577, 21213, 999919, true, NULL, NULL);
-INSERT INTO public.menus VALUES (162, 112, 'Áreas de conhecimento', 'Áreas de conhecimento da disciplina', '/module/AreaConhecimento/index', NULL, 0, 5, 945, 21206, 999919, true, NULL, NULL);
+INSERT INTO public.menus VALUES (162, 112, 'Áreas de conhecimento', 'Áreas de conhecimento da disciplina', '/Module/AreaConhecimento/index', NULL, 0, 5, 945, 21206, 999919, true, NULL, NULL);
 INSERT INTO public.menus VALUES (163, 148, 'Categoria de obras', 'Categorias de obras', '/Intranet/educar_categoria_lst.php', NULL, 0, 6, 999867, 999867, 999866, true, NULL, NULL);
 INSERT INTO public.menus VALUES (164, 3, 'Alterar datas de entrada/saída de matrículas', NULL, NULL, NULL, 9999, 2, 626, 626, 55, true, NULL, NULL);
 INSERT INTO public.menus VALUES (165, 3, 'Cancelar matrícula', NULL, NULL, NULL, 9999, 2, 627, 627, 55, true, NULL, NULL);

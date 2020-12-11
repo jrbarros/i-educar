@@ -79,8 +79,8 @@
     <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/prototype/prototype-1.7.1.0.js") }} "></script>
     <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/scriptaculous/effects.js") }} "></script>
     <script type="text/javascript" src="{{ Asset::get("/Intranet/scripts/jquery.mask.min.js") }} "></script>
-    <script type='text/javascript' src='{{ Asset::get('/modules/Portabilis/Assets/Javascripts/Frontend/Inputs/SimpleSearch.js') }}'></script>
-    <script type='text/javascript' src='{{ Asset::get('/modules/Portabilis/Assets/Javascripts/Utils.js') }}'></script>
+    <script type='text/javascript' src='{{ Asset::get('/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/SimpleSearch.js') }}'></script>
+    <script type='text/javascript' src='{{ Asset::get('/Modules/Portabilis/Assets/Javascripts/Utils.js') }}'></script>
     <script type='text/javascript' src='{{ Asset::get('/Intranet/scripts/jquery/jquery-ui.min-1.9.2/js/jquery-ui-1.9.2.custom.min.js') }}'></script>
 
     <script type="text/javascript">
@@ -288,7 +288,7 @@
     }
 </script>
 
-<script type='text/javascript' src='{{ Asset::get('/modules/Portabilis/Assets/Javascripts/Utils.js') }}'></script>
+<script type='text/javascript' src='{{ Asset::get('/Modules/Portabilis/Assets/Javascripts/Utils.js') }}'></script>
 
 <script type='text/javascript'>(function ($) {
     $(document).ready(function () {
@@ -307,7 +307,7 @@
     getNotifications();
 
     if (window.useEcho) {
-        startListenChannel('ieducar-{{\DB::getDefaultConnection()}}-notification-{{md5($loggedUser->personId)}}');
+        startListenChannel('Ieducar-{{\DB::getDefaultConnection()}}-notification-{{md5($loggedUser->personId)}}');
     }
 </script>
 

@@ -13,10 +13,10 @@ class AddForeignKeysInModulesMediaGeralTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules.media_geral', function (Blueprint $table) {
+        Schema::table('Modules.media_geral', function (Blueprint $table) {
             $table->foreign('nota_aluno_id')
                ->references('id')
-               ->on('modules.nota_aluno')
+               ->on('Modules.nota_aluno')
                ->onDelete('cascade');
         });
     }
@@ -28,7 +28,7 @@ class AddForeignKeysInModulesMediaGeralTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules.media_geral', function (Blueprint $table) {
+        Schema::table('Modules.media_geral', function (Blueprint $table) {
             $table->dropForeign(['nota_aluno_id']);
         });
     }

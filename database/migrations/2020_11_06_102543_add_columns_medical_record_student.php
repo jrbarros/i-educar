@@ -13,7 +13,7 @@ class AddColumnsMedicalRecordStudent extends Migration
      */
     public function up()
     {
-        Schema::table('modules.ficha_medica_aluno', function (Blueprint $table) {
+        Schema::table('Modules.ficha_medica_aluno', function (Blueprint $table) {
             $table->char('aceita_hospital_proximo', 1)->nullable();
             $table->string('desc_aceita_hospital_proximo')->nullable();
         });
@@ -26,7 +26,7 @@ class AddColumnsMedicalRecordStudent extends Migration
      */
     public function down()
     {
-        Schema::table('modules.ficha_medica_aluno', function (Blueprint $table) {
+        Schema::table('Modules.ficha_medica_aluno', function (Blueprint $table) {
             $table->dropColumn(['aceita_hospital_proximo', 'desc_aceita_hospital_proximo']);
         });
     }

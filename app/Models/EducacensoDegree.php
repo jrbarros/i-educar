@@ -10,7 +10,7 @@ class EducacensoDegree extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.educacenso_curso_superior';
+    protected $table = 'Modules.educacenso_curso_superior';
 
     /**
      * @var string

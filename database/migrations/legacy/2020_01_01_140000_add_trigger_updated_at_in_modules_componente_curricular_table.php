@@ -14,7 +14,7 @@ class AddTriggerUpdatedAtInModulesComponenteCurricularTable extends Migration
      */
     public function up()
     {
-        $this->createUpdatedAtTrigger('modules.componente_curricular');
+        $this->createUpdatedAtTrigger('Modules.componente_curricular');
     }
 
     /**
@@ -24,6 +24,6 @@ class AddTriggerUpdatedAtInModulesComponenteCurricularTable extends Migration
      */
     public function down()
     {
-        $this->dropUpdatedAtTrigger('modules.componente_curricular');
+        $this->dropUpdatedAtTrigger('Modules.componente_curricular');
     }
 }

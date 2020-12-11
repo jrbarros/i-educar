@@ -9,7 +9,7 @@ class LegacyAverageFormula extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.formula_media';
+    protected $table = 'Modules.formula_media';
 
     /**
      * @var string

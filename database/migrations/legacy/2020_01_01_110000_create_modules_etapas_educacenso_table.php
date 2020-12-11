@@ -16,13 +16,13 @@ class CreateModulesEtapasEducacensoTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE TABLE modules.etapas_educacenso (
+
+                CREATE TABLE Modules.etapas_educacenso (
                     id integer NOT NULL,
                     nome character varying(255)
                 );
-                
-                ALTER TABLE ONLY modules.etapas_educacenso
+
+                ALTER TABLE ONLY Modules.etapas_educacenso
                     ADD CONSTRAINT etapas_educacenso_pk PRIMARY KEY (id);
             '
         );
@@ -35,6 +35,6 @@ class CreateModulesEtapasEducacensoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.etapas_educacenso');
+        Schema::dropIfExists('Modules.etapas_educacenso');
     }
 }

@@ -16,15 +16,15 @@ class CreateModulesTabelaArredondamentoTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = false;
-                
-                CREATE SEQUENCE modules.tabela_arredondamento_id_seq
+
+                CREATE SEQUENCE Modules.tabela_arredondamento_id_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.tabela_arredondamento (
+                CREATE TABLE Modules.tabela_arredondamento (
                     id integer NOT NULL,
                     instituicao_id integer NOT NULL,
                     nome character varying(50) NOT NULL,
@@ -33,16 +33,16 @@ class CreateModulesTabelaArredondamentoTable extends Migration
 	                arredondar_nota int2 NOT NULL DEFAULT \'0\'::smallint
                 );
 
-                ALTER SEQUENCE modules.tabela_arredondamento_id_seq OWNED BY modules.tabela_arredondamento.id;
-                
-                ALTER TABLE ONLY modules.tabela_arredondamento
+                ALTER SEQUENCE Modules.tabela_arredondamento_id_seq OWNED BY Modules.tabela_arredondamento.id;
+
+                ALTER TABLE ONLY Modules.tabela_arredondamento
                     ADD CONSTRAINT tabela_arredondamento_pkey PRIMARY KEY (id, instituicao_id);
 
-                ALTER TABLE ONLY modules.tabela_arredondamento ALTER COLUMN id SET DEFAULT nextval(\'modules.tabela_arredondamento_id_seq\'::regclass);
-                
-                CREATE UNIQUE INDEX tabela_arredondamento_id_key ON modules.tabela_arredondamento USING btree (id);
+                ALTER TABLE ONLY Modules.tabela_arredondamento ALTER COLUMN id SET DEFAULT nextval(\'Modules.tabela_arredondamento_id_seq\'::regclass);
 
-                SELECT pg_catalog.setval(\'modules.tabela_arredondamento_id_seq\', 2, true);
+                CREATE UNIQUE INDEX tabela_arredondamento_id_key ON Modules.tabela_arredondamento USING btree (id);
+
+                SELECT pg_catalog.setval(\'Modules.tabela_arredondamento_id_seq\', 2, true);
             '
         );
     }
@@ -54,6 +54,6 @@ class CreateModulesTabelaArredondamentoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.tabela_arredondamento');
+        Schema::dropIfExists('Modules.tabela_arredondamento');
     }
 }

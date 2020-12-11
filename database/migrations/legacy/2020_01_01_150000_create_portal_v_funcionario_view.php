@@ -13,7 +13,7 @@ class CreatePortalVFuncionarioView extends Migration
     public function up()
     {
         DB::unprepared(
-            'DROP VIEW IF EXISTS portal.v_funcionario;'
+            'DROP VIEW IF EXISTS Portal.v_funcionario;'
         );
 
         DB::unprepared(
@@ -29,7 +29,7 @@ class CreatePortalVFuncionarioView extends Migration
     public function down()
     {
         DB::unprepared(
-            'DROP VIEW IF EXISTS portal.v_funcionario;'
+            'DROP VIEW IF EXISTS Portal.v_funcionario;'
         );
     }
 }

@@ -64,7 +64,7 @@ class AddForeignKeysInPmieducarTurmaTable extends Migration
 
             $table->foreign('ref_cod_disciplina_dispensada')
                ->references('id')
-               ->on('modules.componente_curricular');
+               ->on('Modules.componente_curricular');
         });
     }
 

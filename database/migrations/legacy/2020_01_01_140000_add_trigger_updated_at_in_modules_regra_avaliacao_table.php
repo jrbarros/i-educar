@@ -14,7 +14,7 @@ class AddTriggerUpdatedAtInModulesRegraAvaliacaoTable extends Migration
      */
     public function up()
     {
-        $this->createUpdatedAtTrigger('modules.regra_avaliacao');
+        $this->createUpdatedAtTrigger('Modules.regra_avaliacao');
     }
 
     /**
@@ -24,6 +24,6 @@ class AddTriggerUpdatedAtInModulesRegraAvaliacaoTable extends Migration
      */
     public function down()
     {
-        $this->dropUpdatedAtTrigger('modules.regra_avaliacao');
+        $this->dropUpdatedAtTrigger('Modules.regra_avaliacao');
     }
 }

@@ -103,7 +103,7 @@ class CoreExt_EnumTest extends PHPUnit\Framework\TestCase
   }
 
   /**
-   * @expectedException CoreExt_Exception
+   * @expectedException CoreExtensionException
    */
   public function testEnumEApenasLeitura()
   {
@@ -112,7 +112,7 @@ class CoreExt_EnumTest extends PHPUnit\Framework\TestCase
   }
 
   /**
-   * @expectedException CoreExt_Exception
+   * @expectedException CoreExtensionException
    */
   public function testEnumNaoPermiteRemoverEntrada()
   {

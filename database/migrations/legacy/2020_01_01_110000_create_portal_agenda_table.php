@@ -16,16 +16,16 @@ class CreatePortalAgendaTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = true;
-                
-                CREATE SEQUENCE portal.agenda_cod_agenda_seq
+
+                CREATE SEQUENCE Portal.agenda_cod_agenda_seq
                     START WITH 0
                     INCREMENT BY 1
                     MINVALUE 0
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE portal.agenda (
-                    cod_agenda integer DEFAULT nextval(\'portal.agenda_cod_agenda_seq\'::regclass) NOT NULL,
+                CREATE TABLE Portal.agenda (
+                    cod_agenda integer DEFAULT nextval(\'Portal.agenda_cod_agenda_seq\'::regclass) NOT NULL,
                     ref_ref_cod_pessoa_exc integer,
                     ref_ref_cod_pessoa_cad integer NOT NULL,
                     nm_agenda character varying NOT NULL,
@@ -35,11 +35,11 @@ class CreatePortalAgendaTable extends Migration
                     data_edicao timestamp without time zone,
                     ref_ref_cod_pessoa_own integer
                 );
-                
-                ALTER TABLE ONLY portal.agenda
+
+                ALTER TABLE ONLY Portal.agenda
                     ADD CONSTRAINT agenda_pkey PRIMARY KEY (cod_agenda);
 
-                SELECT pg_catalog.setval(\'portal.agenda_cod_agenda_seq\', 1, true);
+                SELECT pg_catalog.setval(\'Portal.agenda_cod_agenda_seq\', 1, true);
             '
         );
     }
@@ -51,8 +51,8 @@ class CreatePortalAgendaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portal.agenda');
+        Schema::dropIfExists('Portal.agenda');
 
-        DB::unprepared('DROP SEQUENCE portal.agenda_cod_agenda_seq;');
+        DB::unprepared('DROP SEQUENCE Portal.agenda_cod_agenda_seq;');
     }
 }

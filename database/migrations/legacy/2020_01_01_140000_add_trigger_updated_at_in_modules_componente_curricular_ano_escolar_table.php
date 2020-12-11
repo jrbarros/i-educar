@@ -14,7 +14,7 @@ class AddTriggerUpdatedAtInModulesComponenteCurricularAnoEscolarTable extends Mi
      */
     public function up()
     {
-        $this->createUpdatedAtTrigger('modules.componente_curricular_ano_escolar');
+        $this->createUpdatedAtTrigger('Modules.componente_curricular_ano_escolar');
     }
 
     /**
@@ -24,6 +24,6 @@ class AddTriggerUpdatedAtInModulesComponenteCurricularAnoEscolarTable extends Mi
      */
     public function down()
     {
-        $this->dropUpdatedAtTrigger('modules.componente_curricular_ano_escolar');
+        $this->dropUpdatedAtTrigger('Modules.componente_curricular_ano_escolar');
     }
 }

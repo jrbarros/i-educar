@@ -137,7 +137,7 @@ class Avaliacao_Service_NotaRecuperacaoTest extends Avaliacao_Service_TestCommon
 
     $mock->expects($this->at(1))
          ->method('find')
-         ->with(array($notaAluno->id, $this->_getConfigOption('matricula', 'cod_matricula')))
+         ->with(array($notaAluno->id, $this->_getConfigOption('Matricula', 'cod_matricula')))
          ->will($this->returnValue(array()));
 
     $mock->expects($this->at(2))

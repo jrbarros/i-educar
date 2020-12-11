@@ -13,7 +13,7 @@ class CreateModulesAreaConhecimentoExcluidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules.area_conhecimento_excluidos', function (Blueprint $table) {
+        Schema::create('Modules.area_conhecimento_excluidos', function (Blueprint $table) {
             $table->integer('id');
             $table->integer('instituicao_id');
             $table->string('nome');
@@ -31,6 +31,6 @@ class CreateModulesAreaConhecimentoExcluidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.area_conhecimento_excluidos');
+        Schema::dropIfExists('Modules.area_conhecimento_excluidos');
     }
 }

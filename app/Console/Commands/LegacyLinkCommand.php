@@ -62,7 +62,7 @@ class LegacyLinkCommand extends Command
                 'Intranet/tmp',
             ],
             '../' => [
-                'modules',
+                'Modules',
             ],
         ];
 

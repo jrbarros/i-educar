@@ -16,16 +16,16 @@ class CreateModulesPessoaTransporteTable extends Migration
         DB::unprepared(
             '
                 SET default_with_oids = true;
-                
-                CREATE SEQUENCE modules.pessoa_transporte_seq
+
+                CREATE SEQUENCE Modules.pessoa_transporte_seq
                     START WITH 1
                     INCREMENT BY 1
                     NO MINVALUE
                     NO MAXVALUE
                     CACHE 1;
 
-                CREATE TABLE modules.pessoa_transporte (
-                    cod_pessoa_transporte integer DEFAULT nextval(\'modules.pessoa_transporte_seq\'::regclass) NOT NULL,
+                CREATE TABLE Modules.pessoa_transporte (
+                    cod_pessoa_transporte integer DEFAULT nextval(\'Modules.pessoa_transporte_seq\'::regclass) NOT NULL,
                     ref_idpes integer NOT NULL,
                     ref_cod_rota_transporte_escolar integer NOT NULL,
                     ref_cod_ponto_transporte_escolar integer,
@@ -33,11 +33,11 @@ class CreateModulesPessoaTransporteTable extends Migration
                     observacao character varying(255),
                     turno character varying(255)
                 );
-                
-                ALTER TABLE ONLY modules.pessoa_transporte
+
+                ALTER TABLE ONLY Modules.pessoa_transporte
                     ADD CONSTRAINT pessoa_transporte_cod_pessoa_transporte_pkey PRIMARY KEY (cod_pessoa_transporte);
 
-                SELECT pg_catalog.setval(\'modules.pessoa_transporte_seq\', 1, false);
+                SELECT pg_catalog.setval(\'Modules.pessoa_transporte_seq\', 1, false);
             '
         );
     }
@@ -49,8 +49,8 @@ class CreateModulesPessoaTransporteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.pessoa_transporte');
+        Schema::dropIfExists('Modules.pessoa_transporte');
 
-        DB::unprepared('DROP SEQUENCE modules.pessoa_transporte_seq;');
+        DB::unprepared('DROP SEQUENCE Modules.pessoa_transporte_seq;');
     }
 }

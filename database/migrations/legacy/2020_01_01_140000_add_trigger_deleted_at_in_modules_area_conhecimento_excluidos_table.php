@@ -14,7 +14,7 @@ class AddTriggerDeletedAtInModulesAreaConhecimentoExcluidosTable extends Migrati
      */
     public function up()
     {
-        $this->whenDeletedMoveTo('modules.area_conhecimento', 'modules.area_conhecimento_excluidos', [
+        $this->whenDeletedMoveTo('Modules.area_conhecimento', 'Modules.area_conhecimento_excluidos', [
             'id',
             'instituicao_id',
             'nome',
@@ -30,6 +30,6 @@ class AddTriggerDeletedAtInModulesAreaConhecimentoExcluidosTable extends Migrati
      */
     public function down()
     {
-        $this->dropTriggerWhenDeleted('modules.area_conhecimento');
+        $this->dropTriggerWhenDeleted('Modules.area_conhecimento');
     }
 }

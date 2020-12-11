@@ -29,7 +29,7 @@
  * @version     $Id$
  */
 
-require_once 'Core/Controller/Page/Abstract.php';
+require_once 'Core/Controller/Page/CoreControllerPageAbstract.php';
 
 /**
  * IndexController class.
@@ -42,7 +42,7 @@ require_once 'Core/Controller/Page/Abstract.php';
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
  */
-class IndexController extends Core_Controller_Page_Abstract
+class IndexController extends CoreControllerPageAbstract
 {
   public function setOptions(array $options = array())
   {

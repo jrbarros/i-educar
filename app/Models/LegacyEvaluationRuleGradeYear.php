@@ -10,7 +10,7 @@ class LegacyEvaluationRuleGradeYear extends Model
     /**
      * @var string
      */
-    protected $table = 'modules.regra_avaliacao_serie_ano';
+    protected $table = 'Modules.regra_avaliacao_serie_ano';
 
     /**
      * @var string

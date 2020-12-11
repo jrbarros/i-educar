@@ -48,7 +48,7 @@ class Register30StudentDataAnalysis implements AnalysisInterface
             $this->messages[] = [
                 'text' => "Dados para formular o registro 30 da escola {$data->nomeEscola} não encontrados. Verificamos que o curso ou a turma do(a) aluno(a) {$data->nomePessoa} é de AEE, portanto é necessário informar qual a sua deficiência.",
                 'path' => '(Escola > Cadastros > Alunos > Editar > Aba: Dados pessoais > Campo: Deficiências / habilidades especiais)',
-                'linkPath' => "/module/Cadastro/aluno?id={$data->codigoAluno}",
+                'linkPath' => "/Module/Cadastro/aluno?id={$data->codigoAluno}",
                 'fail' => true
             ];
         }
@@ -58,7 +58,7 @@ class Register30StudentDataAnalysis implements AnalysisInterface
             $this->messages[] = [
                 'text' => "Dados para formular o registro 30 da escola {$data->nomeEscola} não encontrados. Verificamos que o(a) aluno(a)  {$data->nomePessoa} possui deficiência, portanto é necessário informar qual o recurso para a realização de provas o(a) mesmo(a) necessita ou já recebe.",
                 'path' => '(Escola > Cadastros > Alunos > Editar > Aba: Dados educacenso > Campo: Recursos necessários para realização de provas)',
-                'linkPath' => "/module/Cadastro/aluno?id={$data->codigoAluno}",
+                'linkPath' => "/Module/Cadastro/aluno?id={$data->codigoAluno}",
                 'fail' => true
             ];
         }
@@ -68,7 +68,7 @@ class Register30StudentDataAnalysis implements AnalysisInterface
             $this->messages[] = [
                 'text' => "Dados para formular o registro 30 da escola {$data->nomeEscola} possui valor inválido. Verificamos que o(s) recurso(s) necessário(s) para realização de provas foi preenchido incorretamente para o(a) aluno(a) {$data->nomePessoa}.",
                 'path' => '(Escola > Cadastros > Alunos > Editar > Aba: Dados pessoais > Campo: Recursos necessários para realização de provas)',
-                'linkPath' => "/module/Cadastro/aluno?id={$data->codigoAluno}",
+                'linkPath' => "/Module/Cadastro/aluno?id={$data->codigoAluno}",
                 'fail' => true
             ];
         }

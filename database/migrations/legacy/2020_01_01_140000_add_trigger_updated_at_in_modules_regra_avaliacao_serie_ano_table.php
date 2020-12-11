@@ -14,7 +14,7 @@ class AddTriggerUpdatedAtInModulesRegraAvaliacaoSerieAnoTable extends Migration
      */
     public function up()
     {
-        $this->createUpdatedAtTrigger('modules.regra_avaliacao_serie_ano');
+        $this->createUpdatedAtTrigger('Modules.regra_avaliacao_serie_ano');
     }
 
     /**
@@ -24,6 +24,6 @@ class AddTriggerUpdatedAtInModulesRegraAvaliacaoSerieAnoTable extends Migration
      */
     public function down()
     {
-        $this->dropUpdatedAtTrigger('modules.regra_avaliacao_serie_ano');
+        $this->dropUpdatedAtTrigger('Modules.regra_avaliacao_serie_ano');
     }
 }

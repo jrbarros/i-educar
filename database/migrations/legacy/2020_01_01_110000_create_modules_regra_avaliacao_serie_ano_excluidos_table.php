@@ -13,7 +13,7 @@ class CreateModulesRegraAvaliacaoSerieAnoExcluidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules.regra_avaliacao_serie_ano_excluidos', function (Blueprint $table) {
+        Schema::create('Modules.regra_avaliacao_serie_ano_excluidos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('serie_id');
             $table->integer('regra_avaliacao_id');
@@ -31,6 +31,6 @@ class CreateModulesRegraAvaliacaoSerieAnoExcluidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules.regra_avaliacao_serie_ano_excluidos');
+        Schema::dropIfExists('Modules.regra_avaliacao_serie_ano_excluidos');
     }
 }

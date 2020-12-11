@@ -28,10 +28,10 @@ class CreatePmieducarServidorFuncaoTable extends Migration
                     ref_ref_cod_instituicao integer NOT NULL,
                     ref_cod_servidor integer NOT NULL,
                     ref_cod_funcao integer NOT NULL,
-                    matricula character varying,
+                    Matricula character varying,
                     cod_servidor_funcao integer DEFAULT nextval(\'pmieducar.servidor_funcao_seq\'::regclass) NOT NULL
                 );
-                
+
                 ALTER TABLE ONLY pmieducar.servidor_funcao
                     ADD CONSTRAINT cod_servidor_funcao_pkey PRIMARY KEY (cod_servidor_funcao);
 

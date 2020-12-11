@@ -79,7 +79,7 @@ class EducacensoController extends Controller
         }
 
         if ($record == '50') {
-            require_once base_path('ieducar/modules/ComponenteCurricular/Model/CodigoEducacenso.php');
+            require_once base_path('Ieducar/Modules/ComponenteCurricular/Model/CodigoEducacenso.php');
 
             $paginate = $repository->getBuilderForRecord50($year, $school)
                 ->paginate();
