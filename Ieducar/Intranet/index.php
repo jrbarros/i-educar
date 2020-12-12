@@ -98,7 +98,7 @@ class indice
         $id_pessoa = Session::get('id_pessoa');
 
         if ($id_pessoa) {
-            $endScript = '<script>var x = new Array();' . PHP_EOL;
+            $endScript = '<script>var x = new Collection();' . PHP_EOL;
 
             $temp = '';
 

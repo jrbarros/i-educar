@@ -34,7 +34,7 @@
  * @version     $Id$
  */
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
 require_once 'Avaliacao/Service/Boletim.php';
 
@@ -94,7 +94,7 @@ class FaltaController extends Core_Controller_Page_EditController
     protected $_falta = null;
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_preConstruct()
+     * @see CoreControllerPageEditController#_preConstruct()
      */
     protected function _preConstruct()
     {
@@ -117,7 +117,7 @@ class FaltaController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_initNovo()
+     * @see CoreControllerPageEditController#_initNovo()
      */
     protected function _initNovo()
     {
@@ -143,7 +143,7 @@ class FaltaController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_initEditar()
+     * @see CoreControllerPageEditController#_initEditar()
      */
     protected function _initEditar()
     {
@@ -188,7 +188,7 @@ class FaltaController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_save()
+     * @see CoreControllerPageEditController#_save()
      */
     protected function _save()
     {

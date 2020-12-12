@@ -1,9 +1,9 @@
 <?php
 
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Date/AppDateUtils.php';
 require_once 'Source/pmieducar/geral.inc.php';
 
@@ -89,7 +89,7 @@ class SerieController extends ApiCoreController
                 'deleted_at' => 'deleted_at',
             ];
 
-            $series = Portabilis_Array_Utils::filterSet($series, $attrs);
+            $series = Utils::filterSet($series, $attrs);
 
             return ['series' => $series ];
         }
@@ -120,7 +120,7 @@ class SerieController extends ApiCoreController
           'nm_serie' => 'nome'
         ];
 
-        $series = Portabilis_Array_Utils::filterSet($series, $attrs);
+        $series = Utils::filterSet($series, $attrs);
 
         return ['series' => $series ];
     }
@@ -180,7 +180,7 @@ class SerieController extends ApiCoreController
             'nm_serie' => 'nome'
         ];
 
-        $series = Portabilis_Array_Utils::filterSet($series, $attrs);
+        $series = Utils::filterSet($series, $attrs);
 
         return ['series' => $series ];
     }
@@ -207,7 +207,7 @@ class SerieController extends ApiCoreController
             'nm_serie' => 'nome'
         ];
 
-        $series = Portabilis_Array_Utils::filterSet($series, $attrs);
+        $series = Utils::filterSet($series, $attrs);
 
         return ['series' => $series ];
     }
@@ -221,7 +221,7 @@ class SerieController extends ApiCoreController
 
         $series = $this->fetchPreparedQuery($sql);
         $attrs = ['id', 'nome', 'cod_curso', 'nm_curso'];
-        $series = Portabilis_Array_Utils::filterSet($series, $attrs);
+        $series = Utils::filterSet($series, $attrs);
 
         foreach ($series as $serie) {
             $seriePorCurso[$serie['cod_curso']]['nome'] = $serie['nm_curso'];

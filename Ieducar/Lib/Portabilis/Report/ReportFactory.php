@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 
 abstract class Portabilis_Report_ReportFactory
 {
@@ -28,18 +28,18 @@ abstract class Portabilis_Report_ReportFactory
     }
 
     /**
-     * Wrapper para Portabilis_Array_Utils::merge.
-     *
-     * @see Portabilis_Array_Utils::merge()
+     * Wrapper para Utils::merge.
      *
      * @param array $options
      * @param array $defaultOptions
      *
      * @return array
+     *@see Utils::merge()
+     *
      */
     protected static function mergeOptions($options, $defaultOptions)
     {
-        return Portabilis_Array_Utils::merge($options, $defaultOptions);
+        return Utils::merge($options, $defaultOptions);
     }
 
     /**

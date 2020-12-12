@@ -2,7 +2,7 @@
 
 use iEducar\Support\View\SelectOptions;
 
-require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditController.php';
 require_once 'Usuario/Model/FuncionarioDataMapper.php';
 require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
 require_once('Source/Banco.php');

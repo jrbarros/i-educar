@@ -224,7 +224,7 @@ abstract class Validate implements CoreExtControllerInterface
      * </code>
      *
      * @param array|string $key     O identificador da mensagem no array $_options
-     * @param array        $options Array associativo para substituição de valores
+     * @param array        $options Collection associativo para substituição de valores
      *
      * @return string
      *

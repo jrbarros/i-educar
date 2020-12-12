@@ -9,7 +9,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchComponenteCurricular e
     {
         if (empty($resources)) {
             $resources = Portabilis_Utils_Database::fetchPreparedQuery('SELECT id, nome FROM Modules.componente_curricular');
-            $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'id', 'nome');
+            $resources = Utils::setAsIdValue($resources, 'id', 'nome');
         }
 
         return $this->insertOption(null, '', $resources);

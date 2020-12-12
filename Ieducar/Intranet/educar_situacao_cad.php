@@ -100,14 +100,14 @@ class indice extends clsCadastro
         //-------------- JS para os Check --------------//
         //if (!$this->cod_situacao)
         //  {
-        /*$todas_situacoes = "situacao = new Array();\n";
+        /*$todas_situacoes = "situacao = new Collection();\n";
         $obj_biblioteca = new Situacao();
         $lista = $obj_biblioteca->lista(null,null,null,null,null,null,null,null,null,null,null,null,1);
         if ( is_array( $lista ) && count( $lista ) )
         {
             foreach ( $lista as $registro )
             {
-                $todas_situacoes .= "situacao[situacao.length] = new Array( {$registro["cod_situacao"]}, {$registro['situacao_padrao']}, {$registro['situacao_emprestada']}, {$registro['ref_cod_biblioteca']});\n";
+                $todas_situacoes .= "situacao[situacao.length] = new Collection( {$registro["cod_situacao"]}, {$registro['situacao_padrao']}, {$registro['situacao_emprestada']}, {$registro['ref_cod_biblioteca']});\n";
             }
         }
         echo "<script>{$todas_situacoes}</script>";*/

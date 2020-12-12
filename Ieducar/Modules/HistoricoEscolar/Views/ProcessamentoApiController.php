@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\DB;
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
 require_once 'Avaliacao/Service/Boletim.php';
 require_once 'App/Model/MatriculaSituacao.php';

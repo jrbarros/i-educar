@@ -65,7 +65,7 @@ class RDStationAPI
     /**
     $method:  (Text) POST, PUT
     $url:     (Text) RD Station endpoint returned by $this->getURL()
-    $data:    (Array)
+    $data:    (Collection)
     **/
     protected function request($method='POST', $url, $data=[])
     {
@@ -96,7 +96,7 @@ class RDStationAPI
 
     /**
     $email: (Text) The email of the lead
-    $data:  (Array) Custom data array, example:
+    $data:  (Collection) Custom data array, example:
       array(
         "identificador" => "contact-form",
         "nome" => "JÃºlio Paulillo",

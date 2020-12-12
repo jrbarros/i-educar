@@ -11,7 +11,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchAutores extends Portab
         if (empty($resources)) {
             $resources = new AcervoAutor();
             $resources = $resources->lista();
-            $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'cod_acervo_autor', 'nm_autor');
+            $resources = Utils::setAsIdValue($resources, 'cod_acervo_autor', 'nm_autor');
         }
 
         return $this->insertOption(null, '', $resources);

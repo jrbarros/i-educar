@@ -1,9 +1,9 @@
 <?php
 
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Date/AppDateUtils.php';
 
 class CursoController extends ApiCoreController
@@ -135,10 +135,10 @@ class CursoController extends ApiCoreController
                ORDER BY t.nm_turma ASC');
 
                             $attrs['turmas'] = 'turmas';
-                            $serie['turmas'] = Portabilis_Array_Utils::filterSet($turmas, ['cod_turma', 'nm_turma', 'escola_id', 'turma_turno_id', 'ano']);
+                            $serie['turmas'] = Utils::filterSet($turmas, ['cod_turma', 'nm_turma', 'escola_id', 'turma_turno_id', 'ano']);
                         }
                     }
-                    $curso['series'] = Portabilis_Array_Utils::filterSet($series, $attrs);
+                    $curso['series'] = Utils::filterSet($series, $attrs);
                 }
             }
 
@@ -153,7 +153,7 @@ class CursoController extends ApiCoreController
                 $attrs['series'] = 'series';
             }
 
-            $cursos = Portabilis_Array_Utils::filterSet($cursos, $attrs);
+            $cursos = Utils::filterSet($cursos, $attrs);
 
             return ['cursos' => $cursos ];
         }
@@ -172,7 +172,7 @@ class CursoController extends ApiCoreController
 
         $cursos = $this->fetchPreparedQuery($sql);
 
-        $cursos = Portabilis_Array_Utils::setAsIdValue($cursos, 'id', 'nome');
+        $cursos = Utils::setAsIdValue($cursos, 'id', 'nome');
 
         return ['options' => $cursos];
     }

@@ -144,7 +144,7 @@ class indice extends clsListagem
         // outros de Foreign Keys
         $opcoes = ['' => 'Selecione'];
 
-        $todos_niveis_ensino = "nivel_ensino = new Array();\n";
+        $todos_niveis_ensino = "nivel_ensino = new Collection();\n";
         $objTemp = new NivelEnsino();
         $lista = $objTemp->lista(
         null,
@@ -161,7 +161,7 @@ class indice extends clsListagem
 
         if (is_array($lista) && count($lista)) {
             foreach ($lista as $registro) {
-                $todos_niveis_ensino .= "nivel_ensino[nivel_ensino.length] = new Array({$registro['cod_nivel_ensino']},'{$registro['nm_nivel']}', {$registro['ref_cod_instituicao']});\n";
+                $todos_niveis_ensino .= "nivel_ensino[nivel_ensino.length] = new Collection({$registro['cod_nivel_ensino']},'{$registro['nm_nivel']}', {$registro['ref_cod_instituicao']});\n";
             }
         }
         echo "<script>{$todos_niveis_ensino}</script>";
@@ -204,14 +204,14 @@ class indice extends clsListagem
 
         $opcoes = ['' => 'Selecione'];
 
-        $todos_tipos_ensino = "tipo_ensino = new Array();\n";
+        $todos_tipos_ensino = "tipo_ensino = new Collection();\n";
         $objTemp = new TipoEnsino();
         $objTemp->setOrderby('nm_tipo');
         $lista = $objTemp->lista(null, null, null, null, null, null, 1);
 
         if (is_array($lista) && count($lista)) {
             foreach ($lista as $registro) {
-                $todos_tipos_ensino .= "tipo_ensino[tipo_ensino.length] = new Array({$registro['cod_tipo_ensino']},'{$registro['nm_tipo']}', {$registro['ref_cod_instituicao']});\n";
+                $todos_tipos_ensino .= "tipo_ensino[tipo_ensino.length] = new Collection({$registro['cod_tipo_ensino']},'{$registro['nm_tipo']}', {$registro['ref_cod_instituicao']});\n";
             }
         }
         echo "<script>{$todos_tipos_ensino}</script>";

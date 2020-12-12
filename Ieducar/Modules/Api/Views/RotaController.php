@@ -4,7 +4,7 @@ require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
 require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
 require_once 'Source/Modules/clsModulesItinerarioTransporteEscolar.inc.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Text/AppDateUtils.php';
 require_once 'Portabilis/Date/AppDateUtils.php';
 
@@ -87,7 +87,7 @@ class RotaController extends ApiCoreController
             'tercerizado' => 'tercerizado'
         ];
 
-        $rota = Portabilis_Array_Utils::filter($rota, $attrs);
+        $rota = Utils::filter($rota, $attrs);
 
         $rota['nomeEmpresa'] = Portabilis_String_Utils::toUtf8($this->loadNomeEmpresa($id));
         $rota['nomeDestino'] = Portabilis_String_Utils::toUtf8($this->loadNomePessoaj($id));

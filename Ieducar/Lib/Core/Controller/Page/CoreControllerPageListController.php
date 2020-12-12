@@ -2,10 +2,12 @@
 
 namespace iEducarLegacy\Lib\Core\Controller\Page;
 
+use iEducarLegacy\Intranet\Source\Listagem;
+use iEducarLegacy\Lib\Core\View\CoreViewTabulable;
 use Illuminate\Support\Facades\Session;
 
 
-class CoreControllerPageListController extends clsListagem implements Core_View_Tabulable
+class CoreControllerPageListController extends Listagem implements CoreViewTabulable
 {
     /**
      * Mapeia um nome descritivo a um atributo de Entity retornado pela

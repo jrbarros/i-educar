@@ -1,14 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\Controller;
+
 use iEducar\Modules\ErrorTracking\TrackerFactory;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
-require_once 'lib/Portabilis/View/Helper/Inputs.php';
-require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'Source/pmieducar/Permissoes.php';
-
-class Portabilis_Controller_ReportCoreController extends Core_Controller_Page_EditController
+/**
+ * Class ReportCoreController
+ * @package iEducarLegacy\Lib\Portabilis\Controller
+ */
+class ReportCoreController extends EditController
 {
     /**
      * Setado qualquer Data Mapper pois é obrigatório.
@@ -36,7 +37,7 @@ class Portabilis_Controller_ReportCoreController extends Core_Controller_Page_Ed
     protected $report;
 
     /**
-     * Portabilis_Controller_ReportCoreController constructor.
+     * ReportCoreController constructor.
      */
     public function __construct()
     {

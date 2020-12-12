@@ -1,6 +1,12 @@
 <?php
 
-class Portabilis_Messenger
+namespace iEducarLegacy\Lib\Portabilis;
+
+/**
+ * Class Messenger
+ * @package iEducarLegacy\Lib\Portabilis
+ */
+class Messenger
 {
     public function __construct()
     {

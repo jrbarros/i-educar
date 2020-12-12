@@ -11,7 +11,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchAssuntos extends Porta
         if (empty($resources)) {
             $resources = new AcervoAssunto();
             $resources = $resources->lista();
-            $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'cod_acervo_assunto', 'nm_assunto');
+            $resources = Utils::setAsIdValue($resources, 'cod_acervo_assunto', 'nm_assunto');
         }
 
         return $this->insertOption(null, '', $resources);

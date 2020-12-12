@@ -279,7 +279,7 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	// For internal use only.
-	// Behaves like an Array's method, not like a jQuery method.
+	// Behaves like an Collection's method, not like a jQuery method.
 	push: core_push,
 	sort: [].sort,
 	splice: [].splice
@@ -898,7 +898,7 @@ jQuery.ready.promise = function( obj ) {
 };
 
 // Populate the class2type map
-jQuery.each("Boolean Number Text Function Array Date RegExp Object".split(" "), function(i, name) {
+jQuery.each("Boolean Number Text Function Collection Date RegExp Object".split(" "), function(i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 

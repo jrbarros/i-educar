@@ -1,7 +1,7 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'Intranet/Source/Banco.php';
 
 class InstituicaoDocumentacaoController extends ApiCoreController
@@ -29,7 +29,7 @@ class InstituicaoDocumentacaoController extends ApiCoreController
         $sql = "SELECT * FROM pmieducar.instituicao_documentacao WHERE instituicao_id = $var1 ORDER BY id DESC";
         $instituicao = $this->fetchPreparedQuery($sql);
         $attrs = ['id', 'titulo_documento', 'url_documento', 'ref_usuario_cad', 'ref_cod_escola'];
-        $instituicao = Portabilis_Array_Utils::filterSet($instituicao, $attrs);
+        $instituicao = Utils::filterSet($instituicao, $attrs);
 
         return ['documentos' => $instituicao];
     }

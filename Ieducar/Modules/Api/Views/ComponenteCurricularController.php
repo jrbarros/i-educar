@@ -3,7 +3,7 @@
 use App\Models\MigratedDiscipline;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 require_once 'lib/App/Model/Finder.php';
@@ -89,7 +89,7 @@ class ComponenteCurricularController extends ApiCoreController
             $disciplinas = $this->fetchPreparedQuery($sql, $params);
 
             $attrs = ['id', 'nome', 'area_conhecimento_id', 'nome_area', 'ordenamento', 'updated_at'];
-            $disciplinas = Portabilis_Array_Utils::filterSet($disciplinas, $attrs);
+            $disciplinas = Utils::filterSet($disciplinas, $attrs);
 
             return ['disciplinas' => $disciplinas];
         }
@@ -124,7 +124,7 @@ class ComponenteCurricularController extends ApiCoreController
             $disciplinas = $this->fetchPreparedQuery($sql, [$instituicaoId]);
 
             $attrs = ['id', 'nome', 'anos_letivos', 'carga_horaria', 'tipo_nota', 'area_conhecimento_id', 'nome_area'];
-            $disciplinas = Portabilis_Array_Utils::filterSet($disciplinas, $attrs);
+            $disciplinas = Utils::filterSet($disciplinas, $attrs);
 
             foreach ($disciplinas as &$disciplina) {
                 $disciplina['anos_letivos'] = json_decode($disciplina['anos_letivos']);
@@ -217,7 +217,7 @@ class ComponenteCurricularController extends ApiCoreController
                 $componentesCurriculares = $this->fetchPreparedQuery($sql, $params);
             }
 
-            $componentesCurriculares = Portabilis_Array_Utils::setAsIdValue($componentesCurriculares, 'id', 'nome');
+            $componentesCurriculares = Utils::setAsIdValue($componentesCurriculares, 'id', 'nome');
 
             return ['options' => $componentesCurriculares];
         }

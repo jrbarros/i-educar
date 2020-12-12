@@ -1,7 +1,7 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 
 class EtapasController extends ApiCoreController
 {
@@ -147,7 +147,7 @@ class EtapasController extends ApiCoreController
         ";
 
         $etapas = $this->fetchPreparedQuery($sql, $params);
-        $etapas = Portabilis_Array_Utils::filterSet($etapas, [
+        $etapas = Utils::filterSet($etapas, [
             'turma_id', 'disciplina_id', 'etapas_especificas', 'etapas_utilizadas', 'updated_at', 'deleted_at'
         ]);
 

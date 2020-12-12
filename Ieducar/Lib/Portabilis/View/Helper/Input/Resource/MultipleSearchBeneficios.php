@@ -11,7 +11,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchBeneficios extends Por
         if (empty($resources)) {
             $resources = new AlunoBeneficio();
             $resources = $resources->lista();
-            $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'cod_aluno_beneficio', 'nm_beneficio');
+            $resources = Utils::setAsIdValue($resources, 'cod_aluno_beneficio', 'nm_beneficio');
         }
 
         return $this->insertOption(null, '', $resources);

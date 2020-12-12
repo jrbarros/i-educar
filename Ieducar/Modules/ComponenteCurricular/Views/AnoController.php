@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'ComponenteCurricular/Model/Componente.php';
 require_once 'ComponenteCurricular/Model/AnoEscolarDataMapper.php';
 
@@ -15,7 +15,7 @@ class AnoController extends Core_Controller_Page_EditController
     protected $_formMap = [];
 
     /**
-     * Array de instâncias ComponenteCurricular_Model_AnoEscolar.
+     * Collection de instâncias ComponenteCurricular_Model_AnoEscolar.
      *
      * @var array
      */
@@ -110,7 +110,7 @@ class AnoController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface::_preConstruct()
+     * @see CoreControllerPageEditController::_preConstruct()
      */
     public function _preConstruct()
     {
@@ -136,7 +136,7 @@ class AnoController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface::_initNovo()
+     * @see CoreControllerPageEditController::_initNovo()
      */
     protected function _initNovo()
     {
@@ -150,7 +150,7 @@ class AnoController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface::_initEditar()
+     * @see CoreControllerPageEditController::_initEditar()
      */
     protected function _initEditar()
     {
@@ -213,7 +213,7 @@ class AnoController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface::_save()
+     * @see CoreControllerPageEditController::_save()
      */
     protected function _save()
     {

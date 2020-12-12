@@ -41,7 +41,7 @@ require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'Source/pmieducar/Exemplar.php';
 require_once 'Source/pmieducar/BibliotecaDia.php';
 require_once 'Source/pmieducar/BibliotecaFeriados.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 
 class EmprestimoApiController extends ApiCoreController
 {
@@ -190,7 +190,7 @@ class EmprestimoApiController extends ApiCoreController
         $cliente = $cliente->detalhe();
 
         if ($cliente) {
-            $cliente = Portabilis_Array_Utils::filter($cliente, ['cod_cliente' => 'id',
+            $cliente = Utils::filter($cliente, ['cod_cliente' => 'id',
                                                                 'ref_idpes'   => 'pessoa_id']);
 
             // load Pessoa
@@ -266,7 +266,7 @@ class EmprestimoApiController extends ApiCoreController
                 $biblioteca_dias_semana[] = $dia_semana['dia'];
             }
         }
-        // Array de dias de não funcionamento
+        // Collection de dias de não funcionamento
         $biblioteca_dias_folga = array_diff($dias_da_semana, $biblioteca_dias_semana);
         // inverte as relacoes entre chaves e valores ( de $variavel["Sun"] => 1, para $variavel[1] => "Sun")
         $biblioteca_dias_folga = array_flip($biblioteca_dias_folga);
@@ -324,7 +324,7 @@ class EmprestimoApiController extends ApiCoreController
       );
 
             if ($reservas) {
-                $reservas = Portabilis_Array_Utils::filterSet($reservas, ['cod_reserva'     => 'id',
+                $reservas = Utils::filterSet($reservas, ['cod_reserva'     => 'id',
                                                                        'data_reserva'    => 'data',
                                                                        'ref_cod_cliente' => 'cliente_id',
                                                                        'data_prevista_disponivel']);
@@ -383,7 +383,7 @@ class EmprestimoApiController extends ApiCoreController
 
         if ($emprestimo) {
             $emprestimo = array_shift($emprestimo);
-            $emprestimo = Portabilis_Array_Utils::filter($emprestimo, ['cod_emprestimo'  => 'id',
+            $emprestimo = Utils::filter($emprestimo, ['cod_emprestimo'  => 'id',
                                                                       'data_retirada'   => 'data',
                                                                       'ref_cod_cliente' => 'cliente_id']);
             // adiciona informações adicionais ao emprestimo
@@ -548,7 +548,7 @@ class EmprestimoApiController extends ApiCoreController
             $acervo = $acervo->detalhe();
 
             if ($acervo) {
-                $acervo = Portabilis_Array_Utils::filter($acervo, ['cod_acervo'             => 'id',
+                $acervo = Utils::filter($acervo, ['cod_acervo'             => 'id',
                                                                 'ref_cod_exemplar_tipo'  => 'exemplar_tipo_id',
                                                                 'ref_cod_acervo'         => 'acervo_referencia_id',
                                                                 'ref_cod_acervo_colecao' => 'colecao_id',
@@ -606,7 +606,7 @@ class EmprestimoApiController extends ApiCoreController
       );
 
             if ($exemplares) {
-                $exemplares = Portabilis_Array_Utils::filterSet($exemplares, ['cod_exemplar'         => 'id',
+                $exemplares = Utils::filterSet($exemplares, ['cod_exemplar'         => 'id',
                                                                            'ref_cod_fonte'        => 'fonte_id',
                                                                            'ref_cod_motivo_baixa' => 'motivo_baixa_id',
                                                                            'ref_cod_acervo'       => 'acervo_id',
@@ -682,7 +682,7 @@ class EmprestimoApiController extends ApiCoreController
     );
 
         if ($situacao) {
-            $situacao = Portabilis_Array_Utils::filter($situacao[0], ['cod_situacao'     => 'id',
+            $situacao = Utils::filter($situacao[0], ['cod_situacao'     => 'id',
                                                                   'ref_cod_biblioteca'  => 'biblioteca_id',
                                                                   'nm_situacao'         => 'label',
                                                                   'situacao_padrao'     => 'padrao',

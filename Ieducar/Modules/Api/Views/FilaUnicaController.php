@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Session;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'lib/Portabilis/Date/AppDateUtils.php';
 require_once 'Source/funcoes.php';
@@ -82,7 +82,7 @@ class FilaUnicaController extends ApiCoreController
             'ideciv'
         ];
 
-        $aluno = Portabilis_Array_Utils::filterSet($this->fetchPreparedQuery($sql), $attrs);
+        $aluno = Utils::filterSet($this->fetchPreparedQuery($sql), $attrs);
 
         return ['aluno' => $aluno[0]];
     }
@@ -138,7 +138,7 @@ class FilaUnicaController extends ApiCoreController
                       FROM pmieducar.serie
                      WHERE ativo = 1
                        AND $1 BETWEEN idade_inicial AND idade_final';
-            $series = Portabilis_Array_Utils::filterSet($this->fetchPreparedQuery($sql, $idade), 'nm_serie');
+            $series = Utils::filterSet($this->fetchPreparedQuery($sql, $idade), 'nm_serie');
 
             return ['series' => $series];
         }
@@ -206,7 +206,7 @@ class FilaUnicaController extends ApiCoreController
                 'telefone_celular'
             ];
 
-            $responsaveis = Portabilis_Array_Utils::filterSet($this->fetchPreparedQuery($sql), $attrs);
+            $responsaveis = Utils::filterSet($this->fetchPreparedQuery($sql), $attrs);
 
             if (!count($responsaveis)) {
                 $sql = "SELECT Pessoa.idpes,
@@ -235,7 +235,7 @@ class FilaUnicaController extends ApiCoreController
                                                                  AND fpc.tipo = 2)
                          WHERE ref_cod_aluno = {$aluno}";
 
-                $responsaveis = Portabilis_Array_Utils::filterSet($this->fetchPreparedQuery($sql), $attrs);
+                $responsaveis = Utils::filterSet($this->fetchPreparedQuery($sql), $attrs);
             }
 
             return ['responsaveis' => $responsaveis];

@@ -19,7 +19,7 @@ abstract class Entity implements Validatable
     protected $_new = true;
 
     /**
-     * Array associativo onde os índices se comportarão como atributos públicos
+     * Collection associativo onde os índices se comportarão como atributos públicos
      * graças a implementação dos métodos mágicos de overload.
      *
      * @var array
@@ -27,7 +27,7 @@ abstract class Entity implements Validatable
     protected $_data = [];
 
     /**
-     * Array associativo onde os índices identificam o tipo de dado de uma
+     * Collection associativo onde os índices identificam o tipo de dado de uma
      * propriedade pública tal qual declarada em $_data.
      *
      * @var array
@@ -42,7 +42,7 @@ abstract class Entity implements Validatable
     protected $_dataMapper = null;
 
     /**
-     * Array associativo para referências a objetos que serão carregados com
+     * Collection associativo para referências a objetos que serão carregados com
      * lazy load.
      *
      * Uma reference pode ser de um dos tipos:
@@ -85,7 +85,7 @@ abstract class Entity implements Validatable
     protected $_errors = [];
 
     /**
-     * Array com instâncias para classes pertecentes ao namespace iEd_*.
+     * Collection com instâncias para classes pertecentes ao namespace iEd_*.
      *
      * <code>
      * <?php
@@ -106,7 +106,7 @@ abstract class Entity implements Validatable
     /**
      * Construtor.
      *
-     * @param array $options Array associativo para inicializar os valores dos
+     * @param array $options Collection associativo para inicializar os valores dos
      *                       atributos do objeto
      */
     public function __construct($options = [])
@@ -925,9 +925,9 @@ abstract class Entity implements Validatable
      * @param mixed  $value              O valor para comparação
      * @param string $validatorClassName O nome da classe de validação. Deve ser
      *                                   subclasse de Validate
-     * @param array  $equalsParams       Array de opções para o a classe de
+     * @param array  $equalsParams       Collection de opções para o a classe de
      *                                   validação caso de $key ser igual a $value
-     * @param array  $notEqualsParams    Array de opções para o a classe de
+     * @param array  $notEqualsParams    Collection de opções para o a classe de
      *                                   validação caso de $key ser diferente de $value
      *
      * @return Validate
@@ -1121,7 +1121,7 @@ abstract class Entity implements Validatable
      * print_r($Pessoa->filterAttr('id' => 'nome');
      *
      * // Iria imprimir:
-     * // Array
+     * // Collection
      * // (
      * //    [1] => Carlos Santana
      * // )

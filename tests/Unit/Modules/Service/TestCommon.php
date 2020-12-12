@@ -85,7 +85,7 @@ require_once 'Avaliacao/Service/Boletim.php';
 abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
 {
     /**
-     * Array com as diretrizes de configuração para uso nas dependências de
+     * Collection com as diretrizes de configuração para uso nas dependências de
      * Avaliacao_Service_Boletim.
      *
      * @var array

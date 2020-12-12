@@ -13,7 +13,7 @@ require_once 'Source/pmieducar/Instituicao.php';
 require_once 'Source/Pessoa/clsCadastroFisicaFoto.inc.php';
 require_once 'image_check.php';
 require_once 'App/Model/ZonaLocalizacao.php';
-require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditController.php';
 require_once 'lib/Portabilis/Utils/CustomLabel.php';
 require_once 'Usuario/Model/FuncionarioDataMapper.php';
 require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
@@ -453,7 +453,7 @@ class AlunoController extends Portabilis_Controller_Page_EditController
             $selectOptions[$orgao['idorg_rg']] = $orgao['sigla'];
         }
 
-        $selectOptions = Portabilis_Array_Utils::sortByValue($selectOptions);
+        $selectOptions = Utils::sortByValue($selectOptions);
 
         $options = [
           'required'  => false,
@@ -1309,7 +1309,7 @@ class AlunoController extends Portabilis_Controller_Page_EditController
         // zona localização
         $zonas = App_Model_ZonaLocalizacao::getInstance();
         $zonas = $zonas->getEnums();
-        $zonas = Portabilis_Array_Utils::insertIn(null, 'Zona localiza&ccedil;&atilde;o', $zonas);
+        $zonas = Utils::insertIn(null, 'Zona localiza&ccedil;&atilde;o', $zonas);
 
         $options = [
             'label' => '',
@@ -1364,7 +1364,7 @@ class AlunoController extends Portabilis_Controller_Page_EditController
             $selectOptions[$raca['cod_raca']] = $raca['nm_raca'];
         }
 
-        $selectOptions = [null => 'Selecione'] + Portabilis_Array_Utils::sortByValue($selectOptions);
+        $selectOptions = [null => 'Selecione'] + Utils::sortByValue($selectOptions);
 
         $this->campoLista('cor_raca', 'Raça', $selectOptions, $this->cod_raca, '', false, '', '', '', $obrigarCamposCenso);
 

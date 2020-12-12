@@ -1318,7 +1318,7 @@ function checkPollution( name ) {
 	}
 }
 
-// returns a new Array with the elements that are in a but not in b
+// returns a new Collection with the elements that are in a but not in b
 function diff( a, b ) {
 	var i, j,
 		result = a.slice();

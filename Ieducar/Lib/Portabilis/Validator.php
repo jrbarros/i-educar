@@ -1,10 +1,14 @@
 <?php
 
-require_once 'Source/Banco.php';
-require_once 'CoreExt/CoreExtensionException.php';
-require_once 'lib/Portabilis/Utils/Database.php';
+namespace iEducarLegacy\Lib\Portabilis;
 
-class Portabilis_Validator
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+
+/**
+ * Class Validator
+ * @package iEducarLegacy\Lib\Portabilis
+ */
+class Validator
 {
     public function __construct(&$messenger)
     {

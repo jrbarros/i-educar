@@ -1,7 +1,7 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 
@@ -19,7 +19,7 @@ class CursoAlunoController extends ApiCoreController
             $sql = 'SELECT \'\'\'\' || (nm_curso ) || \'\'\'\' AS id, (nm_curso ) AS nome FROM pmieducar.historico_escolar WHERE ref_cod_aluno = $1';
             $cursos = $this->fetchPreparedQuery($sql, [$alunoId]);
             $attrs = ['id', 'nome'];
-            $cursos = Portabilis_Array_Utils::filterSet($cursos, $attrs);
+            $cursos = Utils::filterSet($cursos, $attrs);
             $options = [];
 
             foreach ($cursos as $curso) {

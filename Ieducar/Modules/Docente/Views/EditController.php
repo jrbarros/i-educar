@@ -2,7 +2,7 @@
 
 use App\Models\State;
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'Educacenso/Model/CursoSuperiorDataMapper.php';
 require_once 'Educacenso/Model/IesDataMapper.php';
 require_once 'Docente/Model/LicenciaturaDataMapper.php';

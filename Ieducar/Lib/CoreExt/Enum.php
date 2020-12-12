@@ -11,7 +11,7 @@ use ArrayAccess;
 abstract class Enum extends Singleton implements ArrayAccess
 {
     /**
-     * Array que emula um enum.
+     * Collection que emula um enum.
      *
      * @var array
      */

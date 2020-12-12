@@ -4,7 +4,7 @@ use App\Models\LogUnification;
 use iEducar\Modules\Educacenso\Validator\DeficiencyValidator;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'Intranet/Source/Banco.php';
 
 class ServidorController extends ApiCoreController
@@ -112,7 +112,7 @@ class ServidorController extends ApiCoreController
 
         $attrs = ['servidor_id', 'nome', 'ativo', 'updated_at'];
 
-        $servidores = Portabilis_Array_Utils::filterSet($servidores, $attrs);
+        $servidores = Utils::filterSet($servidores, $attrs);
 
         return ['servidores' => $servidores];
     }
@@ -204,7 +204,7 @@ class ServidorController extends ApiCoreController
 
             $attrs = ['id', 'servidor_id', 'turma_id', 'turno_id', 'permite_lancar_faltas_componente', 'disciplinas','tipo_nota', 'updated_at', 'deleted_at'];
 
-            $vinculos = Portabilis_Array_Utils::filterSet($vinculos, $attrs);
+            $vinculos = Utils::filterSet($vinculos, $attrs);
 
             $vinculos = array_map(function ($vinculo) {
                 if (is_null($vinculo['disciplinas'])) {

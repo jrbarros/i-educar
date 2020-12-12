@@ -276,7 +276,7 @@ class Servidor extends Model
      *                                                possui sistema de falta globalizada
      * @param int        $int_ref_cod_subnivel        Código de subnível que o servidor deve possuir
      *
-     * @return array|bool Array com os resultados da query SELECT ou FALSE caso
+     * @return array|bool Collection com os resultados da query SELECT ou FALSE caso
      *                    nenhum registro tenha sido encontrado
      */
     public function lista_professor($cod_instituicao, $cod_escola, $str_nome_servidor)
@@ -867,7 +867,7 @@ class Servidor extends Model
      * );
      * <code>
      *
-     * @return array Array associativo com a primeira chave sendo o código da
+     * @return array Collection associativo com a primeira chave sendo o código da
      *               função. O array interno contém o nome da função e se a função desempenha
      *               um papel de professor
      *
@@ -904,7 +904,7 @@ class Servidor extends Model
      * @param int $codInstituicao Código da instituição, caso não seja
      *                            informado, usa o código disponível no objeto atual
      *
-     * @return array|bool Array com códigos das disciplinas ordenados ou FALSE
+     * @return array|bool Collection com códigos das disciplinas ordenados ou FALSE
      *                    caso o servidor não tenha disciplinas
      *
      * @since   Método disponível desde a versão 1.0.2
@@ -973,7 +973,7 @@ class Servidor extends Model
      * @param int $codInstituicao Código da instituição, caso não seja
      *                            informado, usa o código disponível no objeto atual
      *
-     * @return array|bool Array com códigos das disciplinas ordenados ou FALSE
+     * @return array|bool Collection com códigos das disciplinas ordenados ou FALSE
      *                    caso o servidor não tenha disciplinas
      *
      * @since   Método disponível desde a versão 1.0.2
@@ -1019,7 +1019,7 @@ class Servidor extends Model
      * @param int $codInstituicao Código da instituição, caso não seja
      *                            informado, usa o código disponível no objeto atual
      *
-     * @return array|bool Array associativo com os índices nm_escola, nm_curso,
+     * @return array|bool Collection associativo com os índices nm_escola, nm_curso,
      *                    nm_serie, nm_turma, nome (componente curricular), dia_semana,
      *                    qhh.hora_inicial e hora_final.
      *

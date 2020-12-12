@@ -22,7 +22,7 @@ class Init extends Config
     public const COREEXT_CONFIG_INI_NAMESPACE_SEP = '.';
 
     /**
-     * Array contendo as diretivas de configuração separadas por namespace.
+     * Collection contendo as diretivas de configuração separadas por namespace.
      *
      * @var array
      */
@@ -173,7 +173,7 @@ class Init extends Config
      * )
      * </code>
      *
-     * @param array $data Array contendo as diretivas de uma seção do arquivo ini
+     * @param array $data Collection contendo as diretivas de uma seção do arquivo ini
      *
      * @return array
      */

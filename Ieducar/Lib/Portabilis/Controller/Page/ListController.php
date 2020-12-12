@@ -1,10 +1,14 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageListController.php';
-require_once 'lib/Portabilis/View/Helper/Application.php';
-require_once 'lib/Portabilis/View/Helper/Inputs.php';
+namespace iEducarLegacy\Lib\Portabilis\Controller\Page;
 
-class Portabilis_Controller_Page_ListController extends Core_Controller_Page_ListController
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageListController;
+
+/**
+ * Class ListController
+ * @package iEducarLegacy\Lib\Portabilis\Controller\Page
+ */
+class ListController extends CoreControllerPageListController
 {
     protected $backwardCompatibility = false;
 

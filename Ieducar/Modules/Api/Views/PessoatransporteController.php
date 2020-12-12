@@ -3,7 +3,7 @@
 require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
 require_once 'Source/Modules/clsModulesItinerarioTransporteEscolar.inc.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Text/AppDateUtils.php';
 require_once 'Portabilis/Date/AppDateUtils.php';
 
@@ -61,7 +61,7 @@ class PessoatransporteController extends ApiCoreController
             'turno' => 'turno'
         ];
 
-        $pt = Portabilis_Array_Utils::filter($pt, $attrs);
+        $pt = Utils::filter($pt, $attrs);
 
         $pt['pessoaj_nome'] = $this->loadNomePessoaj($id);
         $pt['pessoa_nome'] = $this->loadNomePessoa($id);

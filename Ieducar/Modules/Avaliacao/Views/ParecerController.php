@@ -34,7 +34,7 @@
  * @version     $Id$
  */
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'Avaliacao/Model/ParecerDescritivoComponenteDataMapper.php';
 require_once 'Avaliacao/Model/ParecerDescritivoGeralDataMapper.php';
 require_once 'Avaliacao/Service/Boletim.php';
@@ -95,7 +95,7 @@ class ParecerController extends Core_Controller_Page_EditController
     protected $_parecer = null;
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_preConstruct()
+     * @see CoreControllerPageEditController#_preConstruct()
      */
     protected function _preConstruct()
     {
@@ -118,7 +118,7 @@ class ParecerController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_initNovo()
+     * @see CoreControllerPageEditController#_initNovo()
      */
     protected function _initNovo()
     {
@@ -139,7 +139,7 @@ class ParecerController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_initEditar()
+     * @see CoreControllerPageEditController#_initEditar()
      */
     protected function _initEditar()
     {
@@ -179,7 +179,7 @@ class ParecerController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_save()
+     * @see CoreControllerPageEditController#_save()
      */
     protected function _save()
     {

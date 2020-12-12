@@ -13,14 +13,14 @@ class Config implements Countable, Iterator
 {
 
     /**
-     * Array de sobre sobrecarga
+     * Collection de sobre sobrecarga
      *
      * @var array
      */
     protected $config;
 
     /**
-     * Array com mensagens de erro causadas por funções PHP.
+     * Collection com mensagens de erro causadas por funções PHP.
      *
      * @var array
      */

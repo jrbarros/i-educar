@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
 require_once 'ComponenteCurricular/Model/TipoBase.php';
 require_once 'ComponenteCurricular/Model/CodigoEducacenso.php';
@@ -130,7 +130,7 @@ class EditController extends Core_Controller_Page_EditController
             $areas[$area->id] = $area->nome;
         }
 
-        $areas = Portabilis_Array_Utils::insertIn(null, 'Selecione', $areas);
+        $areas = Utils::insertIn(null, 'Selecione', $areas);
 
         $this->campoLista(
             'area_conhecimento',

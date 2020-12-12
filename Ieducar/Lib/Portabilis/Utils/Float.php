@@ -1,12 +1,12 @@
 <?php
 
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 
 class Portabilis_Utils_Float
 {
     protected static function mergeOptions($options, $defaultOptions)
     {
-        return Portabilis_Array_Utils::merge($options, $defaultOptions);
+        return Utils::merge($options, $defaultOptions);
     }
 
     /**

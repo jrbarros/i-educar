@@ -29,7 +29,7 @@ require_once 'Source/Modules/clsModulesAuditoriaNota.inc.php';
 require_once 'Source/Modules/clsModulesNotaExame.inc.php';
 
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Text/AppDateUtils.php';
 require_once 'Portabilis/Object/AppDateUtils.php';
 

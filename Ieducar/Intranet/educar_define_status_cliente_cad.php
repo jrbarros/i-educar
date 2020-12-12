@@ -121,14 +121,14 @@ class indice extends clsCadastro
                 $this->campoRotulo('nm_cliente', 'Cliente', $detalhe['nome']);
             }
             $this->campoNumero('dias', 'Dias', $this->dias, 9, 9, true);
-            echo "<script> descricao = new Array();\n </script>";
+            echo "<script> descricao = new Collection();\n </script>";
             $opcoes[''] = 'Selecione um motivo';
             $todos_motivos = '';
             $obj_motivo_suspensao = new MotivoSuspensao();
             $lst_motivo_suspensao = $obj_motivo_suspensao->listaClienteBiblioteca($this->cod_cliente);
             if ($lst_motivo_suspensao) {
                 foreach ($lst_motivo_suspensao as $motivo_suspensao) {
-                    $todos_motivos .= "descricao[descricao.length] = new Array( {$motivo_suspensao['cod_motivo_suspensao']}, '{$motivo_suspensao['descricao']}' );\n";
+                    $todos_motivos .= "descricao[descricao.length] = new Collection( {$motivo_suspensao['cod_motivo_suspensao']}, '{$motivo_suspensao['descricao']}' );\n";
                     $opcoes["{$motivo_suspensao['cod_motivo_suspensao']}"] = "{$motivo_suspensao['nm_motivo']}";
                 }
                 echo "<script>{$todos_motivos}</script>";

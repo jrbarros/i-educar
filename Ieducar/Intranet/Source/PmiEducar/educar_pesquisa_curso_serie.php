@@ -43,7 +43,7 @@ if ($privilegio == 4) {
                 $opcoes[''] = 'Selecione um curso';
                 $opcoes["{$registro['ref_cod_curso']}"] = "{$detalhe['nm_curso']}";
             }
-            $series .= " curso['_{$registro['ref_cod_curso']}'] = new Array();\n";
+            $series .= " curso['_{$registro['ref_cod_curso']}'] = new Collection();\n";
             $obj_esc_ser = new EscolaSerie($permissoes->getEscola($this->pessoa_logada), null, null, null, null, null, null, null, null, 1);
             $lst_esc_ser = $obj_esc_ser->lista($permissoes->getEscola($this->pessoa_logada), null, null, null, null, null, null, null, null, null, null, null, null, 1, $permissoes->getInstituicao($this->pessoa_logada), $registro['ref_cod_curso']);
             if ($lst_esc_ser) {
@@ -51,7 +51,7 @@ if ($privilegio == 4) {
                 }
             }
         }
-        echo $script = "<script> var curso = new Array(); \n {$series}</script>\n";
+        echo $script = "<script> var curso = new Collection(); \n {$series}</script>\n";
     }
     $this->campoLista('ref_cod_curso', 'Curso', $opcoes, $this->ref_cod_curso, 'CursoSerie();', false, '', '', false, $obrigatorio);
 
@@ -88,7 +88,7 @@ if ($privilegio == 4) {
         foreach ($lst_escola as $escola) {
             $objTemp = new EscolaCurso();
             $lista   = $objTemp->lista($escola['cod_escola'], null, null, null, null, null, null, null, 1);
-            $cursos .= " escola['_{$escola['cod_escola']}'] = new Array();\n";
+            $cursos .= " escola['_{$escola['cod_escola']}'] = new Collection();\n";
             if ($lista) {
                 foreach ($lista as $registro) {
                     $objTemp = new Curso($registro['ref_cod_curso']);
@@ -98,20 +98,20 @@ if ($privilegio == 4) {
                     } else {
                         $opcoes[''] = 'Selecione um curso';
                     }
-                    $series .= " curso['_{$registro['ref_cod_curso']}'] = new Array();\n";
-                    $cursos .= " escola['_{$registro['ref_cod_escola']}'][escola['_{$registro['ref_cod_escola']}'].length] = new Array( {$detalhe['cod_curso']}, '{$detalhe['nm_curso']}' );\n";
+                    $series .= " curso['_{$registro['ref_cod_curso']}'] = new Collection();\n";
+                    $cursos .= " escola['_{$registro['ref_cod_escola']}'][escola['_{$registro['ref_cod_escola']}'].length] = new Collection( {$detalhe['cod_curso']}, '{$detalhe['nm_curso']}' );\n";
                     $objSe = new Serie(null, null, null, $registro['ref_cod_curso'], null, null, null, null, null, null, 1);
                     $listaSe = $objSe->lista(null, null, null, $registro['ref_cod_curso'], null, null, null, null, null, null, null, null, 1);
                     if ($listaSe) {
                         foreach ($listaSe as $registroSe) {
-                            $series .= " curso['_{$registro['ref_cod_curso']}'][curso['_{$registro['ref_cod_curso']}'].length] = new Array( {$registroSe['cod_serie']}, '{$registroSe['nm_serie']}' );\n";
+                            $series .= " curso['_{$registro['ref_cod_curso']}'][curso['_{$registro['ref_cod_curso']}'].length] = new Collection( {$registroSe['cod_serie']}, '{$registroSe['nm_serie']}' );\n";
                         }
                     }
                 }
-                echo $script = "<script> var curso = new Array(); \n {$series}</script>\n";
+                echo $script = "<script> var curso = new Collection(); \n {$series}</script>\n";
             }
         }
-        echo "<script> var escola = new Array(); \n {$cursos}</script>\n";
+        echo "<script> var escola = new Collection(); \n {$cursos}</script>\n";
     }
     $this->campoLista('ref_cod_curso', 'Curso', $opcoes, $this->ref_cod_curso, 'CursoSerie();', false, '', '', false, $obrigatorio);
 
@@ -148,13 +148,13 @@ if ($privilegio == 4) {
         foreach ($lst_escola as $escola) {
             $objTemp = new EscolaCurso();
             $lista   = $objTemp->lista($escola['cod_escola'], null, null, null, null, null, null, null, 1);
-            $cursos .= " escola['_{$escola['cod_escola']}'] = new Array();\n";
+            $cursos .= " escola['_{$escola['cod_escola']}'] = new Collection();\n";
             if ($lista) {
                 foreach ($lista as $registro) {
                     $objTemp = new Curso($registro['ref_cod_curso']);
                     $detalhe = $objTemp->detalhe();
-                    $series .= " curso['_{$registro['ref_cod_curso']}'] = new Array();\n";
-                    $cursos .= " escola['_{$registro['ref_cod_escola']}'][escola['_{$registro['ref_cod_escola']}'].length] = new Array( {$detalhe['cod_curso']}, '{$detalhe['nm_curso']}' );\n";
+                    $series .= " curso['_{$registro['ref_cod_curso']}'] = new Collection();\n";
+                    $cursos .= " escola['_{$registro['ref_cod_escola']}'][escola['_{$registro['ref_cod_escola']}'].length] = new Collection( {$detalhe['cod_curso']}, '{$detalhe['nm_curso']}' );\n";
                     if ($editar) {
                         $opcoes["{$registro['ref_cod_curso']}"] = "{$detalhe['nm_curso']}";
                     } else {
@@ -164,14 +164,14 @@ if ($privilegio == 4) {
                     $listaSe = $objSe->lista(null, null, null, $registro['ref_cod_curso'], null, null, null, null, null, null, null, null, 1);
                     if ($listaSe) {
                         foreach ($listaSe as $registroSe) {
-                            $series .= " curso['_{$registro['ref_cod_curso']}'][curso['_{$registro['ref_cod_curso']}'].length] = new Array( {$registroSe['cod_serie']}, '{$registroSe['nm_serie']}' );\n";
+                            $series .= " curso['_{$registro['ref_cod_curso']}'][curso['_{$registro['ref_cod_curso']}'].length] = new Collection( {$registroSe['cod_serie']}, '{$registroSe['nm_serie']}' );\n";
                         }
                     }
                 }
             }
         }
-        echo "<script> var escola = new Array(); \n {$cursos}</script>\n";
-        echo "<script> var curso = new Array(); \n {$series}</script>\n";
+        echo "<script> var escola = new Collection(); \n {$cursos}</script>\n";
+        echo "<script> var curso = new Collection(); \n {$series}</script>\n";
     }
     $this->campoLista('ref_cod_curso', 'Curso', $opcoes, $this->ref_cod_curso, 'CursoSerie();', false, '', '', false, $obrigatorio);
 

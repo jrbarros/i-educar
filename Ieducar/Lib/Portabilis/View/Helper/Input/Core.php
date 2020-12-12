@@ -3,7 +3,7 @@
 require_once 'Source/pmieducar/Permissoes.php';
 require_once 'App/Model/Finder.php';
 require_once 'lib/Portabilis/View/Helper/Application.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'lib/Portabilis/Object/AppDateUtils.php';
 require_once 'lib/Portabilis/DataMapper/AppDateUtils.php';
@@ -126,12 +126,12 @@ class Portabilis_View_Helper_Input_Core
 
     protected static function mergeOptions($options, $defaultOptions)
     {
-        return Portabilis_Array_Utils::merge($options, $defaultOptions);
+        return Utils::merge($options, $defaultOptions);
     }
 
     protected static function insertOption($key, $value, $array)
     {
-        return Portabilis_Array_Utils::insertIn($key, $value, $array);
+        return Utils::insertIn($key, $value, $array);
     }
 
     // Ieducar helpers

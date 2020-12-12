@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'AreaConhecimento/Model/AreaDataMapper.php';
 require_once '../Intranet/Source/Banco.php';
 

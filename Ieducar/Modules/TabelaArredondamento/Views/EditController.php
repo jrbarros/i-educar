@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'TabelaArredondamento/Model/TabelaDataMapper.php';
 require_once 'TabelaArredondamento/Model/TabelaValor.php';
 require_once 'TabelaArredondamento/Model/TipoArredondamentoMedia.php';
@@ -66,7 +66,7 @@ class EditController extends Core_Controller_Page_EditController
     ];
 
     /**
-     * Array de instâncias TabelaArredondamento_Model_TabelaValor.
+     * Collection de instâncias TabelaArredondamento_Model_TabelaValor.
      *
      * @var array
      */
@@ -111,7 +111,7 @@ class EditController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_preConstruct()
+     * @see CoreControllerPageEditController#_preConstruct()
      *
      * @todo Interação com a API está errada. Isso já é feito em _initNovo()
      *   na superclasse. VER.
@@ -526,7 +526,7 @@ class EditController extends Core_Controller_Page_EditController
             ];
         }
 
-        // Array de objetos a persistir
+        // Collection de objetos a persistir
         $insert = [];
 
         // Cria um array de objetos a persistir

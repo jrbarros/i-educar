@@ -74,7 +74,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
     protected $_titulo = null;
 
     /**
-     * Array com labels para botões, inseridos no HTML via RenderHTML(). Marcado
+     * Collection com labels para botões, inseridos no HTML via RenderHTML(). Marcado
      * como public para manter compatibilidade com as classes cls(Cadastro|Detalhe|
      * Listagem) que acessam o array diretamente.
      *
@@ -83,7 +83,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
     public $array_botao = null;
 
     /**
-     * Array com labels para botões, inseridos no HTML via RenderHTML(). Marcado
+     * Collection com labels para botões, inseridos no HTML via RenderHTML(). Marcado
      * como public para manter compatibilidade com as classes cls(Cadastro|Detalhe|
      * Listagem) que acessam o array diretamente.
      *

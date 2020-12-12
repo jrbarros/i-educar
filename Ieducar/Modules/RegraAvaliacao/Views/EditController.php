@@ -2,7 +2,7 @@
 
 use iEducar\Modules\EvaluationRules\Models\ParallelRemedialCalculationType;
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'RegraAvaliacao/Model/RegraDataMapper.php';
 require_once 'RegraAvaliacao/Model/RegraRecuperacaoDataMapper.php';
 
@@ -229,7 +229,7 @@ class EditController extends Core_Controller_Page_EditController
         }';
 
     /**
-     * Array de instâncias RegraAvaliacao_Model_RegraRecuperacao.
+     * Collection de instâncias RegraAvaliacao_Model_RegraRecuperacao.
      *
      * @var array
      */
@@ -919,7 +919,7 @@ class EditController extends Core_Controller_Page_EditController
         // A contagem usa um dos índices do formulário, senão ia contar sempre 4.
         $loop = count($recuperacoes['id']);
 
-        // Array de objetos a persistir
+        // Collection de objetos a persistir
         $insert = [];
 
         // Cria um array de objetos a persistir

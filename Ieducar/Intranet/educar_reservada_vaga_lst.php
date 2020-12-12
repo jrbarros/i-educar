@@ -238,7 +238,7 @@ class indice extends clsListagem
                     $registro['ref_cod_aluno'] = $registro['nm_aluno'] . ' (aluno externo)';
                 }
 
-                // Array de dados formatados para apresentação
+                // Collection de dados formatados para apresentação
                 $lista_busca = [
           "<a href=\"educar_reservada_vaga_det.php?cod_reserva_vaga={$registro['cod_reserva_vaga']}\">{$registro['ref_cod_aluno']}</a>",
           "<a href=\"educar_reservada_vaga_det.php?cod_reserva_vaga={$registro['cod_reserva_vaga']}\">{$nm_serie}</a>",

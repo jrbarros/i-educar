@@ -1,7 +1,7 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'Reports/Tipos/TipoBoletim.php';
 require_once 'App/Model/Finder.php';
@@ -119,7 +119,7 @@ class TurmaController extends ApiCoreController
             'ord_dependencia',
             'data_fechamaneto'
         ];
-        $alunos = Portabilis_Array_Utils::filterSet($alunos, $attrs);
+        $alunos = Utils::filterSet($alunos, $attrs);
 
         foreach ($alunos as $key => $aluno) {
             $parametros = [
@@ -183,7 +183,7 @@ class TurmaController extends ApiCoreController
         $tipoDiferenciado = $turma['tipo_boletim_diferenciado'];
 
         $tipos = Portabilis_Model_Report_TipoBoletim::getInstance()->getReports();
-        $tipos = Portabilis_Array_Utils::insertIn(null, 'indefinido', $tipos);
+        $tipos = Utils::insertIn(null, 'indefinido', $tipos);
 
         if ($tipoDiferenciado && $tipoDiferenciado != $tipo) {
             $this->appendResponse('tipo-boletim-diferenciado', $tipos[$tipoDiferenciado]);
@@ -254,7 +254,7 @@ class TurmaController extends ApiCoreController
             $turmas = $this->fetchPreparedQuery($sql, $params);
 
             $attrs = ['id', 'nome', 'ano', 'escola_id', 'turno_id', 'curso_id', 'serie_id', 'regra_avaliacao_id', 'regra_avaliacao_diferenciada_id', 'updated_at', 'deleted_at'];
-            $turmas = Portabilis_Array_Utils::filterSet($turmas, $attrs);
+            $turmas = Utils::filterSet($turmas, $attrs);
 
             return ['turmas' => $turmas];
         }
@@ -335,7 +335,7 @@ class TurmaController extends ApiCoreController
             $alunos = $this->fetchPreparedQuery($sql, $params);
 
             $attrs = ['id','dependencia', 'sequencia', 'data_enturmacao'];
-            $alunos = Portabilis_Array_Utils::filterSet($alunos, $attrs);
+            $alunos = Utils::filterSet($alunos, $attrs);
 
             foreach ($alunos as &$aluno) {
                 $aluno['dependencia'] = dbBool($aluno['dependencia']);
@@ -375,7 +375,7 @@ class TurmaController extends ApiCoreController
         $params = [$instituicaoId, $turmaId, $disciplinaId];
         $alunos = $this->fetchPreparedQuery($sql, $params);
         $attrs = ['id','nota_exame'];
-        $alunos = Portabilis_Array_Utils::filterSet($alunos, $attrs);
+        $alunos = Utils::filterSet($alunos, $attrs);
 
         return ['alunos' => $alunos];
     }

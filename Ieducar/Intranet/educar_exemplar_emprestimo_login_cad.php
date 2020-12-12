@@ -59,7 +59,7 @@ class indice extends clsCadastro
         $lst_biblioteca_usuario = $obj_biblioteca_usuario->lista(null, $this->pessoa_logada);
 
         $opcoes = array( "" => "Selecione" );
-//      $bibliotecas_usuario = "biblioteca_usuario = new Array();\n";
+//      $bibliotecas_usuario = "biblioteca_usuario = new Collection();\n";
         if( is_array( $lst_biblioteca_usuario ) && count( $lst_biblioteca_usuario ) )
         {
             foreach ( $lst_biblioteca_usuario AS $biblioteca )
@@ -70,7 +70,7 @@ class indice extends clsCadastro
 //              $requisita_senha = $det_biblioteca['requisita_senha'];
                 $opcoes["{$biblioteca['ref_cod_biblioteca']}"] = "{$det_biblioteca['nm_biblioteca']}";
 
-//              $bibliotecas_usuario .= "biblioteca_usuario[biblioteca_usuario.length] = new Array({$biblioteca["ref_cod_biblioteca"]},{$requisita_senha});\n";
+//              $bibliotecas_usuario .= "biblioteca_usuario[biblioteca_usuario.length] = new Collection({$biblioteca["ref_cod_biblioteca"]},{$requisita_senha});\n";
             }
         }
 //      echo "<script>{$bibliotecas_usuario}</script>";

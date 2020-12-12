@@ -1,7 +1,7 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 
 class RegraController extends ApiCoreController
 {
@@ -66,7 +66,7 @@ class RegraController extends ApiCoreController
             $tabelas = $this->fetchPreparedQuery($sql, $params);
 
             $attrs = ['id', 'nome', 'tipo_nota', 'rotulo', 'descricao', 'valor_maximo', 'casa_decimal_exata', 'acao', 'updated_at'];
-            $tabelas = Portabilis_Array_Utils::filterSet($tabelas, $attrs);
+            $tabelas = Utils::filterSet($tabelas, $attrs);
             $_tabelas = [];
 
             foreach ($tabelas as $tabela) {
@@ -147,7 +147,7 @@ class RegraController extends ApiCoreController
             ";
 
             $regrasRecuperacao = $this->fetchPreparedQuery($sql, $params);
-            $regrasRecuperacao = Portabilis_Array_Utils::filterSet($regrasRecuperacao, [
+            $regrasRecuperacao = Utils::filterSet($regrasRecuperacao, [
                 'id', 'regra_avaliacao_id', 'descricao', 'etapas_recuperadas',
                 'media', 'nota_maxima', 'updated_at', 'deleted_at'
             ]);
@@ -210,7 +210,7 @@ class RegraController extends ApiCoreController
                 'tipo_calculo_recuperacao_paralela'
             ];
 
-            $_regras = Portabilis_Array_Utils::filterSet($_regras, $attrs);
+            $_regras = Utils::filterSet($_regras, $attrs);
 
             return ['regras' => $_regras];
         }
@@ -244,7 +244,7 @@ class RegraController extends ApiCoreController
                 'nota_maxima_exame'
             ];
 
-            $regra = Portabilis_Array_Utils::filterSet($regra, $atributos);
+            $regra = Utils::filterSet($regra, $atributos);
 
             return $regra[0];
         }
@@ -306,7 +306,7 @@ class RegraController extends ApiCoreController
             'deleted_at',
         ];
 
-        $regras = Portabilis_Array_Utils::filterSet($regras, $attrs);
+        $regras = Utils::filterSet($regras, $attrs);
 
         return [
             'regras' => $regras

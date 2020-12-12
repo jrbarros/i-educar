@@ -191,7 +191,7 @@ class indice extends clsCadastro
 
         $tamanho = sizeof($opcoes_);
 
-        echo "<script>\nvar cod_tipo_usuario = new Array({$tamanho});\n";
+        echo "<script>\nvar cod_tipo_usuario = new Collection({$tamanho});\n";
 
         foreach ($opcoes_ as $key => $valor) {
             echo "cod_tipo_usuario[{$key}] = {$valor};\n";

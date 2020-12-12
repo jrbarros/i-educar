@@ -1,20 +1,14 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\Controller;
+
 use iEducar\Support\Exceptions\Exception as iEducarException;
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageEditController;
 
-require_once 'Source/Banco.php';
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
-require_once 'CoreExt/CoreExtensionException.php';
-require_once 'lib/Portabilis/Messenger.php';
-require_once 'lib/Portabilis/Validator.php';
-require_once 'lib/Portabilis/DataMapper/AppDateUtils.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Utils/User.php';
-require_once 'lib/Utils/SafeJson.php';
-
-class ApiCoreController extends Core_Controller_Page_EditController
+/**
+ * Class ApiCoreController
+ */
+class ApiCoreController extends CoreControllerPageEditController
 {
     // variaveis usadas apenas em formulários, desnecesário subescrever nos filhos.
 
@@ -425,7 +419,7 @@ class ApiCoreController extends Core_Controller_Page_EditController
 
     protected static function mergeOptions($options, $defaultOptions)
     {
-        return Portabilis_Array_Utils::merge($options, $defaultOptions);
+        return Utils::merge($options, $defaultOptions);
     }
 
     protected function toUtf8($str, $options = [])

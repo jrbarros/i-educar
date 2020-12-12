@@ -92,7 +92,7 @@ class indice extends clsCadastro
             $selectOptions[$tipoAbandono['cod_abandono_tipo']] = $tipoAbandono['nome'];
         }
 
-        $selectOptions = Portabilis_Array_Utils::sortByValue($selectOptions);
+        $selectOptions = Utils::sortByValue($selectOptions);
 
         $options = ['label' => 'Motivo do abandono', 'resources' => $selectOptions, 'value' => ''];
 

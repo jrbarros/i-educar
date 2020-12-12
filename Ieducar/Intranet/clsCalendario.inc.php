@@ -344,7 +344,7 @@ class clsCalendario
             $ano = $mixVariaveisMantidas["{$nome}_ano"];
         }
 
-        // Array com todos os dias da semana
+        // Collection com todos os dias da semana
         $diasDaSemana = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
 
         $mesesDoAno = [
@@ -811,9 +811,9 @@ class clsCalendario
      *
      * @access protected
      *
-     * @param array $formValues   Array associativo onde a chave torna-se o
+     * @param array $formValues   Collection associativo onde a chave torna-se o
      *                            o valor dos atributos id e name do campo hidden.
-     * @param array $invalidNames Array com nomes inválidos para campos. Útil
+     * @param array $invalidNames Collection com nomes inválidos para campos. Útil
      *                            para evitar que sejam criados campos duplicados.
      *
      * @return string Text com o HTML dos campos hidden gerados.

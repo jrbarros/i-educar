@@ -1,12 +1,12 @@
 <?php
 
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 
 class Portabilis_String_Utils
 {
     protected static function mergeOptions($options, $defaultOptions)
     {
-        return Portabilis_Array_Utils::merge($options, $defaultOptions);
+        return Utils::merge($options, $defaultOptions);
     }
 
     /**
@@ -37,7 +37,7 @@ class Portabilis_String_Utils
         }
 
         if ($options['trim']) {
-            $result = Portabilis_Array_Utils::trim($result);
+            $result = Utils::trim($result);
         }
 
         return $result;

@@ -1,7 +1,7 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 
@@ -61,7 +61,7 @@ class AreaConhecimentoController extends ApiCoreController
             $areas = $this->fetchPreparedQuery($sql, $params);
 
             $attrs = ['id', 'nome', 'ordenamento_ac', 'agrupar_descritores', 'nome_agrupador', 'updated_at', 'deleted_at'];
-            $areas = Portabilis_Array_Utils::filterSet($areas, $attrs);
+            $areas = Utils::filterSet($areas, $attrs);
 
             return [
                 'areas' => $areas
@@ -134,7 +134,7 @@ class AreaConhecimentoController extends ApiCoreController
     protected function getReturnRequest($areasConhecimento)
     {
         $options = [];
-        $options = Portabilis_Array_Utils::setAsIdValue($areasConhecimento, 'id', 'nome_agrupador');
+        $options = Utils::setAsIdValue($areasConhecimento, 'id', 'nome_agrupador');
 
         return ['options' => $options];
     }

@@ -1,6 +1,12 @@
 <?php
 
-class Portabilis_Array_Utils
+namespace iEducarLegacy\Lib\Portabilis\Collection;
+
+/**
+ * Class Utils
+ * @package iEducarLegacy\Lib\Portabilis\Collection
+ */
+class Utils
 {
     /**
      * Mescla $defaultArray com $array, preservando os valores de $array nos
@@ -128,7 +134,7 @@ class Portabilis_Array_Utils
             $idValueArray = self::merge($idValueArray, self::asIdValue($array, $keyAttr, $valueAtt));
         }
 
-        return Portabilis_Array_Utils::sortByValue($idValueArray);
+        return Utils::sortByValue($idValueArray);
     }
 
     /**
@@ -144,12 +150,12 @@ class Portabilis_Array_Utils
     /**
      * Ordena array por uma chave usando função php usort,
      *
-     * Ex: $ordenedResources = Portabilis_Array_Utils::sortByKey($resources, 'resource_att_name');
+     * Ex: $ordenedResources = Utils::sortByKey($resources, 'resource_att_name');
      */
     public static function sortByKey($key, $array)
     {
         usort($array, function ($a, $b) use ($key) {
-            return Portabilis_Array_Utils::_keySorter($key, $a, $b);
+            return Utils::_keySorter($key, $a, $b);
         });
 
         return $array;
@@ -161,7 +167,7 @@ class Portabilis_Array_Utils
     public static function sortByValue($array)
     {
         uasort($array, function ($a, $b) {
-            return Portabilis_Array_Utils::_valueSorter($a, $b);
+            return Utils::_valueSorter($a, $b);
         });
 
         return $array;

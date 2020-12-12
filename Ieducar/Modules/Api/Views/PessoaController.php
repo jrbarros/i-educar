@@ -9,7 +9,7 @@ use iEducar\Modules\Educacenso\Validator\DifferentiatedLocationValidator;
 use iEducar\Modules\Educacenso\Validator\NameValidator;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'lib/Portabilis/Date/AppDateUtils.php';
 require_once 'Source/Pessoa/clsPessoa_.inc.php';
@@ -201,7 +201,7 @@ class PessoaController extends ApiCoreController
             'pais_residencia',
         ];
 
-        $details = Portabilis_Array_Utils::filter($details, $attrs);
+        $details = Utils::filter($details, $attrs);
 
         $details['aluno_id'] = $alunoId;
         $details['nome_mae'] = $this->toUtf8($details['nome_mae'], ['transform' => true]);
@@ -467,10 +467,10 @@ class PessoaController extends ApiCoreController
             }
 
             $attrs = ['id', 'nome'];
-            $pessoa = Portabilis_Array_Utils::filter($pessoa, $attrs);
+            $pessoa = Utils::filter($pessoa, $attrs);
 
             $details = $this->loadDetails($pessoa['id']);
-            $pessoa = Portabilis_Array_Utils::merge($pessoa, $details);
+            $pessoa = Utils::merge($pessoa, $details);
 
             $pessoa['deficiencias'] = $this->loadDeficiencias($pessoa['id']);
         }

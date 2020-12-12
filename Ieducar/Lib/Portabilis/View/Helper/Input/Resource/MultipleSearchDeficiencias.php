@@ -11,7 +11,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchDeficiencias extends P
         if (empty($resources)) {
             $resources = new clsCadastroDeficiencia();
             $resources = $resources->lista();
-            $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'cod_deficiencia', 'nm_deficiencia');
+            $resources = Utils::setAsIdValue($resources, 'cod_deficiencia', 'nm_deficiencia');
         }
 
         return $this->insertOption(null, '', $resources);

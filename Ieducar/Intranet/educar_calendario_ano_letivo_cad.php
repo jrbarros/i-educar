@@ -99,12 +99,12 @@ class indice extends clsCadastro
         if($lista_ano)
         {
             $script = "<script>
-                      var ar_anos = new Array();
+                      var ar_anos = new Collection();
                         ";
 
             foreach ($lista_ano as $ano) {
 
-                $script .= "ar_anos[ar_anos.length] = new Array('{$ano['ref_cod_escola']}','{$ano['ano']}');\n";
+                $script .= "ar_anos[ar_anos.length] = new Collection('{$ano['ref_cod_escola']}','{$ano['ano']}');\n";
             }
 
             echo $script .= "</script>";

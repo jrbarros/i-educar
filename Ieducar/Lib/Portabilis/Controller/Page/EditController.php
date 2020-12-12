@@ -1,14 +1,16 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
-require_once 'lib/Portabilis/Messenger.php';
-require_once 'lib/Portabilis/Validator.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/DataMapper/AppDateUtils.php';
-require_once 'lib/Portabilis/View/Helper/Application.php';
+namespace iEducarLegacy\Lib\Portabilis\Controller\Page;
 
-class Portabilis_Controller_Page_EditController extends Core_Controller_Page_EditController
+use iEducar\Support\Exceptions\Exception;
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageEditController;
+
+/**
+ * Class EditController
+ *
+ * @package iEducarLegacy\Lib\Portabilis\Controller\Page
+ */
+class EditController extends CoreControllerPageEditController
 {
     protected $_dataMapper = null;
 
@@ -146,7 +148,7 @@ class Portabilis_Controller_Page_EditController extends Core_Controller_Page_Edi
 
     protected static function mergeOptions($options, $defaultOptions)
     {
-        return Portabilis_Array_Utils::merge($options, $defaultOptions);
+        return Utils::merge($options, $defaultOptions);
     }
 
     protected function fetchPreparedQuery($sql, $options = [])

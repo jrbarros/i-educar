@@ -5,13 +5,13 @@ namespace iEducarLegacy\Lib\Core\Controller\Page;
 use iEducarLegacy\Intranet\Source\Cadastro;
 
 /**
- * Class CoreControllerPageEditControllerInterface
+ * Class CoreControllerPageEditController
  * @package iEducarLegacy\Lib\Core\Controller\Page
  */
-abstract class CoreControllerPageEditControllerInterface extends Cadastro implements CoreControllerPageValidatableInterface
+abstract class CoreControllerPageEditController extends Cadastro implements CoreControllerPageValidatableInterface
 {
     /**
-     * Array associativo de um elemento de formulário, usado para a definição
+     * Collection associativo de um elemento de formulário, usado para a definição
      * de labels, nome de campos e definição de qual campo foi invalidado por
      * DataMapper::isValid().
      *
@@ -243,7 +243,7 @@ abstract class CoreControllerPageEditControllerInterface extends Cadastro implem
      *
      * @param Permissoes $instance
      *
-     * @return CoreControllerPageEditControllerInterface
+     * @return CoreControllerPageEditController
      */
     public function setClsPermissoes(Permissoes $instance)
     {

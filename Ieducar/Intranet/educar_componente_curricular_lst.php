@@ -83,7 +83,7 @@ class indice extends clsListagem
 
         $tipos = ComponenteCurricular_Model_TipoBase::getInstance();
         $tipos = $tipos->getEnums();
-        $tipos = Portabilis_Array_Utils::insertIn(null, 'Selecionar', $tipos);
+        $tipos = Utils::insertIn(null, 'Selecionar', $tipos);
 
         $options = [
             'label'       => 'Base Curricular',
@@ -106,7 +106,7 @@ class indice extends clsListagem
             $areas[$area->id] = $area->nome;
         }
 
-        $areas = Portabilis_Array_Utils::insertIn(null, 'Selecionar', $areas);
+        $areas = Utils::insertIn(null, 'Selecionar', $areas);
 
         $options = [
             'label'       => 'Área de conhecimento',

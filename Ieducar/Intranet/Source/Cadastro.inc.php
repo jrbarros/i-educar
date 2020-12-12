@@ -450,7 +450,7 @@ class Cadastro extends clsCampos
                         $retornoNaFalha .= "  return false;\n";
                         if ($validador == '/[^ ]/') {
                             $retorno .= " if (typeof \$j == 'function' && \$j('#{$nome}').val() != null &&
-                                \$j('#{$nome}').val().constructor === Array ) {\n
+                                \$j('#{$nome}').val().constructor === Collection ) {\n
                     if (!\$j('#{$nome}').val().filter((val) => val.toString().trim().length > 0).length) {\n";
                             $retorno .= $retornoNaFalha;
                             $retorno .= "}\n";

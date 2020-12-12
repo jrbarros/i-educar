@@ -4,7 +4,7 @@ use App\Models\LegacyRegistration;
 use Illuminate\Support\Str;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'App/Model/MatriculaSituacao.php';
 require_once 'Intranet/Source/Banco.php';
@@ -193,7 +193,7 @@ class MatriculaController extends ApiCoreController
         $attrs = ['id', 'aluno_id', 'ano', 'instituicao_id', 'escola_id',
             'curso_id', 'serie_id', 'turma_id'];
 
-        return Portabilis_Array_Utils::filter($dadosMatricula, $attrs);
+        return Utils::filter($dadosMatricula, $attrs);
     }
 
     protected function tryLoadMatriculaTurma($matriculaId)
@@ -206,7 +206,7 @@ class MatriculaController extends ApiCoreController
 
         if (is_array($matriculaTurma) and count($matriculaTurma) > 0) {
             $attrs = ['turma_id', 'tipo_boletim'];
-            $matriculaTurma = Portabilis_Array_Utils::filter($matriculaTurma, $attrs);
+            $matriculaTurma = Utils::filter($matriculaTurma, $attrs);
             $matriculaTurma['nome_turma'] = $this->loadNameFor('turma', $matriculaTurma['turma_id']);
         }
 
@@ -227,7 +227,7 @@ class MatriculaController extends ApiCoreController
 
         if (is_array($matriculas) && count($matriculas) > 0) {
             $attrs = ['id', 'ano', 'instituicao_id', 'escola_id', 'curso_id', 'serie_id'];
-            $matriculas = Portabilis_Array_Utils::filterSet($matriculas, $attrs);
+            $matriculas = Utils::filterSet($matriculas, $attrs);
 
             foreach ($matriculas as $key => $matricula) {
                 $matriculas[$key]['nome_curso'] = $this->loadNameFor('curso', $matricula['curso_id']);
@@ -325,7 +325,7 @@ class MatriculaController extends ApiCoreController
         if (is_array($matriculas) && count($matriculas) > 0) {
             $attrs = ['aluno_id', 'matricula_id', 'escola_id', 'situacao', 'ativo', 'updated_at', 'deleted_at'];
 
-            $matriculas = Portabilis_Array_Utils::filterSet($matriculas, $attrs);
+            $matriculas = Utils::filterSet($matriculas, $attrs);
         }
 
         return ['matriculas' => $matriculas];
@@ -438,7 +438,7 @@ class MatriculaController extends ApiCoreController
                     'updated_at',
                     'deleted_at',
                 ];
-                $enturmacoes = Portabilis_Array_Utils::filterSet($enturmacoes, $attrs);
+                $enturmacoes = Utils::filterSet($enturmacoes, $attrs);
             }
 
             return ['enturmacoes' => $enturmacoes];
@@ -806,7 +806,7 @@ class MatriculaController extends ApiCoreController
 
         $matriculas = $this->fetchPreparedQuery($sql, $params);
         $attrs = ['matricula_id', 'disciplina_id', 'updated_at', 'deleted_at'];
-        $matriculas = Portabilis_Array_Utils::filterSet($matriculas, $attrs);
+        $matriculas = Utils::filterSet($matriculas, $attrs);
 
         return ['matriculas' => $matriculas];
     }
@@ -869,7 +869,7 @@ class MatriculaController extends ApiCoreController
 
         $dispensas = $this->fetchPreparedQuery($sql, $params);
         $attrs = ['matricula_id', 'disciplina_id', 'etapas', 'updated_at', 'deleted_at'];
-        $dispensas = Portabilis_Array_Utils::filterSet($dispensas, $attrs);
+        $dispensas = Utils::filterSet($dispensas, $attrs);
 
         return ['dispensas' => $dispensas];
     }
@@ -904,7 +904,7 @@ class MatriculaController extends ApiCoreController
                 'id',
                 'deleted_at',
             ];
-            $enturmacoes = Portabilis_Array_Utils::filterSet($enturmacoes, $attrs);
+            $enturmacoes = Utils::filterSet($enturmacoes, $attrs);
 
             return ['enturmacoes' => $enturmacoes];
         }

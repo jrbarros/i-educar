@@ -1,7 +1,7 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 
 class EducacensoOrgaoRegionalController extends ApiCoreController
 {
@@ -13,7 +13,7 @@ class EducacensoOrgaoRegionalController extends ApiCoreController
 
         $orgaos = $this->fetchPreparedQuery($consulta, [$this->getRequest()->sigla_uf]);
         $attrs = ['codigo'];
-        $orgaos = Portabilis_Array_Utils::filterSet($orgaos, $attrs);
+        $orgaos = Utils::filterSet($orgaos, $attrs);
 
         return ['orgaos' => $orgaos];
     }

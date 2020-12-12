@@ -34,7 +34,7 @@
  * @version     $Id$
  */
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
 require_once 'Avaliacao/Service/Boletim.php';
 
@@ -52,7 +52,7 @@ require_once 'Avaliacao/Service/Boletim.php';
  *
  * @since       Classe disponível desde a versão 1.1.0
  *
- * @todo        Criar interface alternativa a CoreControllerPageEditControllerInterface
+ * @todo        Criar interface alternativa a CoreControllerPageEditController
  *   já que nem todos os formulários mapearam 1:1 a instâncias DataMapper.
  *
  * @version     @@package_version@@
@@ -107,7 +107,7 @@ class NotaController extends Core_Controller_Page_EditController
     protected $_parecer = null;
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_preConstruct()
+     * @see CoreControllerPageEditController#_preConstruct()
      */
     protected function _preConstruct()
     {
@@ -130,7 +130,7 @@ class NotaController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_initNovo()
+     * @see CoreControllerPageEditController#_initNovo()
      */
     protected function _initNovo()
     {
@@ -153,7 +153,7 @@ class NotaController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_initEditar()
+     * @see CoreControllerPageEditController#_initEditar()
      */
     protected function _initEditar()
     {
@@ -210,7 +210,7 @@ class NotaController extends Core_Controller_Page_EditController
     }
 
     /**
-     * @see CoreControllerPageEditControllerInterface#_save()
+     * @see CoreControllerPageEditController#_save()
      */
     protected function _save()
     {

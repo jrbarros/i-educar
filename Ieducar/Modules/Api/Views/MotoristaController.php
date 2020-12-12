@@ -3,9 +3,9 @@
 require_once 'Source/Modules/clsModulesMotorista.inc.php';
 require_once 'Source/Modules/clsModulesVeiculo.inc.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Date/AppDateUtils.php';
 
 class MotoristaController extends ApiCoreController
@@ -83,7 +83,7 @@ class MotoristaController extends ApiCoreController
             'vencimento_cnh' => 'vencimento_cnh'
         ];
 
-        $motorista = Portabilis_Array_Utils::filter($motorista, $attrs);
+        $motorista = Utils::filter($motorista, $attrs);
 
         $motorista['nome'] = Portabilis_String_Utils::toUtf8($this->loadNomePessoa($id));
         $motorista['empresa'] = Portabilis_String_Utils::toUtf8($this->loadNomeEmpresa($id));

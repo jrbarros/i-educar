@@ -116,7 +116,7 @@ if ($nivel_usuario <= 4 && !empty($nivel_usuario)) {
     if ($get_escola) {
         $opcoes_escola = ['' => 'Selecione'];
 
-        $todas_escolas = 'escola = new Array();' . "\n";
+        $todas_escolas = 'escola = new Collection();' . "\n";
         $obj_escola = new Escola();
 
         $lista = $obj_escola->lista(
@@ -136,7 +136,7 @@ if ($nivel_usuario <= 4 && !empty($nivel_usuario)) {
         if (is_array($lista) && count($lista)) {
             foreach ($lista as $registro) {
                 $todas_escolas .= sprintf(
-              'escola[escola.length] = new Array(%s, \'%s\', %s);' . "\n",
+              'escola[escola.length] = new Collection(%s, \'%s\', %s);' . "\n",
               $registro['cod_escola'],
               $registro['nome'],
               $registro['ref_cod_instituicao']

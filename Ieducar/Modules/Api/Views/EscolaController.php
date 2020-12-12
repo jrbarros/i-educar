@@ -3,7 +3,7 @@
 use App\Models\LegacySchool;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Source/Base.php';
 require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
@@ -193,7 +193,7 @@ class EscolaController extends ApiCoreController
             $anosLetivos = $this->fetchPreparedQuery($sql, [$ano]);
 
             $attrs = ['escola_id', 'ano', 'descricao', 'ano_em_aberto'];
-            $anosLetivos = Portabilis_Array_Utils::filterSet($anosLetivos, $attrs);
+            $anosLetivos = Utils::filterSet($anosLetivos, $attrs);
 
             $anosLetivos = array_map(function ($ano) {
                 $ano['ano_em_aberto'] = $ano['ano_em_aberto'] == 1;
@@ -224,7 +224,7 @@ class EscolaController extends ApiCoreController
         $etapas = [];
         $etapas = $this->fetchPreparedQuery($sql, [$ano, $escola]);
         $attrs = ['etapa', 'data_inicio', 'data_fim', 'dias_letivos'];
-        $etapas = Portabilis_Array_Utils::filterSet($etapas, $attrs);
+        $etapas = Utils::filterSet($etapas, $attrs);
 
         return ['etapas' => $etapas];
     }
@@ -272,7 +272,7 @@ class EscolaController extends ApiCoreController
 
         $turmas = $this->fetchPreparedQuery($sql_turmas, [$ano, $escola]);
         $attrs_turmas = ['turma_id', 'descricao'];
-        $turmas = Portabilis_Array_Utils::filterSet($turmas, $attrs_turmas);
+        $turmas = Utils::filterSet($turmas, $attrs_turmas);
 
         foreach ($turmas as $key => $turma) {
             $turmas[$key] = array_merge($turmas[$key], $this->getEtapasTurma($ano, $escola, $turma['turma_id']));
@@ -297,7 +297,7 @@ class EscolaController extends ApiCoreController
         $etapas = [];
         $etapas = $this->fetchPreparedQuery($sql_etapas, [$ano, $escola, $turma]);
         $attrs_etapas= ['etapa', 'data_inicio', 'data_fim'];
-        $etapas = Portabilis_Array_Utils::filterSet($etapas, $attrs_etapas);
+        $etapas = Utils::filterSet($etapas, $attrs_etapas);
 
         return ['etapas' => $etapas];
     }
@@ -359,7 +359,7 @@ class EscolaController extends ApiCoreController
             } else {
                 $attrs = ['cod_escola'];
 
-                return [ 'escolas' => Portabilis_Array_Utils::filterSet($escolaIds, $attrs)];
+                return [ 'escolas' => Utils::filterSet($escolaIds, $attrs)];
             }
         }
     }
@@ -543,7 +543,7 @@ class EscolaController extends ApiCoreController
 
             $attrs = ['cod_escola', 'nome', 'cep', 'numero', 'complemento', 'logradouro', 'bairro', 'municipio', 'uf', 'pais', 'email', 'ddd', 'fone', 'nome_responsavel', 'inep'];
 
-            return [ 'escolas' => Portabilis_Array_Utils::filterSet($escolas, $attrs)];
+            return [ 'escolas' => Utils::filterSet($escolas, $attrs)];
         }
     }
 
@@ -581,7 +581,7 @@ class EscolaController extends ApiCoreController
             $sql = $this->fetchPreparedQuery($sql);
         }
 
-        $escolas = Portabilis_Array_Utils::setAsIdValue($sql, 'id', 'nome');
+        $escolas = Utils::setAsIdValue($sql, 'id', 'nome');
 
         return ['options' => $escolas];
     }

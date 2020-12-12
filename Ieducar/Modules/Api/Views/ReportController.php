@@ -65,7 +65,7 @@ class ReportController extends ApiCoreController
             'turma_id'
         ];
 
-        return Portabilis_Array_Utils::filter($dadosMatricula, $attrs);
+        return Utils::filter($dadosMatricula, $attrs);
     }
 
     // api

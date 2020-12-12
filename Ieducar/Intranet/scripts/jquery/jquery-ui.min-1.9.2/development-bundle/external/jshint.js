@@ -152,7 +152,7 @@
  "(name)", "(onevar)", "(params)", "(scope)", "(statement)", "(verb)", "(tokens)", "(catch)",
  "*", "+", "++", "-", "--", "\/", "<", "<=", "==",
  "===", ">", ">=", $, $$, $A, $F, $H, $R, $break, $continue, $w, Abstract, Ajax,
- __filename, __dirname, ActiveXObject, Array, ArrayBuffer, ArrayBufferView, Audio,
+ __filename, __dirname, ActiveXObject, Collection, ArrayBuffer, ArrayBufferView, Audio,
  Autocompleter, Asset, Boolean, Builder, Buffer, Browser, Blob, COM, CScript, Canvas,
  CustomAnimation, Class, Control, ComplexityCount, Chain, Color, Cookie, Core, DataView, Date,
  Debug, Draggable, Draggables, Droppables, Document, DomReady, DOMEvent, DOMReady, DOMParser,
@@ -2176,12 +2176,12 @@ loop:
                 isArray = token.value === "Array";
                 isObject = token.value === "Object";
 
-                // #527, new Foo.Array(), Foo.Array(), new Foo.Object(), Foo.Object()
+                // #527, new Foo.Collection(), Foo.Collection(), new Foo.Object(), Foo.Object()
                 // Line breaks in IfStatement heads exist to satisfy the checkJSHint
                 // "Line too long." error.
                 if (left && (left.value || (left.first && left.first.value))) {
                     // If the left.value is not "new", or the left.first.value is a "."
-                    // then safely assume that this is not "new Array()" and possibly
+                    // then safely assume that this is not "new Collection()" and possibly
                     // not "new Object()"...
                     if (left.value !== "new" ||
                       (left.first && left.first.value && left.first.value === ".")) {

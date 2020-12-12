@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
 require_once 'FormulaMedia/Model/FormulaDataMapper.php';
 require_once 'FormulaMedia/Validate/Formula.php';
 

@@ -11,7 +11,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchCategoriaObra extends 
         if (empty($resources)) {
             $resources = new CategoriaObra();
             $resources = $resources->lista();
-            $resources = Portabilis_Array_Utils::setAsIdValue($resources, 'id', 'descricao');
+            $resources = Utils::setAsIdValue($resources, 'id', 'descricao');
         }
 
         return $this->insertOption(null, '', $resources);

@@ -279,10 +279,10 @@ class indice extends clsCadastro
                     if ($this->alocacao_array) {
                         $tamanho = sizeof($alocacao);
                         $script  = "<script>\nvar num_alocacao = {$tamanho};\n";
-                        $script .= "var array_servidores = Array();\n";
+                        $script .= "var array_servidores = Collection();\n";
 
                         foreach ($this->alocacao_array as $key => $alocacao) {
-                            $script .= "array_servidores[{$key}] = new Array();\n";
+                            $script .= "array_servidores[{$key}] = new Collection();\n";
 
                             $hora_ini = explode(':', $alocacao['hora_inicial']);
                             $hora_fim = explode(':', $alocacao['hora_final']);

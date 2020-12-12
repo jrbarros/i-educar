@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
-require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditControllerInterface.php';
+require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditController.php';
 require_once 'Usuario/Model/FuncionarioDataMapper.php';
 
 class ItinerarioController extends Portabilis_Controller_Page_EditController

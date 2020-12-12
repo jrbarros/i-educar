@@ -121,7 +121,7 @@ class RegraAvaliacao_Model_RegraDataMapper extends CoreExt_DataMapper
     /**
      * Finder.
      *
-     * @return array Array de objetos FormulaMedia_Model_Formula
+     * @return array Collection de objetos FormulaMedia_Model_Formula
      */
     public function findFormulaMediaFinal($where = [])
     {
@@ -134,7 +134,7 @@ class RegraAvaliacao_Model_RegraDataMapper extends CoreExt_DataMapper
     /**
      * Finder.
      *
-     * @return array Array de objetos FormulaMedia_Model_Formula
+     * @return array Collection de objetos FormulaMedia_Model_Formula
      */
     public function findFormulaMediaRecuperacao($where = [])
     {
@@ -149,7 +149,7 @@ class RegraAvaliacao_Model_RegraDataMapper extends CoreExt_DataMapper
      *
      * @param array $where
      *
-     * @return array Array de objetos FormulaMedia_Model_Formula
+     * @return array Collection de objetos FormulaMedia_Model_Formula
      */
     protected function _findFormulaMedia(array $where = [])
     {

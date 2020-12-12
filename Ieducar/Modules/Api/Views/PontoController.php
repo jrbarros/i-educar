@@ -7,7 +7,7 @@ require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
 require_once 'Source/Modules/clsModulesItinerarioTransporteEscolar.inc.php';
 require_once 'Source/Modules/clsModulesPontoTransporteEscolar.inc.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Text/AppDateUtils.php';
 require_once 'Portabilis/Date/AppDateUtils.php';
 
@@ -94,7 +94,7 @@ class PontoController extends ApiCoreController
             'longitude' => 'longitude',
         ];
 
-        $pt = Portabilis_Array_Utils::filter($ponto, $attrs);
+        $pt = Utils::filter($ponto, $attrs);
         $pt['desc'] = Portabilis_String_Utils::toUtf8($pt['desc']);
 
         $pt['bairro'] = $this->toUtf8($pt['bairro']);

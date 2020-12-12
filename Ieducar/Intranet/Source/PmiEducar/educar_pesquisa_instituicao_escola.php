@@ -50,7 +50,7 @@ namespace iEducarLegacy\Intranet\Source\PmiEducar;      /*
                         $this->ref_cod_instituicao = null;
                     }*/
 
-            //**** javascript  Array dinamico das instituicoes - escolas
+            //**** javascript  Collection dinamico das instituicoes - escolas
             $obj_instituicao = new Instituicao();
             $lista_instituicao23 = $obj_instituicao->lista();
 
@@ -60,17 +60,17 @@ namespace iEducarLegacy\Intranet\Source\PmiEducar;      /*
                     $obj_escola = new Escola();
                     $lista_escola23 = $obj_escola->lista(null, null, null, $instituicao['cod_instituicao'], null, null, null, null, null, null, 1);
 
-                    $escolas = " instituicao['_{$instituicao['cod_instituicao']}'] = new Array();\n";
+                    $escolas = " instituicao['_{$instituicao['cod_instituicao']}'] = new Collection();\n";
 
                     if ($lista_escola23) {
                         foreach ($lista_escola23 as $escola) {
-                            $escolas .= " instituicao['_{$instituicao['cod_instituicao']}'][instituicao['_{$instituicao['cod_instituicao']}'].length] = new Array({$escola['cod_escola']},'{$escola['nome']}');\n";
+                            $escolas .= " instituicao['_{$instituicao['cod_instituicao']}'][instituicao['_{$instituicao['cod_instituicao']}'].length] = new Collection({$escola['cod_escola']},'{$escola['nome']}');\n";
                         }
                     }
                     $instituicoes .="{$escolas}";
                 }
 
-                echo $script = "<script> var numero_intituicoes = {$obj_instituicao->_total} \n var instituicao = new Array(); \n {$instituicoes}</script>\n";
+                echo $script = "<script> var numero_intituicoes = {$obj_instituicao->_total} \n var instituicao = new Collection(); \n {$instituicoes}</script>\n";
             }
 
             echo "<!-- {$this->ref_cod_instituicao} -->";

@@ -14,7 +14,7 @@ class Portabilis_View_Helper_Input_Resource_Uf extends Portabilis_View_Helper_In
         if (empty($options['resources'])) {
             $states = State::query()->where('country_id', Country::BRASIL)->get()->values();
 
-            $resources = Portabilis_Array_Utils::setAsIdValue($states->toArray(), 'abbreviation', 'abbreviation');
+            $resources = Utils::setAsIdValue($states->toArray(), 'abbreviation', 'abbreviation');
         }
 
         return $this->insertOption(null, 'Estado', $resources);

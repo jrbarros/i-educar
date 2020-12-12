@@ -111,7 +111,7 @@ abstract class Dispatcher implements DispatcherInterface, CoreExtConfigurable
      * <?php
      * // $_SERVER['REQUEST_URI'] = 'http://www.example.com/path1/path2/path3?qs=1';
      * print_r($this->_getUrlPath());
-     * // Array
+     * // Collection
      * (
      *   [0] => path1
      *   [1] => path2

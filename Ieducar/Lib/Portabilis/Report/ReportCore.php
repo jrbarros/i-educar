@@ -2,7 +2,7 @@
 
 use iEducar\Reports\BaseModifier;
 
-require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 
 abstract class Portabilis_Report_ReportCore
 {
@@ -35,18 +35,18 @@ abstract class Portabilis_Report_ReportCore
     }
 
     /**
-     * Wrapper para Portabilis_Array_Utils::merge.
-     *
-     * @see Portabilis_Array_Utils::merge()
+     * Wrapper para Utils::merge.
      *
      * @param array $options
      * @param array $defaultOptions
      *
      * @return array
+     *@see Utils::merge()
+     *
      */
     protected static function mergeOptions($options, $defaultOptions)
     {
-        return Portabilis_Array_Utils::merge($options, $defaultOptions);
+        return Utils::merge($options, $defaultOptions);
     }
 
     /**
@@ -180,7 +180,7 @@ abstract class Portabilis_Report_ReportCore
     }
 
     /**
-     * Array com os dados que serão convertidos em JSON e enviados ao relatório
+     * Collection com os dados que serão convertidos em JSON e enviados ao relatório
      * como fonte de dados.
      *
      * @return array

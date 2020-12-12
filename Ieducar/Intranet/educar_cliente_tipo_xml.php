@@ -64,7 +64,7 @@ if (is_numeric($_GET['bib'])) {
     $sql = sprintf($sql, $_GET['bib'], $filtroTipoExemplar);
     $db->Consulta($sql);
 
-    // Array com os códigos do resultado do SELECT
+    // Collection com os códigos do resultado do SELECT
     $codigos = [];
 
     while ($db->ProximoRegistro()) {

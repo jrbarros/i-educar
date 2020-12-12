@@ -39,7 +39,7 @@ abstract class Storage implements StorageInterface, Countable
     /**
      * Construtor.
      *
-     * @param array $options Array de opções de configuração.
+     * @param array $options Collection de opções de configuração.
      */
     public function __construct(array $options = [])
     {

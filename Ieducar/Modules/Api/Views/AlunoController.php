@@ -22,9 +22,9 @@ require_once 'Source/Modules/clsModulesMoradiaAluno.inc.php';
 require_once 'Source/pmieducar/Permissoes.php';
 require_once 'App/Model/MatriculaSituacao.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Date/AppDateUtils.php';
 require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
 require_once 'Transporte/Model/Responsavel.php';
@@ -852,7 +852,7 @@ class AlunoController extends ApiCoreController
             'deleted_at'
         ];
 
-        $ocorrencias = Portabilis_Array_Utils::filterSet($ocorrencias, $attrsFilter);
+        $ocorrencias = Utils::filterSet($ocorrencias, $attrsFilter);
 
         return ['ocorrencias_disciplinares' => $ocorrencias];
     }
@@ -1168,7 +1168,7 @@ class AlunoController extends ApiCoreController
                 'emancipado'
             ];
 
-            $aluno = Portabilis_Array_Utils::filter($aluno, $attrs);
+            $aluno = Utils::filter($aluno, $attrs);
 
             $aluno['nome'] = $this->loadNomeAluno($id);
             $aluno['tipo_transporte'] = $this->loadTransporte($id);
@@ -1207,7 +1207,7 @@ class AlunoController extends ApiCoreController
                     $objFichaMedica[$chave] = Portabilis_String_Utils::toUtf8($value);
                 }
 
-                $aluno = Portabilis_Array_Utils::merge($objFichaMedica, $aluno);
+                $aluno = Utils::merge($objFichaMedica, $aluno);
             }
 
             $objMoradia = new clsModulesMoradiaAluno($id);
@@ -1218,7 +1218,7 @@ class AlunoController extends ApiCoreController
                     $objMoradia[$chave] = Portabilis_String_Utils::toUtf8($value);
                 }
 
-                $aluno = Portabilis_Array_Utils::merge($objMoradia, $aluno);
+                $aluno = Utils::merge($objMoradia, $aluno);
             }
 
             $objPessoaTransporte = new clsModulesPessoaTransporte(null, null, $aluno['pessoa_id']);
@@ -1229,7 +1229,7 @@ class AlunoController extends ApiCoreController
                     $objPessoaTransporte[$chave] = Portabilis_String_Utils::toUtf8($value);
                 }
 
-                $aluno = Portabilis_Array_Utils::merge($objPessoaTransporte, $aluno);
+                $aluno = Utils::merge($objPessoaTransporte, $aluno);
             }
 
             $sql = 'select sus, ref_cod_religiao from cadastro.fisica where idpes = $1';
@@ -1344,7 +1344,7 @@ class AlunoController extends ApiCoreController
 
             $alunos = $this->fetchPreparedQuery($sql, $params);
 
-            $alunos = Portabilis_Array_Utils::filterSet($alunos, [
+            $alunos = Utils::filterSet($alunos, [
                 'aluno_id', 'nome_aluno', 'nome_social', 'foto_aluno',
                 'data_nascimento', 'updated_at', 'deleted_at'
             ]);
@@ -1398,7 +1398,7 @@ class AlunoController extends ApiCoreController
 
                 $alunos = $this->fetchPreparedQuery($sql, [$idpesGuardian]);
                 $attrs = ['aluno_id', 'nome_aluno'];
-                $alunos = Portabilis_Array_Utils::filterSet($alunos, $attrs);
+                $alunos = Utils::filterSet($alunos, $attrs);
 
                 foreach ($alunos as &$aluno) {
                     $aluno['nome_aluno'] = Portabilis_String_Utils::toUtf8($aluno['nome_aluno']);
@@ -1448,7 +1448,7 @@ class AlunoController extends ApiCoreController
                 'dependencia'
             ];
 
-            $matriculas = Portabilis_Array_Utils::filterSet($matriculas, $attrs);
+            $matriculas = Utils::filterSet($matriculas, $attrs);
 
             foreach ($matriculas as $index => $matricula) {
                 $turma = $this->loadTurmaByMatriculaId($matricula['id']);
@@ -1507,7 +1507,7 @@ class AlunoController extends ApiCoreController
                 'dependencia'
             ];
 
-            $matriculas = Portabilis_Array_Utils::filterSet($matriculas, $attrs);
+            $matriculas = Utils::filterSet($matriculas, $attrs);
 
             return ['matriculas' => $matriculas];
         }
@@ -1988,7 +1988,7 @@ class AlunoController extends ApiCoreController
 
             $alunos = $this->fetchPreparedQuery($sql, $params);
             $attrs = ['aluno_id'];
-            $alunos = Portabilis_Array_Utils::filterSet($alunos, $attrs);
+            $alunos = Utils::filterSet($alunos, $attrs);
 
             return ['alunos' => $alunos];
         }

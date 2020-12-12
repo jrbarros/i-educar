@@ -4,9 +4,9 @@ require_once 'Source/Modules/clsModulesEmpresaTransporteEscolar.inc.php';
 require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
 require_once 'Source/Modules/clsModulesMotorista.inc.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Collection/AppDateUtils.php';
 require_once 'Portabilis/Date/AppDateUtils.php';
 
 class EmpresaController extends ApiCoreController
@@ -63,7 +63,7 @@ class EmpresaController extends ApiCoreController
                 'ref_resp_idpes' => 'Pessoa'
             ];
 
-            $empresa = Portabilis_Array_Utils::filter($empresa, $attrs);
+            $empresa = Utils::filter($empresa, $attrs);
 
             $empresa['nome'] = $this->loadNomePessoa($id);
             $empresa['pessoajnome'] = $this->loadNomePessoaj($id);

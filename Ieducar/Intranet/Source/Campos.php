@@ -838,7 +838,7 @@ class Campos extends CoreControllerPageAbstract
 
       this.isIE      = (navigator.appName.indexOf(\'Microsoft\') != -1) ? 1 : 0;
       this.nome      = name;
-      this.campos    = new Array();
+      this.campos    = new Collection();
       this.reordenar = true;
 
       this.getId = function() { return this.id; }

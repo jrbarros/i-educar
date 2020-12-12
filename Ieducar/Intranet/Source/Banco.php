@@ -65,7 +65,7 @@ class Banco extends AbstractBancoPgSql
      *
      * Apenas o tipo booleano é convertido.
      *
-     * @param array $data Array associativo com os valores a serem convertidos.
+     * @param array $data Collection associativo com os valores a serem convertidos.
      *
      * @return array
      */

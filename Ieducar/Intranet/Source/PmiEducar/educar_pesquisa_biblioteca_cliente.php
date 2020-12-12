@@ -43,13 +43,13 @@ if ($privilegio == 4) {
                 $opcoes[''] = 'Selecione uma biblioteca';
                 $opcoes["{$registro['cod_biblioteca']}"] = "{$registro['nm_biblioteca']}";
             }
-            $tipos .= " tipo['_{$registro['cod_biblioteca']}'] = new Array();\n";
+            $tipos .= " tipo['_{$registro['cod_biblioteca']}'] = new Collection();\n";
 
             $obj_tipo = new clsPmieducarClienteTipo();
             $lst_tipo = $obj_tipo->lista(null, $registro['cod_biblioteca'], nul, null, null, null, null, null, null, null, 1);
             if ($lst_tipo) {
                 foreach ($lst_tipo as $tipo) {
-                    $tipos .= " tipo['_{$registro['cod_biblioteca']}'][tipo['_{$registro['cod_biblioteca']}'].length] = new Array( {$tipo['cod_cliente_tipo']}, '{$tipo['nm_tipo']}' );\n";
+                    $tipos .= " tipo['_{$registro['cod_biblioteca']}'][tipo['_{$registro['cod_biblioteca']}'].length] = new Collection( {$tipo['cod_cliente_tipo']}, '{$tipo['nm_tipo']}' );\n";
                     if ($editar) {
                         $opcoes2["{$tipo['cod_cliente_tipo']}"] = "{$tipo['nm_tipo']}";
                     } else {
@@ -58,7 +58,7 @@ if ($privilegio == 4) {
                 }
             }
         }
-        echo $script = "<script> var tipo = new Array(); \n {$tipos} </script>\n";
+        echo $script = "<script> var tipo = new Collection(); \n {$tipos} </script>\n";
     }
     $this->campoLista('ref_cod_biblioteca', 'Biblioteca', $opcoes, $this->ref_cod_biblioteca, 'BibliotecaTipo();', false, '', '', false, $obrigatorio);
     $this->campoLista('ref_cod_cliente_tipo', 'Tipo do Cliente', $opcoes2, $this->ref_cod_cliente_tipo, '', false, '', '', false, $obrigatorio);
@@ -74,7 +74,7 @@ if ($privilegio == 4) {
         foreach ($lst_escola as $escola) {
             $objTemp = new clsPmieducarBiblioteca();
             $lista   = $objTemp->lista(null, $escola['ref_cod_escola_instituicao'], $escola['cod_escola'], null, null, null, null, null, null, null, null, null, 1);
-            $bibliotecas .= " escola['_{$escola['cod_escola']}'] = new Array();\n";
+            $bibliotecas .= " escola['_{$escola['cod_escola']}'] = new Collection();\n";
             if ($lista) {
                 foreach ($lista as $registro) {
                     if ($editar) {
@@ -82,13 +82,13 @@ if ($privilegio == 4) {
                     } else {
                         $opcoes[''] = 'Selecione uma biblioteca';
                     }
-                    $bibliotecas .= " escola['_{$escola['cod_escola']}'][escola['_{$escola['cod_escola']}'].length] = new Array( {$registro['cod_biblioteca']}, '{$registro['nm_biblioteca']}' );\n";
-                    $tipos .= " tipo['_{$registro['cod_biblioteca']}'] = new Array();\n";
+                    $bibliotecas .= " escola['_{$escola['cod_escola']}'][escola['_{$escola['cod_escola']}'].length] = new Collection( {$registro['cod_biblioteca']}, '{$registro['nm_biblioteca']}' );\n";
+                    $tipos .= " tipo['_{$registro['cod_biblioteca']}'] = new Collection();\n";
                     $obj_tipo = new clsPmieducarClienteTipo();
                     $lst_tipo = $obj_tipo->lista(null, $registro['cod_biblioteca'], nul, null, null, null, null, null, null, null, 1);
                     if ($lst_tipo) {
                         foreach ($lst_tipo as $tipo) {
-                            $tipos .= " tipo['_{$registro['cod_biblioteca']}'][tipo['_{$registro['cod_biblioteca']}'].length] = new Array( {$tipo['cod_cliente_tipo']}, '{$tipo['nm_tipo']}' );\n";
+                            $tipos .= " tipo['_{$registro['cod_biblioteca']}'][tipo['_{$registro['cod_biblioteca']}'].length] = new Collection( {$tipo['cod_cliente_tipo']}, '{$tipo['nm_tipo']}' );\n";
                             if ($editar) {
                                 $opcoes2["{$tipo['cod_cliente_tipo']}"] = "{$tipo['nm_tipo']}";
                             } else {
@@ -99,8 +99,8 @@ if ($privilegio == 4) {
                 }
             }
         }
-        echo $script = "<script> var tipo = new Array(); \n {$tipos} </script>\n";
-        echo $script = "<script> var escola = new Array(); \n {$bibliotecas}</script>\n";
+        echo $script = "<script> var tipo = new Collection(); \n {$tipos} </script>\n";
+        echo $script = "<script> var escola = new Collection(); \n {$bibliotecas}</script>\n";
     }
     $this->campoLista('ref_cod_biblioteca', 'Biblioteca', $opcoes, $this->ref_cod_biblioteca, 'BibliotecaTipo();', false, '', '', false, $obrigatorio);
     $this->campoLista('ref_cod_cliente_tipo', 'Tipo do Cliente', $opcoes2, $this->ref_cod_cliente_tipo, '', false, '', '', false, $obrigatorio);
@@ -116,26 +116,26 @@ if ($privilegio == 4) {
         $instituicoes = '';
         $tipos_extra = '';
         foreach ($lst_ins as $instituicao) {
-            $instituicoes .= " biblioteca['_{$instituicao['cod_instituicao']}'] = new Array();\n";
+            $instituicoes .= " biblioteca['_{$instituicao['cod_instituicao']}'] = new Collection();\n";
             $obj_bib = new clsPmieducarBiblioteca(null, $instituicao['cod_instituicao'], null, null, null, null, null, null, null, null, 1);
             $lst_bib = $obj_bib->lista(null, $instituicao['cod_instituicao'], null, null, null, null, null, null, null, null, null, null, 1);
             if ($lst_bib) {
                 foreach ($lst_bib as $biblioteca) {
                     if (!$biblioteca['ref_cod_escola']) {
-                        $tipos_extra  .= " tipo['_{$biblioteca['cod_biblioteca']}'] = new Array();\n";
-                        $instituicoes .= " biblioteca['_{$instituicao['cod_instituicao']}'][biblioteca['_{$instituicao['cod_instituicao']}'].length] = new Array( {$biblioteca['cod_biblioteca']}, '{$biblioteca['nm_biblioteca']}' );\n";
+                        $tipos_extra  .= " tipo['_{$biblioteca['cod_biblioteca']}'] = new Collection();\n";
+                        $instituicoes .= " biblioteca['_{$instituicao['cod_instituicao']}'][biblioteca['_{$instituicao['cod_instituicao']}'].length] = new Collection( {$biblioteca['cod_biblioteca']}, '{$biblioteca['nm_biblioteca']}' );\n";
                         $obj_tipo = new clsPmieducarClienteTipo(null, $biblioteca['cod_biblioteca'], null, null, null, null, null, null, 1);
                         $lst_tipo = $obj_tipo->lista(null, $biblioteca['cod_biblioteca'], null, null, null, null, null, null, null, null, 1);
                         if ($lst_tipo) {
                             foreach ($lst_tipo as $tipo) {
-                                $tipos_extra .= " tipo['_{$biblioteca['cod_biblioteca']}'][tipo['_{$biblioteca['cod_biblioteca']}'].length] = new Array( {$tipo['cod_cliente_tipo']}, '{$tipo['nm_tipo']}' );\n";
+                                $tipos_extra .= " tipo['_{$biblioteca['cod_biblioteca']}'][tipo['_{$biblioteca['cod_biblioteca']}'].length] = new Collection( {$tipo['cod_cliente_tipo']}, '{$tipo['nm_tipo']}' );\n";
                             }
                         }
                     }
                 }
             }
         }
-        echo $script = "<script> var biblioteca = new Array(); \n {$instituicoes}</script>\n";
+        echo $script = "<script> var biblioteca = new Collection(); \n {$instituicoes}</script>\n";
     }
 
     $opcoes = [ '' => 'Selecione' ];
@@ -147,25 +147,25 @@ if ($privilegio == 4) {
         $tipos = '';
         $bibliotecas = '';
         foreach ($lst_escola as $escola) {
-            $bibliotecas .= " escola['_{$escola['cod_escola']}'] = new Array();\n";
+            $bibliotecas .= " escola['_{$escola['cod_escola']}'] = new Collection();\n";
 
             $objTemp = new clsPmieducarBiblioteca();
             $lista   = $objTemp->lista(null, $escola['ref_cod_escola_instituicao'], $escola['cod_escola'], null, null, null, null, null, null, null, null, null, 1);
             if ($lista) {
                 foreach ($lista as $registro) {
-                    $tipos .= " tipo['_{$registro['cod_biblioteca']}'] = new Array();\n";
+                    $tipos .= " tipo['_{$registro['cod_biblioteca']}'] = new Collection();\n";
                     if ($editar) {
                         $opcoes["{$registro['cod_biblioteca']}"] = "{$detalhe['nm_biblioteca']}";
                     } else {
                         $opcoes[''] = 'Selecione uma biblioteca';
                     }
-                    $bibliotecas .= " escola['_{$escola['cod_escola']}'][escola['_{$escola['cod_escola']}'].length] = new Array( {$registro['cod_biblioteca']}, '{$registro['nm_biblioteca']}' );\n";
+                    $bibliotecas .= " escola['_{$escola['cod_escola']}'][escola['_{$escola['cod_escola']}'].length] = new Collection( {$registro['cod_biblioteca']}, '{$registro['nm_biblioteca']}' );\n";
 
                     $obj_tipo = new clsPmieducarClienteTipo();
                     $lst_tipo = $obj_tipo->lista(null, $registro['cod_biblioteca'], nul, null, null, null, null, null, null, null, 1);
                     if ($lst_tipo) {
                         foreach ($lst_tipo as $tipo) {
-                            $tipos .= " tipo['_{$registro['cod_biblioteca']}'][tipo['_{$registro['cod_biblioteca']}'].length] = new Array( {$tipo['cod_cliente_tipo']}, '{$tipo['nm_tipo']}' );\n";
+                            $tipos .= " tipo['_{$registro['cod_biblioteca']}'][tipo['_{$registro['cod_biblioteca']}'].length] = new Collection( {$tipo['cod_cliente_tipo']}, '{$tipo['nm_tipo']}' );\n";
                             if ($editar) {
                                 $opcoes2["{$tipo['cod_cliente_tipo']}"] = "{$tipo['nm_tipo']}";
                             } else {
@@ -176,8 +176,8 @@ if ($privilegio == 4) {
                 }
             }
         }
-        echo $script = "<script> var tipo = new Array(); \n {$tipos}{$tipos_extra} </script>\n";
-        echo $script = "<script> var escola = new Array(); \n {$bibliotecas}</script>\n";
+        echo $script = "<script> var tipo = new Collection(); \n {$tipos}{$tipos_extra} </script>\n";
+        echo $script = "<script> var escola = new Collection(); \n {$bibliotecas}</script>\n";
     }
 
     $this->campoLista('ref_cod_biblioteca', 'Biblioteca', $opcoes, $this->ref_cod_biblioteca, 'BibliotecaTipo();', false, '', '', false, $obrigatorio);
