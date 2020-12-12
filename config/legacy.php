@@ -203,7 +203,7 @@ return [
         'mostrar_relatorios' => '',
         'logo_file_name' => env('REPORTS_LOGO', 'brasil.png'),
         'show_error_details' => true,
-        'default_factory' => env('REPORTS_FACTORY', 'Portabilis_Report_ReportFactoryPHPJasper'),
+        'default_factory' => env('REPORTS_FACTORY', 'ReportFactoryPHPJasper'),
         'source_path' => env('REPORTS_SOURCE_PATH', base_path('Ieducar/Modules/Reports/ReportSources/')),
         'diario_classe' => [
             'dias_temporarios' => '30',

@@ -1,10 +1,11 @@
 <?php
 
-require_once 'lib/Portabilis/Report/ReportFactory.php';
+namespace iEducarLegacy\Lib\Portabilis\Report;
 
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
 use JasperPHP\JasperPHP;
 
-class Portabilis_Report_ReportFactoryPHPJasper extends Portabilis_Report_ReportFactory
+class ReportFactoryPHPJasper extends ReportFactory
 {
     /**
      * Define as configurações dos relatórios.
@@ -35,12 +36,12 @@ class Portabilis_Report_ReportFactoryPHPJasper extends Portabilis_Report_ReportF
      * @return string
      *
      * @throws CoreExtensionException
-     * @throws Exception
+     * @throws \Exception
      */
     public function logoPath()
     {
         if (!$this->settings['logo_file_name']) {
-            throw new Exception('No report.logo_file_name defined in configurations!');
+            throw new \Exception('No report.logo_file_name defined in configurations!');
         }
 
         $rootPath = dirname(dirname(dirname(dirname(__FILE__))));
@@ -56,14 +57,14 @@ class Portabilis_Report_ReportFactoryPHPJasper extends Portabilis_Report_ReportF
     /**
      * Renderiza o relatório.
      *
-     * @param Portabilis_Report_ReportCore $report
-     * @param array                        $options
+     * @param ReportCore $report
+     * @param array      $options
      *
      * @return void
      *
-     * @throws Exception
+     * @throws \Exception
      */
-    public function dumps($report, $options = [])
+    public function dumps(ReportCore $report, $options = [])
     {
         $options = self::mergeOptions($options, [
             'add_logo_arg' => true

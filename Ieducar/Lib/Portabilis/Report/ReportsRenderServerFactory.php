@@ -1,12 +1,16 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\Report;
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
 
-require_once 'lib/Portabilis/Report/ReportFactory.php';
-
-class Portabilis_Report_ReportsRenderServerFactory extends Portabilis_Report_ReportFactory
+/**
+ * Class ReportsRenderServerFactory
+ * @package iEducarLegacy\Lib\Portabilis\Report
+ */
+class ReportsRenderServerFactory extends ReportFactory
 {
     /**
      * URL onde se encontra o serviço de renderização.
@@ -51,6 +55,7 @@ class Portabilis_Report_ReportsRenderServerFactory extends Portabilis_Report_Rep
      * @param string $response
      *
      * @return void
+     * @throws \JsonException
      */
     protected function log($payload, $response)
     {
@@ -58,7 +63,7 @@ class Portabilis_Report_ReportsRenderServerFactory extends Portabilis_Report_Rep
             'url' => $this->url,
             'payload' => $payload,
             'response' => $response,
-        ]);
+        ], JSON_THROW_ON_ERROR);
 
         Log::error($log);
     }
@@ -85,15 +90,13 @@ class Portabilis_Report_ReportsRenderServerFactory extends Portabilis_Report_Rep
     /**
      * Renderiza o relatório.
      *
-     * @param Portabilis_Report_ReportCore $report
-     * @param array                        $options
-     *
-     * @throws GuzzleException
-     * @throws Exception
+     * @param ReportCore $report
+     * @param array      $options
      *
      * @return string
+     * @throws GuzzleException
      */
-    public function dumps($report, $options = [])
+    public function dumps(ReportCore $report, $options = [])
     {
         $options = self::mergeOptions($options, [
             'add_logo_name_arg' => true,
@@ -101,7 +104,7 @@ class Portabilis_Report_ReportsRenderServerFactory extends Portabilis_Report_Rep
         ]);
 
         if ($options['add_logo_name_arg'] and !$this->logo) {
-            throw new Exception('The option \'add_logo_name_arg\' is true, but no logo_name defined in configurations!');
+            throw new \Exception('The option \'add_logo_name_arg\' is true, but no logo_name defined in configurations!');
         } elseif ($options['add_logo_name_arg']) {
             $report->addArg('logo', $this->logo);
         }
@@ -156,13 +159,13 @@ class Portabilis_Report_ReportsRenderServerFactory extends Portabilis_Report_Rep
         if (is_null($json)) {
             $this->log($payload, $response->getBody()->getContents());
 
-            throw new Exception('Não foi possível analisar a resposta do serviço.');
+            throw new \Exception('Não foi possível analisar a resposta do serviço.');
         }
 
         if ($json['success'] == false) {
             $this->log($payload, $response->getBody()->getContents());
 
-            throw new Exception($json['error'] ?? $json['message']);
+            throw new \Exception($json['error'] ?? $json['message']);
         }
 
         $report = base64_decode($json['data']['file']);

@@ -1,10 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\Report;
+
 use iEducar\Reports\BaseModifier;
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
 
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-
-abstract class Portabilis_Report_ReportCore
+/**
+ * Class ReportCore
+ * @package iEducarLegacy\Lib\Portabilis\Report
+ */
+abstract class ReportCore
 {
     /**
      * @var array
@@ -22,7 +27,7 @@ abstract class Portabilis_Report_ReportCore
     public $modifiers = [];
 
     /**
-     * Portabilis_Report_ReportCore constructor.
+     * ReportCore constructor.
      *
      * @throws Exception
      */
@@ -121,7 +126,7 @@ abstract class Portabilis_Report_ReportCore
     /**
      * Retorna uma fábrica de relatórios.
      *
-     * @return Portabilis_Report_ReportFactory
+     * @return ReportFactory
      *
      * @throws CoreExtensionException
      */

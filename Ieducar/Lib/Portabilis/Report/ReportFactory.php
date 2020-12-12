@@ -1,8 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\Report;
 
-abstract class Portabilis_Report_ReportFactory
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+
+/**
+ * Class ReportFactory
+ *
+ * @package iEducarLegacy\Lib\Portabilis\Report
+ */
+abstract class ReportFactory
 {
     /**
      * @var object
@@ -15,9 +22,7 @@ abstract class Portabilis_Report_ReportFactory
     public $settings;
 
     /**
-     * Portabilis_Report_ReportFactory constructor.
-     *
-     * @throws Exception
+     * ReportFactory constructor.
      */
     public function __construct()
     {
@@ -34,6 +39,7 @@ abstract class Portabilis_Report_ReportFactory
      * @param array $defaultOptions
      *
      * @return array
+     *
      *@see Utils::merge()
      *
      */
@@ -54,10 +60,10 @@ abstract class Portabilis_Report_ReportFactory
     /**
      * Renderiza o relatório.
      *
-     * @param Portabilis_Report_ReportCore $report
-     * @param array                        $options
+     * @param ReportCore $report
+     * @param array      $options
      *
      * @return mixed
      */
-    abstract public function dumps($report, $options = []);
+    abstract public function dumps(ReportCore $report, $options = []);
 }

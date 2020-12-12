@@ -1,9 +1,12 @@
 <?php
 
-require_once 'XML/RPC2/Client.php';
-require_once 'lib/Portabilis/Report/ReportFactory.php';
+namespace iEducarLegacy\Lib\Portabilis\Report;
 
-class Portabilis_Report_ReportFactoryRemote extends Portabilis_Report_ReportFactory
+/**
+ * Class ReportFactoryRemote
+ * @package iEducarLegacy\Lib\Portabilis\Report
+ */
+class ReportFactoryRemote extends ReportFactory
 {
     /**
      * Define as configurações dos relatórios.
@@ -24,14 +27,13 @@ class Portabilis_Report_ReportFactoryRemote extends Portabilis_Report_ReportFact
     /**
      * Renderiza o relatório.
      *
-     * @param Portabilis_Report_ReportCore $report
-     * @param array                        $options
+     * @param ReportCore $report
+     * @param array      $options
      *
      * @return mixed
      *
-     * @throws Exception
      */
-    public function dumps($report, $options = [])
+    public function dumps(ReportCore $report, $options = [])
     {
         $options = self::mergeOptions($options, [
             'add_logo_name_arg' => true,
@@ -39,7 +41,7 @@ class Portabilis_Report_ReportFactoryRemote extends Portabilis_Report_ReportFact
         ]);
 
         if ($options['add_logo_name_arg'] and !$this->settings['logo_name']) {
-            throw new Exception('The option \'add_logo_name_arg\' is true, but no logo_name defined in configurations!');
+            throw new \RuntimeException('The option \'add_logo_name_arg\' is true, but no logo_name defined in configurations!');
         } elseif ($options['add_logo_name_arg']) {
             $report->addArg('logo_name', $this->settings['logo_name']);
         }
@@ -61,7 +63,7 @@ class Portabilis_Report_ReportFactoryRemote extends Portabilis_Report_ReportFact
         } elseif ($options['encoding'] == 'uncoded') {
             $report = base64_decode($result['report']);
         } else {
-            throw new Exception("Encoding {$options['encoding']} not supported!");
+            throw new \Exception("Encoding {$options['encoding']} not supported!");
         }
 
         header('Content-Type: application/pdf;');
