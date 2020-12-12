@@ -1,6 +1,12 @@
 <?php
 
-abstract class CoreExt_View_Abstract
+namespace iEducarLegacy\Lib\CoreExt\View;
+
+/**
+ * Class View
+ * @package iEducarLegacy\Lib\CoreExt\View
+ */
+abstract class View
 {
     /**
      * Conteúdo gerado pela execução de um controller.
@@ -14,7 +20,7 @@ abstract class CoreExt_View_Abstract
      *
      * @param string $contents
      *
-     * @return CoreExt_View_Abstract Provê interface fluída.
+     * @return View Provê interface fluída.
      */
     public function setContents($contents)
     {

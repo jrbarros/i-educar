@@ -65,7 +65,7 @@ abstract class Avaliacao_Service_ParecerDescritivoCommon extends Avaliacao_Servi
   }
 
   /**
-   * Retorna o nome da classe CoreExt_DataMapper correta de acordo com a
+   * Retorna o nome da classe DataMapper correta de acordo com a
    * configuração da regra. Método auxiliar para criação de mocks.
    *
    * @return string

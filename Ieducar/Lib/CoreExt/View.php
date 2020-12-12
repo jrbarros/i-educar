@@ -1,7 +1,13 @@
 <?php
 
-require_once 'CoreExt/View/CoreControllerPageAbstract.php';
+namespace iEducarLegacy\Lib\CoreExt;
 
-class CoreExt_View extends CoreExt_View_Abstract
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageAbstract;
+
+/**
+ * Class View
+ * @package iEducarLegacy\Lib\CoreExt
+ */
+class View extends CoreControllerPageAbstract
 {
 }

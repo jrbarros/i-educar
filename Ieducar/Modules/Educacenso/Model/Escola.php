@@ -67,8 +67,8 @@ class Educacenso_Model_Escola extends Educacenso_Model_CodigoReferencia
     public function getDefaultValidatorCollection()
     {
         $validators = [
-      'escola'     => new CoreExt_Validate_Numeric(['min' => 0]),
-      'escolaInep' => new CoreExt_Validate_Numeric(['min' => 0]),
+      'escola'     => new _Validate_Numeric(['min' => 0]),
+      'escolaInep' => new _Validate_Numeric(['min' => 0]),
     ];
 
         return array_merge($validators, parent::getDefaultValidatorCollection());

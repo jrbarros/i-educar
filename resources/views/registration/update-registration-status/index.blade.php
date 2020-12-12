@@ -45,7 +45,7 @@
                         <select class="geral" name="ref_cod_curso" id="ref_cod_curso" style="width: 308px;">
                             <option value="">Selecione um curso</option>
                             @if (old('ref_cod_escola', Request::get('ref_cod_escola')) || ($user->isAdmin() || $user->isInstitutional()))
-                                @foreach(App_Model_IedFinder::getCursos(old('ref_cod_escola', Request::get('ref_cod_escola'))) as $id => $name)
+                                @foreach(Finder::getCursos(old('ref_cod_escola', Request::get('ref_cod_escola'))) as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             @endif
@@ -73,7 +73,7 @@
                         <select class="geral" name="ref_cod_serie" id="ref_cod_serie" style="width: 308px;">
                             <option value="">Selecione uma série</option>
                              @if (old('ref_cod_curso', Request::get('ref_cod_curso')) || ($user->isAdmin() || $user->isInstitutional()))
-                                @foreach(App_Model_IedFinder::getSeries(null, old('ref_cod_escola', Request::get('ref_cod_escola')), old('ref_cod_curso', Request::get('ref_cod_curso'))) as $id => $name)
+                                @foreach(Finder::getSeries(null, old('ref_cod_escola', Request::get('ref_cod_escola')), old('ref_cod_curso', Request::get('ref_cod_curso'))) as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
                              @endif
@@ -109,7 +109,7 @@
                    <span class="form">
                         <select class="geral" name="situacao" id="situacao" style="width: 308px;">
                             <option value="">Selecione</option>
-                                @foreach(App_Model_MatriculaSituacao::getInstance()->getEnums() as $id => $name)
+                                @foreach(MatriculaSituacao::getInstance()->getEnums() as $id => $name)
                                     @if(!in_array($id, [4,6,5,11,15]))
                                         <option value="{{$id}}" @if(old('situacao', Request::get('situacao')) == $id) selected @endif>
                                             {{$name}}
@@ -129,7 +129,7 @@
                    <span class="form">
                         <select class="geral" name="nova_situacao" id="nova_situacao" style="width: 308px;">
                             <option value="">Selecione</option>
-                                @foreach(App_Model_MatriculaSituacao::getInstance()->getEnums() as $id => $name)
+                                @foreach(MatriculaSituacao::getInstance()->getEnums() as $id => $name)
                                     @if($id != 11)
                                         <option value="{{$id}}" @if(old('nova_situacao', Request::get('nova_situacao')) == $id) selected @endif>
                                             {{$name}}

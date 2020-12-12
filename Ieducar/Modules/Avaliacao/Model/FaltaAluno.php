@@ -69,15 +69,15 @@ class Avaliacao_Model_FaltaAluno extends CoreExt_Entity
   ];
 
     /**
-     * @see CoreExt_Entity_Validatable#getDefaultValidatorCollection()
+     * @see Validatable#getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
         $presenca = RegraAvaliacao_Model_TipoPresenca::getInstance();
 
         return [
-      'Matricula' => new CoreExt_Validate_Numeric(['min' => 0]),
-      'tipoFalta' => new CoreExt_Validate_Choice(['choices' => $presenca->getKeys()]),
+      'Matricula' => new _Validate_Numeric(['min' => 0]),
+      'tipoFalta' => new _Validate_Choice(['choices' => $presenca->getKeys()]),
     ];
     }
 }

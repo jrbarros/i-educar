@@ -54,8 +54,8 @@ class ParecerDescritivoAbstractTest extends UnitBaseTest
   public function testEntityValidators()
   {
     $validators = $this->_entity->getValidatorCollection();
-    $this->assertInstanceOf('CoreExt_Validate_Choice', $validators['etapa']);
-    $this->assertInstanceOf('CoreExt_Validate_String', $validators['parecer']);
+    $this->assertInstanceOf('Choice', $validators['etapa']);
+    $this->assertInstanceOf('Text', $validators['parecer']);
 
     // Verifica se as opções de etapa incluem 'An'
     $this->assertTrue(in_array('An', $validators['etapa']->getOption('choices')));

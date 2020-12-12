@@ -4,7 +4,7 @@ require_once 'Source/Base.php';
 require_once 'Source/Detalhe.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 require_once 'Portabilis/View/Helper/Application.php';
 require_once 'Portabilis/Utils/CustomLabel.php';
 require_once 'ComponenteCurricular/Model/TurmaDataMapper.php';

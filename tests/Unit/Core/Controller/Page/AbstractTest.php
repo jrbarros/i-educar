@@ -28,16 +28,16 @@ class Core_Controller_Page_AbstractTest extends TestCase
   public function testClasseDataMapperEGeradaAPartirDaDefinicaoString()
   {
     $this->_pageController->_dataMapper = 'CoreExt_EntityDataMapperStub';
-    $this->assertInstanceOf('CoreExt_DataMapper', $this->_pageController->getDataMapper(), 'Falhou na asserção a partir da instanciação de "Core_Page_Controller_Abstract".');
+    $this->assertInstanceOf('DataMapper', $this->_pageController->getDataMapper(), 'Falhou na asserção a partir da instanciação de "Core_Page_Controller_Abstract".');
 
     $this->_pageController->setOptions(array('datamapper' => 'CoreExt_EntityDataMapperStub'));
-    $this->assertInstanceOf('CoreExt_DataMapper', $this->_pageController->getDataMapper(), 'Falhou na asserção a partir de configuração via "setOptions()".');
+    $this->assertInstanceOf('DataMapper', $this->_pageController->getDataMapper(), 'Falhou na asserção a partir de configuração via "setOptions()".');
 
     $this->_pageController->setDataMapper('CoreExt_EntityDataMapperStub');
-    $this->assertInstanceOf('CoreExt_DataMapper', $this->_pageController->getDataMapper(), 'Falhou na asserção a partir de configuração via "setDataMapper()" com nome de classe "CoreExt_DataMapper".');
+    $this->assertInstanceOf('DataMapper', $this->_pageController->getDataMapper(), 'Falhou na asserção a partir de configuração via "setDataMapper()" com nome de classe "DataMapper".');
 
     $this->_pageController->setDataMapper(new CoreExt_EntityDataMapperStub());
-    $this->assertInstanceOf('CoreExt_DataMapper', $this->_pageController->getDataMapper(), 'Falhou na asserção a partir de configuração via "setDataMapper()" com objeto "CoreExt_DataMapper".');
+    $this->assertInstanceOf('DataMapper', $this->_pageController->getDataMapper(), 'Falhou na asserção a partir de configuração via "setDataMapper()" com objeto "DataMapper".');
   }
 
   /**
@@ -67,13 +67,13 @@ class Core_Controller_Page_AbstractTest extends TestCase
   public function testAtribuicaoDeInstanciaEntity()
   {
     $this->_pageController->setEntity(new CoreExt_EntityStub());
-    $this->assertInstanceOf('CoreExt_Entity', $this->_pageController->getEntity());
+    $this->assertInstanceOf('Entity', $this->_pageController->getEntity());
   }
 
   public function testInstanciaUmEntityCasoNenhumaInstanciaTenhaSidoAtribuidaExplicitamente()
   {
     $this->_pageController->setDataMapper('CoreExt_EntityDataMapperStub');
-    $this->assertInstanceOf('CoreExt_Entity', $this->_pageController->getEntity());
+    $this->assertInstanceOf('Entity', $this->_pageController->getEntity());
   }
 
   public function testNumeroDoProcessoConfigurado()

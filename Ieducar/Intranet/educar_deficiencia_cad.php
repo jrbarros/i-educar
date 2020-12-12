@@ -4,7 +4,7 @@ require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
 require_once '';
 require_once 'Source/pmieducar/geral.inc.php';
-require_once 'lib/Portabilis/String/Utils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
 
 use iEducar\Support\View\SelectOptions;
 

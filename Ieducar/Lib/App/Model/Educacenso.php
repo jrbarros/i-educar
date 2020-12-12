@@ -1,8 +1,14 @@
 <?php
 
-class App_Model_Educacenso
+namespace iEducarLegacy\Lib\App\Model;
+
+/**
+ * Class Educacenso
+ * @package iEducarLegacy\Lib\App\Model
+ */
+class Educacenso
 {
-    public static function etapas_multisseriadas()
+    public static function etapas_multisseriadas(): array
     {
         return [3, 22, 23, 56, 64, 72];
     }

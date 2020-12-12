@@ -41,7 +41,7 @@ require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
 
-require_once 'Portabilis/Date/Utils.php';
+require_once 'Portabilis/Date/AppDateUtils.php';
 
 /**
  * clsIndexBase class.
@@ -163,7 +163,7 @@ class indice extends clsCadastro
         $this->inputsHelper()->dynamic('escola', ['value' => $this->ref_cod_escola, 'disabled' => $desabilitado]);
 
         // Text
-        // @todo CoreExt_Enum
+        // @todo Enum
         $opcoes = [
       '' => 'Selecione',
       1  => 'Atraso',

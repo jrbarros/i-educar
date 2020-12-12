@@ -1,8 +1,12 @@
 <?php
 
-require_once 'CoreExt/View/Helper/CoreControllerPageAbstract.php';
+namespace iEducarLegacy\Lib\CoreExt\View\Helper;
 
-class CoreExt_View_Helper_TableHelper extends CoreExt_View_Helper_Abstract
+/**
+ * Class Table
+ * @package iEducarLegacy\Lib\CoreExt\View\Helper
+ */
+class Table extends View
 {
     protected $_header = [];
     protected $_body = [];
@@ -18,7 +22,7 @@ class CoreExt_View_Helper_TableHelper extends CoreExt_View_Helper_Abstract
     /**
      * Retorna uma instância singleton.
      *
-     * @return CoreExt_View_Helper_Abstract
+     * @return View
      */
     public static function getInstance()
     {
@@ -31,7 +35,7 @@ class CoreExt_View_Helper_TableHelper extends CoreExt_View_Helper_Abstract
     /**
      * Reseta os dados da tabela.
      *
-     * @return CoreExt_View_Helper_TableHelper Provê interface fluída
+     * @return Table Provê interface fluída
      */
     public function resetTable()
     {
@@ -52,7 +56,7 @@ class CoreExt_View_Helper_TableHelper extends CoreExt_View_Helper_Abstract
      * - attributes: array associativo onde o nome do atributo é o índice
      *
      * <code>
-     * $table = CoreExt_View_Helper_TableHelper::getInstance();
+     * $table = Table::getInstance();
      *
      * $data = array(
      *   array('data' => 'Example 1', 'colspan' => 1),
@@ -75,7 +79,7 @@ class CoreExt_View_Helper_TableHelper extends CoreExt_View_Helper_Abstract
      *
      * @param array $cols
      *
-     * @return CoreExt_View_Helper_TableHelper Provê interface fluída
+     * @return Table Provê interface fluída
      */
     public function addHeaderRow(array $cols, array $rowAttributes = [])
     {
@@ -89,9 +93,9 @@ class CoreExt_View_Helper_TableHelper extends CoreExt_View_Helper_Abstract
      *
      * @param $cols
      *
-     * @return CoreExt_View_Helper_TableHelper Provê interface fluída
+     * @return Table Provê interface fluída
      *
-     * @see CoreExt_View_Helper_TableHelper::addHeaderRow(array $cols)
+     * @see Table::addHeaderRow(array $cols)
      */
     public function addBodyRow(array $cols, array $rowAttributes = [])
     {
@@ -105,9 +109,9 @@ class CoreExt_View_Helper_TableHelper extends CoreExt_View_Helper_Abstract
      *
      * @param $cols
      *
-     * @return CoreExt_View_Helper_TableHelper Provê interface fluída
+     * @return Table Provê interface fluída
      *
-     * @see CoreExt_View_Helper_TableHelper::addHeaderRow(array $cols)
+     * @see Table::addHeaderRow(array $cols)
      */
     public function addFooterRow(array $cols, array $rowAttributes = [])
     {

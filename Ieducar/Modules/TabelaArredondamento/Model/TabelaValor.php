@@ -1,7 +1,7 @@
 <?php
 
 require_once 'CoreExt/Entity.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 
 class TabelaArredondamento_Model_TabelaValor extends CoreExt_Entity
 {
@@ -36,7 +36,7 @@ class TabelaArredondamento_Model_TabelaValor extends CoreExt_Entity
     ];
 
     /**
-     * @see CoreExt_Entity::getDataMapper()
+     * @see Entity::getDataMapper()
      */
     public function getDataMapper()
     {
@@ -51,9 +51,9 @@ class TabelaArredondamento_Model_TabelaValor extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity_Validatable::getDefaultValidatorCollection()
+     * @see Validatable::getDefaultValidatorCollection()
      *
-     * @todo Implementar validador que retorne um String ou Numeric, dependendo
+     * @todo Implementar validador que retorne um Text ou Numeric, dependendo
      *   do valor do atributo (assim como validateIfEquals().
      * @todo Implementar validador que aceite um valor de comparação como
      *   alternativa a uma chave de atributo. (COMENTADO ABAIXO)

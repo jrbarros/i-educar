@@ -1,9 +1,16 @@
 <?php
 
-require_once 'CoreExt/Controller/Dispatcher/CoreControllerPageAbstract.php';
-require_once 'CoreExt/Controller/Dispatcher/Strategy/CoreExtControllerInterface.php';
+namespace iEducarLegacy\Lib\CoreExt\Controller\Dispatcher\Strategy;
 
-class CoreExt_Controller_Dispatcher_Strategy_PageStrategy extends CoreExt_Controller_Dispatcher_Abstract implements CoreExt_Controller_Dispatcher_Strategy_Interface
+use iEducarLegacy\Lib\CoreExt\Controller\CoreExtControllerInterface;
+use iEducarLegacy\Lib\CoreExt\Controller\Dispatcher\Dispatcher;
+
+/**
+ * Class PageStrategy
+ *
+ * @package iEducarLegacy\Lib\CoreExt\Controller\Dispatcher\Strategy
+ */
+class PageStrategy extends Dispatcher implements StrategyInterface
 {
     /**
      * Instância de CoreExtControllerInterface.
@@ -16,6 +23,7 @@ class CoreExt_Controller_Dispatcher_Strategy_PageStrategy extends CoreExt_Contro
      * Construtor.
      *
      * @see CoreExt_Controller_Strategy_Interface#__construct($controller)
+     * @param CoreExtControllerInterface $controller
      */
     public function __construct(CoreExtControllerInterface $controller)
     {
@@ -24,6 +32,8 @@ class CoreExt_Controller_Dispatcher_Strategy_PageStrategy extends CoreExt_Contro
 
     /**
      * @see CoreExt_Controller_Strategy_Interface#setController($controller)
+     * @param CoreExtControllerInterface $controller
+     * @return PageStrategy
      */
     public function setController(CoreExtControllerInterface $controller)
     {
@@ -65,6 +75,7 @@ class CoreExt_Controller_Dispatcher_Strategy_PageStrategy extends CoreExt_Contro
      * </code>
      *
      * @return bool
+     *
      *@throws CoreExtension_Exception_FileNotFoundException
      *
      * @todo   Funções de controle de buffer não funcionam por conta de chamadas
@@ -101,7 +112,7 @@ class CoreExt_Controller_Dispatcher_Strategy_PageStrategy extends CoreExt_Contro
         $pageController = new $pageController();
 
         // Injeta as instâncias CoreExt_Dispatcher_Interface, CoreExt_Request_Interface
-        // CoreExt_Session no page controller
+        // Session no page controller
         $pageController->setDispatcher($this);
         $pageController->setRequest($this->getController()->getRequest());
         $pageController->setSession($this->getController()->getSession());

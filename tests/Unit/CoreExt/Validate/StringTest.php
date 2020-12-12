@@ -29,7 +29,7 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Validate/String.php';
+require_once 'CoreExt/Validate/Text.php';
 
 /**
  * CoreExt_Validate_StringTest class.
@@ -48,7 +48,7 @@ class CoreExt_Validate_StringTest extends PHPUnit\Framework\TestCase
 
   protected function setUp(): void
   {
-    $this->_validator = new CoreExt_Validate_String();
+    $this->_validator = new _Validate_String();
   }
 
   /**

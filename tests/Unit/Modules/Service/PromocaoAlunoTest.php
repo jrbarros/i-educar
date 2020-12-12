@@ -81,7 +81,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
         ->method('getRegraAvaliacaoTipoProgressao')
         ->will($this->returnValue(0));
 
-    $this->expectException('CoreExtension_Service_Exception');
+    $this->expectException('Exception');
     $service->promover();
   }
 

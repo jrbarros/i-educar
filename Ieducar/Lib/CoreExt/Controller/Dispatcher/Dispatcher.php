@@ -1,14 +1,19 @@
 <?php
 
-require_once 'CoreExt/Controller/Dispatcher/Interface.php';
-require_once 'CoreExt/Configurable.php';
+namespace iEducarLegacy\Lib\CoreExt\Controller\Dispatcher;
 
-abstract class CoreExt_Controller_Dispatcher_Abstract implements CoreExt_Controller_Dispatcher_Interface, CoreExt_Configurable
+use iEducarLegacy\Lib\CoreExt\CoreExtConfigurable;
+
+/**
+ * Class Dispatcher
+ * @package iEducarLegacy\Lib\CoreExt\Controller\Dispatcher
+ */
+abstract class Dispatcher implements DispatcherInterface, CoreExtConfigurable
 {
     /**
-     * Instância de CoreExt_Controller_Request_Interface
+     * Instância de RequestInterface
      *
-     * @var CoreExt_Controller_Request_Interface
+     * @var RequestInterface
      */
     protected $_request = null;
 
@@ -75,7 +80,7 @@ abstract class CoreExt_Controller_Dispatcher_Abstract implements CoreExt_Control
     }
 
     /**
-     * @see CoreExt_Controller_Dispatcher_Interface#setRequest($request)
+     * @see DispatcherInterface#setRequest($request)
      */
     public function setRequest(CoreExt_Controller_Request_Interface $request)
     {
@@ -85,12 +90,12 @@ abstract class CoreExt_Controller_Dispatcher_Abstract implements CoreExt_Control
     }
 
     /**
-     * @see CoreExt_Controller_Dispatcher_Interface#getRequest()
+     * @see DispatcherInterface#getRequest()
      */
     public function getRequest()
     {
         if (is_null($this->_request)) {
-            require_once 'CoreExt/Controller/Request.php';
+            require_once 'CoreExt/Controller/PageRequest.php';
             $this->setRequest(new CoreExt_Controller_Request());
         }
 
@@ -148,7 +153,7 @@ abstract class CoreExt_Controller_Dispatcher_Abstract implements CoreExt_Control
     }
 
     /**
-     * @see CoreExt_Controller_Dispatcher_Interface#getController()
+     * @see DispatcherInterface#getController()
      */
     public function getControllerName()
     {
@@ -158,7 +163,7 @@ abstract class CoreExt_Controller_Dispatcher_Abstract implements CoreExt_Control
     }
 
     /**
-     * @see CoreExt_Controller_Dispatcher_Interface#getAction()
+     * @see DispatcherInterface#getAction()
      */
     public function getActionName()
     {

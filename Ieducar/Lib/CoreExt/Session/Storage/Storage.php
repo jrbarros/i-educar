@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Session/Storage/CoreExtControllerInterface.php';
+namespace iEducarLegacy\Lib\CoreExt\Session\Storage;
 
-abstract class CoreExt_Session_Storage_Abstract implements CoreExt_Session_Storage_Interface, Countable
+use Countable;
+
+/**
+ * Class Storage
+ * @package iEducarLegacy\Lib\CoreExt\Session\Storage
+ */
+abstract class Storage implements StorageInterface, Countable
 {
     /**
      * Flag para definir se a session foi iniciada ou não, útil para impedir que

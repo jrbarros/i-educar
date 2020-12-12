@@ -587,8 +587,8 @@ class Cadastro extends clsCampos
 
     /**
      * Retorna uma lista formatada de erros que possam ter sido lanï¿½adas pela
-     * integraï¿½ï¿½o CoreExt_Controller_Page_Interface com CoreExt_DataMapper e
-     * CoreExt_Entity.
+     * integraï¿½ï¿½o CoreExt_Controller_Page_Interface com DataMapper e
+     * Entity.
      *
      * @return string|NULL
      */

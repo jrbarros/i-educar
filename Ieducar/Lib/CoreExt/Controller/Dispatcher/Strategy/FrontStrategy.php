@@ -1,9 +1,13 @@
 <?php
 
-require_once 'CoreExt/Controller/Dispatcher/CoreControllerPageAbstract.php';
-require_once 'CoreExt/Controller/Dispatcher/Strategy/CoreExtControllerInterface.php';
+namespace iEducarLegacy\Lib\CoreExt\Controller\Dispatcher\Strategy;
 
-class CoreExt_Controller_Dispatcher_Strategy_FrontStrategy extends CoreExt_Controller_Dispatcher_Abstract implements CoreExt_Controller_Dispatcher_Strategy_Interface
+use iEducarLegacy\Lib\CoreExt\Controller\CoreExtControllerInterface;
+
+/**
+ * Class FrontStrategy
+ */
+class FrontStrategy extends CoreExt_Controller_Dispatcher_Abstract implements CoreExt_Controller_Dispatcher_Strategy_Interface
 {
     /**
      * Instância de CoreExtControllerInterface.

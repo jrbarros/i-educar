@@ -23,7 +23,7 @@
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Enum
+ * @package     Enum
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
  * @version     $Id$
@@ -32,17 +32,17 @@
 require_once 'CoreExt/Enum.php';
 
 /**
- * CoreExt_EnumSexStub class.
+ * _EnumSexStub class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Enum
+ * @package     Enum
  * @subpackage  UnitTests
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
  */
-class CoreExt_EnumSexStub extends CoreExt_Enum
+class _EnumSexStub extends Enum
 {
   const MALE   = 1;
   const FEMALE = 2;

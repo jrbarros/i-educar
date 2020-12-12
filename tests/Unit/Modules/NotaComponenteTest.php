@@ -54,8 +54,8 @@ class NotaComponenteTest extends UnitBaseTest
   public function testEntityValidators()
   {
     $validators = $this->_entity->getValidatorCollection();
-    $this->assertInstanceOf('CoreExt_Validate_Numeric', $validators['nota']);
-    $this->assertInstanceOf('CoreExt_Validate_String',  $validators['notaArredondada']);
-    $this->assertInstanceOf('CoreExt_Validate_Choice',  $validators['etapa']);
+    $this->assertInstanceOf('Numeric', $validators['nota']);
+    $this->assertInstanceOf('Text',  $validators['notaArredondada']);
+    $this->assertInstanceOf('Choice',  $validators['etapa']);
   }
 }

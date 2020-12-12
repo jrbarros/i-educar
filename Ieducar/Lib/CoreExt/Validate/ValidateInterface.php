@@ -1,8 +1,15 @@
 <?php
 
-require_once 'CoreExt/CoreExtConfigurable.php';
+namespace iEducarLegacy\Lib\CoreExt\Validate;
 
-interface CoreExt_Validate_Interface extends CoreExtConfigurable
+use iEducarLegacy\Lib\CoreExt\CoreExtConfigurable;
+
+
+/**
+ * Interface ValidateInterface
+ * @package iEducarLegacy\Lib\CoreExt\Validate
+ */
+interface ValidateInterface extends CoreExtConfigurable
 {
     /**
      * Verifica se um dado valor é válido de acordo com a lógica implementada

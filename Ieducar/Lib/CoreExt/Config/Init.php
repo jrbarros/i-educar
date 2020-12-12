@@ -1,16 +1,25 @@
 <?php
 
-class CoreExt_Config_Ini extends CoreExt_Config
+namespace iEducarLegacy\Lib\CoreExt\Config;
+
+use iEducarLegacy\Lib\App\Model\Exception;
+use iEducarLegacy\Lib\CoreExt\Config;
+
+/**
+ * Class Init
+ * @package iEducarLegacy\Lib\CoreExt\Config
+ */
+class Init extends Config
 {
     /**
      * Caractere de herança das seções do arquivo ini.
      */
-    const COREEXT_CONFIG_INI_INHERITANCE_SEP = ':';
+    public const COREEXT_CONFIG_INI_INHERITANCE_SEP = ':';
 
     /**
      * Caractere de namespace das diretivas do arquivo ini.
      */
-    const COREEXT_CONFIG_INI_NAMESPACE_SEP = '.';
+    public const COREEXT_CONFIG_INI_NAMESPACE_SEP = '.';
 
     /**
      * Array contendo as diretivas de configuração separadas por namespace.
@@ -25,12 +34,10 @@ class CoreExt_Config_Ini extends CoreExt_Config
      * @param string $filename Caminho para o arquivo ini
      * @param string $section  Seção desejada para o carregamento das configurações
      *
-     * @throws Exception
+     * @throws \Exception
      */
     public function __construct($filename, $section = 'production')
     {
-        require_once 'CoreExt/Config.class.php';
-
         $this->iniArr = $this->loadFile($filename);
 
         parent::__construct($this->iniArr[$section]);

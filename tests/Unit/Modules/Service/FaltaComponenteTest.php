@@ -75,8 +75,8 @@ class Avaliacao_Service_FaltaComponenteTest extends Avaliacao_Service_FaltaCommo
     $this->assertEquals(10, $falta->quantidade);
 
     $validators = $falta->getValidatorCollection();
-    $this->assertInstanceOf('CoreExt_Validate_Choice', $validators['componenteCurricular']);
-    $this->assertInstanceOf('CoreExt_Validate_Choice', $validators['etapa']);
+    $this->assertInstanceOf('Choice', $validators['componenteCurricular']);
+    $this->assertInstanceOf('Choice', $validators['etapa']);
 
     // Opções dos validadores
 

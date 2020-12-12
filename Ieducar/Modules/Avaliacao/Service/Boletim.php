@@ -16,7 +16,7 @@ use iEducar\Modules\Stages\Exceptions\StagesNotInformedByTeacherException;
 
 require_once 'CoreExt/CoreExtConfigurable.php';
 require_once 'CoreExt/Entity.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 require_once 'App/Model/Matricula.php';
 require_once 'App/Model/MatriculaSituacao.php';
 require_once 'Source/pmieducar/Permissoes.php';
@@ -798,7 +798,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      * - Aprovado
      * - Reprovado
      *
-     * Esses valores são definidos no enum App_Model_MatriculaSituacao.
+     * Esses valores são definidos no enum MatriculaSituacao.
      *
      * Para cada componente curricular, será indicado a situação do aluno no
      * componente.
@@ -811,10 +811,10 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      * <code>
      * <?php
      * $situacao = new stdClass();
-     * $situacao->situacao = App_Model_MatriculaSituacao::APROVADO;
+     * $situacao->situacao = MatriculaSituacao::APROVADO;
      * $situacao->componentesCurriculares = [;
      * $situacao->componentesCurriculares[1] = new stdClass();
-     * $situacao->componentesCurriculares[1]->situacao = App_Model_MatriculaSituacao::APROVADO;
+     * $situacao->componentesCurriculares[1]->situacao = MatriculaSituacao::APROVADO;
      * </code>
      *
      * Esses valores são definidos SOMENTE através da verificação das médias dos
@@ -831,7 +831,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @return stdClass|NULL Retorna NULL caso não
      *
-     * @see App_Model_MatriculaSituacao
+     * @see MatriculaSituacao
      */
     public function getSituacaoNotas($calcularSituacaoAluno = false)
     {
@@ -1317,7 +1317,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      * - Aprovado
      * - Reprovado
      *
-     * Esses valores são definidos no enum App_Model_MatriculaSituacao.
+     * Esses valores são definidos no enum MatriculaSituacao.
      *
      * Para cada componente curricular, será indicado a situação do aluno no
      * componente.
@@ -1330,10 +1330,10 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      * <code>
      * <?php
      * $situacao = new stdClass();
-     * $situacao->situacao = App_Model_MatriculaSituacao::APROVADO;
+     * $situacao->situacao = MatriculaSituacao::APROVADO;
      * $situacao->componentesCurriculares = [;
      * $situacao->componentesCurriculares[1] = new stdClass();
-     * $situacao->componentesCurriculares[1]->situacao = App_Model_MatriculaSituacao::APROVADO;
+     * $situacao->componentesCurriculares[1]->situacao = MatriculaSituacao::APROVADO;
      * </code>
      *
      * Esses valores são definidos através da verificação das médias dos
@@ -1346,7 +1346,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @return stdClass|NULL Retorna NULL caso não
      *
-     * @see App_Model_MatriculaSituacao
+     * @see MatriculaSituacao
      */
     public function getSituacaoComponentesCurriculares()
     {
@@ -1838,16 +1838,16 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
 
     /**
      * Atualiza as opções de validação de uma instância de
-     * CoreExt_Validate_Validatable, com os valores permitidos para os atributos
+     * Validatable, com os valores permitidos para os atributos
      * 'componenteCurricular' e 'etapa'.
      *
-     * @param CoreExt_Validate_Validatable $nota
+     * @param Validatable $nota
      *
-     * @return CoreExt_Validate_Validatable
+     * @return Validatable
      *
      * @todo Substituir variável estática por uma de instância {@see _updateParecerEtapa()}
      */
-    protected function _addValidators(CoreExt_Validate_Validatable $validatable)
+    protected function _addValidators(Validatable $validatable)
     {
         $validators = [];
 
@@ -1857,7 +1857,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
             $componentes = CoreExt_Entity::entityFilterAttr($componentes, 'id', 'id');
 
             // Só pode adicionar uma nota/falta para os componentes cursados
-            $validators['componenteCurricular'] = new CoreExt_Validate_Choice([
+            $validators['componenteCurricular'] = new _Validate_Choice([
                 'choices' => $componentes
             ]);
 
@@ -1865,7 +1865,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
             $etapas = $this->getOption('etapas');
             $etapas = array_merge(range(1, $etapas, 1), ['Rc']);
 
-            $validators['etapa'] = new CoreExt_Validate_Choice([
+            $validators['etapa'] = new _Validate_Choice([
                 'choices' => $etapas
             ]);
 
@@ -1909,14 +1909,14 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
             $parecerDescritivo = $this->getRegraAvaliacaoTipoParecerDescritivo();
 
             if (in_array($parecerDescritivo, $anuais)) {
-                $validators['etapa'] = new CoreExt_Validate_Choice([
+                $validators['etapa'] = new _Validate_Choice([
                     'choices' => ['An']
                 ]);
             } elseif (in_array($parecerDescritivo, $etapas)) {
                 $etapas = $this->getOption('etapas');
                 $etapas = array_merge(range(1, $etapas, 1), ['Rc']);
 
-                $validators['etapa'] = new CoreExt_Validate_Choice([
+                $validators['etapa'] = new _Validate_Choice([
                     'choices' => $etapas
                 ]);
             }
@@ -1925,7 +1925,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
                 $componentes = $this->getComponentes();
                 $componentes = CoreExt_Entity::entityFilterAttr($componentes, 'id', 'id');
 
-                $validators['componenteCurricular'] = new CoreExt_Validate_Choice([
+                $validators['componenteCurricular'] = new _Validate_Choice([
                     'choices' => $componentes
                 ]);
             }
@@ -2470,7 +2470,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @return Avaliacao_Service_Boletim Provê interface fluída
      *
-     * @throws CoreExtension_DataMapper_Exception
+     * @throws Exception
      */
     public function saveFaltas($updateAverage = false)
     {
@@ -2656,7 +2656,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      * @param $etapa
      * @param bool $lock
      *
-     * @throws CoreExtension_DataMapper_Exception
+     * @throws Exception
      */
     public function updateMediaComponente($media, $componente, $etapa, bool $lock = false)
     {
@@ -2706,7 +2706,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      * @param $media
      * @param $etapa
      *
-     * @throws CoreExtension_DataMapper_Exception
+     * @throws Exception
      */
     public function updateMediaGeral($media, $etapa)
     {
@@ -2907,7 +2907,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @return bool
      *
-     * @see App_Model_Matricula#atualizaMatricula($Matricula, $usuario, $promover)
+     * @see Matricula#atualizaMatricula($Matricula, $usuario, $promover)
      */
     protected function _updateMatricula($matricula, $usuario, $promover)
     {

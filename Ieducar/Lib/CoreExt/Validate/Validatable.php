@@ -1,38 +1,36 @@
 <?php
 
-require_once 'CoreExt/Validate/Choice.php';
-require_once 'CoreExt/Validate/ChoiceMultiple.php';
-require_once 'CoreExt/Validate/String.php';
-require_once 'CoreExt/Validate/Numeric.php';
+namespace iEducarLegacy\Lib\CoreExt\Validate;
 
-interface CoreExt_Validate_Validatable
+
+interface Validatable
 {
     /**
      * Retorna TRUE caso a propriedade seja válida.
      *
-     * @param string $key
+     * @param Text $key
      *
      * @return bool
      */
     public function isValid($key = '');
 
     /**
-     * Configura um CoreExt_Validate_Interface para uma propriedade da classe.
+     * Configura um ValidateInterface para uma propriedade da classe.
      *
-     * @param string                     $key
-     * @param CoreExt_Validate_Interface $validator
+     * @param Text                     $key
+     * @param ValidateInterface $validator
      *
-     * @return CoreExt_Validate_Validatable Provê interface fluída
+     * @return Validatable Provê interface fluída
      */
-    public function setValidator($key, CoreExt_Validate_Interface $validator);
+    public function setValidator($key, ValidateInterface $validator);
 
     /**
-     * Retorna a instância CoreExt_Validate_Interface para uma propriedade da
+     * Retorna a instância ValidateInterface para uma propriedade da
      * classe ou NULL caso nenhum validador esteja atribuído.
      *
-     * @param string $key
+     * @param Text $key
      *
-     * @return CoreExt_Validate_Interface|NULL
+     * @return ValidateInterface|NULL
      */
     public function getValidator($key);
 }

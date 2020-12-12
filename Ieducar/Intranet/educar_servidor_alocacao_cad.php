@@ -5,8 +5,8 @@ require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
 require_once 'Source/pmieducar/FuncionarioVinculo.php';
-require_once 'lib/Portabilis/String/Utils.php';
-require_once 'lib/Portabilis/Date/Utils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
 
 class clsIndexBase extends Base
 {

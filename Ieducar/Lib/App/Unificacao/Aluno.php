@@ -1,11 +1,17 @@
 <?php
 
+namespace iEducarLegacy\Lib\App\Unificacao;
+
 use App\Models\LogUnificationOldData;
+use iEducarLegacy\Intranet\Source\Banco;
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
 use Illuminate\Support\Facades\DB;
 
-require_once 'CoreExt/CoreExtensionException.php';
-
-class App_Unificacao_Aluno
+/**
+ * Class Aluno
+ * @package iEducarLegacy\Lib\App\Unificacao
+ */
+class Aluno
 {
     public static function unifica($codAlunoPrincipal, $codAlunos, $codPessoa, Banco $db, $unificationId)
     {

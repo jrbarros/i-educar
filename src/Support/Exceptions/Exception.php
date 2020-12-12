@@ -3,9 +3,8 @@
 namespace iEducar\Support\Exceptions;
 
 use Exception as BaseException;
-use Throwable;
 
-class Exception extends BaseException implements Throwable
+class Exception extends BaseException
 {
     /**
      * Return more information about error.

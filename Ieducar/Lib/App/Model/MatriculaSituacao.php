@@ -1,23 +1,29 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Lib\App\Model;
 
-class App_Model_MatriculaSituacao extends CoreExt_Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class MatriculaSituacao
+ * @package iEducarLegacy\Lib\App\Model
+ */
+class MatriculaSituacao extends Enum
 {
-    const APROVADO = 1;
-    const REPROVADO = 2;
-    const EM_ANDAMENTO = 3;
-    const TRANSFERIDO = 4;
-    const RECLASSIFICADO = 5;
-    const ABANDONO = 6;
-    const EM_EXAME = 7;
-    const APROVADO_APOS_EXAME = 8;
-    const APROVADO_SEM_EXAME = 10;
-    const PRE_MATRICULA = 11;
-    const APROVADO_COM_DEPENDENCIA = 12;
-    const APROVADO_PELO_CONSELHO = 13;
-    const REPROVADO_POR_FALTAS = 14;
-    const FALECIDO = 15;
+    public const APROVADO = 1;
+    public const REPROVADO = 2;
+    public const EM_ANDAMENTO = 3;
+    public const TRANSFERIDO = 4;
+    public const RECLASSIFICADO = 5;
+    public const ABANDONO = 6;
+    public const EM_EXAME = 7;
+    public const APROVADO_APOS_EXAME = 8;
+    public const APROVADO_SEM_EXAME = 10;
+    public const PRE_MATRICULA = 11;
+    public const APROVADO_COM_DEPENDENCIA = 12;
+    public const APROVADO_PELO_CONSELHO = 13;
+    public const REPROVADO_POR_FALTAS = 14;
+    public const FALECIDO = 15;
 
     protected $_data = [
         self::APROVADO => 'Aprovado',

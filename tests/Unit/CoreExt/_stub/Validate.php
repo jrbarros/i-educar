@@ -32,7 +32,7 @@
 
 
 /**
- * CoreExt_ValidateStub class.
+ * _ValidateStub class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
@@ -42,7 +42,7 @@
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
  */
-class CoreExt_ValidateStub extends CoreExt_Validate_Abstract
+class _ValidateStub extends Validate
 {
   protected function _getDefaultOptions()
   {

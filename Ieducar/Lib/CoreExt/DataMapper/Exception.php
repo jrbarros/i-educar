@@ -1,7 +1,13 @@
 <?php
 
-require_once 'CoreExt/CoreExtensionException.php';
+namespace iEducarLegacy\Lib\CoreExt\DataMapper;
 
-class CoreExtension_DataMapper_Exception extends CoreExtensionException
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+
+/**
+ * Class Exception
+ * @package iEducarLegacy\Lib\CoreExt\DataMapper
+ */
+class Exception extends CoreExtensionException
 {
 }

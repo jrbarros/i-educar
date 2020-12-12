@@ -23,7 +23,7 @@
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_DataMapper
+ * @package     DataMapper
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
  * @version     $Id: /Ieducar/branches/1.1.0-dev/Ieducar/tests/unit/CoreExt/_stub/Entity.php 586 2009-10-14T23:26:48.478692Z eriksen  $
@@ -34,13 +34,13 @@
 /**
  * CoreExt_EntityDataMapperStub class.
  *
- * Entidade para testes de integração do componente CoreExt_DataMapper com
+ * Entidade para testes de integração do componente DataMapper com
  * o banco de dados.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_DataMapper
+ * @package     DataMapper
  * @subpackage  UnitTests
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@

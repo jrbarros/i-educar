@@ -1,8 +1,12 @@
 <?php
 
-require_once __DIR__ . '/Singleton.php';
+namespace iEducarLegacy\Lib\CoreExt;
 
-class CoreExt_Locale extends CoreExt_Singleton
+/**
+ * Class Locale
+ * @package iEducarLegacy\Lib\CoreExt
+ */
+class Locale extends Singleton
 {
     /**
      * @var string
@@ -32,7 +36,7 @@ class CoreExt_Locale extends CoreExt_Singleton
     public $actualCulture = 'en_US';
 
     /**
-     * @see CoreExt_Singleton#getInstance()
+     * @see Singleton#getInstance()
      */
     public static function getInstance()
     {
@@ -47,7 +51,7 @@ class CoreExt_Locale extends CoreExt_Singleton
      *
      * @param string $culture
      *
-     * @return CoreExt_Locale Provê interface fluída
+     * @return Locale Provê interface fluída
      */
     public function setCulture($culture)
     {

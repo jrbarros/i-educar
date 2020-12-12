@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Enum.php';
 
-class ComponenteCurricular_Model_TipoBase extends CoreExt_Enum
+class ComponenteCurricular_Model_TipoBase extends Enum
 {
     const DEFAULT = self::COMUM;
     const COMUM = 1;

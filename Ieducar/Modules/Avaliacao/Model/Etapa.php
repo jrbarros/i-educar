@@ -67,6 +67,6 @@ abstract class Avaliacao_Model_Etapa extends CoreExt_Entity
         // Aceita etapas de 0 a 10 + a string Rc
         $etapas = range(0, 10, 1) + ['Rc'];
 
-        return (new CoreExt_Validate_Choice(['choices' => $etapas]));
+        return (new _Validate_Choice(['choices' => $etapas]));
     }
 }

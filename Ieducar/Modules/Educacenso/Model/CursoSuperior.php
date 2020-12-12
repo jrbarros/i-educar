@@ -66,10 +66,10 @@ class Educacenso_Model_CursoSuperior extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-      'curso'  => new CoreExt_Validate_String(['min' => 0]),
-      'nome'   => new CoreExt_Validate_String(['min' => 1]),
-      'classe' => new CoreExt_Validate_Numeric(['min' => 0]),
-      'user'   => new CoreExt_Validate_Numeric(['min' => 0])
+      'curso'  => new _Validate_String(['min' => 0]),
+      'nome'   => new _Validate_String(['min' => 1]),
+      'classe' => new _Validate_Numeric(['min' => 0]),
+      'user'   => new _Validate_Numeric(['min' => 0])
     ];
     }
 

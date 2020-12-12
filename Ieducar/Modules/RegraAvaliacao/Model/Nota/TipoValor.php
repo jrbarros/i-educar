@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Enum.php';
 
-class RegraAvaliacao_Model_Nota_TipoValor extends CoreExt_Enum
+class RegraAvaliacao_Model_Nota_TipoValor extends Enum
 {
     const NENHUM = 0;
     const NUMERICA = 1;

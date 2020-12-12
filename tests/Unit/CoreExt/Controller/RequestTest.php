@@ -29,7 +29,7 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Controller/Request.php';
+require_once 'CoreExt/Controller/PageRequest.php';
 
 /**
  * CoreExt_Controller_RequestTest class.

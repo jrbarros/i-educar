@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Enum.php';
 
-class FormulaMedia_Model_TipoFormula extends CoreExt_Enum
+class FormulaMedia_Model_TipoFormula extends Enum
 {
     const MEDIA_FINAL = 1;
     const MEDIA_RECUPERACAO = 2;

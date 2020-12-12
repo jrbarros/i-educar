@@ -8,8 +8,8 @@ require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
 require_once '';
-require_once 'Portabilis/Date/Utils.php';
-require_once 'Portabilis/Currency/Utils.php';
+require_once 'Portabilis/Date/AppDateUtils.php';
+require_once 'Portabilis/Currency/AppDateUtils.php';
 
 require_once 'Educacenso/Model/OrgaoRegionalDataMapper.php';
 

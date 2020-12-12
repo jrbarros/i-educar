@@ -22,7 +22,7 @@ require_once 'Transporte/Model/AlunoDataMapper.php';
 require_once 'Source/pessoa/CadastroFisicaFoto.php';
 require_once 'Portabilis/View/Helper/Application.php';
 require_once 'Portabilis/Utils/CustomLabel.php';
-require_once 'lib/Portabilis/Date/Utils.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
 
 class clsIndexBase extends Base
 {
@@ -538,7 +538,7 @@ class indice extends clsDetalhe
         }
 
         /**
-         * @todo CoreExt_Enum?
+         * @todo Enum?
          */
         if (!$registro['tipo_cert_civil'] && $registro['certidao_nascimento']) {
             $this->addDetalhe(['Tipo Certidão Civil', 'Nascimento (novo formato)']);

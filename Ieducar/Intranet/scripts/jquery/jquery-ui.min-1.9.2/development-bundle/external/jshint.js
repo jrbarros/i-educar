@@ -182,7 +182,7 @@
  RangeError, Rectangle, ReferenceError, RegExp, ResizeAnimation, Request, RotateAnimation, Set,
  SQRT1_2, SQRT2, ScrollBar, ScriptEngine, ScriptEngineBuildVersion,
  ScriptEngineMajorVersion, ScriptEngineMinorVersion, Scriptaculous, Scroller,
- Slick, Slider, Selector, SharedWorker, String, Style, SyntaxError, Sortable, Sortables,
+ Slick, Slider, Selector, SharedWorker, Text, Style, SyntaxError, Sortable, Sortables,
  SortableObserver, Sound, Spinner, System, Swiff, Text, TextArea, Template,
  Timer, Tips, Type, TypeError, Toggle, Try, "use strict", unescape, URI, URIError, URL,
  VBArray, WeakMap, WSH, WScript, XDomainRequest, Web, Window, XMLDOM, XMLHttpRequest, XMLSerializer,
@@ -3326,7 +3326,7 @@ loop:
         if (left) {
             if (left.type === "(identifier)") {
                 if (left.value.match(/^[A-Z]([A-Z0-9_$]*[a-z][A-Za-z0-9_$]*)?$/)) {
-                    if ("Number String Boolean Date Object".indexOf(left.value) === -1) {
+                    if ("Number Text Boolean Date Object".indexOf(left.value) === -1) {
                         if (left.value === "Math") {
                             warning("Math is not a function.", left);
                         } else if (option.newcap) {

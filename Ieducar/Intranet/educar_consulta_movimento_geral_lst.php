@@ -5,7 +5,7 @@ use iEducar\Modules\Reports\QueryFactory\MovimentoGeralQueryFactory;
 require_once 'Source/Base.php';
 require_once 'Source/Banco.php';
 require_once 'Source/Listagem.php';
-require_once 'lib/Portabilis/Date/Utils.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
 require_once 'Portabilis/View/Helper/Application.php';
 
 class clsIndex extends Base

@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Portabilis/View/Helper/Input/Core.php';
-require_once 'Portabilis/Date/Utils.php';
+require_once 'Portabilis/Date/AppDateUtils.php';
 
 class Portabilis_View_Helper_Input_Date extends Portabilis_View_Helper_Input_Core
 {

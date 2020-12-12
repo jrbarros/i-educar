@@ -1,7 +1,7 @@
 <?php
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
 require_once 'Intranet/Source/Banco.php';
 
 class AcervoController extends ApiCoreController

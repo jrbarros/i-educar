@@ -1,9 +1,21 @@
 <?php
 
-require_once 'CoreExt/Validate/CoreExtControllerInterface.php';
+namespace iEducarLegacy\Lib\CoreExt\Validate;
 
-abstract class CoreExt_Validate_Abstract implements CoreExt_Validate_Interface
+use iEducarLegacy\Lib\CoreExt\Controller\CoreExtControllerInterface;
+
+/**
+ * Class Validate
+ *
+ * @package iEducarLegacy\Lib\CoreExt\Validate
+ */
+abstract class Validate implements CoreExtControllerInterface
 {
+    public function dispatch()
+    {
+        // TODO: Implement dispatch() method.
+    }
+
     /**
      * Opções de configuração geral da classe.
      *
@@ -82,7 +94,7 @@ abstract class CoreExt_Validate_Abstract implements CoreExt_Validate_Interface
     }
 
     /**
-     * @see CoreExt_Validate_Interface#getOptions()
+     * @see ValidateInterface#getOptions()
      */
     public function getOptions()
     {
@@ -117,7 +129,7 @@ abstract class CoreExt_Validate_Abstract implements CoreExt_Validate_Interface
     }
 
     /**
-     * Permite que uma classe que estenda CoreExt_Validate_Abstract a definir
+     * Permite que uma classe que estenda Validate a definir
      * valores de opções pré-definidos adequados ao caso específico.
      *
      * @return array
@@ -125,7 +137,7 @@ abstract class CoreExt_Validate_Abstract implements CoreExt_Validate_Interface
     abstract protected function _getDefaultOptions();
 
     /**
-     * @see CoreExt_Validate_Interface#isValid($value)
+     * @see ValidateInterface#isValid($value)
      */
     public function isValid($value)
     {
@@ -146,7 +158,7 @@ abstract class CoreExt_Validate_Abstract implements CoreExt_Validate_Interface
     }
 
     /**
-     * Toda classe que estende CoreExt_Validate_Abstract deve implementar esse
+     * Toda classe que estende Validate deve implementar esse
      * método com a lógica de validação adequada.
      *
      * @param string $value
@@ -248,7 +260,7 @@ abstract class CoreExt_Validate_Abstract implements CoreExt_Validate_Interface
     }
 
     /**
-     * @see CoreExt_Validate_Interface#getValue()
+     * @see ValidateInterface#getValue()
      */
     public function getValue()
     {
@@ -256,7 +268,7 @@ abstract class CoreExt_Validate_Abstract implements CoreExt_Validate_Interface
     }
 
     /**
-     * @see CoreExt_Validate_Interface#getSanitizedValue()
+     * @see ValidateInterface#getSanitizedValue()
      */
     public function getSanitizedValue()
     {

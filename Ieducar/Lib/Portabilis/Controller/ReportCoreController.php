@@ -5,7 +5,7 @@ use iEducar\Modules\ErrorTracking\TrackerFactory;
 require_once 'Core/Controller/Page/CoreControllerPageEditControllerInterface.php';
 require_once 'lib/Portabilis/View/Helper/Inputs.php';
 require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
-require_once 'lib/Portabilis/String/Utils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'Source/pmieducar/Permissoes.php';
 
 class Portabilis_Controller_ReportCoreController extends Core_Controller_Page_EditController

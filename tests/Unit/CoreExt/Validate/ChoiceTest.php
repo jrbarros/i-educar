@@ -53,7 +53,7 @@ class CoreExt_Validate_ChoiceTest extends PHPUnit\Framework\TestCase
 
   protected function setUp(): void
   {
-    $this->_validator = new CoreExt_Validate_Choice();
+    $this->_validator = new _Validate_Choice();
   }
 
   public function testValidaSeNenhumaOpcaoPadraoForInformada()
@@ -82,7 +82,7 @@ class CoreExt_Validate_ChoiceTest extends PHPUnit\Framework\TestCase
     $this->_validator->setOptions(array('choices' => $this->_choices['bit']));
     try {
       $this->_validator->isValid(2);
-      $this->fail("CoreExt_Validate_Choice deveria ter lançado exceção.");
+      $this->fail("Choice deveria ter lançado exceção.");
     }
     catch (Exception $e) {
       $this->assertEquals('A opção "2" não existe.', $e->getMessage());
@@ -92,7 +92,7 @@ class CoreExt_Validate_ChoiceTest extends PHPUnit\Framework\TestCase
     // não ocorra, por isso transformamos tudo em string em _validate().
     try {
       $this->_validator->isValid('a');
-      $this->fail("CoreExt_Validate_Choice deveria ter lançado exceção.");
+      $this->fail("Choice deveria ter lançado exceção.");
     }
     catch (Exception $e) {
       $this->assertEquals('A opção "a" não existe.', $e->getMessage());
@@ -100,7 +100,7 @@ class CoreExt_Validate_ChoiceTest extends PHPUnit\Framework\TestCase
 
     try {
       $this->_validator->isValid('0a');
-      $this->fail("CoreExt_Validate_Choice deveria ter lançado exceção.");
+      $this->fail("Choice deveria ter lançado exceção.");
     }
     catch (Exception $e) {
       $this->assertEquals('A opção "0a" não existe.', $e->getMessage());

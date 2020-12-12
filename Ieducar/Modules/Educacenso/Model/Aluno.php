@@ -67,8 +67,8 @@ class Educacenso_Model_Aluno extends Educacenso_Model_CodigoReferencia
     public function getDefaultValidatorCollection()
     {
         $validators = [
-      'aluno'     => new CoreExt_Validate_Numeric(['min' => 0]),
-      'alunoInep' => new CoreExt_Validate_Numeric(['min' => 0]),
+      'aluno'     => new _Validate_Numeric(['min' => 0]),
+      'alunoInep' => new _Validate_Numeric(['min' => 0]),
     ];
 
         return array_merge($validators, parent::getDefaultValidatorCollection());

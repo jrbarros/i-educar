@@ -68,7 +68,7 @@ abstract class Avaliacao_Model_ParecerDescritivoAbstract extends Avaliacao_Model
   ];
 
     /**
-     * @see CoreExt_Entity_Validatable#getDefaultValidatorCollection()
+     * @see Validatable#getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
@@ -80,7 +80,7 @@ abstract class Avaliacao_Model_ParecerDescritivoAbstract extends Avaliacao_Model
 
         return [
       'etapa'   => $etapa,
-      'parecer' => new CoreExt_Validate_String()
+      'parecer' => new _Validate_String()
     ];
     }
 

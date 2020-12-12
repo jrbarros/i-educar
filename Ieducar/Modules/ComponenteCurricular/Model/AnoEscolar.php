@@ -27,7 +27,7 @@ class ComponenteCurricular_Model_AnoEscolar extends CoreExt_Entity
     /**
      * Construtor. Remove o campo identidade já que usa uma chave composta.
      *
-     * @see CoreExt_Entity::__construct($options = array())
+     * @see Entity::__construct($options = array())
      */
     public function __construct($options = [])
     {
@@ -36,7 +36,7 @@ class ComponenteCurricular_Model_AnoEscolar extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity::getDataMapper()
+     * @see Entity::getDataMapper()
      */
     public function getDataMapper()
     {
@@ -49,14 +49,14 @@ class ComponenteCurricular_Model_AnoEscolar extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity_Validatable::getDefaultValidatorCollection()
+     * @see Validatable::getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
         $validators = [];
 
         if (isset($this->anoEscolar)) {
-            $validators['cargaHoraria'] = new CoreExt_Validate_Numeric(['min' => 1]);
+            $validators['cargaHoraria'] = new _Validate_Numeric(['min' => 1]);
         }
 
         return $validators;

@@ -3,13 +3,13 @@
 use App\Models\LegacySchool;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/Utils.php';
+require_once 'Portabilis/Array/AppDateUtils.php';
 require_once 'Source/Base.php';
 require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
-require_once 'lib/Portabilis/Date/Utils.php';
-require_once 'lib/Portabilis/String/Utils.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 require_once 'Source/pmieducar/EscolaUsuario.php';
 require_once 'Source/pmieducar/Permissoes.php';

@@ -98,7 +98,7 @@
                    <span class="form">
                         <select class="geral" name="situacao" id="situacao" style="width: 308px;">
                             <option value="">Todas</option>
-                                @foreach(App_Model_MatriculaSituacao::getInstance()->getEnums() as $id => $name)
+                                @foreach(MatriculaSituacao::getInstance()->getEnums() as $id => $name)
                                 @if(!in_array($id, [4,6,5,11,15]))
                                     <option value="{{$id}}"
                                             @if(old('situacao', Request::get('situacao')) == $id) selected @endif>

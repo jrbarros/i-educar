@@ -54,7 +54,7 @@ class NotaComponenteMediaTest extends UnitBaseTest
   public function testEntityValidators()
   {
     $validators = $this->_entity->getDefaultValidatorCollection();
-    $this->assertInstanceOf('CoreExt_Validate_Numeric', $validators['media']);
-    $this->assertInstanceOf('CoreExt_Validate_String',  $validators['mediaArredondada']);
+    $this->assertInstanceOf('Numeric', $validators['media']);
+    $this->assertInstanceOf('Text',  $validators['mediaArredondada']);
   }
 }

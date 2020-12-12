@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Enum.php';
 
-class TabelaArredondamento_Model_TipoArredondamentoMedia extends CoreExt_Enum
+class TabelaArredondamento_Model_TipoArredondamentoMedia extends Enum
 {
     const NAO_ARREDONDAR = 0;
     const ARREDONDAR_PARA_NOTA_INFERIOR = 1;

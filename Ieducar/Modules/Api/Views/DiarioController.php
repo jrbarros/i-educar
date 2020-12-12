@@ -15,7 +15,7 @@ require_once 'RegraAvaliacao/Model/TipoPresenca.php';
 require_once 'RegraAvaliacao/Model/TipoParecerDescritivo.php';
 require_once 'Source/Modules/clsModulesNotaExame.inc.php';
 require_once 'App/Model/MatriculaSituacao.php';
-require_once 'Portabilis/String/Utils.php';
+require_once 'Portabilis/Text/AppDateUtils.php';
 
 class DiarioController extends ApiCoreController
 {
@@ -90,7 +90,7 @@ class DiarioController extends ApiCoreController
             $this->serviceBoletim($turmaId, $alunoId)->save();
         } catch (CoreExtension_Service_Exception $e) {
             // excecoes ignoradas :( pois servico lanca excecoes de alertas, que não são exatamente erros.
-            // error_log('CoreExtension_Service_Exception ignorada: ' . $e->getMessage());
+            // error_log('Exception ignorada: ' . $e->getMessage());
         }
     }
 

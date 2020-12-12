@@ -74,7 +74,7 @@ class Avaliacao_Model_NotaGeral extends Avaliacao_Model_Etapa
   ];
 
     /**
-     * @see CoreExt_Entity_Validatable#getDefaultValidatorCollection()
+     * @see Validatable#getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
@@ -82,8 +82,8 @@ class Avaliacao_Model_NotaGeral extends Avaliacao_Model_Etapa
         $etapas = range(0, 10, 1) + ['Rc'];
 
         return [
-      'nota' => new CoreExt_Validate_Numeric(['min' => 0, 'max' => 10]),
-      'notaArredondada'  => new CoreExt_Validate_String(['max' => 5])
+      'nota' => new _Validate_Numeric(['min' => 0, 'max' => 10]),
+      'notaArredondada'  => new _Validate_String(['max' => 5])
     ];
     }
 }

@@ -23,7 +23,7 @@
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_View
+ * @package     View
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
  * @version     $Id$
@@ -37,7 +37,7 @@ require_once 'CoreExt/View/Helper/UrlHelper.php';
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_View
+ * @package     View
  * @subpackage  UnitTests
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@

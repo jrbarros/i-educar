@@ -23,7 +23,7 @@
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Entity
+ * @package     Entity
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
  * @version     $Id$
@@ -43,7 +43,7 @@ require_once __DIR__.'/_stub/EnumSex.php';
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Entity
+ * @package     Entity
  * @subpackage  UnitTests
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
@@ -169,27 +169,27 @@ class CoreExt_EntityTest extends UnitBaseTest
   }
 
   /**
-   * @group CoreExt_Validate_Validatable
+   * @group Validatable
    */
   public function testConfiguraValidadorParaAtributo()
   {
     $entity = new CoreExt_EntityStub();
-    $entity->setValidator('estadoCivil', new CoreExt_Validate_String());
-    $this->assertInstanceOf('CoreExt_Validate_String', $entity->getValidator('estadoCivil'));
+    $entity->setValidator('estadoCivil', new _Validate_String());
+    $this->assertInstanceOf('Text', $entity->getValidator('estadoCivil'));
   }
 
   /**
    * @expectedException Exception
-   * @group CoreExt_Validate_Validatable
+   * @group Validatable
    */
   public function testConfigurarValidadorParaAtributoInexistenteLancaExcecao()
   {
     $entity = new CoreExt_EntityStub();
-    $entity->setValidator('fooAttr', new CoreExt_Validate_String());
+    $entity->setValidator('fooAttr', new _Validate_String());
   }
 
   /**
-   * @group CoreExt_Validate_Validatable
+   * @group Validatable
    */
   public function testAtributosDaInstanciaSaoValidos()
   {
@@ -204,7 +204,7 @@ class CoreExt_EntityTest extends UnitBaseTest
   }
 
   /**
-   * @group CoreExt_Validate_Validatable
+   * @group Validatable
    */
   public function testValidacaoGeralRetornaFalseSeUmAtributoForInvalido()
   {
@@ -218,9 +218,9 @@ class CoreExt_EntityTest extends UnitBaseTest
   }
 
   /**
-   * Testa com instância de CoreExt_Entity que contenha referências DataMapper.
+   * Testa com instância de Entity que contenha referências DataMapper.
    * @group Overload
-   * @group CoreExt_Validate_Validatable
+   * @group Validatable
    */
   public function testValidacaoSanitizaValorDeAtributoComReferenciasDataMapper()
   {
@@ -240,8 +240,8 @@ class CoreExt_EntityTest extends UnitBaseTest
     $entity = new CoreExt_ParentEntityStub($data);
 
     // Atribui validadores para os atributos
-    $entity->setValidator('nome', new CoreExt_Validate_String());
-    $entity->setValidator('filho', new CoreExt_Validate_Choice(array('choices' => array(1, 2))));
+    $entity->setValidator('nome', new _Validate_String());
+    $entity->setValidator('filho', new _Validate_Choice(array('choices' => array(1, 2))));
 
     // Valida e verifica pelos valores
     $entity->isValid();
@@ -250,8 +250,8 @@ class CoreExt_EntityTest extends UnitBaseTest
   }
 
   /**
-   * Testa com instância de CoreExt_Entity que contenha referências Enum.
-   * @group CoreExt_Validate_Validatable
+   * Testa com instância de Entity que contenha referências Enum.
+   * @group Validatable
    */
   public function testValidacaoSanitizaValorDeAtributoComReferenciasEnum()
   {
@@ -264,10 +264,10 @@ class CoreExt_EntityTest extends UnitBaseTest
     $entity = new CoreExt_ChildEntityStub($data);
 
     // Atribui validadores para os atributos
-    $entity->setValidator('nome', new CoreExt_Validate_String());
-    $entity->setValidator('sexo', new CoreExt_Validate_Choice(array('choices' => array(1, 2))));
-    $entity->setValidator('tipoSanguineo', new CoreExt_Validate_Choice(array('choices' => array(1, 2))));
-    $entity->setValidator('peso', new CoreExt_Validate_Numeric());
+    $entity->setValidator('nome', new _Validate_String());
+    $entity->setValidator('sexo', new _Validate_Choice(array('choices' => array(1, 2))));
+    $entity->setValidator('tipoSanguineo', new _Validate_Choice(array('choices' => array(1, 2))));
+    $entity->setValidator('peso', new _Validate_Numeric());
 
     // Valida e verifica pelos valores
     $this->assertTrue($entity->isValid());
@@ -276,7 +276,7 @@ class CoreExt_EntityTest extends UnitBaseTest
   }
 
   /**
-   * @group CoreExt_Validate_Validatable
+   * @group Validatable
    */
   public function testCriaUmValidadorDependendoDoValorDeUmAtribudoDaInstancia()
   {
@@ -284,7 +284,7 @@ class CoreExt_EntityTest extends UnitBaseTest
 
     // Validador condicional
     $validator = $entity->validateIfEquals(
-      'nome', 'fooBar', 'CoreExt_Validate_String', array('min' => 1, 'max' => 5), array('required' => FALSE)
+      'nome', 'fooBar', 'Text', array('min' => 1, 'max' => 5), array('required' => FALSE)
     );
 
     // Retornou o validador do If
@@ -294,7 +294,7 @@ class CoreExt_EntityTest extends UnitBaseTest
     // Validador condicional
     $entity->nome = 'barFoo';
     $validator = $entity->validateIfEquals(
-      'nome', 'fooBar', 'CoreExt_Validate_String', array('min' => 1, 'max' => 5), array('required' => FALSE)
+      'nome', 'fooBar', 'Text', array('min' => 1, 'max' => 5), array('required' => FALSE)
     );
 
     // Retornou o validador do Else
@@ -304,13 +304,13 @@ class CoreExt_EntityTest extends UnitBaseTest
 
   /**
    * @expectedException CoreExt_Exception_InvalidArgumentException
-   * @group CoreExt_Validate_Validatable
+   * @group Validatable
    */
   public function testMetodoDeCriacaoDeValidadorSensivelAoCasoLancaExcecaoQuandoClasseNaoESubclasseDeCoreextValidateAbstract()
   {
     $entity = new CoreExt_EntityStub();
     $entity->validateIfEquals(
-      'nome', '', 'CoreExt_Validate_Abstract', array(), array()
+      'nome', '', 'Validate', array(), array()
     );
   }
 
@@ -446,8 +446,8 @@ class CoreExt_EntityTest extends UnitBaseTest
 
     $parent->setReferenceClass('filho', $filhoMapper);
 
-    $enum = CoreExt_EnumSexStub::getInstance();
-    $expected = $enum[CoreExt_EnumSexStub::MALE];
+    $enum = _EnumSexStub::getInstance();
+    $expected = $enum[_EnumSexStub::MALE];
 
     $this->assertEquals($child, $parent->filho);
     $this->assertEquals($expected, $child->sexo);
@@ -533,7 +533,7 @@ class CoreExt_EntityTest extends UnitBaseTest
 
   /**
    * @group LazyLoad
-   * @group CoreExt_Validate_Validatable
+   * @group Validatable
    */
   public function testLazyLoadNaoCarregaInstanciaEntityParaValidacao()
   {
@@ -626,7 +626,7 @@ class CoreExt_EntityTest extends UnitBaseTest
 
   public function testLazyLoadDeReferenciaAUmTipoCoreextEnum()
   {
-    $enum = CoreExt_EnumSexStub::getInstance();
+    $enum = _EnumSexStub::getInstance();
 
     $child1 = new CoreExt_ChildEntityStub(array('id' => 1, 'nome' => 'barFoo'));
     $child2 = new CoreExt_ChildEntityStub(array('id' => 1, 'nome' => 'barFoo'));

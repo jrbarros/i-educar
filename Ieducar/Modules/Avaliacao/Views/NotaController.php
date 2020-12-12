@@ -53,7 +53,7 @@ require_once 'Avaliacao/Service/Boletim.php';
  * @since       Classe disponível desde a versão 1.1.0
  *
  * @todo        Criar interface alternativa a CoreControllerPageEditControllerInterface
- *   já que nem todos os formulários mapearam 1:1 a instâncias CoreExt_DataMapper.
+ *   já que nem todos os formulários mapearam 1:1 a instâncias DataMapper.
  *
  * @version     @@package_version@@
  */

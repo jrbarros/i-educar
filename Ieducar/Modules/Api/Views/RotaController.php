@@ -4,9 +4,9 @@ require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
 require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
 require_once 'Source/Modules/clsModulesItinerarioTransporteEscolar.inc.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/Utils.php';
-require_once 'Portabilis/String/Utils.php';
-require_once 'Portabilis/Date/Utils.php';
+require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Text/AppDateUtils.php';
+require_once 'Portabilis/Date/AppDateUtils.php';
 
 class RotaController extends ApiCoreController
 {

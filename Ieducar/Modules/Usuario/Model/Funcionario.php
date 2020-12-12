@@ -1,7 +1,7 @@
 <?php
 
 require_once 'CoreExt/Entity.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 require_once 'CoreExt/Validate/Email.php';
 
 class Usuario_Model_Funcionario extends CoreExt_Entity
@@ -33,7 +33,7 @@ class Usuario_Model_Funcionario extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-            'email' => new CoreExt_Validate_Email()
+            'email' => new _Validate_Email()
         ];
     }
 

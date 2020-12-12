@@ -31,7 +31,7 @@ class ComponenteCurricular_Model_Turma extends CoreExt_Entity
     /**
      * Construtor. Remove o campo identidade já que usa uma chave composta.
      *
-     * @see CoreExt_Entity::__construct($options = array())
+     * @see Entity::__construct($options = array())
      */
     public function __construct($options = [])
     {
@@ -40,13 +40,13 @@ class ComponenteCurricular_Model_Turma extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity_Validatable::getDefaultValidatorCollection()
+     * @see Validatable::getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
         return [
-            'cargaHoraria' => new CoreExt_Validate_Numeric(['required' => false]),
-            'docenteVinculado' => new CoreExt_Validate_Numeric(['required' => false])
+            'cargaHoraria' => new _Validate_Numeric(['required' => false]),
+            'docenteVinculado' => new _Validate_Numeric(['required' => false])
         ];
     }
 }

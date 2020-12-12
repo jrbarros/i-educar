@@ -2,7 +2,7 @@
     <select class="geral" name="ref_cod_escola" id="ref_cod_escola" style="width: 308px;">
         <option value="">Selecione uma escola</option>
         @if(old('ref_cod_instituicao', Request::get('ref_cod_instituicao')))
-            @foreach(App_Model_IedFinder::getEscolasByUser(old('ref_cod_instituicao', Request::get('ref_cod_instituicao'))) as $id => $name)
+            @foreach(Finder::getEscolasByUser(old('ref_cod_instituicao', Request::get('ref_cod_instituicao'))) as $id => $name)
                 <option value="{{$id}}">{{ Str::upper($name) }}</option>
             @endforeach
         @endif

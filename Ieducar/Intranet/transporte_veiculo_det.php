@@ -39,7 +39,7 @@ require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
 require_once 'Source/modules/Veiculo.php';
 
-require_once 'Portabilis/Date/Utils.php';
+require_once 'Portabilis/Date/AppDateUtils.php';
 require_once 'Portabilis/View/Helper/Application.php';
 
 /**

@@ -69,15 +69,15 @@ class Avaliacao_Model_ParecerDescritivoAluno extends CoreExt_Entity
   ];
 
     /**
-     * @see CoreExt_Entity_Validatable#getDefaultValidatorCollection()
+     * @see Validatable#getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
         $parecer = RegraAvaliacao_Model_TipoParecerDescritivo::getInstance();
 
         return [
-      'Matricula'         => new CoreExt_Validate_Numeric(['min' => 0]),
-      'parecerDescritivo' => new CoreExt_Validate_Choice(['choices' => $parecer->getKeys()]),
+      'Matricula'         => new _Validate_Numeric(['min' => 0]),
+      'parecerDescritivo' => new _Validate_Choice(['choices' => $parecer->getKeys()]),
     ];
     }
 }

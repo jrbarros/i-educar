@@ -40,7 +40,7 @@ require_once 'Source/Listagem.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
 require_once 'Source/modules/ProfessorTurma.php';
-require_once 'lib/Portabilis/String/Utils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
 
 require_once 'CoreExt/View/Helper/UrlHelper.php';
 

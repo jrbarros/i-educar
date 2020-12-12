@@ -31,7 +31,7 @@
 
 use iEducar\Modules\Enrollments\Exceptions\StudentNotEnrolledInSchoolClass;
 
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 require_once 'Source/pmieducar/Instituicao.php';
 require_once 'Source/pmieducar/Serie.php';
 require_once 'Source/pmieducar/Matricula.php';
@@ -167,7 +167,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
          ->method('detalhe')
          ->will($this->returnValue($returnValue));
 
-    // Registra a instância no repositório de classes de CoreExt_Entity
+    // Registra a instância no repositório de classes de Entity
     $instance = App_Model_IedFinder::addClassToStorage(
       'Curso', $mock, NULL, TRUE);
 
@@ -188,7 +188,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
          ->method('lista')
          ->will($this->returnValue($returnValue));
 
-    // Registra a instância no repositório de classes de CoreExt_Entity
+    // Registra a instância no repositório de classes de Entity
     $instance = App_Model_IedFinder::addClassToStorage(
       'Instituicao', $mock);
 
@@ -211,7 +211,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
          ->method('lista')
          ->will($this->onConsecutiveCalls($returnValue, array($returnValue[1])));
 
-    // Registra a instância no repositório de classes de CoreExt_Entity
+    // Registra a instância no repositório de classes de Entity
     $instance = CoreExt_Entity::addClassToStorage(
       'Serie', $mock, NULL, TRUE);
 
@@ -343,7 +343,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
       'tabelaArredondamento' => $this->_getTabelaArredondamento()
     ));
 
-    // Marca como "old", para indicar que foi recuperado via CoreExt_DataMapper
+    // Marca como "old", para indicar que foi recuperado via DataMapper
     $expected->markOld();
 
     // Retorna para matrícula

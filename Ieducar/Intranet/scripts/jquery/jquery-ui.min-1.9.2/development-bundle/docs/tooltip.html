@@ -86,7 +86,7 @@
 			This widget requires some functional CSS, otherwise it won't work. If you build a custom theme, use the widget's specific CSS file as a starting point.
 		</li></ul></div>
 <section id="options"><header><h2>Options</h2></header><div id="option-content" class="api-item first-item">
-<h3>content<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Function">Function</a>() or <a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>content<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Function">Function</a>() or <a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>function returning the title attribute</code>
@@ -100,7 +100,7 @@
 <li>
 <strong>Function</strong>: A callback which can either return the content directly, or call the first argument, passing in the content, e.g., for Ajax content.</li>
 <li>
-<strong>String</strong>: A string of HTML to use for the tooltip content.</li>
+<strong>Text</strong>: A string of HTML to use for the tooltip content.</li>
 </ul>
 <strong>Code examples:</strong><p>Initialize the tooltip with the <code>content</code> option specified:</p>
 <div class="syntaxhighlighter javascript nogutter">
@@ -108,9 +108,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({ content: <span class="string">"Awesome title!"</span> });</code></div></div></pre>
@@ -126,17 +126,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> content = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"content"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"content"</span>, <span class="string">"Awesome title!"</span> );</code></div></div></pre>
@@ -160,9 +160,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({ disabled: <span class="literal">true</span> });</code></div></div></pre>
@@ -178,17 +178,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> disabled = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"disabled"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"disabled"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -200,7 +200,7 @@
 
 </div>
 <div id="option-hide" class="api-item">
-<h3>hide<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">String</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
+<h3>hide<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">Text</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>null</code>
@@ -208,16 +208,16 @@
 <div>If and how to animate the hiding of the tooltip.</div>
 <strong>Multiple types supported:</strong><ul>
 <li>
-<strong>Boolean</strong>: 
+<strong>Boolean</strong>:
 			When set to <code>false</code>, no animation will be used and the tooltip will be hidden immediately.
 			When set to <code>true</code>, the tooltip will fade out with the default duration and the default easing.
 		</li>
 <li>
-<strong>Number</strong>: 
+<strong>Number</strong>:
 			The tooltip will fade out with the specified duration and the default easing.
 		</li>
 <li>
-<strong>String</strong>: 
+<strong>Text</strong>:
 			The tooltip will be hidden using the specified effect.
 			The value can either be the name of a built-in jQuery animateion method, such as <code>"slideUp"</code>, or the name of a jQuery UI effect, such as <code>"fold"</code>.
 			In either case the effect will be used with the default duration and the default easing.
@@ -231,9 +231,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({ hide: { effect: <span class="string">"explode"</span>, duration: <span class="number">1000</span> } });</code></div></div></pre>
@@ -249,17 +249,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> hide = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"hide"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"hide"</span>, { effect: <span class="string">"explode"</span>, duration: <span class="number">1000</span> } );</code></div></div></pre>
@@ -287,9 +287,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({ items: <span class="string">"img[alt]"</span> });</code></div></div></pre>
@@ -305,17 +305,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> items = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"items"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"items"</span>, <span class="string">"img[alt]"</span> );</code></div></div></pre>
@@ -343,9 +343,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({ position: { my: <span class="string">"left+15 center"</span>, at: <span class="string">"right center"</span> } });</code></div></div></pre>
@@ -361,17 +361,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> position = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"position"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"position"</span>, { my: <span class="string">"left+15 center"</span>, at: <span class="string">"right center"</span> } );</code></div></div></pre>
@@ -383,7 +383,7 @@
 
 </div>
 <div id="option-show" class="api-item">
-<h3>show<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">String</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
+<h3>show<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">Text</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>null</code>
@@ -391,16 +391,16 @@
 <div>If and how to animate the showing of the tooltip.</div>
 <strong>Multiple types supported:</strong><ul>
 <li>
-<strong>Boolean</strong>: 
+<strong>Boolean</strong>:
 			When set to <code>false</code>, no animation will be used and the tooltip will be shown immediately.
 			When set to <code>true</code>, the tooltip will fade in with the default duration and the default easing.
 		</li>
 <li>
-<strong>Number</strong>: 
+<strong>Number</strong>:
 			The tooltip will fade in with the specified duration and the default easing.
 		</li>
 <li>
-<strong>String</strong>: 
+<strong>Text</strong>:
 			The tooltip will be shown using the specified effect.
 			The value can either be the name of a built-in jQuery animateion method, such as <code>"slideDown"</code>, or the name of a jQuery UI effect, such as <code>"fold"</code>.
 			In either case the effect will be used with the default duration and the default easing.
@@ -414,9 +414,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({ show: { effect: <span class="string">"blind"</span>, duration: <span class="number">800</span> } });</code></div></div></pre>
@@ -432,17 +432,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> show = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"show"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"show"</span>, { effect: <span class="string">"blind"</span>, duration: <span class="number">800</span> } );</code></div></div></pre>
@@ -454,7 +454,7 @@
 
 </div>
 <div id="option-tooltipClass" class="api-item">
-<h3>tooltipClass<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>tooltipClass<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>null</code>
@@ -469,9 +469,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({ tooltipClass: <span class="string">"custom-tooltip-styling"</span> });</code></div></div></pre>
@@ -487,17 +487,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> tooltipClass = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"tooltipClass"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"tooltipClass"</span>, <span class="string">"custom-tooltip-styling"</span> );</code></div></div></pre>
@@ -523,9 +523,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({ track: <span class="literal">true</span> });</code></div></div></pre>
@@ -541,17 +541,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> track = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"track"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"track"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -575,9 +575,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"close"</span> );</code></div></div></pre>
@@ -603,9 +603,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"destroy"</span> );</code></div></div></pre>
@@ -631,9 +631,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"disable"</span> );</code></div></div></pre>
@@ -659,9 +659,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"enable"</span> );</code></div></div></pre>
@@ -687,9 +687,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"open"</span> );</code></div></div></pre>
@@ -708,7 +708,7 @@
 <div>Gets the value currently associated with the specified <code>optionName</code>.</div>
 <ul><li>
 <div><strong>optionName</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the option to get.</div>
 </li></ul>
@@ -719,9 +719,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> isDisabled = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"disabled"</span> );</code></div></div></pre>
@@ -745,9 +745,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> options = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span> );</code></div></div></pre>
@@ -766,7 +766,7 @@
 <ul>
 <li>
 <div><strong>optionName</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the option to set.</div>
 </li>
@@ -784,9 +784,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, <span class="string">"disabled"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -815,9 +815,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip( <span class="string">"option"</span>, { disabled: <span class="literal">true</span> } );</code></div></div></pre>
@@ -844,9 +844,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> widget = $( <span class="string">".selector"</span> ).tooltip( <span class="string">"widget"</span> );</code></div></div></pre>
@@ -890,13 +890,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({</code></div></div><div class="container"><div class="line"><code>  close: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -912,9 +912,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"tooltipclose"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -954,13 +954,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({</code></div></div><div class="container"><div class="line"><code>  create: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -976,9 +976,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"tooltipcreate"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -1023,13 +1023,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).tooltip({</code></div></div><div class="container"><div class="line"><code>  open: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -1045,9 +1045,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"tooltipopen"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -1065,49 +1065,49 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 						<div class="line n6">6</div>
-					
+
 						<div class="line n7">7</div>
-					
+
 						<div class="line n8">8</div>
-					
+
 						<div class="line n9">9</div>
-					
+
 						<div class="line n10">10</div>
-					
+
 						<div class="line n11">11</div>
-					
+
 						<div class="line n12">12</div>
-					
+
 						<div class="line n13">13</div>
-					
+
 						<div class="line n14">14</div>
-					
+
 						<div class="line n15">15</div>
-					
+
 						<div class="line n16">16</div>
-					
+
 						<div class="line n17">17</div>
-					
+
 						<div class="line n18">18</div>
-					
+
 						<div class="line n19">19</div>
-					
+
 						<div class="line n20">20</div>
-					
+
 						<div class="line n21">21</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="doctype">&lt;!doctype html&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">head</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">title</span>&gt;</span>tooltip demo<span class="tag">&lt;/<span class="title">title</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//code.jquery.com/jquery-1.8.3.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//code.jquery.com/ui/1.9.2/jquery-ui.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">head</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">body</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">p</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">title</span>=<span class="value">"Anchor description"</span>&gt;</span>Anchor text<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">input</span> <span class="attribute">title</span>=<span class="value">"Input help"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></code></div></div><div class="container"><div class="line"><code>  $( document ).tooltip();</code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></div></div></pre>

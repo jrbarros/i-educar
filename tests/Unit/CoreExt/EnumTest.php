@@ -23,7 +23,7 @@
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Enum
+ * @package     Enum
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
  * @version     $Id$
@@ -40,7 +40,7 @@ require_once __DIR__.'/_stub/EnumString.php';
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Enum
+ * @package     Enum
  * @subpackage  UnitTests
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
@@ -49,52 +49,52 @@ class CoreExt_EnumTest extends PHPUnit\Framework\TestCase
 {
   public function testRetornaTodosOsValoresDoEnum()
   {
-    $enum = CoreExt_Enum1Stub::getInstance();
+    $enum = _Enum1Stub::getInstance();
     $this->assertEquals(array(1), $enum->getKeys());
-    $enum = CoreExt_Enum2Stub::getInstance();
+    $enum = _Enum2Stub::getInstance();
     $this->assertEquals(array(2), $enum->getKeys());
-    $enum = CoreExt_EnumCoffeeStub::getInstance();
+    $enum = _EnumCoffeeStub::getInstance();
     $this->assertEquals(array(0, 1, 2), $enum->getKeys());
-    $enum = CoreExt_EnumStringStub::getInstance();
+    $enum = _EnumStringStub::getInstance();
     $this->assertEquals(array('red'), $enum->getKeys());
   }
 
   public function testItemDeEnumRetornaDescricao()
   {
-    $enum = CoreExt_Enum1Stub::getInstance();
-    $this->assertEquals(1, $enum->getValue(CoreExt_Enum1Stub::ONE));
-    $enum = CoreExt_Enum2Stub::getInstance();
-    $this->assertEquals(2, $enum->getValue(CoreExt_Enum2Stub::TWO));
-    $enum = CoreExt_EnumCoffeeStub::getInstance();
-    $this->assertEquals('Mocha', $enum->getValue(CoreExt_EnumCoffeeStub::MOCHA));
-    $enum = CoreExt_EnumStringStub::getInstance();
-    $this->assertEquals('#FF0000', $enum->getValue(CoreExt_EnumStringStub::RED));
+    $enum = _Enum1Stub::getInstance();
+    $this->assertEquals(1, $enum->getValue(_Enum1Stub::ONE));
+    $enum = _Enum2Stub::getInstance();
+    $this->assertEquals(2, $enum->getValue(_Enum2Stub::TWO));
+    $enum = _EnumCoffeeStub::getInstance();
+    $this->assertEquals('Mocha', $enum->getValue(_EnumCoffeeStub::MOCHA));
+    $enum = _EnumStringStub::getInstance();
+    $this->assertEquals('#FF0000', $enum->getValue(_EnumStringStub::RED));
   }
 
   public function testEnumAcessadosComoArray()
   {
-    $enum = CoreExt_Enum1Stub::getInstance();
-    $this->assertEquals(1, $enum[CoreExt_Enum1Stub::ONE]);
-    $enum = CoreExt_Enum2Stub::getInstance();
-    $this->assertEquals(2, $enum[CoreExt_Enum2Stub::TWO]);
-    $enum = CoreExt_EnumCoffeeStub::getInstance();
-    $this->assertEquals('Mocha', $enum[CoreExt_EnumCoffeeStub::MOCHA]);
-    $enum = CoreExt_EnumStringStub::getInstance();
-    $this->assertEquals('#FF0000', $enum[CoreExt_EnumStringStub::RED]);
+    $enum = _Enum1Stub::getInstance();
+    $this->assertEquals(1, $enum[_Enum1Stub::ONE]);
+    $enum = _Enum2Stub::getInstance();
+    $this->assertEquals(2, $enum[_Enum2Stub::TWO]);
+    $enum = _EnumCoffeeStub::getInstance();
+    $this->assertEquals('Mocha', $enum[_EnumCoffeeStub::MOCHA]);
+    $enum = _EnumStringStub::getInstance();
+    $this->assertEquals('#FF0000', $enum[_EnumStringStub::RED]);
   }
 
   public function testEnumAcessosDiversosComoArray()
   {
-    $enum = CoreExt_Enum1Stub::getInstance();
-    $this->assertTrue(isset($enum[CoreExt_Enum1Stub::ONE]));
+    $enum = _Enum1Stub::getInstance();
+    $this->assertTrue(isset($enum[_Enum1Stub::ONE]));
 
     $this->assertEquals(array(1), $enum->getValues());
     $this->assertEquals(array(1), $enum->getKeys());
     $this->assertEquals(array(1 => 1), $enum->getEnums());
-    $this->assertEquals(1, $enum->getKey(CoreExt_Enum1Stub::ONE));
+    $this->assertEquals(1, $enum->getKey(_Enum1Stub::ONE));
 
-    $enum = CoreExt_EnumStringStub::getInstance();
-    $this->assertTrue(isset($enum[CoreExt_EnumStringStub::RED]));
+    $enum = _EnumStringStub::getInstance();
+    $this->assertTrue(isset($enum[_EnumStringStub::RED]));
 
     $this->assertEquals(array('#FF0000'), $enum->getValues());
     $this->assertEquals(array('red'), $enum->getKeys());
@@ -107,7 +107,7 @@ class CoreExt_EnumTest extends PHPUnit\Framework\TestCase
    */
   public function testEnumEApenasLeitura()
   {
-    $enum = CoreExt_Enum1Stub::getInstance();
+    $enum = _Enum1Stub::getInstance();
     $enum['foo'] = 'bar';
   }
 
@@ -116,7 +116,7 @@ class CoreExt_EnumTest extends PHPUnit\Framework\TestCase
    */
   public function testEnumNaoPermiteRemoverEntrada()
   {
-    $enum = CoreExt_Enum1Stub::getInstance();
+    $enum = _Enum1Stub::getInstance();
     unset($enum['foo']);
   }
 }

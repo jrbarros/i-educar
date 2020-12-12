@@ -1,9 +1,17 @@
 <?php
 
+namespace iEducarLegacy\Lib\App\Unificacao;
+
 use App\Services\UnificationService;
+use iEducarLegacy\Intranet\Source\Banco;
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
 use Illuminate\Support\Facades\DB;
 
-class App_Unificacao_Base
+/**
+ * Class Base
+ * @package iEducarLegacy\Lib\App\Unificacao
+ */
+class Base
 {
     protected $chavesManterPrimeiroVinculo = [];
     protected $chavesManterTodosVinculos = [];
@@ -58,7 +66,7 @@ class App_Unificacao_Base
                         WHERE {$value['coluna']} IN ({$stringCodigosDuplicados})
                     "
                 );
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 $this->db->Consulta(
                     "
                         DELETE FROM {$value['tabela']}

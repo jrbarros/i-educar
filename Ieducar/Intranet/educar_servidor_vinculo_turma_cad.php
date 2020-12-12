@@ -13,9 +13,9 @@ require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
 require_once 'Source/modules/ProfessorTurma.php';
-require_once 'Portabilis/String/Utils.php';
+require_once 'Portabilis/Text/AppDateUtils.php';
 require_once 'Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Array/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
 require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
 
 class clsIndexBase extends Base

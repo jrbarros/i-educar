@@ -8,7 +8,7 @@ require_once 'Source/Base.php';
 require_once 'Source/Detalhe.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
-require_once 'Portabilis/Date/Utils.php';
+require_once 'Portabilis/Date/AppDateUtils.php';
 
 class clsIndexBase extends Base
 {

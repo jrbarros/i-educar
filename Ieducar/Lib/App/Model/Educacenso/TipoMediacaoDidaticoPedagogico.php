@@ -1,12 +1,18 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Lib\App\Model\Educacenso;
 
-class App_Model_TipoMediacaoDidaticoPedagogico extends CoreExt_Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class TipoMediacaoDidaticoPedagogico
+ * @package iEducarLegacy\Lib\App\Model\Educacenso
+ */
+class TipoMediacaoDidaticoPedagogico extends Enum
 {
-    const PRESENCIAL = 1;
-    const SEMIPRESENCIAL = 2;
-    const EDUCACAO_A_DISTANCIA = 3;
+    public const PRESENCIAL = 1;
+    public const SEMIPRESENCIAL = 2;
+    public const EDUCACAO_A_DISTANCIA = 3;
 
     protected $_data = [
         self::PRESENCIAL => 'Presencial',

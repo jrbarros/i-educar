@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Session;
 use Tests\TestCase;
 
-require_once 'CoreExt/Session/Storage/Default.php';
+require_once 'CoreExt/Session/StorageInterface/Standard.php';
 
 class CoreExt_Session_Storage_DefaultTest extends TestCase
 {
@@ -13,7 +13,7 @@ class CoreExt_Session_Storage_DefaultTest extends TestCase
     {
         parent::setUp();
 
-        $this->_storage = new CoreExt_Session_Storage_Default();
+        $this->_storage = new _Storage_Default();
     }
 
   public function testInstanciaESubclasseDeCountable()

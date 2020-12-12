@@ -1,11 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Lib\CoreExt\Validate;
 
-
-class CoreExt_Validate_Email extends CoreExt_Validate_Abstract
+/**
+ * Class Email
+ * @package iEducarLegacy\Lib\CoreExt\Validate
+ */
+class Email extends Validate
 {
     /**
-     * @see CoreExt_Validate_Abstract#_getDefaultOptions()
+     * @see Validate#_getDefaultOptions()
      */
     protected function _getDefaultOptions()
     {
@@ -15,8 +19,8 @@ class CoreExt_Validate_Email extends CoreExt_Validate_Abstract
     }
 
     /**
-     * @see CoreExt_DataMapper#_getFindStatment($pkey) Sobre a conversão com floatval()
-     * @see CoreExt_Validate_Abstract#_validate($value)
+     * @see DataMapper#_getFindStatment($pkey) Sobre a conversão com floatval()
+     * @see Validate#_validate($value)
      */
     protected function _validate($value)
     {
@@ -30,7 +34,7 @@ class CoreExt_Validate_Email extends CoreExt_Validate_Abstract
     /**
      * Mensagem padrão para erros de valor obrigatório.
      *
-     * @var string
+     * @var Text
      */
     protected $_requiredMessage = 'Informe um email válido.';
 }

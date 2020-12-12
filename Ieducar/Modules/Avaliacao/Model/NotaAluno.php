@@ -59,12 +59,12 @@ class Avaliacao_Model_NotaAluno extends CoreExt_Entity
   ];
 
     /**
-     * @see CoreExt_Entity_Validatable#getDefaultValidatorCollection()
+     * @see Validatable#getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
         return [
-      'Matricula' => new CoreExt_Validate_Numeric(['min' => 0])
+      'Matricula' => new _Validate_Numeric(['min' => 0])
     ];
     }
 }

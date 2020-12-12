@@ -70,7 +70,7 @@ require_once 'Avaliacao/Service/Boletim.php';
  *
  * Outro ponto fundamental é entender que boa parte da inicialização do service
  * constitui a chamadas de instâncias das classes legadas, encapsuladas nos
- * métodos de App_Model_IedFinder. Estes são configurados nos métodos
+ * métodos de Finder. Estes são configurados nos métodos
  * _setUp*Mock(). Para alterar o comportamento desses métodos, existem duas
  * opções:
  *

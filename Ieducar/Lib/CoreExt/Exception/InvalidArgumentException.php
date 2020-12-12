@@ -1,7 +1,13 @@
 <?php
 
-require_once 'CoreExt/CoreExtensionException.php';
+namespace iEducarLegacy\Lib\CoreExt\Exception;
 
-class CoreExt_Exception_InvalidArgumentException extends InvalidArgumentException
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+
+/**
+ * Class InvalidArgumentException
+ * @package iEducarLegacy\Lib\CoreExt\Exception
+ */
+class InvalidArgumentException extends CoreExtensionException
 {
 }

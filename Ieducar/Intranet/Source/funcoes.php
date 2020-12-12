@@ -182,7 +182,7 @@ function dataFromPgToTime($data_original)
  * O PostgreSQL utiliza este padrão.
  *
  * @param string $data_original Data que será formatada
- * @param string $formatacao    String de formatação no padrão aceito pela função date() do PHP
+ * @param string $formatacao    Text de formatação no padrão aceito pela função date() do PHP
  *
  * @link  http://www.php.net/date Documentação da função PHP date()
  *

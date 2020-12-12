@@ -30,7 +30,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
 
     /**
      * Coleção de mensagens de erros retornados pelos validadores de
-     * CoreExt_Entity.
+     * Entity.
      *
      * @var array
      */
@@ -44,16 +44,16 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
     protected $_view = null;
 
     /**
-     * Instância de CoreExt_DataMapper
+     * Instância de DataMapper
      *
-     * @var CoreExt_DataMapper
+     * @var DataMapper
      */
     protected $_dataMapper = null;
 
     /**
-     * Instância de CoreExt_Entity
+     * Instância de Entity
      *
-     * @var CoreExt_Entity
+     * @var Entity
      */
     protected $_entity = null;
 
@@ -197,7 +197,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
         } elseif ($dataMapper instanceof CoreExt_DataMapper) {
             $this->_dataMapper = $dataMapper;
         } else {
-            throw new CoreExt_Exception_InvalidArgumentException('Argumento inválido. São aceitos apenas argumentos do tipo string e CoreExt_DataMapper');
+            throw new CoreExt_Exception_InvalidArgumentException('Argumento inválido. São aceitos apenas argumentos do tipo string e DataMapper');
         }
 
         return $this;
@@ -239,10 +239,10 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
     /**
      * Getter.
      *
-     * Se nenhuma instância CoreExt_Entity existir, tenta instanciar uma através
-     * de CoreExt_DataMapper.
+     * Se nenhuma instância Entity existir, tenta instanciar uma através
+     * de DataMapper.
      *
-     * @return CoreExt_Entity|NULL
+     * @return Entity|NULL
      *
      * @throws CoreControllerPageException
      */
@@ -256,7 +256,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
     }
 
     /**
-     * @see CoreExt_Entity::hasError($key)
+     * @see Entity::hasError($key)
      */
     public function hasError($key)
     {
@@ -264,7 +264,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
     }
 
     /**
-     * @see CoreExt_Entity::hasErrors()
+     * @see Entity::hasErrors()
      */
     public function hasErrors()
     {
@@ -272,7 +272,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
     }
 
     /**
-     * @see CoreExt_Entity::getError($key)
+     * @see Entity::getError($key)
      */
     public function getError($key)
     {
@@ -280,7 +280,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
     }
 
     /**
-     * @see CoreExt_Entity::getErrors()
+     * @see Entity::getErrors()
      */
     public function getErrors()
     {

@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Session;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/Utils.php';
-require_once 'lib/Portabilis/String/Utils.php';
-require_once 'lib/Portabilis/Date/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
 require_once 'Source/funcoes.php';
 
 class FilaUnicaController extends ApiCoreController

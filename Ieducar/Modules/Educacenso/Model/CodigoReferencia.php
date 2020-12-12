@@ -64,8 +64,8 @@ abstract class Educacenso_Model_CodigoReferencia extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-      'nomeInep' => new CoreExt_Validate_String(),
-      'fonte'    => new CoreExt_Validate_String()
+      'nomeInep' => new _Validate_String(),
+      'fonte'    => new _Validate_String()
     ];
     }
 

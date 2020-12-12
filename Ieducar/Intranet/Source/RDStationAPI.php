@@ -41,7 +41,7 @@ class RDStationAPI
     }
 
     /**
-    $type:  (String) generic, leads, conversions
+    $type:  (Text) generic, leads, conversions
     **/
     protected function getURL($type='generic')
     {
@@ -63,8 +63,8 @@ class RDStationAPI
     }
 
     /**
-    $method:  (String) POST, PUT
-    $url:     (String) RD Station endpoint returned by $this->getURL()
+    $method:  (Text) POST, PUT
+    $url:     (Text) RD Station endpoint returned by $this->getURL()
     $data:    (Array)
     **/
     protected function request($method='POST', $url, $data=[])
@@ -95,7 +95,7 @@ class RDStationAPI
     }
 
     /**
-    $email: (String) The email of the lead
+    $email: (Text) The email of the lead
     $data:  (Array) Custom data array, example:
       array(
         "identificador" => "contact-form",
@@ -142,7 +142,7 @@ class RDStationAPI
     }
 
     /**
-    $email: (String) Lead email
+    $email: (Text) Lead email
     $newStage: (Integer) 0 - Lead, 1 - Qualified Lead, 2 - Customer
     $opportunity: (Integer) true or false
     **/
@@ -165,10 +165,10 @@ class RDStationAPI
     }
 
     /**
-    $emailOrLeadId: (String / Integer) Lead email OR Lead unique custom ID
-    $status: (String) won / lost
+    $emailOrLeadId: (Text / Integer) Lead email OR Lead unique custom ID
+    $status: (Text) won / lost
     $value: (Integer/Decimal) Purchase value
-    $lostReason: (String)
+    $lostReason: (Text)
     **/
     public function updateLeadStatus($emailOrLeadId, $status, $value=null, $lostReason=null)
     {

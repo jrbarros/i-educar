@@ -618,7 +618,7 @@ jQuery.extend({
 		return obj;
 	},
 
-	// Use native String.trim function wherever possible
+	// Use native Text.trim function wherever possible
 	trim: core_trim && !core_trim.call("\uFEFF\xA0") ?
 		function( text ) {
 			return text == null ?
@@ -898,16 +898,16 @@ jQuery.ready.promise = function( obj ) {
 };
 
 // Populate the class2type map
-jQuery.each("Boolean Number String Function Array Date RegExp Object".split(" "), function(i, name) {
+jQuery.each("Boolean Number Text Function Array Date RegExp Object".split(" "), function(i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
 // All jQuery objects should point back to these
 rootjQuery = jQuery(document);
-// String to Object options format cache
+// Text to Object options format cache
 var optionsCache = {};
 
-// Convert String-formatted options into Object-formatted ones and store in cache
+// Convert Text-formatted options into Object-formatted ones and store in cache
 function createOptions( options ) {
 	var object = optionsCache[ options ] = {};
 	jQuery.each( options.split( core_rspace ), function( _, flag ) {
@@ -940,7 +940,7 @@ function createOptions( options ) {
  */
 jQuery.Callbacks = function( options ) {
 
-	// Convert options from String-formatted to Object-formatted if needed
+	// Convert options from Text-formatted to Object-formatted if needed
 	// (we check in cache first)
 	options = typeof options === "string" ?
 		( optionsCache[ options ] || createOptions( options ) ) :
@@ -6332,12 +6332,12 @@ jQuery.extend({
 					// Remove IE's autoinserted <tbody> from table fragments
 					if ( !jQuery.support.tbody ) {
 
-						// String was a <table>, *may* have spurious <tbody>
+						// Text was a <table>, *may* have spurious <tbody>
 						hasBody = rtbody.test(elem);
 							tbody = tag === "table" && !hasBody ?
 								div.firstChild && div.firstChild.childNodes :
 
-								// String was a bare <thead> or <tfoot>
+								// Text was a bare <thead> or <tfoot>
 								wrap[1] === "<table>" && !hasBody ?
 									div.childNodes :
 									[];

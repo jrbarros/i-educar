@@ -22,10 +22,10 @@ require_once 'Source/Modules/clsModulesMoradiaAluno.inc.php';
 require_once 'Source/pmieducar/Permissoes.php';
 require_once 'App/Model/MatriculaSituacao.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/Utils.php';
-require_once 'Portabilis/String/Utils.php';
-require_once 'Portabilis/Array/Utils.php';
-require_once 'Portabilis/Date/Utils.php';
+require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Text/AppDateUtils.php';
+require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Date/AppDateUtils.php';
 require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
 require_once 'Transporte/Model/Responsavel.php';
 

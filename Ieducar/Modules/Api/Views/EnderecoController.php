@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Gate;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/Utils.php';
-require_once 'lib/Portabilis/String/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'Intranet/Source/Banco.php';
 require_once 'Intranet/Source/funcoes.php';
 

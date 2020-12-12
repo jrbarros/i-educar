@@ -8,7 +8,7 @@ require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
 require_once 'clsCalendario.inc.php';
 require_once 'Calendario/Model/TurmaDataMapper.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 require_once 'Source/pmieducar/EscolaUsuario.php';
 
 class clsIndexBase extends Base
@@ -251,7 +251,7 @@ class indice extends clsListagem
                             $det_motivo = $obj_motivo->detalhe();
 
                             /**
-                             * @todo CoreExt_Enum?
+                             * @todo Enum?
                              */
                             $tipo = strtoupper($det_motivo['tipo']) == 'E' ? 'Dia Extra-Letivo' : 'Dia Não Letivo';
 

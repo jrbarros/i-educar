@@ -1,33 +1,40 @@
 <?php
 
-require_once 'CoreExt/Validate/Validatable.php';
+namespace iEducarLegacy\Lib\CoreExt\Entity;
 
-interface CoreExt_Entity_Validatable extends CoreExt_Validate_Validatable
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Validatable as Validate;
+
+/**
+ * Interface Validatable
+ * @package iEducarLegacy\Lib\CoreExt\Entity
+ */
+interface Validatable extends Validate
 {
     /**
-     * Configura uma coleção de CoreExt_Validate_Interface na instância.
+     * Configura uma coleção de ValidateInterface na instância.
      *
-     * @return CoreExt_Entity Provê interface fluída
+     * @return Entity Provê interface fluída
      */
     public function setValidatorCollection(array $validators);
 
     /**
-     * Retorna um array de itens CoreExt_Validate_Interface da instância.
+     * Retorna um array de itens ValidateInterface da instância.
      *
      * @return array
      */
     public function getValidatorCollection();
 
     /**
-     * Retorna um array de CoreExt_Validate_Interface padrão para as propriedades
-     * de CoreExt_Entity.
+     * Retorna um array de ValidateInterface padrão para as propriedades
+     * de Entity.
      *
      * Cada item do array precisa ser um item associativo com o mesmo nome do
      * atributo público definido pelo array $_data:
      *
      * <code>
      * <?php
-     * // Uma classe concreta de CoreExt_Entity com as propriedades públicas
+     * // Uma classe concreta de Entity com as propriedades públicas
      * // nome e telefone poderia ter os seguintes validadores.
      * array(
      *   'nome' => new CoreExt_Validate_Alpha(),

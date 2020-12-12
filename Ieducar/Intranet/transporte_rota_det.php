@@ -43,7 +43,7 @@ require_once 'Source/modules/PontoTransporteEscolar.php';
 require_once 'Source/modules/Veiculo.php';
 require_once 'Source/modules/Motorista.php';
 
-require_once 'Portabilis/Date/Utils.php';
+require_once 'Portabilis/Date/AppDateUtils.php';
 require_once 'Portabilis/View/Helper/Application.php';
 
 /**

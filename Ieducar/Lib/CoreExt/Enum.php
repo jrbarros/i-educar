@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Singleton.php';
+namespace iEducarLegacy\Lib\CoreExt;
 
-abstract class CoreExt_Enum extends CoreExt_Singleton implements ArrayAccess
+use ArrayAccess;
+
+/**
+ * Class Enum
+ * @package iEducarLegacy\Lib\CoreExt
+ */
+abstract class Enum extends Singleton implements ArrayAccess
 {
     /**
      * Array que emula um enum.
@@ -12,7 +18,7 @@ abstract class CoreExt_Enum extends CoreExt_Singleton implements ArrayAccess
     protected $_data = [];
 
     /**
-     * Retorna o valor para um dado índice de CoreExt_Enum.
+     * Retorna o valor para um dado índice de Enum.
      *
      * @param string|int $key
      *
@@ -24,7 +30,7 @@ abstract class CoreExt_Enum extends CoreExt_Singleton implements ArrayAccess
     }
 
     /**
-     * Retorna todos os valores de CoreExt_Enum.
+     * Retorna todos os valores de Enum.
      *
      * @return array
      */
@@ -46,7 +52,7 @@ abstract class CoreExt_Enum extends CoreExt_Singleton implements ArrayAccess
     }
 
     /**
-     * Retorna todos os índices de CoreExt_Enum.
+     * Retorna todos os índices de Enum.
      *
      * @return array
      */
@@ -95,7 +101,7 @@ abstract class CoreExt_Enum extends CoreExt_Singleton implements ArrayAccess
     /**
      * Implementa offsetSet da interface ArrayAccess.
      *
-     * Uma objeto CoreExt_Enum é apenas leitura.
+     * Uma objeto Enum é apenas leitura.
      *
      * @link   http://br2.php.net/manual/en/arrayaccess.offsetset.php
      *

@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Lib\App\Model;
+
 use App\Models\LegacyDiscipline;
 use App\Models\LegacyDisciplineAcademicYear;
 use App\Models\LegacySchool;
@@ -9,13 +11,12 @@ use App\Models\LegacySchoolStage;
 use iEducar\Modules\AcademicYear\Exceptions\DisciplineNotLinkedToRegistrationException;
 use iEducar\Modules\Enrollments\Exceptions\StudentNotEnrolledInSchoolClass;
 use iEducar\Modules\EvaluationRules\Exceptions\EvaluationRuleNotDefinedInLevel;
+use iEducarLegacy\Lib\CoreExt\Entity;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/CoreExtensionException.php';
 
-class App_Model_IedFinder extends CoreExt_Entity
+class Finder extends Entity
 {
     /**
      * Retorna todas as instituições cadastradas em pmieducar.instituicao.
@@ -45,7 +46,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getEscola($id)
     {
@@ -59,7 +60,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $escola = $escola->detalhe();
 
         if (false === $escola) {
-            throw new App_Model_Exception(
+            throw new Exception(
                 sprintf('Escola com o código "%d" não existe.', $id)
             );
         }
@@ -176,7 +177,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getInstituicao($codInstituicao)
     {
@@ -192,7 +193,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $instituicao = $instituicao->detalhe();
 
         if (false === $instituicao) {
-            throw new App_Model_Exception(
+            throw new Exception(
                 sprintf('Série com o código "%d" não existe.', $codInstituicao)
             );
         }
@@ -207,7 +208,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getSerie($codSerie)
     {
@@ -223,7 +224,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $serie = $serie->detalhe();
 
         if (false === $serie) {
-            throw new App_Model_Exception(
+            throw new Exception(
                 sprintf('Série com o código "%d" não existe.', $codSerie)
             );
         }
@@ -291,7 +292,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getTurma($codTurma)
     {
@@ -307,7 +308,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $turma = $turma->detalhe();
 
         if (false === $turma) {
-            throw new App_Model_Exception(
+            throw new Exception(
                 sprintf('Turma com o código "%d" não existe.', $codTurma)
             );
         }
@@ -485,7 +486,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getEscolaSerieDisciplina(
         $serieId,
@@ -497,11 +498,11 @@ class App_Model_IedFinder extends CoreExt_Entity
         $ano = null
     ) {
         if (is_null($serieId)) {
-            throw new App_Model_Exception('O parametro serieId não pode ser nulo');
+            throw new Exception('O parametro serieId não pode ser nulo');
         }
 
         if (is_null($escolaId)) {
-            throw new App_Model_Exception('O parametro escolaId não pode ser nulo');
+            throw new Exception('O parametro escolaId não pode ser nulo');
         }
 
         $key = json_encode(compact('serieId', 'escolaId', 'disciplinaId', 'etapa', 'ano'));
@@ -555,7 +556,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getComponentesTurma(
         $serieId,
@@ -839,7 +840,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return RegraAvaliacao_Model_Regra
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getRegraAvaliacaoPorMatricula(
         $codMatricula,
@@ -885,7 +886,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return RegraAvaliacao_Model_Regra
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getRegraAvaliacaoPorTurma(
         $turmaId,
@@ -927,7 +928,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getComponentesPorMatricula(
         $codMatricula,
@@ -1156,7 +1157,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return int
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getQuantidadeDeModulosMatricula($codMatricula, $matricula = null)
     {
@@ -1195,7 +1196,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getBiblioteca($id)
     {
@@ -1209,7 +1210,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $biblioteca = $biblioteca->detalhe();
 
         if (false === $biblioteca) {
-            throw new App_Model_Exception(
+            throw new Exception(
                 sprintf('Seu usuário não está vinculado a nenhuma biblioteca.', $id)
             );
         }
@@ -1300,7 +1301,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getBibliotecaObra($bibliotecaId, $id = null)
     {
@@ -1315,7 +1316,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $obra = $obra->detalhe();
 
         if (false === $obra) {
-            throw new App_Model_Exception(
+            throw new Exception(
                 sprintf('Obra com o código "%d" não existe.', $id)
             );
         }
@@ -1331,7 +1332,7 @@ class App_Model_IedFinder extends CoreExt_Entity
      *
      * @return array
      *
-     * @throws App_Model_Exception
+     * @throws Exception
      */
     public static function getAluno($escolaId, $id)
     {
@@ -1344,7 +1345,7 @@ class App_Model_IedFinder extends CoreExt_Entity
         $aluno = $aluno->lista($id, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, $escolaId);
 
         if (false === $aluno) {
-            throw new App_Model_Exception(
+            throw new Exception(
                 sprintf('Aluno com o código "%d" não existe.', $id)
             );
         }
@@ -1424,7 +1425,7 @@ class App_Model_IedFinder extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity_Validatable#getDefaultValidatorCollection()
+     * @see Validatable#getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
@@ -1666,8 +1667,8 @@ class App_Model_IedFinder extends CoreExt_Entity
         $permissao = new Permissoes();
         $nivel = $permissao->nivel_acesso($codUsuario);
 
-        if ($nivel == App_Model_NivelTipoUsuario::ESCOLA ||
-            $nivel == App_Model_NivelTipoUsuario::BIBLIOTECA) {
+        if ($nivel == NivelTipoUsuario::ESCOLA ||
+            $nivel == NivelTipoUsuario::BIBLIOTECA) {
             return true;
         }
 

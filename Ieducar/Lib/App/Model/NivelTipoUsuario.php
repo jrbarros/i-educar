@@ -1,13 +1,15 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Lib\App\Model;
 
-class App_Model_NivelTipoUsuario extends CoreExt_Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+class NivelTipoUsuario extends Enum
 {
-    const POLI_INSTITUCIONAL = 1;
-    const INSTITUCIONAL = 2;
-    const ESCOLA = 4;
-    const BIBLIOTECA = 8;
+    public const POLI_INSTITUCIONAL = 1;
+    public const INSTITUCIONAL = 2;
+    public const ESCOLA = 4;
+    public const BIBLIOTECA = 8;
 
     protected $_data = [
         self::POLI_INSTITUCIONAL => 'Poli-institucional',

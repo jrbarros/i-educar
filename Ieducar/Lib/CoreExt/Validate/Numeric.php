@@ -1,11 +1,11 @@
 <?php
 
+namespace iEducarLegacy\Lib\CoreExt\Validate;
 
-
-class CoreExt_Validate_Numeric extends CoreExt_Validate_Abstract
+class Numeric extends Validate
 {
     /**
-     * @see CoreExt_Validate_Abstract::_getDefaultOptions()
+     * @see Validate::_getDefaultOptions()
      */
     protected function _getDefaultOptions()
     {
@@ -20,8 +20,8 @@ class CoreExt_Validate_Numeric extends CoreExt_Validate_Abstract
     }
 
     /**
-     * @see CoreExt_DataMapper::_getFindStatment($pkey) Sobre a conversão com floatval()
-     * @see CoreExt_Validate_Abstract::_validate($value)
+     * @see DataMapper::_getFindStatment($pkey) Sobre a conversão com floatval()
+     * @see Validate::_validate($value)
      */
     protected function _validate($value)
     {
@@ -57,7 +57,7 @@ class CoreExt_Validate_Numeric extends CoreExt_Validate_Abstract
      * flutuantes ou números de precisão arbitrária utilizem a pontuação sem
      * localização.
      *
-     * @see CoreExt_Validate_Abstract::_sanitize($value)
+     * @see Validate::_sanitize($value)
      */
     protected function _sanitize($value)
     {

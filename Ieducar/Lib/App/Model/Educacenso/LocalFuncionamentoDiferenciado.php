@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Lib\App\Model\Educacenso;
 
-class App_Model_LocalFuncionamentoDiferenciado extends CoreExt_Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class LocalFuncionamentoDiferenciado
+ * @package iEducarLegacy\Lib\App\Model\Educacenso
+ */
+class LocalFuncionamentoDiferenciado extends Enum
 {
     const NAO_ESTA = 0;
     const SALA_ANEXA = 1;

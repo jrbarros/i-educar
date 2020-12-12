@@ -1,7 +1,7 @@
 <?php
 
 require_once 'CoreExt/Entity.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 require_once 'ComponenteCurricular/Model/TipoBase.php';
 require_once 'ComponenteCurricular/Model/CodigoEducacenso.php';
 
@@ -60,17 +60,17 @@ class ComponenteCurricular_Model_Componente extends CoreExt_Entity
         $areas = CoreExt_Entity::entityFilterAttr($areas, 'id');
 
         return [
-            'instituicao' => new CoreExt_Validate_Choice(['choices' => $instituicoes]),
-            'nome' => new CoreExt_Validate_String(['min' => 5, 'max' => 200]),
-            'abreviatura' => new CoreExt_Validate_String(['min' => 2, 'max' => 15]),
-            'tipo_base' => new CoreExt_Validate_Choice(['choices' => $tipos]),
-            'area_conhecimento' => new CoreExt_Validate_Choice(['choices' => $areas]),
-            'codigo_educacenso' => new CoreExt_Validate_Choice(['choices' => $codigos]),
+            'instituicao' => new _Validate_Choice(['choices' => $instituicoes]),
+            'nome' => new _Validate_String(['min' => 5, 'max' => 200]),
+            'abreviatura' => new _Validate_String(['min' => 2, 'max' => 15]),
+            'tipo_base' => new _Validate_Choice(['choices' => $tipos]),
+            'area_conhecimento' => new _Validate_Choice(['choices' => $areas]),
+            'codigo_educacenso' => new _Validate_Choice(['choices' => $codigos]),
         ];
     }
 
     /**
-     * @see CoreExt_Entity::__toString()
+     * @see Entity::__toString()
      */
     public function __toString()
     {

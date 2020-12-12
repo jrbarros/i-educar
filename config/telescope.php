@@ -9,7 +9,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Telescope Storage Driver
+    | Telescope StorageInterface Driver
     |--------------------------------------------------------------------------
     |
     | This configuration options determines the storage driver that will

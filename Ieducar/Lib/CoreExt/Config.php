@@ -1,6 +1,15 @@
 <?php
 
-class CoreExt_Config implements Countable, Iterator
+namespace iEducarLegacy\Lib\CoreExt;
+
+use Countable;
+use Iterator;
+
+/**
+ * Class Config
+ * @package iEducarLegacy\Lib\CoreExt
+ */
+class Config implements Countable, Iterator
 {
 
     /**

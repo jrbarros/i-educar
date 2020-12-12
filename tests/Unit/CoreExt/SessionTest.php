@@ -25,7 +25,7 @@ class CoreExt_SessionTest extends TestCase
 
   public function testInstanciaTemSessionInstanciaStorageDefaultPorPadrao()
   {
-    $this->assertInstanceOf('CoreExt_Session_Storage_Default', $this->_session->getSessionStorage());
+    $this->assertInstanceOf('_Storage_Default', $this->_session->getSessionStorage());
   }
 
   public function testInstanciaESubclasseDeArrayAccess()
@@ -82,7 +82,7 @@ class CoreExt_SessionTest extends TestCase
   }
 
   /**
-   * Como CoreExt_Session_Abstract::offsetSet() converte a chave em string,
+   * Como Session::offsetSet() converte a chave em string,
    * podemos acessá-los de forma dinâmica na forma $session->$key em um
    * iterador foreach, por exemplo.
    */

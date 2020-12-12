@@ -55,9 +55,9 @@ class Educacenso_Model_DocenteTest extends PHPUnit\Framework\TestCase
   {
     // Recupera os objetos CoreExt_Validate
     $validators = $this->_entity->getDefaultValidatorCollection();
-    $this->assertInstanceOf('CoreExt_Validate_Numeric', $validators['docente']);
-    $this->assertInstanceOf('CoreExt_Validate_Numeric', $validators['docenteInep']);
-    $this->assertInstanceOf('CoreExt_Validate_String',  $validators['nomeInep']);
-    $this->assertInstanceOf('CoreExt_Validate_String',  $validators['fonte']);
+    $this->assertInstanceOf('Numeric', $validators['docente']);
+    $this->assertInstanceOf('Numeric', $validators['docenteInep']);
+    $this->assertInstanceOf('Text',  $validators['nomeInep']);
+    $this->assertInstanceOf('Text',  $validators['fonte']);
   }
 }

@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/CoreExtConfigurable.php';
+namespace iEducarLegacy\Lib\CoreExt\Session\Storage;
 
-interface CoreExt_Session_Storage_Interface extends CoreExtConfigurable
+use iEducarLegacy\Lib\CoreExt\CoreExtConfigurable;
+
+/**
+ * Interface StorageInterface
+ * @package iEducarLegacy\Lib\CoreExt\Session\Storage
+ */
+interface StorageInterface extends CoreExtConfigurable
 {
     /**
      * Inicializa a session.

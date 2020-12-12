@@ -1,7 +1,7 @@
 <?php
 
 require_once 'CoreExt/Entity.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 
 class RegraAvaliacao_Model_RegraRecuperacao extends CoreExt_Entity
 {
@@ -29,7 +29,7 @@ class RegraAvaliacao_Model_RegraRecuperacao extends CoreExt_Entity
     ];
 
     /**
-     * @see CoreExt_Entity::getDataMapper()
+     * @see Entity::getDataMapper()
      */
     public function getDataMapper()
     {
@@ -52,9 +52,9 @@ class RegraAvaliacao_Model_RegraRecuperacao extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity_Validatable::getDefaultValidatorCollection()
+     * @see Validatable::getDefaultValidatorCollection()
      *
-     * @todo Implementar validador que retorne um String ou Numeric, dependendo
+     * @todo Implementar validador que retorne um Text ou Numeric, dependendo
      *   do valor do atributo (assim como validateIfEquals().
      * @todo Implementar validador que aceite um valor de comparação como
      *   alternativa a uma chave de atributo. (COMENTADO ABAIXO)
@@ -62,10 +62,10 @@ class RegraAvaliacao_Model_RegraRecuperacao extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-            'descricao' => new CoreExt_Validate_String(['min' => 1, 'max' => 25]),
-            'etapasRecuperadas' => new CoreExt_Validate_String(['min' => 1, 'max' => 25]),
-            'media' => new CoreExt_Validate_Numeric(['min' => 0, 'max' => 100]),
-            'notaMaxima' => new CoreExt_Validate_Numeric(['min' => 0, 'max' => 100])
+            'descricao' => new _Validate_String(['min' => 1, 'max' => 25]),
+            'etapasRecuperadas' => new _Validate_String(['min' => 1, 'max' => 25]),
+            'media' => new _Validate_Numeric(['min' => 0, 'max' => 100]),
+            'notaMaxima' => new _Validate_Numeric(['min' => 0, 'max' => 100])
         ];
     }
 

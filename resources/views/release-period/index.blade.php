@@ -28,7 +28,7 @@
                     <td class="formmdtd dd" valign="top">
                         <select class="geral" name="ref_cod_escola" id="escola_busca" style="width: 308px;">
                             <option value="">Selecione uma escola</option>
-                            @foreach(App_Model_IedFinder::getEscolasByUser(app(\App\Models\LegacyInstitution::class)->getKey()) as $id => $name)
+                            @foreach(Finder::getEscolasByUser(app(\App\Models\LegacyInstitution::class)->getKey()) as $id => $name)
                                 <option value="{{$id}}" @if(old('ref_cod_escola', Request::get('ref_cod_escola')) == $id) selected @endif>{{$name}}</option>
                             @endforeach
                         </select>

@@ -30,7 +30,7 @@
  */
 
 require_once __DIR__.'/../_stub/Validate.php';
-require_once 'CoreExt/Validate/String.php';
+require_once 'CoreExt/Validate/Text.php';
 
 /**
  * CoreExt_ValidateTest class.
@@ -49,7 +49,7 @@ class CoreExt_ValidateTest extends PHPUnit\Framework\TestCase
 
   protected function setUp(): void
   {
-    $this->_validator = new CoreExt_ValidateStub();
+    $this->_validator = new _ValidateStub();
   }
 
   /**
@@ -97,7 +97,7 @@ class CoreExt_ValidateTest extends PHPUnit\Framework\TestCase
 
   public function testValorNaoObrigatorioComConfiguracaoNaInstanciacao()
   {
-    $validator = new CoreExt_Validate_String(array('required' => FALSE));
+    $validator = new _Validate_String(array('required' => FALSE));
     $this->assertTrue($validator->isValid(''));
   }
 

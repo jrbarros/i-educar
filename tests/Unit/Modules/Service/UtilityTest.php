@@ -48,7 +48,7 @@ class Avaliacao_Service_UtilityTest extends Avaliacao_Service_TestCommon
   {
     $service = $this->_getServiceInstance();
 
-        $this->expectException('CoreExt_Exception_InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $this->expectExceptionMessage('O parâmetro $nota ("") não é um valor numérico.');
         $service->arredondaNota(new Avaliacao_Model_NotaComponente());
   }

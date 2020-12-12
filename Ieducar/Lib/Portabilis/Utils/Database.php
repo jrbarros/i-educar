@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/Portabilis/Array/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
 
 class Portabilis_Utils_Database
 {

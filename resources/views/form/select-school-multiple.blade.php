@@ -1,7 +1,7 @@
 <span class="form">
     <select name="escola[]" id="escola" multiple="multiple" style="width: 308px;">
         @if(old('ref_cod_instituicao', Request::get('ref_cod_instituicao')))
-            @foreach(App_Model_IedFinder::getEscolasByUser(old('ref_cod_instituicao', Request::get('ref_cod_instituicao'))) as $id => $name)
+            @foreach(Finder::getEscolasByUser(old('ref_cod_instituicao', Request::get('ref_cod_instituicao'))) as $id => $name)
                 <option value="{{$id}}">{{$name}}</option>
             @endforeach
         @endif

@@ -1,11 +1,13 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Lib\App\Model;
 
-class App_Model_SimNao extends CoreExt_Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+class SimNao extends Enum
 {
-    const NAO = 0;
-    const SIM = 1;
+    public const NAO = 0;
+    public const SIM = 1;
 
     protected $_data = [
         self::NAO => 'Não',

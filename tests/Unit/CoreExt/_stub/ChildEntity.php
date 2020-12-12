@@ -23,7 +23,7 @@
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Entity
+ * @package     Entity
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
  * @version     $Id$
@@ -37,7 +37,7 @@ require_once 'CoreExt/Entity.php';
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Entity
+ * @package     Entity
  * @subpackage  UnitTests
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
@@ -54,12 +54,12 @@ class CoreExt_ChildEntityStub extends CoreExt_Entity
   protected $_references = array(
     'sexo' => array(
       'value' => NULL,
-      'class' => 'CoreExt_EnumSexStub',
+      'class' => '_EnumSexStub',
       'file'  => __DIR__.'/EnumSex.php'
     ),
     'tipoSanguineo' => array(
       'value' => NULL,
-      'class' => 'CoreExt_EnumTipoSanguineoStub',
+      'class' => '_EnumTipoSanguineoStub',
       'file'  => __DIR__.'/EnumTipoSanguineo.php',
       'null'  => TRUE
     )

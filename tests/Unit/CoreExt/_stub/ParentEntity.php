@@ -23,7 +23,7 @@
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Entity
+ * @package     Entity
  * @subpackage  UnitTests
  * @since       Arquivo disponível desde a versão 1.1.0
  * @version     $Id$
@@ -37,7 +37,7 @@ require_once 'CoreExt/Entity.php';
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
  * @license     @@license@@
- * @package     CoreExt_Entity
+ * @package     Entity
  * @subpackage  UnitTests
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
@@ -61,7 +61,7 @@ class CoreExt_ParentEntityStub extends CoreExt_Entity
   public function getDefaultValidatorCollection()
   {
     return array(
-      'filho' => new CoreExt_Validate_String(array('max' => 1))
+      'filho' => new _Validate_String(array('max' => 1))
     );
   }
 }

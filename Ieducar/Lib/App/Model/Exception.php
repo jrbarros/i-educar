@@ -1,7 +1,9 @@
 <?php
 
-require_once 'CoreExt/CoreExtensionException.php';
+namespace iEducarLegacy\Lib\App\Model;
 
-class App_Model_Exception extends CoreExtensionException
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+
+class Exception extends CoreExtensionException
 {
 }

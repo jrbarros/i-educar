@@ -41,7 +41,7 @@ require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'Source/pmieducar/Exemplar.php';
 require_once 'Source/pmieducar/BibliotecaDia.php';
 require_once 'Source/pmieducar/BibliotecaFeriados.php';
-require_once 'lib/Portabilis/Array/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
 
 class EmprestimoApiController extends ApiCoreController
 {

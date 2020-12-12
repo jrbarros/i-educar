@@ -1,9 +1,12 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/MatriculaSituacao.php';
+namespace iEducarLegacy\Lib\App\Model;
 
-class App_Model_Matricula
+/**
+ * Class Matricula
+ * @package iEducarLegacy\Lib\App\Model
+ */
+class Matricula
 {
     /**
      * Atualiza os dados da matrícula do aluno, promovendo-o ou retendo-o. Usa
@@ -31,8 +34,8 @@ class App_Model_Matricula
             $instance->aprovado = $aprovado;
         } else {
             $instance->aprovado = $aprovado == true
-                ? App_Model_MatriculaSituacao::APROVADO
-                : App_Model_MatriculaSituacao::REPROVADO;
+                ? MatriculaSituacao::APROVADO
+                : MatriculaSituacao::REPROVADO;
         }
 
         return $instance->edita();

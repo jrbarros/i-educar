@@ -3,13 +3,13 @@
 namespace iEducarLegacy\Intranet\Source\PmiEducar;
 
 use iEducar\Legacy\Model;
+use iEducarLegacy\Lib\App\Model\Educacenso;
 use Illuminate\Support\Facades\Session;
 
-require_once 'include/pmieducar/geral.inc.php';
-require_once 'Avaliacao/Fixups/CleanComponentesCurriculares.php';
-require_once 'include/Services/Matricula/SequencialEnturmacao.php';
-require_once 'lib/App/Model/Educacenso.php';
-
+/**
+ * Class MatriculaTurma
+ * @package iEducarLegacy\Intranet\Source\PmiEducar
+ */
 class MatriculaTurma extends Model
 {
     public $ref_cod_matricula;
@@ -517,13 +517,13 @@ class MatriculaTurma extends Model
         }
 
         if ($apenasTurmasMultiSeriadas === true) {
-            $etapas = implode(',', App_Model_Educacenso::etapas_multisseriadas());
+            $etapas = implode(',', Educacenso::etapas_multisseriadas());
             $filtros .= "{$whereAnd} t.etapa_educacenso IN ({$etapas}) ";
             $whereAnd = ' AND ';
         }
 
         if ($apenasTurmasUnificadas === true) {
-            $etapas = implode(',', App_Model_Educacenso::etapasEnsinoUnificadas());
+            $etapas = implode(',', Educacenso::etapasEnsinoUnificadas());
             $filtros .= "{$whereAnd} t.etapa_educacenso IN ({$etapas}) ";
             $whereAnd = ' AND ';
         }

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'lib/Portabilis/Array/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
 
 abstract class Portabilis_Report_ReportFactory
 {

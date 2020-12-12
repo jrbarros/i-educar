@@ -1,7 +1,7 @@
 <?php
 
 require_once 'CoreExt/Entity.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 
 class AreaConhecimento_Model_Area extends CoreExt_Entity
 {
@@ -18,10 +18,10 @@ class AreaConhecimento_Model_Area extends CoreExt_Entity
         $instituicoes = array_keys(App_Model_IedFinder::getInstituicoes());
 
         return [
-            'instituicao' => new CoreExt_Validate_Choice(['choices' => $instituicoes]),
-            'nome' => new CoreExt_Validate_String(['min' => 5, 'max' => 60]),
-            'secao' => new CoreExt_Validate_String(['min' => 0, 'max' => 50]),
-            'ordenamento_ac' => new CoreExt_Validate_Choice(['min' => 0, 'max' => 50])
+            'instituicao' => new _Validate_Choice(['choices' => $instituicoes]),
+            'nome' => new _Validate_String(['min' => 5, 'max' => 60]),
+            'secao' => new _Validate_String(['min' => 0, 'max' => 50]),
+            'ordenamento_ac' => new _Validate_Choice(['min' => 0, 'max' => 50])
         ];
     }
 

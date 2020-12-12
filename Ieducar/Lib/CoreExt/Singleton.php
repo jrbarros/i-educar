@@ -1,9 +1,15 @@
 <?php
 
-abstract class CoreExt_Singleton
+namespace iEducarLegacy\Lib\CoreExt;
+
+/**
+ * Class Singleton
+ * @package iEducarLegacy\Lib\CoreExt
+ */
+abstract class Singleton
 {
     /**
-     * A instância singleton de CoreExt_Singleton
+     * A instância singleton de Singleton
      *
      * @var array
      */
@@ -26,7 +32,7 @@ abstract class CoreExt_Singleton
      * Exemplo:
      * <code>
      * <?php
-     * ... // extends CoreExt_Singleton
+     * ... // extends Singleton
      * public static function getInstance()
      * {
      *   return self::_getInstance(__CLASS__);
@@ -40,15 +46,15 @@ abstract class CoreExt_Singleton
     public static function getInstance()
     {
         require_once 'CoreExt/CoreExtensionException.php';
-        throw new CoreExtensionException('É necessário sobrescrever o método "getInstance()" de CoreExt_Singleton.');
+        throw new CoreExtensionException('É necessário sobrescrever o método "getInstance()" de Singleton.');
     }
 
     /**
      * Retorna uma instância singleton, instanciando-a quando necessário.
      *
-     * @param string $self Nome da subclasse de CoreExt_Singleton que será instanciada
+     * @param string $self Nome da subclasse de Singleton que será instanciada
      *
-     * @return CoreExt_Singleton
+     * @return Singleton
      */
     protected static function _getInstance($self)
     {

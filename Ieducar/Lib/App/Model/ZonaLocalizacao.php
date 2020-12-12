@@ -1,11 +1,13 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Lib\App\Model;
 
-class App_Model_ZonaLocalizacao extends CoreExt_Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+class ZonaLocalizacao extends Enum
 {
-    const URBANA = 1;
-    const RURAL = 2;
+    public const URBANA = 1;
+    public const RURAL = 2;
 
     protected $_data = [
         self::URBANA => 'Urbana',

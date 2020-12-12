@@ -172,7 +172,7 @@ class EditController extends Core_Controller_Page_EditController
 
     /**
      * Implementa uma rotina de criação ou atualização de registro padrão para
-     * uma instância de CoreExt_Entity que use um campo identidade.
+     * uma instância de Entity que use um campo identidade.
      *
      * @return bool
      *

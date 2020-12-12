@@ -58,9 +58,9 @@ class CoreExt_Controller_Dispatcher_Strategy_PageStrategyTest extends PHPUnit\Fr
 
   protected function setUp(): void
   {
-    $this->_frontController = CoreExt_Controller_Front::getInstance();
+    $this->_frontController = Front::getInstance();
     $this->_frontController->setOptions(array('basepath' => $this->_path));
-    $this->_pageStrategy = new CoreExt_Controller_Dispatcher_Strategy_PageStrategy($this->_frontController);
+    $this->_pageStrategy = new PageStrategy($this->_frontController);
   }
 
   /**

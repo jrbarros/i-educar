@@ -1,9 +1,8 @@
 <?php
 
-require_once 'CoreExt/CoreExtensionException.php';
-require_once 'App/Unificacao/Base.php';
+namespace iEducarLegacy\Lib\App\Unificacao;
 
-class App_Unificacao_Servidor extends App_Unificacao_Base
+class Servidor extends Base
 {
     protected $chavesManterPrimeiroVinculo = [
         [

@@ -15,7 +15,7 @@ $request->setBaseurl(sprintf('%s/Module', $url));
 CoreExt_DataMapper::setDefaultDbAdapter(new Banco(['fetchMode' => Banco::FETCH_ASSOC]));
 
 // Inicia o Front Controller
-$frontController = CoreExt_Controller_Front::getInstance();
+$frontController = Front::getInstance();
 $frontController->setRequest($request);
 
 // Configura o caminho aonde os módulos estão instalados

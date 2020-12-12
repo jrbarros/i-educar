@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/DataMapper.php';
 require_once 'TabelaArredondamento/Model/TabelaValor.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 
 class TabelaArredondamento_Model_TabelaValorDataMapper extends CoreExt_DataMapper
 {

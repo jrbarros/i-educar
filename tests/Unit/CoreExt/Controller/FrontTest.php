@@ -57,7 +57,7 @@ class CoreExt_Controller_FrontTest extends PHPUnit\Framework\TestCase
 
   protected function setUp(): void
   {
-    $this->_frontController = CoreExt_Controller_Front::getInstance();
+    $this->_frontController = Front::getInstance();
     $this->_frontController->resetOptions();
   }
 
@@ -71,14 +71,14 @@ class CoreExt_Controller_FrontTest extends PHPUnit\Framework\TestCase
 
   public function testControllerTemObjetosRequestDispatcherEViewPadroes()
   {
-    $this->assertInstanceOf('CoreExt_Controller_Request', $this->_frontController->getRequest());
-    $this->assertInstanceOf('CoreExt_Controller_Dispatcher_Interface', $this->_frontController->getDispatcher());
-    $this->assertInstanceOf('CoreExt_View', $this->_frontController->getView());
+    $this->assertInstanceOf('PageRequest', $this->_frontController->getRequest());
+    $this->assertInstanceOf('DispatcherInterface', $this->_frontController->getDispatcher());
+    $this->assertInstanceOf('View', $this->_frontController->getView());
   }
 
   public function testRequestCustomizadoERegistradoEmController()
   {
-    require_once 'CoreExt/Controller/Request.php';
+    require_once 'CoreExt/Controller/PageRequest.php';
     $request = new CoreExt_Controller_Request();
     $this->_frontController->setRequest($request);
     $this->assertSame($request, $this->_frontController->getRequest());

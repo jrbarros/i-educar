@@ -1,9 +1,9 @@
 <?php
 
-namespace iEducar\App\Model;
+namespace iEducarLegacy\Lib\App\Model;
 
 class Servidor
 {
-    const SITUACAO_CURSO_SUPERIOR_CONCLUIDO = 1;
-    const SITUACAO_CURSO_SUPERIOR_CURSANDO = 2;
+    public const SITUACAO_CURSO_SUPERIOR_CONCLUIDO = 1;
+    public const SITUACAO_CURSO_SUPERIOR_CURSANDO = 2;
 }

@@ -1,13 +1,19 @@
 <?php
 
-interface CoreExt_Controller_Dispatcher_Interface
+namespace iEducarLegacy\Lib\CoreExt\Controller\Dispatcher;
+
+/**
+ * Interface DispatcherInterface
+ * @package iEducarLegacy\Lib\CoreExt\Controller\Dispatcher
+ */
+interface DispatcherInterface
 {
     /**
      * Setter.
      *
      * @param CoreExt_Controller_Request_Interface $request
      *
-     * @return CoreExt_Controller_Dispatcher_Interface Provê interface fluída
+     * @return DispatcherInterface Provê interface fluída
      */
     public function setRequest(CoreExt_Controller_Request_Interface $request);
 

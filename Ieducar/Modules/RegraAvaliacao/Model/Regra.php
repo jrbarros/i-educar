@@ -120,7 +120,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
     protected $_regraRecuperacoes = [];
 
     /**
-     * @see CoreExt_Entity::getDataMapper()
+     * @see Entity::getDataMapper()
      */
     public function getDataMapper()
     {
@@ -133,7 +133,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity_Validatable::getDefaultValidatorCollection()
+     * @see Validatable::getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
@@ -180,67 +180,67 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
         }
 
         return [
-            'instituicao' => new CoreExt_Validate_Choice([
+            'instituicao' => new _Validate_Choice([
                 'choices' => $instituicoes
             ]),
-            'nome' => new CoreExt_Validate_String([
+            'nome' => new _Validate_String([
                 'min' => 5, 'max' => 50
             ]),
-            'formulaMedia' => new CoreExt_Validate_Choice([
+            'formulaMedia' => new _Validate_Choice([
                 'choices' => $formulaMedia,
                 'required' => $isFormulaMediaRequired
             ]),
-            'formulaRecuperacao' => new CoreExt_Validate_Choice([
+            'formulaRecuperacao' => new _Validate_Choice([
                 'choices' => $formulaRecuperacao,
                 'required' => false
             ]),
-            'regraDiferenciada' => new CoreExt_Validate_Choice([
+            'regraDiferenciada' => new _Validate_Choice([
                 'choices' => $regraDiferenciada,
                 'required' => false
             ]),
-            'tipoNota' => new CoreExt_Validate_Choice([
+            'tipoNota' => new _Validate_Choice([
                 'choices' => $tipoNotaValor->getKeys()
             ]),
-            'tipoProgressao' => new CoreExt_Validate_Choice([
+            'tipoProgressao' => new _Validate_Choice([
                 'choices' => $tipoProgressao->getKeys()
             ]),
-            'tabelaArredondamento' => new CoreExt_Validate_Choice([
+            'tabelaArredondamento' => new _Validate_Choice([
                 'choices' => $tabelas,
                 'choice_error' => 'A tabela de arredondamento selecionada não ' .
                     'corresponde ao sistema de nota escolhido.'
             ]),
-            'tabelaArredondamentoConceitual' => new CoreExt_Validate_Choice([
+            'tabelaArredondamentoConceitual' => new _Validate_Choice([
                 'choices' => $tabelas,
                 'choice_error' => 'A tabela de arredondamento selecionada não ' .
                     'corresponde ao sistema de nota escolhido.'
             ]),
-            'parecerDescritivo' => new CoreExt_Validate_Choice([
+            'parecerDescritivo' => new _Validate_Choice([
                 'choices' => $tipoParecerDescritivo->getKeys()
             ]),
-            'tipoPresenca' => new CoreExt_Validate_Choice([
+            'tipoPresenca' => new _Validate_Choice([
                 'choices' => $tipoPresenca->getKeys()
             ]),
             'media' => $this->validateIfEquals(
                 'tipoProgressao',
                 RegraAvaliacao_Model_TipoProgressao::CONTINUADA,
-                'CoreExt_Validate_Numeric',
+                'Numeric',
                 ['required' => $isMediaRequired, 'min' => 1, 'max' => 10],
                 ['required' => $isMediaRequired, 'min' => 0, 'max' => 10]
             ),
-            'porcentagemPresenca' => new CoreExt_Validate_Numeric([
+            'porcentagemPresenca' => new _Validate_Numeric([
                 'min' => 1, 'max' => 100
             ]),
             'mediaRecuperacao' => $this->validateIfEquals(
                 'tipoProgressao',
                 RegraAvaliacao_Model_TipoProgressao::CONTINUADA,
-                'CoreExt_Validate_Numeric',
+                'Numeric',
                 ['required' => $isMediaRequired, 'min' => 1, 'max' => 14],
                 ['required' => $isMediaRequired, 'min' => 0, 'max' => 14]
             ),
-            'tipoRecuperacaoParalela' => new CoreExt_Validate_Choice([
+            'tipoRecuperacaoParalela' => new _Validate_Choice([
                 'choices' => $tipoRecuperacaoParalela->getKeys()
             ]),
-            'mediaRecuperacaoParalela' => new CoreExt_Validate_String([
+            'mediaRecuperacaoParalela' => new _Validate_String([
                 'min' => 1, 'max' => 10
             ])
         ];
@@ -291,7 +291,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity::__toString()
+     * @see Entity::__toString()
      */
     public function __toString()
     {

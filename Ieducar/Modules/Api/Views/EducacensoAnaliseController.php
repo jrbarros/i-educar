@@ -46,8 +46,8 @@ use Illuminate\Support\Facades\DB;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'Intranet/Source/Banco.php';
-require_once 'lib/Portabilis/Date/Utils.php';
-require_once 'lib/App/Model/IedFinder.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
+require_once 'lib/App/Model/Finder.php';
 require_once 'lib/App/Model/Educacenso.php';
 require_once 'lib/App/Model/Educacenso/TipoMediacaoDidaticoPedagogico.php';
 require_once 'lib/App/Model/Educacenso/LocalFuncionamentoDiferenciado.php';

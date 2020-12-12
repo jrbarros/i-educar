@@ -3,7 +3,7 @@
 require_once 'CoreExt/DataMapper.php';
 require_once 'TabelaArredondamento/Model/Tabela.php';
 require_once 'RegraAvaliacao/Model/Nota/TipoValor.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 
 class TabelaArredondamento_Model_TabelaDataMapper extends CoreExt_DataMapper
 {

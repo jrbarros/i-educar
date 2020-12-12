@@ -816,7 +816,7 @@ class clsCalendario
      * @param array $invalidNames Array com nomes inválidos para campos. Útil
      *                            para evitar que sejam criados campos duplicados.
      *
-     * @return string String com o HTML dos campos hidden gerados.
+     * @return string Text com o HTML dos campos hidden gerados.
      *
      * @since  Método disponível desde a versão 1.2.0
      *

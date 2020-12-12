@@ -14,7 +14,7 @@ require_once 'Source/pmieducar/Matricula.php';
 require_once 'Source/pmieducar/HistoricoEscolar.php';
 require_once 'Source/pmieducar/HistoricoDisciplinas.php';
 
-require_once 'lib/Portabilis/String/Utils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'Portabilis/Utils/Database.php';
 require_once 'lib/Utils/SafeJson.php';
 

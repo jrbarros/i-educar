@@ -4,7 +4,7 @@ use App\Models\LegacyEvaluationRule;
 
 require_once 'CoreExt/Enum.php';
 
-class RegraAvaliacao_Model_TipoRecuperacaoParalela extends CoreExt_Enum
+class RegraAvaliacao_Model_TipoRecuperacaoParalela extends Enum
 {
     const NAO_USAR = LegacyEvaluationRule::PARALLEL_REMEDIAL_NONE;
     const USAR_POR_ETAPA = LegacyEvaluationRule::PARALLEL_REMEDIAL_PER_STAGE;

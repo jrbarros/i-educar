@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Session;
 class CoreControllerPageListController extends clsListagem implements Core_View_Tabulable
 {
     /**
-     * Mapeia um nome descritivo a um atributo de CoreExt_Entity retornado pela
-     * instגncia CoreExt_DataMapper retornada por getDataMapper().
+     * Mapeia um nome descritivo a um atributo de Entity retornado pela
+     * instגncia DataMapper retornada por getDataMapper().
      *
-     * Para uma instגncia de CoreExt_Entity que tenha os seguintes atributos:
+     * Para uma instגncia de Entity que tenha os seguintes atributos:
      * <code>
      * <?php
      * $_data = array(
@@ -51,9 +51,9 @@ class CoreControllerPageListController extends clsListagem implements Core_View_
      * Retorna os registros a serem exibidos na listagem.
      *
      * Subclasses devem sobrescrever este mיtodo quando os parגmetros para
-     * CoreExt_DataMapper::findAll forem mais especםficos.
+     * DataMapper::findAll forem mais especםficos.
      *
-     * @return array (int => CoreExt_Entity)
+     * @return array (int => Entity)
      *
      * @throws CoreControllerPageException
      */

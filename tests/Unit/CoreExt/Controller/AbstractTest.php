@@ -53,11 +53,11 @@ class CoreExt_Controller_AbstractTest extends PHPUnit\Framework\TestCase
 
   public function testControllerInstanciaDispatcherStandardPorPadrao()
   {
-      $this->assertInstanceOf('CoreExt_Controller_Dispatcher_Standard', $this->_controller->getDispatcher());
+      $this->assertInstanceOf('Standard', $this->_controller->getDispatcher());
   }
 
   public function testInstanciaTemCoreExtSessionPorPadrao()
   {
-      $this->assertInstanceOf('CoreExt_Session', $this->_controller->getSession());
+      $this->assertInstanceOf('Session', $this->_controller->getSession());
   }
 }

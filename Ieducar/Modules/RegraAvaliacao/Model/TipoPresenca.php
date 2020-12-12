@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Enum.php';
 
-class RegraAvaliacao_Model_TipoPresenca extends CoreExt_Enum
+class RegraAvaliacao_Model_TipoPresenca extends Enum
 {
     const GERAL = 1;
     const POR_COMPONENTE = 2;

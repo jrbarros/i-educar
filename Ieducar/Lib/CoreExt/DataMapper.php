@@ -1,11 +1,17 @@
 <?php
 
+namespace iEducarLegacy\Lib\CoreExt;
+
 use Illuminate\Support\Facades\Session;
 
-abstract class CoreExt_DataMapper
+/**
+ * Class DataMapper
+ * @package iEducarLegacy\Lib\CoreExt
+ */
+abstract class DataMapper
 {
     /**
-     * Classe CoreExt_Entity para este data mapper.
+     * Classe Entity para este data mapper.
      *
      * @var string
      */
@@ -27,9 +33,9 @@ abstract class CoreExt_DataMapper
 
     /**
      * Define as chaves primárias da tabela. Configurada automaticamente para
-     * usar o campo identidade de CoreExt_Entity.
+     * usar o campo identidade de Entity.
      *
-     * @see CoreExt_Entity::_createIdentityField()
+     * @see Entity::_createIdentityField()
      *
      * @var array
      */
@@ -43,9 +49,9 @@ abstract class CoreExt_DataMapper
     protected $_dbAdapter = null;
 
     /**
-     * Instância padrão para uso em objetos CoreExt_DataMapper. Isso possibilita
+     * Instância padrão para uso em objetos DataMapper. Isso possibilita
      * que a mesma instância do adapter de conexão com o banco de dados seja
-     * reutilizado em várias instâncias de CoreExt_DataMapper.
+     * reutilizado em várias instâncias de DataMapper.
      *
      * @var Banco
      */
@@ -79,7 +85,7 @@ abstract class CoreExt_DataMapper
 
     /**
      * Setter para configuração de um adapter de banco de dados padrão usado
-     * nas instâncias concretas de CoreExt_DataMapper quando nenhuma instância de
+     * nas instâncias concretas de DataMapper quando nenhuma instância de
      * Banco é passada ao construtor.
      *
      * @param Banco $db
@@ -90,7 +96,7 @@ abstract class CoreExt_DataMapper
     }
 
     /**
-     * Reseta o adapter padrão, fazendo com que CoreExt_DataMapper instancie
+     * Reseta o adapter padrão, fazendo com que DataMapper instancie
      * automaticamente uma instância de Banco quando necessário.
      */
     public static function resetDefaultDbAdapter()
@@ -104,7 +110,7 @@ abstract class CoreExt_DataMapper
      *
      * @param Banco $db
      *
-     * @return CoreExt_DataMapper Provê interface fluída
+     * @return DataMapper Provê interface fluída
      */
     protected function _setDbAdapter(Banco $db)
     {
@@ -120,12 +126,12 @@ abstract class CoreExt_DataMapper
      * tenta atribuir uma instância por padrão, na seguinte ordem:
      *
      * - Usando o adapter provido pelo método estático setDefaultDbAdapter
-     * (útil para usar várias instâncias de CoreExt_DataMapper sem a instanciação
+     * (útil para usar várias instâncias de DataMapper sem a instanciação
      * da classe Banco)
      * - Ou, instanciando a classe Banco
      *
      * Usar o setter estático tem a vantagem de reduzir o overhead causado pela
-     * instanciação a Banco a cada novo objeto CoreExt_DataMapper.
+     * instanciação a Banco a cada novo objeto DataMapper.
      *
      * @return Banco
      */
@@ -181,7 +187,7 @@ abstract class CoreExt_DataMapper
      * de dados associativo $data.
      *
      * Caso nenhum array seja passado, é usado o array de atributos da classe
-     * CoreExt_Entity ao qual o data mapper mapeia.
+     * Entity ao qual o data mapper mapeia.
      *
      * @param array $data
      *
@@ -349,7 +355,7 @@ abstract class CoreExt_DataMapper
 
     /**
      * Retorna uma query SQL para a operação INSERT. Utiliza para isso os
-     * atributos da instância CoreExt_Entity, com o cuidado de remover o
+     * atributos da instância Entity, com o cuidado de remover o
      * campo identidade.
      *
      * Uma query gerada por esse método segue a forma:
@@ -357,11 +363,11 @@ abstract class CoreExt_DataMapper
      * INSERT INTO [schema.]table (column) VALUES ('value');
      * </code>
      *
-     * @param CoreExt_Entity $instance
+     * @param Entity $instance
      *
      * @return string
      */
-    protected function _getSaveStatment(CoreExt_Entity $instance)
+    protected function _getSaveStatment(Entity $instance)
     {
         $sql = 'INSERT INTO %s (%s) VALUES (%s)';
 
@@ -390,7 +396,7 @@ abstract class CoreExt_DataMapper
 
     /**
      * Retorna uma query SQL para a operação UPDATE. Utiliza para isso os
-     * atributos da instância CoreExt_Entity, usando o atributo identidade
+     * atributos da instância Entity, usando o atributo identidade
      * para especificar qual registro atualizar na tabela.
      *
      * Uma query gerada por esse método segue a forma:
@@ -398,11 +404,11 @@ abstract class CoreExt_DataMapper
      * UPDATE [schema.]table SET column='value' WHERE id = 'idValue';
      * </code>
      *
-     * @param CoreExt_Entity $instance
+     * @param Entity $instance
      *
      * @return string
      */
-    protected function _getUpdateStatment(CoreExt_Entity $instance)
+    protected function _getUpdateStatment(Entity $instance)
     {
         $sql = 'UPDATE %s SET %s WHERE %s';
 
@@ -450,7 +456,7 @@ abstract class CoreExt_DataMapper
 
     /**
      * Retorna uma query SQL para a operação DELETE. Utiliza para isso o
-     * atributo identidade "id" (caso seja passada uma instância de CoreExt_Entity
+     * atributo identidade "id" (caso seja passada uma instância de Entity
      * como parâmetro) ou o valor inteiro passado como parâmetro.
      *
      * Uma query gerada por esse método segue a forma:
@@ -477,7 +483,7 @@ abstract class CoreExt_DataMapper
     }
 
     /**
-     * Retorna todos os registros como objetos CoreExt_Entity retornados pela
+     * Retorna todos os registros como objetos Entity retornados pela
      * query de _getFindAllStatment().
      *
      * @param array $columns             Atributos a serem carregados. O atributo id é sempre carregado.
@@ -511,7 +517,7 @@ abstract class CoreExt_DataMapper
     }
 
     /**
-     * Retorna todos os registros como objetos CoreExt_Entity retornados pela
+     * Retorna todos os registros como objetos Entity retornados pela
      * query de _getFindAllStatment() (usando consulta preparada, util para evitar sql injection).
      *
      * @param array $columns             Atributos a serem carregados. O atributo id é sempre carregado.
@@ -554,7 +560,7 @@ abstract class CoreExt_DataMapper
      *
      * @param array|long $pkey
      *
-     * @return CoreExt_Entity
+     * @return Entity
      *
      * @throws Exception
      */
@@ -590,15 +596,15 @@ abstract class CoreExt_DataMapper
     }
 
     /**
-     * Salva ou atualiza um registro através de uma instância de CoreExt_Entity.
+     * Salva ou atualiza um registro através de uma instância de Entity.
      *
-     * @param CoreExt_Entity $instance
+     * @param Entity $instance
      *
      * @return bool
      *
      * @throws CoreExtension_DataMapper_Exception|Exception
      */
-    public function save(CoreExt_Entity $instance)
+    public function save(Entity $instance)
     {
         // Coumpound key, todos os valores precisam estar setados, seja para
         // INSERT ou UPDATE. A instância precisa ser marcada explicitamente
@@ -630,15 +636,15 @@ abstract class CoreExt_DataMapper
     }
 
     /**
-     * Apaga um registro através de uma instância CoreExt_Entity. Pode apagar
+     * Apaga um registro através de uma instância Entity. Pode apagar
      * recebendo uma instância com as chaves primárias setadas ou um array
      * associativo de chaves primárias e seus valores.
      *
      * Exemplo:
      * <code>
      * <?php
-     * $instance   = new CoreExt_Entity(array('pk1' => 1, 'pk2' => 2));
-     * $dataMapper = new CoreExt_DataMapper();
+     * $instance   = new Entity(array('pk1' => 1, 'pk2' => 2));
+     * $dataMapper = new DataMapper();
      *
      * // Por valor do campo identidade 'id'
      * $dataMapper->delete(1);
@@ -697,10 +703,10 @@ abstract class CoreExt_DataMapper
     }
 
     /**
-     * Retorna uma nova instância de CoreExt_Entity. A instância criada não
-     * produz efeito algum no comportamento de CoreExt_DataMapper.
+     * Retorna uma nova instância de Entity. A instância criada não
+     * produz efeito algum no comportamento de DataMapper.
      *
-     * @return CoreExt_Entity
+     * @return Entity
      */
     public function createNewEntityInstance(array $data = [])
     {
@@ -728,7 +734,7 @@ abstract class CoreExt_DataMapper
     /**
      * Remove campos null para realizar insert
      */
-    protected function _cleanNullValuesToSave(CoreExt_Entity $instance)
+    protected function _cleanNullValuesToSave(Entity $instance)
     {
         $data = $this->_getDbAdapter()->formatValues($instance->toDataArray());
         foreach ($data as $key => $val) {
@@ -741,12 +747,12 @@ abstract class CoreExt_DataMapper
     }
 
     /**
-     * Cria um objeto CoreExt_Entity com os valores dos campos relacionais
+     * Cria um objeto Entity com os valores dos campos relacionais
      * mapeados para os atributos da instância.
      *
      * @param array $data
      *
-     * @return CoreExt_Entity
+     * @return Entity
      */
     protected function _createEntityObject(array $data)
     {
@@ -759,14 +765,14 @@ abstract class CoreExt_DataMapper
 
     /**
      * Mapeia os campos relacionais para os atributos de uma instância de
-     * CoreExt_Entity.
+     * Entity.
      *
      * @param array          $data
-     * @param CoreExt_Entity $instance
+     * @param Entity $instance
      *
-     * @return CoreExt_Entity A instância com os atributos mapeados
+     * @return Entity A instância com os atributos mapeados
      */
-    protected function _mapData($data, CoreExt_Entity $instance)
+    protected function _mapData($data, Entity $instance)
     {
         foreach ($data as $key => $value) {
             $index = array_search($key, $this->_attributeMap);

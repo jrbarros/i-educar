@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Enum.php';
 
-class RegraAvaliacao_Model_TipoParecerDescritivo extends CoreExt_Enum
+class RegraAvaliacao_Model_TipoParecerDescritivo extends Enum
 {
     const NENHUM = 0;
     const ETAPA_DESCRITOR = 1;

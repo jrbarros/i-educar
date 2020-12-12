@@ -54,6 +54,6 @@ class NotaAlunoTest extends UnitBaseTest
   public function testEntityValidators()
   {
     $validators = $this->_entity->getDefaultValidatorCollection();
-    $this->assertInstanceOf('CoreExt_Validate_Numeric',  $validators['Matricula']);
+    $this->assertInstanceOf('Numeric',  $validators['Matricula']);
   }
 }

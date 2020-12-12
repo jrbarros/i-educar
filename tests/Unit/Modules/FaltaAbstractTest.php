@@ -54,7 +54,7 @@ class FaltaAbstractTest extends UnitBaseTest
   public function testEntityValidators()
   {
     $validators = $this->_entity->getValidatorCollection();
-    $this->assertInstanceOf('CoreExt_Validate_Numeric', $validators['quantidade']);
-    $this->assertInstanceOf('CoreExt_Validate_Choice',  $validators['etapa']);
+    $this->assertInstanceOf('Numeric', $validators['quantidade']);
+    $this->assertInstanceOf('Choice',  $validators['etapa']);
   }
 }

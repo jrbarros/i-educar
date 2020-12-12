@@ -3,8 +3,8 @@
 use App\Menu;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/Utils.php';
-require_once 'lib/Portabilis/String/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
 
 class MenuController extends ApiCoreController
 {

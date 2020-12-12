@@ -58,8 +58,8 @@ class Educacenso_Model_Docente extends Educacenso_Model_CodigoReferencia
     public function getDefaultValidatorCollection()
     {
         $validators = [
-      'docente'     => new CoreExt_Validate_Numeric(['min' => 0]),
-      'docenteInep' => new CoreExt_Validate_Numeric(['min' => 0]),
+      'docente'     => new _Validate_Numeric(['min' => 0]),
+      'docenteInep' => new _Validate_Numeric(['min' => 0]),
     ];
 
         return array_merge($validators, parent::getDefaultValidatorCollection());

@@ -33,9 +33,9 @@ class Transporte_Model_Aluno extends CoreExt_Entity
         $responsavel = Transporte_Model_Responsavel::getInstance();
 
         return [
-            'aluno' => new CoreExt_Validate_Numeric(),
-            'responsavel' => new CoreExt_Validate_Choice(['choices' => $responsavel->getKeys()]),
-            'user' => new CoreExt_Validate_Numeric()
+            'aluno' => new _Validate_Numeric(),
+            'responsavel' => new _Validate_Choice(['choices' => $responsavel->getKeys()]),
+            'user' => new _Validate_Numeric()
         ];
     }
 }

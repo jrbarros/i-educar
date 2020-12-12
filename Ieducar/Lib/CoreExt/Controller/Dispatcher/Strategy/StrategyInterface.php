@@ -1,6 +1,14 @@
 <?php
 
-interface CoreExt_Controller_Dispatcher_Strategy_Interface
+namespace iEducarLegacy\Lib\CoreExt\Controller\Dispatcher\Strategy;
+
+use iEducarLegacy\Lib\CoreExt\Controller\CoreExtControllerInterface;
+
+/**
+ * Interface StrategyInterface
+ * @package iEducarLegacy\Lib\CoreExt\Controller\Dispatcher\Strategy
+ */
+interface StrategyInterface
 {
     /**
      * Construtor.

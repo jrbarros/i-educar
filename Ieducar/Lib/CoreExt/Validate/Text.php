@@ -1,11 +1,13 @@
 <?php
 
+namespace iEducarLegacy\Lib\CoreExt\Validate;
 
+use Validate;
 
-class CoreExt_Validate_String extends CoreExt_Validate_Abstract
+class Text extends Validate
 {
     /**
-     * @see CoreExt_Validate_Abstract#_getDefaultOptions()
+     * @see Validate#_getDefaultOptions()
      */
     protected function _getDefaultOptions()
     {
@@ -18,7 +20,7 @@ class CoreExt_Validate_String extends CoreExt_Validate_Abstract
     }
 
     /**
-     * @see CoreExt_Validate_Abstract#_validate($value)
+     * @see Validate#_validate($value)
      */
     protected function _validate($value)
     {
@@ -46,7 +48,7 @@ class CoreExt_Validate_String extends CoreExt_Validate_Abstract
     }
 
     /**
-     * @see CoreExt_Validate_Abstract#_sanitize($value)
+     * @see Validate#_sanitize($value)
      */
     protected function _sanitize($value)
     {

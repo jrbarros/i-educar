@@ -1,7 +1,12 @@
 <?php
 
+namespace iEducarLegacy\Lib\App\Date;
 
-class App_Date_Utils
+/**
+ * Class AppDateUtils
+ * @package iEducarLegacy\Lib\App\Date
+ */
+class AppDateUtils
 {
     /**
      * Retorna o ano de uma string nos formatos dd/mm/yyyy e dd/mm/yyyy hh:ii:ss.
@@ -31,7 +36,7 @@ class App_Date_Utils
      *
      * @return bool TRUE se ao menos uma das datas estiver no ano esperado.
      *
-     * @throws App_Date_Exception
+     * @throws AppDateException
      */
     public static function datesYearAtLeast(array $dates, $year, $at = 1)
     {
@@ -49,7 +54,7 @@ class App_Date_Utils
             return true;
         }
 
-        throw new App_Date_Exception(sprintf(
+        throw new AppDateException(sprintf(
             'Ao menos "%d" das datas informadas deve ser do ano "%d". Datas: "%s".',
             $at,
             $year,

@@ -17,7 +17,7 @@ require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditControllerInt
 require_once 'lib/Portabilis/Utils/CustomLabel.php';
 require_once 'Usuario/Model/FuncionarioDataMapper.php';
 require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
-require_once 'Portabilis/String/Utils.php';
+require_once 'Portabilis/Text/AppDateUtils.php';
 
 class AlunoController extends Portabilis_Controller_Page_EditController
 {

@@ -64,19 +64,19 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 						<div class="line n6">6</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"accordion"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">h3</span>&gt;</span>First header<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">div</span>&gt;</span>First content panel<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">h3</span>&gt;</span>Second header<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">div</span>&gt;</span>Second content panel<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></div></div></pre>
@@ -139,9 +139,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({ active: <span class="number">2</span> });</code></div></div></pre>
@@ -157,17 +157,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> active = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"active"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"active"</span>, <span class="number">2</span> );</code></div></div></pre>
@@ -179,7 +179,7 @@
 
 </div>
 <div id="option-animate" class="api-item">
-<h3>animate<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">String</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
+<h3>animate<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">Text</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>{}</code>
@@ -191,7 +191,7 @@
 <li>
 <strong>Number</strong>: Duration in milliseconds with default easing.</li>
 <li>
-<strong>String</strong>: Name of <a href="/easings/">easing</a> to use with default duration.</li>
+<strong>Text</strong>: Name of <a href="/easings/">easing</a> to use with default duration.</li>
 <li>
 <strong>Object</strong>: Animation settings with <code>easing</code> and <code>duration</code> properties.
 					<ul>
@@ -206,9 +206,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({ animate: <span class="string">"bounceslide"</span> });</code></div></div></pre>
@@ -224,17 +224,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> animate = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"animate"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"animate"</span>, <span class="string">"bounceslide"</span> );</code></div></div></pre>
@@ -258,9 +258,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({ collapsible: <span class="literal">true</span> });</code></div></div></pre>
@@ -276,17 +276,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> collapsible = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"collapsible"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"collapsible"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -310,9 +310,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({ disabled: <span class="literal">true</span> });</code></div></div></pre>
@@ -328,17 +328,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> disabled = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"disabled"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"disabled"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -350,7 +350,7 @@
 
 </div>
 <div id="option-event" class="api-item">
-<h3>event<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>event<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>"click"</code>
@@ -362,9 +362,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({ event: <span class="string">"mouseover"</span> });</code></div></div></pre>
@@ -380,17 +380,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> event = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"event"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"event"</span>, <span class="string">"mouseover"</span> );</code></div></div></pre>
@@ -416,9 +416,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({ header: <span class="string">"h3"</span> });</code></div></div></pre>
@@ -434,17 +434,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> header = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"header"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"header"</span>, <span class="string">"h3"</span> );</code></div></div></pre>
@@ -456,7 +456,7 @@
 
 </div>
 <div id="option-heightStyle" class="api-item">
-<h3>heightStyle<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>heightStyle<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>"auto"</code>
@@ -478,9 +478,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({ heightStyle: <span class="string">"fill"</span> });</code></div></div></pre>
@@ -496,17 +496,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> heightStyle = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"heightStyle"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"heightStyle"</span>, <span class="string">"fill"</span> );</code></div></div></pre>
@@ -536,9 +536,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({ icons: { <span class="string">"header"</span>: <span class="string">"ui-icon-plus"</span>, <span class="string">"headerSelected"</span>: <span class="string">"ui-icon-minus"</span> } });</code></div></div></pre>
@@ -554,17 +554,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> icons = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"icons"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"icons"</span>, { <span class="string">"header"</span>: <span class="string">"ui-icon-plus"</span>, <span class="string">"headerSelected"</span>: <span class="string">"ui-icon-minus"</span> } );</code></div></div></pre>
@@ -588,9 +588,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"destroy"</span> );</code></div></div></pre>
@@ -616,9 +616,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"disable"</span> );</code></div></div></pre>
@@ -644,9 +644,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"enable"</span> );</code></div></div></pre>
@@ -665,7 +665,7 @@
 <div>Gets the value currently associated with the specified <code>optionName</code>.</div>
 <ul><li>
 <div><strong>optionName</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the option to get.</div>
 </li></ul>
@@ -676,9 +676,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> isDisabled = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"disabled"</span> );</code></div></div></pre>
@@ -702,9 +702,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> options = $( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span> );</code></div></div></pre>
@@ -723,7 +723,7 @@
 <ul>
 <li>
 <div><strong>optionName</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the option to set.</div>
 </li>
@@ -741,9 +741,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, <span class="string">"disabled"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -772,9 +772,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"option"</span>, { disabled: <span class="literal">true</span> } );</code></div></div></pre>
@@ -799,9 +799,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion( <span class="string">"refresh"</span> );</code></div></div></pre>
@@ -827,9 +827,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> widget = $( <span class="string">".selector"</span> ).accordion( <span class="string">"widget"</span> );</code></div></div></pre>
@@ -891,13 +891,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({</code></div></div><div class="container"><div class="line"><code>  activate: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -913,9 +913,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"accordionactivate"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -978,13 +978,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({</code></div></div><div class="container"><div class="line"><code>  beforeActivate: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -1000,9 +1000,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"accordionbeforeactivate"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -1053,13 +1053,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).accordion({</code></div></div><div class="container"><div class="line"><code>  create: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -1075,9 +1075,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"accordioncreate"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -1095,93 +1095,93 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 						<div class="line n6">6</div>
-					
+
 						<div class="line n7">7</div>
-					
+
 						<div class="line n8">8</div>
-					
+
 						<div class="line n9">9</div>
-					
+
 						<div class="line n10">10</div>
-					
+
 						<div class="line n11">11</div>
-					
+
 						<div class="line n12">12</div>
-					
+
 						<div class="line n13">13</div>
-					
+
 						<div class="line n14">14</div>
-					
+
 						<div class="line n15">15</div>
-					
+
 						<div class="line n16">16</div>
-					
+
 						<div class="line n17">17</div>
-					
+
 						<div class="line n18">18</div>
-					
+
 						<div class="line n19">19</div>
-					
+
 						<div class="line n20">20</div>
-					
+
 						<div class="line n21">21</div>
-					
+
 						<div class="line n22">22</div>
-					
+
 						<div class="line n23">23</div>
-					
+
 						<div class="line n24">24</div>
-					
+
 						<div class="line n25">25</div>
-					
+
 						<div class="line n26">26</div>
-					
+
 						<div class="line n27">27</div>
-					
+
 						<div class="line n28">28</div>
-					
+
 						<div class="line n29">29</div>
-					
+
 						<div class="line n30">30</div>
-					
+
 						<div class="line n31">31</div>
-					
+
 						<div class="line n32">32</div>
-					
+
 						<div class="line n33">33</div>
-					
+
 						<div class="line n34">34</div>
-					
+
 						<div class="line n35">35</div>
-					
+
 						<div class="line n36">36</div>
-					
+
 						<div class="line n37">37</div>
-					
+
 						<div class="line n38">38</div>
-					
+
 						<div class="line n39">39</div>
-					
+
 						<div class="line n40">40</div>
-					
+
 						<div class="line n41">41</div>
-					
+
 						<div class="line n42">42</div>
-					
+
 						<div class="line n43">43</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="doctype">&lt;!doctype html&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">head</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">title</span>&gt;</span>accordion demo<span class="tag">&lt;/<span class="title">title</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//code.jquery.com/jquery-1.8.3.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//code.jquery.com/ui/1.9.2/jquery-ui.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">head</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">body</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"accordion"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">h3</span>&gt;</span>Section 1<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Mauris mauris ante, blandit et, ultrices a, suscipit eget.</code></div></div><div class="container"><div class="line"><code>    Integer ut neque. Vivamus nisi metus, molestie vel, gravida in,</code></div></div><div class="container"><div class="line"><code>    condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros.</code></div></div><div class="container"><div class="line"><code>    Nam mi. Proin viverra leo ut odio.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">h3</span>&gt;</span>Section 2<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Sed non urna. Phasellus eu ligula. Vestibulum sit amet purus.</code></div></div><div class="container"><div class="line"><code>    Vivamus hendrerit, dolor aliquet laoreet, mauris turpis velit,</code></div></div><div class="container"><div class="line"><code>    faucibus interdum tellus libero ac justo.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">h3</span>&gt;</span>Section 3<span class="tag">&lt;/<span class="title">h3</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Nam enim risus, molestie et, porta ac, aliquam ac, risus.</code></div></div><div class="container"><div class="line"><code>    Quisque lobortis.Phasellus pellentesque purus in massa.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;<span class="title">ul</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>      <span class="tag">&lt;<span class="title">li</span>&gt;</span>List item one<span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>      <span class="tag">&lt;<span class="title">li</span>&gt;</span>List item two<span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>      <span class="tag">&lt;<span class="title">li</span>&gt;</span>List item three<span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">"#accordion"</span> ).accordion();</code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></div></div></pre>

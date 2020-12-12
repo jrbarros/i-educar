@@ -8,8 +8,8 @@ use App\Services\CheckPostedDataService;
 use App\Services\iDiarioService;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/Utils.php';
-require_once 'lib/Portabilis/String/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 require_once 'Source/Modules/clsModulesComponenteCurricularAnoEscolar.inc.php';
 require_once 'Source/pmieducar/EscolaSerieDisciplina.php';

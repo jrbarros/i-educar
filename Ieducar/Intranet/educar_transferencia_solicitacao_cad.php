@@ -10,12 +10,12 @@ require_once 'Source/Base.php';
 require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
-require_once 'lib/Portabilis/Date/Utils.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
 require_once 'Modules/Avaliacao/Model/NotaAlunoDataMapper.php';
 require_once 'Modules/Avaliacao/Model/NotaComponenteMediaDataMapper.php';
 require_once 'lib/App/Model/MatriculaSituacao.php';
 require_once 'Modules/Avaliacao/Views/PromocaoApiController.php';
-require_once 'lib/CoreExt/Controller/Request.php';
+require_once 'lib/CoreExt/Controller/PageRequest.php';
 
 class clsIndexBase extends Base
 {

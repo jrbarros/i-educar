@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Enum.php';
 
-class ComponenteSerie_Model_TipoNota extends CoreExt_Enum
+class ComponenteSerie_Model_TipoNota extends Enum
 {
     const NUMERICA = 1;
     const CONCEITUAL = 2;

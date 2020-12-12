@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Enum.php';
 
-class Transporte_Model_Responsavel extends CoreExt_Enum
+class Transporte_Model_Responsavel extends Enum
 {
     const NENHUM = 0;
     const ESTADUAL = 1;

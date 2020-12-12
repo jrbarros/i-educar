@@ -2,12 +2,12 @@
 
 namespace iEducarLegacy\Lib\Core;
 
-
 use iEducarLegacy\Intranet\Source\Base;
 use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageInterface;
 
 /**
  * Class CoreView
+ *
  * @package iEducarLegacy\Lib\Core
  */
 class CoreView extends Base

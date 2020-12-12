@@ -643,7 +643,7 @@ config = {
 
 	QUnit.urlParams = urlParams;
 
-	// String search anywhere in moduleName+testName
+	// Text search anywhere in moduleName+testName
 	config.filter = urlParams.filter;
 
 	// Exact match of the Module name

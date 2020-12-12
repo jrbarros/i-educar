@@ -4,7 +4,7 @@ require_once 'Source/Base.php';
 require_once 'Source/Detalhe.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
-require_once 'lib/Portabilis/Date/Utils.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
 
 require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
 require_once 'Educacenso/Model/DocenteDataMapper.php';

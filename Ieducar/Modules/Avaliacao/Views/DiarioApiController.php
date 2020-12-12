@@ -29,9 +29,9 @@ require_once 'Source/Modules/clsModulesAuditoriaNota.inc.php';
 require_once 'Source/Modules/clsModulesNotaExame.inc.php';
 
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/Utils.php';
-require_once 'Portabilis/String/Utils.php';
-require_once 'Portabilis/Object/Utils.php';
+require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Text/AppDateUtils.php';
+require_once 'Portabilis/Object/AppDateUtils.php';
 
 class DiarioApiController extends ApiCoreController
 {
@@ -1062,7 +1062,7 @@ class DiarioApiController extends ApiCoreController
             $this->serviceBoletim()->save();
         } catch (CoreExtension_Service_Exception $e) {
             // excecoes ignoradas :( pois servico lanca excecoes de alertas, que não são exatamente erros.
-            // error_log('CoreExtension_Service_Exception ignorada: ' . $e->getMessage());
+            // error_log('Exception ignorada: ' . $e->getMessage());
         }
     }
 

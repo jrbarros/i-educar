@@ -1,7 +1,7 @@
 <?php
 
 require_once 'CoreExt/Entity.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 require_once 'lib/Portabilis/Utils/Float.php';
 require_once 'RegraAvaliacao/Model/Nota/TipoValor.php';
 require_once 'TabelaArredondamento/Model/TipoArredondamentoMedia.php';
@@ -36,7 +36,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
     protected $_tabelaValores = [];
 
     /**
-     * @see CoreExt_Entity::getDataMapper()
+     * @see Entity::getDataMapper()
      */
     public function getDataMapper()
     {
@@ -49,7 +49,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity_Validatable::getDefaultValidatorCollection()
+     * @see Validatable::getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
@@ -63,9 +63,9 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
         unset($tipoNotas[RegraAvaliacao_Model_Nota_TipoValor::NENHUM]);
 
         return [
-            'instituicao' => new CoreExt_Validate_Choice(['choices' => $instituicoes]),
-            'nome' => new CoreExt_Validate_String(['min' => 5, 'max' => 50]),
-            'tipoNota' => new CoreExt_Validate_Choice(['choices' => $tipoNotas])
+            'instituicao' => new _Validate_Choice(['choices' => $instituicoes]),
+            'nome' => new _Validate_String(['min' => 5, 'max' => 50]),
+            'tipoNota' => new _Validate_Choice(['choices' => $tipoNotas])
         ];
     }
 
@@ -274,7 +274,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity::__toString()
+     * @see Entity::__toString()
      */
     public function __toString()
     {

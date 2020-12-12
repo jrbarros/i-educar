@@ -1,30 +1,35 @@
 <?php
 
 namespace iEducarLegacy\Lib\CoreExt\Controller;
+
+use iEducarLegacy\Lib\CoreExt\Session;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\RedirectResponse;
 
-
-abstract class CoreExtControllerAbstract implements CoreExt_Controller_Interface
+/**
+ * Class CoreExtControllerAbstract
+ * @package iEducarLegacy\Lib\CoreExt\Controller
+ */
+abstract class CoreExtControllerAbstract implements CoreExtControllerInterface
 {
     /**
-     * Uma instância de CoreExt_Controller_Request_Interface
+     * Uma instância de RequestInterface
      *
-     * @var CoreExt_Controller_Request_Interface
+     * @var RequestInterface
      */
     protected $_request = null;
 
     /**
-     * Uma instância de CoreExt_Session_Abstract
+     * Uma instância de Session
      *
-     * @var CoreExt_Session_Abstract
+     * @var Session
      */
     protected $_session = null;
 
     /**
-     * Uma instância de CoreExt_Controller_Dispatcher_Interface
+     * Uma instância de DispatcherInterface
      *
-     * @var CoreExt_Controller_Dispatcher_Interface
+     * @var DispatcherInterface
      */
     protected $_dispatcher = null;
 
@@ -95,19 +100,19 @@ abstract class CoreExtControllerAbstract implements CoreExt_Controller_Interface
     }
 
     /**
-     * Getter para uma instância de CoreExt_Controller_Request_Interface.
+     * Getter para uma instância de RequestInterface.
      *
      * Instância via lazy initialization uma instância de
-     * CoreExt_Controller_Request_Interface caso nenhuma seja explicitamente
+     * RequestInterface caso nenhuma seja explicitamente
      * atribuída a instância atual.
      *
-     * @return CoreExt_Controller_Request_Interface
+     * @return RequestInterface
      */
     public function getRequest()
     {
         if (is_null($this->_request)) {
-            require_once 'CoreExt/Controller/Request.php';
-            $this->setRequest(new CoreExt_Controller_Request());
+            require_once 'CoreExt/Controller/PageRequest.php';
+            $this->setRequest(new Request());
         }
 
         return $this->_request;
@@ -128,12 +133,12 @@ abstract class CoreExtControllerAbstract implements CoreExt_Controller_Interface
     }
 
     /**
-     * Getter para uma instância de CoreExt_Session.
+     * Getter para uma instância de Session.
      *
-     * Instância via lazy initialization uma instância de CoreExt_Session caso
+     * Instância via lazy initialization uma instância de Session caso
      * nenhuma seja explicitamente atribuída a instância atual.
      *
-     * @return CoreExt_Session
+     * @return Session
      */
     public function getSession()
     {
@@ -178,7 +183,7 @@ abstract class CoreExtControllerAbstract implements CoreExt_Controller_Interface
      * Redirect HTTP simples (espartaníssimo).
      *
      * Se a URL for relativa, prefixa o caminho com o baseurl configurado para
-     * o objeto CoreExt_Controller_Request.
+     * o objeto PageRequest.
      *
      * @param string $url
      *

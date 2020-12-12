@@ -94,8 +94,8 @@ class Avaliacao_Service_NotaTest extends Avaliacao_Service_TestCommon
 
     // Validadores injetados no objeto
     $validators = $serviceNota->getValidatorCollection();
-    $this->assertInstanceOf('CoreExt_Validate_Choice', $validators['componenteCurricular']);
-    $this->assertInstanceOf('CoreExt_Validate_Choice', $validators['etapa']);
+    $this->assertInstanceOf('Choice', $validators['componenteCurricular']);
+    $this->assertInstanceOf('Choice', $validators['etapa']);
 
     // Opções dos validadores
 

@@ -14,7 +14,7 @@ require_once 'lib/Portabilis/Utils/Database.php';
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'Avaliacao/Fixups/CleanComponentesCurriculares.php';
 require_once 'Source/Modules/clsModulesNotaExame.inc.php';
-require_once 'Portabilis/String/Utils.php';
+require_once 'Portabilis/Text/AppDateUtils.php';
 
 class PromocaoApiController extends ApiCoreController
 {
@@ -158,7 +158,7 @@ class PromocaoApiController extends ApiCoreController
             $this->boletimService()->save();
         } catch (CoreExtension_Service_Exception $e) {
             // excecoes ignoradas :( pois servico lanca excecoes de alertas, que não são exatamente erros.
-            // error_log('CoreExtension_Service_Exception ignorada: ' . $e->getMessage());
+            // error_log('Exception ignorada: ' . $e->getMessage());
         }
     }
 

@@ -42,7 +42,7 @@ require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
 require_once 'Source/public/geral.inc.php';
 
-require_once 'App/Date/Utils.php';
+require_once 'App/Date/AppDateUtils.php';
 require_once 'App/Unificacao/Aluno.php';
 
 require_once 'ComponenteCurricular/Model/TurmaDataMapper.php';

@@ -19,9 +19,9 @@ interface CoreControllerPageInterface extends CoreExt_Controller_Page_Interface
     public function setDataMapper($dataMapper);
 
     /**
-     * Retorna uma instância CoreExt_DataMapper.
+     * Retorna uma instância DataMapper.
      *
-     * @return CoreExt_DataMapper
+     * @return DataMapper
      */
     public function getDataMapper();
 

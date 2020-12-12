@@ -72,12 +72,12 @@ abstract class Avaliacao_Model_FaltaAbstract extends Avaliacao_Model_Etapa
   ];
 
     /**
-     * @see CoreExt_Entity_Validatable#getDefaultValidatorCollection()
+     * @see Validatable#getDefaultValidatorCollection()
      */
     public function getDefaultValidatorCollection()
     {
         return [
-      'quantidade' => new CoreExt_Validate_Numeric(['min' => 0, 'max' => 100])
+      'quantidade' => new _Validate_Numeric(['min' => 0, 'max' => 100])
     ];
     }
 }

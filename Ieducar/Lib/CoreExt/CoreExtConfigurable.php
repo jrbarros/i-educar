@@ -1,5 +1,11 @@
 <?php
 
+namespace iEducarLegacy\Lib\CoreExt;
+
+/**
+ * Interface CoreExtConfigurable
+ * @package iEducarLegacy\Lib\CoreExt
+ */
 interface CoreExtConfigurable
 {
     /**

@@ -1,9 +1,12 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Lib\App\Model;
+
+
+use iEducarLegacy\Lib\CoreExt\Enum;
 
 /**
- * App_Model_NivelAcesso class.
+ * NivelAcesso class.
  *
  * Define os valores inteiros usados nas comparações das verificações de
  * acesso da classe Permissoes.
@@ -27,12 +30,12 @@ require_once 'CoreExt/Enum.php';
  * Onde, T = TRUE; F = FALSE
  * </code>
  */
-class App_Model_NivelAcesso extends CoreExt_Enum
+class NivelAcesso extends Enum
 {
-    const POLI_INSTITUCIONAL = 1;
-    const INSTITUCIONAL = 3;
-    const SOMENTE_ESCOLA = 7;
-    const SOMENTE_BIBLIOTECA = 11;
+    public const POLI_INSTITUCIONAL = 1;
+    public const INSTITUCIONAL = 3;
+    public const SOMENTE_ESCOLA = 7;
+    public const SOMENTE_BIBLIOTECA = 11;
 
     protected $_data = [
         self::POLI_INSTITUCIONAL => 'Poli-institucional',

@@ -38,7 +38,7 @@ require_once 'Source/Cadastro.inc.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
 
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
 require_once 'ComponenteCurricular/Model/AnoEscolarDataMapper.php';
 

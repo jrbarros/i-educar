@@ -4,7 +4,7 @@
 // ini_set("display_errors", 1);
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 
 /**
  * AreaConhecimento class.

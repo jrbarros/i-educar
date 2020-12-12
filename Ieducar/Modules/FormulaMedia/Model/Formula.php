@@ -1,7 +1,7 @@
 <?php
 
 require_once 'CoreExt/Entity.php';
-require_once 'App/Model/IedFinder.php';
+require_once 'App/Model/Finder.php';
 require_once 'FormulaMedia/Model/TipoFormula.php';
 require_once 'FormulaMedia/Validate/Formula.php';
 
@@ -230,7 +230,7 @@ class FormulaMedia_Model_Formula extends CoreExt_Entity
     }
 
     /**
-     * @see CoreExt_Entity_Validatable::getDefaultValidatorCollection()
+     * @see Validatable::getDefaultValidatorCollection()
      *
      * @return array
      */
@@ -248,10 +248,10 @@ class FormulaMedia_Model_Formula extends CoreExt_Entity
         }
 
         return [
-            'instituicao' => new CoreExt_Validate_Choice(['choices' => $instituicoes]),
-            'nome' => new CoreExt_Validate_String(['min' => 5, 'max' => 50]),
+            'instituicao' => new _Validate_Choice(['choices' => $instituicoes]),
+            'nome' => new _Validate_String(['min' => 5, 'max' => 50]),
             'formulaMedia' => new FormulaMedia_Validate_Formula($formulaValidatorOptions),
-            'tipoFormula' => new CoreExt_Validate_Choice(['choices' => $tipoFormula->getKeys()])
+            'tipoFormula' => new _Validate_Choice(['choices' => $tipoFormula->getKeys()])
         ];
     }
 }

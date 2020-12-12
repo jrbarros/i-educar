@@ -53,7 +53,7 @@ require_once 'FormulaMedia/Model/Formula.php';
  *
  * @version     @@package_version@@
  */
-class FormulaMedia_Validate_Formula extends CoreExt_Validate_Abstract
+class FormulaMedia_Validate_Formula extends Validate
 {
     /**
      * Referência para instância da classe FormulaMedia_Model_Formula do model.
@@ -65,7 +65,7 @@ class FormulaMedia_Validate_Formula extends CoreExt_Validate_Abstract
     /**
      * Por padrão, exclui o tokens de nota de recuperação.
      *
-     * @see CoreExt_Validate_Abstract#_getDefaultOptions()
+     * @see Validate#_getDefaultOptions()
      */
     protected function _getDefaultOptions()
     {
@@ -73,7 +73,7 @@ class FormulaMedia_Validate_Formula extends CoreExt_Validate_Abstract
     }
 
     /**
-     * @see CoreExt_Validate_Abstract#_validate()
+     * @see Validate#_validate()
      *
      * @throws Exception|FormulaMedia_Validate_Exception
      */

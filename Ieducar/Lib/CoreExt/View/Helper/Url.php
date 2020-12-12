@@ -1,21 +1,25 @@
 <?php
 
-require_once 'CoreExt/View/Helper/CoreControllerPageAbstract.php';
+namespace iEducarLegacy\Lib\CoreExt\View\Helper;
 
-class CoreExt_View_Helper_UrlHelper extends CoreExt_View_Helper_Abstract
+/**
+ * Class Url
+ * @package iEducarLegacy\Lib\CoreExt\View\Helper
+ */
+class Url extends View
 {
     /**
      * Constantes para definir que parte da URL deve ser gerada no método
      * url().
      */
-    const URL_SCHEME = 1;
-    const URL_HOST = 4;
-    const URL_PORT = 16;
-    const URL_USER = 32;
-    const URL_PASS = 64;
-    const URL_PATH = 128;
-    const URL_QUERY = 128;
-    const URL_FRAGMENT = 256;
+    public const URL_SCHEME = 1;
+    public const URL_HOST = 4;
+    public const URL_PORT = 16;
+    public const URL_USER = 32;
+    public const URL_PASS = 64;
+    public const URL_PATH = 128;
+    public const URL_QUERY = 128;
+    public const URL_FRAGMENT = 256;
 
     /**
      * @var array
@@ -55,7 +59,7 @@ class CoreExt_View_Helper_UrlHelper extends CoreExt_View_Helper_Abstract
     /**
      * Retorna uma instância singleton.
      *
-     * @return CoreExt_View_Helper_Abstract
+     * @return View
      */
     public static function getInstance()
     {
@@ -95,7 +99,7 @@ class CoreExt_View_Helper_UrlHelper extends CoreExt_View_Helper_Abstract
      *   'absolute' => TRUE,
      *   'query' => array('param1' => 'value1', 'param2' => 'value2'),
      *   'fragment' => 'Fragment',
-     *   'components' => CoreExt_View_Helper_UrlHelper::URL_HOST
+     *   'components' => Url::URL_HOST
      * );
      * // http://example.com/index?param1=value1&param2=value2#Fragment
      *
@@ -103,9 +107,9 @@ class CoreExt_View_Helper_UrlHelper extends CoreExt_View_Helper_Abstract
      *   'absolute' => TRUE,
      *   'query' => array('param1' => 'value1', 'param2' => 'value2'),
      *   'fragment' => 'Fragment',
-     *   'components' => CoreExt_View_Helper_UrlHelper::URL_HOST
+     *   'components' => Url::URL_HOST
      * );
-     * print CoreExt_View_Helper_UrlHelper::url('example.com/index', $options);
+     * print Url::url('example.com/index', $options);
      * // http://example.com
      * </code>
      *

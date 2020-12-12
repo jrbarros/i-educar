@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Controller/CoreControllerPageAbstract.php';
+namespace iEducarLegacy\Lib\CoreExt\Controller;
 
-class CoreExt_Controller_Front extends CoreExt_Controller_Abstract
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageAbstract;
+
+/**
+ * Class Front
+ * @package iEducarLegacy\Lib\CoreExt\Controller
+ */
+class Front extends CoreControllerPageAbstract
 {
     /**
      * Opções para definição de qual tipo de controller utilizar durante a
@@ -39,9 +45,9 @@ class CoreExt_Controller_Front extends CoreExt_Controller_Abstract
     protected $_defaultOptions = [];
 
     /**
-     * Uma instância de CoreExt_View_Abstract
+     * Uma instância de View
      *
-     * @var CoreExt_View_Abstract
+     * @var View
      */
     protected $_view = null;
 
@@ -56,7 +62,7 @@ class CoreExt_Controller_Front extends CoreExt_Controller_Abstract
     /**
      * Retorna a instância singleton.
      *
-     * @return CoreExt_Controller_Front
+     * @return Front
      */
     public static function getInstance()
     {
@@ -118,12 +124,12 @@ class CoreExt_Controller_Front extends CoreExt_Controller_Abstract
     }
 
     /**
-     * Getter para uma instância de CoreExt_View_Abstract.
+     * Getter para uma instância de View.
      *
-     * Instância via lazy initialization uma instância de CoreExt_View caso
+     * Instância via lazy initialization uma instância de View caso
      * nenhuma seja explicitamente atribuída a instância atual.
      *
-     * @return CoreExt_View_Abstract
+     * @return View
      */
     public function getView()
     {
@@ -136,13 +142,13 @@ class CoreExt_Controller_Front extends CoreExt_Controller_Abstract
     }
 
     /**
-     * Getter para uma instância de CoreExt_Controller_Dispatcher_Interface.
+     * Getter para uma instância de DispatcherInterface.
      *
      * Instância via lazy initialization uma instância de
      * CoreExt_Controller_Dispatcher caso nenhuma seja explicitamente
      * atribuída a instância atual.
      *
-     * @return CoreExt_Controller_Dispatcher_Interface
+     * @return DispatcherInterface
      */
     public function getDispatcher()
     {
@@ -163,12 +169,12 @@ class CoreExt_Controller_Front extends CoreExt_Controller_Abstract
         switch ($this->getOption('controller_type')) {
             case 1:
                 require_once 'CoreExt/Controller/Dispatcher/Strategy/FrontStrategy.php';
-                $strategy = 'CoreExt_Controller_Dispatcher_Strategy_FrontStrategy';
+                $strategy = 'FrontStrategy';
                 break;
 
             case 2:
                 require_once 'CoreExt/Controller/Dispatcher/Strategy/PageStrategy.php';
-                $strategy = 'CoreExt_Controller_Dispatcher_Strategy_PageStrategy';
+                $strategy = 'PageStrategy';
                 break;
         }
 

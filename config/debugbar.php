@@ -21,7 +21,7 @@ return [
 
     /*
      |--------------------------------------------------------------------------
-     | Storage settings
+     | StorageInterface settings
      |--------------------------------------------------------------------------
      |
      | DebugBar stores data for session/ajax requests.

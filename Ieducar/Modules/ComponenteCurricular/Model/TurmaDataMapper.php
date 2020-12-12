@@ -66,7 +66,7 @@ class ComponenteCurricular_Model_TurmaDataMapper extends CoreExt_DataMapper
      * @param array               $componentes    (id => integer, cargaHoraria => float|null)
      * @param iDiarioService|null $iDiarioService
      *
-     * @throws CoreExtension_DataMapper_Exception
+     * @throws Exception
      */
     public function bulkUpdate($anoEscolar, $escola, $turma, array $componentes, $iDiarioService = null)
     {

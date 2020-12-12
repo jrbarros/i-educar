@@ -15,11 +15,11 @@ class Calendario_Model_Turma extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-            'calendarioAnoLetivo' => new CoreExt_Validate_Numeric(['min' => 0]),
-            'ano' => new CoreExt_Validate_Numeric(['min' => 0]),
-            'mes' => new CoreExt_Validate_Numeric(['min' => 0]),
-            'dia' => new CoreExt_Validate_Numeric(['min' => 0]),
-            'turma' => new CoreExt_Validate_Numeric(['min' => 0])
+            'calendarioAnoLetivo' => new _Validate_Numeric(['min' => 0]),
+            'ano' => new _Validate_Numeric(['min' => 0]),
+            'mes' => new _Validate_Numeric(['min' => 0]),
+            'dia' => new _Validate_Numeric(['min' => 0]),
+            'turma' => new _Validate_Numeric(['min' => 0])
         ];
     }
 

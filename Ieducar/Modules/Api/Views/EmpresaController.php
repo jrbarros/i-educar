@@ -4,10 +4,10 @@ require_once 'Source/Modules/clsModulesEmpresaTransporteEscolar.inc.php';
 require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
 require_once 'Source/Modules/clsModulesMotorista.inc.php';
 require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Array/Utils.php';
-require_once 'Portabilis/String/Utils.php';
-require_once 'Portabilis/Array/Utils.php';
-require_once 'Portabilis/Date/Utils.php';
+require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Text/AppDateUtils.php';
+require_once 'Portabilis/Array/AppDateUtils.php';
+require_once 'Portabilis/Date/AppDateUtils.php';
 
 class EmpresaController extends ApiCoreController
 {

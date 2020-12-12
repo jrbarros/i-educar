@@ -4,7 +4,7 @@ namespace iEducarLegacy\Intranet\Source\PmiEducar;
 
 
 require_once 'Source/pmieducar/EscolaUsuario.php';
-require_once 'lib/Portabilis/Array/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
 
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\RedirectResponse;

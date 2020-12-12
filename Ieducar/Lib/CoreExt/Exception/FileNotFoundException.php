@@ -1,7 +1,13 @@
 <?php
 
-require_once 'CoreExt/CoreExtensionException.php';
+namespace iEducarLegacy\Lib\CoreExt\Exception;
 
-class CoreExtension_Exception_FileNotFoundException extends CoreExtensionException
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+
+/**
+ * Class FileNotFoundException
+ * @package iEducarLegacy\Lib\CoreExt\Exception
+ */
+class FileNotFoundException extends CoreExtensionException
 {
 }

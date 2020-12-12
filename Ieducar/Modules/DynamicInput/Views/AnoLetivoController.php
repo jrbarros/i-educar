@@ -38,7 +38,7 @@
  */
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/App/Model/IedFinder.php';
+require_once 'lib/App/Model/Finder.php';
 
 /**
  * AnoLetivoController class.

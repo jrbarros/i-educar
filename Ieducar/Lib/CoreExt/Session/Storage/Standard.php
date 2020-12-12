@@ -1,13 +1,17 @@
 <?php
 
+namespace iEducarLegacy\Lib\CoreExt\Session\Storage;
+
 use Illuminate\Support\Facades\Session;
 
-require_once 'CoreExt/Session/Storage/CoreControllerPageAbstract.php';
-
-class CoreExt_Session_Storage_Default extends CoreExt_Session_Storage_Abstract
+/**
+ * Class Standard
+ * @package iEducarLegacy\Lib\CoreExt\Session\Storage
+ */
+class Standard extends Storage
 {
     /**
-     * @see CoreExt_Session_Storage_Interface#read($key)
+     * @see StorageInterface#read($key)
      */
     public function read($key)
     {
@@ -21,7 +25,7 @@ class CoreExt_Session_Storage_Default extends CoreExt_Session_Storage_Abstract
     }
 
     /**
-     * @see CoreExt_Session_Storage_Interface#write($key, $value)
+     * @see StorageInterface#write($key, $value)
      */
     public function write($key, $value)
     {
@@ -29,7 +33,7 @@ class CoreExt_Session_Storage_Default extends CoreExt_Session_Storage_Abstract
     }
 
     /**
-     * @see CoreExt_Session_Storage_Interface#remove($key)
+     * @see StorageInterface#remove($key)
      */
     public function remove($key)
     {
@@ -37,7 +41,7 @@ class CoreExt_Session_Storage_Default extends CoreExt_Session_Storage_Abstract
     }
 
     /**
-     * @see CoreExt_Session_Storage_Interface#start()
+     * @see StorageInterface#start()
      */
     public function start()
     {
@@ -45,7 +49,7 @@ class CoreExt_Session_Storage_Default extends CoreExt_Session_Storage_Abstract
     }
 
     /**
-     * @see CoreExt_Session_Storage_Interface#destroy()
+     * @see StorageInterface#destroy()
      */
     public function destroy()
     {
@@ -53,7 +57,7 @@ class CoreExt_Session_Storage_Default extends CoreExt_Session_Storage_Abstract
     }
 
     /**
-     * @see CoreExt_Session_Storage_Interface#regenerate()
+     * @see StorageInterface#regenerate()
      */
     public function regenerate($destroy = false)
     {
@@ -63,7 +67,7 @@ class CoreExt_Session_Storage_Default extends CoreExt_Session_Storage_Abstract
     /**
      * Persiste os dados da session no sistema de arquivos.
      *
-     * @see CoreExt_Session_Storage_Interface#shutdown()
+     * @see StorageInterface#shutdown()
      */
     public function shutdown()
     {
@@ -79,7 +83,7 @@ class CoreExt_Session_Storage_Default extends CoreExt_Session_Storage_Abstract
     }
 
     /**
-     * @see CoreExt_Session_Storage_Abstract#getSessionData()
+     * @see StorageInterface#getSessionData()
      */
     public function getSessionData()
     {

@@ -13,7 +13,7 @@ abstract class CoreControllerPageEditControllerInterface extends Cadastro implem
     /**
      * Array associativo de um elemento de formulário, usado para a definição
      * de labels, nome de campos e definição de qual campo foi invalidado por
-     * CoreExt_DataMapper::isValid().
+     * DataMapper::isValid().
      *
      * @var array
      */
@@ -124,7 +124,7 @@ abstract class CoreControllerPageEditControllerInterface extends Cadastro implem
     }
 
     /**
-     * Retorna o atributo de CoreExt_Entity para recuperar o valor de um item
+     * Retorna o atributo de Entity para recuperar o valor de um item
      * de formulário.
      *
      * @param string $key
@@ -138,7 +138,7 @@ abstract class CoreControllerPageEditControllerInterface extends Cadastro implem
 
     /**
      * Retorna um label de um item de formulário através do nome de um atributo de
-     * CoreExt_Entity.
+     * Entity.
      *
      * @param string $key
      *
@@ -163,7 +163,7 @@ abstract class CoreControllerPageEditControllerInterface extends Cadastro implem
 
     /**
      * Sobrescreve o método Inicializar() de Cadastro com operações padrões
-     * para o caso de uma CoreExt_Entity que use o campo identidade id.
+     * para o caso de uma Entity que use o campo identidade id.
      *
      * Seu comportamento pode ser alterado sobrescrevendo-se os métodos _initNovo
      * e _initEditar.
@@ -268,9 +268,9 @@ abstract class CoreControllerPageEditControllerInterface extends Cadastro implem
     }
 
     /**
-     * Hook de execução para verificar se CoreExt_Entity é novo. Verifica
+     * Hook de execução para verificar se Entity é novo. Verifica
      * simplesmente se o campo identidade foi passado na requisição HTTP e, se não
-     * for, cria uma instância de CoreExt_Entity vazia.
+     * for, cria uma instância de Entity vazia.
      *
      * @return bool
      *
@@ -288,7 +288,7 @@ abstract class CoreControllerPageEditControllerInterface extends Cadastro implem
     }
 
     /**
-     * Hook de execução para verificar se CoreExt_Entity é existente através do
+     * Hook de execução para verificar se Entity é existente através do
      * campo identidade passado pela requisição HTTP.
      *
      * @return bool
@@ -386,7 +386,7 @@ abstract class CoreControllerPageEditControllerInterface extends Cadastro implem
 
     /**
      * Implementa uma rotina de criação ou atualização de registro padrão para
-     * uma instância de CoreExt_Entity que use um campo identidade.
+     * uma instância de Entity que use um campo identidade.
      *
      * @return bool
      *

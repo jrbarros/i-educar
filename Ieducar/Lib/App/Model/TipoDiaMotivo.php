@@ -1,12 +1,14 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Lib\App\Model;
 
-class App_Model_TipoDiaMotivo extends CoreExt_Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+class TipoDiaMotivo extends Enum
 {
-    const DIA_LETIVO = 'l';
-    const DIA_NAO_LETIVO = 'n';
-    const DIA_EXTRA_LETIVO = 'e';
+    public const DIA_LETIVO = 'l';
+    public const DIA_NAO_LETIVO = 'n';
+    public const DIA_EXTRA_LETIVO = 'e';
 
     protected $_data = [
         self::DIA_LETIVO => 'Dia letivo',

@@ -1,12 +1,8 @@
 <?php
 
-require_once 'lib/CoreExt/CoreExtensionException.php';
-require_once 'App/Unificacao/Base.php';
-require_once 'App/Unificacao/Servidor.php';
-require_once 'App/Unificacao/Aluno.php';
-require_once 'App/Unificacao/Cliente.php';
+namespace iEducarLegacy\Lib\App\Unificacao;
 
-class App_Unificacao_Pessoa extends App_Unificacao_Base
+class Pessoa extends Base
 {
     protected $chavesManterPrimeiroVinculo = [
         [
@@ -255,7 +251,7 @@ class App_Unificacao_Pessoa extends App_Unificacao_Base
     public function unifica()
     {
         $this->unificaClientes();
-        $unificadorServidor = new App_Unificacao_Servidor($this->codigoUnificador, $this->codigosDuplicados, $this->codPessoaLogada, $this->db, $this->unificationId);
+        $unificadorServidor = new Servidor($this->codigoUnificador, $this->codigosDuplicados, $this->codPessoaLogada, $this->db, $this->unificationId);
         $unificadorServidor->unifica();
         parent::unifica();
     }
@@ -283,7 +279,7 @@ class App_Unificacao_Pessoa extends App_Unificacao_Base
         if (COUNT($codigoClientes) < 2) {
             return true;
         }
-        $unificadorCliente = new App_Unificacao_Cliente(array_shift($codigoClientes), $codigoClientes, $this->codPessoaLogada, $this->db, $this->unificationId);
+        $unificadorCliente = new Cliente(array_shift($codigoClientes), $codigoClientes, $this->codPessoaLogada, $this->db, $this->unificationId);
         $unificadorCliente->unifica();
     }
 

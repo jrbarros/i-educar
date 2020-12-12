@@ -5,8 +5,8 @@ ini_set('max_execution_time', 0);
 require_once 'Source/Base.php';
 require_once 'Source/Cadastro.inc.php';
 require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Date/Utils.php';
-require_once 'lib/Portabilis/DataMapper/Utils.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
+require_once 'lib/Portabilis/DataMapper/AppDateUtils.php';
 require_once 'Source/pmieducar/geral.inc.php';
 require_once 'Source/modules/ProfessorTurma.php';
 

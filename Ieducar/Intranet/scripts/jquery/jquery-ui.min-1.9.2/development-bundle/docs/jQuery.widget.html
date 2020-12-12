@@ -41,7 +41,7 @@
 <ul>
 <li>
 <div><strong>name</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the widget to create, including the namespace.</div>
 </li>
@@ -74,9 +74,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">"#elem"</span> ).progressbar();</code></div></div></pre>
@@ -94,9 +94,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">"#elem"</span> ).progressbar({ value: <span class="number">20</span> });</code></div></div></pre>
@@ -120,9 +120,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">"#elem"</span> ).progressbar( <span class="string">"value"</span> );</code></div></div></pre>
@@ -140,9 +140,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">"#elem"</span> ).progressbar( <span class="string">"value"</span>, <span class="number">40</span> );</code></div></div></pre>
@@ -160,13 +160,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">"#elem"</span> )</code></div></div><div class="container"><div class="line"><code>  .progressbar( <span class="string">"value"</span>, <span class="number">90</span> )</code></div></div><div class="container"><div class="line"><code>  .addClass( <span class="string">"almost-done"</span> );</code></div></div></pre>
@@ -188,13 +188,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">"#elem"</span> ).bind( <span class="string">"progressbarchange"</span>, <span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>  alert( <span class="string">"The value has changed!"</span> );</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -212,17 +212,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">"#elem"</span> ).progressbar({</code></div></div><div class="container"><div class="line"><code>  change: <span class="keyword">function</span>() {</code></div></div><div class="container"><div class="line"><code>    alert( <span class="string">"The value has changed!"</span> );</code></div></div><div class="container"><div class="line"><code>  }</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -285,9 +285,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget({ disabled: <span class="literal">true</span> });</code></div></div></pre>
@@ -303,17 +303,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> disabled = $( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span>, <span class="string">"disabled"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span>, <span class="string">"disabled"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -325,7 +325,7 @@
 
 </div>
 <div id="option-hide" class="api-item">
-<h3>hide<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">String</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
+<h3>hide<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">Text</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>null</code>
@@ -333,16 +333,16 @@
 <div>If and how to animate the hiding of the element.</div>
 <strong>Multiple types supported:</strong><ul>
 <li>
-<strong>Boolean</strong>: 
+<strong>Boolean</strong>:
 			When set to <code>false</code>, no animation will be used and the element will be hidden immediately.
 			When set to <code>true</code>, the element will fade out with the default duration and the default easing.
 		</li>
 <li>
-<strong>Number</strong>: 
+<strong>Number</strong>:
 			The element will fade out with the specified duration and the default easing.
 		</li>
 <li>
-<strong>String</strong>: 
+<strong>Text</strong>:
 			The element will be hidden using the specified effect.
 			The value can either be the name of a built-in jQuery animateion method, such as <code>"slideUp"</code>, or the name of a jQuery UI effect, such as <code>"fold"</code>.
 			In either case the effect will be used with the default duration and the default easing.
@@ -356,9 +356,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget({ hide: { effect: <span class="string">"explode"</span>, duration: <span class="number">1000</span> } });</code></div></div></pre>
@@ -374,17 +374,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> hide = $( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span>, <span class="string">"hide"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span>, <span class="string">"hide"</span>, { effect: <span class="string">"explode"</span>, duration: <span class="number">1000</span> } );</code></div></div></pre>
@@ -396,7 +396,7 @@
 
 </div>
 <div id="option-show" class="api-item">
-<h3>show<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">String</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
+<h3>show<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Boolean">Boolean</a> or <a href="http://api.jquery.com/Types/#Number">Number</a> or <a href="http://api.jquery.com/Types/#String">Text</a> or <a href="http://api.jquery.com/Types/#Object">Object</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>null</code>
@@ -404,16 +404,16 @@
 <div>If and how to animate the showing of the element.</div>
 <strong>Multiple types supported:</strong><ul>
 <li>
-<strong>Boolean</strong>: 
+<strong>Boolean</strong>:
 			When set to <code>false</code>, no animation will be used and the element will be shown immediately.
 			When set to <code>true</code>, the element will fade in with the default duration and the default easing.
 		</li>
 <li>
-<strong>Number</strong>: 
+<strong>Number</strong>:
 			The element will fade in with the specified duration and the default easing.
 		</li>
 <li>
-<strong>String</strong>: 
+<strong>Text</strong>:
 			The element will be shown using the specified effect.
 			The value can either be the name of a built-in jQuery animateion method, such as <code>"slideDown"</code>, or the name of a jQuery UI effect, such as <code>"fold"</code>.
 			In either case the effect will be used with the default duration and the default easing.
@@ -427,9 +427,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget({ show: { effect: <span class="string">"blind"</span>, duration: <span class="number">800</span> } });</code></div></div></pre>
@@ -445,17 +445,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> show = $( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span>, <span class="string">"show"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span>, <span class="string">"show"</span>, { effect: <span class="string">"blind"</span>, duration: <span class="number">800</span> } );</code></div></div></pre>
@@ -480,9 +480,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_create"</span> );</code></div></div></pre>
@@ -504,7 +504,7 @@
 <ul>
 <li>
 <div><strong>fn</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#Function">Function</a>() or <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#Function">Function</a>() or <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The function to invoke. Can also be the name of a method on the widget.</div>
 </li>
@@ -522,9 +522,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_delay"</span> );</code></div></div></pre>
@@ -550,9 +550,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_destroy"</span> );</code></div></div></pre>
@@ -584,9 +584,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_focusable"</span> );</code></div></div></pre>
@@ -612,9 +612,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_getCreateEventData"</span> );</code></div></div></pre>
@@ -640,9 +640,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_getCreateOptions"</span> );</code></div></div></pre>
@@ -687,9 +687,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_hide"</span> );</code></div></div></pre>
@@ -721,9 +721,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_hoverable"</span> );</code></div></div></pre>
@@ -751,9 +751,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_init"</span> );</code></div></div></pre>
@@ -782,7 +782,7 @@
 </li>
 <li>
 <div><strong>eventName</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>One or more space-separated event types.</div>
 </li>
@@ -794,9 +794,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_off"</span> );</code></div></div></pre>
@@ -842,9 +842,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_on"</span> );</code></div></div></pre>
@@ -865,7 +865,7 @@
 <ul>
 <li>
 <div><strong>key</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the option to set.</div>
 </li>
@@ -883,9 +883,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_setOption"</span> );</code></div></div></pre>
@@ -917,9 +917,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_setOptions"</span> );</code></div></div></pre>
@@ -964,9 +964,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_show"</span> );</code></div></div></pre>
@@ -992,9 +992,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_super"</span> );</code></div></div></pre>
@@ -1025,9 +1025,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_superApply"</span> );</code></div></div></pre>
@@ -1051,7 +1051,7 @@
 <ul>
 <li>
 <div><strong>type</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The <code>type</code> should match the name of a callback option. The full event type will be generated automatically.</div>
 </li>
@@ -1075,9 +1075,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"_trigger"</span> );</code></div></div></pre>
@@ -1103,9 +1103,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"destroy"</span> );</code></div></div></pre>
@@ -1131,9 +1131,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"disable"</span> );</code></div></div></pre>
@@ -1159,9 +1159,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"enable"</span> );</code></div></div></pre>
@@ -1180,7 +1180,7 @@
 <div>Gets the value currently associated with the specified <code>optionName</code>.</div>
 <ul><li>
 <div><strong>optionName</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the option to get.</div>
 </li></ul>
@@ -1191,9 +1191,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> isDisabled = $( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span>, <span class="string">"disabled"</span> );</code></div></div></pre>
@@ -1217,9 +1217,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> options = $( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span> );</code></div></div></pre>
@@ -1238,7 +1238,7 @@
 <ul>
 <li>
 <div><strong>optionName</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the option to set.</div>
 </li>
@@ -1256,9 +1256,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span>, <span class="string">"disabled"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -1287,9 +1287,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget( <span class="string">"option"</span>, { disabled: <span class="literal">true</span> } );</code></div></div></pre>
@@ -1316,9 +1316,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> widget = $( <span class="string">".selector"</span> ).widget( <span class="string">"widget"</span> );</code></div></div></pre>
@@ -1357,13 +1357,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).widget({</code></div></div><div class="container"><div class="line"><code>  create: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -1379,9 +1379,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"widgetcreate"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>

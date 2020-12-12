@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Session;
 class CoreControllerPageViewController extends Detalhe implements Core_View_Tabulable
 {
     /**
-     * Mapeia um nome descritivo a um atributo de CoreExt_Entity retornado pela
-     * instância CoreExt_DataMapper retornada por getDataMapper().
+     * Mapeia um nome descritivo a um atributo de Entity retornado pela
+     * instância DataMapper retornada por getDataMapper().
      *
-     * Para uma instância de CoreExt_Entity que tenha os seguintes atributos:
+     * Para uma instância de Entity que tenha os seguintes atributos:
      * <code>
      * <?php
      * $_data = array(
@@ -60,9 +60,9 @@ class CoreControllerPageViewController extends Detalhe implements Core_View_Tabu
      * Configura a URL padrão para a ação de Edição de um registro.
      *
      * Por padrão, cria uma URL "edit/id", onde id é o valor do atributo "id"
-     * de uma instância CoreExt_Entity.
+     * de uma instância Entity.
      *
-     * @param CoreExt_Entity $entry A instância atual recuperada
+     * @param Entity $entry A instância atual recuperada
      *                              ViewController::Gerar().
      */
     public function setUrlEditar(CoreExt_Entity $entry)

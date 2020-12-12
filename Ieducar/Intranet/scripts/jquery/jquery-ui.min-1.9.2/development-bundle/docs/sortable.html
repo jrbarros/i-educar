@@ -99,7 +99,7 @@
 		</ul>
 	</div>
 <section id="options"><header><h2>Options</h2></header><div id="option-appendTo" class="api-item first-item">
-<h3>appendTo<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#jQuery">jQuery</a> or <a href="http://api.jquery.com/Types/#Element">Element</a> or <a href="http://api.jquery.com/Types/#Selector">Selector</a> or <a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>appendTo<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#jQuery">jQuery</a> or <a href="http://api.jquery.com/Types/#Element">Element</a> or <a href="http://api.jquery.com/Types/#Selector">Selector</a> or <a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>"parent"</code>
@@ -113,7 +113,7 @@
 <li>
 <strong>Selector</strong>: A selector specifying which element to append the helper to.</li>
 <li>
-<strong>String</strong>: The string <code>"parent"</code> will cause the helper to be a sibling of the sortable item.</li>
+<strong>Text</strong>: The string <code>"parent"</code> will cause the helper to be a sibling of the sortable item.</li>
 </ul>
 <strong>Code examples:</strong><p>Initialize the sortable with the <code>appendTo</code> option specified:</p>
 <div class="syntaxhighlighter javascript nogutter">
@@ -121,9 +121,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ appendTo: document.body });</code></div></div></pre>
@@ -139,17 +139,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> appendTo = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"appendTo"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"appendTo"</span>, document.body );</code></div></div></pre>
@@ -161,7 +161,7 @@
 
 </div>
 <div id="option-axis" class="api-item">
-<h3>axis<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>axis<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>false</code>
@@ -173,9 +173,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ axis: <span class="string">"x"</span> });</code></div></div></pre>
@@ -191,17 +191,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> axis = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"axis"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"axis"</span>, <span class="string">"x"</span> );</code></div></div></pre>
@@ -225,9 +225,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ cancel: <span class="string">"a,button"</span> });</code></div></div></pre>
@@ -243,17 +243,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> cancel = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"cancel"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"cancel"</span>, <span class="string">"a,button"</span> );</code></div></div></pre>
@@ -277,9 +277,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ connectWith: <span class="string">"#shopping-cart"</span> });</code></div></div></pre>
@@ -295,17 +295,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> connectWith = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"connectWith"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"connectWith"</span>, <span class="string">"#shopping-cart"</span> );</code></div></div></pre>
@@ -317,7 +317,7 @@
 
 </div>
 <div id="option-containment" class="api-item">
-<h3>containment<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Element">Element</a> or <a href="http://api.jquery.com/Types/#Selector">Selector</a> or <a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>containment<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#Element">Element</a> or <a href="http://api.jquery.com/Types/#Selector">Selector</a> or <a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>false</code>
@@ -333,7 +333,7 @@
 <li>
 <strong>Selector</strong>: A selector specifying an element to use as the container.</li>
 <li>
-<strong>String</strong>: A string identifying an element to use as the container. Possible values: <code>"parent"</code>, <code>"document"</code>, <code>"window"</code>.</li>
+<strong>Text</strong>: A string identifying an element to use as the container. Possible values: <code>"parent"</code>, <code>"document"</code>, <code>"window"</code>.</li>
 </ul>
 <strong>Code examples:</strong><p>Initialize the sortable with the <code>containment</code> option specified:</p>
 <div class="syntaxhighlighter javascript nogutter">
@@ -341,9 +341,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ containment: <span class="string">"parent"</span> });</code></div></div></pre>
@@ -359,17 +359,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> containment = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"containment"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"containment"</span>, <span class="string">"parent"</span> );</code></div></div></pre>
@@ -381,7 +381,7 @@
 
 </div>
 <div id="option-cursor" class="api-item">
-<h3>cursor<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>cursor<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>"auto"</code>
@@ -393,9 +393,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ cursor: <span class="string">"move"</span> });</code></div></div></pre>
@@ -411,17 +411,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> cursor = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"cursor"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"cursor"</span>, <span class="string">"move"</span> );</code></div></div></pre>
@@ -445,9 +445,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ cursorAt: { left: <span class="number">5</span> } });</code></div></div></pre>
@@ -463,17 +463,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> cursorAt = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"cursorAt"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"cursorAt"</span>, { left: <span class="number">5</span> } );</code></div></div></pre>
@@ -497,9 +497,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ delay: <span class="number">150</span> });</code></div></div></pre>
@@ -515,17 +515,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> delay = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"delay"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"delay"</span>, <span class="number">150</span> );</code></div></div></pre>
@@ -549,9 +549,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ disabled: <span class="literal">true</span> });</code></div></div></pre>
@@ -567,17 +567,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> disabled = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"disabled"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"disabled"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -601,9 +601,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ distance: <span class="number">5</span> });</code></div></div></pre>
@@ -619,17 +619,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> distance = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"distance"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"distance"</span>, <span class="number">5</span> );</code></div></div></pre>
@@ -653,9 +653,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ dropOnEmpty: <span class="literal">false</span> });</code></div></div></pre>
@@ -671,17 +671,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> dropOnEmpty = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"dropOnEmpty"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"dropOnEmpty"</span>, <span class="literal">false</span> );</code></div></div></pre>
@@ -705,9 +705,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ forceHelperSize: <span class="literal">true</span> });</code></div></div></pre>
@@ -723,17 +723,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> forceHelperSize = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"forceHelperSize"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"forceHelperSize"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -757,9 +757,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ forcePlaceholderSize: <span class="literal">true</span> });</code></div></div></pre>
@@ -775,17 +775,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> forcePlaceholderSize = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"forcePlaceholderSize"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"forcePlaceholderSize"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -809,9 +809,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ grid: [ <span class="number">20</span>, <span class="number">10</span> ] });</code></div></div></pre>
@@ -827,17 +827,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> grid = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"grid"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"grid"</span>, [ <span class="number">20</span>, <span class="number">10</span> ] );</code></div></div></pre>
@@ -861,9 +861,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ handle: <span class="string">".handle"</span> });</code></div></div></pre>
@@ -879,17 +879,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> handle = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"handle"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"handle"</span>, <span class="string">".handle"</span> );</code></div></div></pre>
@@ -901,7 +901,7 @@
 
 </div>
 <div id="option-helper" class="api-item">
-<h3>helper<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a> or <a href="http://api.jquery.com/Types/#Function">Function</a>()</span>
+<h3>helper<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">Text</a> or <a href="http://api.jquery.com/Types/#Function">Function</a>()</span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>"original"</code>
@@ -909,7 +909,7 @@
 <div>Allows for a helper element to be used for dragging display.</div>
 <strong>Multiple types supported:</strong><ul>
 <li>
-<strong>String</strong>: If set to <code>"clone"</code>, then the element will be cloned and the clone will be dragged.</li>
+<strong>Text</strong>: If set to <code>"clone"</code>, then the element will be cloned and the clone will be dragged.</li>
 <li>
 <strong>Function</strong>: A function that will return a DOMElement to use while dragging. The function receives the event and the element being sorted.</li>
 </ul>
@@ -919,9 +919,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ helper: <span class="string">"clone"</span> });</code></div></div></pre>
@@ -937,17 +937,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> helper = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"helper"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"helper"</span>, <span class="string">"clone"</span> );</code></div></div></pre>
@@ -971,9 +971,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ items: <span class="string">"&gt; li"</span> });</code></div></div></pre>
@@ -989,17 +989,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> items = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"items"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"items"</span>, <span class="string">"&gt; li"</span> );</code></div></div></pre>
@@ -1023,9 +1023,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ opacity: <span class="number">0.5</span> });</code></div></div></pre>
@@ -1041,17 +1041,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> opacity = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"opacity"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"opacity"</span>, <span class="number">0.5</span> );</code></div></div></pre>
@@ -1063,7 +1063,7 @@
 
 </div>
 <div id="option-placeholder" class="api-item">
-<h3>placeholder<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>placeholder<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>false</code>
@@ -1075,9 +1075,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ placeholder: <span class="string">"sortable-placeholder"</span> });</code></div></div></pre>
@@ -1093,17 +1093,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> placeholder = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"placeholder"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"placeholder"</span>, <span class="string">"sortable-placeholder"</span> );</code></div></div></pre>
@@ -1133,9 +1133,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ revert: <span class="literal">true</span> });</code></div></div></pre>
@@ -1151,17 +1151,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> revert = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"revert"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"revert"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -1185,9 +1185,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ scroll: <span class="literal">false</span> });</code></div></div></pre>
@@ -1203,17 +1203,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> scroll = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"scroll"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"scroll"</span>, <span class="literal">false</span> );</code></div></div></pre>
@@ -1237,9 +1237,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ scrollSensitivity: <span class="number">10</span> });</code></div></div></pre>
@@ -1255,17 +1255,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> scrollSensitivity = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"scrollSensitivity"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"scrollSensitivity"</span>, <span class="number">10</span> );</code></div></div></pre>
@@ -1289,9 +1289,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ scrollSpeed: <span class="number">40</span> });</code></div></div></pre>
@@ -1307,17 +1307,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> scrollSpeed = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"scrollSpeed"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"scrollSpeed"</span>, <span class="number">40</span> );</code></div></div></pre>
@@ -1329,7 +1329,7 @@
 
 </div>
 <div id="option-tolerance" class="api-item">
-<h3>tolerance<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>tolerance<span class="option-type"><strong>Type: </strong><a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div class="default">
 <strong>Default: </strong><code>"intersect"</code>
@@ -1349,9 +1349,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ tolerance: <span class="string">"pointer"</span> });</code></div></div></pre>
@@ -1367,17 +1367,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> tolerance = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"tolerance"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"tolerance"</span>, <span class="string">"pointer"</span> );</code></div></div></pre>
@@ -1401,9 +1401,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({ zIndex: <span class="number">9999</span> });</code></div></div></pre>
@@ -1419,17 +1419,17 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="comment">// getter</span></code></div></div><div class="container"><div class="line"><code><span class="keyword">var</span> zIndex = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"zIndex"</span> );</code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="comment">// setter</span></code></div></div><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"zIndex"</span>, <span class="number">9999</span> );</code></div></div></pre>
@@ -1451,9 +1451,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"cancel"</span> );</code></div></div></pre>
@@ -1479,9 +1479,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"destroy"</span> );</code></div></div></pre>
@@ -1507,9 +1507,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"disable"</span> );</code></div></div></pre>
@@ -1535,9 +1535,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"enable"</span> );</code></div></div></pre>
@@ -1556,7 +1556,7 @@
 <div>Gets the value currently associated with the specified <code>optionName</code>.</div>
 <ul><li>
 <div><strong>optionName</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the option to get.</div>
 </li></ul>
@@ -1567,9 +1567,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> isDisabled = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"disabled"</span> );</code></div></div></pre>
@@ -1593,9 +1593,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> options = $( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span> );</code></div></div></pre>
@@ -1614,7 +1614,7 @@
 <ul>
 <li>
 <div><strong>optionName</strong></div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the option to set.</div>
 </li>
@@ -1632,9 +1632,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, <span class="string">"disabled"</span>, <span class="literal">true</span> );</code></div></div></pre>
@@ -1663,9 +1663,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"option"</span>, { disabled: <span class="literal">true</span> } );</code></div></div></pre>
@@ -1690,9 +1690,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"refresh"</span> );</code></div></div></pre>
@@ -1716,9 +1716,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable( <span class="string">"refreshPositions"</span> );</code></div></div></pre>
@@ -1731,7 +1731,7 @@
 </div>
 </div></div>
 <div id="method-serialize"><div class="api-item">
-<h3>serialize( options )<span class="returns">Returns: <a href="http://api.jquery.com/Types/#String">String</a></span>
+<h3>serialize( options )<span class="returns">Returns: <a href="http://api.jquery.com/Types/#String">Text</a></span>
 </h3>
 <div>
 				<p>Serializes the sortable's item <code>id</code>s into a form/ajax submittable string. Calling this method produces a hash that can be appended to any url to easily submit a new item order back to the server.</p>
@@ -1749,14 +1749,14 @@
 <li>
 <div>
 <strong>key</strong> (default: <code>the part of the attribute in front of the separator</code>)</div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>Replaces <code>part1[]</code> with the specified value.</div>
 </li>
 <li>
 <div>
 <strong>attribute</strong> (default: <code>"id"</code>)</div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the attribute to use for the values.</div>
 </li>
@@ -1776,9 +1776,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> sorted = $( <span class="string">".selector"</span> ).sortable( <span class="string">"serialize"</span>, { key: <span class="string">"sort"</span> } );</code></div></div></pre>
@@ -1802,7 +1802,7 @@
 <ul><li>
 <div>
 <strong>attribute</strong> (default: <code>"id"</code>)</div>
-<div>Type: <a href="http://api.jquery.com/Types/#String">String</a>
+<div>Type: <a href="http://api.jquery.com/Types/#String">Text</a>
 </div>
 <div>The name of the attribute to use for the values.</div>
 </li></ul>
@@ -1814,9 +1814,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> sortedIDs = $( <span class="string">".selector"</span> ).sortable( <span class="string">"toArray"</span> );</code></div></div></pre>
@@ -1842,9 +1842,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> widget = $( <span class="string">".selector"</span> ).sortable( <span class="string">"widget"</span> );</code></div></div></pre>
@@ -1921,13 +1921,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  activate: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -1943,9 +1943,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortactivate"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2023,13 +2023,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  beforeStop: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2045,9 +2045,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortbeforestop"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2125,13 +2125,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  change: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2147,9 +2147,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortchange"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2189,13 +2189,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  create: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2211,9 +2211,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortcreate"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2291,13 +2291,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  deactivate: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2313,9 +2313,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortdeactivate"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2393,13 +2393,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  out: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2415,9 +2415,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortout"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2495,13 +2495,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  over: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2517,9 +2517,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortover"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2597,13 +2597,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  receive: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2619,9 +2619,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortreceive"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2699,13 +2699,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  remove: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2721,9 +2721,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortremove"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2801,13 +2801,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  sort: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2823,9 +2823,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sort"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -2903,13 +2903,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  start: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -2925,9 +2925,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortstart"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -3005,13 +3005,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  stop: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -3027,9 +3027,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortstop"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -3107,13 +3107,13 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).sortable({</code></div></div><div class="container"><div class="line"><code>  update: <span class="keyword">function</span>( event, ui ) {}</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
@@ -3129,9 +3129,9 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code>$( <span class="string">".selector"</span> ).on( <span class="string">"sortupdate"</span>, <span class="keyword">function</span>( event, ui ) {} );</code></div></div></pre>
@@ -3149,53 +3149,53 @@
 		<tbody>
 			<tr>
 				<td class="gutter">
-					
+
 						<div class="line n1">1</div>
-					
+
 						<div class="line n2">2</div>
-					
+
 						<div class="line n3">3</div>
-					
+
 						<div class="line n4">4</div>
-					
+
 						<div class="line n5">5</div>
-					
+
 						<div class="line n6">6</div>
-					
+
 						<div class="line n7">7</div>
-					
+
 						<div class="line n8">8</div>
-					
+
 						<div class="line n9">9</div>
-					
+
 						<div class="line n10">10</div>
-					
+
 						<div class="line n11">11</div>
-					
+
 						<div class="line n12">12</div>
-					
+
 						<div class="line n13">13</div>
-					
+
 						<div class="line n14">14</div>
-					
+
 						<div class="line n15">15</div>
-					
+
 						<div class="line n16">16</div>
-					
+
 						<div class="line n17">17</div>
-					
+
 						<div class="line n18">18</div>
-					
+
 						<div class="line n19">19</div>
-					
+
 						<div class="line n20">20</div>
-					
+
 						<div class="line n21">21</div>
-					
+
 						<div class="line n22">22</div>
-					
+
 						<div class="line n23">23</div>
-					
+
 				</td>
 				<td class="code">
 					<pre><div class="container"><div class="line"><code><span class="doctype">&lt;!doctype html&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">head</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">title</span>&gt;</span>sortable demo<span class="tag">&lt;/<span class="title">title</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//code.jquery.com/jquery-1.8.3.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//code.jquery.com/ui/1.9.2/jquery-ui.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">head</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">body</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"sortable"</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Item 1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Item 2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Item 3<span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Item 4<span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code>  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Item 5<span class="tag">&lt;/<span class="title">li</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">$(<span class="string">"#sortable"</span>).sortable();</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></code></div></div><div class="container"><div class="line"><code> </code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></div></div><div class="container"><div class="line"><code><span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></div></div></pre>

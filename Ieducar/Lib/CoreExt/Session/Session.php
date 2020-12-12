@@ -1,8 +1,18 @@
 <?php
 
-require_once 'CoreExt/CoreExtConfigurable.php';
+namespace iEducarLegacy\Lib\CoreExt\Session;
 
-abstract class CoreExt_Session_Abstract implements CoreExtConfigurable, ArrayAccess, Countable, Iterator
+use ArrayAccess;
+use Countable;
+use iEducarLegacy\Lib\CoreExt\CoreExtConfigurable;
+use Iterator;
+
+/**
+ * Class Session
+ *
+ * @package iEducarLegacy\Lib\CoreExt\Session
+ */
+abstract class Session implements CoreExtConfigurable, ArrayAccess, Countable, Iterator
 {
     /**
      * Opções de configuração geral da classe.
@@ -15,7 +25,7 @@ abstract class CoreExt_Session_Abstract implements CoreExtConfigurable, ArrayAcc
     ];
 
     /**
-     * @var CoreExt_Session_Storage_Interface
+     * @var Storage
      */
     protected $_sessionStorage = null;
 
@@ -96,9 +106,9 @@ abstract class CoreExt_Session_Abstract implements CoreExtConfigurable, ArrayAcc
     /**
      * Setter.
      *
-     * @param CoreExt_Session_Storage_Interface $storage
+     * @param Storage $storage
      */
-    public function setSessionStorage(CoreExt_Session_Storage_Interface $storage)
+    public function setSessionStorage(Storage $storage)
     {
         $this->_sessionStorage = $storage;
     }
@@ -106,13 +116,13 @@ abstract class CoreExt_Session_Abstract implements CoreExtConfigurable, ArrayAcc
     /**
      * Getter.
      *
-     * @return CoreExt_Session_Storage_Interface
+     * @return Storage
      */
     public function getSessionStorage()
     {
         if (is_null($this->_sessionStorage)) {
-            require_once 'CoreExt/Session/Storage/Default.php';
-            $this->setSessionStorage(new CoreExt_Session_Storage_Default([
+            require_once 'CoreExt/Session/StorageInterface/Standard.php';
+            $this->setSessionStorage(new _Storage_Default([
                 'session_auto_start' => $this->getOption('session_auto_start')
             ]));
         }
@@ -123,7 +133,7 @@ abstract class CoreExt_Session_Abstract implements CoreExtConfigurable, ArrayAcc
     /**
      * Getter.
      *
-     * Retorna o array de dados gerenciados por CoreExt_Session_Storage_Interface,
+     * Retorna o array de dados gerenciados por StorageInterface,
      * atualizando o atributo $_sessionData quando este diferir do valor retornado.
      *
      * @return array

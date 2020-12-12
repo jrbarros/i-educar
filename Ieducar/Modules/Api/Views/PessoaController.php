@@ -9,9 +9,9 @@ use iEducar\Modules\Educacenso\Validator\DifferentiatedLocationValidator;
 use iEducar\Modules\Educacenso\Validator\NameValidator;
 
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Array/Utils.php';
-require_once 'lib/Portabilis/String/Utils.php';
-require_once 'lib/Portabilis/Date/Utils.php';
+require_once 'lib/Portabilis/Array/AppDateUtils.php';
+require_once 'lib/Portabilis/Text/AppDateUtils.php';
+require_once 'lib/Portabilis/Date/AppDateUtils.php';
 require_once 'Source/Pessoa/clsPessoa_.inc.php';
 require_once 'Source/Pessoa/clsFisica.inc.php';
 require_once 'Source/Pessoa/clsCadastroFisicaRaca.inc.php';

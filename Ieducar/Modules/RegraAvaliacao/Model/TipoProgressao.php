@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Enum.php';
 
-class RegraAvaliacao_Model_TipoProgressao extends CoreExt_Enum
+class RegraAvaliacao_Model_TipoProgressao extends Enum
 {
     const CONTINUADA = 1;
     const NAO_CONTINUADA_MEDIA_PRESENCA = 2;

@@ -1,6 +1,8 @@
 <?php
 
-class App_Model_Pais
+namespace iEducarLegacy\Lib\App\Model;
+
+class Pais
 {
-    const BRASIL = 45;
+    public const BRASIL = 45;
 }

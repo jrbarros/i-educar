@@ -1,19 +1,25 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Lib\App\Model;
 
-class ColunaMovimentoGeral extends CoreExt_Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class ColunaMovimentoGeral
+ * @package iEducarLegacy\Lib\App\Model
+ */
+class ColunaMovimentoGeral extends Enum
 {
-    const EDUCACAO_INFANTIL = 0;
-    const PRIMEIRO_ANO = 1;
-    const SEGUNDO_ANO = 2;
-    const TERCEIRO_ANO = 3;
-    const QUARTO_ANO = 4;
-    const QUINTO_ANO = 5;
-    const SEXTO_ANO = 6;
-    const SETIMO_ANO = 7;
-    const OITAVO_ANO = 8;
-    const NONO_ANO = 9;
+    public const EDUCACAO_INFANTIL = 0;
+    public const PRIMEIRO_ANO = 1;
+    public const SEGUNDO_ANO = 2;
+    public const TERCEIRO_ANO = 3;
+    public const QUARTO_ANO = 4;
+    public const QUINTO_ANO = 5;
+    public const SEXTO_ANO = 6;
+    public const SETIMO_ANO = 7;
+    public const OITAVO_ANO = 8;
+    public const NONO_ANO = 9;
 
     protected $_data = [
         self::EDUCACAO_INFANTIL => 'Educação infantil',

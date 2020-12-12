@@ -39,9 +39,9 @@ class Avaliacao_Model_NotaComponenteMedia extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-            'media' => new CoreExt_Validate_Numeric(['min' => 0, 'max' => 10]),
-            'mediaArredondada' => new CoreExt_Validate_String(['max' => 5]),
-            'etapa' => new CoreExt_Validate_String(['max' => 2])
+            'media' => new _Validate_Numeric(['min' => 0, 'max' => 10]),
+            'mediaArredondada' => new _Validate_String(['max' => 5]),
+            'etapa' => new _Validate_String(['max' => 2])
         ];
     }
 }

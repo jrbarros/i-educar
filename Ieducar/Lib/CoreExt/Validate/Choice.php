@@ -1,10 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Lib\CoreExt\Validate;
 
-class CoreExt_Validate_Choice extends CoreExt_Validate_Abstract
+/**
+ * Class Choice
+ * @package iEducarLegacy\Lib\CoreExt\Validate
+ */
+class Choice extends Validate
 {
     /**
-     * @see CoreExt_Validate_Abstract#_getDefaultOptions()
+     * @see Validate#_getDefaultOptions()
      */
     protected function _getDefaultOptions()
     {
@@ -24,7 +29,7 @@ class CoreExt_Validate_Choice extends CoreExt_Validate_Abstract
     }
 
     /**
-     * @see CoreExt_Validate_Abstract#_validate($value)
+     * @see Validate#_validate($value)
      */
     protected function _validate($value)
     {
@@ -58,7 +63,7 @@ class CoreExt_Validate_Choice extends CoreExt_Validate_Abstract
      *
      * @param array|int|float $value
      *
-     * @return array|string
+     * @return array|Text
      */
     protected function _getStringArray($value)
     {

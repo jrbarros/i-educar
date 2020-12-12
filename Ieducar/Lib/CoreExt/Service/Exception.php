@@ -1,7 +1,13 @@
 <?php
 
-require_once 'CoreExt/CoreExtensionException.php';
+namespace iEducarLegacy\Lib\CoreExt\Service;
 
-class CoreExtension_Service_Exception extends CoreExtensionException
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+
+/**
+ * Class Exception
+ * @package iEducarLegacy\Lib\CoreExt\Service
+ */
+class Exception extends CoreExtensionException
 {
 }

@@ -29,7 +29,7 @@
  * @version     $Id$
  */
 
-require_once 'App/Date/Utils.php';
+require_once 'App/Date/AppDateUtils.php';
 
 /**
  * App_Date_UtilsTest class.
@@ -53,9 +53,9 @@ class App_Date_UtilsTest extends PHPUnit\Framework\TestCase
 
     try {
       App_Date_Utils::datesYearAtLeast($dates, 2001, 1);
-      $this->fail('::datesYearAtLeast() deveria lançar App_Date_Exception.');
+      $this->fail('::datesYearAtLeast() deveria lançar AppDateException.');
     }
-    catch (App_Date_Exception $e) {
+    catch (AppDateException $e) {
       $this->assertEquals(
         'Ao menos "1" das datas informadas deve ser do ano "2001". Datas: "01/01/2000", "01/02/2000".',
         $e->getMessage(),

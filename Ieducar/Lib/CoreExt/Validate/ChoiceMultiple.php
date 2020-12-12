@@ -1,11 +1,13 @@
 <?php
 
-require_once 'CoreExt/Validate/Choice.php';
+namespace iEducarLegacy\Lib\CoreExt\Validate;
 
-class CoreExt_Validate_ChoiceMultiple extends CoreExt_Validate_Choice
+
+
+class ChoiceMultiple extends Choice
 {
     /**
-     * @see CoreExt_Validate_Choice::_getDefaultOptions()
+     * @see Choice::_getDefaultOptions()
      */
     protected function _getDefaultOptions()
     {

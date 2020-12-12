@@ -18,7 +18,7 @@ class Docente_Model_Licenciatura extends CoreExt_Entity
     protected $_references = [
         'licenciatura' => [
             'value' => null,
-            'class' => 'App_Model_SimNao',
+            'class' => 'SimNao',
             'file'  => 'App/Model/SimNao.php'
         ],
         'ies' => [

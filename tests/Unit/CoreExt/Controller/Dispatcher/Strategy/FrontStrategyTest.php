@@ -64,13 +64,13 @@ class CoreExt_Controller_Dispatcher_Strategy_FrontStrategyTest extends PHPUnit\F
 
   protected function setUp(): void
   {
-    $this->_frontController = CoreExt_Controller_Front::getInstance();
-    $this->_frontController->setOptions(array('basepath' => $this->_path, 'controller_type' => CoreExt_Controller_Front::CONTROLLER_FRONT));
-    $this->_pageStrategy = new CoreExt_Controller_Dispatcher_Strategy_FrontStrategy($this->_frontController);
+    $this->_frontController = Front::getInstance();
+    $this->_frontController->setOptions(array('basepath' => $this->_path, 'controller_type' => Front::CONTROLLER_FRONT));
+    $this->_pageStrategy = new FrontStrategy($this->_frontController);
   }
 
   /**
-   * @expectedException CoreExtension_Controller_Dispatcher_Exception
+   * @expectedException DispatcherException
    */
   public function testRequisicaoAControllerNaoExistenteLancaExcecao()
   {
