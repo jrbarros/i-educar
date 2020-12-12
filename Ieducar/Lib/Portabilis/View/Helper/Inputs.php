@@ -1,6 +1,11 @@
 <?php
 
-class Portabilis_View_Helper_Inputs
+namespace iEducarLegacy\Lib\Portabilis\View\Helper;
+
+/**
+ * Class Inputs
+ */
+class Inputs
 {
     public function __construct($viewInstance)
     {

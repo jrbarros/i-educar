@@ -5,6 +5,8 @@ namespace iEducarLegacy\Lib\Core\Controller\Page;
 use App\User;
 use iEducar\Modules\Navigation\Breadcrumb;
 use iEducarLegacy\Lib\CoreExt\Controller\CoreExtControllerAbstract;
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+use iEducarLegacy\Lib\CoreExt\Exception\InvalidArgumentException;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -184,7 +186,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
      *
      * @return CoreControllerPageInterface Provê interface fluída
      *
-     * @throws CoreControllerPageException|CoreExt_Exception_InvalidArgumentException
+     * @throws CoreControllerPageException|InvalidArgumentException
      */
     public function setDataMapper($dataMapper)
     {
@@ -194,10 +196,10 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
             } else {
                 throw new CoreControllerPageException('A classe "' . $dataMapper . '" não existe.');
             }
-        } elseif ($dataMapper instanceof CoreExt_DataMapper) {
+        } elseif ($dataMapper instanceof DataMapper) {
             $this->_dataMapper = $dataMapper;
         } else {
-            throw new CoreExt_Exception_InvalidArgumentException('Argumento inválido. São aceitos apenas argumentos do tipo string e DataMapper');
+            throw new InvalidArgumentException('Argumento inválido. São aceitos apenas argumentos do tipo string e DataMapper');
         }
 
         return $this;

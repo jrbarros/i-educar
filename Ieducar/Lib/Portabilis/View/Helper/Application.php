@@ -1,20 +1,19 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper;
+
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageAbstract;
 use Tooleks\LaravelAssetVersion\Facades\Asset;
 
-require_once 'CoreExt/View/Helper/CoreControllerPageAbstract.php';
-
-class Portabilis_View_Helper_Application extends CoreExt_View_Helper_Abstract
+/**
+ * Class Application
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper
+ */
+class Application extends CoreControllerPageAbstract
 {
     protected static $javascriptsLoaded = [];
     protected static $stylesheetsLoaded = [];
 
-    /**
-     * Construtor singleton.
-     */
-    protected function __construct()
-    {
-    }
 
     /**
      * Retorna uma instância singleton.
@@ -111,12 +110,12 @@ class Portabilis_View_Helper_Application extends CoreExt_View_Helper_Abstract
 
     public static function embedJavascriptToFixupFieldsWidth($viewInstance)
     {
-        Portabilis_View_Helper_Application::loadJavascript(
+        Application::loadJavascript(
             $viewInstance,
             '/Modules/Portabilis/Assets/Javascripts/Utils.js'
         );
 
-        Portabilis_View_Helper_Application::embedJavascript(
+        Application::embedJavascript(
             $viewInstance,
             'fixupFieldsWidth();',
             $afterReady = true
@@ -152,7 +151,7 @@ class Portabilis_View_Helper_Application extends CoreExt_View_Helper_Abstract
         // AjaxChosen requires this fixup, see https://github.com/meltingice/ajax-chosen
         $fixupCss = '.chzn-container .chzn-results .group-result { display: list-item; }';
 
-        Portabilis_View_Helper_Application::embedStylesheet($viewInstance, $fixupCss);
+        Application::embedStylesheet($viewInstance, $fixupCss);
 
         self::loadJavascript($viewInstance, '/Modules/Portabilis/Assets/Plugins/AjaxChosen/ajax-chosen.min.js', false);
     }
