@@ -189,7 +189,7 @@ class indice extends clsCadastro
 
     public function Novo()
     {
-        $this->data_falta_atraso = Portabilis_Date_Utils::brToPgSQL($this->data_falta_atraso);
+        $this->data_falta_atraso = Utils::brToPgSQL($this->data_falta_atraso);
 
         $obj_permissoes = new Permissoes();
         $obj_permissoes->permissao_cadastra(
@@ -276,7 +276,7 @@ class indice extends clsCadastro
           $this->ref_cod_instituicao
       )
     );
-        $this->data_falta_atraso = Portabilis_Date_Utils::brToPgSQL($this->data_falta_atraso);
+        $this->data_falta_atraso = Utils::brToPgSQL($this->data_falta_atraso);
         if ($this->tipo == 1) {
             $obj = new FaltaAtraso(
           $this->cod_falta_atraso,
@@ -343,7 +343,7 @@ class indice extends clsCadastro
 
     public function Excluir()
     {
-        $this->data_falta_atraso = Portabilis_Date_Utils::brToPgSQL($this->data_falta_atraso);
+        $this->data_falta_atraso = Utils::brToPgSQL($this->data_falta_atraso);
         $obj_permissoes = new Permissoes();
         $obj_permissoes->permissao_excluir(
         635,

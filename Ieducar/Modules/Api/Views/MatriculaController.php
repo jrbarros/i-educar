@@ -586,7 +586,7 @@ class MatriculaController extends ApiCoreController
 
     protected function validaDataEntrada()
     {
-        if (!Portabilis_Date_Utils::validaData($this->getRequest()->data_entrada)) {
+        if (!Utils::validaData($this->getRequest()->data_entrada)) {
             $this->messenger->append('Valor inválido para data de entrada ' . $this->getRequest()->data_entrada, 'error');
 
             return false;
@@ -597,7 +597,7 @@ class MatriculaController extends ApiCoreController
 
     protected function validaDataSaida()
     {
-        if (!Portabilis_Date_Utils::validaData($this->getRequest()->data_saida)) {
+        if (!Utils::validaData($this->getRequest()->data_saida)) {
             $this->messenger->append('Valor inválido para data de saída', 'error');
 
             return false;
@@ -610,7 +610,7 @@ class MatriculaController extends ApiCoreController
     {
         if ($this->validaDataEntrada()) {
             $matricula_id = $this->getRequest()->matricula_id;
-            $data_entrada = Portabilis_Date_Utils::brToPgSQL($this->getRequest()->data_entrada);
+            $data_entrada = Utils::brToPgSQL($this->getRequest()->data_entrada);
             $matricula = new Matricula($matricula_id);
             $matricula->data_matricula = $data_entrada;
 
@@ -624,7 +624,7 @@ class MatriculaController extends ApiCoreController
     {
         if ($this->validaDataSaida()) {
             $matricula_id = $this->getRequest()->matricula_id;
-            $data_saida = Portabilis_Date_Utils::brToPgSQL($this->getRequest()->data_saida);
+            $data_saida = Utils::brToPgSQL($this->getRequest()->data_saida);
             $matricula = new Matricula($matricula_id);
             $matricula->data_cancel = $data_saida;
 

@@ -1,6 +1,11 @@
 <?php
+namespace iEducarLegacy\Lib\Portabilis\Date;
 
-class Portabilis_Date_Utils
+/**
+ * Class Utils
+ * @package iEducarLegacy\Lib\Portabilis\Date
+ */
+class Utils
 {
     /**
      * Recebe uma data no formato dd/mm/yyyy e retorna no formato postgres

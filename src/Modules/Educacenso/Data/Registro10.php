@@ -4,7 +4,7 @@ namespace iEducar\Modules\Educacenso\Data;
 
 use App\Models\Educacenso\Registro10 as Registro10Model;
 use iEducar\Modules\Educacenso\Formatters;
-use Portabilis_Date_Utils;
+use Utils;
 use Database;
 
 class Registro10 extends AbstractRegistro

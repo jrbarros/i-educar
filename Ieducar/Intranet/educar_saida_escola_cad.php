@@ -121,7 +121,7 @@ class indice extends clsCadastro
         $det_matricula = $obj_matricula->detalhe();
 
         if ($obj_matricula->edita()) {
-            if ($obj_matricula->setSaidaEscola($this->observacao, Portabilis_Date_Utils::brToPgSQL($this->data_saida_escola))) {
+            if ($obj_matricula->setSaidaEscola($this->observacao, Utils::brToPgSQL($this->data_saida_escola))) {
                 $this->mensagem .= 'Saída da escola realizada com sucesso.<br>';
                 $this->simpleRedirect("educar_matricula_det.php?cod_matricula={$this->ref_cod_matricula}");
             }

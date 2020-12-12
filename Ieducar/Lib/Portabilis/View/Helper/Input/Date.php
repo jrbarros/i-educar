@@ -34,7 +34,7 @@ class Portabilis_View_Helper_Input_Date extends Portabilis_View_Helper_Input_Cor
         $isDbFormated = strrpos($inputOptions['value'], '-') > -1;
 
         if ($isDbFormated) {
-            $inputOptions['value'] = Portabilis_Date_Utils::pgSQLToBr($inputOptions['value']);
+            $inputOptions['value'] = Utils::pgSQLToBr($inputOptions['value']);
         }
 
         call_user_func_array([$this->viewInstance, 'campoData'], $inputOptions);

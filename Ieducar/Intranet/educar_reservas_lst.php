@@ -134,7 +134,7 @@ class indice extends clsListagem
             null,
             null,
             $this->ref_cod_cliente,
-            Portabilis_Date_Utils::brToPgSQL($this->data_reserva),
+            Utils::brToPgSQL($this->data_reserva),
             null,
             null,
             null,
@@ -156,7 +156,7 @@ class indice extends clsListagem
                 // muda os campos data
                 $registro['data_reserva_time'] = strtotime(substr($registro['data_reserva'], 0, 16));
                 $registro['data_reserva_br'] = date('d/m/Y', $registro['data_reserva_time']);
-                $registro['data_retirada_br'] = ($registro['data_retirada'] == null ? '-' :  Portabilis_Date_Utils::PgSqltoBr(substr($registro['data_retirada'], 0, 10)));
+                $registro['data_retirada_br'] = ($registro['data_retirada'] == null ? '-' :  Utils::PgSqltoBr(substr($registro['data_retirada'], 0, 10)));
 
                 $obj_exemplar = new Exemplar($registro['ref_cod_exemplar']);
                 $det_exemplar = $obj_exemplar->detalhe();

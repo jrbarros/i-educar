@@ -192,7 +192,7 @@ class indice extends clsDetalhe
             }
 
             $nomesTurmas[] = $turma['nm_turma'];
-            $datasEnturmacoes[] = Portabilis_Date_Utils::pgSQLToBr($enturmacao['data_enturmacao']);
+            $datasEnturmacoes[] = Utils::pgSQLToBr($enturmacao['data_enturmacao']);
 
             if ($turma['turma_turno_id'] == Turma::TURNO_INTEGRAL) {
                 $existeTurmaTurnoIntegral = true;
@@ -248,7 +248,7 @@ class indice extends clsDetalhe
 
         if ($existeSaidaEscola) {
             $this->addDetalhe(['Saída da escola', 'Sim']);
-            $this->addDetalhe(['Data de saída da escola', Portabilis_Date_Utils::pgSQLToBr($registro['data_saida_escola'])]);
+            $this->addDetalhe(['Data de saída da escola', Utils::pgSQLToBr($registro['data_saida_escola'])]);
             $this->addDetalhe(['Observação', Portabilis_String_Utils::toLatin1($registro['observacao'])]);
         }
 

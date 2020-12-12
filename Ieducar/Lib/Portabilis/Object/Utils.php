@@ -1,6 +1,12 @@
 <?php
 
-class Portabilis_Object_Utils
+namespace iEducarLegacy\Lib\Portabilis\Object;
+
+/**
+ * Class Utils
+ * @package iEducarLegacy\Lib\Portabilis\Object
+ */
+class Utils
 {
     public static function filterSet($objects, $attrs = [])
     {

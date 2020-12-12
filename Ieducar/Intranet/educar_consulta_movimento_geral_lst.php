@@ -41,8 +41,8 @@ class indice extends clsListagem
             }
         }
 
-        $params['data_inicial'] = Portabilis_Date_Utils::brToPgSQL($params['data_inicial']);
-        $params['data_final'] = Portabilis_Date_Utils::brToPgSQL($params['data_final']);
+        $params['data_inicial'] = Utils::brToPgSQL($params['data_inicial']);
+        $params['data_final'] = Utils::brToPgSQL($params['data_final']);
         $params['seleciona_curso'] = empty($params['curso']) ? 0 : 1;
 
         $base = new Banco();

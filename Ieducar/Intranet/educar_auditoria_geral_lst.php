@@ -96,8 +96,8 @@ class indice extends clsListagem
         $auditoriaLst = $auditoria->lista(
             $this->rotinas_auditoria,
             $this->usuario,
-            Portabilis_Date_Utils::brToPgSQL($this->data_inicial),
-            Portabilis_Date_Utils::brToPgSQL($this->data_final),
+            Utils::brToPgSQL($this->data_inicial),
+            Utils::brToPgSQL($this->data_final),
             $this->hora_inicial,
             $this->hora_final,
             $this->operacao,
@@ -114,7 +114,7 @@ class indice extends clsListagem
 
             $operacao = $operacoes[$a['operacao']];
 
-            $dataAuditoria = Portabilis_Date_Utils::pgSQLToBr($a['data_hora']);
+            $dataAuditoria = Utils::pgSQLToBr($a['data_hora']);
 
             $this->addLinhas([
                 $this->retornaLinkDaAuditoria($a['id'], $usuario['Matricula']),

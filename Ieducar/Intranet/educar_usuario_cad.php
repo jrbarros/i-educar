@@ -61,7 +61,7 @@ class indice extends clsCadastro
             }
 
             if ($this->data_expiracao) {
-                $this->data_expiracao = Portabilis_Date_Utils::pgSQLToBr($this->data_expiracao);
+                $this->data_expiracao = Utils::pgSQLToBr($this->data_expiracao);
             }
 
             $this->status = $this->ativo;
@@ -241,7 +241,7 @@ class indice extends clsCadastro
 
         $senha = Hash::make($this->_senha);
 
-        $obj_funcionario = new clsPortalFuncionario($this->ref_pessoa, $this->matricula, $senha, $this->ativo, null, null, null, null, null, null, null, null, null, null, $this->ref_cod_funcionario_vinculo, $this->tempo_expira_senha, Portabilis_Date_Utils::brToPgSQL($this->data_expiracao), 'NOW()', 'NOW()', $this->pessoa_logada, 0, 0, null, 0, 1, $this->email, $this->matricula_interna, !is_null($this->force_reset_password));
+        $obj_funcionario = new clsPortalFuncionario($this->ref_pessoa, $this->matricula, $senha, $this->ativo, null, null, null, null, null, null, null, null, null, null, $this->ref_cod_funcionario_vinculo, $this->tempo_expira_senha, Utils::brToPgSQL($this->data_expiracao), 'NOW()', 'NOW()', $this->pessoa_logada, 0, 0, null, 0, 1, $this->email, $this->matricula_interna, !is_null($this->force_reset_password));
 
         if ($obj_funcionario->cadastra()) {
             if ($this->ref_cod_instituicao) {
@@ -300,7 +300,7 @@ class indice extends clsCadastro
             $senha = Hash::make($this->_senha);
         }
 
-        $obj_funcionario = new clsPortalFuncionario($this->ref_pessoa, $this->matricula, $senha, $this->ativo, null, null, null, null, null, null, null, null, null, null, $this->ref_cod_funcionario_vinculo, $this->tempo_expira_senha, Portabilis_Date_Utils::brToPgSQL($this->data_expiracao), 'NOW()', 'NOW()', $this->pessoa_logada, 0, 0, null, 0, null, $this->email, $this->matricula_interna);
+        $obj_funcionario = new clsPortalFuncionario($this->ref_pessoa, $this->matricula, $senha, $this->ativo, null, null, null, null, null, null, null, null, null, null, $this->ref_cod_funcionario_vinculo, $this->tempo_expira_senha, Utils::brToPgSQL($this->data_expiracao), 'NOW()', 'NOW()', $this->pessoa_logada, 0, 0, null, 0, null, $this->email, $this->matricula_interna);
 
         if ($obj_funcionario->edita()) {
             if ($this->ref_cod_instituicao) {

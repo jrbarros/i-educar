@@ -199,7 +199,7 @@ class indice extends clsListagem
         }
 
         $permissaoCadastra = $obj_permissoes->permissao_cadastra(578, $this->pessoa_logada, 7);
-        $historicoRestringido = Portabilis_Date_Utils::brToPgSQL($historico_restringido);
+        $historicoRestringido = Utils::brToPgSQL($historico_restringido);
         $nivelUsuarioSuperior = ($this->nivel_usuario == 1 || $this->nivel_usuario == 2);
 
         if ($permissaoCadastra && ($nivelUsuarioSuperior || !$historicoRestringido || $usuarioEscolaAluno)) {

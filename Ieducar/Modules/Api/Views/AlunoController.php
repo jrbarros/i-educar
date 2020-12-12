@@ -1095,8 +1095,8 @@ class AlunoController extends ApiCoreController
             $nome = $this->toUtf8($projeto['nome'], ['transform' => true]);
             $_projetos[] = [
                 'projeto_cod_projeto' => $projeto['cod_projeto'] . ' - ' . $nome,
-                'projeto_data_inclusao' => Portabilis_Date_Utils::pgSQLToBr($projeto['data_inclusao']),
-                'projeto_data_desligamento' => Portabilis_Date_Utils::pgSQLToBr($projeto['data_desligamento']),
+                'projeto_data_inclusao' => Utils::pgSQLToBr($projeto['data_inclusao']),
+                'projeto_data_desligamento' => Utils::pgSQLToBr($projeto['data_desligamento']),
                 'projeto_turno' => $projeto['turno']
             ];
         }
@@ -1196,7 +1196,7 @@ class AlunoController extends ApiCoreController
             $entity = $this->tryGetEntityOf($dataMapper, $aluno['destroyed_by']);
 
             $aluno['destroyed_by'] = is_null($entity) ? null : $entity->get('Matricula');
-            $aluno['destroyed_at'] = Portabilis_Date_Utils::pgSQLToBr($aluno['destroyed_at']);
+            $aluno['destroyed_at'] = Utils::pgSQLToBr($aluno['destroyed_at']);
 
             $objFichaMedica = new clsModulesFichaMedicaAluno($id);
 
@@ -1585,8 +1585,8 @@ class AlunoController extends ApiCoreController
             $projetoId = $this->retornaCodigo($this->getRequest()->projeto_cod_projeto[$key]);
 
             if (is_numeric($projetoId)) {
-                $dataInclusao = Portabilis_Date_Utils::brToPgSQL($this->getRequest()->projeto_data_inclusao[$key]);
-                $dataDesligamento = Portabilis_Date_Utils::brToPgSQL($this->getRequest()->projeto_data_desligamento[$key]);
+                $dataInclusao = Utils::brToPgSQL($this->getRequest()->projeto_data_inclusao[$key]);
+                $dataDesligamento = Utils::brToPgSQL($this->getRequest()->projeto_data_desligamento[$key]);
                 $turnoId = $value;
 
                 if (is_numeric($projetoId) && is_numeric($turnoId) && !empty($dataInclusao)) {
@@ -1612,7 +1612,7 @@ class AlunoController extends ApiCoreController
         $obj->excluir();
 
         foreach ($this->getRequest()->data_historico as $key => $value) {
-            $data_historico = Portabilis_Date_Utils::brToPgSQL($value);
+            $data_historico = Utils::brToPgSQL($value);
             $altura = $this->getRequest()->historico_altura[$key];
             $peso = $this->getRequest()->historico_peso[$key];
 
@@ -1847,13 +1847,13 @@ class AlunoController extends ApiCoreController
         $documentos->num_folha = $this->getRequest()->folha_certidao_civil;
 
         $documentos->rg = trim($this->getRequest()->rg);
-        $documentos->data_exp_rg = Portabilis_Date_Utils::brToPgSQL(
+        $documentos->data_exp_rg = Utils::brToPgSQL(
             $this->getRequest()->data_emissao_rg
         );
         $documentos->sigla_uf_exp_rg = $this->getRequest()->uf_emissao_rg;
         $documentos->idorg_exp_rg = $this->getRequest()->orgao_emissao_rg;
 
-        $documentos->data_emissao_cert_civil = Portabilis_Date_Utils::brToPgSQL(
+        $documentos->data_emissao_cert_civil = Utils::brToPgSQL(
             $this->getRequest()->data_emissao_certidao_civil
         );
 

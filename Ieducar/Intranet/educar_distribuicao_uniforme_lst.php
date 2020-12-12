@@ -101,7 +101,7 @@ class indice extends clsListagem
         if (is_array($lista) && count($lista)) {
             foreach ($lista as $registro) {
                 $registro['kit_completo'] = dbBool($registro['kit_completo']) ? 'Sim' : 'Não';
-                $data = Portabilis_Date_Utils::pgSQLToBr($registro['data']);
+                $data = Utils::pgSQLToBr($registro['data']);
                 $lista_busca = [
                     "<a href=\"educar_distribuicao_uniforme_det.php?ref_cod_aluno={$registro['ref_cod_aluno']}&cod_distribuicao_uniforme={$registro['cod_distribuicao_uniforme']}\">{$registro['ano']}</a>",
                     "<a href=\"educar_distribuicao_uniforme_det.php?ref_cod_aluno={$registro['ref_cod_aluno']}&cod_distribuicao_uniforme={$registro['cod_distribuicao_uniforme']}\">{$registro['kit_completo']}</a>",

@@ -136,7 +136,7 @@ class indice extends clsCadastro
         $obj_permissoes = new Permissoes();
         $obj_permissoes->permissao_cadastra(Process::RECLASSIFY_REGISTRATION, $this->pessoa_logada, 7, "educar_matricula_lst.php?ref_cod_aluno={$this->ref_cod_aluno}");
 
-        $this->data_cancel = Portabilis_Date_Utils::brToPgSQL($this->data_cancel);
+        $this->data_cancel = Utils::brToPgSQL($this->data_cancel);
 
         if ($this->ref_ref_cod_serie == $this->ref_ref_cod_serie_antiga) {
             $this->simpleRedirect("educar_matricula_det.php?cod_matricula={$this->cod_matricula}");

@@ -4,7 +4,7 @@ namespace iEducar\Modules\Educacenso\Data;
 
 use App\Models\Educacenso\Registro00 as Registro00Model;
 use iEducar\Modules\Educacenso\Formatters;
-use Portabilis_Date_Utils;
+use Utils;
 
 class Registro00 extends AbstractRegistro
 {
@@ -34,8 +34,8 @@ class Registro00 extends AbstractRegistro
         $model = $this->getData($escola, $ano);
 
         $this->model->codigoInep = substr($this->model->codigoInep, 0, 8);
-        $this->model->inicioAnoLetivo = Portabilis_Date_Utils::pgSQLToBr($this->model->inicioAnoLetivo);
-        $this->model->fimAnoLetivo = Portabilis_Date_Utils::pgSQLToBr($this->model->fimAnoLetivo);
+        $this->model->inicioAnoLetivo = Utils::pgSQLToBr($this->model->inicioAnoLetivo);
+        $this->model->fimAnoLetivo = Utils::pgSQLToBr($this->model->fimAnoLetivo);
         $this->model->nome = $this->convertStringToCenso($this->model->nome);
         $this->model->logradouro = $this->convertStringToCenso($this->model->logradouro);
         $this->model->numero = $this->convertStringToCenso($this->model->numero);
@@ -45,7 +45,7 @@ class Registro00 extends AbstractRegistro
         $this->model->orgaoRegional = ($this->model->orgaoRegional ? str_pad($this->model->orgaoRegional, 5, "0", STR_PAD_LEFT) : null);
         $this->model->cnpjEscolaPrivada = $this->cnpjToCenso($this->model->cnpjEscolaPrivada);
         $this->model->cnpjMantenedoraPrincipal = $this->cnpjToCenso($this->model->cnpjMantenedoraPrincipal);
-        
+
         return $model;
     }
 }

@@ -152,8 +152,8 @@ class indice extends clsListagem
                         $url->l($registro['ano'], $path, $options),
                         $url->l($periodo[$registro['periodo']], $path, $options),
                         $url->l($horas =  substr($registro['carga_horaria'], 0, - 3), $path, $options),
-                        $url->l(Portabilis_Date_Utils::pgSQLToBr($registro['data_admissao']), $path, $options),
-                        $url->l(Portabilis_Date_Utils::pgSQLToBr($registro['data_saida']), $path, $options),
+                        $url->l(Utils::pgSQLToBr($registro['data_admissao']), $path, $options),
+                        $url->l(Utils::pgSQLToBr($registro['data_saida']), $path, $options),
                         $url->l($funcionarioVinculo, $path, $options),
                 ]);
             }

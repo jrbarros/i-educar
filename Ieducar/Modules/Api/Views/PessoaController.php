@@ -293,9 +293,9 @@ class PessoaController extends ApiCoreController
             $details['mae_details'] = $maeDetails;
         }
 
-        $details['data_nascimento'] = Portabilis_Date_Utils::pgSQLToBr($details['data_nascimento']);
-        $details['data_emissao_rg'] = Portabilis_Date_Utils::pgSQLToBr($details['data_emissao_rg']);
-        $details['data_emissao_cert_civil'] = Portabilis_Date_Utils::pgSQLToBr($details['data_emissao_cert_civil']);
+        $details['data_nascimento'] = Utils::pgSQLToBr($details['data_nascimento']);
+        $details['data_emissao_rg'] = Utils::pgSQLToBr($details['data_emissao_rg']);
+        $details['data_emissao_cert_civil'] = Utils::pgSQLToBr($details['data_emissao_cert_civil']);
 
         return $details;
     }
@@ -307,7 +307,7 @@ class PessoaController extends ApiCoreController
 
             $details = $this->fetchPreparedQuery($_sql, $this->getRequest()->id, false, 'first-row');
 
-            $details['data_nascimento'] = Portabilis_Date_Utils::pgSQLToBr($details['data_nasc']);
+            $details['data_nascimento'] = Utils::pgSQLToBr($details['data_nasc']);
             $details['nome'] = Portabilis_String_Utils::toUtf8($details['nome']);
             $details['id'] = $this->getRequest()->id;
             $details['falecido'] = dbBool($details['falecido']);
@@ -441,7 +441,7 @@ class PessoaController extends ApiCoreController
         $details = [];
 
         if ($nascimento) {
-            $details[] = 'Nascimento: ' . Portabilis_Date_Utils::pgSQLToBr($nascimento);
+            $details[] = 'Nascimento: ' . Utils::pgSQLToBr($nascimento);
         }
 
         if ($rg) {
@@ -497,7 +497,7 @@ class PessoaController extends ApiCoreController
             return true;
         }
 
-        $validator = new BirthDateValidator(Portabilis_Date_Utils::brToPgSQL($this->getRequest()->datanasc));
+        $validator = new BirthDateValidator(Utils::brToPgSQL($this->getRequest()->datanasc));
 
         if (!$validator->isValid()) {
             $this->messenger->append($validator->getMessage());
@@ -562,7 +562,7 @@ class PessoaController extends ApiCoreController
     {
         $individual = LegacyIndividual::findOrNew($pessoaId);
         $individual->idpes = $pessoaId;
-        $individual->data_nasc = empty($this->getRequest()->datanasc) ? null : Portabilis_Date_Utils::brToPgSQL($this->getRequest()->datanasc);
+        $individual->data_nasc = empty($this->getRequest()->datanasc) ? null : Utils::brToPgSQL($this->getRequest()->datanasc);
         $individual->sexo = $this->getRequest()->sexo;
         $individual->ref_cod_sistema = null;
         $individual->ideciv = $this->getRequest()->estadocivil ?: $individual->ideciv;

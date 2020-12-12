@@ -73,7 +73,7 @@ class indice extends clsDetalhe
 
         $this->addDetalhe([
             'Data Hora',
-            Portabilis_Date_Utils::pgSQLToBr($registro['data_hora'])
+            Utils::pgSQLToBr($registro['data_hora'])
         ]);
 
         $this->addDetalhe([

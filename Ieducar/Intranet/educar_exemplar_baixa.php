@@ -155,7 +155,7 @@ class indice extends clsCadastro
         $this->preco = str_replace('.', '', $this->preco);
         $this->preco = str_replace(',', '.', $this->preco);
 
-        $obj = new Exemplar($this->cod_exemplar, $this->ref_cod_fonte, $this->ref_cod_motivo_baixa, $this->ref_cod_acervo, $this->ref_cod_situacao, $this->pessoa_logada, $this->pessoa_logada, $this->permite_emprestimo, $this->preco, $this->data_cadastro, $this->data_exclusao, $this->ativo, $this->data_aquisicao, null, null, Portabilis_Date_Utils::brToPgSQL($this->data_baixa_exemplar));
+        $obj = new Exemplar($this->cod_exemplar, $this->ref_cod_fonte, $this->ref_cod_motivo_baixa, $this->ref_cod_acervo, $this->ref_cod_situacao, $this->pessoa_logada, $this->pessoa_logada, $this->permite_emprestimo, $this->preco, $this->data_cadastro, $this->data_exclusao, $this->ativo, $this->data_aquisicao, null, null, Utils::brToPgSQL($this->data_baixa_exemplar));
         $editou = $obj->edita();
         if ($editou) {
             $this->mensagem .= 'Edi&ccedil;&atilde;o efetuada com sucesso.<br>';

@@ -46,7 +46,7 @@ class indice extends clsCadastro
             $this->$key = $value;
         }
 
-        $this->data_enturmacao = Portabilis_Date_Utils::brToPgSQL($this->data_enturmacao);
+        $this->data_enturmacao = Utils::brToPgSQL($this->data_enturmacao);
 
         $obj_permissoes = new Permissoes();
         $obj_permissoes->permissao_cadastra(578, $this->pessoa_logada, 7, 'educar_matricula_lst.php');

@@ -108,10 +108,10 @@ class indice extends clsDetalhe
         $this->addDetalhe(['CNH', $registro['cnh']]);
         $this->addDetalhe(['Categoria', $registro['tipo_cnh']]);
         if (trim($registro['dt_habilitacao'])!='') {
-            $this->addDetalhe(['Data da habilitação', Portabilis_Date_Utils::pgSQLToBr($registro['dt_habilitacao']) ]);
+            $this->addDetalhe(['Data da habilitação', Utils::pgSQLToBr($registro['dt_habilitacao']) ]);
         }
         if (trim($registro['vencimento_cnh'])!='') {
-            $this->addDetalhe(['Vencimento da habilitação', Portabilis_Date_Utils::pgSQLToBr($registro['vencimento_cnh']) ]);
+            $this->addDetalhe(['Vencimento da habilitação', Utils::pgSQLToBr($registro['vencimento_cnh']) ]);
         }
 
         $this->addDetalhe(['Observa&ccedil;&atilde;o', $registro['observacao']]);

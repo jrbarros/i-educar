@@ -1,6 +1,13 @@
 <?php
+namespace iEducarLegacy\Lib\Portabilis\DataMapper;
 
-class Portabilis_DataMapper_Utils
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+
+/**
+ * Class Utils
+ * @package iEducarLegacy\Lib\Portabilis\DataMapper
+ */
+class Utils
 {
     public function getDataMapperFor($packageName, $modelName)
     {

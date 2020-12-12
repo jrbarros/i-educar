@@ -107,7 +107,7 @@ class indice extends clsDetalhe
 
             $registro['nome_aluno'] = strtoupper($det_pessoa_fj['nome']);
             $registro['cpf'] = int2IdFederal($det_fisica['cpf']);
-            $registro['data_nasc'] = Portabilis_Date_Utils::pgSQLToBr($det_fisica['data_nasc']);
+            $registro['data_nasc'] = Utils::pgSQLToBr($det_fisica['data_nasc']);
 
             $opcoes = [
                 'F' => 'Feminino',
@@ -763,7 +763,7 @@ class indice extends clsDetalhe
                 $this->addDetalhe(['<span id=\'funiforme\'></span>Recebeu kit completo', 'Sim']);
                 $this->addDetalhe([
                     '<span id=\'ffuniforme\'></span>' . 'Data da distribuição',
-                    Portabilis_Date_Utils::pgSQLToBr($reg['data'])
+                    Utils::pgSQLToBr($reg['data'])
                 ]);
             } else {
                 $this->addDetalhe([
@@ -772,7 +772,7 @@ class indice extends clsDetalhe
                 ]);
                 $this->addDetalhe([
                     'Data da distribuição',
-                    Portabilis_Date_Utils::pgSQLToBr($reg['data'])
+                    Utils::pgSQLToBr($reg['data'])
                 ]);
                 $this->addDetalhe([
                     'Quantidade de agasalhos (jaqueta e calça)',

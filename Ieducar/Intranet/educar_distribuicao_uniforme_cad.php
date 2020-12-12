@@ -97,7 +97,7 @@ class indice extends clsCadastro
                     $this->$campo = $val;
                 }
 
-                $this->data = Portabilis_Date_Utils::pgSqlToBr($this->data);
+                $this->data = Utils::pgSqlToBr($this->data);
 
                 $this->kit_completo = dbBool($this->kit_completo);
 
@@ -352,7 +352,7 @@ class indice extends clsCadastro
 
     public function Novo()
     {
-        $this->data = Portabilis_Date_Utils::brToPgSQL($this->data);
+        $this->data = Utils::brToPgSQL($this->data);
 
         $obj_permissoes = new Permissoes();
         $obj_permissoes->permissao_cadastra(578, $this->pessoa_logada, 7, "educar_distribuicao_uniforme_lst.php?ref_cod_aluno={$this->ref_cod_aluno}");
@@ -408,7 +408,7 @@ class indice extends clsCadastro
 
     public function Editar()
     {
-        $this->data = Portabilis_Date_Utils::brToPgSQL($this->data);
+        $this->data = Utils::brToPgSQL($this->data);
 
         $obj_permissoes = new Permissoes();
         $obj_permissoes->permissao_cadastra(578, $this->pessoa_logada, 7, "educar_distribuicao_uniforme_lst.php?ref_cod_aluno={$this->ref_cod_aluno}");

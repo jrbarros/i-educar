@@ -205,7 +205,7 @@ class indice extends clsCadastro
         $obj_permissoes = new Permissoes();
         $obj_permissoes->permissao_cadastra(578, $this->pessoa_logada, 7, "educar_matricula_det.php?cod_matricula={$this->ref_cod_matricula}");
 
-        $this->data_cancel = Portabilis_Date_Utils::brToPgSQL($this->data_cancel);
+        $this->data_cancel = Utils::brToPgSQL($this->data_cancel);
         $obj = new Matricula($this->ref_cod_matricula, null, null, null, $this->pessoa_logada);
         $det_matricula = $obj->detalhe();
 

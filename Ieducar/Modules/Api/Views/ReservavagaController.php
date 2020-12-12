@@ -40,7 +40,7 @@ class ReservavagaController extends ApiCoreController
                    AND ((candidato_reserva_vaga.situacao = \'A\') or candidato_reserva_vaga.situacao IS NULL)
                    AND trim(Pessoa.slug) = trim($1)';
 
-            $params = [$nome, $anoLetivo, Portabilis_Date_Utils::brToPgSQL($dataNascimento), $escola];
+            $params = [$nome, $anoLetivo, Utils::brToPgSQL($dataNascimento), $escola];
 
             $candidato = $this->fetchPreparedQuery($sql, $params);
 
@@ -60,7 +60,7 @@ class ReservavagaController extends ApiCoreController
                  AND candidato_reserva_vaga.ano_letivo = $2
                  AND trim(Pessoa.slug) = trim($1)';
 
-            $candidato = $this->fetchPreparedQuery($sql, [$nome, $anoLetivo, Portabilis_Date_Utils::brToPgSQL($dataNascimento)]);
+            $candidato = $this->fetchPreparedQuery($sql, [$nome, $anoLetivo, Utils::brToPgSQL($dataNascimento)]);
 
             if (!empty($candidato)) {
                 $codigo = $candidato[0]['codigo'];
@@ -90,7 +90,7 @@ class ReservavagaController extends ApiCoreController
                   AND Matricula.ano = $4
                   AND trim(Pessoa.slug) = trim($1)';
 
-            $aluno = $this->fetchPreparedQuery($sql, [$nome, idFederal2int($cpfResponsavel), Portabilis_Date_Utils::brToPgSQL($dataNascimento), $anoReserva]);
+            $aluno = $this->fetchPreparedQuery($sql, [$nome, idFederal2int($cpfResponsavel), Utils::brToPgSQL($dataNascimento), $anoReserva]);
 
             if (!empty($aluno)) {
                 return ['codigo' => $aluno[0]['codigo']];

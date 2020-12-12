@@ -195,8 +195,8 @@ class indice extends clsCadastro
           $this->ano,
           $escolaId,
           $this->etapa,
-          Portabilis_Date_Utils::brToPgSQL($this->data_inicio),
-          Portabilis_Date_Utils::brToPgSQL($this->data_fim)
+          Utils::brToPgSQL($this->data_inicio),
+          Utils::brToPgSQL($this->data_fim)
       );
 
             $obj->cadastra();
@@ -216,8 +216,8 @@ class indice extends clsCadastro
         $this->ano,
         $this->ref_cod_escola,
         $this->etapa,
-        Portabilis_Date_Utils::brToPgSQL($this->data_inicio),
-        Portabilis_Date_Utils::brToPgSQL($this->data_fim)
+        Utils::brToPgSQL($this->data_inicio),
+        Utils::brToPgSQL($this->data_fim)
     );
 
         $editou = $obj->edita();

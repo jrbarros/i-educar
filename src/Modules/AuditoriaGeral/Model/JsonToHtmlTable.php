@@ -2,7 +2,7 @@
 
 namespace iEducar\Modules\AuditoriaGeral\Model;
 require_once 'Portabilis/Date/AppDateUtils.php';
-use Portabilis_Date_Utils;
+use Utils;
 
 trait JsonToHtmlTable
 {
@@ -16,7 +16,7 @@ trait JsonToHtmlTable
                         <tr>';
 
         foreach ($dataJson as $key => $value) {
-            if (Portabilis_Date_Utils::isDateValid($value)) {
+            if (Utils::isDateValid($value)) {
                 $value = date('d/m/Y', strtotime($value));
             }
             $htmlTable .= '<tr>';

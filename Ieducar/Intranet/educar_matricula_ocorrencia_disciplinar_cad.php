@@ -241,7 +241,7 @@ class indice extends clsCadastro
         $ocorrenciaDisciplinar = new MatriculaOcorrenciaDisciplinar();
         $ocorrenciaDisciplinar->cod_ocorrencia_disciplinar = $this->cod_ocorrencia_disciplinar;
 
-        $this->data_cadastro = Portabilis_Date_Utils::brToPgSQL($this->data_cadastro);
+        $this->data_cadastro = Utils::brToPgSQL($this->data_cadastro);
         $obj = new MatriculaOcorrenciaDisciplinar($this->ref_cod_matricula, $this->ref_cod_tipo_ocorrencia_disciplinar, $this->sequencial, $this->pessoa_logada, $this->pessoa_logada, $this->observacao, $this->data_cadastro, $this->data_exclusao, 0);
         $excluiu = $obj->excluir();
         if ($excluiu) {

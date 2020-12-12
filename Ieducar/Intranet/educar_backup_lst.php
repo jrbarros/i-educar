@@ -76,7 +76,7 @@ class indice extends clsListagem
         $objBackup->setOrderby('data_backup DESC');
         $objBackup->setLimite($this->__limite, $this->__offset);
 
-        $lista = $objBackup->lista(null, null, Portabilis_Date_Utils::brToPgSQL($this->data_backup));
+        $lista = $objBackup->lista(null, null, Utils::brToPgSQL($this->data_backup));
 
         $total = $objBackup->_total;
 
@@ -84,7 +84,7 @@ class indice extends clsListagem
         $baseDownloadUrl = route('backup.download');
         if (is_array($lista) && count($lista)) {
             foreach ($lista as $registro) {
-                $dataBackup = Portabilis_Date_Utils::pgSQLToBr($registro['data_backup']);
+                $dataBackup = Utils::pgSQLToBr($registro['data_backup']);
 
                 $url = $baseDownloadUrl . '?url=' . urlencode($registro['caminho']);
 

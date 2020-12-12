@@ -59,7 +59,7 @@ class indice extends clsDetalhe
         }
 
         if ($registro['data']) {
-            $this->addDetalhe(['Data da distribuição', Portabilis_Date_Utils::pgSQLToBr($registro['data'])]);
+            $this->addDetalhe(['Data da distribuição', Utils::pgSQLToBr($registro['data'])]);
         }
 
         if ($registro['ref_cod_escola']) {

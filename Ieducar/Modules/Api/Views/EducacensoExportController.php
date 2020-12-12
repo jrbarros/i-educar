@@ -95,8 +95,8 @@ class EducacensoExportController extends ApiCoreController
         $conteudo = $this->exportaDadosCensoPorEscola(
             $escola,
             $ano,
-            Portabilis_Date_Utils::brToPgSQL($data_ini),
-            Portabilis_Date_Utils::brToPgSQL($data_fim)
+            Utils::brToPgSQL($data_ini),
+            Utils::brToPgSQL($data_fim)
         );
 
         if ($this->error) {
@@ -119,8 +119,8 @@ class EducacensoExportController extends ApiCoreController
         $conteudo = $this->exportaDadosCensoPorEscolaFase2(
             $escola,
             $ano,
-            Portabilis_Date_Utils::brToPgSQL($data_ini),
-            Portabilis_Date_Utils::brToPgSQL($data_fim)
+            Utils::brToPgSQL($data_ini),
+            Utils::brToPgSQL($data_fim)
         );
 
         if ($this->error) {

@@ -248,8 +248,8 @@ class indice extends clsCadastro
             "educar_servidor_alocacao_lst.php?ref_cod_servidor={$this->ref_cod_servidor}&ref_cod_instituicao={$this->ref_ref_cod_instituicao}"
         );
 
-        $dataAdmissao = $this->data_admissao ? Portabilis_Date_Utils::brToPgSql($this->data_admissao) : null;
-        $dataSaida = $this->data_saida ? Portabilis_Date_Utils::brToPgSql($this->data_saida) : null;
+        $dataAdmissao = $this->data_admissao ? Utils::brToPgSql($this->data_admissao) : null;
+        $dataSaida = $this->data_saida ? Utils::brToPgSql($this->data_saida) : null;
 
         $servidorAlocacao = new ServidorAlocacao(
             $this->cod_servidor_alocacao,

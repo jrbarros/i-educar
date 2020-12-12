@@ -26,7 +26,7 @@ class Portabilis_View_Helper_DynamicInput_BibliotecaTipoExemplar extends Portabi
                 $addColumnIdIfNotSet = false
             );
 
-            $resources = Portabilis_Object_Utils::asIdValue($resources, 'cod_exemplar_tipo', 'nm_tipo');
+            $resources = Utils::asIdValue($resources, 'cod_exemplar_tipo', 'nm_tipo');
         }
 
         return $this->insertOption(null, 'Selecione um tipo de exemplar', $resources);

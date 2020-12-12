@@ -188,8 +188,8 @@ class indice extends clsCadastro
         $this->campoCheck('obrigar_documento_pessoa', 'Exigir documento (RG, CPF ou Certidão de nascimento / casamento) no cadastro Pessoa / aluno', $this->obrigar_documento_pessoa);
 
         $this->campoRotulo('datas', '<b>Datas</b>');
-        $this->campoData('data_base_transferencia', 'Data máxima para deslocamento', Portabilis_Date_Utils::pgSQLToBr($this->data_base_transferencia), null, null, false);
-        $this->campoData('data_base_remanejamento', 'Data máxima para troca de sala', Portabilis_Date_Utils::pgSQLToBr($this->data_base_remanejamento), null, null, false);
+        $this->campoData('data_base_transferencia', 'Data máxima para deslocamento', Utils::pgSQLToBr($this->data_base_transferencia), null, null, false);
+        $this->campoData('data_base_remanejamento', 'Data máxima para troca de sala', Utils::pgSQLToBr($this->data_base_remanejamento), null, null, false);
         $this->inputsHelper()->text(
             'data_base',
             [
@@ -198,10 +198,10 @@ class indice extends clsCadastro
                 'max_length' => 5,
                 'placeholder' => 'dd/mm',
                 'required' => false,
-                'value' => Portabilis_Date_Utils::pgSQLToBr_ddmm($this->data_base_matricula)
+                'value' => Utils::pgSQLToBr_ddmm($this->data_base_matricula)
             ]
         );
-        $this->campoData('data_expiracao_reserva_vaga', 'Data para indeferimento automático da reserva de vaga', Portabilis_Date_Utils::pgSQLToBr($this->data_expiracao_reserva_vaga), null, null, false);
+        $this->campoData('data_expiracao_reserva_vaga', 'Data para indeferimento automático da reserva de vaga', Utils::pgSQLToBr($this->data_expiracao_reserva_vaga), null, null, false);
         $this->inputsHelper()->text(
             'data_fechamento',
             [
@@ -210,7 +210,7 @@ class indice extends clsCadastro
                 'max_length' => 5,
                 'placeholder' => 'dd/mm',
                 'required' => false,
-                'value' => Portabilis_Date_Utils::pgSQLToBr_ddmm($this->data_fechamento)
+                'value' => Utils::pgSQLToBr_ddmm($this->data_fechamento)
             ]
         );
         $this->inputsHelper()->date(
@@ -373,9 +373,9 @@ class indice extends clsCadastro
             $this->ordenar_alunos_sequencial_enturmacao,
             $this->obrigar_telefone_pessoa
         );
-        $obj->data_base_remanejamento = Portabilis_Date_Utils::brToPgSQL($this->data_base_remanejamento);
-        $obj->data_base_transferencia = Portabilis_Date_Utils::brToPgSQL($this->data_base_transferencia);
-        $obj->data_expiracao_reserva_vaga = Portabilis_Date_Utils::brToPgSQL($this->data_expiracao_reserva_vaga);
+        $obj->data_base_remanejamento = Utils::brToPgSQL($this->data_base_remanejamento);
+        $obj->data_base_transferencia = Utils::brToPgSQL($this->data_base_transferencia);
+        $obj->data_expiracao_reserva_vaga = Utils::brToPgSQL($this->data_expiracao_reserva_vaga);
         $obj->exigir_vinculo_turma_professor = is_null($this->exigir_vinculo_turma_professor) ? 0 : 1;
         $obj->gerar_historico_transferencia = !is_null($this->gerar_historico_transferencia);
         $obj->controlar_posicao_historicos = !is_null($this->controlar_posicao_historicos);
@@ -393,8 +393,8 @@ class indice extends clsCadastro
         $obj->controlar_espaco_utilizacao_aluno = is_null($this->controlar_espaco_utilizacao_aluno) ? 0 : 1;
         $obj->altera_atestado_para_declaracao = is_null($this->altera_atestado_para_declaracao) ? 0 : 1;
         $obj->percentagem_maxima_ocupacao_salas = Utils::moedaBrToUs($this->percentagem_maxima_ocupacao_salas);
-        $obj->data_base_matricula = Portabilis_Date_Utils::brToPgSQL_ddmm($this->data_base);
-        $obj->data_fechamento = Portabilis_Date_Utils::brToPgSQL_ddmm($this->data_fechamento);
+        $obj->data_base_matricula = Utils::brToPgSQL_ddmm($this->data_base);
+        $obj->data_fechamento = Utils::brToPgSQL_ddmm($this->data_fechamento);
         $obj->data_educacenso = $this->data_educacenso;
         $obj->exigir_dados_socioeconomicos = is_null($this->exigir_dados_socioeconomicos) ? false : true;
         $obj->obrigar_campos_censo = !is_null($this->obrigar_campos_censo);

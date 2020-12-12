@@ -82,7 +82,7 @@ class indice extends clsCadastro
         }
 
         $obj_matricula = new Matricula($this->ref_cod_matricula, null, null, null, $this->pessoa_logada, null, null, 6);
-        $obj_matricula->data_cancel = Portabilis_Date_Utils::brToPgSQL($this->data_cancel);
+        $obj_matricula->data_cancel = Utils::brToPgSQL($this->data_cancel);
 
         $det_matricula = $obj_matricula->detalhe();
 

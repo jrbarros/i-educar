@@ -101,11 +101,11 @@ class indice extends clsDetalhe
         }
 
         if (!empty($this->data_admissao)) {
-            $this->addDetalhe(['Data de admissão', Portabilis_Date_Utils::pgSQLToBr($this->data_admissao)]);
+            $this->addDetalhe(['Data de admissão', Utils::pgSQLToBr($this->data_admissao)]);
         }
 
         if (!empty($this->data_saida)) {
-            $this->addDetalhe(['Data de saída', Portabilis_Date_Utils::pgSQLToBr($this->data_saida)]);
+            $this->addDetalhe(['Data de saída', Utils::pgSQLToBr($this->data_saida)]);
         }
 
         $obj_permissoes = new Permissoes();

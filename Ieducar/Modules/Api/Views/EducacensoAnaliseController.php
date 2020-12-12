@@ -1565,8 +1565,8 @@ class EducacensoAnaliseController extends ApiCoreController
 
         $alunos = $this->fetchPreparedQuery($sql, [$escola,
             $ano,
-            Portabilis_Date_Utils::brToPgSQL($data_ini),
-            Portabilis_Date_Utils::brToPgSQL($data_fim)]);
+            Utils::brToPgSQL($data_ini),
+            Utils::brToPgSQL($data_fim)]);
 
         $mensagem = [];
         $ultimaTurmaVerificada;
