@@ -1,8 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\Utils;
 
-class Portabilis_Utils_Database
+use iEducarLegacy\Intranet\Source\Banco;
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+
+/**
+ * Class Database
+ * @package iEducarLegacy\Lib\Portabilis\Utils
+ */
+class Database
 {
     public static $_db;
 
@@ -45,7 +52,7 @@ class Portabilis_Utils_Database
                     $result = $result[0][0];
                 }
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if ($options['show_errors'] and !is_null($options['messenger'])) {
                 $options['messenger']->append($e->getMessage(), 'error');
             } else {

@@ -1,7 +1,11 @@
 <?php
 
-require_once 'Source/pmieducar/ConfiguracoesGerais.php';
+namespace iEducarLegacy\Lib\Portabilis\Utils;
 
+/**
+ * Class CustomLabel
+ * @package iEducarLegacy\Lib\Portabilis\Utils
+ */
 class CustomLabel
 {
     protected static $instance;

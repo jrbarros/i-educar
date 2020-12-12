@@ -10,7 +10,7 @@ use iEducar\Modules\Educacenso\Model\Nacionalidade;
 use iEducar\Modules\Educacenso\Validator\DeficiencyValidator;
 use iEducar\Modules\Educacenso\Validator\NameValidator;
 use Illuminate\Support\Str;
-use Portabilis_Utils_Database;
+use Database;
 
 class Register30CommonDataAnalysis implements AnalysisInterface
 {
@@ -164,7 +164,7 @@ class Register30CommonDataAnalysis implements AnalysisInterface
             ];
         }
 
-        $deficiencyValidator = new DeficiencyValidator(Portabilis_Utils_Database::pgArrayToArray($data->arrayDeficiencias));
+        $deficiencyValidator = new DeficiencyValidator(Database::pgArrayToArray($data->arrayDeficiencias));
         if (!$deficiencyValidator->isValid()){
             $path = '(Servidores > Cadastros > Servidores > Editar > Aba: Dados gerais > Campo: Deficiências)';
             $linkPath = "/Intranet/educar_servidor_cad.php?cod_servidor={$data->codigoServidor}&ref_cod_instituicao=" . LegacyInstitution::active()->first()->cod_instituicao;

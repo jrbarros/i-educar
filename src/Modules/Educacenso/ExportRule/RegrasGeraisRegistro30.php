@@ -8,7 +8,7 @@ use App\Models\Educacenso\RegistroEducacenso;
 use iEducar\Modules\Educacenso\Model\Escolaridade;
 use iEducar\Modules\Educacenso\Model\Nacionalidade;
 use iEducar\Modules\Educacenso\Model\PaisResidencia;
-use Portabilis_Utils_Database;
+use Database;
 
 class RegrasGeraisRegistro30 implements EducacensoExportRule
 {
@@ -75,7 +75,7 @@ class RegrasGeraisRegistro30 implements EducacensoExportRule
         }
 
         // Remove "Altas Habilidades"
-        $arrayDeficiencias = $registro30::removeAltasHabilidadesArrayDeficiencias(Portabilis_Utils_Database::pgArrayToArray($registro30->arrayDeficiencias));
+        $arrayDeficiencias = $registro30::removeAltasHabilidadesArrayDeficiencias(Database::pgArrayToArray($registro30->arrayDeficiencias));
 
         if (empty($arrayDeficiencias)) {
             $registro30->recursoLedor = null;

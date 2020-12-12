@@ -319,7 +319,7 @@ class PreMatriculaController extends ApiCoreController
               AND turno_pre_matricula = $5
               AND aprovado = 11 ';
 
-        return (int) Portabilis_Utils_Database::selectField($sql, [$ano, $escolaId, $cursoId, $serieId, $turnoId]);
+        return (int) Database::selectField($sql, [$ano, $escolaId, $cursoId, $serieId, $turnoId]);
     }
 
     public function _getQtdMatriculaTurno($ano, $escolaId, $cursoId, $serieId, $turnoId)
@@ -471,7 +471,7 @@ class PreMatriculaController extends ApiCoreController
         $pessoa->idpes_rev = 1;
 
         $sql = 'select idpes from cadastro.fisica WHERE cpf = $1 limit 1';
-        $pessoaId = Portabilis_Utils_Database::selectField($sql, $cpf);
+        $pessoaId = Database::selectField($sql, $cpf);
 
         if (! $pessoaId || !$pessoaId > 0) {
             $pessoa->tipo = 'F';
@@ -506,7 +506,7 @@ class PreMatriculaController extends ApiCoreController
         $pessoa->idpes_rev = 1;
 
         $sql = 'select idpes from cadastro.fisica WHERE cpf = $1 limit 1';
-        $pessoaId = Portabilis_Utils_Database::selectField($sql, $cpf);
+        $pessoaId = Database::selectField($sql, $cpf);
 
         if (!$pessoaId || !$pessoaId > 0) {
             $pessoa->tipo = 'F';
@@ -551,7 +551,7 @@ class PreMatriculaController extends ApiCoreController
             $fisica->idpes_mae = $pessoaMaeId;
         }
 
-        if (Portabilis_Utils_Database::selectField($sql, $pessoaId) != 1) {
+        if (Database::selectField($sql, $pessoaId) != 1) {
             $fisica->cadastra();
         } else {
             $fisica->edita();
@@ -568,7 +568,7 @@ class PreMatriculaController extends ApiCoreController
 
         $sql = 'select 1 from cadastro.fisica WHERE idpes = $1 limit 1';
 
-        if (Portabilis_Utils_Database::selectField($sql, $pessoaId) != 1) {
+        if (Database::selectField($sql, $pessoaId) != 1) {
             $fisica->cadastra();
         } else {
             $fisica->edita();
@@ -637,10 +637,10 @@ class PreMatriculaController extends ApiCoreController
         if ($this->canCancelarPreMatricula()) {
             $matriculaId = $this->getRequest()->matricula_id;
 
-            $alunoId = Portabilis_Utils_Database::selectField('SELECT ref_cod_aluno FROM pmieducar.Matricula WHERE cod_matricula = $1', [$matriculaId]);
-            $pessoaId = Portabilis_Utils_Database::selectField('SELECT ref_idpes FROM pmieducar.aluno WHERE cod_aluno = $1', [$alunoId]);
-            $pessoaMaeId = Portabilis_Utils_Database::selectField('SELECT idpes_mae FROM cadastro.fisica WHERE idpes = $1', [$pessoaId]);
-            $pessoaRespId = Portabilis_Utils_Database::selectField('SELECT idpes_responsavel FROM cadastro.fisica WHERE idpes = $1', [$pessoaId]);
+            $alunoId = Database::selectField('SELECT ref_cod_aluno FROM pmieducar.Matricula WHERE cod_matricula = $1', [$matriculaId]);
+            $pessoaId = Database::selectField('SELECT ref_idpes FROM pmieducar.aluno WHERE cod_aluno = $1', [$alunoId]);
+            $pessoaMaeId = Database::selectField('SELECT idpes_mae FROM cadastro.fisica WHERE idpes = $1', [$pessoaId]);
+            $pessoaRespId = Database::selectField('SELECT idpes_responsavel FROM cadastro.fisica WHERE idpes = $1', [$pessoaId]);
 
             if (is_numeric($matriculaId)) {
                 $this->fetchPreparedQuery('DELETE FROM pmieducar.matricula_turma WHERE ref_cod_matricula = $1', [$matriculaId]);
@@ -690,11 +690,11 @@ class PreMatriculaController extends ApiCoreController
 
     protected function excluirInformacoesAluno($alunoId)
     {
-        $pessoaId = Portabilis_Utils_Database::selectField('SELECT ref_idpes FROM pmieducar.aluno WHERE cod_aluno = $1', [$alunoId]);
+        $pessoaId = Database::selectField('SELECT ref_idpes FROM pmieducar.aluno WHERE cod_aluno = $1', [$alunoId]);
 
         if (is_numeric($pessoaId)) {
-            $pessoaMaeId = Portabilis_Utils_Database::selectField('SELECT idpes_mae FROM cadastro.fisica WHERE idpes = $1', [$pessoaId]);
-            $pessoaRespId = Portabilis_Utils_Database::selectField('SELECT idpes_responsavel FROM cadastro.fisica WHERE idpes = $1', [$pessoaId]);
+            $pessoaMaeId = Database::selectField('SELECT idpes_mae FROM cadastro.fisica WHERE idpes = $1', [$pessoaId]);
+            $pessoaRespId = Database::selectField('SELECT idpes_responsavel FROM cadastro.fisica WHERE idpes = $1', [$pessoaId]);
         }
 
         if (is_numeric($alunoId)) {

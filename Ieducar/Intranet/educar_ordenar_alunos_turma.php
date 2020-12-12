@@ -129,7 +129,7 @@ class indice extends clsCadastro
     {
         $cod_turma = $_GET['cod_turma'];
         foreach ($this->sequencia as $matricula => $sequencial) {
-            $retorno = Portabilis_Utils_Database::fetchPreparedQuery(
+            $retorno = Database::fetchPreparedQuery(
           'UPDATE pmieducar.matricula_turma
                                                                    SET sequencial_fechamento = $1
                                                                  WHERE ref_cod_matricula = $2

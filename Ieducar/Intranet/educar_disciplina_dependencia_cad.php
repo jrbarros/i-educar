@@ -313,7 +313,7 @@ class indice extends clsCadastro
             INNER JOIN pmieducar.turma AS t ON t.cod_turma = mt.ref_cod_turma
             WHERE m.cod_matricula = $1
 SQL;
-        $ano = Portabilis_Utils_Database::selectField($query, [$this->ref_cod_matricula]);
+        $ano = Database::selectField($query, [$this->ref_cod_matricula]);
 
         $db = new Banco();
         $db->consulta("SELECT (CASE

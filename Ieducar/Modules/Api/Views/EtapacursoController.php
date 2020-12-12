@@ -24,7 +24,7 @@ class EtapacursoController extends ApiCoreController
         $arrayEtapacurso;
         $sql = 'SELECT * FROM Modules.etapas_curso_educacenso WHERE curso_id = $1';
 
-        foreach (Portabilis_Utils_Database::fetchPreparedQuery($sql, ['params' => $this->getRequest()->curso_id]) as $reg) {
+        foreach (Database::fetchPreparedQuery($sql, ['params' => $this->getRequest()->curso_id]) as $reg) {
             $arrayEtapacurso[] = $reg['etapa_id'];
         }
 

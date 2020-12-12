@@ -58,7 +58,7 @@ class indice extends clsCadastro
         $cursoId = $this->ref_cod_curso;
 
         $sql             = 'select padrao_ano_escolar from pmieducar.curso where cod_curso = $1 and ativo = 1';
-        $padraoAnoLetivo = Portabilis_Utils_Database::fetchPreparedQuery($sql, ['params' => $cursoId,
+        $padraoAnoLetivo = Database::fetchPreparedQuery($sql, ['params' => $cursoId,
                                                                                  'return_only' => 'first-field']);
 
         if ($padraoAnoLetivo == 1) {
@@ -69,13 +69,13 @@ class indice extends clsCadastro
               as padrao, pmieducar.modulo where padrao.ref_ano = $1 and padrao.ref_ref_cod_escola = $2
               and padrao.ref_cod_modulo = modulo.cod_modulo and modulo.ativo = 1 order by padrao.sequencial';
 
-            $this->etapas = Portabilis_Utils_Database::fetchPreparedQuery($sql, [ 'params' => [$ano, $escolaId]]);
+            $this->etapas = Database::fetchPreparedQuery($sql, [ 'params' => [$ano, $escolaId]]);
         } else {
             $sql = 'select turma.sequencial as etapa, modulo.nm_tipo as nome from pmieducar.turma_modulo as turma,
               pmieducar.modulo where turma.ref_cod_turma = $1 and turma.ref_cod_modulo = modulo.cod_modulo
               and modulo.ativo = 1 order by turma.sequencial';
 
-            $this->etapas = Portabilis_Utils_Database::fetchPreparedQuery($sql, [ 'params' => $this->cod_turma]);
+            $this->etapas = Database::fetchPreparedQuery($sql, [ 'params' => $this->cod_turma]);
         }
 
         return 'Editar';

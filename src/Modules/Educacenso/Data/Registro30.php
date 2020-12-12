@@ -6,7 +6,7 @@ use App\Models\Educacenso\ItemOfRegistro30;
 use App\Models\Educacenso\Registro30 as Registro30Model;
 use App\Repositories\EducacensoRepository;
 use iEducar\Modules\Educacenso\Formatters;
-use Portabilis_Utils_Database;
+use Database;
 
 class Registro30 extends AbstractRegistro
 {
@@ -61,10 +61,10 @@ class Registro30 extends AbstractRegistro
         $unconsideredKnowledgeArea = [27, 17, 32, 99];
 
         foreach ($this->modelArray as &$record) {
-            $record->formacaoAnoConclusao = Portabilis_Utils_Database::pgArrayToArray($record->formacaoAnoConclusao);
-            $record->formacaoCurso = Portabilis_Utils_Database::pgArrayToArray($record->formacaoCurso);
-            $record->formacaoInstituicao = Portabilis_Utils_Database::pgArrayToArray($record->formacaoInstituicao);
-            $record->formacaoComponenteCurricular = Portabilis_Utils_Database::pgArrayToArray($record->formacaoComponenteCurricular);
+            $record->formacaoAnoConclusao = Database::pgArrayToArray($record->formacaoAnoConclusao);
+            $record->formacaoCurso = Database::pgArrayToArray($record->formacaoCurso);
+            $record->formacaoInstituicao = Database::pgArrayToArray($record->formacaoInstituicao);
+            $record->formacaoComponenteCurricular = Database::pgArrayToArray($record->formacaoComponenteCurricular);
             $record->formacaoComponenteCurricular = array_diff($record->formacaoComponenteCurricular, $unconsideredKnowledgeArea);
         }
 

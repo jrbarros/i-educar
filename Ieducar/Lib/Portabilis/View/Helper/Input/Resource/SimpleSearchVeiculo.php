@@ -9,7 +9,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchVeiculo extends Portabil
         if ($id) {
             $sql = 'select (descricao || \',Placa: \' || placa) from Modules.veiculo where cod_veiculo = $1';
             $options = ['params' => $id, 'return_only' => 'first-field'];
-            $nome = Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+            $nome = Database::fetchPreparedQuery($sql, $options);
 
             return Portabilis_String_Utils::toLatin1($nome, ['transform' => true, 'escape' => false]);
         }

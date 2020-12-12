@@ -36,7 +36,7 @@ class ComponenteCurricularController extends ApiCoreController
 
         $array = [];
 
-        $resources = Portabilis_Utils_Database::fetchPreparedQuery($sql, [ 'params' => [$this->getRequest()->id] ]);
+        $resources = Database::fetchPreparedQuery($sql, [ 'params' => [$this->getRequest()->id] ]);
 
         foreach ($resources as $reg) {
             $array[] = $reg['componente_curricular_id'];

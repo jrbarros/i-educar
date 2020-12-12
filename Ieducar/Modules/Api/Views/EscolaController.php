@@ -386,7 +386,7 @@ class EscolaController extends ApiCoreController
             AND turno_pre_matricula = $5
             AND aprovado = 11 ';
 
-        return (int) Portabilis_Utils_Database::selectField(
+        return (int) Database::selectField(
             $sql,
             [
                 $this->getRequest()->ano,

@@ -655,10 +655,10 @@ class indice extends clsCadastro
 
     public function gravaEtapacurso($cod_curso)
     {
-        Portabilis_Utils_Database::fetchPreparedQuery('DELETE FROM etapas_curso_educacenso WHERE curso_id = $1', ['params' => [$cod_curso]]);
+        Database::fetchPreparedQuery('DELETE FROM etapas_curso_educacenso WHERE curso_id = $1', ['params' => [$cod_curso]]);
         foreach ($this->getRequest()->etapacurso as $etapaId) {
             if (! empty($etapaId)) {
-                Portabilis_Utils_Database::fetchPreparedQuery('INSERT INTO etapas_curso_educacenso VALUES ($1 , $2)', ['params' => [$etapaId, $cod_curso] ]);
+                Database::fetchPreparedQuery('INSERT INTO etapas_curso_educacenso VALUES ($1 , $2)', ['params' => [$etapaId, $cod_curso] ]);
             }
         }
     }

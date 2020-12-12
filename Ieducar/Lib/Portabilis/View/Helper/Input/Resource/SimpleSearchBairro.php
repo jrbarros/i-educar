@@ -25,7 +25,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchBairro extends Portabili
         if ($id) {
             $sql = 'select nome, zona_localizacao from public.bairro where idbai = $1';
             $options = ['params' => $id, 'return_only' => 'first-row'];
-            $municipio = Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+            $municipio = Database::fetchPreparedQuery($sql, $options);
             $nome = $municipio['nome'];
             $zona = ($municipio['zona_localizacao'] == 1 ? 'Urbana' : 'Rural');
 

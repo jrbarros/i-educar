@@ -8,7 +8,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchComponenteCurricular e
     protected function getOptions($resources)
     {
         if (empty($resources)) {
-            $resources = Portabilis_Utils_Database::fetchPreparedQuery('SELECT id, nome FROM Modules.componente_curricular');
+            $resources = Database::fetchPreparedQuery('SELECT id, nome FROM Modules.componente_curricular');
             $resources = Utils::setAsIdValue($resources, 'id', 'nome');
         }
 

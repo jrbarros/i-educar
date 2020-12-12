@@ -592,7 +592,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
             $ignorarDispensasParciais
         ));
 
-        $disciplinesWithoutStage = Portabilis_Utils_Database::fetchPreparedQuery('
+        $disciplinesWithoutStage = Database::fetchPreparedQuery('
             SELECT COUNT(*) AS count
             FROM pmieducar.escola_serie_disciplina
             WHERE TRUE
@@ -772,7 +772,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      */
     private function deleteNotaComponenteCurricularMediaWithoutNotas($notaAlunoId)
     {
-        Portabilis_Utils_Database::fetchPreparedQuery('
+        Database::fetchPreparedQuery('
             DELETE FROM Modules.nota_componente_curricular_media
             WHERE nota_aluno_id = $1
             AND NOT EXISTS(

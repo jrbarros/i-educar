@@ -80,7 +80,7 @@ class indice extends clsListagem
         $turma = 'Todas';
 
         if (!empty($params['escola'])) {
-            $dados = (array)Portabilis_Utils_Database::fetchPreparedQuery("
+            $dados = (array)Database::fetchPreparedQuery("
                 select
                     juridica.fantasia
                 from
@@ -96,7 +96,7 @@ class indice extends clsListagem
         }
 
         if (!empty($params['curso'])) {
-            $dados = (array)Portabilis_Utils_Database::fetchPreparedQuery(
+            $dados = (array)Database::fetchPreparedQuery(
                 "select nm_curso from pmieducar.curso where cod_curso = {$params['curso']};"
             );
 
@@ -104,7 +104,7 @@ class indice extends clsListagem
         }
 
         if (!empty($params['serie'])) {
-            $dados = (array)Portabilis_Utils_Database::fetchPreparedQuery(
+            $dados = (array)Database::fetchPreparedQuery(
                 "select nm_serie from pmieducar.serie where cod_serie = {$params['serie']};"
             );
 
@@ -112,7 +112,7 @@ class indice extends clsListagem
         }
 
         if (!empty($params['turma'])) {
-            $dados = (array)Portabilis_Utils_Database::fetchPreparedQuery(
+            $dados = (array)Database::fetchPreparedQuery(
                 "select nm_turma from pmieducar.turma where cod_turma = {$params['turma']};"
             );
 

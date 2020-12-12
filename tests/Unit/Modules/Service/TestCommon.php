@@ -591,9 +591,9 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
 
     public function mockDbPreparedQuery($return)
     {
-        Portabilis_Utils_Database::$_db = $this->getDbMock();
+        Database::$_db = $this->getDbMock();
 
-        Portabilis_Utils_Database::$_db->expects($this->any())
+        Database::$_db->expects($this->any())
             ->method('execPreparedQuery')
             ->will($this->returnValue(true));
 
@@ -615,11 +615,11 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
 
         $returnCallback(true);
 
-        Portabilis_Utils_Database::$_db->expects($this->any())
+        Database::$_db->expects($this->any())
             ->method('ProximoRegistro')
             ->will($this->returnCallback($returnCallback));
 
-        Portabilis_Utils_Database::$_db->expects($this->any())
+        Database::$_db->expects($this->any())
             ->method('Tupla')
             ->will($this->returnCallback(function () use ($return) {
                 static $total = 0;

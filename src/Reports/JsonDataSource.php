@@ -3,7 +3,7 @@
 namespace iEducar\Reports;
 
 use Exception;
-use Portabilis_Utils_Database;
+use Database;
 
 trait JsonDataSource
 {
@@ -24,8 +24,8 @@ trait JsonDataSource
         $queryHeaderReport = $this->getSqlHeaderReport();
 
         return [
-            'main' => Portabilis_Utils_Database::fetchPreparedQuery($queryMainReport),
-            'header' => Portabilis_Utils_Database::fetchPreparedQuery($queryHeaderReport),
+            'main' => Database::fetchPreparedQuery($queryMainReport),
+            'header' => Database::fetchPreparedQuery($queryHeaderReport),
         ];
     }
 

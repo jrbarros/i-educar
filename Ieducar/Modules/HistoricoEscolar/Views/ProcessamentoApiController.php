@@ -172,7 +172,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
     protected function validatesValueIsInBd($fieldName, &$value, $schemaName, $tableName, $raiseExceptionOnError = true)
     {
         $sql = "select 1 from $schemaName.$tableName where $fieldName = $1";
-        $isValid = Portabilis_Utils_DataBase::selectField($sql, $value) == '1';
+        $isValid = Database::selectField($sql, $value) == '1';
 
         if (!$isValid) {
             $msg = "O valor informado {$value} para $tableName, não esta presente no banco de dados.";
@@ -412,7 +412,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
         if ($canPost) {
             $sql = 'select 1 from pmieducar.Matricula where cod_matricula = $1 and ativo = 1';
 
-            if (!Portabilis_Utils_Database::selectField($sql, $this->getRequest()->matricula_id)) {
+            if (!Database::selectField($sql, $this->getRequest()->matricula_id)) {
                 $this->appendMsg(
                     "A Matricula {$this->getRequest()->matricula_id} não existe ou esta desativa",
                     'error'
@@ -424,7 +424,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
         if ($canPost) {
             $sql = 'select 1 from pmieducar.matricula_turma where ref_cod_matricula = $1 and ativo = 1 limit 1';
 
-            if (!Portabilis_Utils_Database::selectField($sql, $this->getRequest()->matricula_id)) {
+            if (!Database::selectField($sql, $this->getRequest()->matricula_id)) {
                 $this->appendMsg("A Matricula {$this->getRequest()->matricula_id} não está enturmada.", 'error');
                 $canPost = false;
             }
@@ -511,7 +511,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
 
         $params = ['params' => [$this->getrequest()->instituicao_id, $escolaId], 'return_only' => 'first-line'];
 
-        return Portabilis_Utils_Database::fetchPreparedQuery($sql, $params);
+        return Database::fetchPreparedQuery($sql, $params);
     }
 
     protected function getNextHistoricoSequencial($alunoId)
@@ -519,7 +519,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
         //A consulta leva em consideração historicos inativos pois o sequencial é chave composta com ref_cod_aluno id
         $sql = 'select coalesce(max(sequencial), 0) + 1 from pmieducar.historico_escolar where ref_cod_aluno = $1';
 
-        return Portabilis_Utils_Database::selectField($sql, $alunoId);
+        return Database::selectField($sql, $alunoId);
     }
 
     protected function getNextHistoricoDisciplinasSequencial($historicoSequencial, $alunoId)
@@ -527,7 +527,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
         $sql = 'select coalesce(max(sequencial), 0) + 1 from pmieducar.historico_disciplinas where
             ref_sequencial = $1 and ref_ref_cod_aluno = $2';
 
-        return Portabilis_Utils_Database::selectField($sql, [$historicoSequencial, $alunoId]);
+        return Database::selectField($sql, [$historicoSequencial, $alunoId]);
     }
 
     protected function getSituacaoMatricula($matriculaId = null)
@@ -537,7 +537,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
                 $situacao = $this->getService()->getOption('aprovado');
             } else {
                 $sql = 'select aprovado from pmieducar.Matricula where cod_matricula = $1';
-                $situacao = Portabilis_Utils_Database::selectField($sql, $matriculaId);
+                $situacao = Database::selectField($sql, $matriculaId);
             }
         } elseif ($this->getRequest()->situacao == 'buscar-Matricula') {
             $situacao = $this->getService()->getOption('aprovado');
@@ -911,7 +911,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
                       where cod_matricula = $1';
 
         $params = ['params' => $matriculaId, 'return_only' => 'first-line'];
-        $idsSerieCurso = Portabilis_Utils_Database::fetchPreparedQuery($sql, $params);
+        $idsSerieCurso = Database::fetchPreparedQuery($sql, $params);
 
         $matriculaTurma = new MatriculaTurma();
         $matriculaTurma = $matriculaTurma->lista(
@@ -951,21 +951,21 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
     {
         $sql = 'select ref_cod_aluno from pmieducar.Matricula where cod_matricula = $1';
 
-        return Portabilis_Utils_Database::selectField($sql, $matriculaId);
+        return Database::selectField($sql, $matriculaId);
     }
 
     protected function getAnoMatricula($matriculaId)
     {
         $sql = 'select ano from pmieducar.Matricula where cod_matricula = $1';
 
-        return Portabilis_Utils_Database::selectField($sql, $matriculaId);
+        return Database::selectField($sql, $matriculaId);
     }
 
     protected function getNomeSerie($serieId)
     {
         $sql = 'select nm_serie from pmieducar.serie where cod_serie = $1';
 
-        return Portabilis_String_Utils::toLatin1(Portabilis_Utils_Database::selectField($sql, $serieId));
+        return Portabilis_String_Utils::toLatin1(Database::selectField($sql, $serieId));
     }
 
     protected function getSequencial($alunoId, $ano, $matriculaId)
@@ -975,7 +975,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
 
         $params = [$alunoId, $ano, $this->getRequest()->instituicao_id, $matriculaId];
 
-        return Portabilis_Utils_Database::selectField($sql, $params);
+        return Database::selectField($sql, $params);
     }
 
     protected function existsHistorico($alunoId, $ano, $matriculaId, $ativo = 1, $reload = false)
@@ -985,7 +985,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
               and ref_cod_instituicao = $3 and ref_cod_matricula = $4 and ativo = $5';
 
             $params = [$alunoId, $ano, $this->getRequest()->instituicao_id, $matriculaId, $ativo];
-            $this->existsHistorico = Portabilis_Utils_Database::selectField($sql, $params) == 1;
+            $this->existsHistorico = Database::selectField($sql, $params) == 1;
         }
 
         return $this->existsHistorico;
@@ -1008,7 +1008,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
             ano = $2 and ref_cod_instituicao = $3 and ref_cod_matricula = $4 and ativo = 1';
 
         $params = [$alunoId, $ano, $this->getRequest()->instituicao_id, $matriculaId];
-        $sequencial = Portabilis_Utils_DataBase::selectField($sql, $params);
+        $sequencial = Database::selectField($sql, $params);
 
         if (is_numeric($sequencial)) {
             $link = "/Intranet/educar_historico_escolar_det.php?ref_cod_aluno=$alunoId&sequencial=$sequencial";
@@ -1117,7 +1117,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
             $sql = 'select coalesce(observacao_historico, \'\') as observacao_historico from pmieducar.serie
                      where cod_serie = $1';
 
-            $observacao = Portabilis_Utils_DataBase::selectField($sql, $this->getRequest()->serie_id);
+            $observacao = Database::selectField($sql, $this->getRequest()->serie_id);
         } else {
             $observacao = '';
         }

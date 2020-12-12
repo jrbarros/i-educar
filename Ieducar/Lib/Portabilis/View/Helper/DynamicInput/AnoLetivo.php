@@ -42,7 +42,7 @@ class Portabilis_View_Helper_DynamicInput_AnoLetivo extends Portabilis_View_Help
                 order by ano desc
             ";
 
-            $resources = Portabilis_Utils_Database::fetchPreparedQuery($sql, ['params' => $escolaId]);
+            $resources = Database::fetchPreparedQuery($sql, ['params' => $escolaId]);
             $resources = Utils::setAsIdValue($resources, 'ano', 'ano');
         }
 

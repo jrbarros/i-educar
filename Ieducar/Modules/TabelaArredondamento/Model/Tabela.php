@@ -2,7 +2,7 @@
 
 require_once 'CoreExt/Entity.php';
 require_once 'App/Model/Finder.php';
-require_once 'lib/Portabilis/Utils/Float.php';
+require_once 'lib/Portabilis/Utils/ProcessFloat.php';
 require_once 'RegraAvaliacao/Model/Nota/TipoValor.php';
 require_once 'TabelaArredondamento/Model/TipoArredondamentoMedia.php';
 

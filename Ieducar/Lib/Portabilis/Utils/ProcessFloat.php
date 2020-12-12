@@ -1,8 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\Utils;
 
-class Portabilis_Utils_Float
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+
+/**
+ * Class ProcessFloat
+ * @package iEducarLegacy\Lib\Portabilis\Utils
+ */
+class ProcessFloat
 {
     protected static function mergeOptions($options, $defaultOptions)
     {
@@ -16,7 +22,7 @@ class Portabilis_Utils_Float
     public static function limitDecimal($value, $options = [])
     {
         if (!is_numeric($value)) {
-            throw new Exception('Value must be numeric!');
+            throw new \RuntimeException('Value must be numeric!');
         } elseif (is_integer($value)) {
             return (float) $value;
         }

@@ -9,7 +9,7 @@ use iEducar\Modules\Educacenso\Model\TipoAtendimentoTurma;
 use iEducar\Modules\Educacenso\Validator\BirthCertificateValidator;
 use iEducar\Modules\Educacenso\Validator\InepExamValidator;
 use Illuminate\Support\Facades\DB;
-use Portabilis_Utils_Database;
+use Database;
 
 class Register30StudentDataAnalysis implements AnalysisInterface
 {
@@ -40,9 +40,9 @@ class Register30StudentDataAnalysis implements AnalysisInterface
         $data = $this->data;
 
         $arrayDeficiencias = array_filter(
-            Portabilis_Utils_Database::pgArrayToArray($data->arrayDeficiencias)
+            Database::pgArrayToArray($data->arrayDeficiencias)
         );
-        $arrayRecursos = array_filter(Portabilis_Utils_Database::pgArrayToArray($data->recursosProvaInep));
+        $arrayRecursos = array_filter(Database::pgArrayToArray($data->recursosProvaInep));
 
         if (!$arrayDeficiencias && ($data->dadosAluno->tipoAtendimentoTurma == TipoAtendimentoTurma::AEE || $data->dadosAluno->modalidadeCurso == ModalidadeCurso::EDUCACAO_ESPECIAL)) {
             $this->messages[] = [

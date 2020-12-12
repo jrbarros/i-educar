@@ -153,7 +153,7 @@ class indice extends clsDetalhe
 
         $disciplinas = '';
 
-        $resources = Portabilis_Utils_Database::fetchPreparedQuery($sql, [ 'params' => [$this->id] ]);
+        $resources = Database::fetchPreparedQuery($sql, [ 'params' => [$this->id] ]);
 
         foreach ($resources as $reg) {
             $disciplinas .= '<span style="background-color: #ccdce6; padding: 2px; border-radius: 3px;"><b>'.$reg['nome'].'</b></span> ';

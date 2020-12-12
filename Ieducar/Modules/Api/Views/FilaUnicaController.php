@@ -266,7 +266,7 @@ class FilaUnicaController extends ApiCoreController
                                          AND escola_usuario.ref_cod_escola = esc.cod_escola )";
             }
 
-            $escolas_candidato = Portabilis_Utils_Database::fetchPreparedQuery($sql);
+            $escolas_candidato = Database::fetchPreparedQuery($sql);
 
             return ['escolas' => $escolas_candidato];
         }

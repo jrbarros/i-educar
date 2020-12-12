@@ -207,7 +207,7 @@ class indice extends clsDetalhe
                 ra.id, rasa.ano_letivo
 SQL;
 
-        $regras = Portabilis_Utils_Database::fetchPreparedQuery($query, [
+        $regras = Database::fetchPreparedQuery($query, [
             'params' => [$this->cod_serie]
         ]);
 

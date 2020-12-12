@@ -71,7 +71,7 @@ class PromocaoApiController extends ApiCoreController
         $options = ['params' => [$this->getRequest()->ano, $currentMatriculaId, $escolaId, $cursoId, $serieId, $turmaId, $matricula],
             'return_only' => 'first-field'];
 
-        return Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+        return Database::fetchPreparedQuery($sql, $options);
     }
 
     public function loadSituacaoArmazenadaMatricula($matriculaId)
@@ -83,7 +83,7 @@ class PromocaoApiController extends ApiCoreController
 
         $options = ['params' => $matriculaId, 'return_only' => 'first-field'];
 
-        return Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+        return Database::fetchPreparedQuery($sql, $options);
     }
 
     protected function loadDadosMatricula($matriculaId)
@@ -104,7 +104,7 @@ class PromocaoApiController extends ApiCoreController
 
         $options = ['params' => $matriculaId, 'return_only' => 'first-row'];
 
-        return Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+        return Database::fetchPreparedQuery($sql, $options);
     }
 
     #TODO substituir este metodo por service->getComponentes()?
@@ -126,7 +126,7 @@ class PromocaoApiController extends ApiCoreController
                AND cc.instituicao_id = $4';
 
         $options = ['params' => [$turmaId, $escolaId, $anoEscolar, $this->getRequest()->instituicao_id]];
-        $componentesCurricularesTurma = Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+        $componentesCurricularesTurma = Database::fetchPreparedQuery($sql, $options);
 
         if (count($componentesCurricularesTurma)) {
             return $componentesCurricularesTurma;
@@ -146,7 +146,7 @@ class PromocaoApiController extends ApiCoreController
                AND al.ativo = 1';
 
         $options = ['params' => [$turmaId, $escolaId, $anoEscolar, $this->getRequest()->instituicao_id]];
-        $componentesCurricularesSerie = Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+        $componentesCurricularesSerie = Database::fetchPreparedQuery($sql, $options);
 
         return $componentesCurricularesSerie;
     }
@@ -370,7 +370,7 @@ class PromocaoApiController extends ApiCoreController
 
             $options = ['params' => [$this->getRequest()->ano, $escolaId, $cursoId, $serieId, $turmaId, $matricula], 'return_only' => 'first-field'];
 
-            return Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+            return Database::fetchPreparedQuery($sql, $options);
         }
     }
 

@@ -191,6 +191,6 @@ class CleanComponentesCurriculares
 
     protected static function fetchPreparedQuery($sql, $options = [])
     {
-        return Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+        return Database::fetchPreparedQuery($sql, $options);
     }
 }

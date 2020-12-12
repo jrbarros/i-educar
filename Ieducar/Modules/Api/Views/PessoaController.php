@@ -545,7 +545,7 @@ class PessoaController extends ApiCoreController
 
         $sql = 'select 1 from cadastro.Pessoa WHERE idpes = $1 limit 1';
 
-        if (! $pessoaId || Portabilis_Utils_Database::selectField($sql, $pessoaId) != 1) {
+        if (! $pessoaId || Database::selectField($sql, $pessoaId) != 1) {
             $pessoa->tipo = 'F';
             $pessoa->idpes_cad = $this->currentUserId();
             $pessoaId = $pessoa->cadastra();
@@ -623,7 +623,7 @@ class PessoaController extends ApiCoreController
     {
         $sql = 'SELECT cod_docente_inep FROM Modules.educacenso_cod_docente WHERE cod_servidor = $1';
 
-        return Portabilis_Utils_Database::selectField($sql, ['params' => [$servidorId]]);
+        return Database::selectField($sql, ['params' => [$servidorId]]);
     }
 
     protected function getInfoServidor()

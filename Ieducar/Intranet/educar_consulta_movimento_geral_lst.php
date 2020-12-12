@@ -61,7 +61,7 @@ class indice extends clsListagem
         } else {
             $cursoIds = join(', ', $params['curso']);
 
-            $dadosCursos = (array)Portabilis_Utils_Database::fetchPreparedQuery(
+            $dadosCursos = (array)Database::fetchPreparedQuery(
                 "select nm_curso from pmieducar.curso where cod_curso in ({$cursoIds});"
             );
 

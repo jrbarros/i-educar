@@ -1,8 +1,12 @@
 <?php
 
-require_once 'lib/Portabilis/Utils/User.php';
+namespace iEducarLegacy\Lib\Portabilis\Utils;
 
-class Portabilis_Utils_Validation
+/**
+ * Class Validation
+ * @package iEducarLegacy\Lib\Portabilis\Utils
+ */
+class Validation
 {
     public static function validatesCpf($cpf)
     {

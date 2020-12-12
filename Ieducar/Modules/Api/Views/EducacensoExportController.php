@@ -225,7 +225,7 @@ class EducacensoExportController extends ApiCoreController
                       AND COALESCE(m.data_matricula,m.data_cadastro) BETWEEN DATE($3) AND DATE($4)
                       LIMIT 1) IS NOT NULL';
 
-        return Portabilis_Utils_Database::fetchPreparedQuery(
+        return Database::fetchPreparedQuery(
             $sql,
             ['params' => [$escolaId, $ano, $data_ini, $data_fim]]
         );
@@ -251,7 +251,7 @@ class EducacensoExportController extends ApiCoreController
          AND m.ativo = 1
     ';
 
-        return Portabilis_Utils_Database::fetchPreparedQuery(
+        return Database::fetchPreparedQuery(
             $sql,
             ['params' => [$escolaId, $ano, $data_ini, $data_fim, $turmaId]]
         );
@@ -280,7 +280,7 @@ class EducacensoExportController extends ApiCoreController
         AND m.ativo = 1
     ';
 
-        return Portabilis_Utils_Database::fetchPreparedQuery($sql, ['params' => [$escolaId, $ano, $turmaId]]);
+        return Database::fetchPreparedQuery($sql, ['params' => [$escolaId, $ano, $turmaId]]);
     }
 
     protected function exportaDadosRegistro00($escolaId, $ano, &$continuaExportacao)
@@ -667,7 +667,7 @@ class EducacensoExportController extends ApiCoreController
         $numeroRegistros = 6;
         $return = '';
 
-        extract(Portabilis_Utils_Database::fetchPreparedQuery($sql, [
+        extract(Database::fetchPreparedQuery($sql, [
             'return_only' => 'first-row',
             'params' => [$escolaId]
         ]));
@@ -703,7 +703,7 @@ class EducacensoExportController extends ApiCoreController
         $numeroRegistros = 8;
         $return = '';
 
-        extract(Portabilis_Utils_Database::fetchPreparedQuery($sql, [
+        extract(Database::fetchPreparedQuery($sql, [
             'return_only' => 'first-row',
             'params' => [$escolaId, $matriculaId]
         ]));
@@ -774,7 +774,7 @@ class EducacensoExportController extends ApiCoreController
         $numeroRegistros = 11;
         $return = '';
 
-        extract(Portabilis_Utils_Database::fetchPreparedQuery($sql, [
+        extract(Database::fetchPreparedQuery($sql, [
             'return_only' => 'first-row',
             'params' => [$escolaId, $matriculaId]
         ]));

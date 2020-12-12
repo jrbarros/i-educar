@@ -7,7 +7,7 @@ use App\Models\Educacenso\RegistroEducacenso;
 use iEducar\Modules\Educacenso\Model\PaisResidencia;
 use iEducar\Modules\Educacenso\Validator\DifferentiatedLocationValidator;
 use Illuminate\Support\Facades\DB;
-use Portabilis_Utils_Database;
+use Database;
 
 class Register30TeacherAndStudentDataAnalysis implements AnalysisInterface
 {

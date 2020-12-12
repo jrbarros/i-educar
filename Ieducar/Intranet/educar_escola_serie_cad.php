@@ -733,13 +733,13 @@ class indice extends clsCadastro
         if ($analise['inserir']) {
             foreach ($analise['inserir'] as $insert) {
                 $anos = $insert['anos_letivos'] ?? [];
-                $componente = Portabilis_Utils_Database::fetchPreparedQuery(
+                $componente = Database::fetchPreparedQuery(
                     'SELECT nome FROM Modules.componente_curricular WHERE id = $1',
                     ['params' => [(int) $insert['ref_cod_disciplina']]]
                 )[0]['nome'];
 
                 foreach ($anos as $ano) {
-                    $info = Portabilis_Utils_Database::fetchPreparedQuery('
+                    $info = Database::fetchPreparedQuery('
                         SELECT COUNT(*)
                         FROM Modules.componente_curricular_ano_escolar
                         WHERE TRUE
@@ -768,7 +768,7 @@ class indice extends clsCadastro
                 ->pluck('cod_turma');
 
             foreach ($analise['remover'] as $componenteId) {
-                $info = Portabilis_Utils_Database::fetchPreparedQuery('
+                $info = Database::fetchPreparedQuery('
                     SELECT COUNT(cct.*), cc.nome
                     FROM Modules.componente_curricular_turma cct
                     INNER JOIN Modules.componente_curricular cc ON cc.id = cct.componente_curricular_id
@@ -828,13 +828,13 @@ class indice extends clsCadastro
                 }
 
                 if (!empty($update['anos_letivos_acrescentar'])) {
-                    $componente = Portabilis_Utils_Database::fetchPreparedQuery(
+                    $componente = Database::fetchPreparedQuery(
                         'SELECT nome FROM Modules.componente_curricular WHERE id = $1',
                         ['params' => [(int) $update['ref_cod_disciplina']]]
                     )[0]['nome'];
 
                     foreach ($update['anos_letivos_acrescentar'] as $ano) {
-                        $info = Portabilis_Utils_Database::fetchPreparedQuery('
+                        $info = Database::fetchPreparedQuery('
                             SELECT COUNT(*)
                             FROM Modules.componente_curricular_ano_escolar
                             WHERE TRUE

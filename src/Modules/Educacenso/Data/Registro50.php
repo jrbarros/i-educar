@@ -4,7 +4,7 @@ namespace iEducar\Modules\Educacenso\Data;
 
 use App\Models\Educacenso\Registro50 as Registro50Model;
 use iEducar\Modules\Educacenso\Formatters;
-use Portabilis_Utils_Database;
+use Database;
 
 class Registro50 extends AbstractRegistro
 {
@@ -32,7 +32,7 @@ class Registro50 extends AbstractRegistro
         foreach ($return as $data) {
             $this->hydrateModel($data);
 
-            $this->model->componentes = array_unique(Portabilis_Utils_Database::pgArrayToArray($this->model->componentes));
+            $this->model->componentes = array_unique(Database::pgArrayToArray($this->model->componentes));
 
             $this->modelArray[] = $this->model;
             $this->model = new Registro50Model();

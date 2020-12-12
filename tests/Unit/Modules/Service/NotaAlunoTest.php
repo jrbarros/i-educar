@@ -75,6 +75,6 @@ class Avaliacao_Service_NotaAlunoTest extends Avaliacao_Service_TestCommon
 
   public function tearDown(): void
   {
-    Portabilis_Utils_Database::$_db = null;
+    Database::$_db = null;
   }
 }

@@ -693,7 +693,7 @@ class AlunoController extends ApiCoreController
              LIMIT 1
         ';
 
-        $turma = Portabilis_Utils_Database::selectRow($sql, $matriculaId);
+        $turma = Database::selectRow($sql, $matriculaId);
         $turma['nome'] = $this->toUtf8($turma['nome'], ['transform' => true]);
 
         return $turma;
@@ -733,7 +733,7 @@ class AlunoController extends ApiCoreController
             where cod_matricula=$1 and ativo = 1
         ';
 
-        return Portabilis_Utils_Database::selectField($sql, $matriculaId);
+        return Database::selectField($sql, $matriculaId);
     }
 
     protected function loadNomeTurmaOrigem($matriculaId)
@@ -751,7 +751,7 @@ class AlunoController extends ApiCoreController
               ORDER BY mt.data_exclusao DESC
                  LIMIT 1';
 
-        return $this->toUtf8(Portabilis_Utils_Database::selectField($sql, $matriculaId), ['transform' => true]);
+        return $this->toUtf8(Database::selectField($sql, $matriculaId), ['transform' => true]);
     }
 
     protected function loadTransferenciaDataSaida($matriculaId)
@@ -761,7 +761,7 @@ class AlunoController extends ApiCoreController
             where cod_matricula=$1 and ativo = 1 and ((aprovado=4 or aprovado=6) OR data_cancel is not null)
         ';
 
-        return Portabilis_Utils_Database::selectField($sql, $matriculaId);
+        return Database::selectField($sql, $matriculaId);
     }
 
     protected function possuiTransferenciaEmAberto($matriculaId)
@@ -772,7 +772,7 @@ class AlunoController extends ApiCoreController
             data_transferencia is null
         ';
 
-        return (Portabilis_Utils_Database::selectField($sql, $matriculaId) > 0);
+        return (Database::selectField($sql, $matriculaId) > 0);
     }
 
     protected function loadTipoOcorrenciaDisciplinar($id)
@@ -1187,7 +1187,7 @@ class AlunoController extends ApiCoreController
             $aluno['parentesco_quatro'] = Portabilis_String_Utils::toUtf8($aluno['parentesco_quatro']);
             $aluno['autorizado_cinco'] = Portabilis_String_Utils::toUtf8($aluno['autorizado_cinco']);
             $aluno['parentesco_cinco'] = Portabilis_String_Utils::toUtf8($aluno['parentesco_cinco']);
-            $aluno['veiculo_transporte_escolar'] = Portabilis_Utils_Database::pgArrayToArray($aluno['veiculo_transporte_escolar']);
+            $aluno['veiculo_transporte_escolar'] = Database::pgArrayToArray($aluno['veiculo_transporte_escolar']);
             $aluno['alfabetizado'] = $aluno['analfabeto'] == 0;
             unset($aluno['analfabeto']);
 
@@ -1547,7 +1547,7 @@ class AlunoController extends ApiCoreController
         }
 
         $sql .= " WHERE idpes = {$pessoaId}";
-        Portabilis_Utils_Database::fetchPreparedQuery($sql);
+        Database::fetchPreparedQuery($sql);
 
         return true;
     }
@@ -1760,7 +1760,7 @@ class AlunoController extends ApiCoreController
     {
         $sql = 'select exists (select 1 from pmieducar.Matricula where ref_cod_aluno = $1 and ativo = 1)';
 
-        return (Portabilis_Utils_Database::selectField($sql, $alunoId));
+        return (Database::selectField($sql, $alunoId));
     }
 
     //envia foto e salva caminha no banco
@@ -1868,7 +1868,7 @@ class AlunoController extends ApiCoreController
 
         $sql = 'select 1 from cadastro.documento WHERE idpes = $1 limit 1';
 
-        if (Portabilis_Utils_Database::selectField($sql, $pessoaId) != 1) {
+        if (Database::selectField($sql, $pessoaId) != 1) {
             $documentos->cadastra();
         } else {
             $documentos->edita_aluno();

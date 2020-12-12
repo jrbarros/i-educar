@@ -69,7 +69,7 @@ class ComponentesSerieController extends ApiCoreController
             $service = new CheckPostedDataService;
 
             foreach ($updateInfo['delete'] as $componenteId) {
-                $info = Portabilis_Utils_Database::fetchPreparedQuery('
+                $info = Database::fetchPreparedQuery('
                     SELECT COUNT(cct.*), cc.nome
                     FROM Modules.componente_curricular_turma cct
                     INNER JOIN Modules.componente_curricular cc ON cc.id = cct.componente_curricular_id

@@ -9,7 +9,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchEtapacurso extends Por
     protected function getOptions($resources)
     {
         if (empty($resources)) {
-            $resources = Portabilis_Utils_Database::fetchPreparedQuery('SELECT * FROM Modules.etapas_educacenso');
+            $resources = Database::fetchPreparedQuery('SELECT * FROM Modules.etapas_educacenso');
             $resources = Utils::setAsIdValue($resources, 'id', 'nome');
         }
 

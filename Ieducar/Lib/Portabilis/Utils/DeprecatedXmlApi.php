@@ -1,13 +1,17 @@
 <?php
 
-require_once 'lib/Portabilis/Utils/User.php';
+namespace iEducarLegacy\Lib\Portabilis\Utils;
 
-class Portabilis_Utils_DeprecatedXmlApi
+/**
+ * Class DeprecatedXmlApi
+ * @package iEducarLegacy\Lib\Portabilis\Utils
+ */
+class DeprecatedXmlApi
 {
     public static function returnEmptyQueryUnlessUserIsLoggedIn($xmlns = 'sugestoes', $rootNodeName = 'query')
     {
-        if (Portabilis_Utils_User::loggedIn() != true) {
-            Portabilis_Utils_DeprecatedXmlApi::returnEmptyQuery($xmlns, $rootNodeName, 'Login required');
+        if (User::loggedIn() != true) {
+            DeprecatedXmlApi::returnEmptyQuery($xmlns, $rootNodeName, 'Login required');
         }
     }
 

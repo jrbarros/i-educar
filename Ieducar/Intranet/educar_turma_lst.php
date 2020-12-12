@@ -207,7 +207,7 @@ class indice extends clsListagem
 
                 if ($registro['turma_turno_id']) {
                     $options = ['params' => $registro['turma_turno_id'], 'return_only' => 'first-field'];
-                    $turno   = Portabilis_Utils_Database::fetchPreparedQuery('select nome from pmieducar.turma_turno where id = $1', $options);
+                    $turno   = Database::fetchPreparedQuery('select nome from pmieducar.turma_turno where id = $1', $options);
 
                     $lista_busca[] = "<a href=\"educar_turma_det.php?cod_turma={$registro['cod_turma']}\">$turno</a>";
                 } else {

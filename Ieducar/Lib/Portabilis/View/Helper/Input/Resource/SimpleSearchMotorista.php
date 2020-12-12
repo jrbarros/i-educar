@@ -9,7 +9,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchMotorista extends Portab
         if ($id) {
             $sql = 'select nome from Modules.motorista, cadastro.Pessoa where ref_idpes = idpes and cod_motorista = $1';
             $options = ['params' => $id, 'return_only' => 'first-field'];
-            $nome = Portabilis_Utils_Database::fetchPreparedQuery($sql, $options);
+            $nome = Database::fetchPreparedQuery($sql, $options);
 
             return Portabilis_String_Utils::toUtf8($nome, ['transform' => true, 'escape' => false]);
         }

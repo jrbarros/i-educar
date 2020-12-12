@@ -5,7 +5,7 @@ namespace iEducar\Modules\Educacenso\Data;
 use App\Models\Educacenso\Registro10 as Registro10Model;
 use iEducar\Modules\Educacenso\Formatters;
 use Portabilis_Date_Utils;
-use Portabilis_Utils_Database;
+use Database;
 
 class Registro10 extends AbstractRegistro
 {
@@ -208,25 +208,25 @@ class Registro10 extends AbstractRegistro
 
     private function processData($data)
     {
-        $data->localFuncionamento = Portabilis_Utils_Database::pgArrayToArray($data->localFuncionamento);
-        $data->tratamentoLixo = Portabilis_Utils_Database::pgArrayToArray($data->tratamentoLixo);
-        $data->recursosAcessibilidade = Portabilis_Utils_Database::pgArrayToArray($data->recursosAcessibilidade);
-        $data->usoInternet = Portabilis_Utils_Database::pgArrayToArray($data->usoInternet);
-        $data->equipamentosAcessoInternet = Portabilis_Utils_Database::pgArrayToArray($data->equipamentosAcessoInternet);
-        $data->equipamentos = Portabilis_Utils_Database::pgArrayToArray($data->equipamentos);
-        $data->redeLocal = Portabilis_Utils_Database::pgArrayToArray($data->redeLocal);
-        $data->orgaosColegiados = Portabilis_Utils_Database::pgArrayToArray($data->orgaosColegiados);
-        $data->reservaVagasCotas = Portabilis_Utils_Database::pgArrayToArray($data->reservaVagasCotas);
-        $data->salasGerais = Portabilis_Utils_Database::pgArrayToArray($data->salasGerais);
-        $data->salasFuncionais = Portabilis_Utils_Database::pgArrayToArray($data->salasFuncionais);
-        $data->banheiros = Portabilis_Utils_Database::pgArrayToArray($data->banheiros);
-        $data->laboratorios = Portabilis_Utils_Database::pgArrayToArray($data->laboratorios);
-        $data->salasAtividades = Portabilis_Utils_Database::pgArrayToArray($data->salasAtividades);
-        $data->dormitorios = Portabilis_Utils_Database::pgArrayToArray($data->dormitorios);
-        $data->areasExternas = Portabilis_Utils_Database::pgArrayToArray($data->areasExternas);
-        $data->organizacaoEnsino = Portabilis_Utils_Database::pgArrayToArray($data->organizacaoEnsino);
-        $data->instrumentosPedagogicos = Portabilis_Utils_Database::pgArrayToArray($data->instrumentosPedagogicos);
-        $data->codigoLinguaIndigena = Portabilis_Utils_Database::pgArrayToArray($data->codigoLinguaIndigena);
+        $data->localFuncionamento = Database::pgArrayToArray($data->localFuncionamento);
+        $data->tratamentoLixo = Database::pgArrayToArray($data->tratamentoLixo);
+        $data->recursosAcessibilidade = Database::pgArrayToArray($data->recursosAcessibilidade);
+        $data->usoInternet = Database::pgArrayToArray($data->usoInternet);
+        $data->equipamentosAcessoInternet = Database::pgArrayToArray($data->equipamentosAcessoInternet);
+        $data->equipamentos = Database::pgArrayToArray($data->equipamentos);
+        $data->redeLocal = Database::pgArrayToArray($data->redeLocal);
+        $data->orgaosColegiados = Database::pgArrayToArray($data->orgaosColegiados);
+        $data->reservaVagasCotas = Database::pgArrayToArray($data->reservaVagasCotas);
+        $data->salasGerais = Database::pgArrayToArray($data->salasGerais);
+        $data->salasFuncionais = Database::pgArrayToArray($data->salasFuncionais);
+        $data->banheiros = Database::pgArrayToArray($data->banheiros);
+        $data->laboratorios = Database::pgArrayToArray($data->laboratorios);
+        $data->salasAtividades = Database::pgArrayToArray($data->salasAtividades);
+        $data->dormitorios = Database::pgArrayToArray($data->dormitorios);
+        $data->areasExternas = Database::pgArrayToArray($data->areasExternas);
+        $data->organizacaoEnsino = Database::pgArrayToArray($data->organizacaoEnsino);
+        $data->instrumentosPedagogicos = Database::pgArrayToArray($data->instrumentosPedagogicos);
+        $data->codigoLinguaIndigena = Database::pgArrayToArray($data->codigoLinguaIndigena);
         $data->nomeEscola = strtoupper($data->nomeEscola);
 
         return $data;

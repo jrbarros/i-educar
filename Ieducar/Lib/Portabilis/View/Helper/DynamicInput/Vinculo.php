@@ -11,7 +11,7 @@ class Portabilis_View_Helper_DynamicInput_Vinculo extends Portabilis_View_Helper
 
         $sql = 'select cod_funcionario_vinculo, nm_vinculo from Portal.funcionario_vinculo';
 
-        $resources = Portabilis_Utils_Database::fetchPreparedQuery($sql);
+        $resources = Database::fetchPreparedQuery($sql);
         $resources = Utils::setAsIdValue($resources, 'cod_funcionario_vinculo', 'nm_vinculo');
 
         return $this->insertOption(null, 'Selecione', $resources);

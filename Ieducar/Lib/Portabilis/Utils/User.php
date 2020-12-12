@@ -1,8 +1,14 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\Utils;
+
 use Illuminate\Support\Facades\Session;
 
-class Portabilis_Utils_User
+/**
+ * Class User
+ * @package iEducarLegacy\Lib\Portabilis\Utils
+ */
+class User
 {
     public static $_currentUserId;
     public static $_nivelAcesso;

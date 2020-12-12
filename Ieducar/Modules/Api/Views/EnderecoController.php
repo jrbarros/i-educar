@@ -38,7 +38,7 @@ class EnderecoController extends ApiCoreController
                 INNER JOIN public.uf u ON u.sigla_uf = m.sigla_uf
                 WHERE c.cep = {$cep} LIMIT 1";
 
-        $result = Portabilis_Utils_Database::fetchPreparedQuery($select, ['return_only' => 'first-line']);
+        $result = Database::fetchPreparedQuery($select, ['return_only' => 'first-line']);
 
         $return;
 

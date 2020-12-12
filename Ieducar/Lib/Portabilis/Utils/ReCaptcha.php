@@ -1,6 +1,12 @@
 <?php
 
-class Portabilis_Utils_ReCaptcha
+namespace iEducarLegacy\Lib\Portabilis\Utils;
+
+/**
+ * Class ReCaptcha
+ * @package iEducarLegacy\Lib\Portabilis\Utils
+ */
+class ReCaptcha
 {
     public static function getWidget()
     {

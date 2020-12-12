@@ -5,7 +5,7 @@ namespace iEducar\Modules\Educacenso\Data;
 use App\Models\Educacenso\Registro10 as Registro10Model;
 use iEducar\Modules\Educacenso\Formatters;
 use Portabilis_Date_Utils;
-use Portabilis_Utils_Database;
+use Database;
 
 class Registro20 extends AbstractRegistro
 {
@@ -148,9 +148,9 @@ class Registro20 extends AbstractRegistro
 
     private function processData($data)
     {
-        $data->localFuncionamento = Portabilis_Utils_Database::pgArrayToArray($data->localFuncionamento);
-        $data->diasSemana = Portabilis_Utils_Database::pgArrayToArray($data->diasSemana);
-        $data->atividadesComplementares = Portabilis_Utils_Database::pgArrayToArray($data->atividadesComplementares);
+        $data->localFuncionamento = Database::pgArrayToArray($data->localFuncionamento);
+        $data->diasSemana = Database::pgArrayToArray($data->diasSemana);
+        $data->atividadesComplementares = Database::pgArrayToArray($data->atividadesComplementares);
 
         return $data;
     }
