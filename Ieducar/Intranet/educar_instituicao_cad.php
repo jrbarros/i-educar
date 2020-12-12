@@ -258,7 +258,7 @@ class indice extends clsCadastro
         $this->campoMonetario(
             'percentagem_maxima_ocupacao_salas',
             'Percentagem máxima de ocupação da sala',
-            Portabilis_Currency_Utils::moedaUsToBr($this->percentagem_maxima_ocupacao_salas),
+            Utils::moedaUsToBr($this->percentagem_maxima_ocupacao_salas),
             6,
             6,
             false
@@ -392,7 +392,7 @@ class indice extends clsCadastro
         $obj->coordenador_transporte = $this->pessoa_coordenador_transporte;
         $obj->controlar_espaco_utilizacao_aluno = is_null($this->controlar_espaco_utilizacao_aluno) ? 0 : 1;
         $obj->altera_atestado_para_declaracao = is_null($this->altera_atestado_para_declaracao) ? 0 : 1;
-        $obj->percentagem_maxima_ocupacao_salas = Portabilis_Currency_Utils::moedaBrToUs($this->percentagem_maxima_ocupacao_salas);
+        $obj->percentagem_maxima_ocupacao_salas = Utils::moedaBrToUs($this->percentagem_maxima_ocupacao_salas);
         $obj->data_base_matricula = Portabilis_Date_Utils::brToPgSQL_ddmm($this->data_base);
         $obj->data_fechamento = Portabilis_Date_Utils::brToPgSQL_ddmm($this->data_fechamento);
         $obj->data_educacenso = $this->data_educacenso;

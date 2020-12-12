@@ -1,6 +1,12 @@
 <?php
 
-class Portabilis_Currency_Utils
+namespace iEducarLegacy\Lib\Portabilis\Currency;
+
+/**
+ * Class Utils
+ * @package iEducarLegacy\Lib\Portabilis\Controller
+ */
+class Utils
 {
 
     /**
