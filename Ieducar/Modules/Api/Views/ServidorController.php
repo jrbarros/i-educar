@@ -225,7 +225,7 @@ class ServidorController extends ApiCoreController
         $idesco = $this->getRequest()->idesco;
         $sql = 'SELECT * FROM cadastro.escolaridade where idesco = $1 ';
         $escolaridade = $this->fetchPreparedQuery($sql, [$idesco], true, 'first-row');
-        $escolaridade['descricao'] = Portabilis_String_Utils::toUtf8($escolaridade['descricao']);
+        $escolaridade['descricao'] = Utils::toUtf8($escolaridade['descricao']);
 
         return ['escolaridade' => $escolaridade];
     }

@@ -14,7 +14,7 @@ class Portabilis_View_Helper_Input_Resource_Beneficio extends Portabilis_View_He
             $resources = Utils::setAsIdValue($resources, 'cod_aluno_beneficio', 'nm_beneficio');
         }
 
-        return $this->insertOption(null, Portabilis_String_Utils::toLatin1('Benefício'), $resources);
+        return $this->insertOption(null, Utils::toLatin1('Benefício'), $resources);
     }
 
     public function beneficio($options = [])

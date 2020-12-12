@@ -46,7 +46,7 @@ class EnderecoController extends ApiCoreController
             $return = [];
 
             foreach ($result as $name => $value) {
-                $return[$name] = Portabilis_String_Utils::toUtf8($value);
+                $return[$name] = Utils::toUtf8($value);
             }
         }
 

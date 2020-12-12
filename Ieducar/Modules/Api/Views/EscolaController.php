@@ -368,7 +368,7 @@ class EscolaController extends ApiCoreController
     {
         // Caso a capacidade de alunos naquele turno seja menor ou igual ao ao número de alunos matrículados + alunos na reserva de vaga externa deve bloquear
         if ($this->_getMaxAlunoTurno($escolaId) <= ($this->_getQtdAlunosFila($escolaId) + $this->_getQtdMatriculaTurno($escolaId))) {
-            // $this->mensagem .= Portabilis_String_Utils::toLatin1("Não existem vagas disponíveis para essa série/turno!") . '<br/>';
+            // $this->mensagem .= Utils::toLatin1("Não existem vagas disponíveis para essa série/turno!") . '<br/>';
             return false;
         }
 
@@ -533,12 +533,12 @@ class EscolaController extends ApiCoreController
             return [ 'escolas' => 0];
         } else {
             foreach ($escolas as &$escola) {
-                $escola['nome'] = Portabilis_String_Utils::toUtf8($escola['nome']);
-                $escola['complemento'] = Portabilis_String_Utils::toUtf8($escola['complemento']);
-                $escola['logradouro'] = Portabilis_String_Utils::toUtf8($escola['logradouro']);
-                $escola['bairro'] = Portabilis_String_Utils::toUtf8($escola['bairro']);
-                $escola['municipio'] = Portabilis_String_Utils::toUtf8($escola['municipio']);
-                $escola['nome_responsavel'] = Portabilis_String_Utils::toUtf8($escola['nome_responsavel']);
+                $escola['nome'] = Utils::toUtf8($escola['nome']);
+                $escola['complemento'] = Utils::toUtf8($escola['complemento']);
+                $escola['logradouro'] = Utils::toUtf8($escola['logradouro']);
+                $escola['bairro'] = Utils::toUtf8($escola['bairro']);
+                $escola['municipio'] = Utils::toUtf8($escola['municipio']);
+                $escola['nome_responsavel'] = Utils::toUtf8($escola['nome_responsavel']);
             }
 
             $attrs = ['cod_escola', 'nome', 'cep', 'numero', 'complemento', 'logradouro', 'bairro', 'municipio', 'uf', 'pais', 'email', 'ddd', 'fone', 'nome_responsavel', 'inep'];

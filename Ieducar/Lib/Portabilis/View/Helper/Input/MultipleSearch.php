@@ -45,7 +45,7 @@ class Portabilis_View_Helper_Input_MultipleSearch extends Portabilis_View_Helper
 
     protected function js($objectName, $attrName, $options)
     {
-        $resourceOptions = 'multipleSearch' . Portabilis_String_Utils::camelize($objectName) . 'Options';
+        $resourceOptions = 'multipleSearch' . Utils::camelize($objectName) . 'Options';
 
         $js = "
             $resourceOptions = typeof $resourceOptions == 'undefined' ? {} : $resourceOptions;

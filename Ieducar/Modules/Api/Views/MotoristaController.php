@@ -56,11 +56,11 @@ class MotoristaController extends ApiCoreController
         // após cadastro não muda mais id Pessoa
         $motorista->ref_idpes = $this->getRequest()->pessoa_id;
         $motorista->cnh = $this->getRequest()->cnh;
-        $motorista->tipo_cnh = Portabilis_String_Utils::toLatin1($this->getRequest()->tipo_cnh);
+        $motorista->tipo_cnh = Utils::toLatin1($this->getRequest()->tipo_cnh);
         $motorista->dt_habilitacao = Utils::brToPgSQL($this->getRequest()->dt_habilitacao);
         $motorista->vencimento_cnh = Utils::brToPgSQL($this->getRequest()->vencimento_cnh);
         $motorista->ref_cod_empresa_transporte_escolar = $this->getRequest()->empresa_id;
-        $motorista->observacao = Portabilis_String_Utils::toLatin1($this->getRequest()->observacao);
+        $motorista->observacao = Utils::toLatin1($this->getRequest()->observacao);
 
         return (is_null($id) ? $motorista->cadastra() : $motorista->edita());
     }
@@ -85,12 +85,12 @@ class MotoristaController extends ApiCoreController
 
         $motorista = Utils::filter($motorista, $attrs);
 
-        $motorista['nome'] = Portabilis_String_Utils::toUtf8($this->loadNomePessoa($id));
-        $motorista['empresa'] = Portabilis_String_Utils::toUtf8($this->loadNomeEmpresa($id));
+        $motorista['nome'] = Utils::toUtf8($this->loadNomePessoa($id));
+        $motorista['empresa'] = Utils::toUtf8($this->loadNomeEmpresa($id));
         $motorista['dt_habilitacao'] = Utils::pgSQLToBr($motorista['dt_habilitacao']);
         $motorista['vencimento_cnh'] = Utils::pgSQLToBr($motorista['vencimento_cnh']);
-        $motorista['cnh'] = Portabilis_String_Utils::toUtf8($motorista['cnh']);
-        $motorista['observacao'] = Portabilis_String_Utils::toUtf8($motorista['observacao']);
+        $motorista['cnh'] = Utils::toUtf8($motorista['cnh']);
+        $motorista['observacao'] = Utils::toUtf8($motorista['observacao']);
 
         return $motorista;
     }

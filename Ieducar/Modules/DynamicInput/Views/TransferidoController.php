@@ -68,7 +68,7 @@ class TransferidoController extends ApiCoreController
     {
         if ($this->canGetTransferido()) {
             $matriculas = new Matricula();
-            $matriculas->setOrderby('sequencial_fechamento , translate(nome,\''.Portabilis_String_Utils::toLatin1(åáàãâäéèêëíìîïóòõôöúùüûçÿýñÅÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÔÖÚÙÛÜÇÝÑ).'\', \''.Portabilis_String_Utils::toLatin1(aaaaaaeeeeiiiiooooouuuucyynAAAAAAEEEEIIIIOOOOOUUUUCYN).'\') ');
+            $matriculas->setOrderby('sequencial_fechamento , translate(nome,\''.Utils::toLatin1(åáàãâäéèêëíìîïóòõôöúùüûçÿýñÅÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÔÖÚÙÛÜÇÝÑ).'\', \''.Utils::toLatin1(aaaaaaeeeeiiiiooooouuuucyynAAAAAAEEEEIIIIOOOOOUUUUCYN).'\') ');
             $matriculas = $matriculas->lista_transferidos(
           null,
           null,

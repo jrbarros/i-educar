@@ -406,7 +406,7 @@ class AlunoController extends ApiCoreController
 
     protected function saveSus($pessoaId)
     {
-        $sus = Portabilis_String_Utils::toLatin1($this->getRequest()->sus);
+        $sus = Utils::toLatin1($this->getRequest()->sus);
         $sql = 'update cadastro.fisica set sus = $1 where idpes = $2';
 
         return $this->fetchPreparedQuery($sql, [$sus, $pessoaId]);
@@ -439,17 +439,17 @@ class AlunoController extends ApiCoreController
         $obj = new clsModulesFichaMedicaAluno();
 
         $obj->ref_cod_aluno = $id;
-        $obj->altura = Portabilis_String_Utils::toLatin1($this->getRequest()->altura);
-        $obj->peso = Portabilis_String_Utils::toLatin1($this->getRequest()->peso);
-        $obj->grupo_sanguineo = Portabilis_String_Utils::toLatin1($this->getRequest()->grupo_sanguineo);
+        $obj->altura = Utils::toLatin1($this->getRequest()->altura);
+        $obj->peso = Utils::toLatin1($this->getRequest()->peso);
+        $obj->grupo_sanguineo = Utils::toLatin1($this->getRequest()->grupo_sanguineo);
         $obj->grupo_sanguineo = trim($obj->grupo_sanguineo);
-        $obj->fator_rh = Portabilis_String_Utils::toLatin1($this->getRequest()->fator_rh);
+        $obj->fator_rh = Utils::toLatin1($this->getRequest()->fator_rh);
         $obj->alergia_medicamento = ($this->getRequest()->alergia_medicamento == 'on' ? 'S' : 'N');
-        $obj->desc_alergia_medicamento = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_alergia_medicamento);
+        $obj->desc_alergia_medicamento = Utils::toLatin1($this->getRequest()->desc_alergia_medicamento);
         $obj->alergia_alimento = ($this->getRequest()->alergia_alimento == 'on' ? 'S' : 'N');
-        $obj->desc_alergia_alimento = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_alergia_alimento);
+        $obj->desc_alergia_alimento = Utils::toLatin1($this->getRequest()->desc_alergia_alimento);
         $obj->doenca_congenita = ($this->getRequest()->doenca_congenita == 'on' ? 'S' : 'N');
-        $obj->desc_doenca_congenita = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_doenca_congenita);
+        $obj->desc_doenca_congenita = Utils::toLatin1($this->getRequest()->desc_doenca_congenita);
         $obj->fumante = ($this->getRequest()->fumante == 'on' ? 'S' : 'N');
         $obj->doenca_caxumba = ($this->getRequest()->doenca_caxumba == 'on' ? 'S' : 'N');
         $obj->doenca_sarampo = ($this->getRequest()->doenca_sarampo == 'on' ? 'S' : 'N');
@@ -457,7 +457,7 @@ class AlunoController extends ApiCoreController
         $obj->doenca_catapora = ($this->getRequest()->doenca_catapora == 'on' ? 'S' : 'N');
         $obj->doenca_escarlatina = ($this->getRequest()->doenca_escarlatina == 'on' ? 'S' : 'N');
         $obj->doenca_coqueluche = ($this->getRequest()->doenca_coqueluche == 'on' ? 'S' : 'N');
-        $obj->doenca_outras = Portabilis_String_Utils::toLatin1($this->getRequest()->doenca_outras);
+        $obj->doenca_outras = Utils::toLatin1($this->getRequest()->doenca_outras);
         $obj->epiletico = ($this->getRequest()->epiletico == 'on' ? 'S' : 'N');
         $obj->epiletico_tratamento = ($this->getRequest()->epiletico_tratamento == 'on' ? 'S' : 'N');
         $obj->hemofilico = ($this->getRequest()->hemofilico == 'on' ? 'S' : 'N');
@@ -466,25 +466,25 @@ class AlunoController extends ApiCoreController
         $obj->diabetico = ($this->getRequest()->diabetico == 'on' ? 'S' : 'N');
         $obj->insulina = ($this->getRequest()->insulina == 'on' ? 'S' : 'N');
         $obj->tratamento_medico = ($this->getRequest()->tratamento_medico == 'on' ? 'S' : 'N');
-        $obj->desc_tratamento_medico = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_tratamento_medico);
+        $obj->desc_tratamento_medico = Utils::toLatin1($this->getRequest()->desc_tratamento_medico);
         $obj->medicacao_especifica = ($this->getRequest()->medicacao_especifica == 'on' ? 'S' : 'N');
-        $obj->desc_medicacao_especifica = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_medicacao_especifica);
+        $obj->desc_medicacao_especifica = Utils::toLatin1($this->getRequest()->desc_medicacao_especifica);
         $obj->acomp_medico_psicologico = ($this->getRequest()->acomp_medico_psicologico == 'on' ? 'S' : 'N');
-        $obj->desc_acomp_medico_psicologico = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_acomp_medico_psicologico);
+        $obj->desc_acomp_medico_psicologico = Utils::toLatin1($this->getRequest()->desc_acomp_medico_psicologico);
         $obj->acomp_medico_psicologico = ($this->getRequest()->acomp_medico_psicologico == 'on' ? 'S' : 'N');
-        $obj->desc_acomp_medico_psicologico = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_acomp_medico_psicologico);
+        $obj->desc_acomp_medico_psicologico = Utils::toLatin1($this->getRequest()->desc_acomp_medico_psicologico);
         $obj->restricao_atividade_fisica = ($this->getRequest()->restricao_atividade_fisica == 'on' ? 'S' : 'N');
-        $obj->desc_restricao_atividade_fisica = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_restricao_atividade_fisica);
+        $obj->desc_restricao_atividade_fisica = Utils::toLatin1($this->getRequest()->desc_restricao_atividade_fisica);
         $obj->fratura_trauma = ($this->getRequest()->fratura_trauma == 'on' ? 'S' : 'N');
-        $obj->desc_fratura_trauma = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_fratura_trauma);
+        $obj->desc_fratura_trauma = Utils::toLatin1($this->getRequest()->desc_fratura_trauma);
         $obj->plano_saude = ($this->getRequest()->plano_saude == 'on' ? 'S' : 'N');
-        $obj->desc_plano_saude = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_plano_saude);
-        $obj->responsavel = Portabilis_String_Utils::toLatin1($this->getRequest()->responsavel);
-        $obj->responsavel_parentesco = Portabilis_String_Utils::toLatin1($this->getRequest()->responsavel_parentesco);
-        $obj->responsavel_parentesco_telefone = Portabilis_String_Utils::toLatin1($this->getRequest()->responsavel_parentesco_telefone);
-        $obj->responsavel_parentesco_celular = Portabilis_String_Utils::toLatin1($this->getRequest()->responsavel_parentesco_celular);
+        $obj->desc_plano_saude = Utils::toLatin1($this->getRequest()->desc_plano_saude);
+        $obj->responsavel = Utils::toLatin1($this->getRequest()->responsavel);
+        $obj->responsavel_parentesco = Utils::toLatin1($this->getRequest()->responsavel_parentesco);
+        $obj->responsavel_parentesco_telefone = Utils::toLatin1($this->getRequest()->responsavel_parentesco_telefone);
+        $obj->responsavel_parentesco_celular = Utils::toLatin1($this->getRequest()->responsavel_parentesco_celular);
         $obj->aceita_hospital_proximo = ($this->getRequest()->aceita_hospital_proximo == 'on' ? 'S' : 'N');
-        $obj->desc_aceita_hospital_proximo = Portabilis_String_Utils::toLatin1($this->getRequest()->desc_aceita_hospital_proximo);
+        $obj->desc_aceita_hospital_proximo = Utils::toLatin1($this->getRequest()->desc_aceita_hospital_proximo);
 
         return ($obj->existe() ? $obj->edita() : $obj->cadastra());
     }
@@ -496,7 +496,7 @@ class AlunoController extends ApiCoreController
         $obj->ref_cod_aluno = $id;
         $obj->moradia = $this->getRequest()->moradia;
         $obj->material = $this->getRequest()->material;
-        $obj->casa_outra = Portabilis_String_Utils::toLatin1($this->getRequest()->casa_outra);
+        $obj->casa_outra = Utils::toLatin1($this->getRequest()->casa_outra);
         $obj->moradia_situacao = $this->getRequest()->moradia_situacao;
         $obj->quartos = $this->getRequest()->quartos;
         $obj->sala = $this->getRequest()->sala;
@@ -617,17 +617,17 @@ class AlunoController extends ApiCoreController
         $alunoEstadoId = preg_replace($mask['pattern'], $mask['replacement'], $alunoEstadoId);
         $aluno->aluno_estado_id = $alunoEstadoId;
 
-        $aluno->codigo_sistema = Portabilis_String_Utils::toLatin1($this->getRequest()->codigo_sistema);
-        $aluno->autorizado_um = Portabilis_String_Utils::toLatin1($this->getRequest()->autorizado_um);
-        $aluno->parentesco_um = Portabilis_String_Utils::toLatin1($this->getRequest()->parentesco_um);
-        $aluno->autorizado_dois = Portabilis_String_Utils::toLatin1($this->getRequest()->autorizado_dois);
-        $aluno->parentesco_dois = Portabilis_String_Utils::toLatin1($this->getRequest()->parentesco_dois);
-        $aluno->autorizado_tres = Portabilis_String_Utils::toLatin1($this->getRequest()->autorizado_tres);
-        $aluno->parentesco_tres = Portabilis_String_Utils::toLatin1($this->getRequest()->parentesco_tres);
-        $aluno->autorizado_quatro = Portabilis_String_Utils::toLatin1($this->getRequest()->autorizado_quatro);
-        $aluno->parentesco_quatro = Portabilis_String_Utils::toLatin1($this->getRequest()->parentesco_quatro);
-        $aluno->autorizado_cinco = Portabilis_String_Utils::toLatin1($this->getRequest()->autorizado_cinco);
-        $aluno->parentesco_cinco = Portabilis_String_Utils::toLatin1($this->getRequest()->parentesco_cinco);
+        $aluno->codigo_sistema = Utils::toLatin1($this->getRequest()->codigo_sistema);
+        $aluno->autorizado_um = Utils::toLatin1($this->getRequest()->autorizado_um);
+        $aluno->parentesco_um = Utils::toLatin1($this->getRequest()->parentesco_um);
+        $aluno->autorizado_dois = Utils::toLatin1($this->getRequest()->autorizado_dois);
+        $aluno->parentesco_dois = Utils::toLatin1($this->getRequest()->parentesco_dois);
+        $aluno->autorizado_tres = Utils::toLatin1($this->getRequest()->autorizado_tres);
+        $aluno->parentesco_tres = Utils::toLatin1($this->getRequest()->parentesco_tres);
+        $aluno->autorizado_quatro = Utils::toLatin1($this->getRequest()->autorizado_quatro);
+        $aluno->parentesco_quatro = Utils::toLatin1($this->getRequest()->parentesco_quatro);
+        $aluno->autorizado_cinco = Utils::toLatin1($this->getRequest()->autorizado_cinco);
+        $aluno->parentesco_cinco = Utils::toLatin1($this->getRequest()->parentesco_cinco);
 
         // após cadastro não muda mais id Pessoa
         if (is_null($id)) {
@@ -663,10 +663,10 @@ class AlunoController extends ApiCoreController
         $this->savePhoto($pessoaId);
 
         //documentos
-        $aluno->url_documento = Portabilis_String_Utils::toLatin1($this->getRequest()->url_documento);
+        $aluno->url_documento = Utils::toLatin1($this->getRequest()->url_documento);
 
         //laudo medico
-        $aluno->url_laudo_medico = Portabilis_String_Utils::toLatin1($this->getRequest()->url_laudo_medico);
+        $aluno->url_laudo_medico = Utils::toLatin1($this->getRequest()->url_laudo_medico);
 
         if (is_null($id)) {
             $id = $aluno->cadastra();
@@ -1175,18 +1175,18 @@ class AlunoController extends ApiCoreController
             $aluno['tipo_responsavel'] = $this->tipoResponsavel($aluno);
             $aluno['aluno_inep_id'] = $this->loadAlunoInepId($id);
             $aluno['ativo'] = $aluno['ativo'] == 1;
-            $aluno['aluno_estado_id'] = Portabilis_String_Utils::toUtf8($aluno['aluno_estado_id']);
-            $aluno['codigo_sistema'] = Portabilis_String_Utils::toUtf8($aluno['codigo_sistema']);
-            $aluno['autorizado_um'] = Portabilis_String_Utils::toUtf8($aluno['autorizado_um']);
-            $aluno['parentesco_um'] = Portabilis_String_Utils::toUtf8($aluno['parentesco_um']);
-            $aluno['autorizado_dois'] = Portabilis_String_Utils::toUtf8($aluno['autorizado_dois']);
-            $aluno['parentesco_dois'] = Portabilis_String_Utils::toUtf8($aluno['parentesco_dois']);
-            $aluno['autorizado_tres'] = Portabilis_String_Utils::toUtf8($aluno['autorizado_tres']);
-            $aluno['parentesco_tres'] = Portabilis_String_Utils::toUtf8($aluno['parentesco_tres']);
-            $aluno['autorizado_quatro'] = Portabilis_String_Utils::toUtf8($aluno['autorizado_quatro']);
-            $aluno['parentesco_quatro'] = Portabilis_String_Utils::toUtf8($aluno['parentesco_quatro']);
-            $aluno['autorizado_cinco'] = Portabilis_String_Utils::toUtf8($aluno['autorizado_cinco']);
-            $aluno['parentesco_cinco'] = Portabilis_String_Utils::toUtf8($aluno['parentesco_cinco']);
+            $aluno['aluno_estado_id'] = Utils::toUtf8($aluno['aluno_estado_id']);
+            $aluno['codigo_sistema'] = Utils::toUtf8($aluno['codigo_sistema']);
+            $aluno['autorizado_um'] = Utils::toUtf8($aluno['autorizado_um']);
+            $aluno['parentesco_um'] = Utils::toUtf8($aluno['parentesco_um']);
+            $aluno['autorizado_dois'] = Utils::toUtf8($aluno['autorizado_dois']);
+            $aluno['parentesco_dois'] = Utils::toUtf8($aluno['parentesco_dois']);
+            $aluno['autorizado_tres'] = Utils::toUtf8($aluno['autorizado_tres']);
+            $aluno['parentesco_tres'] = Utils::toUtf8($aluno['parentesco_tres']);
+            $aluno['autorizado_quatro'] = Utils::toUtf8($aluno['autorizado_quatro']);
+            $aluno['parentesco_quatro'] = Utils::toUtf8($aluno['parentesco_quatro']);
+            $aluno['autorizado_cinco'] = Utils::toUtf8($aluno['autorizado_cinco']);
+            $aluno['parentesco_cinco'] = Utils::toUtf8($aluno['parentesco_cinco']);
             $aluno['veiculo_transporte_escolar'] = Database::pgArrayToArray($aluno['veiculo_transporte_escolar']);
             $aluno['alfabetizado'] = $aluno['analfabeto'] == 0;
             unset($aluno['analfabeto']);
@@ -1204,7 +1204,7 @@ class AlunoController extends ApiCoreController
                 $objFichaMedica = $objFichaMedica->detalhe();
 
                 foreach ($objFichaMedica as $chave => $value) {
-                    $objFichaMedica[$chave] = Portabilis_String_Utils::toUtf8($value);
+                    $objFichaMedica[$chave] = Utils::toUtf8($value);
                 }
 
                 $aluno = Utils::merge($objFichaMedica, $aluno);
@@ -1215,7 +1215,7 @@ class AlunoController extends ApiCoreController
                 $objMoradia = $objMoradia->detalhe();
 
                 foreach ($objMoradia as $chave => $value) {
-                    $objMoradia[$chave] = Portabilis_String_Utils::toUtf8($value);
+                    $objMoradia[$chave] = Utils::toUtf8($value);
                 }
 
                 $aluno = Utils::merge($objMoradia, $aluno);
@@ -1226,7 +1226,7 @@ class AlunoController extends ApiCoreController
 
             if ($objPessoaTransporte) {
                 foreach ($objPessoaTransporte as $chave => $value) {
-                    $objPessoaTransporte[$chave] = Portabilis_String_Utils::toUtf8($value);
+                    $objPessoaTransporte[$chave] = Utils::toUtf8($value);
                 }
 
                 $aluno = Utils::merge($objPessoaTransporte, $aluno);
@@ -1401,7 +1401,7 @@ class AlunoController extends ApiCoreController
                 $alunos = Utils::filterSet($alunos, $attrs);
 
                 foreach ($alunos as &$aluno) {
-                    $aluno['nome_aluno'] = Portabilis_String_Utils::toUtf8($aluno['nome_aluno']);
+                    $aluno['nome_aluno'] = Utils::toUtf8($aluno['nome_aluno']);
                 }
 
                 return ['alunos' => $alunos];
@@ -1705,7 +1705,7 @@ class AlunoController extends ApiCoreController
         $pt->ref_idpes_destino = $this->getRequest()->pessoaj_id;
         $pt->ref_cod_ponto_transporte_escolar = $this->getRequest()->transporte_ponto;
         $pt->ref_cod_rota_transporte_escolar = $this->getRequest()->transporte_rota;
-        $pt->observacao = Portabilis_String_Utils::toLatin1($this->getRequest()->transporte_observacao);
+        $pt->observacao = Utils::toLatin1($this->getRequest()->transporte_observacao);
 
         return (is_null($id) ? $pt->cadastra() : $pt->edita());
     }

@@ -243,20 +243,20 @@ class indice extends clsDetalhe
         }
 
         if ($registro['aprovado'] == App_Model_MatriculaSituacao::FALECIDO) {
-            $this->addDetalhe(['Observação', Portabilis_String_Utils::toLatin1($registro['observacao'])]);
+            $this->addDetalhe(['Observação', Utils::toLatin1($registro['observacao'])]);
         }
 
         if ($existeSaidaEscola) {
             $this->addDetalhe(['Saída da escola', 'Sim']);
             $this->addDetalhe(['Data de saída da escola', Utils::pgSQLToBr($registro['data_saida_escola'])]);
-            $this->addDetalhe(['Observação', Portabilis_String_Utils::toLatin1($registro['observacao'])]);
+            $this->addDetalhe(['Observação', Utils::toLatin1($registro['observacao'])]);
         }
 
         if ($campoObs) {
             $tipoAbandono = new clsPmieducarAbandonoTipo($registro['ref_cod_abandono_tipo']);
             $tipoAbandono = $tipoAbandono->detalhe();
 
-            $observacaoAbandono = Portabilis_String_Utils::toLatin1($registro['observacao']);
+            $observacaoAbandono = Utils::toLatin1($registro['observacao']);
 
             $this->addDetalhe(['Motivo do Abandono', $tipoAbandono['nome']]);
             $this->addDetalhe(['Observação', $observacaoAbandono]);

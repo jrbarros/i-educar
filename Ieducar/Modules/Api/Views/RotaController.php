@@ -40,7 +40,7 @@ class RotaController extends ApiCoreController
         $rota->cod_rota_transporte_escolar = $id;
 
         // após cadastro não muda mais id Pessoa
-        $rota->descricao = Portabilis_String_Utils::toLatin1($this->getRequest()->desc);
+        $rota->descricao = Utils::toLatin1($this->getRequest()->desc);
         $rota->ref_idpes_destino = $this->getRequest()->pessoaj_id;
         $rota->ano = $this->getRequest()->ano;
         $rota->tipo_rota = $this->getRequest()->tipo_rota;
@@ -89,9 +89,9 @@ class RotaController extends ApiCoreController
 
         $rota = Utils::filter($rota, $attrs);
 
-        $rota['nomeEmpresa'] = Portabilis_String_Utils::toUtf8($this->loadNomeEmpresa($id));
-        $rota['nomeDestino'] = Portabilis_String_Utils::toUtf8($this->loadNomePessoaj($id));
-        $rota['desc'] = Portabilis_String_Utils::toUtf8($rota['desc']);
+        $rota['nomeEmpresa'] = Utils::toUtf8($this->loadNomeEmpresa($id));
+        $rota['nomeDestino'] = Utils::toUtf8($this->loadNomePessoaj($id));
+        $rota['desc'] = Utils::toUtf8($rota['desc']);
 
         return $rota;
     }

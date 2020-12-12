@@ -34,7 +34,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchComponenteCurricular e
 
     protected function placeholderJs($options)
     {
-        $optionsVarName = 'multipleSearch' . Portabilis_String_Utils::camelize($options['objectName']) . 'Options';
+        $optionsVarName = 'multipleSearch' . Utils::camelize($options['objectName']) . 'Options';
         $searchForArea = $options['searchForArea'] ? 'true' : 'false';
         $js = "
             if (typeof $optionsVarName == 'undefined') { $optionsVarName = {} };

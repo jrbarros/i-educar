@@ -324,7 +324,7 @@ class PromocaoApiController extends ApiCoreController
                                     'etapa' => $etapa])
                             );
 
-                            $this->messenger->append(Portabilis_String_Utils::toUtf8("Lançado falta (valor $defaultValue) para etapa $etapa e componente curricular {$cc['id']} - {$cc['nome']} (Matricula $matriculaId)"), 'notice');
+                            $this->messenger->append(Utils::toUtf8("Lançado falta (valor $defaultValue) para etapa $etapa e componente curricular {$cc['id']} - {$cc['nome']} (Matricula $matriculaId)"), 'notice');
                         }
                     }
                 }

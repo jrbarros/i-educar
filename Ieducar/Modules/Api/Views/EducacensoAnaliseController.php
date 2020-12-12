@@ -88,7 +88,7 @@ class EducacensoAnaliseController extends ApiCoreController
             ];
         }
 
-        $nomeEscola = Portabilis_String_Utils::toUtf8(strtoupper($escola->nome));
+        $nomeEscola = Utils::toUtf8(strtoupper($escola->nome));
         $codEscola = $escola->idEscola;
 
         $codInstituicao = $escola->idInstituicao;
@@ -1495,7 +1495,7 @@ class EducacensoAnaliseController extends ApiCoreController
         $mensagem = [];
 
         foreach ($escolas as $escola) {
-            $nomeEscola = Portabilis_String_Utils::toUtf8(mb_strtoupper($escola['nome_escola']));
+            $nomeEscola = Utils::toUtf8(mb_strtoupper($escola['nome_escola']));
 
             if (is_null($escola['inep'])) {
                 $mensagem[] = [
@@ -1572,9 +1572,9 @@ class EducacensoAnaliseController extends ApiCoreController
         $ultimaTurmaVerificada;
 
         foreach ($alunos as $aluno) {
-            $nomeEscola = Portabilis_String_Utils::toUtf8(mb_strtoupper($aluno['nome_escola']));
-            $nomeTurma = Portabilis_String_Utils::toUtf8(mb_strtoupper($aluno['nome_turma']));
-            $nomeAluno = Portabilis_String_Utils::toUtf8(mb_strtoupper($aluno['nome_aluno']));
+            $nomeEscola = Utils::toUtf8(mb_strtoupper($aluno['nome_escola']));
+            $nomeTurma = Utils::toUtf8(mb_strtoupper($aluno['nome_turma']));
+            $nomeAluno = Utils::toUtf8(mb_strtoupper($aluno['nome_aluno']));
 
             if (is_null($aluno['inep_turma']) && $ultimaTurmaVerificada != $aluno['nome_turma']) {
                 $mensagem[] = [
@@ -1633,8 +1633,8 @@ class EducacensoAnaliseController extends ApiCoreController
         $mensagem = [];
 
         foreach ($alunos as $aluno) {
-            $nomeEscola = Portabilis_String_Utils::toUtf8(mb_strtoupper($aluno['nome_escola']));
-            $nomeAluno = Portabilis_String_Utils::toUtf8(mb_strtoupper($aluno['nome_aluno']));
+            $nomeEscola = Utils::toUtf8(mb_strtoupper($aluno['nome_escola']));
+            $nomeAluno = Utils::toUtf8(mb_strtoupper($aluno['nome_aluno']));
 
             if (is_null($aluno['cod_inep'])) {
                 $mensagem[] = [

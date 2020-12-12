@@ -30,7 +30,7 @@ class PontoController extends ApiCoreController
         }
 
         // após cadastro não muda mais id Pessoa
-        $ponto->descricao = Portabilis_String_Utils::toLatin1($this->getRequest()->desc);
+        $ponto->descricao = Utils::toLatin1($this->getRequest()->desc);
 
         $ponto->latitude = $this->getRequest()->latitude;
         $ponto->longitude = $this->getRequest()->longitude;
@@ -95,7 +95,7 @@ class PontoController extends ApiCoreController
         ];
 
         $pt = Utils::filter($ponto, $attrs);
-        $pt['desc'] = Portabilis_String_Utils::toUtf8($pt['desc']);
+        $pt['desc'] = Utils::toUtf8($pt['desc']);
 
         $pt['bairro'] = $this->toUtf8($pt['bairro']);
         $pt['distrito'] = $this->toUtf8($pt['distrito']);

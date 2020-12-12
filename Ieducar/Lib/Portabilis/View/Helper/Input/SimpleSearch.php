@@ -68,7 +68,7 @@ class Portabilis_View_Helper_Input_SimpleSearch extends Portabilis_View_Helper_I
     {
         $textHelperOptions = ['objectName' => $objectName];
 
-        $options['options']['placeholder'] = Portabilis_String_Utils::toLatin1(
+        $options['options']['placeholder'] = Utils::toLatin1(
             $this->inputPlaceholder([]),
             ['escape' => false]
         );
@@ -81,7 +81,7 @@ class Portabilis_View_Helper_Input_SimpleSearch extends Portabilis_View_Helper_I
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/SimpleSearch.js';
         Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
 
-        $resourceOptions = 'simpleSearch' . Portabilis_String_Utils::camelize($objectName) . 'Options';
+        $resourceOptions = 'simpleSearch' . Utils::camelize($objectName) . 'Options';
 
         $js = "
             $resourceOptions = typeof $resourceOptions == 'undefined' ? {} : $resourceOptions;

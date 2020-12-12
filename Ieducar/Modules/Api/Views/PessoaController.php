@@ -308,7 +308,7 @@ class PessoaController extends ApiCoreController
             $details = $this->fetchPreparedQuery($_sql, $this->getRequest()->id, false, 'first-row');
 
             $details['data_nascimento'] = Utils::pgSQLToBr($details['data_nasc']);
-            $details['nome'] = Portabilis_String_Utils::toUtf8($details['nome']);
+            $details['nome'] = Utils::toUtf8($details['nome']);
             $details['id'] = $this->getRequest()->id;
             $details['falecido'] = dbBool($details['falecido']);
 
@@ -541,7 +541,7 @@ class PessoaController extends ApiCoreController
     {
         $pessoa = new clsPessoa_();
         $pessoa->idpes = $pessoaId;
-        $pessoa->nome = Portabilis_String_Utils::toLatin1($this->getRequest()->nome);
+        $pessoa->nome = Utils::toLatin1($this->getRequest()->nome);
 
         $sql = 'select 1 from cadastro.Pessoa WHERE idpes = $1 limit 1';
 

@@ -129,11 +129,11 @@ class indice extends clsListagem
         $this->inputsHelper()->dynamic(['ano', 'instituicao','escola','curso','serie', 'turma'], ['required' => false]);
 
         $resources_funcao = SelectOptions::funcoesExercidaServidor();
-        $options = ['label' => Portabilis_String_Utils::toLatin1('Função exercida'), 'resources' => $resources_funcao, 'value' => $this->funcao_exercida];
+        $options = ['label' => Utils::toLatin1('Função exercida'), 'resources' => $resources_funcao, 'value' => $this->funcao_exercida];
         $this->inputsHelper()->select('funcao_exercida', $options);
 
         $resources_tipo = SelectOptions::tiposVinculoServidor();
-        $options = ['label' => Portabilis_String_Utils::toLatin1('Tipo do vínculo'), 'resources' => $resources_tipo, 'value' => $this->tipo_vinculo];
+        $options = ['label' => Utils::toLatin1('Tipo do vínculo'), 'resources' => $resources_tipo, 'value' => $this->tipo_vinculo];
         $this->inputsHelper()->select('tipo_vinculo', $options);
 
         // Paginador

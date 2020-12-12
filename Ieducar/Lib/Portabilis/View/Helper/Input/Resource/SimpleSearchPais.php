@@ -13,7 +13,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchPais extends Portabilis_
             $options = ['params' => $id, 'return_only' => 'first-field'];
             $nome = Database::fetchPreparedQuery($sql, $options);
 
-            return Portabilis_String_Utils::toLatin1($nome, ['transform' => true, 'escape' => false]);
+            return Utils::toLatin1($nome, ['transform' => true, 'escape' => false]);
         }
     }
 

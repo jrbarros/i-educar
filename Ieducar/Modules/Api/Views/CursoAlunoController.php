@@ -23,7 +23,7 @@ class CursoAlunoController extends ApiCoreController
             $options = [];
 
             foreach ($cursos as $curso) {
-                $options[$curso['id']] = Portabilis_String_Utils::toUtf8($curso['nome']);
+                $options[$curso['id']] = Utils::toUtf8($curso['nome']);
             }
 
             return ['options' => $options];

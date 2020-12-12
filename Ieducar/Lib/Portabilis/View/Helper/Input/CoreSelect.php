@@ -27,7 +27,7 @@ class Portabilis_View_Helper_Input_CoreSelect extends Portabilis_View_Helper_Inp
         // select options
 
         $defaultInputOptions = [
-            'label' => Portabilis_String_Utils::humanize($this->inputName()),
+            'label' => Utils::humanize($this->inputName()),
             'value' => $this->inputValue($this->options['id']),
             'resources' => $this->inputOptions($this->options)
         ];
@@ -48,7 +48,7 @@ class Portabilis_View_Helper_Input_CoreSelect extends Portabilis_View_Helper_Inp
     {
         return $this->insertOption(
             null,
-            'Selecione um(a) ' . Portabilis_String_Utils::humanize($this->inputName()),
+            'Selecione um(a) ' . Utils::humanize($this->inputName()),
             $resources
         );
     }

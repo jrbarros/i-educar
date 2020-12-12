@@ -14,7 +14,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchIes extends Portabilis_V
             $ies = Database::fetchPreparedQuery($sql, $options);
             $nome = $ies['nome'];
 
-            return Portabilis_String_Utils::toLatin1($nome, ['transform' => true, 'escape' => false]);
+            return Utils::toLatin1($nome, ['transform' => true, 'escape' => false]);
         }
     }
 

@@ -11,7 +11,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchMotorista extends Portab
             $options = ['params' => $id, 'return_only' => 'first-field'];
             $nome = Database::fetchPreparedQuery($sql, $options);
 
-            return Portabilis_String_Utils::toUtf8($nome, ['transform' => true, 'escape' => false]);
+            return Utils::toUtf8($nome, ['transform' => true, 'escape' => false]);
         }
     }
 

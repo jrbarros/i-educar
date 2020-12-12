@@ -33,10 +33,10 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchLogradouro extends Porta
 
             $options = ['params' => $id, 'return_only' => 'first-row'];
             $resource = Database::fetchPreparedQuery($sql, $options);
-            $tipo = Portabilis_String_Utils::toUtf8($resource['tipo_logradouro']);
-            $nome = Portabilis_String_Utils::toUtf8($resource['nome']);
+            $tipo = Utils::toUtf8($resource['tipo_logradouro']);
+            $nome = Utils::toUtf8($resource['nome']);
 
-            return Portabilis_String_Utils::toLatin1($tipo . ' ' . $nome, ['transform' => true, 'escape' => false]);
+            return Utils::toLatin1($tipo . ' ' . $nome, ['transform' => true, 'escape' => false]);
         }
     }
 

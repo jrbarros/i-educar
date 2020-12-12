@@ -151,7 +151,7 @@ class VeiculoController extends Portabilis_Controller_Page_EditController
 
         // descrição
         $options = [
-            'label' => Portabilis_String_Utils::toLatin1($this->_getLabel('descricao')),
+            'label' => Utils::toLatin1($this->_getLabel('descricao')),
             'required' => true,
             'size' => 50,
             'max_length' => 255
@@ -160,7 +160,7 @@ class VeiculoController extends Portabilis_Controller_Page_EditController
 
         //placa
         $options = [
-            'label' => Portabilis_String_Utils::toLatin1($this->_getLabel('placa')),
+            'label' => Utils::toLatin1($this->_getLabel('placa')),
             'required' => false,
             'size' => 10,
             'max_length' => 10
@@ -169,7 +169,7 @@ class VeiculoController extends Portabilis_Controller_Page_EditController
 
         //renavam
         $options = [
-            'label' => Portabilis_String_Utils::toLatin1($this->_getLabel('renavam')),
+            'label' => Utils::toLatin1($this->_getLabel('renavam')),
             'required' => false,
             'size' => 15,
             'max_length' => 15
@@ -178,7 +178,7 @@ class VeiculoController extends Portabilis_Controller_Page_EditController
 
         //chassi
         $options = [
-            'label' => Portabilis_String_Utils::toLatin1($this->_getLabel('chassi')),
+            'label' => Utils::toLatin1($this->_getLabel('chassi')),
             'required' => false,
             'size' => 30,
             'max_length' => 30
@@ -187,7 +187,7 @@ class VeiculoController extends Portabilis_Controller_Page_EditController
 
         //marca
         $options = [
-            'label' => Portabilis_String_Utils::toLatin1($this->_getLabel('marca')),
+            'label' => Utils::toLatin1($this->_getLabel('marca')),
             'required' => false,
             'size' => 50,
             'max_length' => 50
@@ -227,9 +227,9 @@ class VeiculoController extends Portabilis_Controller_Page_EditController
         // Malha
         $malhas = [
             null => 'Selecione uma Malha',
-            'A' => Portabilis_String_Utils::toLatin1('Aquaviária/Embarcação'),
-            'F' => Portabilis_String_Utils::toLatin1('Ferroviária'),
-            'R' => Portabilis_String_Utils::toLatin1('Rodoviária')
+            'A' => Utils::toLatin1('Aquaviária/Embarcação'),
+            'F' => Utils::toLatin1('Ferroviária'),
+            'R' => Utils::toLatin1('Rodoviária')
         ];
 
         $options = [
@@ -260,20 +260,20 @@ class VeiculoController extends Portabilis_Controller_Page_EditController
         $this->inputsHelper()->select('tipo', $options);
 
         // Exclusivo transporte escolar
-        $options = ['label' => Portabilis_String_Utils::toLatin1($this->_getLabel('exclusivo_transporte_escolar'))];
+        $options = ['label' => Utils::toLatin1($this->_getLabel('exclusivo_transporte_escolar'))];
         $this->inputsHelper()->checkbox('exclusivo_transporte_escolar', $options);
 
         // Adaptado a necessidades especiais
-        $options = ['label' => Portabilis_String_Utils::toLatin1($this->_getLabel('adaptado_necessidades_especiais'))];
+        $options = ['label' => Utils::toLatin1($this->_getLabel('adaptado_necessidades_especiais'))];
         $this->inputsHelper()->checkbox('adaptado_necessidades_especiais', $options);
 
         // Ativo
-        $options = ['label' => Portabilis_String_Utils::toLatin1($this->_getLabel('ativo')), 'value' => 'on'];
+        $options = ['label' => Utils::toLatin1($this->_getLabel('ativo')), 'value' => 'on'];
         $this->inputsHelper()->checkbox('ativo', $options);
 
         // descricao_inativo
         $options = [
-            'label' => Portabilis_String_Utils::toLatin1($this->_getLabel('descricao_inativo')),
+            'label' => Utils::toLatin1($this->_getLabel('descricao_inativo')),
             'required' => false,
             'size' => 50,
             'max_length' => 155
@@ -281,16 +281,16 @@ class VeiculoController extends Portabilis_Controller_Page_EditController
         $this->inputsHelper()->textArea('descricao_inativo', $options);
 
         // Codigo da empresa
-        $options = ['label' => Portabilis_String_Utils::toLatin1($this->_getLabel('empresa')), 'required' => true];
+        $options = ['label' => Utils::toLatin1($this->_getLabel('empresa')), 'required' => true];
         $this->inputsHelper()->simpleSearchEmpresa('empresa', $options);
 
         // Codigo do motorista
-        $options = ['label' => Portabilis_String_Utils::toLatin1($this->_getLabel('motorista')), 'required' => false];
+        $options = ['label' => Utils::toLatin1($this->_getLabel('motorista')), 'required' => false];
         $this->inputsHelper()->simpleSearchMotorista('motorista', $options);
 
         // observações
         $options = [
-            'label' => Portabilis_String_Utils::toLatin1($this->_getLabel('observacao')),
+            'label' => Utils::toLatin1($this->_getLabel('observacao')),
             'required' => false,
             'size' => 50,
             'max_length' => 255

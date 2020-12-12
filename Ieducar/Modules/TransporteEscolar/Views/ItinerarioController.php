@@ -63,7 +63,7 @@ class ItinerarioController extends Portabilis_Controller_Page_EditController
 
         // descricao
         $options = [
-            'label' => Portabilis_String_Utils::toLatin1($this->_getLabel('descricao')),
+            'label' => Utils::toLatin1($this->_getLabel('descricao')),
             'disabled' => true,
             'size' => 50,
             'max_length' => 50

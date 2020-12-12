@@ -11,11 +11,11 @@ class Portabilis_View_Helper_Input_Numeric extends Portabilis_View_Helper_Input_
             $j(\'#' . $inputOptions['id'] . "').keyup(function(){
                 var oldValue = this.value;
                 this.value = this.value.replace(/[^0-9\.-]/g, '');
-                
+
                 if (oldValue != this.value)
                     messageUtils.error('Informe apenas números.', this);
             });
-    
+
             \$j('#" . $inputOptions['id'] . '\').on(\'change\', function(){
                 if (this.value.length && !new RegExp(\'^-?\\\\d*\\\\.{0,1}\\\\d+$\').test(this.value)) {
                     messageUtils.error(\'Informe apenas valores numéricos.\', this);
@@ -53,7 +53,7 @@ class Portabilis_View_Helper_Input_Numeric extends Portabilis_View_Helper_Input_
         ];
 
         $inputOptions = $this->mergeOptions($options['options'], $defaultInputOptions);
-        $inputOptions['label'] = Portabilis_String_Utils::toLatin1($inputOptions['label'], ['escape' => false]);
+        $inputOptions['label'] = Utils::toLatin1($inputOptions['label'], ['escape' => false]);
 
         call_user_func_array([$this->viewInstance, 'campoNumero'], $inputOptions);
 

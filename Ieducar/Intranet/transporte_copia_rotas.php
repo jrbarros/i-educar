@@ -212,16 +212,16 @@ class indice extends clsCadastro
                     }
                     $num++;
                 }
-                $this->mensagem = Portabilis_String_Utils::toLatin1('Cópia efetuada com sucesso');
+                $this->mensagem = Utils::toLatin1('Cópia efetuada com sucesso');
 
                 return true;
             } else {
-                $this->mensagem = Portabilis_String_Utils::toLatin1("A empresa já possuí­ rotas em {$this->ano_dest}");
+                $this->mensagem = Utils::toLatin1("A empresa já possuí­ rotas em {$this->ano_dest}");
 
                 return false;
             }
         } else {
-            $this->mensagem = Portabilis_String_Utils::toLatin1("Não existe rotas em $this->ano_orig para essa empresa");
+            $this->mensagem = Utils::toLatin1("Não existe rotas em $this->ano_orig para essa empresa");
 
             return false;
         }

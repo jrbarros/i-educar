@@ -965,7 +965,7 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
     {
         $sql = 'select nm_serie from pmieducar.serie where cod_serie = $1';
 
-        return Portabilis_String_Utils::toLatin1(Database::selectField($sql, $serieId));
+        return Utils::toLatin1(Database::selectField($sql, $serieId));
     }
 
     protected function getSequencial($alunoId, $ano, $matriculaId)
@@ -1283,6 +1283,6 @@ class ProcessamentoApiController extends Core_Controller_Page_EditController
 
     protected function toUtf8($str, $options = [])
     {
-        return Portabilis_String_Utils::toUtf8($str, $options);
+        return Utils::toUtf8($str, $options);
     }
 }

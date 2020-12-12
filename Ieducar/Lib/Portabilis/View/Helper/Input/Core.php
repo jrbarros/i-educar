@@ -33,7 +33,7 @@ class Portabilis_View_Helper_Input_Core
 
     protected function inputName()
     {
-        return Portabilis_String_Utils::underscore($this->helperName());
+        return Utils::underscore($this->helperName());
     }
 
     protected function inputValue($value = null)

@@ -83,7 +83,7 @@ class TipoExemplarController extends ApiCoreController
             $options = [];
 
             foreach ($records as $record) {
-                $options[$record->cod_exemplar_tipo] = Portabilis_String_Utils::toUtf8($record->nm_tipo);
+                $options[$record->cod_exemplar_tipo] = Utils::toUtf8($record->nm_tipo);
             }
 
             return ['options' => $options];

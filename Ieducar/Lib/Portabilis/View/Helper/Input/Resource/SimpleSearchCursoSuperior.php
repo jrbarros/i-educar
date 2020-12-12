@@ -27,7 +27,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchCursoSuperior extends Po
             $curso_superior = Database::fetchPreparedQuery($sql, $options);
             $nome = $curso_superior['nome'];
 
-            return Portabilis_String_Utils::toLatin1($nome, ['transform' => true, 'escape' => false]);
+            return Utils::toLatin1($nome, ['transform' => true, 'escape' => false]);
         }
     }
 

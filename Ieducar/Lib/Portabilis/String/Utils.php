@@ -1,12 +1,18 @@
 <?php
 
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\String;
 
-class Portabilis_String_Utils
+use iEducarLegacy\Lib\Portabilis\Collection\Utils as Collection;
+
+/**
+ * Class Utils
+ * @package iEducarLegacy\Lib\Portabilis\String
+ */
+class Utils
 {
     protected static function mergeOptions($options, $defaultOptions)
     {
-        return Utils::merge($options, $defaultOptions);
+        return Collection::merge($options, $defaultOptions);
     }
 
     /**
@@ -14,7 +20,7 @@ class Portabilis_String_Utils
      * $divisors = array('-', ' '); // or $divisors = '-';
      * $options = array('limit' => 2, 'trim' => true);
      *
-     * Portabilis_String_Utils::split($divisors, '123 - Some value', $options);
+     * Utils::split($divisors, '123 - Some value', $options);
      * => array([0] => '123', [1] => 'Some value');
      */
     public static function split($divisors, $string, $options = [])
@@ -81,7 +87,7 @@ class Portabilis_String_Utils
 
     public static function unaccent($str)
     {
-        $fromEncoding = Portabilis_String_Utils::encoding($str);
+        $fromEncoding = Utils::encoding($str);
 
         return iconv($fromEncoding, 'US-ASCII//TRANSLIT', $str);
     }

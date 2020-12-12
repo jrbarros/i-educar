@@ -27,8 +27,8 @@ class UsuarioExportController extends ApiCoreController
         $csv .= 'Matricula,';
         $csv .= 'E-mail,';
         $csv .= 'Status,';
-        $csv .= Portabilis_String_Utils::toLatin1('Tipo_usuário,');
-        $csv .= Portabilis_String_Utils::toLatin1('Instituição,');
+        $csv .= Utils::toLatin1('Tipo_usuário,');
+        $csv .= Utils::toLatin1('Instituição,');
         $csv .= 'Escola,';
         $csv .= PHP_EOL;
 
@@ -43,7 +43,7 @@ class UsuarioExportController extends ApiCoreController
             $csv .= PHP_EOL;
         }
 
-        return ['conteudo' => Portabilis_String_Utils::toUtf8($csv)];
+        return ['conteudo' => Utils::toUtf8($csv)];
     }
 
     public function Gerar()

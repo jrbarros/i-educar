@@ -80,7 +80,7 @@ class EmpresaController extends Portabilis_Controller_Page_EditController
 
         // observações
         $options = [
-            'label' => Portabilis_String_Utils::toLatin1($this->_getLabel('observacao')),
+            'label' => Utils::toLatin1($this->_getLabel('observacao')),
             'required' => false,
             'size' => 50,
             'max_length' => 253

@@ -2,7 +2,7 @@
 
 namespace iEducar\Modules\Educacenso;
 
-use Portabilis_String_Utils;
+use Utils;
 
 trait Formatters
 {
@@ -20,7 +20,7 @@ trait Formatters
 
     public function upperAndUnaccent($string)
     {
-        $string = Portabilis_String_Utils::toUtf8($string);
+        $string = Utils::toUtf8($string);
         $string = preg_replace(array(
             "/(á|à|ã|â|ä)/",
             "/(Á|À|Ã|Â|Ä)/",

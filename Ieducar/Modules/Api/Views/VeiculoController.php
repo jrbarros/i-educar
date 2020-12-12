@@ -35,11 +35,11 @@ class VeiculoController extends ApiCoreController
         $veiculo->cod_veiculo = $id;
 
         // após cadastro não muda mais id Pessoa
-        $veiculo->descricao = Portabilis_String_Utils::toLatin1($this->getRequest()->descricao);
-        $veiculo->placa = Portabilis_String_Utils::toLatin1($this->getRequest()->placa);
+        $veiculo->descricao = Utils::toLatin1($this->getRequest()->descricao);
+        $veiculo->placa = Utils::toLatin1($this->getRequest()->placa);
         $veiculo->renavam = $this->getRequest()->renavam;
         $veiculo->chassi = $this->getRequest()->chassi;
-        $veiculo->marca = Portabilis_String_Utils::toLatin1($this->getRequest()->marca);
+        $veiculo->marca = Utils::toLatin1($this->getRequest()->marca);
         $veiculo->passageiros = $this->getRequest()->passageiros;
         $veiculo->ano_fabricacao = $this->getRequest()->ano_fabricacao;
         $veiculo->ano_modelo = $this->getRequest()->ano_modelo;
@@ -48,10 +48,10 @@ class VeiculoController extends ApiCoreController
         $veiculo->exclusivo_transporte_escolar = ($this->getRequest()->exclusivo_transporte_escolar == 'on' ? 'S' : 'N');
         $veiculo->adaptado_necessidades_especiais = ($this->getRequest()->adaptado_necessidades_especiais == 'on' ? 'S' : 'N');
         $veiculo->ativo = ($this->getRequest()->ativo == 'on' ? 'S' : 'N');
-        $veiculo->descricao_inativo = Portabilis_String_Utils::toLatin1($this->getRequest()->descricao_inativo);
+        $veiculo->descricao_inativo = Utils::toLatin1($this->getRequest()->descricao_inativo);
         $veiculo->ref_cod_empresa_transporte_escolar = $this->getRequest()->empresa_id;
         $veiculo->ref_cod_motorista = $this->getRequest()->motorista_id;
-        $veiculo->observacao = Portabilis_String_Utils::toLatin1($this->getRequest()->observacao);
+        $veiculo->observacao = Utils::toLatin1($this->getRequest()->observacao);
 
         return (is_null($id) ? $veiculo->cadastra() : $veiculo->edita());
     }
@@ -153,14 +153,14 @@ class VeiculoController extends ApiCoreController
 
         $veiculo = Utils::filter($veiculo, $attrs);
 
-        $veiculo['empresaNome'] = Portabilis_String_Utils::toUtf8($this->loadNomeEmpresa($veiculo['empresa']));
-        $veiculo['motoristaNome'] = Portabilis_String_Utils::toUtf8($this->loadNomeMotorista($veiculo['motorista']));
-        $veiculo['descricao'] = Portabilis_String_Utils::toUtf8($veiculo['descricao']);
-        $veiculo['marca'] = Portabilis_String_Utils::toUtf8($veiculo['marca']);
-        $veiculo['placa'] = Portabilis_String_Utils::toUtf8($veiculo['placa']);
-        $veiculo['chassi'] = Portabilis_String_Utils::toUtf8($veiculo['chassi']);
-        $veiculo['descricao_inativo'] = Portabilis_String_Utils::toUtf8($veiculo['descricao_inativo']);
-        $veiculo['observacao'] = Portabilis_String_Utils::toUtf8($veiculo['observacao']);
+        $veiculo['empresaNome'] = Utils::toUtf8($this->loadNomeEmpresa($veiculo['empresa']));
+        $veiculo['motoristaNome'] = Utils::toUtf8($this->loadNomeMotorista($veiculo['motorista']));
+        $veiculo['descricao'] = Utils::toUtf8($veiculo['descricao']);
+        $veiculo['marca'] = Utils::toUtf8($veiculo['marca']);
+        $veiculo['placa'] = Utils::toUtf8($veiculo['placa']);
+        $veiculo['chassi'] = Utils::toUtf8($veiculo['chassi']);
+        $veiculo['descricao_inativo'] = Utils::toUtf8($veiculo['descricao_inativo']);
+        $veiculo['observacao'] = Utils::toUtf8($veiculo['observacao']);
 
         return $veiculo;
     }
