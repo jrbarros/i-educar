@@ -1,8 +1,12 @@
 <?php
 
-require_once 'Source/pmieducar/ServidorAlocacao.php';
+namespace iEducarLegacy\Lib\Portabilis\Business;
 
-class Portabilis_Business_Professor
+/**
+ * Class Professor
+ * @package iEducarLegacy\Lib\Portabilis\Business
+ */
+class Professor
 {
     public static function isProfessor($instituicaoId, $userId)
     {
