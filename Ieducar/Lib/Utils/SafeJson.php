@@ -1,5 +1,11 @@
 <?php
 
+namespace iEducarLegacy\Lib\Utils;
+
+/**
+ * Class SafeJson
+ * @package iEducarLegacy\Lib\Utils
+ */
 class SafeJson
 {
     public static function encode($value, $options = 0, $depth = 512)
@@ -15,7 +21,7 @@ class SafeJson
     private static function handle($value)
     {
         if ($value === false) {
-            throw new Exception(json_last_error_msg());
+            throw new \RuntimeException(json_last_error_msg());
         }
 
         return $value;

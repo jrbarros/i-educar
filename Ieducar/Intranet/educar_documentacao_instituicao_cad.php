@@ -40,7 +40,7 @@ class indice extends clsCadastro
 
     public function Gerar()
     {
-        Portabilis_View_Helper_Application::loadJavascript($this, ['/Modules/Cadastro/Assets/Javascripts/DocumentacaoPadrao.js']);
+        Application::loadJavascript($this, ['/Modules/Cadastro/Assets/Javascripts/DocumentacaoPadrao.js']);
 
         $obj_usuario = new Usuario($this->pessoa_logada);
         $obj_usuario_det = $obj_usuario->detalhe();

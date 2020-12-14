@@ -99,7 +99,7 @@ class indice extends clsListagem
             'C&oacute;digo do ponto',
             'Descrição',
             'CEP',
-            'Munic&iacute;pio - UF',
+            'Munic&iacute;pio - Uf',
             'Bairro',
             'Logradouro'
         ]);

@@ -1,10 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/MultipleSearch.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/String/Utils.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_MultipleSearchCursoAluno extends Portabilis_View_Helper_Input_MultipleSearch
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\MultipleSearch;
+
+/**
+ * Class MultipleSearchCursoAluno
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class MultipleSearchCursoAluno extends MultipleSearch
 {
     protected function getOptions($resources)
     {
@@ -32,19 +36,19 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchCursoAluno extends Por
         $optionsVarName = 'multipleSearch' . Portabilis_String_Utils::camelize($options['objectName']) . 'Options';
 
         $js = "
-            if (typeof $optionsVarName == 'undefined') { $optionsVarName = {} }; 
+            if (typeof $optionsVarName == 'undefined') { $optionsVarName = {} };
             $optionsVarName.placeholder = safeUtf8Decode('Selecione os cursos do aluno');
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 
     protected function loadAssets()
     {
-        Portabilis_View_Helper_Application::loadChosenLib($this->viewInstance);
+        Application::loadChosenLib($this->viewInstance);
         $jsFile = '/modules/Portabilis/Assets/Javascripts/Frontend/Inputs/MultipleSearch.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
         $jsFile = '/modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/MultipleSearchCursoaluno.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 }

@@ -72,7 +72,7 @@ class indice extends clsDetalhe
         $this->url_cancelar = 'public_uf_lst.php';
         $this->largura = '100%';
 
-        $this->breadcrumb('Detalhe da UF', [
+        $this->breadcrumb('Detalhe da Uf', [
             url('Intranet/educar_enderecamento_index.php') => 'Endereçamento',
         ]);
     }

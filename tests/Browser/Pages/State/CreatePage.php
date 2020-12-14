@@ -26,7 +26,7 @@ class CreatePage extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url())
-            ->assertSee('Cadastrar UF');
+            ->assertSee('Cadastrar Uf');
     }
 
     /**

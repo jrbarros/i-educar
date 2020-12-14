@@ -1,9 +1,23 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_Beneficio extends Portabilis_View_Helper_Input_CoreSelect
+use iEducarLegacy\Intranet\Source\PmiEducar\AlunoBeneficio;
+use iEducarLegacy\Lib\Portabilis\Collection\Utils as Collection;
+use iEducarLegacy\Lib\Portabilis\String\Utils as Text;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\CoreSelect;
+
+/**
+ * Class Beneficio
+ *
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class Beneficio extends CoreSelect
 {
+    /**
+     * @param $options
+     * @return array
+     */
     protected function inputOptions($options)
     {
         $resources = $options['resources'];
@@ -11,14 +25,17 @@ class Portabilis_View_Helper_Input_Resource_Beneficio extends Portabilis_View_He
         if (empty($resources)) {
             $resources = new AlunoBeneficio();
             $resources = $resources->lista(null, null, null, null, null, null, null, null, null, 1);
-            $resources = Utils::setAsIdValue($resources, 'cod_aluno_beneficio', 'nm_beneficio');
+            $resources = Collection::setAsIdValue($resources, 'cod_aluno_beneficio', 'nm_beneficio');
         }
 
-        return $this->insertOption(null, Utils::toLatin1('Benefício'), $resources);
+        return self::insertOption(null, Text::toLatin1('Benefício'), $resources);
     }
 
+    /**
+     * @param array $options
+     */
     public function beneficio($options = [])
     {
-        parent::select($options);
+        $this->select($options);
     }
 }

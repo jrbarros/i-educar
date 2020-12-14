@@ -59,7 +59,7 @@ class indice extends clsDetalhe
         $this->addDetalhe([ 'Bairro', "{$registro['bairro']}"]);
         $this->addDetalhe([ 'Cidade', "{$registro['cidade']}"]);
         $this->addDetalhe([ 'Tipo do Logradouro', "{$registro['ref_idtlog']}"]);
-        $this->addDetalhe([ 'UF', "{$registro['ref_sigla_uf']}"]);
+        $this->addDetalhe([ 'Uf', "{$registro['ref_sigla_uf']}"]);
         $this->addDetalhe([ 'Número', "{$registro['numero']}"]);
         $this->addDetalhe([ 'Complemento', "{$registro['complemento']}"]);
         $this->addDetalhe([ 'DDD Telefone', "{$registro['ddd_telefone']}"]);

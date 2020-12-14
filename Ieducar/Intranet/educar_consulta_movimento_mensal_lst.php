@@ -273,8 +273,8 @@ class indice extends clsListagem
 })();
 JS;
 
-        Portabilis_View_Helper_Application::embedJavascript($this, $tableScript, false);
-        Portabilis_View_Helper_Application::loadJavascript($this, ['/Intranet/scripts/consulta_movimentos.js']);
+        Application::embedJavascript($this, $tableScript, false);
+        Application::loadJavascript($this, ['/Intranet/scripts/consulta_movimentos.js']);
     }
 }
 

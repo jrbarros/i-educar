@@ -12,6 +12,6 @@ class CoreSelect extends Portabilis_View_Helper_Input_CoreSelect
 
         $dependencies = ['/Modules/DynamicInput/Assets/Javascripts/DynamicInput.js'];
 
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $dependencies);
+        Application::loadJavascript($this->viewInstance, $dependencies);
     }
 }

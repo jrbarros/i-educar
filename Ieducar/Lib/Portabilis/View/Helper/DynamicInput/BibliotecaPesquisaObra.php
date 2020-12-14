@@ -74,7 +74,7 @@ class BibliotecaPesquisaObra extends Core
         // Ao selecionar obra, na pesquisa de obra é setado o value deste elemento
         $this->viewInstance->campoOculto('cod_biblioteca', '');
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, '
+        Application::embedJavascript($this->viewInstance, '
             var resetObra = function(){
                 $("#ref_cod_acervo").val("");
                 $("#titulo_obra").val("");
@@ -83,7 +83,7 @@ class BibliotecaPesquisaObra extends Core
             $("#ref_cod_biblioteca").change(resetObra);
         ', true);
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, '
+        Application::embedJavascript($this->viewInstance, '
             function pesquisaObra() {
 
                 var additionalFields = getElementFor("biblioteca");

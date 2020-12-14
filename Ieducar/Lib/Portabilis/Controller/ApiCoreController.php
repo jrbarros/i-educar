@@ -4,6 +4,8 @@ namespace iEducarLegacy\Lib\Portabilis\Controller;
 
 use iEducar\Support\Exceptions\Exception as iEducarException;
 use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageEditController;
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+use iEducarLegacy\Lib\Utils\SafeJson;
 
 /**
  * Class ApiCoreController
@@ -214,7 +216,7 @@ class ApiCoreController extends CoreControllerPageEditController
             $this->appendResponse('any_error_msg', $this->messenger->hasMsgWithType('error'));
 
             $response = SafeJson::encode($this->response);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             error_log("Erro inesperado no metodo prepareResponse da classe ApiCoreController: {$e->getMessage()}");
 
             $response = [

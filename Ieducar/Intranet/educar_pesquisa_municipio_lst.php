@@ -84,7 +84,7 @@ class indice extends clsListagem
 
         // outros Filtros
 
-        $this->campoLista('sigla_uf', 'UF', $array_uf, $this->sigla_uf, '', false, '', '', $disabled);
+        $this->campoLista('sigla_uf', 'Uf', $array_uf, $this->sigla_uf, '', false, '', '', $disabled);
         $this->campoTexto('nome', 'Cidade', $this->nome, 30, 255, false);
         //  $this->campoTexto( "sigla_uf", "Sigla Uf", $this->sigla_uf, 30, 255, false );
 

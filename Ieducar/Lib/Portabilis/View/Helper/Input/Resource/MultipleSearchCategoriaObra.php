@@ -1,10 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
+
+use iEducarLegacy\Intranet\Source\PmiEducar\CategoriaObra;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\MultipleSearch;
+
 require_once 'lib/Portabilis/View/Helper/Input/MultipleSearch.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 
-class Portabilis_View_Helper_Input_Resource_MultipleSearchCategoriaObra extends Portabilis_View_Helper_Input_MultipleSearch
+class MultipleSearchCategoriaObra extends MultipleSearch
 {
     protected function getOptions($resources)
     {
@@ -42,6 +47,6 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchCategoriaObra extends 
             $optionsVarName.placeholder = safeUtf8Decode('Selecione as categorias');
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 }

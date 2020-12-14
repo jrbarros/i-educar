@@ -342,9 +342,9 @@ class indice extends clsCadastro
         // carrega estilo para feedback messages, para exibir msg validação frequencia.
 
         $style = '/Modules/Portabilis/Assets/Stylesheets/Frontend.css';
-        Portabilis_View_Helper_Application::loadStylesheet($this, $style);
+        Application::loadStylesheet($this, $style);
 
-        Portabilis_View_Helper_Application::loadJavascript(
+        Application::loadJavascript(
             $this,
             [
                 '/Modules/Portabilis/Assets/Javascripts/Utils.js',

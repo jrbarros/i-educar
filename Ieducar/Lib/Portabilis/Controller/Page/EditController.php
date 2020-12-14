@@ -114,24 +114,24 @@ class EditController extends CoreControllerPageEditController
         $script = "/Modules/$controllerName/Assets/Javascripts/$actionName.js";
 
         if (file_exists($rootPath . $style)) {
-            Portabilis_View_Helper_Application::loadStylesheet($this, $style);
+            Application::loadStylesheet($this, $style);
         }
 
         if (file_exists($rootPath . $script)) {
-            Portabilis_View_Helper_Application::loadJavascript($this, $script);
+            Application::loadJavascript($this, $script);
         }
     }
 
     protected function loadAssets()
     {
-        Portabilis_View_Helper_Application::loadJQueryFormLib($this);
+        Application::loadJQueryFormLib($this);
 
         $styles = [
             '/Modules/Portabilis/Assets/Stylesheets/Frontend.css',
             '/Modules/Portabilis/Assets/Stylesheets/Frontend/Resource.css',
         ];
 
-        Portabilis_View_Helper_Application::loadStylesheet($this, $styles);
+        Application::loadStylesheet($this, $styles);
 
         $scripts = [
             '/Modules/Portabilis/Assets/Javascripts/ClientApi.js',
@@ -143,7 +143,7 @@ class EditController extends CoreControllerPageEditController
             $scripts[] = '/Modules/Portabilis/Assets/Javascripts/Frontend/Resource.js';
         }
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
     }
 
     protected static function mergeOptions($options, $defaultOptions)

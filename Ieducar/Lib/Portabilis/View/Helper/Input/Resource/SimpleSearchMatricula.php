@@ -1,8 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/SimpleSearch.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_SimpleSearchMatricula extends Portabilis_View_Helper_Input_SimpleSearch
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\SimpleSearch;
+
+/**
+ * Class SimpleSearchMatricula
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class SimpleSearchMatricula extends SimpleSearch
 {
     public function simpleSearchMatricula($attrName = '', $options = [])
     {
@@ -12,9 +19,9 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchMatricula extends Portab
             'apiResource' => 'Matricula-search'
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
-        parent::simpleSearch($options['objectName'], $attrName, $options);
+        $this->simpleSearch($options['objectName'], $attrName, $options);
     }
 
     protected function inputPlaceholder($inputOptions)
@@ -25,6 +32,6 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchMatricula extends Portab
     protected function loadAssets()
     {
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/SimpleSearchMatricula.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 }

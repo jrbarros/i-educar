@@ -45,7 +45,7 @@ class AtualizaNomenclaturaDosCamposDaTelaDeConfiguracoes extends Migration
                     WHEN 'legacy.app.fisica.exigir_cartao_sus' THEN 'Obrigar campo \"Número da carteira do SUS\" no cadastro do aluno'
                     WHEN 'legacy.app.gtm.id' THEN 'Código do tag manager'
                     WHEN 'legacy.app.locale.country' THEN 'País do cliente (código do iEducar)'
-                    WHEN 'legacy.app.locale.province' THEN 'Sigla UF do cliente'
+                    WHEN 'legacy.app.locale.province' THEN 'Sigla Uf do cliente'
                     WHEN 'legacy.app.locale.timezone' THEN 'Configuração de timezone'
                     WHEN 'legacy.app.Matricula.dependencia' THEN 'Permitir matrículas de dependência?'
                     WHEN 'legacy.app.Matricula.multiplas_matriculas' THEN 'Permitir múltiplas matrículas?'

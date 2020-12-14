@@ -34,7 +34,7 @@ class indice extends clsCadastro
     protected function loadAssets()
     {
         $jsFile = '/Modules/Cadastro/Assets/Javascripts/ModalExclusaoEscolaridade.js';
-        Portabilis_View_Helper_Application::loadJavascript($this, $jsFile);
+        Application::loadJavascript($this, $jsFile);
     }
 
     public function Inicializar()

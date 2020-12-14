@@ -117,7 +117,7 @@ class indice extends clsCadastro
 
         $this->campoLista('ref_cod_tipo_usuario', 'Tipo usu&aacute;rio', $opcoes, $this->ref_cod_tipo_usuario, '', null, null, null, null, false);
 
-        Portabilis_View_Helper_Application::loadJavascript($this, '/Modules/ExportarUsuarios/exportarUsuarios.js');
+        Application::loadJavascript($this, '/Modules/ExportarUsuarios/exportarUsuarios.js');
 
         $this->nome_url_sucesso = 'Exportar';
         $this->acao_enviar      = ' ';

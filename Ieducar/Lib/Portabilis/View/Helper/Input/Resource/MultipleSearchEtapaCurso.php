@@ -1,10 +1,18 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/MultipleSearch.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_MultipleSearchEtapacurso extends Portabilis_View_Helper_Input_MultipleSearch
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\String\Utils as text;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\MultipleSearch;
+
+/**
+ * Class MultipleSearchEtapaCurso
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class MultipleSearchEtapaCurso extends MultipleSearch
 {
     protected function getOptions($resources)
     {
@@ -13,7 +21,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchEtapacurso extends Por
             $resources = Utils::setAsIdValue($resources, 'id', 'nome');
         }
 
-        return $this->insertOption(null, '', $resources);
+        return self::insertOption(null, '', $resources);
     }
 
     public function multipleSearchEtapacurso($attrName, $options = [])
@@ -24,22 +32,22 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchEtapacurso extends Por
             'apiResource' => 'etapacurso-search'
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
         $options['options']['resources'] = $this->getOptions($options['options']['resources']);
 
         $this->placeholderJs($options);
 
-        parent::multipleSearch($options['objectName'], $attrName, $options);
+        $this->multipleSearch($options['objectName'], $attrName, $options);
     }
 
     protected function placeholderJs($options)
     {
-        $optionsVarName = 'multipleSearch' . Utils::camelize($options['objectName']) . 'Options';
+        $optionsVarName = 'multipleSearch' . Text::camelize($options['objectName']) . 'Options';
         $js = "
             if (typeof $optionsVarName == 'undefined') { $optionsVarName = {} };
             $optionsVarName.placeholder = safeUtf8Decode('Selecione as etapas');
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 }

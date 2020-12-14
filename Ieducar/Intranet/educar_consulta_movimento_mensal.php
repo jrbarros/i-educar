@@ -90,12 +90,12 @@ class indice extends clsCadastro
 
         $this->inputsHelper()->dynamic(['dataInicial', 'dataFinal']);
 
-        Portabilis_View_Helper_Application::loadJavascript($this, [
+        Application::loadJavascript($this, [
             '/Modules/Portabilis/Assets/Plugins/Chosen/chosen.jquery.min.js',
             '/Intranet/scripts/movimento_mensal.js',
         ]);
 
-        Portabilis_View_Helper_Application::loadStylesheet($this, [
+        Application::loadStylesheet($this, [
             '/Modules/Portabilis/Assets/Plugins/Chosen/chosen.css'
         ]);
     }

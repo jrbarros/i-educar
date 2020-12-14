@@ -180,7 +180,7 @@ class indice extends clsListagem
 
         $scripts = ['/Modules/Cadastro/Assets/Javascripts/ComponentesSerieFiltros.js'];
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
     }
 }
 

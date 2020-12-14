@@ -72,6 +72,6 @@ class Date extends Core
             });
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $script, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $script, $afterReady = true);
     }
 }

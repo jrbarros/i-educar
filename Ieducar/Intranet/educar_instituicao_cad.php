@@ -148,7 +148,7 @@ class indice extends clsCadastro
         // foreign keys
         $opcoes = ['' => 'Selecione'] + State::getListKeyAbbreviation()->toArray();
 
-        $this->campoLista('ref_sigla_uf', 'UF', $opcoes, $this->ref_sigla_uf, '', false, '', '', false, true);
+        $this->campoLista('ref_sigla_uf', 'Uf', $opcoes, $this->ref_sigla_uf, '', false, '', '', false, true);
 
         $this->campoTexto('nm_responsavel', 'Nome do Responsável', $this->nm_responsavel, 30, 255, true);
         $this->campoNumero('ddd_telefone', 'DDD Telefone', $this->ddd_telefone, 2, 2);
@@ -178,7 +178,7 @@ class indice extends clsCadastro
                 $opcoes[$orgaoRegional->codigo] = $orgaoRegional->codigo;
             }
         } else {
-            $opcoes = [null => 'Informe uma UF'];
+            $opcoes = [null => 'Informe uma Uf'];
         }
 
         $options = ['label' => 'Código do órgão regional de ensino', 'resources' => $opcoes, 'value' => $this->orgao_regional, 'required' => false, 'size' => 70,];
@@ -328,9 +328,9 @@ class indice extends clsCadastro
         );
 
         $scripts = ['/Modules/Cadastro/Assets/Javascripts/Instituicao.js'];
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
         $styles = ['/Modules/Cadastro/Assets/Stylesheets/Instituicao.css'];
-        Portabilis_View_Helper_Application::loadStylesheet($this, $styles);
+        Application::loadStylesheet($this, $styles);
     }
 
     public function Novo()
@@ -467,7 +467,7 @@ $pagina->MakeAll();
             $j.getJSON(link, parametros)
             .done(populaOrgaoRegional);
         } else {
-            $j('#orgao_regional').html('<option value="" selected>Selecione uma UF</option>');
+            $j('#orgao_regional').html('<option value="" selected>Selecione uma Uf</option>');
         }
     });
 

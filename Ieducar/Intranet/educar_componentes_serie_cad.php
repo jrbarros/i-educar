@@ -177,7 +177,7 @@ class indice extends clsCadastro
 
         $scripts = ['/Modules/Cadastro/Assets/Javascripts/ComponentesSerie.js',
                      '/Modules/Cadastro/Assets/Javascripts/ComponentesSerieAcao.js'];
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
     }
 
     public function Novo()

@@ -1,9 +1,14 @@
 <?php
-require_once 'lib/Portabilis/View/Helper/Input/SimpleSearch.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
 
-class Portabilis_View_Helper_Input_Resource_SimpleSearchRotinasAuditoria extends Portabilis_View_Helper_Input_SimpleSearch
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
+
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\SimpleSearch;
+
+/**
+ * Class SimpleSearchRotinasAuditoria
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class SimpleSearchRotinasAuditoria extends SimpleSearch
 {
     protected function resourceValue($id)
     {
@@ -19,7 +24,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchRotinasAuditoria extends
             'showIdOnValue' => false
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
         parent::simpleSearch($options['objectName'], $attrName, $options);
     }

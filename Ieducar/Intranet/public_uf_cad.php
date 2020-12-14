@@ -64,7 +64,7 @@ class indice extends clsCadastro
         $this->nome_url_cancelar = 'Cancelar';
 
         $nomeMenu = $retorno == 'Editar' ? $retorno : 'Cadastrar';
-        $this->breadcrumb("{$nomeMenu} UF", [
+        $this->breadcrumb("{$nomeMenu} Uf", [
             url('Intranet/educar_enderecamento_index.php') => 'Endereçamento',
         ]);
 
@@ -85,7 +85,7 @@ class indice extends clsCadastro
             '/Modules/Portabilis/Assets/Javascripts/cad_uf.js'
         ];
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
     }
 
     public function Novo()

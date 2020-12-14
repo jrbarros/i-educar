@@ -58,7 +58,7 @@ class EditController extends Core_Controller_Page_EditController
 
     public function _preRender()
     {
-        Portabilis_View_Helper_Application::loadJavascript($this, '/Modules/FormulaMedia/Assets/Javascripts/FormulaMedia.js');
+        Application::loadJavascript($this, '/Modules/FormulaMedia/Assets/Javascripts/FormulaMedia.js');
 
         $nomeMenu = $this->getRequest()->id == null ? 'Cadastrar' : 'Editar';
 

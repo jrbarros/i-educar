@@ -433,7 +433,7 @@ class indice extends clsDetalhe
             '/Modules/Cadastro/Assets/Javascripts/TurmaDet.js'
         ];
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
     }
 
     public function montaListaComponentes()

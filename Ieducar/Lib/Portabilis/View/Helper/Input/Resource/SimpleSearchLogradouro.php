@@ -1,10 +1,17 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/SimpleSearch.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_SimpleSearchLogradouro extends Portabilis_View_Helper_Input_SimpleSearch
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\SimpleSearch;
+
+/**
+ * Class SimpleSearchLogradouro
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class SimpleSearchLogradouro extends SimpleSearch
 {
     public function simpleSearchLogradouro($attrName, $options = [])
     {
@@ -15,7 +22,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchLogradouro extends Porta
             'showIdOnValue' => false
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
         parent::simpleSearch($options['objectName'], $attrName, $options);
     }
@@ -48,6 +55,6 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchLogradouro extends Porta
     protected function loadAssets()
     {
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/SimpleSearchLogradouro.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 }

@@ -1,8 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/SimpleSearch.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_SimpleSearchAcervo extends Portabilis_View_Helper_Input_SimpleSearch
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\SimpleSearch;
+
+/**
+ * Class SimpleSearchAcervo
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class SimpleSearchAcervo extends SimpleSearch
 {
     public function simpleSearchAcervo($attrName = '', $options = [])
     {
@@ -12,9 +19,9 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchAcervo extends Portabili
             'apiResource' => 'acervo-search'
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
-        parent::simpleSearch($options['objectName'], $attrName, $options);
+        $this->simpleSearch($options['objectName'], $attrName, $options);
     }
 
     protected function inputPlaceholder($inputOptions)
@@ -25,6 +32,6 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchAcervo extends Portabili
     protected function loadAssets()
     {
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/SimpleSearchAcervo.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 }

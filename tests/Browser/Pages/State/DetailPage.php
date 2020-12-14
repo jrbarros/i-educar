@@ -47,7 +47,7 @@ class DetailPage extends Page
     public function assert(Browser $browser)
     {
         $browser->assertPathIs($this->url(true))
-            ->assertSee('Detalhe da UF')
+            ->assertSee('Detalhe da Uf')
             ->assertSee('Uf - Detalhe');
     }
 }

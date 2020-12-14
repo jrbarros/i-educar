@@ -1,11 +1,23 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/MultipleSearch.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_MultipleSearchAssuntos extends Portabilis_View_Helper_Input_MultipleSearch
+use iEducarLegacy\Intranet\Source\PmiEducar\AcervoAssunto;
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\String\Utils as Text;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\MultipleSearch;
+
+/**
+ * Class MultipleSearchAssuntos
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class MultipleSearchAssuntos extends MultipleSearch
 {
+    /**
+     * @param $resources
+     * @return array
+     */
     protected function getOptions($resources)
     {
         if (empty($resources)) {
@@ -14,9 +26,13 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchAssuntos extends Porta
             $resources = Utils::setAsIdValue($resources, 'cod_acervo_assunto', 'nm_assunto');
         }
 
-        return $this->insertOption(null, '', $resources);
+        return self::insertOption(null, '', $resources);
     }
 
+    /**
+     * @param $attrName
+     * @param array $options
+     */
     public function multipleSearchAssuntos($attrName, $options = [])
     {
         $defaultOptions = [
@@ -25,23 +41,26 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchAssuntos extends Porta
             'apiResource' => 'assunto-search'
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
         $options['options']['resources'] = $this->getOptions($options['options']['resources']);
 
         $this->placeholderJs($options);
 
-        parent::multipleSearch($options['objectName'], $attrName, $options);
+        $this->multipleSearch($options['objectName'], $attrName, $options);
     }
 
+    /**
+     * @param $options
+     */
     protected function placeholderJs($options)
     {
-        $optionsVarName = 'multipleSearch' . Utils::camelize($options['objectName']) . 'Options';
+        $optionsVarName = 'multipleSearch' . Text::camelize($options['objectName']) . 'Options';
 
         $js = "
             if (typeof $optionsVarName == 'undefined') { $optionsVarName = {} };
             $optionsVarName.placeholder = safeUtf8Decode('Selecione os assuntos');
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 }

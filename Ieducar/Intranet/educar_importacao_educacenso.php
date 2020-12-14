@@ -72,7 +72,7 @@ class indice extends clsCadastro
 
         $this->nome_url_sucesso = 'Importar';
 
-        Portabilis_View_Helper_Application::loadJavascript($this, '/Modules/Educacenso/Assets/Javascripts/Importacao.js');
+        Application::loadJavascript($this, '/Modules/Educacenso/Assets/Javascripts/Importacao.js');
     }
 
     public function Novo()

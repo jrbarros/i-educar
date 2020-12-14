@@ -29,7 +29,7 @@ class ProcessamentoController extends Portabilis_Controller_Page_ListController
 
     public function Gerar()
     {
-        Portabilis_View_Helper_Application::loadStylesheet($this, [
+        Application::loadStylesheet($this, [
             '/Modules/HistoricoEscolar/Static/styles/processamento.css',
             '/Modules/Portabilis/Assets/Plugins/Chosen/chosen.css'
         ]);
@@ -229,7 +229,7 @@ class ProcessamentoController extends Portabilis_Controller_Page_ListController
 
         $this->appendOutput($resourceOptionsTable);
 
-        Portabilis_View_Helper_Application::loadJavascript(
+        Application::loadJavascript(
             $this,
             [
                 '/Modules/Portabilis/Assets/Javascripts/Utils.js',

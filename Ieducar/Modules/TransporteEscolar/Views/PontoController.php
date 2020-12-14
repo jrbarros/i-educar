@@ -85,7 +85,7 @@ class PontoController extends Portabilis_Controller_Page_EditController
             '/Modules/Portabilis/Assets/Javascripts/Frontend/Ieducar.singleton_gmap.js'
         ];
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $script);
+        Application::loadJavascript($this, $script);
 
         $this->loadResourceAssets($this->getDispatcher());
     }

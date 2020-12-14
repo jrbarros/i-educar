@@ -61,7 +61,7 @@ class PesquisaAluno extends Core
 
         $this->viewInstance->campoOculto('ref_cod_aluno', $this->inputValue($options['id']));
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, '
+        Application::embedJavascript($this->viewInstance, '
             var resetAluno = function(){
                 $("#ref_cod_aluno").val("");
                 $("#nm_aluno").val("");
@@ -94,6 +94,6 @@ class PesquisaAluno extends Core
             ';
         }
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js);
+        Application::embedJavascript($this->viewInstance, $js);
     }
 }

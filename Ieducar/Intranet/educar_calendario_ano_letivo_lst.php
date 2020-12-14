@@ -488,7 +488,7 @@ class indice extends clsListagem
         '/Intranet/scripts/calendario.js'
       ];
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
 
         return $retorno;
     }

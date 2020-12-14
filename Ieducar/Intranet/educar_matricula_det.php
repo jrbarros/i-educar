@@ -67,7 +67,7 @@ class indice extends clsDetalhe
     {
         // carrega estilo para feedback messages, exibindo msgs da api.
         $style = '/Modules/Portabilis/Assets/Stylesheets/Frontend.css';
-        Portabilis_View_Helper_Application::loadStylesheet($this, $style);
+        Application::loadStylesheet($this, $style);
 
         $this->titulo = 'Matrícula - Detalhe';
         $this->addBanner('imagens/nvp_top_intranet.jpg', 'imagens/nvp_vert_intranet.jpg', 'Intranet');
@@ -440,7 +440,7 @@ class indice extends clsDetalhe
             '/Modules/Cadastro/Assets/Javascripts/MatriculaShow.js'
         ];
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
     }
 
     // Verificar se pode cancelar Matricula

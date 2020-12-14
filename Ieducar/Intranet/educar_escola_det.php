@@ -207,7 +207,7 @@ class indice extends clsDetalhe
 
         $styles = ['/Modules/Cadastro/Assets/Stylesheets/EscolaAnosLetivos.css'];
 
-        Portabilis_View_Helper_Application::loadStylesheet($this, $styles);
+        Application::loadStylesheet($this, $styles);
 
         $this->url_cancelar = 'educar_escola_lst.php';
         $this->largura = '100%';

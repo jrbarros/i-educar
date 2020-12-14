@@ -1,10 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/MultipleSearch.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_MultipleSearchAutores extends Portabilis_View_Helper_Input_MultipleSearch
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\MultipleSearch;
+
+/**
+ * Class MultipleSearchAutores
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class MultipleSearchAutores extends MultipleSearch
 {
     protected function getOptions($resources)
     {
@@ -42,6 +46,6 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchAutores extends Portab
             $optionsVarName.placeholder = safeUtf8Decode('Selecione os autores');
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 }

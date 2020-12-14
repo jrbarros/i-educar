@@ -12,6 +12,6 @@ class Core extends Portabilis_View_Helper_Input_Core
 
         $dependencies = ['/Modules/DynamicInput/Assets/Javascripts/DynamicInput.js'];
 
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $dependencies);
+        Application::loadJavascript($this->viewInstance, $dependencies);
     }
 }

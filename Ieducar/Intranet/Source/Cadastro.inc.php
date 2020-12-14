@@ -556,7 +556,7 @@ class Cadastro extends clsCampos
             $retorno .= "<script type=\"text/javascript\">{$this->executa_script}</script>";
         }
 
-        Portabilis_View_Helper_Application::embedJavascriptToFixupFieldsWidth($this);
+        Application::embedJavascriptToFixupFieldsWidth($this);
 
         return $retorno;
     }

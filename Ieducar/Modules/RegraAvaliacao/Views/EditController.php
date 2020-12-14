@@ -306,7 +306,7 @@ class EditController extends Core_Controller_Page_EditController
 
         $this->prependOutput($js);
 
-        Portabilis_View_Helper_Application::loadJavascript(
+        Application::loadJavascript(
             $this,
             '/Modules/RegraAvaliacao/Assets/Javascripts/RegraAvaliacao.js'
         );

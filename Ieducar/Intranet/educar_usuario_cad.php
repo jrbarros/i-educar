@@ -220,7 +220,7 @@ class indice extends clsCadastro
             $scripts[] = '/Modules/Cadastro/Assets/Javascripts/disableAllFields.js';
         }
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
     }
 
     public function Novo()

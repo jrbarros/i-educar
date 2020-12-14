@@ -138,7 +138,7 @@ class indice extends clsCadastro
             $this->campoTexto('insc_est', 'Inscri&ccedil;&atilde;o Estadual', $this->insc_est, '20', '30', false);
         }
 
-        Portabilis_View_Helper_Application::loadJavascript($this, [
+        Application::loadJavascript($this, [
             '/Modules/Cadastro/Assets/Javascripts/Addresses.js',
         ]);
     }

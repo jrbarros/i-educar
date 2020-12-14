@@ -35,6 +35,7 @@
 
 use App\Models\LogUnification;
 use iEducar\Modules\Unification\StudentLogUnification;
+use iEducarLegacy\Intranet\Source\PmiEducar\Permissoes;
 use Illuminate\Support\Facades\DB;
 
 require_once 'Source/Base.php';

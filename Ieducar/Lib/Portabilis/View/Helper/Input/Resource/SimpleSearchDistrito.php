@@ -1,12 +1,16 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
+
 use App\Models\District;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\SimpleSearch;
 
-require_once 'lib/Portabilis/View/Helper/Input/SimpleSearch.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-
-class Portabilis_View_Helper_Input_Resource_SimpleSearchDistrito extends Portabilis_View_Helper_Input_SimpleSearch
+/**
+ * Class SimpleSearchDistrito
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class SimpleSearchDistrito extends SimpleSearch
 {
     public function simpleSearchDistrito($attrName, $options = [])
     {
@@ -17,7 +21,7 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchDistrito extends Portabi
             'showIdOnValue' => false
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
         parent::simpleSearch($options['objectName'], $attrName, $options);
     }
@@ -40,6 +44,6 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchDistrito extends Portabi
     protected function loadAssets()
     {
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/SimpleSearchDistrito.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 }

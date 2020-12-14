@@ -111,7 +111,7 @@ class indice extends clsCadastro
             'educar_index.php' => 'Escola',
         ]);
 
-        Portabilis_View_Helper_Application::loadJavascript($this, ['/Modules/Cadastro/Assets/Javascripts/TransferenciaSolicitacao.js']);
+        Application::loadJavascript($this, ['/Modules/Cadastro/Assets/Javascripts/TransferenciaSolicitacao.js']);
 
         return $retorno;
     }
@@ -193,7 +193,7 @@ class indice extends clsCadastro
         $this->inputsHelper()->date('data_cancel', ['label' => 'Data', 'placeholder' => 'dd/mm/yyyy', 'value' => date('d/m/Y')]);
         $this->campoMemo('observacao', 'Observa&ccedil;&atilde;o', $this->observacao, 60, 5, false);
 
-        Portabilis_View_Helper_Application::loadStylesheet($this, [
+        Application::loadStylesheet($this, [
             '/Modules/Portabilis/Assets/Stylesheets/Frontend/Resource.css'
         ]);
     }

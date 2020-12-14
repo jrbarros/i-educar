@@ -1,24 +1,33 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
+
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\CoreSelect;
+
 require_once 'lib/Portabilis/View/Helper/Input/CoreSelect.php';
 
-class Portabilis_View_Helper_Input_Resource_EstadoCivil extends Portabilis_View_Helper_Input_CoreSelect
+/**
+ * Class EstadoCivil
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class EstadoCivil extends CoreSelect
 {
     protected function inputOptions($options)
     {
         $resources = $options['resources'];
 
         if (empty($resources)) {
-            $resources = new clsEstadoCivil();
+            $resources = new \iEducarLegacy\Intranet\Source\Pessoa\EstadoCivil();
             $resources = $resources->lista();
             $resources = Utils::setAsIdValue($resources, 'ideciv', 'descricao');
         }
 
-        return $this->insertOption(null, 'Estado civil', $resources);
+        return self::insertOption(null, 'Estado civil', $resources);
     }
 
     public function estadoCivil($options = [])
     {
-        parent::select($options);
+        $this->select($options);
     }
 }

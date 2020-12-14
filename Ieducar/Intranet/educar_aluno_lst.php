@@ -251,7 +251,7 @@ class indice extends clsListagem
 
         $this->largura = '100%';
 
-        Portabilis_View_Helper_Application::loadJavascript($this, ['/Intranet/scripts/exporter.js']);
+        Application::loadJavascript($this, ['/Intranet/scripts/exporter.js']);
 
         $this->breadcrumb('Alunos', ['/Intranet/educar_index.php' => 'Escola']);
     }

@@ -53,7 +53,7 @@ class BibliotecaPesquisaCliente extends Core
 
         call_user_func_array([$this->viewInstance, 'campoOculto'], $hiddenInputOptions);
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, '
+        Application::embedJavascript($this->viewInstance, '
             var resetCliente = function(){
                 $("#ref_cod_cliente").val("");
                 $("#nome_cliente").val("");
@@ -62,7 +62,7 @@ class BibliotecaPesquisaCliente extends Core
             $("#ref_cod_biblioteca").change(resetCliente);
         ', true);
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, '
+        Application::embedJavascript($this->viewInstance, '
             function pesquisaCliente() {
                 var additionalFields = getElementFor(\'biblioteca\');
                 var exceptFields     = getElementFor(\'nome_cliente\');

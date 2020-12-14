@@ -345,7 +345,7 @@ class indice extends clsDetalhe
             $this->addDetalhe(['Complemento', $place->complement]);
             $this->addDetalhe(['Bairro', $place->neighborhood]);
             $this->addDetalhe(['Cidade', $place->city->name]);
-            $this->addDetalhe(['UF', $place->city->state->abbreviation]);
+            $this->addDetalhe(['Uf', $place->city->state->abbreviation]);
             $this->addDetalhe(['CEP', int2CEP($place->postal_code)]);
         }
 
@@ -943,11 +943,11 @@ class indice extends clsDetalhe
             '/Modules/Cadastro/Assets/Javascripts/AlunoShow.js?version=3'
         ];
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
 
         $styles = ['/Modules/Cadastro/Assets/Stylesheets/Aluno.css'];
 
-        Portabilis_View_Helper_Application::loadStylesheet($this, $styles);
+        Application::loadStylesheet($this, $styles);
     }
 
     private function urlPresigner()

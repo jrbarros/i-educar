@@ -123,12 +123,12 @@ class EditController extends Core_Controller_Page_EditController
         $opcoes = array_keys($opcoes);
         $opcoes = array_combine($opcoes, $opcoes);
 
-        // Caso não seja uma instância persistida, usa a UF do locale.
+        // Caso não seja uma instância persistida, usa a Uf do locale.
         $uf = $this->getEntity()->ies->uf
             ? $this->getEntity()->ies->uf
             : config('legacy.app.locale.province');
 
-        $this->campoLista('uf', 'UF', $opcoes, $uf, 'getIes()');
+        $this->campoLista('uf', 'Uf', $opcoes, $uf, 'getIes()');
 
         // IES.
         $opcoes = [];
@@ -189,7 +189,7 @@ class EditController extends Core_Controller_Page_EditController
 
         if (ies.length == 1) {
           ies.options[0] = new Option(
-            'A UF não possui IES.', '', false, false
+            'A Uf não possui IES.', '', false, false
           );
         }
       }

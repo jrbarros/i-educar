@@ -134,7 +134,7 @@ class EditController extends Core_Controller_Page_EditController
     {
         parent::_preRender();
 
-        Portabilis_View_Helper_Application::loadJavascript(
+        Application::loadJavascript(
             $this,
             '/Modules/RegraAvaliacao/Assets/Javascripts/TabelaArredondamento.js'
         );

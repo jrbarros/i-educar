@@ -41,10 +41,10 @@ class MultipleSearch extends Core
 
     protected function loadAssets()
     {
-        Portabilis_View_Helper_Application::loadChosenLib($this->viewInstance);
+        Application::loadChosenLib($this->viewInstance);
 
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/MultipleSearch.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 
     protected function js($objectName, $attrName, $options)
@@ -56,6 +56,6 @@ class MultipleSearch extends Core
             multipleSearchHelper.setup('$objectName', '$attrName', '" . $options['type'] . '\',\'' . $options['type'] . "', $resourceOptions);
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 }

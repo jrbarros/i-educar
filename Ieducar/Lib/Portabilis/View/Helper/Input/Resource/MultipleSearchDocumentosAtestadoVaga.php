@@ -1,8 +1,17 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/MultipleSearch.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_MultipleSearchDocumentosAtestadoVaga extends Portabilis_View_Helper_Input_MultipleSearch
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\MultipleSearch;
+
+
+/**
+ * Class MultipleSearchDocumentosAtestadoVaga
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class MultipleSearchDocumentosAtestadoVaga extends MultipleSearch
 {
     protected function getOptions($resources)
     {
@@ -27,7 +36,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchDocumentosAtestadoVaga
             ];
         }
 
-        return $this->insertOption(null, '', $resources);
+        return self::insertOption(null, '', $resources);
     }
 
     public function multipleSearchDocumentosAtestadoVaga($attrName, $options = [])
@@ -38,23 +47,23 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchDocumentosAtestadoVaga
             'apiResource' => ''
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
         $options['options']['resources'] = $this->getOptions($options['options']['resources']);
 
         $this->placeholderJs($options);
 
-        parent::multipleSearch($options['objectName'], $attrName, $options);
+        $this->multipleSearch($options['objectName'], $attrName, $options);
     }
 
     protected function placeholderJs($options)
     {
-        $optionsVarName = 'multipleSearch' . Portabilis_String_Utils::camelize($options['objectName']) . 'Options';
+        $optionsVarName = 'multipleSearch' . Utils::camelize($options['objectName']) . 'Options';
         $js = "
             if (typeof $optionsVarName == 'undefined') { $optionsVarName = {} };
             $optionsVarName.placeholder = safeUtf8Decode('Selecione os componentes');
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 }

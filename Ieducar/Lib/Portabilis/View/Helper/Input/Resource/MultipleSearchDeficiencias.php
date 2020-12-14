@@ -1,20 +1,28 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/MultipleSearch.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_MultipleSearchDeficiencias extends Portabilis_View_Helper_Input_MultipleSearch
+use iEducarLegacy\Intranet\Source\Pessoa\CadastroDeficiencia;
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\String\Utils as Text;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\MultipleSearch;
+
+/**
+ * Class MultipleSearchDeficiencias
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class MultipleSearchDeficiencias extends MultipleSearch
 {
     protected function getOptions($resources)
     {
         if (empty($resources)) {
-            $resources = new clsCadastroDeficiencia();
+            $resources = new CadastroDeficiencia();
             $resources = $resources->lista();
             $resources = Utils::setAsIdValue($resources, 'cod_deficiencia', 'nm_deficiencia');
         }
 
-        return $this->insertOption(null, '', $resources);
+        return self::insertOption(null, '', $resources);
     }
 
     public function multipleSearchDeficiencias($attrName, $options = [])
@@ -25,7 +33,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchDeficiencias extends P
             'apiResource' => 'deficiencia-search'
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
         $options['options']['resources'] = $this->getOptions($options['options']['resources']);
 
         $this->placeholderJs($options);
@@ -35,13 +43,13 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchDeficiencias extends P
 
     protected function placeholderJs($options)
     {
-        $optionsVarName = 'multipleSearch' . Utils::camelize($options['objectName']) . 'Options';
+        $optionsVarName = 'multipleSearch' . Text::camelize($options['objectName']) . 'Options';
 
         $js = "
             if (typeof $optionsVarName == 'undefined') { $optionsVarName = {} };
             $optionsVarName.placeholder = 'Selecione as deficiências';
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 }

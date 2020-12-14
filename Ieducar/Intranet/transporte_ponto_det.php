@@ -106,7 +106,7 @@ class indice extends clsDetalhe
 
         if (is_numeric($registro['cep']) && is_numeric($registro['idlog']) && is_numeric($registro['idbai'])) {
             $this->addDetalhe(['CEP', int2CEP($registro['cep'])]);
-            $this->addDetalhe(['Município - UF', $registro['municipio'] . ' - '. $registro['sigla_uf']]);
+            $this->addDetalhe(['Município - Uf', $registro['municipio'] . ' - '. $registro['sigla_uf']]);
             $this->addDetalhe(['Bairro', $registro['bairro']]);
             $this->addDetalhe(['Zona de localização', $registro['zona_localizacao'] == 1 ? 'Urbana' : 'Rural' ]);
             $this->addDetalhe(['Endereço', $registro['logradouro']]);

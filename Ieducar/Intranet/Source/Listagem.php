@@ -628,7 +628,7 @@ HTML;
                 </form>
             <!-- listagem end -->';
 
-        Portabilis_View_Helper_Application::embedJavascriptToFixupFieldsWidth($this);
+        Application::embedJavascriptToFixupFieldsWidth($this);
 
         return $retorno;
     }

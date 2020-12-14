@@ -303,11 +303,11 @@ class ReportCoreController extends EditController
         $script = "/Modules/$controllerName/Assets/Javascripts/$actionName.js";
 
         if (file_exists($rootPath . $style)) {
-            Portabilis_View_Helper_Application::loadStylesheet($this, $style);
+            Application::loadStylesheet($this, $style);
         }
 
         if (file_exists($rootPath . $script)) {
-            Portabilis_View_Helper_Application::loadJavascript($this, $script);
+            Application::loadJavascript($this, $script);
         }
     }
 

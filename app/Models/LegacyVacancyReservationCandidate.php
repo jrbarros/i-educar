@@ -41,11 +41,6 @@ class LegacyVacancyReservationCandidate extends Model
     ];
 
     /**
-     * @var bool
-     */
-    public $timestamps = false;
-
-    /**
      * @inheritDoc
      */
     protected static function boot()

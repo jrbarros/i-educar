@@ -1,9 +1,18 @@
 <?php
-require_once 'lib/Portabilis/View/Helper/Input/MultipleSearch.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
 
-class Portabilis_View_Helper_Input_Resource_MultipleSearchComponenteCurricular extends Portabilis_View_Helper_Input_MultipleSearch
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
+
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
+use iEducarLegacy\Lib\Portabilis\String\Utils as Text;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\MultipleSearch;
+
+/**
+ * Class MultipleSearchComponenteCurricular
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class MultipleSearchComponenteCurricular extends MultipleSearch
 {
     protected function getOptions($resources)
     {
@@ -12,7 +21,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchComponenteCurricular e
             $resources = Utils::setAsIdValue($resources, 'id', 'nome');
         }
 
-        return $this->insertOption(null, '', $resources);
+        return self::insertOption(null, '', $resources);
     }
 
     public function multipleSearchComponenteCurricular($attrName, $options = [])
@@ -24,7 +33,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchComponenteCurricular e
             'searchForArea' => false
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
         $options['options']['resources'] = $this->getOptions($options['options']['resources']);
 
         $this->placeholderJs($options);
@@ -34,7 +43,7 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchComponenteCurricular e
 
     protected function placeholderJs($options)
     {
-        $optionsVarName = 'multipleSearch' . Utils::camelize($options['objectName']) . 'Options';
+        $optionsVarName = 'multipleSearch' . Text::camelize($options['objectName']) . 'Options';
         $searchForArea = $options['searchForArea'] ? 'true' : 'false';
         $js = "
             if (typeof $optionsVarName == 'undefined') { $optionsVarName = {} };
@@ -42,15 +51,15 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchComponenteCurricular e
         ";
         $js .= "var searchForArea = {$searchForArea}";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = false);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = false);
     }
 
     protected function loadAssets()
     {
-        Portabilis_View_Helper_Application::loadChosenLib($this->viewInstance);
+        Application::loadChosenLib($this->viewInstance);
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/MultipleSearch.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/MultipleSearchComponenteCurricular.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 }

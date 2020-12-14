@@ -1,20 +1,25 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_Religiao extends Portabilis_View_Helper_Input_CoreSelect
+use iEducarLegacy\Intranet\Source\PmiEducar\Religiao as ReligiaoDbHelper;
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\String\Utils as Text;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\CoreSelect;
+
+class Religiao extends CoreSelect
 {
     protected function inputOptions($options)
     {
         $resources = $options['resources'];
 
         if (empty($options['resources'])) {
-            $resources = new Religiao();
+            $resources = new ReligiaoDbHelper();
             $resources = $resources->lista(null, null, null, null, null, null, null, null, 1);
             $resources = Utils::setAsIdValue($resources, 'cod_religiao', 'nm_religiao');
         }
 
-        return $this->insertOption(null, Utils::toLatin1('Religião'), $resources);
+        return self::insertOption(null, Text::toLatin1('Religião'), $resources);
     }
 
     public function religiao($options = [])

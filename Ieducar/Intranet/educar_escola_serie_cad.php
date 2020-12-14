@@ -641,7 +641,7 @@ class indice extends clsCadastro
             '/Modules/Cadastro/Assets/Javascripts/ModalDispensas.js'
         ];
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
     }
 
     private function getAnosLetivosDisponiveis()

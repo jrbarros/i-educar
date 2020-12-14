@@ -1,9 +1,20 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/SimpleSearch.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_SimpleSearchCliente extends Portabilis_View_Helper_Input_SimpleSearch
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\SimpleSearch;
+
+/**
+ * Class SimpleSearchCliente
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class SimpleSearchCliente extends SimpleSearch
 {
+    /**
+     * @param string $attrName
+     * @param array  $options
+     */
     public function simpleSearchCliente($attrName = '', $options = [])
     {
         $defaultOptions = [
@@ -12,11 +23,15 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchCliente extends Portabil
             'apiResource' => 'cliente-search'
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
-        parent::simpleSearch($options['objectName'], $attrName, $options);
+        $this->simpleSearch($options['objectName'], $attrName, $options);
     }
 
+    /**
+     * @param $inputOptions
+     * @return string
+     */
     protected function inputPlaceholder($inputOptions)
     {
         return 'Digite um nome para buscar';
@@ -25,6 +40,6 @@ class Portabilis_View_Helper_Input_Resource_SimpleSearchCliente extends Portabil
     protected function loadAssets()
     {
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/SimpleSearchCliente.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 }

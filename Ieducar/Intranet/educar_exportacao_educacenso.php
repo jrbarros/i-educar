@@ -129,7 +129,7 @@ class indice extends clsCadastro
         $this->inputsHelper()->hidden('escola_em_andamento', [ 'value' => $this->escola_em_andamento ]);
 
         if (!empty($this->ref_cod_escola)) {
-            Portabilis_View_Helper_Application::loadJavascript($this, '/Modules/Educacenso/Assets/Javascripts/Educacenso.js');
+            Application::loadJavascript($this, '/Modules/Educacenso/Assets/Javascripts/Educacenso.js');
         }
     }
 

@@ -1,10 +1,16 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
+
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\MultipleSearch;
+
 require_once 'lib/Portabilis/View/Helper/Input/MultipleSearch.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 require_once 'lib/Portabilis/Text/AppDateUtils.php';
 
-class Portabilis_View_Helper_Input_Resource_MultipleSearchAreasConhecimento extends Portabilis_View_Helper_Input_MultipleSearch
+class MultipleSearchAreasConhecimento extends MultipleSearch
 {
     protected function getOptions($resources)
     {
@@ -36,15 +42,15 @@ class Portabilis_View_Helper_Input_Resource_MultipleSearchAreasConhecimento exte
             $optionsVarName.placeholder = safeUtf8Decode('Selecione as áreas de conhecimento');
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 
     protected function loadAssets()
     {
-        Portabilis_View_Helper_Application::loadChosenLib($this->viewInstance);
+        Application::loadChosenLib($this->viewInstance);
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/MultipleSearch.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/Resource/MultipleSearchAreaconhecimento.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 }

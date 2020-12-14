@@ -1,14 +1,20 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_TipoLogradouro extends Portabilis_View_Helper_Input_CoreSelect
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\CoreSelect;
+
+/**
+ * Class TipoLogradouro
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class TipoLogradouro extends CoreSelect
 {
     protected function inputOptions($options)
     {
         $resources = $options['resources'];
 
-        return $this->insertOption(null, 'Tipo logradouro', $resources);
+        return self::insertOption(null, 'Tipo logradouro', $resources);
     }
 
     public function tipoLogradouro($options = [])

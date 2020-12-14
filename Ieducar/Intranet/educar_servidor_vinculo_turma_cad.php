@@ -189,7 +189,7 @@ class indice extends clsCadastro
             '/Modules/Cadastro/Assets/Javascripts/ServidorVinculoTurma.js'
         ];
 
-        Portabilis_View_Helper_Application::loadJavascript($this, $scripts);
+        Application::loadJavascript($this, $scripts);
     }
 
     public function Novo()

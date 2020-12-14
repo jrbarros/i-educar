@@ -1,8 +1,16 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource;
 
-class Portabilis_View_Helper_Input_Resource_TurmaTurno extends Portabilis_View_Helper_Input_CoreSelect
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\CoreSelect;
+
+/**
+ * Class TurmaTurno
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input\Resource
+ */
+class TurmaTurno extends CoreSelect
 {
     protected function inputOptions($options)
     {
@@ -14,7 +22,7 @@ class Portabilis_View_Helper_Input_Resource_TurmaTurno extends Portabilis_View_H
             $resources = Utils::setAsIdValue($resources, 'id', 'nome');
         }
 
-        return $this->insertOption(null, 'Selecione', $resources);
+        return self::insertOption(null, 'Selecione', $resources);
     }
 
     protected function defaultOptions()
@@ -24,6 +32,6 @@ class Portabilis_View_Helper_Input_Resource_TurmaTurno extends Portabilis_View_H
 
     public function turmaTurno($options = [])
     {
-        parent::select($options);
+        $this->select($options);
     }
 }

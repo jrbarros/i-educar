@@ -69,8 +69,8 @@ class indice extends clsCadastro
         // inicializacao de variaveis
         $this->editor = Session::get('id_pessoa');
 
-        Portabilis_View_Helper_Application::loadJavascript($this, '/Intranet/scripts/agenda.js');
-        Portabilis_View_Helper_Application::loadStylesheet($this, '/Intranet/styles/agenda.css');
+        Application::loadJavascript($this, '/Intranet/scripts/agenda.js');
+        Application::loadStylesheet($this, '/Intranet/styles/agenda.css');
 
         if ($_REQUEST['cod_agenda']) {
             $this->agenda = $_REQUEST['cod_agenda'];
