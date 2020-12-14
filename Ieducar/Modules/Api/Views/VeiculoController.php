@@ -1,17 +1,20 @@
 <?php
 
-require_once 'Source/Modules/clsModulesItinerarioTransporteEscolar.inc.php';
-require_once 'Source/Modules/clsModulesVeiculo.inc.php';
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Intranet\Source\Modules\Veiculo;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+
+/**
+ * Class VeiculoController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class VeiculoController extends ApiCoreController
 {
     protected $_processoAp = 578; //verificar
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA; // verificar
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA; // verificar
 
     protected function loadNomeEmpresa($id)
     {
@@ -31,7 +34,7 @@ class VeiculoController extends ApiCoreController
 
     protected function createOrUpdateVeiculo($id = null)
     {
-        $veiculo = new clsModulesVeiculo();
+        $veiculo = new Veiculo();
         $veiculo->cod_veiculo = $id;
 
         // após cadastro não muda mais id Pessoa

@@ -1,10 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'Intranet/Source/pmieducar/AlunoBeneficio.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Intranet\Source\PmiEducar\AlunoBeneficio;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class BeneficioController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class BeneficioController extends ApiCoreController
 {
 
@@ -22,7 +26,7 @@ class BeneficioController extends ApiCoreController
     protected function getBeneficios()
     {
         $obj = new AlunoBeneficio();
-        $arrayBeneficios;
+        $arrayBeneficios = [];
 
         foreach ($obj->listaBeneficiosPorAluno($this->getRequest()->id) as $reg) {
             $arrayBeneficios[] = $reg['aluno_beneficio_id'];

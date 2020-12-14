@@ -1,13 +1,14 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 use Illuminate\Support\Facades\Gate;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'Intranet/Source/Banco.php';
-require_once 'Intranet/Source/funcoes.php';
-
+/**
+ * Class EnderecoController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class EnderecoController extends ApiCoreController
 {
     protected function getPrimeiroEnderecoCep()

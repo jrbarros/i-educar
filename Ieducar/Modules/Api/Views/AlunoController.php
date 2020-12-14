@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\Educacenso\Registro30;
 use App\Models\Individual;
 use App\Models\LegacyDeficiency;
@@ -9,30 +11,19 @@ use iEducar\Modules\Educacenso\Validator\DeficiencyValidator;
 use iEducar\Modules\Educacenso\Validator\InepExamValidator;
 use iEducar\Modules\Educacenso\Validator\NisValidator;
 use iEducar\Modules\People\CertificateType;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-require_once 'Source/Pessoa/clsCadastroFisicaFoto.inc.php';
-require_once 'image_check.php';
-require_once 'Source/pmieducar/Aluno.php';
-require_once 'Source/pmieducar/Projeto.php';
-require_once 'Source/pmieducar/AlunoHistoricoAlturaPeso.php';
-require_once 'Source/Modules/clsModulesFichaMedicaAluno.inc.php';
-require_once 'Source/Modules/clsModulesMoradiaAluno.inc.php';
-require_once 'Source/pmieducar/Permissoes.php';
-require_once 'App/Model/MatriculaSituacao.php';
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
-require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
-require_once 'Transporte/Model/Responsavel.php';
-
+/**
+ * Class AlunoController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class AlunoController extends ApiCoreController
 {
     protected $_processoAp = 578;
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
 
     // validators
     protected function validatesPessoaId()

@@ -1,20 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\LegacyRegistration;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 use Illuminate\Support\Str;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'App/Model/MatriculaSituacao.php';
-require_once 'Intranet/Source/Banco.php';
-require_once 'Source/pmieducar/geral.inc.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
-require_once 'Modules/Avaliacao/Model/NotaAlunoDataMapper.php';
-require_once 'Modules/Avaliacao/Model/NotaComponenteMediaDataMapper.php';
-require_once 'Modules/Avaliacao/Views/PromocaoApiController.php';
-require_once 'lib/CoreExt/Controller/PageRequest.php';
-
+/**
+ * Class MatriculaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class MatriculaController extends ApiCoreController
 {
     protected function canGetMatriculas()

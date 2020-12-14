@@ -1,13 +1,14 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 use Illuminate\Support\Facades\Session;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Date/AppDateUtils.php';
-require_once 'Source/funcoes.php';
-
+/**
+ * Class FilaUnicaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class FilaUnicaController extends ApiCoreController
 {
     protected function getDadosAluno()

@@ -1,34 +1,33 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use iEducar\Modules\EvaluationRules\Exceptions\EvaluationRuleNotAllowGeneralAbsence;
 use iEducar\Modules\Stages\Exceptions\MissingStagesException;
 use iEducar\Support\Exceptions\Error;
+use iEducarLegacy\Intranet\Source\PmiEducar\Turma;
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
 
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Avaliacao/Service/Boletim.php';
-require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
-require_once 'Avaliacao/Model/FaltaComponenteDataMapper.php';
-require_once 'Avaliacao/Model/FaltaGeralDataMapper.php';
-require_once 'Avaliacao/Model/ParecerDescritivoComponenteDataMapper.php';
-require_once 'Avaliacao/Model/ParecerDescritivoGeralDataMapper.php';
-require_once 'RegraAvaliacao/Model/TipoPresenca.php';
-require_once 'RegraAvaliacao/Model/TipoParecerDescritivo.php';
-require_once 'Source/Modules/clsModulesNotaExame.inc.php';
-require_once 'App/Model/MatriculaSituacao.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-
+/**
+ * Class DiarioController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class DiarioController extends ApiCoreController
 {
     protected $_processoAp = 642;
 
     protected function getRegra($matriculaId)
     {
-        return App_Model_IedFinder::getRegraAvaliacaoPorMatricula($matriculaId);
+        return Finder::getRegraAvaliacaoPorMatricula($matriculaId);
     }
 
     protected function getComponentesPorMatricula($matriculaId)
     {
-        return App_Model_IedFinder::getComponentesPorMatricula($matriculaId);
+        return Finder::getComponentesPorMatricula($matriculaId);
     }
 
     protected function getComponentesPorTurma($turmaId)
@@ -39,13 +38,13 @@ class DiarioController extends ApiCoreController
         $serieId = $detTurma['ref_ref_cod_serie'];
         $ano = $detTurma['ano'];
 
-        return App_Model_IedFinder::getComponentesTurma($serieId, $escolaId, $turmaId, null, null, null, null, null, $ano);
+        return Finder::getComponentesTurma($serieId, $escolaId, $turmaId, null, null, null, null, null, $ano);
     }
 
     protected function validateComponenteCurricular($matriculaId, $componenteCurricularId)
     {
         $componentes = $this->getComponentesPorMatricula($matriculaId);
-        $componentes = CoreExt_Entity::entityFilterAttr($componentes, 'id', 'id');
+        $componentes = Entity::entityFilterAttr($componentes, 'id', 'id');
         $valid = in_array($componenteCurricularId, $componentes);
 
         if (!$valid) {
@@ -59,8 +58,8 @@ class DiarioController extends ApiCoreController
     {
         $componentesTurma = $this->getComponentesPorTurma($turmaId);
 
-        if ($componentesTurma instanceof CoreExt_Entity) {
-            $componentesTurma = CoreExt_Entity::entityFilterAttr($componentesTurma, 'id', 'id');
+        if ($componentesTurma instanceof Entity) {
+            $componentesTurma = Entity::entityFilterAttr($componentesTurma, 'id', 'id');
         } else {
             foreach ($componentesTurma as $componente) {
                 $arr[] = $componente->id;

@@ -1,16 +1,18 @@
 <?php
 
-require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
-require_once 'Source/Modules/clsModulesItinerarioTransporteEscolar.inc.php';
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class PessoatransporteController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class PessoatransporteController extends ApiCoreController
 {
     protected $_processoAp = 21240; //verificar
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA; // verificar
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA; // verificar
 
     protected function loadNomePessoaj($id)
     {

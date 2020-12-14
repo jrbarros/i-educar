@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 require_once 'lib/Portabilis/Controller/ApiCoreController.php';
 require_once 'lib/Portabilis/Collection/AppDateUtils.php';
 require_once 'Intranet/Source/Banco.php';

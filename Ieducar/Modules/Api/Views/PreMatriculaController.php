@@ -1,16 +1,24 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\City;
 use iEducar\Modules\Addressing\LegacyAddressingFields;
+use iEducarLegacy\Intranet\Source\Pessoa\Fisica;
+use iEducarLegacy\Intranet\Source\Pessoa\Pessoa;
+use iEducarLegacy\Intranet\Source\PmiEducar\Aluno;
+use iEducarLegacy\Intranet\Source\PmiEducar\Matricula;
+use iEducarLegacy\Intranet\Source\PmiEducar\MatriculaTurma;
+use iEducarLegacy\Intranet\Source\PmiEducar\Turma;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
 use Illuminate\Support\Str;
 
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
-require_once 'Source/pmieducar/geral.inc.php';
-
+/**
+ * Class PreMatriculaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class PreMatriculaController extends ApiCoreController
 {
     use LegacyAddressingFields;
@@ -120,7 +128,7 @@ class PreMatriculaController extends ApiCoreController
             $det_a = $obj_a->detalhe();
             $pessoaAlunoId = $det_a['ref_idpes'];
 
-            $pessoa = new clsPessoa_($pessoaAlunoId);
+            $pessoa = new Pessoa($pessoaAlunoId);
             $pessoa->nome = addslashes($nomeAluno);
             $pessoa->tipo = 'F';
             $pessoa->edita();
@@ -128,7 +136,7 @@ class PreMatriculaController extends ApiCoreController
             $pessoaMaeId = null;
             $pessoaResponsavelId = null;
 
-            $pessoaFisicaAluno = new clsFisica($pessoaAlunoId);
+            $pessoaFisicaAluno = new Fisica($pessoaAlunoId);
             $pessoaFisicaAluno_det = $pessoaFisicaAluno->detalhe();
 
             $pessoaMaeId = $pessoaFisicaAluno_det['idpes_mae'];
@@ -136,11 +144,11 @@ class PreMatriculaController extends ApiCoreController
             $maeIsResponsavel = ($pessoaMaeId == $pessoaResponsavelId);
 
             if (is_numeric($pessoaMaeId)) {
-                $pessoaMaeAluno = new clsPessoa_($pessoaMaeId);
+                $pessoaMaeAluno = new Pessoa($pessoaMaeId);
                 $pessoaMaeAluno->nome = $nomeMae;
                 $pessoaMaeAluno->edita();
 
-                $pessoaFisicaMaeAluno = new clsFisica($pessoaMaeId);
+                $pessoaFisicaMaeAluno = new Fisica($pessoaMaeId);
                 $pessoaFisicaMaeAluno->cpf = $cpfMae;
                 $pessoaFisicaMaeAluno->idpes_rev = 1;
                 $pessoaFisicaMaeAluno->edita();
@@ -151,11 +159,11 @@ class PreMatriculaController extends ApiCoreController
 
             if (!$maeIsResponsavel) {
                 if (is_numeric($pessoaResponsavelId)) {
-                    $pessoaResponsavelAluno = new clsPessoa_($pessoaResponsavelId);
+                    $pessoaResponsavelAluno = new Pessoa($pessoaResponsavelId);
                     $pessoaResponsavelAluno->nome = $nomeResponsavel;
                     $pessoaResponsavelAluno->edita();
 
-                    $pessoaFisicaResponsavelAluno = new clsFisica($pessoaResponsavelId);
+                    $pessoaFisicaResponsavelAluno = new Fisica($pessoaResponsavelId);
                     $pessoaFisicaResponsavelAluno->cpf = $cpfResponsavel;
                     $pessoaFisicaResponsavelAluno->idpes_rev = 1;
                     $pessoaFisicaResponsavelAluno->edita();
@@ -455,7 +463,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function createPessoa($nome)
     {
-        $pessoa = new clsPessoa_();
+        $pessoa = new Pessoa();
 
         $pessoa->nome = addslashes($nome);
         $pessoa->tipo = 'F';
@@ -465,7 +473,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function createOrUpdatePessoaResponsavel($cpf, $nome, $telefone)
     {
-        $pessoa = new clsPessoa_();
+        $pessoa = new Pessoa();
         $pessoa->nome = addslashes($nome);
         $pessoa->idpes_cad = 1;
         $pessoa->idpes_rev = 1;
@@ -500,7 +508,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function createOrGetPessoaResponsavel($cpf, $nome, $telefone)
     {
-        $pessoa = new clsPessoa_();
+        $pessoa = new Pessoa();
         $pessoa->nome = addslashes($nome);
         $pessoa->idpes_cad = 1;
         $pessoa->idpes_rev = 1;
@@ -531,7 +539,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function createOrUpdatePessoaFisica($pessoaId, $pessoaResponsavelId, $pessoaMaeId, $dataNascimento, $sexo)
     {
-        $fisica = new clsFisica();
+        $fisica = new Fisica();
         $fisica->idpes = $pessoaId;
         $fisica->data_nasc = $dataNascimento;
         $fisica->idpes_cad = 1;
@@ -560,7 +568,7 @@ class PreMatriculaController extends ApiCoreController
 
     protected function createOrUpdatePessoaFisicaResponsavel($pessoaId, $cpf)
     {
-        $fisica = new clsFisica();
+        $fisica = new Fisica();
         $fisica->idpes = $pessoaId;
         $fisica->cpf = $cpf;
         $fisica->idpes_cad = 1;
@@ -568,7 +576,7 @@ class PreMatriculaController extends ApiCoreController
 
         $sql = 'select 1 from cadastro.fisica WHERE idpes = $1 limit 1';
 
-        if (Database::selectField($sql, $pessoaId) != 1) {
+        if (Database::selectField($sql, $pessoaId) !== 1) {
             $fisica->cadastra();
         } else {
             $fisica->edita();
@@ -601,9 +609,8 @@ class PreMatriculaController extends ApiCoreController
     {
         $obj_t = new Turma($turmaId);
         $det_t = $obj_t->detalhe();
-        $maxAlunosTurma = $det_t['max_aluno'];
 
-        return $maxAlunosTurma;
+        return $det_t['max_aluno'];
     }
 
     protected function _alunosMatriculadosTurma($turmaId)

@@ -1,18 +1,20 @@
 <?php
 
-require_once 'Source/Modules/clsModulesEmpresaTransporteEscolar.inc.php';
-require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
-require_once 'Source/Modules/clsModulesMotorista.inc.php';
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Intranet\Source\Modules\EmpresaTransporteEscolar;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+
+/**
+ * Class EmpresaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class EmpresaController extends ApiCoreController
 {
     protected $_processoAp = 578; //verificar
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA; // verificar
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA; // verificar
 
     protected function validatePessoaJuridica($id)
     {
@@ -38,7 +40,7 @@ class EmpresaController extends ApiCoreController
 
     protected function createOrUpdateEmpresa($id = null)
     {
-        $empresa = new clsModulesEmpresaTransporteEscolar();
+        $empresa = new EmpresaTransporteEscolar();
         $empresa->cod_empresa_transporte_escolar = $id;
 
         $empresa->ref_resp_idpes = $this->getRequest()->pessoa_id;
@@ -52,7 +54,7 @@ class EmpresaController extends ApiCoreController
     {
         if ($this->canGet()) {
             $id = $this->getRequest()->id;
-            $empresa = new clsModulesEmpresaTransporteEscolar();
+            $empresa = new EmpresaTransporteEscolar();
             $empresa->cod_empresa_transporte_escolar = $id;
             $empresa = $empresa->detalhe();
 
@@ -129,14 +131,14 @@ class EmpresaController extends ApiCoreController
     protected function canGet()
     {
         $id = $this->getRequest()->id;
-        $empresa = new clsModulesEmpresaTransporteEscolar();
+        $empresa = new EmpresaTransporteEscolar();
         $empresa->cod_empresa_transporte_escolar = $id;
 
         if ($empresa->existe()) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     protected function validateSizeOfObservacao()
@@ -185,7 +187,7 @@ class EmpresaController extends ApiCoreController
     {
         $id = $this->getRequest()->id;
 
-        $empresa = new clsModulesEmpresaTransporteEscolar();
+        $empresa = new EmpresaTransporteEscolar();
         $empresa->cod_empresa_transporte_escolar = $id;
 
         if ($empresa->excluir()) {

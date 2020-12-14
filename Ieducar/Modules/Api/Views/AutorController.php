@@ -1,10 +1,13 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'Intranet/Source/pmieducar/AcervoAcervoAutor.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class AutorController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class AutorController extends ApiCoreController
 {
 

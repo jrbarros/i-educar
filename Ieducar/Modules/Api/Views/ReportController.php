@@ -1,9 +1,13 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Reports/Reports/BoletimReport.php';
-require_once 'Reports/Reports/BoletimProfessorReport.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class ReportController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class ReportController extends ApiCoreController
 {
 

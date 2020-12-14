@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use iEducar\Modules\Reports\QueryFactory\MovimentoGeralAlunosAbandonosQueryFactory;
 use iEducar\Modules\Reports\QueryFactory\MovimentoGeralAlunosAdmitidosQueryFactory;
 use iEducar\Modules\Reports\QueryFactory\MovimentoGeralAlunosAnosQueryFactory;
@@ -10,8 +12,10 @@ use iEducar\Modules\Reports\QueryFactory\MovimentoGeralAlunosReclaQueryFactory;
 use iEducar\Modules\Reports\QueryFactory\MovimentoGeralAlunosRemQueryFactory;
 use iEducar\Modules\Reports\QueryFactory\MovimentoGeralAlunosTransferidosQueryFactory;
 
-require_once 'ConsultaBaseController.php';
-
+/**
+ * Class ConsultaMovimentoGeralController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class ConsultaMovimentoGeralController extends ConsultaBaseController
 {
     protected function canGetAlunos()

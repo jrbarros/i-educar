@@ -1,11 +1,14 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\Place;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'Intranet/Source/Banco.php';
-
+/**
+ * Class BairroController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class BairroController extends ApiCoreController
 {
     protected function getNeighborhoods()

@@ -1,13 +1,17 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\MigratedDiscipline;
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/App/Model/Finder.php';
-
+/**
+ * Class ComponenteCurricularController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class ComponenteCurricularController extends ApiCoreController
 {
     // search options
@@ -140,8 +144,7 @@ class ComponenteCurricularController extends ApiCoreController
             $escolaId = $this->getRequest()->escola_id;
             $serieId       = $this->getRequest()->serie_id;
             $ano       = $this->getRequest()->ano;
-            $componentes = App_Model_IedFinder::getEscolaSerieDisciplina($serieId, $escolaId, null, null, null, true, $ano);
-            $componentesCurriculares = [];
+            $componentes = Finder::getEscolaSerieDisciplina($serieId, $escolaId, null, null, null, true, $ano);
             $componentesCurriculares = array_map(function ($componente) {
                 return [
                     'id' => $componente->id,

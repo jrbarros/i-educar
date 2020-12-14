@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\LegacyIndividual;
 use App\Models\PersonHasPlace;
 use iEducar\Modules\Addressing\LegacyAddressingFields;
@@ -7,16 +9,12 @@ use iEducar\Modules\Educacenso\Model\Nacionalidade;
 use iEducar\Modules\Educacenso\Validator\BirthDateValidator;
 use iEducar\Modules\Educacenso\Validator\DifferentiatedLocationValidator;
 use iEducar\Modules\Educacenso\Validator\NameValidator;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Date/AppDateUtils.php';
-require_once 'Source/Pessoa/clsPessoa_.inc.php';
-require_once 'Source/Pessoa/clsFisica.inc.php';
-require_once 'Source/Pessoa/clsCadastroFisicaRaca.inc.php';
-require_once 'Intranet/Source/funcoes.php';
-
+/**
+ * Class PessoaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class PessoaController extends ApiCoreController
 {
     use LegacyAddressingFields;

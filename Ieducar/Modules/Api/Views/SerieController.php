@@ -1,12 +1,13 @@
 <?php
 
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
-require_once 'Source/pmieducar/geral.inc.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class SerieController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class SerieController extends ApiCoreController
 {
     protected function canGetSeries()

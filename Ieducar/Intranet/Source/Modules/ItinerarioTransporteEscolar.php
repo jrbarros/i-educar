@@ -2,9 +2,8 @@
 
 namespace iEducarLegacy\Intranet\Source\Modules;
 
-
 use iEducar\Legacy\Model;
-
+use iEducarLegacy\Intranet\Source\Banco;
 
 /**
  * Class ItinerarioTransporteEscolar

@@ -1,8 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class EducacensoOrgaoRegionalController
+ *
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class EducacensoOrgaoRegionalController extends ApiCoreController
 {
     protected function getOrgaosRegionais()

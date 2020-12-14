@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\Educacenso\Registro00;
 use App\Models\Educacenso\Registro10;
 use App\Models\Educacenso\Registro20;
@@ -42,15 +44,9 @@ use iEducar\Modules\Educacenso\Validator\CnpjMantenedoraPrivada;
 use iEducar\Modules\Educacenso\Validator\InepNumberValidator;
 use iEducar\Modules\Educacenso\Validator\Telefone;
 use iEducar\Modules\Servidores\Model\FuncaoExercida;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
 use Illuminate\Support\Facades\DB;
-
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Intranet/Source/Banco.php';
-require_once 'lib/Portabilis/Date/AppDateUtils.php';
-require_once 'lib/App/Model/Finder.php';
-require_once 'lib/App/Model/Educacenso.php';
-require_once 'lib/App/Model/Educacenso/TipoMediacaoDidaticoPedagogico.php';
-require_once 'lib/App/Model/Educacenso/LocalFuncionamentoDiferenciado.php';
 
 /**
  * @deprecated Essa versão da API pública será descontinuada

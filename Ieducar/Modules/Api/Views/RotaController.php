@@ -1,17 +1,21 @@
 <?php
 
-require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
-require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
-require_once 'Source/Modules/clsModulesItinerarioTransporteEscolar.inc.php';
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Intranet\Source\Modules\ItinerarioTransporteEscolar;
+use iEducarLegacy\Intranet\Source\Modules\RotaTransporteEscolar;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+
+/**
+ * Class RotaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class RotaController extends ApiCoreController
 {
     protected $_processoAp = 21238; //verificar
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA; // verificar
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA; // verificar
 
   protected function loadNomePessoaj($id)
   {
@@ -36,7 +40,7 @@ class RotaController extends ApiCoreController
 
     protected function createOrUpdateRota($id = null)
     {
-        $rota = new clsModulesRotaTransporteEscolar();
+        $rota = new RotaTransporteEscolar();
         $rota->cod_rota_transporte_escolar = $id;
 
         // após cadastro não muda mais id Pessoa
@@ -71,7 +75,7 @@ class RotaController extends ApiCoreController
     protected function get()
     {
         $id = $this->getRequest()->id;
-        $rota = new clsModulesRotaTransporteEscolar();
+        $rota = new RotaTransporteEscolar();
         $rota->cod_rota_transporte_escolar = $id;
         $rota = $rota->detalhe();
 
@@ -150,10 +154,10 @@ class RotaController extends ApiCoreController
     {
         $id = $this->getRequest()->id;
 
-        $itinerario = new clsModulesItinerarioTransporteEscolar();
+        $itinerario = new ItinerarioTransporteEscolar();
         $itinerario->excluirTodos($id);
 
-        $rota = new clsModulesRotaTransporteEscolar();
+        $rota = new RotaTransporteEscolar();
         $rota->cod_rota_transporte_escolar = $id;
 
         if ($rota->excluir()) {

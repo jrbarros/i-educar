@@ -1,5 +1,11 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Model;
+
+/**
+ * Class ApiExternaController
+ * @package iEducarLegacy\Modules\Api\Model
+ */
 class ApiExternaController
 {
     private $url;

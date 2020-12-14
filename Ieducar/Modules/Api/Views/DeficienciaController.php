@@ -1,12 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-
+/**
+ * Class DeficienciaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class DeficienciaController extends ApiCoreController
 {
     protected function searchOptions()

@@ -1,7 +1,13 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class CursoSuperiorController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class CursoSuperiorController extends ApiCoreController
 {
 

@@ -1,8 +1,14 @@
 <?php
 
-require_once 'Source/Banco.php';
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Intranet\Source\Banco;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class ConsultaBaseController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class ConsultaBaseController extends ApiCoreController
 {
     protected $pdo;

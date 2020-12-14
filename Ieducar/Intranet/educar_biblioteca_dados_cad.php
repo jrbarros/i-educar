@@ -1,9 +1,14 @@
 <?php
 
-require_once('Source/Base.php');
-require_once('Source/Cadastro.inc.php');
-require_once('Source/Banco.php');
-require_once('Source/pmieducar/geral.inc.php');
+use iEducarLegacy\Intranet\Source\Base;
+
+use iEducarLegacy\Intranet\Source\Cadastro;
+use iEducarLegacy\Intranet\Source\PmiEducar\Biblioteca;
+use iEducarLegacy\Intranet\Source\PmiEducar\BibliotecaUsuario;
+use iEducarLegacy\Intranet\Source\PmiEducar\Permissoes;
+
+
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 class clsIndexBase extends Base
 {
@@ -14,7 +19,7 @@ class clsIndexBase extends Base
     }
 }
 
-class indice extends clsCadastro
+class indice extends Cadastro
 {
     /**
      * Referencia pega da session para o idpes do usuario atual
@@ -64,7 +69,7 @@ class indice extends clsCadastro
         if ($nivel_usuario <= 3) {
             $permitido = true;
         } else {
-            $obj_usuario_bib = new clsPmieducarBibliotecaUsuario();
+            $obj_usuario_bib = new BibliotecaUsuario();
             $lista_bib = $obj_usuario_bib->lista(null, $this->pessoa_logada);
             $permitido = false;
             if ($lista_bib) {
@@ -264,9 +269,9 @@ class indice extends clsCadastro
                     asort($naoRetornaDuplicados);
                     foreach ($naoRetornaDuplicados as $key => $campo) {
                         $obj = new BibliotecaDia(
-                      $this->cod_biblioteca,
-                      $this->dia_semana[$key]
-                  );
+                            $this->cod_biblioteca,
+                            $this->dia_semana[$key]
+                        );
                         $cadastrou1 = $obj->cadastra();
 
                         if (!$cadastrou1) {

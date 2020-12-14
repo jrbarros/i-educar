@@ -1,16 +1,19 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'Intranet/Source/pmieducar/CategoriaAcervo.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Intranet\Source\PmiEducar\CategoriaAcervo;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class CategoriaController
+ */
 class CategoriaController extends ApiCoreController
 {
     protected function getCategorias()
     {
         $obj = new CategoriaAcervo();
-        $arrayCategorias;
+        $arrayCategorias = [];
 
         foreach ($obj->listaCategoriasPorObra($this->getRequest()->id) as $reg) {
             $arrayCategorias[] = $reg['categoria_id'];

@@ -1,9 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Intranet/Source/Banco.php';
-require_once 'Intranet/Source/Base.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Intranet\Source\PmiEducar\Usuario;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+
+/**
+ * Class UsuarioExportController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class UsuarioExportController extends ApiCoreController
 {
     protected function exportUsers()
@@ -22,6 +28,7 @@ class UsuarioExportController extends ApiCoreController
             $status
         );
 
+        $csv = '';
         //Linhas do cabeçalho
         $csv .= 'Nome,';
         $csv .= 'Matricula,';

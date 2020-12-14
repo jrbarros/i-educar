@@ -1,8 +1,13 @@
 <?php
 
-require_once 'Modules/Avaliacao/Model/NotaAlunoDataMapper.php';
-require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class DispensaDisciplinaPorEtapaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class DispensaDisciplinaPorEtapaController extends ApiCoreController
 {
     protected function canValidatesData()

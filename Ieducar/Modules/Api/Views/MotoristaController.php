@@ -1,17 +1,18 @@
 <?php
 
-require_once 'Source/Modules/clsModulesMotorista.inc.php';
-require_once 'Source/Modules/clsModulesVeiculo.inc.php';
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class MotoristaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class MotoristaController extends ApiCoreController
 {
     protected $_processoAp = 578; //verificar
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA; // verificar
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA; // verificar
 
     // load resources
     protected function loadNomePessoa($id)

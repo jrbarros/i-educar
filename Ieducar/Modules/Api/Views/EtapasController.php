@@ -1,8 +1,13 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class EtapasController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class EtapasController extends ApiCoreController
 {
     protected function getEtapasEspecificas()

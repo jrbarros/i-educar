@@ -1,23 +1,19 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\LegacySchool;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Source/Base.php';
-require_once 'Source/Cadastro.inc.php';
-require_once 'Source/Banco.php';
-require_once 'Source/pmieducar/geral.inc.php';
-require_once 'lib/Portabilis/Date/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'Source/pmieducar/EscolaUsuario.php';
-require_once 'Source/pmieducar/Permissoes.php';
-
+/**
+ * Class EscolaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class EscolaController extends ApiCoreController
 {
     protected $_processoAp = 561;
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
 
     protected function canChange()
     {

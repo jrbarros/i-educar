@@ -1,26 +1,28 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\Place;
 use iEducar\Modules\Addressing\LegacyAddressingFields;
+use iEducarLegacy\Intranet\Source\Modules\ItinerarioTransporteEscolar;
+use iEducarLegacy\Intranet\Source\Modules\PontoTransporteEscolar;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
-require_once 'Source/Modules/clsModulesPessoaTransporte.inc.php';
-require_once 'Source/Modules/clsModulesItinerarioTransporteEscolar.inc.php';
-require_once 'Source/Modules/clsModulesPontoTransporteEscolar.inc.php';
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
-
+/**
+ * Class PontoController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class PontoController extends ApiCoreController
 {
     use LegacyAddressingFields;
 
     protected $_processoAp = 578; //verificar
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA; // verificar
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA; // verificar
 
     protected function createOrUpdatePonto($id = null)
     {
-        $ponto = new clsModulesPontoTransporteEscolar();
+        $ponto = new PontoTransporteEscolar();
         $ponto->cod_ponto_transporte_escolar = $id;
 
         $detalhe = $ponto->detalhe();
@@ -69,7 +71,7 @@ class PontoController extends ApiCoreController
     protected function get()
     {
         $id = $this->getRequest()->id;
-        $ponto = new clsModulesPontoTransporteEscolar();
+        $ponto = new PontoTransporteEscolar();
         $ponto->cod_ponto_transporte_escolar = $id;
         $ponto = $ponto->detalhe();
 
@@ -111,7 +113,7 @@ class PontoController extends ApiCoreController
 
     protected function validateIfPontoIsNotInUse()
     {
-        $itinerario = new clsModulesItinerarioTransporteEscolar();
+        $itinerario = new ItinerarioTransporteEscolar();
         $lista = $itinerario->lista(null, null, null, null, null, $this->getRequest()->id);
 
         if (is_array($lista) && count($lista)>0) {
@@ -198,7 +200,7 @@ class PontoController extends ApiCoreController
             $editaPessoa->edita();
         }
 
-        $ponto = new clsModulesPontoTransporteEscolar();
+        $ponto = new PontoTransporteEscolar();
         $ponto->cod_ponto_transporte_escolar = $id;
 
         if ($ponto->excluir()) {

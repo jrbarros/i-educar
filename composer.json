@@ -41,7 +41,8 @@
         "predis/predis": "^1.1",
         "prettus/l5-repository": "^2.6",
         "swiftmailer/swiftmailer": "^6.1",
-        "tooleks/laravel-asset-version": "^1.0"
+        "tooleks/laravel-asset-version": "^1.0",
+        "ext-curl": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

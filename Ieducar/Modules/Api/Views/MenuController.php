@@ -1,11 +1,14 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Menu;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-
+/**
+ * Class MenuController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class MenuController extends ApiCoreController
 {
     protected function search()

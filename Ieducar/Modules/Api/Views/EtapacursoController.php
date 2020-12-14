@@ -1,10 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Utils/Database.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
+
+/**
+ * Class EtapacursoController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class EtapacursoController extends ApiCoreController
 {
 
@@ -21,7 +25,7 @@ class EtapacursoController extends ApiCoreController
 
     protected function getEtapacurso()
     {
-        $arrayEtapacurso;
+        $arrayEtapacurso = [];
         $sql = 'SELECT * FROM Modules.etapas_curso_educacenso WHERE curso_id = $1';
 
         foreach (Database::fetchPreparedQuery($sql, ['params' => $this->getRequest()->curso_id]) as $reg) {

@@ -1,10 +1,13 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Utils/Database.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class AreaConhecimentoController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class AreaConhecimentoController extends ApiCoreController
 {
     public function canGetAreasDeConhecimento()

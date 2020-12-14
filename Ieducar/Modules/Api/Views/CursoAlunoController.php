@@ -1,10 +1,16 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Utils/Database.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\String\Utils as Text;
+
+/**
+ * Class CursoAlunoController
+ *
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class CursoAlunoController extends ApiCoreController
 {
     public function canGetCursoDoAluno()
@@ -23,7 +29,7 @@ class CursoAlunoController extends ApiCoreController
             $options = [];
 
             foreach ($cursos as $curso) {
-                $options[$curso['id']] = Utils::toUtf8($curso['nome']);
+                $options[$curso['id']] = Text::toUtf8($curso['nome']);
             }
 
             return ['options' => $options];

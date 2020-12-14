@@ -1,8 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Source/pmieducar/EscolaCurso.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Intranet\Source\PmiEducar\EscolaCurso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class EscolaCursoController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class EscolaCursoController extends ApiCoreController
 {
     public function getAnosLetivos()

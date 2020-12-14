@@ -1,20 +1,26 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\LegacyDiscipline;
 use App\Models\LegacyDisciplineExemption;
 use App\Models\LegacyGrade;
 use App\Models\LegacySchoolGradeDiscipline;
 use App\Services\CheckPostedDataService;
 use App\Services\iDiarioService;
+use ComponenteCurricular_Model_TurmaDataMapper;
+use iEducarLegacy\Intranet\Source\Modules\ComponenteCurricularAnoEscolar;
+use iEducarLegacy\Intranet\Source\PmiEducar\EscolaAnoLetivo;
+use iEducarLegacy\Intranet\Source\PmiEducar\EscolaSerie;
+use iEducarLegacy\Intranet\Source\PmiEducar\EscolaSerieDisciplina;
+use iEducarLegacy\Intranet\Source\PmiEducar\Turma;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'Source/Modules/clsModulesComponenteCurricularAnoEscolar.inc.php';
-require_once 'Source/pmieducar/EscolaSerieDisciplina.php';
-require_once 'ComponenteCurricular/Model/TurmaDataMapper.php';
-
+/**
+ * Class ComponentesSerieController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class ComponentesSerieController extends ApiCoreController
 {
     public function atualizaComponentesDaSerie()
@@ -30,7 +36,7 @@ class ComponentesSerieController extends ApiCoreController
             $arrayComponentes[$key]['anos_letivos'] = $componente->anos_letivos;
         }
 
-        $obj = new clsModulesComponenteCurricularAnoEscolar(null, $serieId, null, null, $arrayComponentes);
+        $obj = new ComponenteCurricularAnoEscolar(null, $serieId, null, null, $arrayComponentes);
 
         $updateInfo = $obj->updateInfo();
         $componentesAtualizados = $updateInfo['update'];
@@ -279,7 +285,7 @@ class ComponentesSerieController extends ApiCoreController
     public function excluiComponentesSerie()
     {
         $serieId = $this->getRequest()->serie_id;
-        $obj = new clsModulesComponenteCurricularAnoEscolar(null, $serieId);
+        $obj = new ComponenteCurricularAnoEscolar(null, $serieId);
 
         if ($obj->exclui()) {
             $this->excluiTodosComponenteDaTurma($serieId);

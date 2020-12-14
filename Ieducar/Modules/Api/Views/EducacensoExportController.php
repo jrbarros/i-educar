@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Api\Views;
+
 use App\Models\Educacenso\Registro00;
 use App\Models\Educacenso\Registro10;
 use App\Models\Educacenso\Registro20;
@@ -34,19 +36,9 @@ use iEducar\Modules\Educacenso\ExportRule\TransporteEscolarPublico;
 use iEducar\Modules\Educacenso\ExportRule\TurmaMulti;
 use iEducar\Modules\Educacenso\ExportRule\VeiculoTransporte;
 use iEducar\Modules\Educacenso\Formatters;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 use Illuminate\Support\Facades\Session;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Source/Banco.php';
-require_once 'Source/pmieducar/geral.inc.php';
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Date/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Business/Professor.php';
-require_once 'App/Model/Finder.php';
-require_once 'ComponenteCurricular/Model/CodigoEducacenso.php';
-require_once 'lib/App/Model/Educacenso.php';
-require_once __DIR__ . '/../../../Lib/App/Model/Servidor.php';
 
 /**
  * Class EducacensoExportController

@@ -1,9 +1,13 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'Intranet/Source/Banco.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class AcervoController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class AcervoController extends ApiCoreController
 {
     protected function searchOptions()

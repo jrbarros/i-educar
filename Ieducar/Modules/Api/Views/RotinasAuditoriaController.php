@@ -1,7 +1,13 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
+namespace iEducarLegacy\Modules\Api\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class RotinasAuditoriaController
+ * @package iEducarLegacy\Modules\Api\Views
+ */
 class RotinasAuditoriaController extends ApiCoreController
 {
 
