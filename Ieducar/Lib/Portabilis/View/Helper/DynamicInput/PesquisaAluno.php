@@ -1,8 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/Core.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_PesquisaAluno extends Portabilis_View_Helper_DynamicInput_Core
+use iEducarLegacy\Lib\App\Model\Finder;
+
+/**
+ * Class PesquisaAluno
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class PesquisaAluno extends Core
 {
     protected function inputValue($id = null)
     {
@@ -19,10 +25,7 @@ class Portabilis_View_Helper_DynamicInput_PesquisaAluno extends Portabilis_View_
             $id = $this->inputValue($id);
         }
 
-        // chama finder somente se possuir id, senão ocorrerá exception
-        $resource = empty($id) ? null : App_Model_IedFinder::getAluno($this->getEscolaId(), $id);
-
-        return $resource;
+        return empty($id) ? null : Finder::getAluno($this->getEscolaId(), $id);
     }
 
     public function pesquisaAluno($options = [])

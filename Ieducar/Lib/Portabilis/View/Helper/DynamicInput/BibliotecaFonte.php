@@ -1,8 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_BibliotecaFonte extends Portabilis_View_Helper_DynamicInput_CoreSelect
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\CoreSelect;
+
+/**
+ * Class BibliotecaFonte
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class BibliotecaFonte extends CoreSelect
 {
     protected function inputName()
     {
@@ -15,13 +22,13 @@ class Portabilis_View_Helper_DynamicInput_BibliotecaFonte extends Portabilis_Vie
         $bibliotecaId = $this->getBibliotecaId();
 
         if ($bibliotecaId and empty($resources)) {
-            $resources = App_Model_IedFinder::getBibliotecaFontes($bibliotecaId);
+            $resources = Finder::getBibliotecaFontes($bibliotecaId);
         }
 
-        return $this->insertOption(null, 'Selecione uma fonte', $resources);
+        return self::insertOption(null, 'Selecione uma fonte', $resources);
     }
 
-    public function bibliotecaFonte($options = [])
+    public function bibliotecaFonte($options = []): void
     {
         parent::select($options);
     }

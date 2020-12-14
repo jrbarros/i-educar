@@ -1,8 +1,10 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
+
 require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
 
-class Portabilis_View_Helper_DynamicInput_BibliotecaTipoCliente extends Portabilis_View_Helper_DynamicInput_CoreSelect
+class BibliotecaTipoCliente extends CoreSelect
 {
     protected function inputName()
     {

@@ -1,8 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_Instituicao extends Portabilis_View_Helper_DynamicInput_CoreSelect
+use iEducarLegacy\Lib\App\Model\Finder;
+
+/**
+ * Class Instituicao
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class Instituicao extends CoreSelect
 {
     protected function inputValue($value = null)
     {
@@ -19,7 +25,7 @@ class Portabilis_View_Helper_DynamicInput_Instituicao extends Portabilis_View_He
         $resources = $options['resources'];
 
         if (empty($resources)) {
-            $resources = App_Model_IedFinder::getInstituicoes();
+            $resources = Finder::getInstituicoes();
         }
 
         return $this->insertOption(null, 'Selecione uma institui&ccedil;&atilde;o', $resources);

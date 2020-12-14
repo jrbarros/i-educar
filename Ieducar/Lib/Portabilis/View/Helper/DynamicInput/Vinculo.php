@@ -1,9 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
-require_once 'lib/Portabilis/Utils/Database.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_Vinculo extends Portabilis_View_Helper_DynamicInput_CoreSelect
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
+
+/**
+ * Class Vinculo
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class Vinculo extends CoreSelect
 {
     protected function inputOptions($options)
     {

@@ -1,8 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/Core.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input;
 
-class Portabilis_View_Helper_Input_MultipleSearchAjax extends Portabilis_View_Helper_Input_Core
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+
+/**
+ * Class MultipleSearchAjax
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input
+ */
+class MultipleSearchAjax extends Core
 {
     public function multipleSearchAjax($objectName, $attrName, $options = [])
     {
@@ -14,7 +21,7 @@ class Portabilis_View_Helper_Input_MultipleSearchAjax extends Portabilis_View_He
             'searchPath' => ''
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
         if (empty($options['searchPath'])) {
             $options['searchPath'] = '/Module/' . $options['apiModule'] . '/' . $options['apiController'] .
@@ -35,11 +42,11 @@ class Portabilis_View_Helper_Input_MultipleSearchAjax extends Portabilis_View_He
 
     protected function loadAssets()
     {
-        Portabilis_View_Helper_Application::loadChosenLib($this->viewInstance);
-        Portabilis_View_Helper_Application::loadAjaxChosenLib($this->viewInstance);
+        Application::loadChosenLib($this->viewInstance);
+        Application::loadAjaxChosenLib($this->viewInstance);
 
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/MultipleSearchAjax.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
     }
 
     protected function js($objectName, $attrName, $options)
@@ -51,6 +58,6 @@ class Portabilis_View_Helper_Input_MultipleSearchAjax extends Portabilis_View_He
             multipleSearchAjaxHelper.setup('$objectName', '$attrName', '" . $options['searchPath'] . "', $resourceOptions);
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 }

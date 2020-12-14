@@ -9,7 +9,7 @@ use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
  */
 class Utils
 {
-    public function getDataMapperFor($packageName, $modelName)
+    public static function getDataMapperFor($packageName, $modelName)
     {
         $dataMapperClassName = ucfirst($packageName) . '_Model_' . ucfirst($modelName) . 'DataMapper';
         $classPath = str_replace('_', '/', $dataMapperClassName) . '.php';

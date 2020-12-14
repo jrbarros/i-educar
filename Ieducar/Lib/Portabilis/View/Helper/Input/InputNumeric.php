@@ -1,8 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/Core.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input;
 
-class Portabilis_View_Helper_Input_Numeric extends Portabilis_View_Helper_Input_Core
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+
+/**
+ * Class InputNumeric
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input
+ */
+class InputNumeric extends Core
 {
     protected function fixupValidation($inputOptions)
     {
@@ -24,14 +31,14 @@ class Portabilis_View_Helper_Input_Numeric extends Portabilis_View_Helper_Input_
             });
         ';
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = false);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = false);
     }
 
     public function numeric($attrName, $options = [])
     {
         $defaultOptions = ['options' => [], 'objectName' => ''];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
         $spacer = !empty($options['objectName']) && !empty($attrName) ? '_' : '';
 
         $label = !empty($attrName) ? $attrName : $options['objectName'];
@@ -52,7 +59,7 @@ class Portabilis_View_Helper_Input_Numeric extends Portabilis_View_Helper_Input_
             'disabled' => false
         ];
 
-        $inputOptions = $this->mergeOptions($options['options'], $defaultInputOptions);
+        $inputOptions = self::mergeOptions($options['options'], $defaultInputOptions);
         $inputOptions['label'] = Utils::toLatin1($inputOptions['label'], ['escape' => false]);
 
         call_user_func_array([$this->viewInstance, 'campoNumero'], $inputOptions);

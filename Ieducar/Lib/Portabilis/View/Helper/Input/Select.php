@@ -1,8 +1,12 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/Core.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input;
 
-class Portabilis_View_Helper_Input_Select extends Portabilis_View_Helper_Input_Core
+/**
+ * Class Select
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input
+ */
+class Select extends Core
 {
     public function select($attrName, $options = [])
     {

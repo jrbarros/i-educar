@@ -1,12 +1,19 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/Core.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input;
 
-class Portabilis_View_Helper_Input_SimpleSearch extends Portabilis_View_Helper_Input_Core
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+
+/**
+ * Class SimpleSearch
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input
+ */
+class SimpleSearch extends Core
 {
     protected function resourceValue($id)
     {
-        throw new Exception(
+        throw new \Exception(
             'You are trying to get the resource value, but this is a generic class, ' .
             'please, define the method resourceValue in a resource subclass.'
         );
@@ -25,7 +32,7 @@ class Portabilis_View_Helper_Input_SimpleSearch extends Portabilis_View_Helper_I
             'showIdOnValue' => true
         ];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
         if (empty($options['searchPath'])) {
             $options['searchPath'] = '/Module/' . $options['apiModule'] . '/' . $options['apiController'] .
@@ -79,7 +86,7 @@ class Portabilis_View_Helper_Input_SimpleSearch extends Portabilis_View_Helper_I
     protected function js($objectName, $attrName, $options)
     {
         $jsFile = '/Modules/Portabilis/Assets/Javascripts/Frontend/Inputs/SimpleSearch.js';
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $jsFile);
+        Application::loadJavascript($this->viewInstance, $jsFile);
 
         $resourceOptions = 'simpleSearch' . Utils::camelize($objectName) . 'Options';
 
@@ -88,6 +95,6 @@ class Portabilis_View_Helper_Input_SimpleSearch extends Portabilis_View_Helper_I
             simpleSearchHelper.setup('$objectName', '$attrName', '" . $options['searchPath'] . "', $resourceOptions);
         ";
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = true);
     }
 }

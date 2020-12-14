@@ -1,8 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/Core.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_BibliotecaPesquisaObra extends Portabilis_View_Helper_DynamicInput_Core
+use iEducarLegacy\Lib\App\Model\Finder;
+
+/**
+ * Class BibliotecaPesquisaObra
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class BibliotecaPesquisaObra extends Core
 {
     protected function getAcervoId($id = null)
     {
@@ -20,7 +26,7 @@ class Portabilis_View_Helper_DynamicInput_BibliotecaPesquisaObra extends Portabi
         }
 
         // chama finder somente se possuir id, senão ocorrerá exception
-        $obra = empty($id) ? null : App_Model_IedFinder::getBibliotecaObra($this->getBibliotecaId(), $id);
+        $obra = empty($id) ? null : Finder::getBibliotecaObra($this->getBibliotecaId(), $id);
 
         return $obra;
     }
@@ -73,19 +79,19 @@ class Portabilis_View_Helper_DynamicInput_BibliotecaPesquisaObra extends Portabi
                 $("#ref_cod_acervo").val("");
                 $("#titulo_obra").val("");
             }
-            
+
             $("#ref_cod_biblioteca").change(resetObra);
         ', true);
 
         Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, '
             function pesquisaObra() {
-            
+
                 var additionalFields = getElementFor("biblioteca");
                 var exceptFields     = getElementFor("titulo_obra");
-            
+
                 if (validatesPresenseOfValueInRequiredFields(additionalFields, exceptFields)) {
                     var bibliotecaId = getElementFor("biblioteca").val();
-                    
+
                     pesquisa_valores_popless("educar_pesquisa_obra_lst.php?campo1=ref_cod_acervo&campo2=titulo_obra&campo3="+bibliotecaId)
                 }
             }

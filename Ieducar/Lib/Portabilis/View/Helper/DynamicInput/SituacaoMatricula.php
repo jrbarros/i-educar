@@ -1,10 +1,14 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
+
 use iEducar\Modules\Enrollments\Model\EnrollmentStatusFilter;
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
-
-class Portabilis_View_Helper_DynamicInput_SituacaoMatricula extends Portabilis_View_Helper_DynamicInput_CoreSelect
+/**
+ * Class SituacaoMatricula
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class SituacaoMatricula extends CoreSelect
 {
     protected function inputOptions($options)
     {

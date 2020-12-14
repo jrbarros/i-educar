@@ -1,8 +1,13 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_Biblioteca extends Portabilis_View_Helper_DynamicInput_CoreSelect
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\CoreSelect;
+
+
+class Biblioteca extends CoreSelect
 {
     protected function inputValue($value = null)
     {
@@ -22,10 +27,10 @@ class Portabilis_View_Helper_DynamicInput_Biblioteca extends Portabilis_View_Hel
 
         if ($instituicaoId and $escolaId and empty($resources)) {
             // se possui id escola então filtra bibliotecas pelo id desta escola
-            $resources = App_Model_IedFinder::getBibliotecas($instituicaoId, $escolaId);
+            $resources = Finder::getBibliotecas($instituicaoId, $escolaId);
         }
 
-        return $this->insertOption(null, 'Selecione uma biblioteca', $resources);
+        return self::insertOption(null, 'Selecione uma biblioteca', $resources);
     }
 
     public function selectInput($options = [])
@@ -36,7 +41,7 @@ class Portabilis_View_Helper_DynamicInput_Biblioteca extends Portabilis_View_Hel
     public function stringInput($options = [])
     {
         $defaultOptions = ['options' => []];
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
         // subescreve $options['options']['value'] com nome escola
         if (isset($options['options']['value']) && $options['options']['value']) {
@@ -45,7 +50,7 @@ class Portabilis_View_Helper_DynamicInput_Biblioteca extends Portabilis_View_Hel
             $bibliotecaId = $this->getBibliotecaId($options['id']);
         }
 
-        $biblioteca = App_Model_IedFinder::getBiblioteca($bibliotecaId);
+        $biblioteca = Finder::getBiblioteca($bibliotecaId);
         $options['options']['value'] = $biblioteca['nm_biblioteca'];
 
         $defaultInputOptions = [
@@ -57,7 +62,7 @@ class Portabilis_View_Helper_DynamicInput_Biblioteca extends Portabilis_View_Hel
             'separador' => ':'
         ];
 
-        $inputOptions = $this->mergeOptions($options['options'], $defaultInputOptions);
+        $inputOptions = self::mergeOptions($options['options'], $defaultInputOptions);
 
         $this->viewInstance->campoOculto($inputOptions['id'], $bibliotecaId);
 
@@ -74,6 +79,6 @@ class Portabilis_View_Helper_DynamicInput_Biblioteca extends Portabilis_View_Hel
             $this->stringInput($options);
         }
 
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, '/Modules/DynamicInput/Assets/Javascripts/Biblioteca.js');
+        Application::loadJavascript($this->viewInstance, '/Modules/DynamicInput/Assets/Javascripts/Biblioteca.js');
     }
 }

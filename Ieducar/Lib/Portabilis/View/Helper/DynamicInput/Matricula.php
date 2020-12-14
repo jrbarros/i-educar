@@ -1,8 +1,12 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_Matricula extends Portabilis_View_Helper_DynamicInput_CoreSelect
+/**
+ * Class Matricula
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class Matricula extends CoreSelect
 {
     protected function inputName()
     {

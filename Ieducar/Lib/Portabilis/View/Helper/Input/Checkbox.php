@@ -1,13 +1,17 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input;
+
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+
 require_once 'lib/Portabilis/View/Helper/Input/Core.php';
 
-class Portabilis_View_Helper_Input_Checkbox extends Portabilis_View_Helper_Input_Core
+class Checkbox extends Core
 {
     public function checkbox($attrName, $options = [])
     {
         $defaultOptions = ['options' => [], 'objectName' => ''];
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
 
         $spacer = !empty($options['objectName']) && !empty($attrName) ? '_' : '';
 
@@ -21,7 +25,7 @@ class Portabilis_View_Helper_Input_Checkbox extends Portabilis_View_Helper_Input
             'disabled' => false
         ];
 
-        $inputOptions = $this->mergeOptions($options['options'], $defaultInputOptions);
+        $inputOptions = self::mergeOptions($options['options'], $defaultInputOptions);
 
         // fixup para enviar um valor, junto ao param do checkbox.
         $js = '
@@ -31,7 +35,7 @@ class Portabilis_View_Helper_Input_Checkbox extends Portabilis_View_Helper_Input
             }
         ';
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $js, $afterReady = false);
+        Application::embedJavascript($this->viewInstance, $js, $afterReady = false);
         call_user_func_array([$this->viewInstance, 'campoCheck'], $inputOptions);
     }
 }

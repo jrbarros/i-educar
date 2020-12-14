@@ -1,12 +1,18 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/Core.php';
-require_once 'lib/Portabilis/View/Helper/DynamicInput/ComponenteCurricular.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_ComponenteCurricularForDiario extends Portabilis_View_Helper_DynamicInput_ComponenteCurricular
+/**
+ * Class ComponenteCurricularForDiario
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class ComponenteCurricularForDiario extends ComponenteCurricular
 {
-    public function componenteCurricularForDiario($options = [])
+    /**
+     * @param array $options
+     */
+    public function componenteCurricularForDiario($options = []): void
     {
-        return parent::componenteCurricular($options);
+        $this->componenteCurricular($options);
     }
 }

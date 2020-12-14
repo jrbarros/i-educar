@@ -1,14 +1,20 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/Core.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input;
 
-class Portabilis_View_Helper_Input_Text extends Portabilis_View_Helper_Input_Core
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+
+/**
+ * Class Text
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input
+ */
+class Text extends Core
 {
     public function text($attrName, $options = [])
     {
         $defaultOptions = ['options' => [], 'objectName' => ''];
 
-        $options = $this->mergeOptions($options, $defaultOptions);
+        $options = self::mergeOptions($options, $defaultOptions);
         $spacer = !empty($options['objectName']) && !empty($attrName) ? '_' : '';
 
         $label = !empty($attrName) ? $attrName : $options['objectName'];
@@ -30,7 +36,7 @@ class Portabilis_View_Helper_Input_Text extends Portabilis_View_Helper_Input_Cor
             'disabled' => false
         ];
 
-        $inputOptions = $this->mergeOptions($options['options'], $defaultInputOptions);
+        $inputOptions = self::mergeOptions($options['options'], $defaultInputOptions);
         $inputOptions['label'] = Utils::toLatin1($inputOptions['label'], ['escape' => false]);
 
         call_user_func_array([$this->viewInstance, 'campoTexto'], $inputOptions);

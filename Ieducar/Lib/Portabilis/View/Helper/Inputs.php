@@ -123,7 +123,7 @@ class Inputs
     {
         $options = $this->mergeInputOptions($inputOptions, $helperOptions);
 
-        $helperClassName = 'Portabilis_View_Helper_Input_SimpleSearch';
+        $helperClassName = 'SimpleSearch';
         $this->includeHelper($helperClassName);
 
         $helper = new $helperClassName($this->viewInstance, $this);

@@ -1,8 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_BibliotecaSituacao extends Portabilis_View_Helper_DynamicInput_CoreSelect
+use iEducarLegacy\Lib\App\Model\Finder;
+
+/**
+ * Class BibliotecaSituacao
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class BibliotecaSituacao extends CoreSelect
 {
     protected function inputName()
     {
@@ -15,7 +21,7 @@ class Portabilis_View_Helper_DynamicInput_BibliotecaSituacao extends Portabilis_
         $bibliotecaId = $this->getBibliotecaId();
 
         if ($bibliotecaId and empty($resources)) {
-            $resources = App_Model_IedFinder::getBibliotecaSituacoes($bibliotecaId);
+            $resources = Finder::getBibliotecaSituacoes($bibliotecaId);
         }
 
         return $this->insertOption(null, 'Selecione uma situa&ccedil;&atilde;o', $resources);

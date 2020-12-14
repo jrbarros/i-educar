@@ -1,9 +1,12 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
-require_once 'Portabilis/Business/Professor.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_Curso extends Portabilis_View_Helper_DynamicInput_CoreSelect
+/**
+ * Class Curso
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class Curso extends CoreSelect
 {
     protected function inputName()
     {

@@ -1,23 +1,39 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_AreaConhecimento extends Portabilis_View_Helper_DynamicInput_CoreSelect
+use iEducarLegacy\Lib\Portabilis\View\Helper\Input\CoreSelect;
+
+/**
+ * Class AreaConhecimento
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class AreaConhecimento extends CoreSelect
 {
+    /**
+     * @return string
+     */
     protected function inputName()
     {
         return 'area_conhecimento_id';
     }
 
+    /**
+     * @param $options
+     * @return array
+     */
     protected function inputOptions($options)
     {
         $resources = $options['resources'];
 
-        return $this->insertOption(null, 'Todas', $resources);
+        return self::insertOption(null, 'Todas', $resources);
     }
 
+    /**
+     * @param array $options
+     */
     public function areaConhecimento($options = [])
     {
-        parent::select($options);
+        $this->select($options);
     }
 }

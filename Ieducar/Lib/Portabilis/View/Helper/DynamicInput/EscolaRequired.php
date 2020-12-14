@@ -1,21 +1,24 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
+
+use iEducarLegacy\Lib\App\Model\NivelTipoUsuario;
 use Illuminate\Support\Facades\Session;
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
-require_once 'Portabilis/Business/Professor.php';
-require_once 'App/Model/NivelTipoUsuario.php';
-
-class Portabilis_View_Helper_DynamicInput_EscolaRequired extends Portabilis_View_Helper_DynamicInput_Escola
+/**
+ * Class EscolaRequired
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class EscolaRequired extends Escola
 {
-    public function escolaRequired($options = [])
+    public function __construct($options = [])
     {
         $nivelUsuario = Session::get('nivel');
 
-        if ($nivelUsuario == App_Model_NivelTipoUsuario::ESCOLA) {
+        if ($nivelUsuario === NivelTipoUsuario::ESCOLA) {
             $options['options']['required'] = true;
         }
 
-        parent::escola($options);
+        $this->escola($options);
     }
 }

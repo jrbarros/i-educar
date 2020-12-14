@@ -1,8 +1,12 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/Core.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_DataInicial extends Portabilis_View_Helper_DynamicInput_Core
+/**
+ * Class DataInicial
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class DataInicial extends Core
 {
     protected function inputValue($value = null)
     {

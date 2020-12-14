@@ -4,9 +4,12 @@ namespace iEducarLegacy\Lib\Core\Controller\Page;
 
 use App\User;
 use iEducar\Modules\Navigation\Breadcrumb;
+use iEducarLegacy\Lib\Core\CoreView;
 use iEducarLegacy\Lib\CoreExt\Controller\CoreExtControllerAbstract;
 use iEducarLegacy\Lib\CoreExt\DataMapper;
+use iEducarLegacy\Lib\CoreExt\Entity;
 use iEducarLegacy\Lib\CoreExt\Exception\InvalidArgumentException;
+use iEducarLegacy\Lib\CoreExt\View\Helper\Url;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -227,11 +230,11 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
     /**
      * Setter.
      *
-     * @param CoreExt_Entity $entity
+     * @param Entity $entity
      *
      * @return CoreControllerPageAbstract Provê interface fluída
      */
-    public function setEntity(CoreExt_Entity $entity)
+    public function setEntity(Entity $entity)
     {
         $this->_entity = $entity;
 
@@ -388,7 +391,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
             if (is_string($config)) {
                 $this->url_cancelar = $config;
             } elseif (is_array($config)) {
-                $this->url_cancelar = CoreExt_View_Helper_UrlHelper::url(
+                $this->url_cancelar = Url::url(
                     $config['path'],
                     $config['options']
                 );
@@ -496,8 +499,7 @@ abstract class CoreControllerPageAbstract extends CoreExtControllerAbstract impl
      */
     public function generate(CoreExt_Controller_Page_Interface $instance)
     {
-        require_once 'Core/CoreView.php';
-        Core_View::generate($instance);
+        CoreView::generate($instance);
     }
 
     public function getQueryString($name, $default = null)

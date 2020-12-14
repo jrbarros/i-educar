@@ -1,8 +1,10 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
+
 require_once 'lib/Portabilis/View/Helper/Input/Core.php';
 
-class Portabilis_View_Helper_DynamicInput_Core extends Portabilis_View_Helper_Input_Core
+class Core extends Portabilis_View_Helper_Input_Core
 {
     protected function loadCoreAssets()
     {

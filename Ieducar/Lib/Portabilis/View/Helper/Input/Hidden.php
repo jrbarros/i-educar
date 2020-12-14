@@ -1,8 +1,12 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/Input/Core.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input;
 
-class Portabilis_View_Helper_Input_Hidden extends Portabilis_View_Helper_Input_Core
+/**
+ * Class Hidden
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input
+ */
+class Hidden extends Core
 {
     public function hidden($attrName, $options = [])
     {

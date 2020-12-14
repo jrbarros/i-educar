@@ -3,6 +3,7 @@
 namespace iEducarLegacy\Lib\Portabilis\View\Helper;
 
 use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageAbstract;
+use iEducarLegacy\Lib\CoreExt\View\View;
 use Tooleks\LaravelAssetVersion\Facades\Asset;
 
 /**
@@ -18,7 +19,7 @@ class Application extends CoreControllerPageAbstract
     /**
      * Retorna uma instância singleton.
      *
-     * @return CoreExt_View_Helper_Abstract
+     * @return View
      */
     public static function getInstance()
     {

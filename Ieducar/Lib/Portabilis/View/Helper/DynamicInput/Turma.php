@@ -1,8 +1,16 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_Turma extends Portabilis_View_Helper_DynamicInput_CoreSelect
+use iEducarLegacy\Intranet\Source\PmiEducar\EscolaAnoLetivo;
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\Portabilis\Business\Professor;
+
+/**
+ * Class Turma
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class Turma extends CoreSelect
 {
     protected function inputName()
     {
@@ -19,16 +27,16 @@ class Portabilis_View_Helper_DynamicInput_Turma extends Portabilis_View_Helper_D
         $naoFiltrarAno = $this->viewInstance->nao_filtrar_ano ?? null;
 
         $userId = $this->getCurrentUserId();
-        $isOnlyProfessor = Portabilis_Business_Professor::isOnlyProfessor($instituicaoId, $userId);
+        $isOnlyProfessor = Professor::isOnlyProfessor($instituicaoId, $userId);
 
         if ($escolaId and $serieId and empty($resources) and $isOnlyProfessor) {
-            $resources = collect(Portabilis_Business_Professor::turmasAlocado($instituicaoId, $escolaId, $serieId, $userId))
+            $resources = collect(Professor::turmasAlocado($instituicaoId, $escolaId, $serieId, $userId))
                 ->keyBy('id')
                 ->map(function ($turma) {
                     return $turma['nome'] . ' - ' . $turma['ano'];
                 })->toArray();
         } elseif ($escolaId && $serieId && empty($resources)) {
-            $resources = App_Model_IedFinder::getTurmas($escolaId, $serieId);
+            $resources = Finder::getTurmas($escolaId, $serieId);
         }
 
         // caso no letivo esteja definido para filtrar turmas por ano,
@@ -56,7 +64,7 @@ class Portabilis_View_Helper_DynamicInput_Turma extends Portabilis_View_Helper_D
         $anoLetivo->ano = $ano;
         $anoLetivo = $anoLetivo->detalhe();
 
-        return $anoLetivo['turmas_por_ano'] == 1;
+        return $anoLetivo['turmas_por_ano'] === 1;
     }
 
     public function turma($options = [])

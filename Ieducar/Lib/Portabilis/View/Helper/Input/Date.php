@@ -1,9 +1,12 @@
 <?php
 
-require_once 'Portabilis/View/Helper/Input/Core.php';
-require_once 'Portabilis/Date/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input;
 
-class Portabilis_View_Helper_Input_Date extends Portabilis_View_Helper_Input_Core
+/**
+ * Class Date
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input
+ */
+class Date extends Core
 {
     public function date($attrName, $options = [])
     {

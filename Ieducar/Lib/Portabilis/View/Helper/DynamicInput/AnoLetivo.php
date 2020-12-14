@@ -1,10 +1,12 @@
 <?php
 
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
+
 require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 require_once 'lib/App/Model/Finder.php';
 
-class Portabilis_View_Helper_DynamicInput_AnoLetivo extends Portabilis_View_Helper_DynamicInput_CoreSelect
+class AnoLetivo extends CoreSelect
 {
     protected function inputName()
     {

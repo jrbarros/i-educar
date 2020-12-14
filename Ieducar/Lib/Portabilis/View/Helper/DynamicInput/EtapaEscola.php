@@ -1,8 +1,14 @@
 <?php
 
-require_once 'lib/Portabilis/View/Helper/DynamicInput/CoreSelect.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput;
 
-class Portabilis_View_Helper_DynamicInput_EtapaEscola extends Portabilis_View_Helper_DynamicInput_CoreSelect
+use iEducarLegacy\Lib\App\Model\Finder;
+
+/**
+ * Class EtapaEscola
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\DynamicInput
+ */
+class EtapaEscola extends CoreSelect
 {
     protected function inputName()
     {
@@ -18,7 +24,7 @@ class Portabilis_View_Helper_DynamicInput_EtapaEscola extends Portabilis_View_He
         $userId = $this->getCurrentUserId();
 
         if ($escolaId && empty($resources)) {
-            $resources = App_Model_IedFinder::getEtapasEscola($ano, $escolaId);
+            $resources = Finder::getEtapasEscola($ano, $escolaId);
         }
 
         return $this->insertOption(null, 'Selecione uma etapa', $resources);

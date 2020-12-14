@@ -1,15 +1,26 @@
 <?php
 
-require_once 'Source/pmieducar/Permissoes.php';
-require_once 'App/Model/Finder.php';
-require_once 'lib/Portabilis/View/Helper/Application.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'lib/Portabilis/Object/AppDateUtils.php';
-require_once 'lib/Portabilis/DataMapper/AppDateUtils.php';
+namespace iEducarLegacy\Lib\Portabilis\View\Helper\Input;
 
-class Portabilis_View_Helper_Input_Core
+use iEducarLegacy\Lib\Portabilis\Collection\Utils as Collection;
+use iEducarLegacy\Lib\Portabilis\DataMapper\Utils as UtilDB;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\Utils\User;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+
+/**
+ * Class Core
+ *
+ * @package iEducarLegacy\Lib\Portabilis\View\Helper\Input
+ */
+class Core
 {
+    /**
+     * Core constructor.
+     *
+     * @param $viewInstance
+     * @param $inputsHelper
+     */
     public function __construct($viewInstance, $inputsHelper)
     {
         $this->viewInstance = $viewInstance;
@@ -19,11 +30,17 @@ class Portabilis_View_Helper_Input_Core
         $this->loadAssets();
     }
 
+    /**
+     * @return mixed
+     */
     protected function inputsHelper()
     {
         return $this->_inputsHelper;
     }
 
+    /**
+     * @return mixed|string
+     */
     protected function helperName()
     {
         $arrayClassName = explode('_', get_class($this));
@@ -31,11 +48,19 @@ class Portabilis_View_Helper_Input_Core
         return end($arrayClassName);
     }
 
+    /**
+     * @return string
+     */
     protected function inputName()
     {
         return Utils::underscore($this->helperName());
     }
 
+    /**
+     * @param null $value
+     *
+     * @return mixed|null
+     */
     protected function inputValue($value = null)
     {
         if (!is_null($value)) {
@@ -49,11 +74,19 @@ class Portabilis_View_Helper_Input_Core
         return null;
     }
 
+    /**
+     * @param $inputOptions
+     *
+     * @return mixed|null
+     */
     protected function inputPlaceholder($inputOptions)
     {
         return $inputOptions['placeholder'] ?? $inputOptions['label'] ?? null;
     }
 
+    /**
+     * @param $inputOptions
+     */
     protected function fixupPlaceholder($inputOptions)
     {
         $id = $inputOptions['id'];
@@ -66,9 +99,12 @@ class Portabilis_View_Helper_Input_Core
             }
         ';
 
-        Portabilis_View_Helper_Application::embedJavascript($this->viewInstance, $script, $afterReady = true);
+        Application::embedJavascript($this->viewInstance, $script, $afterReady = true);
     }
 
+    /**
+     *
+     */
     protected function loadCoreAssets()
     {
         // carrega estilo para feedback messages, devido algumas validações de inuts
@@ -76,7 +112,7 @@ class Portabilis_View_Helper_Input_Core
 
         $style = '/Modules/Portabilis/Assets/Stylesheets/Frontend.css';
 
-        Portabilis_View_Helper_Application::loadStylesheet($this->viewInstance, $style);
+        Application::loadStylesheet($this->viewInstance, $style);
 
         $dependencies = [
             '/Modules/Portabilis/Assets/Javascripts/Utils.js',
@@ -84,9 +120,12 @@ class Portabilis_View_Helper_Input_Core
             '/Modules/Portabilis/Assets/Javascripts/Validator.js'
         ];
 
-        Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $dependencies);
+        Application::loadJavascript($this->viewInstance, $dependencies);
     }
 
+    /**
+     *
+     */
     protected function loadAssets()
     {
         $rootPath = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
@@ -94,48 +133,85 @@ class Portabilis_View_Helper_Input_Core
         $script = "/Modules/DynamicInput/Assets/Javascripts/{$this->helperName()}.js";
 
         if (file_exists($rootPath . $style)) {
-            Portabilis_View_Helper_Application::loadStylesheet($this->viewInstance, $style);
+            Application::loadStylesheet($this->viewInstance, $style);
         }
 
         if (file_exists($rootPath . $script)) {
-            Portabilis_View_Helper_Application::loadJavascript($this->viewInstance, $script);
+            Application::loadJavascript($this->viewInstance, $script);
         }
     }
 
     // wrappers
 
+    /**
+     * @return mixed
+     */
     protected function getCurrentUserId()
     {
-        return Portabilis_Utils_User::currentUserId();
+        return User::currentUserId();
     }
 
+    /**
+     * @return \iEducarLegacy\Lib\Portabilis\Utils\Permissoes
+     */
     protected function getPermissoes()
     {
-        return Portabilis_Utils_User::getClsPermissoes();
+        return User::getClsPermissoes();
     }
 
+    /**
+     * @param $nivelAcessoType
+     *
+     * @return bool
+     */
     protected function hasNivelAcesso($nivelAcessoType)
     {
-        return Portabilis_Utils_User::hasNivelAcesso($nivelAcessoType);
+        return User::hasNivelAcesso($nivelAcessoType);
     }
 
+    /**
+     * @param $packageName
+     * @param $modelName
+     *
+     * @return mixed
+     *
+     * @throws \iEducarLegacy\Lib\CoreExt\CoreExtensionException
+     */
     protected function getDataMapperFor($packageName, $modelName)
     {
-        return Utils::getDataMapperFor($packageName, $modelName);
+        return UtilDB::getDataMapperFor($packageName, $modelName);
     }
 
+    /**
+     * @param $options
+     * @param $defaultOptions
+     *
+     * @return mixed
+     */
     protected static function mergeOptions($options, $defaultOptions)
     {
-        return Utils::merge($options, $defaultOptions);
+        return Collection::merge($options, $defaultOptions);
     }
 
+    /**
+     * @param $key
+     * @param $value
+     * @param $array
+     *
+     * @return array
+     */
     protected static function insertOption($key, $value, $array)
     {
-        return Utils::insertIn($key, $value, $array);
+        return Collection::insertIn($key, $value, $array);
     }
 
     // Ieducar helpers
 
+    /**
+     * @param null $instituicaoId
+     *
+     * @return int|mixed|string
+     */
     protected function getInstituicaoId($instituicaoId = null)
     {
         if (!is_null($instituicaoId) && is_numeric($instituicaoId)) {
@@ -161,6 +237,11 @@ class Portabilis_View_Helper_Input_Core
         return $this->getPermissoes()->getInstituicao($this->getCurrentUserId());
     }
 
+    /**
+     * @param null $escolaId
+     *
+     * @return int|mixed|string
+     */
     protected function getEscolaId($escolaId = null)
     {
         if (!is_null($escolaId) && is_numeric($escolaId)) {
@@ -180,6 +261,11 @@ class Portabilis_View_Helper_Input_Core
         return $this->getPermissoes()->getEscola($this->getCurrentUserId());
     }
 
+    /**
+     * @param null $bibliotecaId
+     *
+     * @return int|mixed|string|null
+     */
     protected function getBibliotecaId($bibliotecaId = null)
     {
         if (!is_null($bibliotecaId) && is_numeric($bibliotecaId)) {
@@ -199,6 +285,11 @@ class Portabilis_View_Helper_Input_Core
         return null;
     }
 
+    /**
+     * @param null $cursoId
+     *
+     * @return int|string|null
+     */
     protected function getCursoId($cursoId = null)
     {
         if (!is_null($cursoId) && is_numeric($cursoId)) {
@@ -212,6 +303,11 @@ class Portabilis_View_Helper_Input_Core
         return null;
     }
 
+    /**
+     * @param null $serieId
+     *
+     * @return int|string|null
+     */
     protected function getSerieId($serieId = null)
     {
         if (!is_null($serieId) && is_numeric($serieId)) {
@@ -225,6 +321,11 @@ class Portabilis_View_Helper_Input_Core
         return null;
     }
 
+    /**
+     * @param null $escolaridadeId
+     *
+     * @return int|string|null
+     */
     protected function getEscolaridadesId($escolaridadeId = null)
     {
         if (!is_null($escolaridadeId) && is_numeric($escolaridadeId)) {
