@@ -5,7 +5,7 @@ use iEducarLegacy\Intranet\Source\PmiEducar\Biblioteca;
 use iEducarLegacy\Intranet\Source\PmiEducar\Permissoes;
 
 require_once('Source/Base.php');
-require_once('Source/Cadastro.inc.php');
+require_once('Source/Cadastro.php');
 require_once('Source/Banco.php');
 require_once('Source/pmieducar/geral.inc.php');
 

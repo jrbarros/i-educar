@@ -3,11 +3,17 @@
 namespace iEducarLegacy\Intranet\Source;
 
 use iEducar\Support\Navigation\Breadcrumb;
+use iEducarLegacy\Intranet\Source\PmiEducar\Instituicao;
+use iEducarLegacy\Intranet\Source\PmiEducar\Permissoes;
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageException;
+use iEducarLegacy\Lib\Portabilis\Utils\User;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Inputs;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 
 
-class Cadastro extends clsCampos
+class Cadastro extends Campos
 {
     /**
      * Referencia pega da session para o idpes do usuario atual
@@ -529,7 +535,7 @@ class Cadastro extends clsCampos
         }
 
         if ($this->array_botao_url) {
-            for ($i = 0; $i < count($this->array_botao); $i++) {
+            for ($i = 0, $iMax = count($this->array_botao); $i < $iMax; $i++) {
                 if ($this->array_botao_id[$i]) {
                     $retorno .= '&nbsp;<input type=\'button\' class=\'botaolistagem\' onclick=\'javascript:go( "' . $this->array_botao_url[$i] . '" );\' value=\'' . $this->array_botao[$i] . "' id=\"{$this->array_botao_id[$i]}\">&nbsp;";
                 } else {
@@ -537,7 +543,7 @@ class Cadastro extends clsCampos
                 }
             }
         } elseif ($this->array_botao_url_script) {
-            for ($i = 0; $i < count($this->array_botao); $i++) {
+            for ($i = 0, $iMax = count($this->array_botao); $i < $iMax; $i++) {
                 if ($this->array_botao_id[$i]) {
                     $id = $this->array_botao_id[$i];
                     $retorno .= '&nbsp;<input type=\'button\' class=\'botaolistagem\' onclick="' . $this->array_botao_url_script[$i] . '" value="' . $this->array_botao[$i] . "\" id=\"{$id}\">&nbsp;\n";
@@ -596,7 +602,7 @@ class Cadastro extends clsCampos
     {
         try {
             $hasErrors = $this->hasErrors();
-        } catch (Core_Controller_Page_Exception $e) {
+        } catch (CoreControllerPageException $e) {
             return null;
         }
 
@@ -642,7 +648,7 @@ class Cadastro extends clsCampos
     protected function inputsHelper()
     {
         if (!isset($this->_inputsHelper)) {
-            $this->_inputsHelper = new Portabilis_View_Helper_Inputs($this);
+            $this->_inputsHelper = new Inputs($this);
         }
 
         return $this->_inputsHelper;
@@ -650,7 +656,7 @@ class Cadastro extends clsCampos
 
     protected function currentUserId()
     {
-        return Portabilis_Utils_User::currentUserId();
+        return User::currentUserId();
     }
 
     protected function nivelAcessoPessoaLogada()

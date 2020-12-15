@@ -6,7 +6,7 @@ use iEducar\Legacy\SelectOptions;
 use Illuminate\Support\Str;
 
 require_once 'Source/Base.php';
-require_once 'Source/Cadastro.inc.php';
+require_once 'Source/Cadastro.php';
 require_once 'Source/Banco.php';
 require_once 'Source/pmieducar/geral.inc.php';
 require_once 'App/Model/Pais.php';

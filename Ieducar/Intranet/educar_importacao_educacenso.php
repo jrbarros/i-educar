@@ -3,7 +3,7 @@
 ini_set('max_execution_time', 0);
 
 require_once 'Source/Base.php';
-require_once 'Source/Cadastro.inc.php';
+require_once 'Source/Cadastro.php';
 require_once 'lib/Portabilis/Utils/Database.php';
 require_once 'lib/Portabilis/Date/AppDateUtils.php';
 require_once 'lib/Portabilis/DataMapper/AppDateUtils.php';

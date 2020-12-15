@@ -5,7 +5,7 @@ use App\Models\LogUnification;
 use iEducar\Modules\Unification\PersonLogUnification;
 
 require_once 'Source/Base.php';
-require_once 'Source/Cadastro.inc.php';
+require_once 'Source/Cadastro.php';
 require_once 'Source/Banco.php';
 require_once 'Source/public/geral.inc.php';
 

@@ -4,7 +4,7 @@ use App\Models\LegacySchoolClass;
 use App\Services\SchoolClassService;
 
 require_once 'Source/Base.php';
-require_once 'Source/Cadastro.inc.php';
+require_once 'Source/Cadastro.php';
 
 class clsIndexBase extends Base
 {

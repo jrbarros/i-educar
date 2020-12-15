@@ -39,7 +39,7 @@ use iEducarLegacy\Intranet\Source\PmiEducar\Permissoes;
 use Illuminate\Support\Facades\DB;
 
 require_once 'Source/Base.php';
-require_once 'Source/Cadastro.inc.php';
+require_once 'Source/Cadastro.php';
 require_once 'Source/Banco.php';
 require_once 'Source/public/geral.inc.php';
 

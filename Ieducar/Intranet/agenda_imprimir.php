@@ -2,7 +2,7 @@
 
 require_once('Source/Base.php');
 require_once('Source/Banco.php');
-require_once('Source/Cadastro.inc.php');
+require_once('Source/Cadastro.php');
 require_once('Source/NovoRelatorio.php');
 require_once('Source/Relatorios.php');
 

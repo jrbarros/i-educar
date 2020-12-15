@@ -1,7 +1,7 @@
 @extends('layout.default')
 
 @push('styles')
-    <link rel="stylesheet" type="text/css" href="{{ Asset::get('css/Ieducar.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ Asset::get('css/ieducar.css') }}"/>
 @endpush
 
 @section('content')
@@ -41,10 +41,10 @@
                 <td class="formlttd" valign="top"><span class="form">Curso</span></td>
                 <td class="formlttd" valign="top">
                     <span class="form">
-                        <select class="geral" name="ref_cod_curso" id="ref_cod_curso" style="width: 308px;">
+                        <select class="geral" name="ref_cod_curso" id="ref_cod_curso" data-refresh-ano="false" style="width: 308px;">
                             <option value="">Selecione um curso</option>
                             @if (old('ref_cod_escola', Request::get('ref_cod_escola')) || ($user->isAdmin() || $user->isInstitutional()))
-                                @foreach(Finder::getCursos(old('ref_cod_escola', Request::get('ref_cod_escola'))) as $id => $name)
+                                @foreach(App_Model_IedFinder::getCursos(old('ref_cod_escola', Request::get('ref_cod_escola'))) as $id => $name)
                                     <option value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             @endif
@@ -247,15 +247,13 @@
         $j("#modal-confirmation").dialog("open");
     </script>
     <script type="text/javascript"
-            src="{{ Asset::get("/Modules/Portabilis/Assets/Javascripts/ClientApi.js") }}"></script>
+            src="{{ Asset::get("/modules/Portabilis/Assets/Javascripts/ClientApi.js") }}"></script>
     <script type="text/javascript"
-            src="{{ Asset::get("/Modules/DynamicInput/Assets/Javascripts/DynamicInput.js") }}"></script>
+            src="{{ Asset::get("/modules/DynamicInput/Assets/Javascripts/DynamicInput.js") }}"></script>
     <script type="text/javascript"
-            src="{{ Asset::get("/Modules/DynamicInput/Assets/Javascripts/Escola.js") }}"></script>
+            src="{{ Asset::get("/modules/DynamicInput/Assets/Javascripts/Escola.js") }}"></script>
     <script type="text/javascript"
-            src="{{ Asset::get("/Modules/DynamicInput/Assets/Javascripts/Curso.js") }}"></script>
+            src="{{ Asset::get("/modules/DynamicInput/Assets/Javascripts/Curso.js") }}"></script>
     <script type="text/javascript"
-            src="{{ Asset::get("/Modules/DynamicInput/Assets/Javascripts/Serie.js") }}"></script>
-    <script type="text/javascript"
-            src="{{ Asset::get("/Modules/DynamicInput/Assets/Javascripts/Turma.js") }}"></script>
+            src="{{ Asset::get("/modules/DynamicInput/Assets/Javascripts/Turma.js") }}"></script>
 @endprepend

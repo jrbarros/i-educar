@@ -5,7 +5,7 @@ use App\Models\LegacyRegistration;
 use App\Services\Exemption\ExemptionService;
 
 require_once 'Source/Base.php';
-require_once 'Source/Cadastro.inc.php';
+require_once 'Source/Cadastro.php';
 require_once 'Source/pmieducar/geral.inc.php';
 require_once 'App/Model/Finder.php';
 require_once 'Avaliacao/Model/NotaAlunoDataMapper.php';

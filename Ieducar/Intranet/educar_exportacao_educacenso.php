@@ -37,7 +37,7 @@
 use Illuminate\Support\Facades\DB;
 
 require_once 'Source/Base.php';
-require_once 'Source/Cadastro.inc.php';
+require_once 'Source/Cadastro.php';
 
 /**
  * @author    Lucas Schmoeller da Silva <lucas@portabilis.com.br>

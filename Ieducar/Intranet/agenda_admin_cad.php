@@ -2,7 +2,7 @@
 
 $desvio_diretorio = '';
 require_once('Source/Base.php');
-require_once('Source/Cadastro.inc.php');
+require_once('Source/Cadastro.php');
 require_once('Source/Banco.php');
 
 class clsIndex extends Base

@@ -35,7 +35,7 @@
  */
 
 require_once 'Source/Base.php';
-require_once 'Source/Cadastro.inc.php';
+require_once 'Source/Cadastro.php';
 
 /**
  * @author    Paula Bonot <bonot@portabilis.com.br>
