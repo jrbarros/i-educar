@@ -1,6 +1,12 @@
 <?php
 
-trait Avaliacao_Service_Boletim_ParecerDescritivoAluno
+namespace iEducarLegacy\Modules\Avaliacao\Service\Boletim;
+
+/**
+ * Trait ParecerDescritivoAluno
+ * @package iEducarLegacy\Modules\Avaliacao\Service\Boletim
+ */
+trait ParecerDescritivoAluno
 {
     /**
      * Uma instância de ParecerDescritivoAluno, que é a entrada

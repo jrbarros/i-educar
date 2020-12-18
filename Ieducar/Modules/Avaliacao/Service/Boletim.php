@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Service;
+
 use App\Models\LegacyEvaluationRule;
 use App\Models\LegacyGrade;
 use App\Models\LegacyInstitution;
@@ -13,19 +15,17 @@ use iEducar\Modules\EvaluationRules\Exceptions\EvaluationRuleNotDefinedInLevel;
 use iEducar\Modules\Stages\Exceptions\MissingStagesException;
 use iEducar\Modules\Stages\Exceptions\StagesNotInformedByCoordinatorException;
 use iEducar\Modules\Stages\Exceptions\StagesNotInformedByTeacherException;
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\App\Model\MatriculaSituacao;
+use iEducarLegacy\Lib\CoreExt\CoreExtConfigurable;
 
-require_once 'CoreExt/CoreExtConfigurable.php';
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
-require_once 'App/Model/Matricula.php';
-require_once 'App/Model/MatriculaSituacao.php';
-require_once 'Source/pmieducar/Permissoes.php';
-require_once 'ComponenteCurricular/Model/TipoNotaComponenteSerie.php';
-require_once 'Avaliacao/Service/Boletim/Acessores.php';
-
-class Avaliacao_Service_Boletim implements CoreExtConfigurable
+/**
+ * Class Boletim
+ * @package iEducarLegacy\Modules\Avaliacao\Service
+ */
+class Boletim implements CoreExtConfigurable
 {
-    use Avaliacao_Service_Boletim_Acessores;
+    use \iEducarLegacy\Modules\Avaliacao\Service\Boletim\Acessores;
 
     private $exemptedStages = [];
 
@@ -36,11 +36,11 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      * @var array
      */
     protected $_situacaoPrioridade = [
-        App_Model_MatriculaSituacao::EM_ANDAMENTO => 1,
-        App_Model_MatriculaSituacao::EM_EXAME => 2,
-        App_Model_MatriculaSituacao::REPROVADO => 3,
-        App_Model_MatriculaSituacao::APROVADO_APOS_EXAME => 4,
-        App_Model_MatriculaSituacao::APROVADO => 5
+        MatriculaSituacao::EM_ANDAMENTO => 1,
+        MatriculaSituacao::EM_EXAME => 2,
+        MatriculaSituacao::REPROVADO => 3,
+        MatriculaSituacao::APROVADO_APOS_EXAME => 4,
+        MatriculaSituacao::APROVADO => 5
     ];
 
     /**
@@ -80,7 +80,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     private function getExemptedStages($enrollmentId, $disciplineId)
     {
         if (!isset($this->exemptedStages[$enrollmentId])) {
-            $this->exemptedStages[$enrollmentId] = App_Model_IedFinder::getExemptedStages($enrollmentId, $disciplineId);
+            $this->exemptedStages[$enrollmentId] = Finder::getExemptedStages($enrollmentId, $disciplineId);
         }
 
         return $this->exemptedStages[$enrollmentId][$disciplineId] ?? [];
@@ -723,8 +723,8 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @return stdClass
      *
-     * @see Avaliacao_Service_Boletim#getSituacaoComponentesCurriculares()
-     * @see Avaliacao_Service_Boletim#getSituacaoFaltas()
+     * @see Boletim#getSituacaoComponentesCurriculares()
+     * @see Boletim#getSituacaoFaltas()
      */
     public function getSituacaoAluno()
     {
@@ -1643,7 +1643,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @param array $notas
      *
-     * @return Avaliacao_Service_Boletim Provê interface fluída
+     * @return Boletim Provê interface fluída
      */
     public function addNotas(array $notas)
     {
@@ -1737,7 +1737,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @param Avaliacao_Model_NotaComponente $nota
      *
-     * @return Avaliacao_Service_Boletim Provê interface fluída
+     * @return Boletim Provê interface fluída
      */
     public function addNota(Avaliacao_Model_NotaComponente $nota)
     {
@@ -1772,7 +1772,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @param array $faltas
      *
-     * @return Avaliacao_Service_Boletim Provê interface fluída
+     * @return Boletim Provê interface fluída
      */
     public function addFaltas(array $faltas)
     {
@@ -1788,7 +1788,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @param Avaliacao_Model_FaltaAbstract $falta
      *
-     * @return Avaliacao_Service_Boletim Provê interface fluída
+     * @return Boletim Provê interface fluída
      */
     public function addFalta(Avaliacao_Model_FaltaAbstract $falta)
     {
@@ -1807,7 +1807,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @param array $pareceres
      *
-     * @return Avaliacao_Service_Boletim Provê interface fluída
+     * @return Boletim Provê interface fluída
      */
     public function addPareceres(array $pareceres)
     {
@@ -1824,7 +1824,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @param ParecerDescritivoAbstract $parecer
      *
-     * @return Avaliacao_Service_Boletim Provê interface fluída
+     * @return Boletim Provê interface fluída
      */
     public function addParecer(Avaliacao_Model_ParecerDescritivoAbstract $parecer)
     {
@@ -2411,7 +2411,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      * promovendo-o ou retendo-o caso o tipo de progressão da regra de avaliação
      * seja automática (e que a situação do aluno não esteja em "andamento").
      *
-     * @see Avaliacao_Service_Boletim#getSituacaoAluno()
+     * @see Boletim#getSituacaoAluno()
      *
      * @throws CoreExtension_Service_Exception|Exception
      */
@@ -2432,7 +2432,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     /**
      * Insere ou atualiza as notas no boletim do aluno.
      *
-     * @return Avaliacao_Service_Boletim Provê interface fluída
+     * @return Boletim Provê interface fluída
      */
     public function saveNotas()
     {
@@ -2468,7 +2468,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      *
      * @param bool $updateAverage
      *
-     * @return Avaliacao_Service_Boletim Provê interface fluída
+     * @return Boletim Provê interface fluída
      *
      * @throws Exception
      */
@@ -2498,7 +2498,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     /**
      * Insere ou atualiza os pareceres no boletim.
      *
-     * @return Avaliacao_Service_Boletim Provê interface fluída
+     * @return Boletim Provê interface fluída
      */
     public function savePareceres()
     {

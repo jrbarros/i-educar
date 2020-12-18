@@ -1,12 +1,18 @@
 <?php
 
-trait Avaliacao_Service_Boletim_Validators
+namespace iEducarLegacy\Modules\Avaliacao\Service\Boletim;
+
+/**
+ * Trait Validators
+ * @package iEducarLegacy\Modules\Avaliacao\Service\Boletim
+ */
+trait Validators
 {
     /**
      * Validadores para instâncias de Avaliacao_Model_FaltaAbstract e
      * NotaComponente.
      *
-     * @see Avaliacao_Service_Boletim::_addValidators()
+     * @see Boletim::_addValidators()
      *
      * @var array
      */
@@ -16,7 +22,7 @@ trait Avaliacao_Service_Boletim_Validators
      * Validadores para uma instância de ParecerDescritivoAbstract
      * adicionada no boletim.
      *
-     * @see Avaliacao_Service_Boletim::_addParecerValidators()
+     * @see Boletim::_addParecerValidators()
      *
      * @var array
      */

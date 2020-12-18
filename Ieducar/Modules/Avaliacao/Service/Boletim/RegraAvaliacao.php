@@ -1,6 +1,11 @@
 <?php
 
-trait Avaliacao_Service_Boletim_RegraAvaliacao
+namespace iEducarLegacy\Modules\Avaliacao\Service\Boletim;
+
+/**
+ * Trait RegraAvaliacao
+ */
+trait RegraAvaliacao
 {
     /**
      * Instância da regra de avaliação, com o qual o serviço irá utilizar para
@@ -33,10 +38,10 @@ trait Avaliacao_Service_Boletim_RegraAvaliacao
     }
 
     /**
-     * @deprecated
-     * @see Avaliacao_Service_Boletim_RegraAvaliacao::getRegraAvaliacao()
-     *
      * @return RegraAvaliacao_Model_Regra
+     *@see RegraAvaliacao::getRegraAvaliacao()
+     *
+     * @deprecated
      */
     public function getRegra()
     {

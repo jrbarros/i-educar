@@ -1,6 +1,12 @@
 <?php
 
-trait Avaliacao_Service_Boletim_NotaAluno
+namespace iEducarLegacy\Modules\Avaliacao\Service\Boletim;
+
+/**
+ * Trait NotaAluno
+ * @package iEducarLegacy\Modules\Avaliacao\Service\Boletim
+ */
+trait NotaAluno
 {
     /**
      * Uma instância de NotaAluno, que é a entrada que contém

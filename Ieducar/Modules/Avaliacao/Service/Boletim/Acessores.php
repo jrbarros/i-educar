@@ -1,20 +1,19 @@
 <?php
 
-require_once 'Avaliacao/Service/Boletim/Avaliacao.php';
-require_once 'Avaliacao/Service/Boletim/FaltaAluno.php';
-require_once 'Avaliacao/Service/Boletim/NotaAluno.php';
-require_once 'Avaliacao/Service/Boletim/ParecerDescritivoAluno.php';
-require_once 'Avaliacao/Service/Boletim/RegraAvaliacao.php';
-require_once 'Avaliacao/Service/Boletim/Validators.php';
+namespace iEducarLegacy\Modules\Avaliacao\Service\Boletim;
 
-trait Avaliacao_Service_Boletim_Acessores
+/**
+ * Trait Acessores
+ * @package iEducarLegacy\Modules\Avaliacao\Service\Boletim
+ */
+trait Acessores
 {
-    use Avaliacao_Service_Boletim_Avaliacao,
-        Avaliacao_Service_Boletim_FaltaAluno,
-        Avaliacao_Service_Boletim_NotaAluno,
-        Avaliacao_Service_Boletim_ParecerDescritivoAluno,
-        Avaliacao_Service_Boletim_RegraAvaliacao,
-        Avaliacao_Service_Boletim_Validators;
+    use Avaliacao,
+        FaltaAluno,
+        NotaAluno,
+        ParecerDescritivoAluno,
+        RegraAvaliacao,
+        Validators;
 
     /**
      * @var array

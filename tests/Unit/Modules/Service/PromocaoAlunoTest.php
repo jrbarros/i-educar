@@ -64,7 +64,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $situacao->retidoFalta = FALSE;
 
     $service = $this->setExcludedMethods(array('promover', '_updateMatricula'))
-                    ->getCleanMock('Avaliacao_Service_Boletim');
+                    ->getCleanMock('Boletim');
 
     $service->expects($this->once())
             ->method('getSituacaoAluno')
@@ -94,7 +94,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $situacao->retidoFalta = FALSE;
 
     $service = $this->setExcludedMethods(array('promover'))
-                    ->getCleanMock('Avaliacao_Service_Boletim');
+                    ->getCleanMock('Boletim');
 
     // Mock para RegraAvaliacao_Model_Regra
     $service->expects($this->any())
@@ -130,7 +130,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
     $service = $this->setExcludedMethods(array('promover'))
-                    ->getCleanMock('Avaliacao_Service_Boletim');
+                    ->getCleanMock('Boletim');
 
     $service->method('getRegraAvaliacaoTipoProgressao')
             ->will($this->returnValue(RegraAvaliacao_Model_TipoProgressao::NAO_CONTINUADA_MEDIA_PRESENCA));
@@ -163,7 +163,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
     $service = $this->setExcludedMethods(array('promover'))
-                    ->getCleanMock('Avaliacao_Service_Boletim');
+                    ->getCleanMock('Boletim');
 
     $service->method('getSituacaoAluno')
             ->will($this->returnValue($situacao));
@@ -199,7 +199,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     // Mock para RegraAvaliacao_Model_Regra
 
     $service = $this->setExcludedMethods(array('promover'))
-                    ->getCleanMock('Avaliacao_Service_Boletim');
+                    ->getCleanMock('Boletim');
 
     $service->method('getSituacaoAluno')
             ->will($this->returnValue($situacao));
@@ -233,7 +233,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 
 
     $service = $this->setExcludedMethods(array('promover'))
-                    ->getCleanMock('Avaliacao_Service_Boletim');
+                    ->getCleanMock('Boletim');
 
     $service->method('getSituacaoAluno')
             ->will($this->returnValue($situacao));
@@ -267,7 +267,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 
 
     $service = $this->setExcludedMethods(array('promover'))
-                    ->getCleanMock('Avaliacao_Service_Boletim');
+                    ->getCleanMock('Boletim');
 
     $service->method('getSituacaoAluno')
             ->will($this->returnValue($situacao));
@@ -300,7 +300,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
     $service = $this->setExcludedMethods(array('save'))
-                    ->getCleanMock('Avaliacao_Service_Boletim');
+                    ->getCleanMock('Boletim');
 
     $service->expects($this->at(0))
             ->method('saveNotas')
@@ -340,7 +340,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 
 
     $service = $this->setExcludedMethods(array('promover', '_updateMatricula'))
-                    ->getCleanMock('Avaliacao_Service_Boletim');
+                    ->getCleanMock('Boletim');
 
     $service->method('getSituacaoAluno')
             ->will($this->returnValue($situacao));

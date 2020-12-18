@@ -30,7 +30,7 @@ require_once 'Avaliacao/Service/Boletim.php';
 /**
  * Avaliacao_Service_TestCommon abstract class.
  *
- * Configura o service Avaliacao_Service_Boletim com mocks de suas dependências
+ * Configura o service Boletim com mocks de suas dependências
  * para que seja mais simples o processo de teste dos diversos comportamentos.
  * A configuração básica segue o melhor cenário: as instâncias de
  * NotaAluno e FaltaAluno existirão. Nenhuma
@@ -86,7 +86,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
 {
     /**
      * Collection com as diretrizes de configuração para uso nas dependências de
-     * Avaliacao_Service_Boletim.
+     * Boletim.
      *
      * @var array
      */

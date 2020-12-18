@@ -1,6 +1,12 @@
 <?php
 
-trait Avaliacao_Service_Boletim_FaltaAluno
+namespace iEducarLegacy\Modules\Avaliacao\Service\Boletim;
+
+/**
+ * Trait FaltaAluno
+ * @package iEducarLegacy\Modules\Avaliacao\Service\Boletim
+ */
+trait FaltaAluno
 {
     /**
      * Uma instância de FaltaAluno, que é a entrada que contém

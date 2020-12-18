@@ -1309,7 +1309,7 @@ class DiarioApiController extends ApiCoreController
 
     /**
      * @deprecated
-     * @see Avaliacao_Service_Boletim::getNotaAtual()
+     * @see Boletim::getNotaAtual()
      */
     protected function getNotaAtual($etapa = null, $componenteCurricularId = null)
     {
@@ -1558,7 +1558,7 @@ class DiarioApiController extends ApiCoreController
 
     /**
      * @deprecated
-     * @see Avaliacao_Service_Boletim::getFaltaAtual()
+     * @see Boletim::getFaltaAtual()
      */
     protected function getFaltaAtual($etapa = null, $componenteCurricularId = null)
     {

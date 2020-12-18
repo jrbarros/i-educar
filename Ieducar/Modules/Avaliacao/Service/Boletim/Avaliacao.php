@@ -1,6 +1,12 @@
 <?php
 
-trait Avaliacao_Service_Boletim_Avaliacao
+namespace iEducarLegacy\Modules\Avaliacao\Service\Boletim;
+
+/**
+ * Trait Avaliacao
+ * @package iEducarLegacy\Modules\Avaliacao\Service\Boletim
+ */
+trait Avaliacao
 {
     /**
      * Notas do aluno nos componentes cursados.
