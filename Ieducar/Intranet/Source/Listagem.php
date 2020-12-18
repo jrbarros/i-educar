@@ -3,6 +3,7 @@
 namespace iEducarLegacy\Intranet\Source;
 
 use iEducar\Support\Navigation\Breadcrumb;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Inputs;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
@@ -647,7 +648,7 @@ HTML;
     public function inputsHelper()
     {
         if (! isset($this->_inputsHelper)) {
-            $this->_inputsHelper = new Portabilis_View_Helper_Inputs($this);
+            $this->_inputsHelper = new Inputs($this);
         }
 
         return $this->_inputsHelper;

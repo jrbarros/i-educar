@@ -1,10 +1,13 @@
 <?php
 
-require_once 'Portabilis/Controller/Page/CoreControllerPageListController.php';
-require_once 'lib/Portabilis/View/Helper/Application.php';
-require_once 'Portabilis/Business/Professor.php';
+namespace iEducarLegacy\Modules\Avaliacao\Views;
 
-class DiarioController extends Portabilis_Controller_Page_ListController
+use iEducarLegacy\Lib\Portabilis\Controller\Page\ListController;
+
+/**
+ * Class DiarioController
+ */
+class DiarioController extends ListController
 {
     protected $_titulo = 'Lançamento por turma';
     protected $_processoAp = 642;

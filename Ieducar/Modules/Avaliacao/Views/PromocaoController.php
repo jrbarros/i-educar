@@ -1,7 +1,8 @@
 <?php
 
-#error_reporting(E_ALL);
-#ini_set("display_errors", 1);
+namespace iEducarLegacy\Modules\Avaliacao\Views;
+
+use iEducarLegacy\Lib\Portabilis\Controller\Page\ListController;
 
 /**
  * i-Educar - Sistema de gestão escolar
@@ -37,13 +38,13 @@
  * @version   $Id$
  */
 
-require_once 'Portabilis/Controller/Page/CoreControllerPageListController.php';
-require_once 'lib/Portabilis/View/Helper/Application.php';
-require_once 'lib/Portabilis/View/Helper/Inputs.php';
-
 // TODO migrar para novo padrao
 
-class PromocaoController extends Portabilis_Controller_Page_ListController
+/**
+ * Class PromocaoController
+ * @package iEducarLegacy\Modules\Avaliacao\Views
+ */
+class PromocaoController extends ListController
 {
     protected $_dataMapper = 'NotaAlunoDataMapper';
     protected $_titulo     = 'Lan&ccedil;amento por turma';

@@ -1,21 +1,16 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Views;
+
 use App\Models\LegacyRegistration;
 use App\Models\LegacySchoolClassStage;
 use App\Models\LegacySchoolStage;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
-require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
-require_once 'Avaliacao/Service/Boletim.php';
-require_once 'App/Model/MatriculaSituacao.php';
-require_once 'RegraAvaliacao/Model/TipoPresenca.php';
-require_once 'RegraAvaliacao/Model/TipoParecerDescritivo.php';
-
-require_once 'lib/Portabilis/Utils/Database.php';
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Avaliacao/Fixups/CleanComponentesCurriculares.php';
-require_once 'Source/Modules/clsModulesNotaExame.inc.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-
+/**
+ * Class PromocaoApiController
+ * @package iEducarLegacy\Modules\Avaliacao\Views
+ */
 class PromocaoApiController extends ApiCoreController
 {
     protected $_dataMapper = 'NotaComponenteDataMapper';

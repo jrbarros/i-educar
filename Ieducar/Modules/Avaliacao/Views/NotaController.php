@@ -1,5 +1,10 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Views;
+
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +39,6 @@
  * @version     $Id$
  */
 
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
-require_once 'Avaliacao/Service/Boletim.php';
-
 /**
  * NotaController class.
  *
@@ -57,12 +58,12 @@ require_once 'Avaliacao/Service/Boletim.php';
  *
  * @version     @@package_version@@
  */
-class NotaController extends Core_Controller_Page_EditController
+class NotaController extends EditController
 {
     protected $_dataMapper        = 'NotaComponenteDataMapper';
     protected $_titulo            = 'Avaliação do aluno | Nota';
     protected $_processoAp        = 642;
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
     protected $_saveOption        = true;
     protected $_deleteOption      = false;
 

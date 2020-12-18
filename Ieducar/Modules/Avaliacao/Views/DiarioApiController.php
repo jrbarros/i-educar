@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Views;
+
 use App\Models\LegacyEvaluationRule;
 use App\Models\LegacyInstitution;
 use App\Models\LegacyRegistration;
@@ -8,31 +10,31 @@ use App\Models\LegacySchoolClass;
 use App\Process;
 use App\Services\ReleasePeriodService;
 use Cocur\Slugify\Slugify;
+use ComponenteCurricular_Model_ComponenteDataMapper;
+use FormulaMedia_Model_TipoFormula;
 use iEducar\Modules\Stages\Exceptions\MissingStagesException;
+use iEducarLegacy\Intranet\Source\PmiEducar\BloqueioAnoLetivo;
+use iEducarLegacy\Intranet\Source\PmiEducar\EscolaAnoLetivo;
+use iEducarLegacy\Intranet\Source\PmiEducar\Permissoes;
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use RegraAvaliacao_Model_Nota_TipoValor;
+use RegraAvaliacao_Model_TipoParecerDescritivo;
+use RegraAvaliacao_Model_TipoPresenca;
+use RegraAvaliacao_Model_TipoProgressao;
+use RegraAvaliacao_Model_TipoRecuperacaoParalela;
+use stdClass;
 
-require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
-require_once 'Avaliacao/Model/NotaGeralDataMapper.php';
-require_once 'Avaliacao/Service/Boletim.php';
-require_once 'App/Model/MatriculaSituacao.php';
-require_once 'RegraAvaliacao/Model/TipoPresenca.php';
-require_once 'RegraAvaliacao/Model/TipoParecerDescritivo.php';
-
-require_once 'Source/pmieducar/Turma.php';
-require_once 'Source/pmieducar/Matricula.php';
-require_once 'Source/pmieducar/BloqueioLancamentoFaltasNotas.php';
-require_once 'Source/Modules/clsModulesAuditoriaNota.inc.php';
-require_once 'Source/Modules/clsModulesNotaExame.inc.php';
-
-require_once 'Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Collection/AppDateUtils.php';
-require_once 'Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Object/AppDateUtils.php';
-
+/**
+ * Class DiarioApiController
+ * @package iEducarLegacy\Modules\Avaliacao\Views
+ */
 class DiarioApiController extends ApiCoreController
 {
     protected $_dataMapper = 'NotaComponenteDataMapper';
@@ -46,7 +48,7 @@ class DiarioApiController extends ApiCoreController
 
     protected function validatesCanChangeDiarioForAno()
     {
-        $escola = App_Model_IedFinder::getEscola($this->getRequest()->escola_id);
+        $escola = Finder::getEscola($this->getRequest()->escola_id);
 
         $ano = new EscolaAnoLetivo();
         $ano->ref_cod_escola = $this->getRequest()->escola_id;

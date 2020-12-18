@@ -1,5 +1,9 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Views;
+
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,11 +38,6 @@
  * @version     $Id$
  */
 
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'Avaliacao/Model/ParecerDescritivoComponenteDataMapper.php';
-require_once 'Avaliacao/Model/ParecerDescritivoGeralDataMapper.php';
-require_once 'Avaliacao/Service/Boletim.php';
-
 /**
  * ParecerController class.
  *
@@ -55,7 +54,7 @@ require_once 'Avaliacao/Service/Boletim.php';
  *
  * @version     @@package_version@@
  */
-class ParecerController extends Core_Controller_Page_EditController
+class ParecerController extends EditController
 {
     protected $_dataMapper        = 'ParecerDescritivoGeralDataMapper';
     protected $_titulo            = 'Avaliação do aluno | Parecer Descritivo';

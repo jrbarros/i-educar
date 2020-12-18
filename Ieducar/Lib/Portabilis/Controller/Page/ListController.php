@@ -3,6 +3,7 @@
 namespace iEducarLegacy\Lib\Portabilis\Controller\Page;
 
 use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageListController;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
 
 /**
  * Class ListController
