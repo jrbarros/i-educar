@@ -3,11 +3,11 @@
 trait Avaliacao_Service_Boletim_NotaAluno
 {
     /**
-     * Uma instância de Avaliacao_Model_NotaAluno, que é a entrada que contém
+     * Uma instância de NotaAluno, que é a entrada que contém
      * o cruzamento de matrícula com as notas do aluno nos diversos componentes
      * cursados.
      *
-     * @var Avaliacao_Model_NotaAluno
+     * @var NotaAluno
      */
     protected $_notaAluno;
 

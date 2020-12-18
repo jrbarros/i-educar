@@ -51,8 +51,8 @@ class Avaliacao_Service_NotaAlunoTest extends Avaliacao_Service_TestCommon
     $notaSave  = clone $notaAluno;
     $notaSave->id = NULL;
 
-    // Configura mock para Avaliacao_Model_NotaAlunoDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_NotaAlunoDataMapper');
+    // Configura mock para NotaAlunoDataMapper
+    $mock = $this->getCleanMock('NotaAlunoDataMapper');
     $mock->expects($this->at(0))
          ->method('findAll')
          ->with(array(), array('Matricula' => $this->_getConfigOption('Matricula', 'cod_matricula')))

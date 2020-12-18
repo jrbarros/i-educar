@@ -18,7 +18,7 @@ require_once 'Portabilis/Text/AppDateUtils.php';
 
 class PromocaoApiController extends ApiCoreController
 {
-    protected $_dataMapper = 'Avaliacao_Model_NotaComponenteDataMapper';
+    protected $_dataMapper = 'NotaComponenteDataMapper';
     protected $_processoAp = 644;
 
     protected function canAcceptRequest()

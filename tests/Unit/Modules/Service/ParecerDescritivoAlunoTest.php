@@ -57,8 +57,8 @@ class Avaliacao_Service_ParecerDescritivoAlunoTest extends Avaliacao_Service_Tes
     $parecerSave  = clone $parecerAluno;
     $parecerSave->id = NULL;
 
-    // Configura mock para Avaliacao_Model_ParecerDescritivoAlunoDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_ParecerDescritivoAlunoDataMapper');
+    // Configura mock para ParecerDescritivoAlunoDataMapper
+    $mock = $this->getCleanMock('ParecerDescritivoAlunoDataMapper');
     $mock->expects($this->at(0))
          ->method('findAll')
          ->with(array(), array('Matricula' => $this->_getConfigOption('Matricula', 'cod_matricula')))

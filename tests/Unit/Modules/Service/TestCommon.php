@@ -33,7 +33,7 @@ require_once 'Avaliacao/Service/Boletim.php';
  * Configura o service Avaliacao_Service_Boletim com mocks de suas dependências
  * para que seja mais simples o processo de teste dos diversos comportamentos.
  * A configuração básica segue o melhor cenário: as instâncias de
- * Avaliacao_Model_NotaAluno e Avaliacao_Model_FaltaAluno existirão. Nenhuma
+ * NotaAluno e FaltaAluno existirão. Nenhuma
  * nota, média ou falta terá sido lançada.
  *
  * Alguns métodos podem ser sobrescritos para que os mocks retornem o
@@ -53,15 +53,15 @@ require_once 'Avaliacao/Service/Boletim.php';
  *   do array $_config. Esses componentes correspondem com os valores
  *   retornados pelos mocks de classes legadas (configuradas nos métodos
  *   _setUp*Mock()
- * - Avaliacao_Model_NotaAlunoDataMapper: mock que retorna uma instância
- *   de Avaliacao_Model_NotaAluno com as configurações padrão
- * - Avaliacao_Model_NotaComponenteDataMapper: mock que retorna um array
+ * - NotaAlunoDataMapper: mock que retorna uma instância
+ *   de NotaAluno com as configurações padrão
+ * - NotaComponenteDataMapper: mock que retorna um array
  *   vazio. Não existem notas lançadas para o aluno
- * - Avaliacao_Model_NotaComponenteMediaDataMapper: mock que retorna um array
+ * - NotaComponenteMediaDataMapper: mock que retorna um array
  *   vazio. Não existem médias lançadas para o aluno
- * - Avaliacao_Model_FaltaAlunoDataMapper: mock que retorna uma instância
- *   de Avaliacao_Model_FaltaAluno com as configurações padrão
- * - Avaliacao_Model_FaltaAbstractDataMapper: mock que retorna um array
+ * - FaltaAlunoDataMapper: mock que retorna uma instância
+ *   de FaltaAluno com as configurações padrão
+ * - FaltaAbstractDataMapper: mock que retorna um array
  *   vazio. Não existem faltas lançadas para o aluno.
  *   OBSERVAÇÃO: métodos que sobrescreverem este, devem estar conscientes de
  *   que é necessário configurar o mock para retornar objeto(s) de acordo
@@ -1040,7 +1040,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
         if (is_null($this->_notaAlunoDataMapperMock)) {
             $notaAluno = $this->_getConfigOption('notaAluno', 'instance');
 
-            $mock = $this->getCleanMock('Avaliacao_Model_NotaAlunoDataMapper');
+            $mock = $this->getCleanMock('NotaAlunoDataMapper');
             $mock->expects($this->at(0))
                 ->method('findAll')
                 ->with([], ['Matricula' => $notaAluno->matricula])
@@ -1062,7 +1062,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
     protected function _getNotaComponenteDataMapperMock()
     {
         if (is_null($this->_notaComponenteDataMapperMock)) {
-            $mock = $this->getCleanMock('Avaliacao_Model_NotaComponenteDataMapper');
+            $mock = $this->getCleanMock('NotaComponenteDataMapper');
             $mock->expects($this->at(0))
                 ->method('findAll')
                 ->with([], ['notaAluno' => $this->_getConfigOption('Matricula', 'cod_matricula')], ['etapa' => 'ASC'])
@@ -1086,7 +1086,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
         if (is_null($this->_notaComponenteMediaDataMapperMock)) {
             $notaAluno = $this->_getConfigOption('notaAluno', 'instance');
 
-            $mock = $this->getCleanMock('Avaliacao_Model_NotaComponenteMediaDataMapper');
+            $mock = $this->getCleanMock('NotaComponenteMediaDataMapper');
             $mock->expects($this->at(0))
                 ->method('findAll')
                 ->with([], ['notaAluno' => $notaAluno->id])
@@ -1110,7 +1110,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
         if (is_null($this->_faltaAlunoDataMapperMock)) {
             $faltaAluno = $this->_getConfigOption('faltaAluno', 'instance');
 
-            $mock = $this->getCleanMock('Avaliacao_Model_FaltaAlunoDataMapper');
+            $mock = $this->getCleanMock('FaltaAlunoDataMapper');
             $mock->expects($this->at(0))
                 ->method('findAll')
                 ->with([], ['Matricula' => $this->_getConfigOption('Matricula', 'cod_matricula')])
@@ -1134,7 +1134,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
         $faltaAluno = $this->_getConfigOption('faltaAluno', 'instance');
 
         if (is_null($this->_faltaAbstractDataMapperMock)) {
-            $mock = $this->getCleanMock('Avaliacao_Model_FaltaAbstractDataMapper');
+            $mock = $this->getCleanMock('FaltaAbstractDataMapper');
             $mock->expects($this->at(0))
                 ->method('findAll')
                 ->with([], ['faltaAluno' => $faltaAluno->id], ['etapa' => 'ASC'])
@@ -1158,7 +1158,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
         if (is_null($this->_parecerDescritivoAlunoDataMapperMock)) {
             $parecerAluno = $this->_getConfigOption('parecerDescritivoAluno', 'instance');
 
-            $mock = $this->getCleanMock('Avaliacao_Model_ParecerDescritivoAlunoDataMapper');
+            $mock = $this->getCleanMock('ParecerDescritivoAlunoDataMapper');
 
             if ($this->_getRegraOption('parecerDescritivo') != RegraAvaliacao_Model_TipoParecerDescritivo::NENHUM) {
                 $matcher = $this->at(0);
@@ -1187,7 +1187,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
         if (is_null($this->_parecerDescritivoAbstractDataMapperMock)) {
             $parecerAluno = $this->_getConfigOption('parecerDescritivoAluno', 'instance');
 
-            $mock = $this->getCleanMock('Avaliacao_Model_ParecerDescritivoAbstractDataMapper');
+            $mock = $this->getCleanMock('ParecerDescritivoAbstractDataMapper');
 
             if ($this->_getRegraOption('parecerDescritivo') != RegraAvaliacao_Model_TipoParecerDescritivo::NENHUM) {
                 $mock->expects($this->at(0))

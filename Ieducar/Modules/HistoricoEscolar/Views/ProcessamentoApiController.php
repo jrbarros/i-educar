@@ -21,7 +21,7 @@ require_once 'lib/Utils/SafeJson.php';
 // TODO migrar classe novo padrao api controller
 class ProcessamentoApiController extends Core_Controller_Page_EditController
 {
-    protected $_dataMapper = 'Avaliacao_Model_NotaComponenteDataMapper';
+    protected $_dataMapper = 'NotaComponenteDataMapper';
     protected $_processoAp = 999613;
     protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
     protected $_saveOption = false;

@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,8 +36,6 @@
  * @version     $Id$
  */
 
-require_once 'Avaliacao/Model/Etapa.php';
-
 /**
  * Avaliacao_Model_FaltaAbstract abstract class.
  *
@@ -52,7 +52,7 @@ require_once 'Avaliacao/Model/Etapa.php';
  *
  * @version     @@package_version@@
  */
-abstract class Avaliacao_Model_FaltaAbstract extends Avaliacao_Model_Etapa
+abstract class FaltaAbstract extends Etapa
 {
     protected $_data = [
     'faltaAluno' => null,
@@ -66,7 +66,7 @@ abstract class Avaliacao_Model_FaltaAbstract extends Avaliacao_Model_Etapa
     protected $_references = [
     'faltaAluno' => [
       'value' => null,
-      'class' => 'Avaliacao_Model_FaltaAluno',
+      'class' => 'FaltaAluno',
       'file'  => 'Avaliacao/Model/FaltaAluno.php'
     ]
   ];
@@ -77,7 +77,7 @@ abstract class Avaliacao_Model_FaltaAbstract extends Avaliacao_Model_Etapa
     public function getDefaultValidatorCollection()
     {
         return [
-      'quantidade' => new _Validate_Numeric(['min' => 0, 'max' => 100])
+      'quantidade' => new Numeric(['min' => 0, 'max' => 100])
     ];
     }
 }

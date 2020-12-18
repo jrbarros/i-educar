@@ -1,10 +1,16 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'AreaConhecimento/Model/AreaDataMapper.php';
-require_once '../Intranet/Source/Banco.php';
+namespace iEducarLegacy\Modules\AreaConhecimento\Views;
 
-class EditController extends Core_Controller_Page_EditController
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController as AbstractEditController;
+
+/**
+ * Class EditController
+ * @package iEducarLegacy\Modules\AreaConhecimento\Views
+ */
+class EditController extends AbstractEditController
 {
     protected $_dataMapper = 'AreaConhecimento_Model_AreaDataMapper';
 
@@ -12,7 +18,7 @@ class EditController extends Core_Controller_Page_EditController
 
     protected $_processoAp = 945;
 
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::INSTITUCIONAL;
+    protected $_nivelAcessoOption = NivelAcesso::INSTITUCIONAL;
 
     protected $_saveOption = true;
 
@@ -63,7 +69,7 @@ class EditController extends Core_Controller_Page_EditController
     {
         $this->campoOculto('id', $this->getEntity()->id);
 
-        $instituicoes = App_Model_IedFinder::getInstituicoes();
+        $instituicoes = Finder::getInstituicoes();
 
         // Instituição
         $this->campoLista(
@@ -103,7 +109,7 @@ class EditController extends Core_Controller_Page_EditController
         $this->campoTexto(
             'ordenamento_ac',
             $this->_getLabel('ordenamento_ac'),
-            $this->getEntity()->ordenamento_ac==99999 ? null : $this->getEntity()->ordenamento_ac,
+            $this->getEntity()->ordenamento_ac === 99999 ? null : $this->getEntity()->ordenamento_ac,
             10,
             50,
             false,

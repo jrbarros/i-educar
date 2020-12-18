@@ -485,13 +485,13 @@ trait Avaliacao_Service_Boletim_Acessores
                 case RegraAvaliacao_Model_TipoParecerDescritivo::ANUAL_GERAL:
                 case RegraAvaliacao_Model_TipoParecerDescritivo::ETAPA_GERAL:
                     $filename = 'Avaliacao/Model/ParecerDescritivoGeralDataMapper.php';
-                    $class = 'Avaliacao_Model_ParecerDescritivoGeralDataMapper';
+                    $class = 'ParecerDescritivoGeralDataMapper';
                     break;
 
                 case RegraAvaliacao_Model_TipoParecerDescritivo::ANUAL_COMPONENTE:
                 case RegraAvaliacao_Model_TipoParecerDescritivo::ETAPA_COMPONENTE:
                     $filename = 'Avaliacao/Model/ParecerDescritivoComponenteDataMapper.php';
-                    $class = 'Avaliacao_Model_ParecerDescritivoComponenteDataMapper';
+                    $class = 'ParecerDescritivoComponenteDataMapper';
                     break;
             }
 
@@ -524,7 +524,7 @@ trait Avaliacao_Service_Boletim_Acessores
     {
         if (is_null($this->_notaGeralAbstractDataMapper)) {
             $filename = 'Avaliacao/Model/NotaGeralDataMapper.php';
-            $class = 'Avaliacao_Model_NotaGeralDataMapper';
+            $class = 'NotaGeralDataMapper';
 
             require_once $filename;
 

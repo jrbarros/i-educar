@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'AreaConhecimento/Model/Area.php';
+namespace iEducarLegacy\Modules\AreaConhecimento\Model;
 
-class AreaConhecimento_Model_AreaDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class AreaDataMapper
+ * @package iEducarLegacy\Modules\AreaConhecimento\Model
+ */
+class AreaDataMapper extends DataMapper
 {
-    protected $_entityClass = 'AreaConhecimento_Model_Area';
+    protected $_entityClass = 'Area';
 
     protected $_tableName   = 'area_conhecimento';
 

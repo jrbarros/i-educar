@@ -3,11 +3,11 @@
 trait Avaliacao_Service_Boletim_ParecerDescritivoAluno
 {
     /**
-     * Uma instância de Avaliacao_Model_ParecerDescritivoAluno, que é a entrada
+     * Uma instância de ParecerDescritivoAluno, que é a entrada
      * que contém o cruzamento de matrícula com os pareceres do aluno nos
      * diversos componentes cursados ou no geral.
      *
-     * @var Avaliacao_Model_ParecerDescritivoAluno
+     * @var ParecerDescritivoAluno
      */
     protected $_parecerDescritivoAluno;
 

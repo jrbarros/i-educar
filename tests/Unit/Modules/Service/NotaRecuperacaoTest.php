@@ -87,8 +87,8 @@ class Avaliacao_Service_NotaRecuperacaoTest extends Avaliacao_Service_TestCommon
 
     $media->markOld();
 
-    // Configura mock para Avaliacao_Model_NotaComponenteDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_NotaComponenteDataMapper');
+    // Configura mock para NotaComponenteDataMapper
+    $mock = $this->getCleanMock('NotaComponenteDataMapper');
 
     $mock->expects($this->at(0))
          ->method('findAll')
@@ -127,8 +127,8 @@ class Avaliacao_Service_NotaRecuperacaoTest extends Avaliacao_Service_TestCommon
 
     $this->_setNotaComponenteDataMapperMock($mock);
 
-    // Configura mock para Avaliacao_Model_NotaComponenteMediaDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_NotaComponenteMediaDataMapper');
+    // Configura mock para NotaComponenteMediaDataMapper
+    $mock = $this->getCleanMock('NotaComponenteMediaDataMapper');
 
     $mock->expects($this->at(0))
          ->method('findAll')
@@ -212,8 +212,8 @@ class Avaliacao_Service_NotaRecuperacaoTest extends Avaliacao_Service_TestCommon
       ))
     );
 
-    // Configura mock para Avaliacao_Model_NotaComponenteDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_NotaComponenteDataMapper');
+    // Configura mock para NotaComponenteDataMapper
+    $mock = $this->getCleanMock('NotaComponenteDataMapper');
 
     $mock->expects($this->at(0))
          ->method('findAll')

@@ -1,11 +1,14 @@
 <?php
 
-require_once 'Avaliacao/Model/FaltaAbstractDataMapper.php';
-require_once 'Avaliacao/Model/FaltaGeral.php';
+namespace iEducarLegacy\Modules\Avaliacao\Model;
 
-class Avaliacao_Model_FaltaGeralDataMapper extends Avaliacao_Model_FaltaAbstractDataMapper
+/**
+ * Class FaltaGeralDataMapper
+ * @package iEducarLegacy\Modules\Avaliacao\Model
+ */
+class FaltaGeralDataMapper extends FaltaAbstractDataMapper
 {
-    protected $_entityClass = 'Avaliacao_Model_FaltaGeral';
+    protected $_entityClass = 'FaltaGeral';
     protected $_tableName = 'falta_geral';
 
     protected $_attributeMap = [

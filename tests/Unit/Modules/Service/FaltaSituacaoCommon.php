@@ -48,7 +48,7 @@ class Avaliacao_Service_FaltaSituacaoCommon extends Avaliacao_Service_TestCommon
     Avaliacao_Model_FaltaAluno $faltaAluno, array $faltas)
   {
     // Configura mock para notas
-    $mock = $this->getCleanMock('Avaliacao_Model_FaltaAbstractDataMapper');
+    $mock = $this->getCleanMock('FaltaAbstractDataMapper');
 
     $mock->expects($this->any())
          ->method('findAll')

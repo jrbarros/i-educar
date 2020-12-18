@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,11 +36,8 @@
  * @version     $Id$
  */
 
-require_once 'Avaliacao/Model/ParecerDescritivoAbstractDataMapper.php';
-require_once 'Avaliacao/Model/ParecerDescritivoGeral.php';
-
 /**
- * Avaliacao_Model_FaltaComponenteDataMapper class.
+ * FaltaComponente class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -53,9 +52,9 @@ require_once 'Avaliacao/Model/ParecerDescritivoGeral.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_ParecerDescritivoGeralDataMapper extends Avaliacao_Model_ParecerDescritivoAbstractDataMapper
+class ParecerDescritivoGeralDataMapper extends ParecerDescritivoAbstractDataMapper
 {
-    protected $_entityClass = 'Avaliacao_Model_ParecerDescritivoGeral';
+    protected $_entityClass = 'ParecerDescritivoGeral';
     protected $_tableName   = 'parecer_geral';
 
     protected $_primaryKey = [

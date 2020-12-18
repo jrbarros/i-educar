@@ -167,8 +167,8 @@ class Avaliacao_Service_UtilityTest extends Avaliacao_Service_TestCommon
       )),
     );
 
-    // Configura mock para Avaliacao_Model_NotaComponenteDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_NotaComponenteDataMapper');
+    // Configura mock para NotaComponenteDataMapper
+    $mock = $this->getCleanMock('NotaComponenteDataMapper');
 
     $mock->expects($this->at(0))
          ->method('findAll')

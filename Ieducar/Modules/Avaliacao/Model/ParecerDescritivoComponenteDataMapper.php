@@ -1,10 +1,9 @@
 <?php
 
-require_once 'Avaliacao/Model/ParecerDescritivoAbstractDataMapper.php';
-require_once 'Avaliacao/Model/ParecerDescritivoComponente.php';
+namespace iEducarLegacy\Modules\Avaliacao\Model;
 
 /**
- * Avaliacao_Model_ParecerDescritivoComponenteDataMapper class.
+ * ParecerDescritivoComponenteDataMapper class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -19,9 +18,9 @@ require_once 'Avaliacao/Model/ParecerDescritivoComponente.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_ParecerDescritivoComponenteDataMapper extends Avaliacao_Model_ParecerDescritivoAbstractDataMapper
+class ParecerDescritivoComponenteDataMapper extends ParecerDescritivoAbstractDataMapper
 {
-    protected $_entityClass = 'Avaliacao_Model_ParecerDescritivoComponente';
+    protected $_entityClass = 'ParecerDescritivoComponente';
     protected $_tableName   = 'parecer_componente_curricular';
 
     protected $_attributeMap = [

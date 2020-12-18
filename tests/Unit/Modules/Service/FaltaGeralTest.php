@@ -113,8 +113,8 @@ class Avaliacao_Service_FaltaGeralTest extends Avaliacao_Service_FaltaCommon
       )),
     );
 
-    // Configura mock para Avaliacao_Model_FaltaGeralDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_FaltaGeralDataMapper');
+    // Configura mock para FaltaGeralDataMapper
+    $mock = $this->getCleanMock('FaltaGeralDataMapper');
 
     $mock->expects($this->at(0))
          ->method('findAll')
@@ -184,8 +184,8 @@ class Avaliacao_Service_FaltaGeralTest extends Avaliacao_Service_FaltaCommon
       ))
     );
 
-    // Configura mock para Avaliacao_Model_FaltaGeralDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_FaltaGeralDataMapper');
+    // Configura mock para FaltaGeralDataMapper
+    $mock = $this->getCleanMock('FaltaGeralDataMapper');
 
     $mock->expects($this->at(0))
          ->method('findAll')
@@ -241,8 +241,8 @@ class Avaliacao_Service_FaltaGeralTest extends Avaliacao_Service_FaltaCommon
       ))
     );
 
-    // Configura mock para Avaliacao_Model_FaltaGeralDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_FaltaGeralDataMapper');
+    // Configura mock para FaltaGeralDataMapper
+    $mock = $this->getCleanMock('FaltaGeralDataMapper');
 
     $mock->expects($this->at(0))
          ->method('findAll')

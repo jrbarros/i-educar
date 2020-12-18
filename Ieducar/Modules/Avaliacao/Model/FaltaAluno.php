@@ -1,5 +1,9 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\Entity;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,11 +38,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
-require_once 'RegraAvaliacao/Model/TipoPresenca.php';
-
 /**
- * Avaliacao_Model_FaltaAluno class.
+ * FaltaAluno class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -53,7 +54,7 @@ require_once 'RegraAvaliacao/Model/TipoPresenca.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_FaltaAluno extends CoreExt_Entity
+class FaltaAluno extends Entity
 {
     protected $_data = [
     'Matricula' => null,
@@ -76,7 +77,7 @@ class Avaliacao_Model_FaltaAluno extends CoreExt_Entity
         $presenca = RegraAvaliacao_Model_TipoPresenca::getInstance();
 
         return [
-      'Matricula' => new _Validate_Numeric(['min' => 0]),
+      'Matricula' => new Numeric(['min' => 0]),
       'tipoFalta' => new _Validate_Choice(['choices' => $presenca->getKeys()]),
     ];
     }

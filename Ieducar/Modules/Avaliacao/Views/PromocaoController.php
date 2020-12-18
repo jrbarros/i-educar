@@ -45,7 +45,7 @@ require_once 'lib/Portabilis/View/Helper/Inputs.php';
 
 class PromocaoController extends Portabilis_Controller_Page_ListController
 {
-    protected $_dataMapper = 'Avaliacao_Model_NotaAlunoDataMapper';
+    protected $_dataMapper = 'NotaAlunoDataMapper';
     protected $_titulo     = 'Lan&ccedil;amento por turma';
     protected $_processoAp = 644;
     protected $_formMap    = [];

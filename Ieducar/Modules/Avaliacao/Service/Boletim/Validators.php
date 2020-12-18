@@ -4,7 +4,7 @@ trait Avaliacao_Service_Boletim_Validators
 {
     /**
      * Validadores para instâncias de Avaliacao_Model_FaltaAbstract e
-     * Avaliacao_Model_NotaComponente.
+     * NotaComponente.
      *
      * @see Avaliacao_Service_Boletim::_addValidators()
      *
@@ -13,7 +13,7 @@ trait Avaliacao_Service_Boletim_Validators
     protected $_validators;
 
     /**
-     * Validadores para uma instância de Avaliacao_Model_ParecerDescritivoAbstract
+     * Validadores para uma instância de ParecerDescritivoAbstract
      * adicionada no boletim.
      *
      * @see Avaliacao_Service_Boletim::_addParecerValidators()

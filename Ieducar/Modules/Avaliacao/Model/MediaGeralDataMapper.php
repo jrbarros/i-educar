@@ -1,10 +1,11 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Avaliacao/Model/MediaGeral.php';
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\DataMapper;
 
 /**
- * Avaliacao_Model_MediaGeralDataMapper class.
+ * MediaGeralDataMapper class.
  *
  * @author      Gabriel Matos de Souza <gabriel@portabilis.com.br>
  *
@@ -19,9 +20,9 @@ require_once 'Avaliacao/Model/MediaGeral.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_MediaGeralDataMapper extends CoreExt_DataMapper
+class MediaGeralDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Avaliacao_Model_MediaGeral';
+    protected $_entityClass = 'MediaGeral';
     protected $_tableName   = 'media_geral';
     protected $_tableSchema = 'Modules';
 

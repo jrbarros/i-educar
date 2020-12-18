@@ -1,5 +1,9 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\Entity;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -33,11 +37,8 @@
  *
  * @version     $Id$
  */
-
-require_once 'CoreExt/Entity.php';
-
 /**
- * Avaliacao_Model_Etapa class.
+ * Etapa class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,7 +53,7 @@ require_once 'CoreExt/Entity.php';
  *
  * @version     @@package_version@@
  */
-abstract class Avaliacao_Model_Etapa extends CoreExt_Entity
+abstract class Etapa extends Entity
 {
     public function __construct($options = [])
     {

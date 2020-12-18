@@ -51,8 +51,8 @@ class Avaliacao_Service_FaltaAlunoTest extends Avaliacao_Service_TestCommon
     $faltaSave  = clone $faltaAluno;
     $faltaSave->id = NULL;
 
-    // Configura mock para Avaliacao_Model_FaltaAlunoDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_FaltaAlunoDataMapper');
+    // Configura mock para FaltaAlunoDataMapper
+    $mock = $this->getCleanMock('FaltaAlunoDataMapper');
     $mock->expects($this->at(0))
          ->method('findAll')
          ->with(array(), array('Matricula' => $this->_getConfigOption('Matricula', 'cod_matricula')))

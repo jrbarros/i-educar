@@ -1,5 +1,10 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Numeric;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +39,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
-
 /**
- * Avaliacao_Model_NotaAluno class.
+ * NotaAluno class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,7 +55,7 @@ require_once 'CoreExt/Entity.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_NotaAluno extends CoreExt_Entity
+class NotaAluno extends Entity
 {
     protected $_data = [
     'Matricula' => null
@@ -64,7 +67,7 @@ class Avaliacao_Model_NotaAluno extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-      'Matricula' => new _Validate_Numeric(['min' => 0])
+      'Matricula' => new Numeric(['min' => 0])
     ];
     }
 }

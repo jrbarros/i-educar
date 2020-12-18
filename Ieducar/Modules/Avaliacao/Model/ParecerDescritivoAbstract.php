@@ -1,5 +1,9 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\Validate\Text;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +38,8 @@
  * @version     $Id$
  */
 
-require_once 'Avaliacao/Model/Etapa.php';
-
 /**
- * Avaliacao_Model_ParecerDescritivoAbstract abstract class.
+ * ParecerDescritivoAbstract abstract class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,7 +54,7 @@ require_once 'Avaliacao/Model/Etapa.php';
  *
  * @version     @@package_version@@
  */
-abstract class Avaliacao_Model_ParecerDescritivoAbstract extends Avaliacao_Model_Etapa
+abstract class ParecerDescritivoAbstract extends Etapa
 {
     protected $_data = [
     'parecerDescritivoAluno' => null,
@@ -62,7 +64,7 @@ abstract class Avaliacao_Model_ParecerDescritivoAbstract extends Avaliacao_Model
     protected $_references = [
     'parecerDescritivoAluno' => [
       'value' => null,
-      'class' => 'Avaliacao_Model_ParecerDescritivoAluno',
+      'class' => 'ParecerDescritivoAluno',
       'file'  => 'Avaliacao/Model/ParecerDescritivoAluno.php'
     ]
   ];
@@ -79,9 +81,9 @@ abstract class Avaliacao_Model_ParecerDescritivoAbstract extends Avaliacao_Model
         $etapa->setOptions(['choices' => $etapas]);
 
         return [
-      'etapa'   => $etapa,
-      'parecer' => new _Validate_String()
-    ];
+            'etapa'   => $etapa,
+            'parecer' => new Text()
+        ];
     }
 
     /**

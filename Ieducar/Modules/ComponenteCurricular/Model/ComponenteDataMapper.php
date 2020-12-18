@@ -102,7 +102,7 @@ class ComponenteCurricular_Model_ComponenteDataMapper extends CoreExt_DataMapper
     /**
      * Finder.
      *
-     * @return array Collection de objetos AreaConhecimento_Model_Area
+     * @return array Collection de objetos Area
      */
     public function findAreaConhecimento()
     {

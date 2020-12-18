@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +36,8 @@
  * @version     $Id$
  */
 
-require_once 'Avaliacao/Model/ParecerDescritivoAbstract.php';
-
 /**
- * Avaliacao_Model_ParecerDescritivoComponente class.
+ * ParecerDescritivoComponente class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,7 +52,7 @@ require_once 'Avaliacao/Model/ParecerDescritivoAbstract.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_ParecerDescritivoComponente extends Avaliacao_Model_ParecerDescritivoAbstract
+class ParecerDescritivoComponente extends ParecerDescritivoAbstract
 {
     /**
      * Construtor.
@@ -64,10 +64,10 @@ class Avaliacao_Model_ParecerDescritivoComponente extends Avaliacao_Model_Parece
         $this->_data['componenteCurricular'] = null;
 
         $this->_references['componenteCurricular'] = [
-      'value' => null,
-      'class' => 'ComponenteCurricular_Model_Componente',
-      'file'  => 'ComponenteCurricular/Model/Componente.php'
-    ];
+            'value' => null,
+            'class' => 'ComponenteCurricular_Model_Componente',
+            'file' => 'ComponenteCurricular/Model/Componente.php'
+        ];
 
         parent::__construct($options);
     }

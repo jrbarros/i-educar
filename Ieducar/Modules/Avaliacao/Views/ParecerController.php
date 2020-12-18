@@ -57,7 +57,7 @@ require_once 'Avaliacao/Service/Boletim.php';
  */
 class ParecerController extends Core_Controller_Page_EditController
 {
-    protected $_dataMapper        = 'Avaliacao_Model_ParecerDescritivoGeralDataMapper';
+    protected $_dataMapper        = 'ParecerDescritivoGeralDataMapper';
     protected $_titulo            = 'Avaliação do aluno | Parecer Descritivo';
     protected $_processoAp        = 642;
     protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;

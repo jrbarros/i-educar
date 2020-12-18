@@ -1,4 +1,10 @@
 <?php
+
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Intranet\Source\Banco;
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -33,10 +39,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/DataMapper.php';
-
 /**
- * Avaliacao_Model_NotaGeralAbstractDataMapper class.
+ * NotaGeralAbstractDataMapper class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -51,7 +55,7 @@ require_once 'CoreExt/DataMapper.php';
  *
  * @version     @@package_version@@
  */
-abstract class Avaliacao_Model_NotaGeralAbstractDataMapper extends CoreExt_DataMapper
+abstract class NotaGeralAbstractDataMapper extends DataMapper
 {
     protected $_tableSchema = 'Modules';
 

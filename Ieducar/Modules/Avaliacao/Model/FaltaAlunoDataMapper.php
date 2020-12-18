@@ -1,10 +1,11 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Avaliacao/Model/FaltaAluno.php';
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\DataMapper;
 
 /**
- * Avaliacao_Model_FaltaAlunoDataMapper class.
+ * FaltaAlunoDataMapper class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -19,9 +20,9 @@ require_once 'Avaliacao/Model/FaltaAluno.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_FaltaAlunoDataMapper extends CoreExt_DataMapper
+class FaltaAlunoDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Avaliacao_Model_FaltaAluno';
+    protected $_entityClass = 'FaltaAluno';
     protected $_tableName   = 'falta_aluno';
     protected $_tableSchema = 'Modules';
 

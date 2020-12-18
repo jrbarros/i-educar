@@ -16,7 +16,7 @@ class ReportCoreController extends EditController
      *
      * @var string
      */
-    protected $_dataMapper = 'Avaliacao_Model_NotaComponenteDataMapper';
+    protected $_dataMapper = 'NotaComponenteDataMapper';
 
     /**
      * Código de permissão da página index, por padrão todos usuários tem

@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +36,8 @@
  * @version     $Id$
  */
 
-require_once 'Avaliacao/Model/ParecerDescritivoAbstract.php';
-
 /**
- * Avaliacao_Model_ParecerDescritivoGeral class.
+ * ParecerDescritivoGeral class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,6 +52,6 @@ require_once 'Avaliacao/Model/ParecerDescritivoAbstract.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_ParecerDescritivoGeral extends Avaliacao_Model_ParecerDescritivoAbstract
+class ParecerDescritivoGeral extends ParecerDescritivoAbstract
 {
 }

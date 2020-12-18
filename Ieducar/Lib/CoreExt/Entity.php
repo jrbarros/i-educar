@@ -57,7 +57,7 @@ abstract class Entity implements Validatable
      * $_references = array(
      *   'area' => array(
      *     'value' => 1,
-     *     'class' => 'AreaConhecimento_Model_AreaDataMapper',
+     *     'class' => 'AreaDataMapper',
      *     'file'  => 'AreaConhecimento/Model/AreaDataMapper.php'
      *   )
      * );

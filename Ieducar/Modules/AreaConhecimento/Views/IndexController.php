@@ -1,9 +1,14 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageListController.php';
-require_once 'AreaConhecimento/Model/AreaDataMapper.php';
+namespace iEducarLegacy\Modules\AreaConhecimento\Views;
 
-class IndexController extends Core_Controller_Page_ListController
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageListController;
+
+/**
+ * Class IndexController
+ * @package iEducarLegacy\Modules\Avaliacao\Fixups
+ */
+class IndexController extends CoreControllerPageListController
 {
     protected $_dataMapper = 'AreaConhecimento_Model_AreaDataMapper';
 

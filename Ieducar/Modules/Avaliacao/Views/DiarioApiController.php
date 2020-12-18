@@ -35,7 +35,7 @@ require_once 'Portabilis/Object/AppDateUtils.php';
 
 class DiarioApiController extends ApiCoreController
 {
-    protected $_dataMapper = 'Avaliacao_Model_NotaComponenteDataMapper';
+    protected $_dataMapper = 'NotaComponenteDataMapper';
     protected $_processoAp = 642;
     protected $_currentMatriculaId;
 

@@ -50,7 +50,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
      * - Matricula (int), obrigatória
      * - ComponenteDataMapper (Componente_Model_ComponenteDataMapper), opcional
      * - RegraDataMapper (Regra_Model_RegraDataMapper), opcional
-     * - NotaAlunoDataMapper (Avaliacao_Model_NotaAlunoDataMapper), opcional
+     * - NotaAlunoDataMapper (NotaAlunoDataMapper), opcional
      *
      * @param array $options
      *
@@ -87,12 +87,12 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Retorna uma instância de Avaliacao_Model_NotaComponente.
+     * Retorna uma instância de NotaComponente.
      *
      * @param int $id    O identificador de ComponenteCurricular_Model_Componente
      * @param int $etapa A etapa para o qual a nota foi lançada
      *
-     * @return Avaliacao_Model_NotaComponente|NULL
+     * @return NotaComponente|NULL
      */
     public function getNotaComponente($id, $etapa = 1)
     {
@@ -132,7 +132,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Retorna uma instância de Avaliacao_Model_NotaGeral.
+     * Retorna uma instância de NotaGeral.
      *
      * @param int $id    O identificador de ComponenteCurricular_Model_Componente
      * @param int $etapa A etapa para o qual a nota foi lançada
@@ -184,7 +184,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Retorna uma instância de Avaliacao_Model_ParecerDescritivoAbstract.
+     * Retorna uma instância de ParecerDescritivoAbstract.
      *
      * @param int $etapa A etapa para o qual o parecer foi lançado
      * @param int $id    O identificador de ComponenteCurricular_Model_Componente
@@ -1412,7 +1412,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Cria e persiste uma instância de Avaliacao_Model_NotaAluno.
+     * Cria e persiste uma instância de NotaAluno.
      *
      * @return bool
      */
@@ -1425,7 +1425,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Verifica se existe alguma instância de Avaliacao_Model_NotaComponente para
+     * Verifica se existe alguma instância de NotaComponente para
      * um determinado componente curricular já persistida.
      *
      * @param int $id
@@ -1463,9 +1463,9 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
 
     /**
      * Retorna o field identity de um componente curricular de uma instância de
-     * Avaliacao_Model_NotaComponente já esteja persistida.
+     * NotaComponente já esteja persistida.
      *
-     * @param Avaliacao_Model_NotaComponente $instance
+     * @param NotaComponente $instance
      *
      * @return int|NULL Retorna NULL caso a instância não tenha sido lançada
      */
@@ -1519,7 +1519,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Cria e persiste uma instância de Avaliacao_Model_NotaAluno.
+     * Cria e persiste uma instância de NotaAluno.
      *
      * @return bool
      */
@@ -1533,7 +1533,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Verifica se existe alguma instância de Avaliacao_Model_FaltaGeral já
+     * Verifica se existe alguma instância de FaltaGeral já
      * persistida.
      *
      * @return bool
@@ -1550,7 +1550,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Verifica se existe alguma instância de Avaliacao_Model_FaltaComponente para
+     * Verifica se existe alguma instância de FaltaComponente para
      * um determinado componente curricular já persistida.
      *
      * @param int $id
@@ -1625,7 +1625,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Cria e persiste uma instância de Avaliacao_Model_ParecerDescritivoAluno.
+     * Cria e persiste uma instância de ParecerDescritivoAluno.
      *
      * @return bool
      */
@@ -1639,7 +1639,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Adiciona um array de instâncias Avaliacao_Model_NotaComponente.
+     * Adiciona um array de instâncias NotaComponente.
      *
      * @param array $notas
      *
@@ -1655,7 +1655,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Verifica se existe alguma instância de Avaliacao_Model_ParecerDescritivoComponente
+     * Verifica se existe alguma instância de ParecerDescritivoComponente
      * persistida para o aluno.
      *
      * @param int $id Field identity de ComponenteCurricular_Model_Componente
@@ -1674,7 +1674,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Verifica se existe alguma instância de Avaliacao_Model_ParecerDescritivoGeral
+     * Verifica se existe alguma instância de ParecerDescritivoGeral
      * persistida para o aluno.
      *
      * @return bool
@@ -1689,10 +1689,10 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Verifica se existe alguma instância de Avaliacao_Model_ParecerDescritivoAbstract
+     * Verifica se existe alguma instância de ParecerDescritivoAbstract
      * persistida em uma determinada etapa e retorna o field identity.
      *
-     * @param Avaliacao_Model_ParecerDescritivoAbstract $instance
+     * @param ParecerDescritivoAbstract $instance
      *
      * @return int|NULL
      */
@@ -1802,7 +1802,7 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Adiciona uma array de instâncias de Avaliacao_Model_ParecerDescritivoAbstract
+     * Adiciona uma array de instâncias de ParecerDescritivoAbstract
      * no boletim.
      *
      * @param array $pareceres
@@ -1819,10 +1819,10 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Adiciona uma instância de Avaliacao_Model_ParecerDescritivoAbstract no
+     * Adiciona uma instância de ParecerDescritivoAbstract no
      * boletim.
      *
-     * @param Avaliacao_Model_ParecerDescritivoAbstract $parecer
+     * @param ParecerDescritivoAbstract $parecer
      *
      * @return Avaliacao_Service_Boletim Provê interface fluída
      */
@@ -1884,12 +1884,12 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
 
     /**
      * Atualiza as opções de validação de uma instância de
-     * Avaliacao_Model_ParecerDescritivoAbstract, com os valores permitidos
+     * ParecerDescritivoAbstract, com os valores permitidos
      * para os atributos 'componenteCurricular' e 'etapa'.
      *
-     * @param Avaliacao_Model_ParecerDescritivoAbstract $instance
+     * @param ParecerDescritivoAbstract $instance
      *
-     * @return Avaliacao_Model_ParecerDescritivoAbstract
+     * @return ParecerDescritivoAbstract
      */
     protected function _addParecerValidators(Avaliacao_Model_ParecerDescritivoAbstract $instance)
     {
@@ -1948,11 +1948,11 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Atualiza a etapa de uma instância de Avaliacao_Model_Etapa.
+     * Atualiza a etapa de uma instância de Etapa.
      *
-     * @param Avaliacao_Model_Etapa $nota
+     * @param Etapa $nota
      *
-     * @return Avaliacao_Model_Etapa
+     * @return Etapa
      */
     protected function _updateEtapa(Avaliacao_Model_Etapa $instance)
     {
@@ -2006,12 +2006,12 @@ class Avaliacao_Service_Boletim implements CoreExtConfigurable
     }
 
     /**
-     * Atualiza a etapa de uma instância de Avaliacao_Model_ParecerDescritivoAbstract
+     * Atualiza a etapa de uma instância de ParecerDescritivoAbstract
      * para a última etapa possível.
      *
-     * @param Avaliacao_Model_ParecerDescritivoAbstract $instance
+     * @param ParecerDescritivoAbstract $instance
      *
-     * @return Avaliacao_Model_ParecerDescritivoAbstract
+     * @return ParecerDescritivoAbstract
      */
     protected function _updateParecerEtapa(Avaliacao_Model_ParecerDescritivoAbstract $instance)
     {

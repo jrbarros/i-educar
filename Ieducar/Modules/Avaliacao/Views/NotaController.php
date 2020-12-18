@@ -59,7 +59,7 @@ require_once 'Avaliacao/Service/Boletim.php';
  */
 class NotaController extends Core_Controller_Page_EditController
 {
-    protected $_dataMapper        = 'Avaliacao_Model_NotaComponenteDataMapper';
+    protected $_dataMapper        = 'NotaComponenteDataMapper';
     protected $_titulo            = 'Avaliação do aluno | Nota';
     protected $_processoAp        = 642;
     protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;

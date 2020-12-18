@@ -5,7 +5,7 @@ require_once 'Portabilis/Utils/CustomLabel.php';
 
 class ProcessamentoController extends Portabilis_Controller_Page_ListController
 {
-    protected $_dataMapper = 'Avaliacao_Model_NotaAlunoDataMapper';
+    protected $_dataMapper = 'NotaAlunoDataMapper';
     protected $_titulo = 'Processamento histórico';
     protected $_processoAp = 999613;
     protected $_formMap = [];

@@ -1,5 +1,10 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Numeric;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,11 +39,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
-require_once 'RegraAvaliacao/Model/TipoParecerDescritivo.php';
-
 /**
- * Avaliacao_Model_ParecerDescritivoAluno class.
+ * ParecerDescritivoAluno class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -53,7 +55,7 @@ require_once 'RegraAvaliacao/Model/TipoParecerDescritivo.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_ParecerDescritivoAluno extends CoreExt_Entity
+class ParecerDescritivoAluno extends Entity
 {
     protected $_data = [
     'Matricula'         => null,
@@ -73,11 +75,11 @@ class Avaliacao_Model_ParecerDescritivoAluno extends CoreExt_Entity
      */
     public function getDefaultValidatorCollection()
     {
-        $parecer = RegraAvaliacao_Model_TipoParecerDescritivo::getInstance();
 
+        $parecer = RegraAvaliacao_Model_TipoParecerDescritivo::getInstance();
         return [
-      'Matricula'         => new _Validate_Numeric(['min' => 0]),
-      'parecerDescritivo' => new _Validate_Choice(['choices' => $parecer->getKeys()]),
+      'Matricula'         => new Numeric(['min' => 0]),
+      'parecerDescritivo' => new Numeric(['choices' => $parecer->getKeys()]),
     ];
     }
 }

@@ -1,5 +1,9 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\Entity;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +38,9 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
 
 /**
- * Avaliacao_Model_MediaGeral class.
+ * MediaGeral class.
  *
  * @author      Gabriel Matos de Souza <gabriel@portabilis.com.br>
  *
@@ -52,7 +55,7 @@ require_once 'CoreExt/Entity.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_MediaGeral extends CoreExt_Entity
+class MediaGeral extends Entity
 {
     protected $_data = [
     'notaAluno'            => null,
@@ -68,7 +71,7 @@ class Avaliacao_Model_MediaGeral extends CoreExt_Entity
     protected $_references = [
     'notaAluno' => [
       'value' => null,
-      'class' => 'Avaliacao_Model_NotaAlunoDataMapper',
+      'class' => 'NotaAlunoDataMapper',
       'file'  => 'Avaliacao/Model/NotaAlunoDataMapper.php'
     ]
   ];
@@ -85,9 +88,9 @@ class Avaliacao_Model_MediaGeral extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-      'media' => new _Validate_Numeric(['min' => 0, 'max' => 10]),
-      'mediaArredondada' => new _Validate_String(['max' => 5]),
-      'etapa' => new _Validate_String(['max' => 2])
+      'media' => new Numeric(['min' => 0, 'max' => 10]),
+      'mediaArredondada' => new Text(['max' => 5]),
+      'etapa' => new Text(['max' => 2])
     ];
     }
 }

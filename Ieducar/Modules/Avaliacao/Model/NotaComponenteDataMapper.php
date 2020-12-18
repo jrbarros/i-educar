@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Avaliacao/Model/NotaComponente.php';
+namespace iEducarLegacy\Modules\Avaliacao\Model;
 
-class Avaliacao_Model_NotaComponenteDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class NotaComponenteDataMapper
+ * @package iEducarLegacy\Modules\Avaliacao\Model
+ */
+class NotaComponenteDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Avaliacao_Model_NotaComponente';
+    protected $_entityClass = 'NotaComponente';
     protected $_tableName = 'nota_componente_curricular';
     protected $_tableSchema = 'Modules';
 

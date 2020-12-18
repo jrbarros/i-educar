@@ -1,9 +1,13 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
+namespace iEducarLegacy\Modules\AreaConhecimento\Model;
 
-class AreaConhecimento_Model_Area extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class Area
+ */
+class Area extends Entity
 {
     protected $_data = [
         'instituicao' => null,

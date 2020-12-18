@@ -133,8 +133,8 @@ class Avaliacao_Service_FaltaComponenteTest extends Avaliacao_Service_FaltaCommo
       )),
     );
 
-    // Configura mock para Avaliacao_Model_FaltaComponenteDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_FaltaComponenteDataMapper');
+    // Configura mock para FaltaComponente
+    $mock = $this->getCleanMock('FaltaComponente');
 
     $mock->expects($this->at(0))
          ->method('findAll')
@@ -209,8 +209,8 @@ class Avaliacao_Service_FaltaComponenteTest extends Avaliacao_Service_FaltaCommo
       ))
     );
 
-    // Configura mock para Avaliacao_Model_FaltaComponenteDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_FaltaComponenteDataMapper');
+    // Configura mock para FaltaComponente
+    $mock = $this->getCleanMock('FaltaComponente');
 
     $mock->expects($this->at(0))
          ->method('findAll')
@@ -270,8 +270,8 @@ class Avaliacao_Service_FaltaComponenteTest extends Avaliacao_Service_FaltaCommo
       ))
     );
 
-    // Configura mock para Avaliacao_Model_FaltaComponenteDataMapper
-    $mock = $this->getCleanMock('Avaliacao_Model_FaltaComponenteDataMapper');
+    // Configura mock para FaltaComponente
+    $mock = $this->getCleanMock('FaltaComponente');
 
     $mock->expects($this->at(0))
          ->method('findAll')

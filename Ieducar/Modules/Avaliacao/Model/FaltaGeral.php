@@ -1,5 +1,7 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +36,8 @@
  * @version     $Id$
  */
 
-require_once 'Avaliacao/Model/FaltaAbstract.php';
-
 /**
- * Avaliacao_Model_FaltaGeral class.
+ * FaltaGeral class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,6 +52,6 @@ require_once 'Avaliacao/Model/FaltaAbstract.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_FaltaGeral extends Avaliacao_Model_FaltaAbstract
+class FaltaGeral extends FaltaAbstract
 {
 }

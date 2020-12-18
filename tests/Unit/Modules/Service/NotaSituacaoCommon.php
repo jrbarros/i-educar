@@ -48,7 +48,7 @@ abstract class Avaliacao_Service_NotaSituacaoCommon extends Avaliacao_Service_Te
     Avaliacao_Model_NotaAluno $notaAluno, array $medias)
   {
     // Configura mock para notas
-    $mock = $this->getCleanMock('Avaliacao_Model_NotaComponenteMediaDataMapper');
+    $mock = $this->getCleanMock('NotaComponenteMediaDataMapper');
 
     $mock->expects($this->any())
          ->method('findAll')

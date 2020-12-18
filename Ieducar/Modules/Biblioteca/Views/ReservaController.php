@@ -41,7 +41,7 @@ require_once 'Portabilis/Controller/Page/CoreControllerPageListController.php';
 
 class ReservaController extends Portabilis_Controller_Page_ListController
 {
-    protected $_dataMapper = ''; #Avaliacao_Model_NotaAlunoDataMapper';
+    protected $_dataMapper = ''; #NotaAlunoDataMapper';
     protected $_titulo     = 'Reserva';
     protected $_formMap    = [];
     protected $_processoAp = 609;

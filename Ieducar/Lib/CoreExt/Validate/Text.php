@@ -2,8 +2,10 @@
 
 namespace iEducarLegacy\Lib\CoreExt\Validate;
 
-use Validate;
-
+/**
+ * Class Text
+ * @package iEducarLegacy\Lib\CoreExt\Validate
+ */
 class Text extends Validate
 {
     /**

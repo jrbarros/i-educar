@@ -2,6 +2,7 @@
 
 namespace iEducarLegacy\Lib\CoreExt;
 
+use iEducarLegacy\Intranet\Source\Banco;
 use Illuminate\Support\Facades\Session;
 
 /**

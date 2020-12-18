@@ -1,10 +1,11 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Avaliacao/Model/ParecerDescritivoAluno.php';
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\DataMapper;
 
 /**
- * Avaliacao_Model_ParecerDescritivoAlunoDataMapper class.
+ * ParecerDescritivoAlunoDataMapper class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -19,9 +20,9 @@ require_once 'Avaliacao/Model/ParecerDescritivoAluno.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_ParecerDescritivoAlunoDataMapper extends CoreExt_DataMapper
+class ParecerDescritivoAlunoDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Avaliacao_Model_ParecerDescritivoAluno';
+    protected $_entityClass = 'ParecerDescritivoAluno';
     protected $_tableName   = 'parecer_aluno';
     protected $_tableSchema = 'Modules';
 

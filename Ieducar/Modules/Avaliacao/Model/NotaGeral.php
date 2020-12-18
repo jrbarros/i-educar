@@ -1,5 +1,10 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Model;
+
+use iEducarLegacy\Lib\CoreExt\Validate\Numeric;
+use iEducarLegacy\Lib\CoreExt\Validate\Text;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,11 +39,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
-require_once 'Avaliacao/Model/Etapa.php';
-
 /**
- * Avaliacao_Model_NotaGeral class.
+ * NotaGeral class.
  *
  * @author      Gabriel Matos de Souza <gabriel@portabilis.com.br>
  *
@@ -53,7 +55,7 @@ require_once 'Avaliacao/Model/Etapa.php';
  *
  * @version     @@package_version@@
  */
-class Avaliacao_Model_NotaGeral extends Avaliacao_Model_Etapa
+class NotaGeral extends Etapa
 {
     protected $_data = [
     'notaAluno'               => null,
@@ -68,7 +70,7 @@ class Avaliacao_Model_NotaGeral extends Avaliacao_Model_Etapa
     protected $_references = [
     'notaAluno' => [
       'value' => null,
-      'class' => 'Avaliacao_Model_NotaAluno',
+      'class' => 'NotaAluno',
       'file'  => 'Avaliacao/Model/NotaAluno.php'
     ]
   ];
@@ -82,8 +84,8 @@ class Avaliacao_Model_NotaGeral extends Avaliacao_Model_Etapa
         $etapas = range(0, 10, 1) + ['Rc'];
 
         return [
-      'nota' => new _Validate_Numeric(['min' => 0, 'max' => 10]),
-      'notaArredondada'  => new _Validate_String(['max' => 5])
-    ];
+            'nota' => new Numeric(['min' => 0, 'max' => 10]),
+            'notaArredondada'  => new Text(['max' => 5])
+        ];
     }
 }

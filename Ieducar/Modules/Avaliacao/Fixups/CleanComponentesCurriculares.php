@@ -1,5 +1,9 @@
 <?php
 
+namespace iEducarLegacy\Modules\Avaliacao\Fixups;
+
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -32,8 +36,6 @@
  *
  * @version   $Id$
  */
-
-require_once 'lib/Portabilis/Utils/Database.php';
 
 /**
  * CleanComponentesCurriculares class.

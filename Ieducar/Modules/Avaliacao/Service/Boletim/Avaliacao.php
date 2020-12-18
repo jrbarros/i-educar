@@ -94,7 +94,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     protected $_faltasGeraisCiclo = [];
 
     /**
-     * Retorna as instâncias de Avaliacao_Model_NotaComponente do aluno.
+     * Retorna as instâncias de NotaComponente do aluno.
      *
      * @return array
      */
@@ -136,7 +136,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna as instâncias de Avaliacao_Model_NotaComponenteMedia do aluno.
+     * Retorna as instâncias de NotaComponenteMedia do aluno.
      *
      * @return array
      */
@@ -146,7 +146,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna as instâncias de Avaliacao_Model_NotaComponenteMedia do aluno.
+     * Retorna as instâncias de NotaComponenteMedia do aluno.
      *
      * @param array $mediasComponentes
      *
@@ -160,7 +160,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna a instância de Avaliacao_Model_MediaGeral do aluno.
+     * Retorna a instância de MediaGeral do aluno.
      *
      * @return array
      */
@@ -170,7 +170,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna a instância de Avaliacao_Model_MediaGeral do aluno.
+     * Retorna a instância de MediaGeral do aluno.
      *
      * @param array $mediaGeral
      *
@@ -199,7 +199,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna as instâncias de Avaliacao_Model_FaltaComponente do aluno.
+     * Retorna as instâncias de FaltaComponente do aluno.
      *
      * @return array
      */
@@ -221,7 +221,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna as instâncias de Avaliacao_Model_FaltaGeral do aluno.
+     * Retorna as instâncias de FaltaGeral do aluno.
      *
      * @return array
      */
@@ -265,7 +265,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Getter para as instâncias de Avaliacao_Model_ParecerDescritivoAbstract
+     * Getter para as instâncias de ParecerDescritivoAbstract
      * adicionadas no boletim (não persistidas).
      *
      * @return array
@@ -276,7 +276,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna as instâncias de Avaliacao_Model_ParecerDescritivoComponente do
+     * Retorna as instâncias de ParecerDescritivoComponente do
      * aluno.
      *
      * @return array
@@ -299,7 +299,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna as instâncias de Avaliacao_Model_ParecerDescritivoGeral do
+     * Retorna as instâncias de ParecerDescritivoGeral do
      * aluno.
      *
      * @return array
@@ -322,7 +322,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna as instâncias de Avaliacao_Model_FaltaGeral do aluno.
+     * Retorna as instâncias de FaltaGeral do aluno.
      *
      * @return array
      */
@@ -344,7 +344,7 @@ trait Avaliacao_Service_Boletim_Avaliacao
     }
 
     /**
-     * Retorna as instâncias de Avaliacao_Model_FaltaGeral do aluno.
+     * Retorna as instâncias de FaltaGeral do aluno.
      *
      * @return array
      */
