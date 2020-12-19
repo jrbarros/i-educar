@@ -60,17 +60,17 @@ class ViewController extends CoreControllerPageViewController
     protected $_titulo     = 'Detalhes da fórmula de cálculo de média';
     protected $_processoAp = 948;
     protected $_tableMap   = [
-    'Nome' => 'nome',
-    'Fórmula de cálculo' => 'formulaMedia',
-    'Tipo de fórmula' => 'tipoFormula',
-  ];
+        'Nome' => 'nome',
+        'Fórmula de cálculo' => 'formulaMedia',
+        'Tipo de fórmula' => 'tipoFormula',
+    ];
 
     protected function _preRender()
     {
         parent::_preRender();
 
         $this->breadcrumb('Detalhe da f&oacute;rmula de m&eacute;dia', [
-        url('Intranet/educar_index.php') => 'Escola',
-    ]);
+            url('Intranet/educar_index.php') => 'Escola',
+        ]);
     }
 }

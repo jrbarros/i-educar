@@ -1,9 +1,19 @@
 <?php
 
-require_once 'Portabilis/Controller/Page/CoreControllerPageListController.php';
-require_once 'Portabilis/Utils/CustomLabel.php';
+namespace iEducarLegacy\Modules\HistoricoEscolar\Views;
 
-class ProcessamentoController extends Portabilis_Controller_Page_ListController
+use iEducarLegacy\Intranet\Source\Banco;
+use iEducarLegacy\Intranet\Source\PmiEducar\Instituicao;
+use iEducarLegacy\Intranet\Source\PmiEducar\Permissoes;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\ListController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+
+/**
+ * Class ProcessamentoController
+ * @package iEducarLegacy\Modules\HistoricoEscolar\Views
+ */
+class ProcessamentoController extends ListController
 {
     protected $_dataMapper = 'NotaAlunoDataMapper';
     protected $_titulo = 'Processamento histórico';
@@ -262,7 +272,7 @@ class ProcessamentoController extends Portabilis_Controller_Page_ListController
 
     public function validaControlePosicaoHistorico()
     {
-        $obj = new Instituicao;
+        $obj = new Instituicao();
 
         $lst = $obj->lista(null, null, null, null, null, null, null, null, null, null, null, null, null, 1);
 

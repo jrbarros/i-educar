@@ -1,29 +1,25 @@
 <?php
 
+namespace iEducarLegacy\Modules\HistoricoEscolar\Views;
+
+use CoreExt_Controller_Page_Interface;
+use iEducar\Support\Exceptions\Exception;
+use iEducarLegacy\Intranet\Source\PmiEducar\HistoricoDisciplinas;
+use iEducarLegacy\Intranet\Source\PmiEducar\HistoricoEscolar;
+use iEducarLegacy\Intranet\Source\PmiEducar\MatriculaTurma;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageEditController;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
+use iEducarLegacy\Lib\Utils\SafeJson;
 use Illuminate\Support\Facades\DB;
-
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'Avaliacao/Model/NotaComponenteDataMapper.php';
-require_once 'Avaliacao/Service/Boletim.php';
-require_once 'App/Model/MatriculaSituacao.php';
-require_once 'RegraAvaliacao/Model/TipoPresenca.php';
-require_once 'RegraAvaliacao/Model/TipoParecerDescritivo.php';
-
-require_once 'Source/pmieducar/Turma.php';
-require_once 'Source/pmieducar/Matricula.php';
-require_once 'Source/pmieducar/HistoricoEscolar.php';
-require_once 'Source/pmieducar/HistoricoDisciplinas.php';
-
-require_once 'lib/Portabilis/Text/AppDateUtils.php';
-require_once 'Portabilis/Utils/Database.php';
-require_once 'lib/Utils/SafeJson.php';
+use RegraAvaliacao_Model_TipoPresenca;
 
 // TODO migrar classe novo padrao api controller
-class ProcessamentoApiController extends Core_Controller_Page_EditController
+class ProcessamentoApiController extends CoreControllerPageEditController
 {
     protected $_dataMapper = 'NotaComponenteDataMapper';
     protected $_processoAp = 999613;
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
     protected $_saveOption = false;
     protected $_deleteOption = false;
     protected $_titulo = '';
