@@ -3,48 +3,48 @@ version: '3'
 services:
 
   nginx:
-    container_name: Ieducar-nginx
+    container_name: ieducar-nginx
     build: docker/nginx
     links:
       - php
     ports:
       - 80
-    working_dir: /var/www/Ieducar
+    working_dir: /var/www/ieducar
     volumes:
-      - ./:/var/www/Ieducar
+      - ./:/var/www/ieducar
 
   php:
-    container_name: Ieducar-php
+    container_name: ieducar-php
     build: docker/php
     links:
       - postgres
       - redis
     environment:
-      PGPASSWORD: Ieducar
+      PGPASSWORD: ieducar
       XDEBUG_IDEKEY: xdebug
       XDEBUG_REMOTE_HOST: 127.0.0.1
       XDEBUG_REMOTE_PORT: 9000
       XDEBUG_REMOTE_ENABLE: 0
       XDEBUG_AUTOSTART: 0
-    working_dir: /var/www/Ieducar
+    working_dir: /var/www/ieducar
     volumes:
-      - ./:/var/www/Ieducar
+      - ./:/var/www/ieducar
 
   postgres:
-    container_name: Ieducar-postgres
-    image: postgres:9.5
+    container_name: ieducar-postgres
+    image: postgres:9.5-alpine
     environment:
-      POSTGRES_DB: Ieducar
-      POSTGRES_USER: Ieducar
-      POSTGRES_PASSWORD: Ieducar
+      POSTGRES_DB: ieducar
+      POSTGRES_USER: ieducar
+      POSTGRES_PASSWORD: ieducar
     ports:
       - 5432
     volumes:
-      - ./database/data:/var/Lib/postgresql/data
+      - ./database/data:/var/lib/postgresql/data
 
   redis:
-    container_name: Ieducar-redis
-    image: redis
+    container_name: ieducar-redis
+    image: redis:alpine
     restart: always
     ports:
       - 6379
