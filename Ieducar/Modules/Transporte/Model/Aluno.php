@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
+namespace iEducarLegacy\Modules\Transporte\Model;
 
-class Transporte_Model_Aluno extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class Aluno
+ * @package iEducarLegacy\Modules\Transporte\Model
+ */
+class Aluno extends Entity
 {
     protected $_data = [
         'aluno' => null,
@@ -15,7 +21,7 @@ class Transporte_Model_Aluno extends CoreExt_Entity
     protected $_references = [
         'responsavel' => [
             'value' => null,
-            'class' => 'Transporte_Model_Responsavel',
+            'class' => 'Responsavel',
             'file' => 'Transporte/Model/Responsavel.php'
         ]
     ];
@@ -30,7 +36,7 @@ class Transporte_Model_Aluno extends CoreExt_Entity
     {
         require_once 'Transporte/Model/Responsavel.php';
 
-        $responsavel = Transporte_Model_Responsavel::getInstance();
+        $responsavel = Responsavel::getInstance();
 
         return [
             'aluno' => new _Validate_Numeric(),

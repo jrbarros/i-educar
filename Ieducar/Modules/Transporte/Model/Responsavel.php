@@ -1,12 +1,18 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Modules\Transporte\Model;
 
-class Transporte_Model_Responsavel extends Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class Responsavel
+ * @package iEducarLegacy\Modules\Transporte\Model
+ */
+class Responsavel extends Enum
 {
-    const NENHUM = 0;
-    const ESTADUAL = 1;
-    const MUNICIPAL = 2;
+    public const NENHUM = 0;
+    public const ESTADUAL = 1;
+    public const MUNICIPAL = 2;
 
     protected $_data = [
         self::NENHUM    => 'Não utiliza',

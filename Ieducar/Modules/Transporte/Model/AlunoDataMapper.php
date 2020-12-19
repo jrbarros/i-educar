@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Transporte/Model/Aluno.php';
+namespace iEducarLegacy\Modules\Transporte\Model;
 
-class Transporte_Model_AlunoDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class AlunoDataMapper
+ * @package iEducarLegacy\Modules\Transporte\Model
+ */
+class AlunoDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Transporte_Model_Aluno';
+    protected $_entityClass = 'Aluno';
 
     protected $_tableName   = 'transporte_aluno';
 
