@@ -1,11 +1,18 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageViewController.php';
-require_once 'Docente/Model/LicenciaturaDataMapper.php';
+namespace iEducarLegacy\Modules\Docente\Views;
 
-class ViewController extends Core_Controller_Page_ViewController
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageViewController;
+use iEducarLegacy\Lib\CoreExt\Entity;
+use Symfony\Component\HttpFoundation\UrlHelper;
+
+/**
+ * Class ViewController
+ * @package iEducarLegacy\Modules\Docente\Views
+ */
+class ViewController extends CoreControllerPageViewController
 {
-    protected $_dataMapper = 'Docente_Model_LicenciaturaDataMapper';
+    protected $_dataMapper = 'LicenciaturaDataMapper';
     protected $_titulo     = 'Detalhes da licenciatura';
     protected $_processoAp = 635;
     protected $_tableMap   = [
@@ -15,9 +22,9 @@ class ViewController extends Core_Controller_Page_ViewController
         'IES'              => 'ies'
     ];
 
-    public function setUrlEditar(CoreExt_Entity $entry)
+    public function setUrlEditar(Entity $entry)
     {
-        $this->url_editar = CoreExt_View_Helper_UrlHelper::url(
+        $this->url_editar = UrlHelper::url(
             'edit',
             [
                 'query' => [
@@ -31,7 +38,7 @@ class ViewController extends Core_Controller_Page_ViewController
 
     public function setUrlCancelar(CoreExt_Entity $entry)
     {
-        $this->url_cancelar = CoreExt_View_Helper_UrlHelper::url(
+        $this->url_cancelar = UrlHelper::url(
             'index',
             [
                 'query' => [

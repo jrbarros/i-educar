@@ -1,11 +1,11 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageListController.php';
-require_once 'Docente/Model/LicenciaturaDataMapper.php';
+namespace iEducarLegacy\Modules\Docente\Views;
+
 
 class IndexController extends Core_Controller_Page_ListController
 {
-    protected $_dataMapper = 'Docente_Model_LicenciaturaDataMapper';
+    protected $_dataMapper = 'LicenciaturaDataMapper';
     protected $_titulo     = 'Listagem de licenciaturas do servidor';
     protected $_processoAp = 635;
     protected $_tableMap = [

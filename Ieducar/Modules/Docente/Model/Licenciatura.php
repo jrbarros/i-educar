@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
+namespace iEducarLegacy\Modules\Docente\Model;
 
-class Docente_Model_Licenciatura extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class Licenciatura
+ * @package iEducarLegacy\Modules\Docente\Model
+ */
+class Licenciatura extends Entity
 {
     protected $_data = [
       'servidor'     => null,

@@ -1,18 +1,20 @@
 <?php
 
+namespace iEducarLegacy\Modules\Docente\Views;
+
 use App\Models\State;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageEditController;
 
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'Educacenso/Model/CursoSuperiorDataMapper.php';
-require_once 'Educacenso/Model/IesDataMapper.php';
-require_once 'Docente/Model/LicenciaturaDataMapper.php';
-
-class EditController extends Core_Controller_Page_EditController
+/**
+ * Class EditController
+ */
+class EditController extends CoreControllerPageEditController
 {
-    protected $_dataMapper        = 'Docente_Model_LicenciaturaDataMapper';
+    protected $_dataMapper        = 'LicenciaturaDataMapper';
     protected $_titulo            = 'Cadastro de Curso Superior/Licenciatura';
     protected $_processoAp        = 635;
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
     protected $_saveOption        = true;
     protected $_deleteOption      = true;
     protected $_formMap = [

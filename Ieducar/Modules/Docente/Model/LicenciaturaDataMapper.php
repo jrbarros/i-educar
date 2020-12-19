@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Docente/Model/Licenciatura.php';
+namespace iEducarLegacy\Modules\Docente\Model;
 
-class Docente_Model_LicenciaturaDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class LicenciaturaDataMapper
+ * @package iEducarLegacy\Modules\Docente\Model
+ */
+class LicenciaturaDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Docente_Model_Licenciatura';
+    protected $_entityClass = 'Licenciatura';
     protected $_tableName   = 'docente_licenciatura';
     protected $_tableSchema = 'Modules';
     protected $_attributeMap = [
