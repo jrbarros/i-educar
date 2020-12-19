@@ -24,7 +24,7 @@ class TipoProgressao extends Enum
         self::NAO_CONTINUADA_MANUAL_CICLO => 'Não-continuada manual (ciclo)'
     ];
 
-    public static function getInstance()
+    public static function getInstance(): \iEducarLegacy\Lib\CoreExt\Singleton
     {
         return self::_getInstance(__CLASS__);
     }

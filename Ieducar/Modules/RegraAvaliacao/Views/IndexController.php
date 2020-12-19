@@ -1,9 +1,14 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageListController.php';
-require_once 'RegraAvaliacao/Model/RegraDataMapper.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Views;
 
-class IndexController extends Core_Controller_Page_ListController
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageListController;
+
+/**
+ * Class IndexController
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Views
+ */
+class IndexController extends CoreControllerPageListController
 {
     protected $_dataMapper = 'RegraDataMapper';
     protected $_titulo = 'Listagem de regras de avaliação';

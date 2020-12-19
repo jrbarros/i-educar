@@ -4,6 +4,9 @@ namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
 use iEducarLegacy\Lib\App\Model\Finder;
 use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Choice;
+use iEducarLegacy\Lib\CoreExt\Validate\Numeric;
+use iEducarLegacy\Lib\CoreExt\Validate\Text;
 use iEducarLegacy\Modules\RegraAvaliacao\Model\Nota\TipoValor;
 
 
@@ -171,53 +174,53 @@ class Regra extends Entity
         // Média é obrigatória?
         $isMediaRequired = true;
 
-        if ($this->get('tipoNota') == TipoValor::NENHUM) {
+        if ($this->get('tipoNota') === TipoValor::NENHUM) {
             $isFormulaMediaRequired = false;
             $isMediaRequired = false;
 
             // Aceita somente o valor NULL quando o tipo de nota é Nenhum.
-            $formulaMedia = $formulaMedia + [null];
+            $formulaMedia += [null];
         }
 
         return [
-            'instituicao' => new _Validate_Choice([
+            'instituicao' => new Choice([
                 'choices' => $instituicoes
             ]),
-            'nome' => new _Validate_String([
+            'nome' => new Text([
                 'min' => 5, 'max' => 50
             ]),
-            'formulaMedia' => new _Validate_Choice([
+            'formulaMedia' => new Choice([
                 'choices' => $formulaMedia,
                 'required' => $isFormulaMediaRequired
             ]),
-            'formulaRecuperacao' => new _Validate_Choice([
+            'formulaRecuperacao' => new Choice([
                 'choices' => $formulaRecuperacao,
                 'required' => false
             ]),
-            'regraDiferenciada' => new _Validate_Choice([
+            'regraDiferenciada' => new Choice([
                 'choices' => $regraDiferenciada,
                 'required' => false
             ]),
-            'tipoNota' => new _Validate_Choice([
+            'tipoNota' => new Choice([
                 'choices' => $tipoNotaValor->getKeys()
             ]),
-            'tipoProgressao' => new _Validate_Choice([
+            'tipoProgressao' => new Choice([
                 'choices' => $tipoProgressao->getKeys()
             ]),
-            'tabelaArredondamento' => new _Validate_Choice([
+            'tabelaArredondamento' => new Choice([
                 'choices' => $tabelas,
                 'choice_error' => 'A tabela de arredondamento selecionada não ' .
                     'corresponde ao sistema de nota escolhido.'
             ]),
-            'tabelaArredondamentoConceitual' => new _Validate_Choice([
+            'tabelaArredondamentoConceitual' => new Choice([
                 'choices' => $tabelas,
                 'choice_error' => 'A tabela de arredondamento selecionada não ' .
                     'corresponde ao sistema de nota escolhido.'
             ]),
-            'parecerDescritivo' => new _Validate_Choice([
+            'parecerDescritivo' => new Choice([
                 'choices' => $tipoParecerDescritivo->getKeys()
             ]),
-            'tipoPresenca' => new _Validate_Choice([
+            'tipoPresenca' => new Choice([
                 'choices' => $tipoPresenca->getKeys()
             ]),
             'media' => $this->validateIfEquals(
@@ -227,7 +230,7 @@ class Regra extends Entity
                 ['required' => $isMediaRequired, 'min' => 1, 'max' => 10],
                 ['required' => $isMediaRequired, 'min' => 0, 'max' => 10]
             ),
-            'porcentagemPresenca' => new _Validate_Numeric([
+            'porcentagemPresenca' => new Numeric([
                 'min' => 1, 'max' => 100
             ]),
             'mediaRecuperacao' => $this->validateIfEquals(
@@ -237,10 +240,10 @@ class Regra extends Entity
                 ['required' => $isMediaRequired, 'min' => 1, 'max' => 14],
                 ['required' => $isMediaRequired, 'min' => 0, 'max' => 14]
             ),
-            'tipoRecuperacaoParalela' => new _Validate_Choice([
+            'tipoRecuperacaoParalela' => new Choice([
                 'choices' => $tipoRecuperacaoParalela->getKeys()
             ]),
-            'mediaRecuperacaoParalela' => new _Validate_String([
+            'mediaRecuperacaoParalela' => new Text([
                 'min' => 1, 'max' => 10
             ])
         ];

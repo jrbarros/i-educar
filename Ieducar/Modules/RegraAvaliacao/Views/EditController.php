@@ -1,17 +1,23 @@
 <?php
 
+namespace iEducarLegacy\Modules\RegraAvaliacao\Views;
+
 use iEducar\Modules\EvaluationRules\Models\ParallelRemedialCalculationType;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageEditController;
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Modules\RegraAvaliacao\Model\TipoRecuperacaoParalela;
 
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'RegraAvaliacao/Model/RegraDataMapper.php';
-require_once 'RegraAvaliacao/Model/RegraRecuperacaoDataMapper.php';
-
-class EditController extends Core_Controller_Page_EditController
+/**
+ * Class EditController
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Views
+ */
+class EditController extends CoreControllerPageEditController
 {
     protected $_dataMapper = 'RegraDataMapper';
     protected $_titulo = 'Cadastro de regra de avaliação';
     protected $_processoAp = 947;
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::INSTITUCIONAL;
+    protected $_nivelAcessoOption = NivelAcesso::INSTITUCIONAL;
     protected $_saveOption = true;
     protected $_deleteOption = false;
 
@@ -676,7 +682,7 @@ class EditController extends Core_Controller_Page_EditController
             false
         );
 
-        $regras = CoreExt_Entity::entityFilterAttr($regras, 'id', 'nome');
+        $regras = Entity::entityFilterAttr($regras, 'id', 'nome');
         $regras = array_replace([0 => 'Não utiliza'], $regras);
 
         $this->campoLista(
@@ -692,7 +698,7 @@ class EditController extends Core_Controller_Page_EditController
             false
         );
 
-        $tipoRecuperacaoParalela = RegraAvaliacao_Model_TipoRecuperacaoParalela::getInstance();
+        $tipoRecuperacaoParalela = TipoRecuperacaoParalela::getInstance();
 
         $this->campoLista(
             'tipoRecuperacaoParalela',

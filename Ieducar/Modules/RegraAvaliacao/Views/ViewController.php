@@ -1,9 +1,10 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageViewController.php';
-require_once 'RegraAvaliacao/Model/RegraDataMapper.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Views;
 
-class ViewController extends Core_Controller_Page_ViewController
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageViewController;
+
+class ViewController extends CoreControllerPageViewController
 {
     /**
      * @var string

@@ -3,6 +3,7 @@
 namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
 use iEducarLegacy\Lib\CoreExt\DataMapper;
+use iEducarLegacy\Modules\FormulaMedia\Model\FormulaDataMapper;
 
 /**
  * Class RegraDataMapper
@@ -53,7 +54,7 @@ class RegraDataMapper extends DataMapper
     ];
 
     /**
-     * @var FormulaMedia_Model_FormulaDataMapper
+     * @var FormulaDataMapper
      */
     protected $_formulaDataMapper = null;
 
@@ -65,11 +66,11 @@ class RegraDataMapper extends DataMapper
     /**
      * Setter.
      *
-     * @param FormulaMedia_Model_FormulaDataMapper $mapper
+     * @param FormulaDataMapper $mapper
      *
      * @return RegraDataMapper
      */
-    public function setFormulaDataMapper(FormulaMedia_Model_FormulaDataMapper $mapper)
+    public function setFormulaDataMapper(FormulaDataMapper $mapper)
     {
         $this->_formulaDataMapper = $mapper;
 
@@ -79,13 +80,12 @@ class RegraDataMapper extends DataMapper
     /**
      * Getter.
      *
-     * @return FormulaMedia_Model_FormulaDataMapper
+     * @return FormulaDataMapper
      */
     public function getFormulaDataMapper()
     {
         if (is_null($this->_formulaDataMapper)) {
-            require_once 'FormulaMedia/Model/FormulaDataMapper.php';
-            $this->setFormulaDataMapper(new FormulaMedia_Model_FormulaDataMapper());
+            $this->setFormulaDataMapper(new FormulaDataMapper());
         }
 
         return $this->_formulaDataMapper;
