@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
+namespace iEducarLegacy\Modules\Educacenso\Model;
 
-class Educacenso_Model_OrgaoRegional extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class OrgaoRegional
+ * @package iEducarLegacy\Modules\Educacenso\Model
+ */
+class OrgaoRegional extends Entity
 {
     protected $_data = [
         'sigla_uf' => null,

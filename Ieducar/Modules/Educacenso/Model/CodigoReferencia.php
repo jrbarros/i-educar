@@ -1,5 +1,10 @@
 <?php
 
+namespace iEducarLegacy\Modules\Educacenso\Model;
+
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Text;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +39,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
-
 /**
- * Educacenso_Model_CodigoReferencia abstract class.
+ * CodigoReferencia abstract class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,21 +55,21 @@ require_once 'CoreExt/Entity.php';
  *
  * @version     @@package_version@@
  */
-abstract class Educacenso_Model_CodigoReferencia extends CoreExt_Entity
+abstract class CodigoReferencia extends Entity
 {
     protected $_data = [
-    'nomeInep'   => null,
-    'fonte'      => null,
-    'created_at' => null,
-    'updated_at' => null
-  ];
+        'nomeInep'   => null,
+        'fonte'      => null,
+        'created_at' => null,
+        'updated_at' => null
+    ];
 
     public function getDefaultValidatorCollection()
     {
         return [
-      'nomeInep' => new _Validate_String(),
-      'fonte'    => new _Validate_String()
-    ];
+            'nomeInep' => new Text(),
+            'fonte'    => new Text()
+        ];
     }
 
     public function __construct(array $options = [])

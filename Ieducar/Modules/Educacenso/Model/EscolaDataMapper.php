@@ -1,10 +1,11 @@
 <?php
 
-require_once 'Educacenso/Model/Escola.php';
-require_once 'CoreExt/DataMapper.php';
+namespace iEducarLegacy\Modules\Educacenso\Model;
+
+use iEducarLegacy\Lib\CoreExt\DataMapper;
 
 /**
- * Educacenso_Model_EscolaDataMapper class.
+ * EscolaDataMapper class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -19,9 +20,9 @@ require_once 'CoreExt/DataMapper.php';
  *
  * @version     @@package_version@@
  */
-class Educacenso_Model_EscolaDataMapper extends CoreExt_DataMapper
+class EscolaDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Educacenso_Model_Escola';
+    protected $_entityClass = 'Escola';
     protected $_tableName   = 'educacenso_cod_escola';
     protected $_tableSchema = 'Modules';
 

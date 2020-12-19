@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Educacenso/Model/OrgaoRegional.php';
+namespace iEducarLegacy\Modules\Educacenso\Model;
 
-class Educacenso_Model_OrgaoRegionalDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class OrgaoRegionalDataMapper
+ * @package iEducarLegacy\Modules\Educacenso\Model
+ */
+class OrgaoRegionalDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Educacenso_Model_OrgaoRegional';
+    protected $_entityClass = 'OrgaoRegional';
     protected $_tableName = 'educacenso_orgao_regional';
     protected $_tableSchema = 'Modules';
 

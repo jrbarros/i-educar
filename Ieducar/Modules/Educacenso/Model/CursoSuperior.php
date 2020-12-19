@@ -1,5 +1,11 @@
 <?php
 
+namespace iEducarLegacy\Modules\Educacenso\Model;
+
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Numeric;
+use iEducarLegacy\Lib\CoreExt\Validate\Text;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +40,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
-
 /**
- * Educacenso_Model_CursoSuperior class.
+ * CursoSuperior class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,25 +56,25 @@ require_once 'CoreExt/Entity.php';
  *
  * @version     @@package_version@@
  */
-class Educacenso_Model_CursoSuperior extends CoreExt_Entity
+class CursoSuperior extends Entity
 {
     protected $_data = [
-    'curso'      => null,
-    'nome'       => null,
-    'classe'     => null,
-    'user'       => null,
-    'created_at' => null,
-    'updated_at' => null
-  ];
+        'curso'      => null,
+        'nome'       => null,
+        'classe'     => null,
+        'user'       => null,
+        'created_at' => null,
+        'updated_at' => null
+    ];
 
     public function getDefaultValidatorCollection()
     {
         return [
-      'curso'  => new _Validate_String(['min' => 0]),
-      'nome'   => new _Validate_String(['min' => 1]),
-      'classe' => new _Validate_Numeric(['min' => 0]),
-      'user'   => new _Validate_Numeric(['min' => 0])
-    ];
+            'curso'  => new Text(['min' => 0]),
+            'nome'   => new Text(['min' => 1]),
+            'classe' => new Numeric(['min' => 0]),
+            'user'   => new Numeric(['min' => 0])
+        ];
     }
 
     public function __toString()

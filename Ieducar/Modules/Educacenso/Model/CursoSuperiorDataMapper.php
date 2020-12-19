@@ -1,10 +1,11 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Educacenso/Model/CursoSuperior.php';
+namespace iEducarLegacy\Modules\Educacenso\Model;
+
+use iEducarLegacy\Lib\CoreExt\DataMapper;
 
 /**
- * Educacenso_Model_CursoSuperiorDataMapper class.
+ * CursoSuperiorDataMapper class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -19,9 +20,9 @@ require_once 'Educacenso/Model/CursoSuperior.php';
  *
  * @version     @@package_version@@
  */
-class Educacenso_Model_CursoSuperiorDataMapper extends CoreExt_DataMapper
+class CursoSuperiorDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Educacenso_Model_CursoSuperior';
+    protected $_entityClass = 'CursoSuperior';
     protected $_tableName   = 'educacenso_curso_superior';
     protected $_tableSchema = 'Modules';
 

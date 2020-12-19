@@ -1,5 +1,10 @@
 <?php
 
+namespace iEducarLegacy\Modules\Educacenso\Model;
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Numeric;
+use iEducarLegacy\Lib\CoreExt\Validate\Text;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +39,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
-
 /**
- * Educacenso_Model_Ies class.
+ * Ies class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,29 +55,29 @@ require_once 'CoreExt/Entity.php';
  *
  * @version     @@package_version@@
  */
-class Educacenso_Model_Ies extends CoreExt_Entity
+class Ies extends Entity
 {
     protected $_data = [
-    'ies'                       => null,
-    'nome'                      => null,
-    'dependenciaAdministrativa' => null,
-    'tipoInstituicao'           => null,
-    'uf'                        => null,
-    'user'                      => null,
-    'created_at'                => null,
-    'updated_at'                => null
-  ];
+        'ies'                       => null,
+        'nome'                      => null,
+        'dependenciaAdministrativa' => null,
+        'tipoInstituicao'           => null,
+        'uf'                        => null,
+        'user'                      => null,
+        'created_at'                => null,
+        'updated_at'                => null
+    ];
 
     public function getDefaultValidatorCollection()
     {
         return [
-      'ies'                       => new _Validate_Numeric(['min' => 0]),
-      'nome'                      => new _Validate_String(['min' => 1]),
-      'dependenciaAdministrativa' => new _Validate_Numeric(['min' => 0]),
-      'tipoInstituicao'           => new _Validate_Numeric(['min' => 0]),
-      'uf'                        => new _Validate_String(['required' => false]),
-      'user'                      => new _Validate_Numeric(['min' => 0])
-    ];
+            'ies'                       => new Numeric(['min' => 0]),
+            'nome'                      => new Text(['min' => 1]),
+            'dependenciaAdministrativa' => new Numeric(['min' => 0]),
+            'tipoInstituicao'           => new Numeric(['min' => 0]),
+            'uf'                        => new Numeric(['required' => false]),
+            'user'                      => new Numeric(['min' => 0])
+        ];
     }
 
     public function __toString()

@@ -29,12 +29,12 @@ class Licenciatura extends Entity
         ],
         'ies' => [
             'value' => null,
-            'class' => 'Educacenso_Model_IesDataMapper',
+            'class' => 'IesDataMapper',
             'file'  => 'Educacenso/Model/IesDataMapper.php'
         ],
         'curso' => [
             'value' => null,
-            'class' => 'Educacenso_Model_CursoSuperiorDataMapper',
+            'class' => 'CursoSuperiorDataMapper',
             'file'  => 'Educacenso/Model/CursoSuperiorDataMapper.php'
         ]
   ];

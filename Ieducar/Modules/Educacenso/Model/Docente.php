@@ -1,5 +1,8 @@
 <?php
 
+namespace iEducarLegacy\Modules\Educacenso\Model;
+use iEducarLegacy\Lib\CoreExt\Validate\Numeric;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,11 +37,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
-require_once 'Educacenso/Model/CodigoReferencia.php';
-
 /**
- * Educacenso_Model_Docente class.
+ * Docente class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -53,14 +53,14 @@ require_once 'Educacenso/Model/CodigoReferencia.php';
  *
  * @version     @@package_version@@
  */
-class Educacenso_Model_Docente extends Educacenso_Model_CodigoReferencia
+class Docente extends CodigoReferencia
 {
     public function getDefaultValidatorCollection()
     {
         $validators = [
-      'docente'     => new _Validate_Numeric(['min' => 0]),
-      'docenteInep' => new _Validate_Numeric(['min' => 0]),
-    ];
+            'docente'     => new Numeric(['min' => 0]),
+            'docenteInep' => new Numeric(['min' => 0]),
+        ];
 
         return array_merge($validators, parent::getDefaultValidatorCollection());
     }
