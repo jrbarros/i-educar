@@ -1,9 +1,10 @@
 <?php
 
-require_once 'Source/Banco.php';
-require_once 'Educacenso/Model/IesDataMapper.php';
+use iEducarLegacy\Modules\Educacenso\Model\IesDataMapper;
 
-$iesMapper = new Educacenso_Model_IesDataMapper();
+require __DIR__ .'/../../../../vendor/autoload.php';
+
+$iesMapper = new IesDataMapper();
 $iesUf = $iesMapper->findAll([], ['uf' => $_GET['uf']], ['nome' => 'ASC']);
 
 // Adiciona "INSTITUIÇÃO NÃO CADASTRADA" nos resultados.
