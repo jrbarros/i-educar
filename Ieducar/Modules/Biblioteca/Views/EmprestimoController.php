@@ -1,7 +1,9 @@
 <?php
 
-#error_reporting(E_ALL);
-#ini_set("display_errors", 1);
+namespace iEducarLegacy\Modules\Biblioteca\Views;
+
+use iEducarLegacy\Intranet\Source\PmiEducar\Permissoes;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\ListController;
 
 /**
  * i-Educar - Sistema de gestão escolar
@@ -36,10 +38,7 @@
  *
  * @version   $Id$
  */
-
-require_once 'Portabilis/Controller/Page/CoreControllerPageListController.php';
-
-class EmprestimoController extends Portabilis_Controller_Page_ListController
+class EmprestimoController extends ListController
 {
     protected $_dataMapper = '';
     protected $_titulo     = 'Emprestimo';

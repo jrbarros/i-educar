@@ -1,7 +1,22 @@
 <?php
 
-#error_reporting(E_ALL);
-#ini_set("display_errors", 1);
+namespace iEducarLegacy\Modules\Biblioteca\Views;
+
+use iEducarLegacy\Intranet\Source\Pessoa\Pessoa;
+use iEducarLegacy\Intranet\Source\PmiEducar\Biblioteca;
+use iEducarLegacy\Intranet\Source\PmiEducar\BibliotecaDia;
+use iEducarLegacy\Intranet\Source\PmiEducar\BibliotecaFeriados;
+use iEducarLegacy\Intranet\Source\PmiEducar\Cliente;
+use iEducarLegacy\Intranet\Source\PmiEducar\ClienteTipoCliente;
+use iEducarLegacy\Intranet\Source\PmiEducar\ClienteTipoExemplarTipo;
+use iEducarLegacy\Intranet\Source\PmiEducar\Exemplar;
+use iEducarLegacy\Intranet\Source\PmiEducar\ExemplarEmprestimo;
+use iEducarLegacy\Intranet\Source\PmiEducar\Reservas;
+use iEducarLegacy\Intranet\Source\PmiEducar\Situacao;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
 /**
  * i-Educar - Sistema de gestão escolar
@@ -36,16 +51,9 @@
  *
  * @version   $Id$
  */
-
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Source/pmieducar/Exemplar.php';
-require_once 'Source/pmieducar/BibliotecaDia.php';
-require_once 'Source/pmieducar/BibliotecaFeriados.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
-
 class EmprestimoApiController extends ApiCoreController
 {
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_BIBLIOTECA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_BIBLIOTECA;
 
     // validadores regras negócio
 
@@ -194,7 +202,7 @@ class EmprestimoApiController extends ApiCoreController
                                                                 'ref_idpes'   => 'pessoa_id']);
 
             // load Pessoa
-            $pessoa          = new clsPessoa_($cliente['pessoa_id']);
+            $pessoa          = new Pessoa($cliente['pessoa_id']);
             $pessoa          = $pessoa->detalhe();
             $cliente['nome'] = $this->toUtf8($pessoa['nome']);
 

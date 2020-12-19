@@ -1,7 +1,6 @@
 <?php
 
-#error_reporting(E_ALL);
-#ini_set("display_errors", 1);
+namespace iEducarLegacy\Modules\Biblioteca\Views;
 
 /**
  * i-Educar - Sistema de gestão escolar
@@ -37,14 +36,19 @@
  * @version   $Id$
  */
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Source/pmieducar/Exemplar.php';
+use iEducarLegacy\Intranet\Source\PmiEducar\Acervo;
+use iEducarLegacy\Intranet\Source\PmiEducar\ExemplarEmprestimo;
+use iEducarLegacy\Intranet\Source\PmiEducar\Situacao;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
-// TODO migrar novo padrao api controller
-
+/**
+ * Class ReservaApiController
+ * @package iEducarLegacy\Modules\Biblioteca\Views
+ */
 class ReservaApiController extends ApiCoreController
 {
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_BIBLIOTECA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_BIBLIOTECA;
 
     // validadores especificos reserva
 
@@ -283,7 +287,7 @@ class ReservaApiController extends ApiCoreController
             $id = $this->getRequest()->ref_cod_acervo;
         }
 
-        $acervo = new clsPmieducarAcervo($id);
+        $acervo = new Acervo($id);
 
         return $acervo->detalhe();
     }

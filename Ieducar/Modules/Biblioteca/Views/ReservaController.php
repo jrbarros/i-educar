@@ -1,7 +1,6 @@
 <?php
 
-#error_reporting(E_ALL);
-#ini_set("display_errors", 1);
+namespace iEducarLegacy\Modules\Biblioteca\Views;
 
 /**
  * i-Educar - Sistema de gestão escolar
@@ -37,9 +36,13 @@
  * @version   $Id$
  */
 
-require_once 'Portabilis/Controller/Page/CoreControllerPageListController.php';
+use iEducarLegacy\Lib\Portabilis\Controller\Page\ListController;
 
-class ReservaController extends Portabilis_Controller_Page_ListController
+/**
+ * Class ReservaController
+ * @package iEducarLegacy\Modules\Biblioteca\Views
+ */
+class ReservaController extends ListController
 {
     protected $_dataMapper = ''; #NotaAlunoDataMapper';
     protected $_titulo     = 'Reserva';
