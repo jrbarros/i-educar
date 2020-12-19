@@ -1,9 +1,14 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageListController.php';
-require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Views;
 
-class IndexController extends Core_Controller_Page_ListController
+use iEducarLegacy\Lib\Portabilis\Controller\Page\ListController;
+
+/**
+ * Class IndexController
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Views
+ */
+class IndexController extends ListController
 {
     protected $_dataMapper = 'ComponenteDataMapper';
 

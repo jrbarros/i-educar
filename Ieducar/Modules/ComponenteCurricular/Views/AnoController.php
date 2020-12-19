@@ -1,10 +1,14 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'ComponenteCurricular/Model/Componente.php';
-require_once 'ComponenteCurricular/Model/AnoEscolarDataMapper.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Views;
 
-class AnoController extends Core_Controller_Page_EditController
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
+
+/**
+ * Class AnoController
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Model
+ */
+class AnoController extends EditController
 {
     protected $_dataMapper = 'AnoEscolarDataMapper';
 
@@ -52,7 +56,7 @@ class AnoController extends Core_Controller_Page_EditController
      *
      * @param int $id
      *
-     * @return ComponenteCurricular_Model_AnoEscolar
+     * @return AnoEscolar
      */
     public function getEntry($id)
     {

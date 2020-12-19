@@ -1,11 +1,16 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
-require_once 'ComponenteCurricular/Model/TipoBase.php';
-require_once 'ComponenteCurricular/Model/CodigoEducacenso.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Views;
 
-class EditController extends Core_Controller_Page_EditController
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Modules\ComponenteCurricular\Model\TipoBase;
+
+/**
+ * Class EditController
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Views
+ */
+class EditController extends \iEducarLegacy\Lib\Portabilis\Controller\Page\EditController
 {
     protected $_dataMapper = 'ComponenteDataMapper';
 
@@ -13,7 +18,7 @@ class EditController extends Core_Controller_Page_EditController
 
     protected $_processoAp = 946;
 
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::INSTITUCIONAL;
+    protected $_nivelAcessoOption = NivelAcesso::INSTITUCIONAL;
 
     protected $_saveOption = true;
 
@@ -74,7 +79,7 @@ class EditController extends Core_Controller_Page_EditController
         $this->campoOculto('id', $this->getEntity()->id);
 
         // Instituição
-        $instituicoes = App_Model_IedFinder::getInstituicoes();
+        $instituicoes = Finder::getInstituicoes();
 
         $this->campoLista(
             'instituicao',
@@ -110,13 +115,13 @@ class EditController extends Core_Controller_Page_EditController
         );
 
         // Tipo Base
-        $tipoBase = ComponenteCurricular_Model_TipoBase::getInstance();
+        $tipoBase = TipoBase::getInstance();
 
         $this->campoRadio(
             'tipo_base',
             $this->_getLabel('tipo_base'),
             $tipoBase->getEnums(),
-            $this->getEntity()->get('tipo_base') ?? ComponenteCurricular_Model_TipoBase::DEFAULT
+            $this->getEntity()->get('tipo_base') ?? TipoBase::DEFAULT
         );
 
         // Área de conhecimento

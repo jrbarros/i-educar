@@ -1,10 +1,14 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageViewController.php';
-require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
-require_once 'Source/pmieducar/geral.inc.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Views;
 
-class ViewController extends Core_Controller_Page_ViewController
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageViewController;
+
+/**
+ * Class ViewController
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Views
+ */
+class ViewController extends CoreControllerPageViewController
 {
     protected $_dataMapper = 'ComponenteDataMapper';
 
