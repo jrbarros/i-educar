@@ -1,8 +1,11 @@
 <?php
 
-require_once 'Source/Base.php';
-require_once 'Source/Cadastro.php';
-require_once 'Configuracao/Model/ConfiguracaoMovimentoGeralDataMapper.php';
+namespace iEducarLegacy\Modules\Configuracao\Views;
+
+use iEducarLegacy\Intranet\Source\Base;
+use iEducarLegacy\Intranet\Source\Cadastro;
+use iEducarLegacy\Intranet\Source\PmiEducar\Permissoes;
+use iEducarLegacy\Modules\Configuracao\Model\ConfiguracaoMovimentoGeralDataMapper;
 
 class clsIndexBase extends Base
 {
@@ -13,7 +16,7 @@ class clsIndexBase extends Base
     }
 }
 
-class ConfiguracaoMovimentoGeralController extends clsCadastro
+class ConfiguracaoMovimentoGeralController extends Cadastro
 {
     private $configDataMapper;
     protected $_formMap    = [
