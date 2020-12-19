@@ -1,14 +1,27 @@
 <?php
+namespace iEducarLegacy\Modules\OrdenacaoAlunos\Views;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Source/pmieducar/Exemplar.php';
-require_once 'Source/pmieducar/BibliotecaDia.php';
-require_once 'Source/pmieducar/BibliotecaFeriados.php';
-require_once 'lib/Portabilis/Collection/AppDateUtils.php';
+use iEducarLegacy\Intranet\Source\Pessoa\Pessoa;
+use iEducarLegacy\Intranet\Source\PmiEducar\Acervo;
+use iEducarLegacy\Intranet\Source\PmiEducar\BibliotecaDia;
+use iEducarLegacy\Intranet\Source\PmiEducar\BibliotecaFeriados;
+use iEducarLegacy\Intranet\Source\PmiEducar\Cliente;
+use iEducarLegacy\Intranet\Source\PmiEducar\Exemplar;
+use iEducarLegacy\Intranet\Source\PmiEducar\ExemplarEmprestimo;
+use iEducarLegacy\Intranet\Source\PmiEducar\Reservas;
+use iEducarLegacy\Intranet\Source\PmiEducar\Situacao;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+use iEducarLegacy\Lib\Portabilis\Collection\Utils;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
+/**
+ * Class OrdenacaoAlunosApiController
+ * @package iEducarLegacy\Modules\OrdenacaoAlunos\Views
+ */
 class OrdenacaoAlunosApiController extends ApiCoreController
 {
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_BIBLIOTECA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_BIBLIOTECA;
 
     protected function validatesExistenceOfExemplar()
     {
@@ -107,7 +120,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
                 'ref_idpes' => 'pessoa_id'
             ]);
 
-            $pessoa = new clsPessoa_($cliente['pessoa_id']);
+            $pessoa = new Pessoa($cliente['pessoa_id']);
             $pessoa = $pessoa->detalhe();
             $cliente['nome'] = $this->toUtf8($pessoa['nome']);
 
@@ -347,7 +360,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
             $exemplar = $this->loadExemplar();
         }
 
-        if ($exemplar['situacao']['flag'] == 'reservado') {
+        if ($exemplar['situacao']['flag'] === 'reservado') {
             $exemplar['situacao']['flag'] = $this->validateReservaOfExemplar($exemplar);
         }
 
@@ -431,7 +444,7 @@ class OrdenacaoAlunosApiController extends ApiCoreController
         }
 
         if (!isset($this->_acervos[$id])) {
-            $acervo = new clsPmieducarAcervo($id);
+            $acervo = new Acervo($id);
             $acervo = $acervo->detalhe();
 
             if ($acervo) {
