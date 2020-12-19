@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
+namespace iEducarLegacy\Modules\Configuracao\Model;
 
-class ConfiguracaoMovimentoGeral extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class ConfiguracaoMovimentoGeral
+ * @package iEducarLegacy\Modules\Configuracao\Model
+ */
+class ConfiguracaoMovimentoGeral extends Entity
 {
     protected $_data = [
         'serie'     => null,

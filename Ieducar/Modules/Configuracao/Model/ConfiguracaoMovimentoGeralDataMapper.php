@@ -1,9 +1,14 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Configuracao/Model/ConfiguracaoMovimentoGeral.php';
+namespace iEducarLegacy\Modules\Configuracao\Model;
 
-class ConfiguracaoMovimentoGeralDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class ConfiguracaoMovimentoGeralDataMapper
+ * @package iEducarLegacy\Modules\Configuracao\Model
+ */
+class ConfiguracaoMovimentoGeralDataMapper extends DataMapper
 {
     protected $_entityClass = 'ConfiguracaoMovimentoGeral';
     protected $_tableName   = 'config_movimento_geral';

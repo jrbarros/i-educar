@@ -3,9 +3,10 @@
 namespace iEducarLegacy\Lib\Core\Controller\Page;
 
 use iEducarLegacy\Intranet\Source\Detalhe;
+use iEducarLegacy\Lib\Core\View\CoreViewTabulable;
 use Illuminate\Support\Facades\Session;
 
-class CoreControllerPageViewController extends Detalhe implements Core_View_Tabulable
+class CoreControllerPageViewController extends Detalhe implements CoreViewTabulable
 {
     /**
      * Mapeia um nome descritivo a um atributo de Entity retornado pela
