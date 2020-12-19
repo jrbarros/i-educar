@@ -665,7 +665,7 @@ class Boletim implements CoreExtConfigurable
                 // uma média para recuperação (exame final).
 
                 if ($this->hasRegraAvaliacaoMediaRecuperacao()) {
-                    if ($this->getRegraAvaliacaoTipoNota() != RegraAvaliacao_Model_Nota_TipoValor::NENHUM) {
+                    if ($this->getRegraAvaliacaoTipoNota() != TipoValor::NENHUM) {
                         // Mesmo se reprovado por falta, só da a situação final após o lançamento de todas as notas
                         $situacoesFinais = App_Model_MatriculaSituacao::getSituacoesFinais();
                         $andamento = in_array($flagSituacaoNota, $situacoesFinais) === false;
@@ -864,7 +864,7 @@ class Boletim implements CoreExtConfigurable
         // A situação é "aprovado" por padrão
         $situacaoGeral = App_Model_MatriculaSituacao::APROVADO;
 
-        if ($this->getRegraAvaliacaoTipoNota() == RegraAvaliacao_Model_Nota_TipoValor::NENHUM) {
+        if ($this->getRegraAvaliacaoTipoNota() == TipoValor::NENHUM) {
             $situacao->situacao = App_Model_MatriculaSituacao::APROVADO;
 
             return $situacao;
@@ -873,7 +873,7 @@ class Boletim implements CoreExtConfigurable
         if ($this->getRegraAvaliacaoNotaGeralPorEtapa() == '1') {
             $mediaGeral = $this->getMediaGeral();
 
-            if ($this->getRegraAvaliacaoTipoNota() == RegraAvaliacao_Model_Nota_TipoValor::NUMERICA) {
+            if ($this->getRegraAvaliacaoTipoNota() == TipoValor::NUMERICA) {
                 $media = $mediaGeral->mediaArredondada;
             } else {
                 $media = $mediaGeral->media;
@@ -1302,7 +1302,7 @@ class Boletim implements CoreExtConfigurable
      */
     private function valorMediaSituacao(Avaliacao_Model_NotaComponenteMedia $mediaComponente)
     {
-        $regraNotaNumerica = $this->getRegraAvaliacaoTipoNota() == RegraAvaliacao_Model_Nota_TipoValor::NUMERICA;
+        $regraNotaNumerica = $this->getRegraAvaliacaoTipoNota() == TipoValor::NUMERICA;
 
         return $regraNotaNumerica ? $mediaComponente->mediaArredondada : $mediaComponente->media;
     }
@@ -1360,7 +1360,7 @@ class Boletim implements CoreExtConfigurable
 
         foreach ($componentes as $ccId => $componente) {
             // seta tipos nota, falta
-            $tipoNotaNenhum = $this->getRegraAvaliacaoTipoNota() == RegraAvaliacao_Model_Nota_TipoValor::NENHUM;
+            $tipoNotaNenhum = $this->getRegraAvaliacaoTipoNota() == TipoValor::NENHUM;
             $tipoFaltaPorComponente = $this->getRegraAvaliacaoTipoPresenca() == RegraAvaliacao_Model_TipoPresenca::POR_COMPONENTE;
 
             $situacaoNotaCc = $situacaoNotas->componentesCurriculares[$ccId] ?? null;
@@ -2125,7 +2125,7 @@ class Boletim implements CoreExtConfigurable
      */
     public function regraUsaTipoNotaNumericaConceitual()
     {
-        if ($this->getRegraAvaliacaoTipoNota() == RegraAvaliacao_Model_Nota_TipoValor::NUMERICACONCEITUAL) {
+        if ($this->getRegraAvaliacaoTipoNota() == TipoValor::NUMERICACONCEITUAL) {
             return true;
         }
 
@@ -2202,7 +2202,7 @@ class Boletim implements CoreExtConfigurable
      *
      * @return int|NULL
      *
-     * @see    TabelaArredondamento_Model_Tabela#predictValue()
+     * @see    Tabela#predictValue()
      */
     public function preverNotaRecuperacao($id)
     {
@@ -2436,7 +2436,7 @@ class Boletim implements CoreExtConfigurable
      */
     public function saveNotas()
     {
-        if ($this->getRegraAvaliacaoTipoNota() == RegraAvaliacao_Model_Nota_TipoValor::NENHUM) {
+        if ($this->getRegraAvaliacaoTipoNota() == TipoValor::NENHUM) {
             return $this;
         }
 
@@ -2483,7 +2483,7 @@ class Boletim implements CoreExtConfigurable
             $this->getFaltaAbstractDataMapper()->save($falta);
         }
 
-        if ($this->getRegraAvaliacaoTipoNota() == RegraAvaliacao_Model_Nota_TipoValor::NENHUM) {
+        if ($this->getRegraAvaliacaoTipoNota() == TipoValor::NENHUM) {
             return $this;
         }
 

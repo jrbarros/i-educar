@@ -1,12 +1,22 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
-require_once 'lib/Portabilis/Utils/ProcessFloat.php';
-require_once 'RegraAvaliacao/Model/Nota/TipoValor.php';
-require_once 'TabelaArredondamento/Model/TipoArredondamentoMedia.php';
+namespace iEducarLegacy\Modules\TabelaArredondamento\Model;
 
-class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
+use iEducarLegacy\Intranet\Source\Banco;
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Choice;
+use iEducarLegacy\Lib\CoreExt\Validate\Text;
+use iEducarLegacy\Lib\Portabilis\Utils\ProcessFloat;
+use iEducarLegacy\Modules\RegraAvaliacao\Model\Nota\TipoValor;
+use TabelaArredondamento_Model_TabelaValor;
+use TabelaArredondamento_Model_TipoArredondamentoMedia;
+
+/**
+ * Class Tabela
+ * @package iEducarLegacy\Modules\TabelaArredondamento\Model
+ */
+class Tabela extends Entity
 {
     protected $_data = [
         'instituicao' => null,
@@ -41,8 +51,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
     public function getDataMapper()
     {
         if (is_null($this->_dataMapper)) {
-            require_once 'TabelaArredondamento/Model/TabelaDataMapper.php';
-            $this->setDataMapper(new TabelaArredondamento_Model_TabelaDataMapper());
+            $this->setDataMapper(new TabelaDataMapper());
         }
 
         return parent::getDataMapper();
@@ -56,16 +65,16 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
         $instituicoes = array_keys(Finder::getInstituicoes());
 
         // Tipo nota
-        $tipoNota = RegraAvaliacao_Model_Nota_TipoValor::getInstance();
+        $tipoNota = TipoValor::getInstance();
         $tipoNotas = $tipoNota->getKeys();
 
         // Remove "nenhum" das opções.
-        unset($tipoNotas[RegraAvaliacao_Model_Nota_TipoValor::NENHUM]);
+        unset($tipoNotas[TipoValor::NENHUM]);
 
         return [
-            'instituicao' => new _Validate_Choice(['choices' => $instituicoes]),
-            'nome' => new _Validate_String(['min' => 5, 'max' => 50]),
-            'tipoNota' => new _Validate_Choice(['choices' => $tipoNotas])
+            'instituicao' => new Choice(['choices' => $instituicoes]),
+            'nome' => new Text(['min' => 5, 'max' => 50]),
+            'tipoNota' => new Choice(['choices' => $tipoNotas])
         ];
     }
 
@@ -83,7 +92,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
             $this->_tabelaValores = $this->getDataMapper()->findTabelaValor($this);
         }
 
-        $return = Portabilis_Utils_Float::limitDecimal($value, ['limit' => 1]);
+        $return = ProcessFloat::limitDecimal($value, ['limit' => 1]);
 
         // Se não houver tabela com valores de arredondamento irá retornar o valor
         if (!count($this->_tabelaValores) > 0) {
@@ -96,14 +105,14 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
         // também.
 
         if (
-            $this->get('tipoNota') == RegraAvaliacao_Model_Nota_TipoValor::NUMERICA
+            $this->get('tipoNota') == TipoValor::NUMERICA
             && $tipoNota == 1
             && empty($this->get('arredondarNota'))
         ) {
             return $return;
         }
 
-        if ($this->get('tipoNota') == RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL) {
+        if ($this->get('tipoNota') == TipoValor::CONCEITUAL) {
             // Multiplicador para transformar os números em uma escala inteira.
             $scale = pow(10, $this->_precision);
 
@@ -124,7 +133,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
 
                 $return = $tabelaValor->nome;
             }
-        } elseif ($this->get('tipoNota') == RegraAvaliacao_Model_Nota_TipoValor::NUMERICA) {
+        } elseif ($this->get('tipoNota') == TipoValor::NUMERICA) {
             foreach ($this->_tabelaValores as $tabelaValor) {
                 $notaString = strval($return);
                 $notaString = explode('.', $return);
@@ -185,8 +194,8 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
      * @param Formula $formula
      * @param array                      $data
      *
-     * @return TabelaArredondamento_Model_TabelaValor|NULL Retorna NULL caso
-     *                                                     nenhuma instância de TabelaArredondamento_Model_TabelaValor corresponda
+     * @return TabelaValor|NULL Retorna NULL caso
+     *                                                     nenhuma instância de TabelaValor corresponda
      *                                                     ao valor esperado
      *
      * @todo Considerar o atributo valorMaximo da instância para o cálculo da
@@ -234,7 +243,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
      * @param FormulaMedia_Model_Formula $formula
      * @param array                      $values
      *
-     * @return TabelaArredondamento_Model_TabelaValor|NULL
+     * @return TabelaValor|NULL
      */
     protected function _getBestResultFromValuesArray(FormulaMedia_Model_Formula $formula, array $values)
     {
@@ -259,8 +268,8 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
     }
 
     /**
-     * Método finder para TabelaArredondamento_Model_TabelaValor. Wrapper simples
-     * para o mesmo método de TabelaArredondamento_Model_TabelaDataMapper.
+     * Método finder para TabelaValor. Wrapper simples
+     * para o mesmo método de TabelaDataMapper.
      *
      * @return array
      */

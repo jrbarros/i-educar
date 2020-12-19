@@ -161,7 +161,7 @@ class RegraDataMapper extends DataMapper
     }
 
     /**
-     * Finder para instâncias de TabelaArredondamento_Model_Tabela. Utiliza
+     * Finder para instâncias de Tabela. Utiliza
      * o valor de instituição por instâncias que referenciem a mesma instituição.
      *
      * @param Regra $instance

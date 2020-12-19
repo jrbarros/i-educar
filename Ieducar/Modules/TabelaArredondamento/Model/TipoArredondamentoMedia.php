@@ -1,13 +1,19 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Modules\TabelaArredondamento\Model;
 
-class TabelaArredondamento_Model_TipoArredondamentoMedia extends Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class TipoArredondamentoMedia
+ * @package iEducarLegacy\Modules\TabelaArredondamento\Model
+ */
+class TipoArredondamentoMedia extends Enum
 {
-    const NAO_ARREDONDAR = 0;
-    const ARREDONDAR_PARA_NOTA_INFERIOR = 1;
-    const ARREDONDAR_PARA_NOTA_SUPERIOR = 2;
-    const ARREDONDAR_PARA_NOTA_ESPECIFICA = 3;
+    public const NAO_ARREDONDAR = 0;
+    public const ARREDONDAR_PARA_NOTA_INFERIOR = 1;
+    public const ARREDONDAR_PARA_NOTA_SUPERIOR = 2;
+    public const ARREDONDAR_PARA_NOTA_ESPECIFICA = 3;
 
     protected $_data = [
         self::NAO_ARREDONDAR => 'N&atilde;o utilizar arredondamento para esta casa decimal',

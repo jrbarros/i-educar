@@ -359,7 +359,7 @@ class EditController extends CoreControllerPageEditController
         );
 
         // Nota tipo valor
-        $notaTipoValor = RegraAvaliacao_Model_Nota_TipoValor::getInstance();
+        $notaTipoValor = TipoValor::getInstance();
         $this->campoRadio(
                 'tipoNota',
                 $this->_getLabel('tipoNota'),

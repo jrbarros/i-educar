@@ -481,7 +481,7 @@ class PromocaoApiController extends ApiCoreController
      */
     private function regraNaoUsaNota($tipoNota)
     {
-        return $tipoNota == RegraAvaliacao_Model_Nota_TipoValor::NENHUM;
+        return $tipoNota == TipoValor::NENHUM;
     }
 
     private function maiorEtapaUtilizada($registration)

@@ -1,11 +1,16 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageListController.php';
-require_once 'TabelaArredondamento/Model/TabelaDataMapper.php';
+namespace iEducarLegacy\Modules\TabelaArredondamento\Views;
 
-class IndexController extends Core_Controller_Page_ListController
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageListController;
+
+/**
+ * Class IndexController
+ * @package iEducarLegacy\Modules\TabelaArredondamento\Views
+ */
+class IndexController extends CoreControllerPageListController
 {
-    protected $_dataMapper = 'TabelaArredondamento_Model_TabelaDataMapper';
+    protected $_dataMapper = 'TabelaDataMapper';
     protected $_titulo = 'Listagem de tabelas de arredondamento de nota';
     protected $_processoAp = 949;
     protected $_tableMap = [

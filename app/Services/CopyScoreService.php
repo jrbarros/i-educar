@@ -8,7 +8,7 @@ use App\Models\LegacyEvaluationRule;
 use App\Models\LegacyGeneralScore;
 use App\Models\LegacyRegistration;
 use App\Models\LegacyStudentScore;
-use RegraAvaliacao_Model_Nota_TipoValor;
+use TipoValor;
 
 class CopyScoreService implements CopyRegistrationData
 {
@@ -91,7 +91,7 @@ class CopyScoreService implements CopyRegistrationData
         LegacyEvaluationRule $newEvaluationRule,
         LegacyRegistration $oldRegistration
     ) {
-        if ($newEvaluationRule->tipo_nota == RegraAvaliacao_Model_Nota_TipoValor::NENHUM) {
+        if ($newEvaluationRule->tipo_nota == TipoValor::NENHUM) {
             return;
         }
 

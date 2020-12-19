@@ -46,7 +46,7 @@ class Avaliacao_Service_NotaConceitualSituacaoTest extends Avaliacao_Service_Not
 {
   protected function setUp(): void
   {
-    $this->_setRegraOption('tipoNota', RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL);
+    $this->_setRegraOption('tipoNota', TipoValor::CONCEITUAL);
     parent::setUp();
   }
 }

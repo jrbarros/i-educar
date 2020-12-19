@@ -122,7 +122,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
     protected $_regraOptions = [
         'id' => 1,
         'nome' => 'Regra geral',
-        'tipoNota' => RegraAvaliacao_Model_Nota_TipoValor::NUMERICA,
+        'tipoNota' => TipoValor::NUMERICA,
         'tipoProgressao' => RegraAvaliacao_Model_TipoProgressao::CONTINUADA,
         'tipoPresenca' => RegraAvaliacao_Model_TipoPresenca::POR_COMPONENTE,
         'parecerDescritivo' => RegraAvaliacao_Model_TipoParecerDescritivo::NENHUM,
@@ -899,7 +899,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpTabelaArredondamentoConceitual()
     {
-        // Valores padrão dos atributos de TabelaArredondamento_Model_TabelaValor
+        // Valores padrão dos atributos de TabelaValor
         $data = [
             'tabelaArredondamento' => 2,
             'nome' => null,
@@ -923,7 +923,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
             $tabelaValores[$i] = new TabelaArredondamento_Model_TabelaValor($data);
         }
 
-        $mock = $this->getCleanMock('TabelaArredondamento_Model_TabelaValorDataMapper');
+        $mock = $this->getCleanMock('TabelaValorDataMapper');
         $mock->expects($this->any())
             ->method('findAll')
             ->will($this->returnValue($tabelaValores));
@@ -942,7 +942,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
      */
     protected function _setUpTabelaArredondamento()
     {
-        // Valores padrão dos atributos de TabelaArredondamento_Model_TabelaValor
+        // Valores padrão dos atributos de TabelaValor
         $data = [
             'tabelaArredondamento' => 1,
             'nome' => null,
@@ -966,7 +966,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
             $tabelaValores[$i] = new TabelaArredondamento_Model_TabelaValor($data);
         }
 
-        $mock = $this->getCleanMock('TabelaArredondamento_Model_TabelaValorDataMapper');
+        $mock = $this->getCleanMock('TabelaValorDataMapper');
         $mock->expects($this->any())
             ->method('findAll')
             ->will($this->returnValue($tabelaValores));

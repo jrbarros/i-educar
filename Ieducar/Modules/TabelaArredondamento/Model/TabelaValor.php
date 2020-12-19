@@ -1,9 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
+namespace iEducarLegacy\Modules\TabelaArredondamento\Model;
 
-class TabelaArredondamento_Model_TabelaValor extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class TabelaValor
+ * @package iEducarLegacy\Modules\TabelaArredondamento\Model
+ */
+class TabelaValor extends Entity
 {
     protected $_data = [
         'tabelaArredondamento' => null,
@@ -24,12 +29,12 @@ class TabelaArredondamento_Model_TabelaValor extends CoreExt_Entity
     protected $_references = [
         'tabelaArredondamento' => [
             'value' => null,
-            'class' => 'TabelaArredondamento_Model_TabelaDataMapper',
+            'class' => 'TabelaDataMapper',
             'file' => 'TabelaArredondamento/Model/TabelaDataMapper.php'
         ],
         'acao' => [
             'value' => 0,
-            'class' => 'TabelaArredondamento_Model_TipoArredondamentoMedia',
+            'class' => 'TipoArredondamentoMedia',
             'file' => 'TabelaArredondamento/Model/TipoArredondamentoMedia.php',
             'null' => true
         ]
@@ -43,7 +48,7 @@ class TabelaArredondamento_Model_TabelaValor extends CoreExt_Entity
         if (is_null($this->_dataMapper)) {
             require_once 'TabelaArredondamento/Model/TabelaValorDataMapper.php';
             $this->setDataMapper(
-                new TabelaArredondamento_Model_TabelaValorDataMapper()
+                new TabelaValorDataMapper()
             );
         }
 

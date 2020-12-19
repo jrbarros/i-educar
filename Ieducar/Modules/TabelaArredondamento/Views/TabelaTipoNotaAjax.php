@@ -1,12 +1,13 @@
 <?php
 
-require_once 'Source/Banco.php';
-require_once 'TabelaArredondamento/Model/TabelaDataMapper.php';
+use iEducarLegacy\Modules\TabelaArredondamento\Model\TabelaDataMapper;
+
+return __DIR__ . '/../../../../vendor/autoload.php';
 
 $tabelas = [];
 
 if (isset($_GET['tipoNota'])) {
-    $tabela = new TabelaArredondamento_Model_TabelaDataMapper();
+    $tabela = new TabelaDataMapper();
     $tabelas = $tabela->findAll([], ['tipoNota' => (int) $_GET['tipoNota']]);
 }
 

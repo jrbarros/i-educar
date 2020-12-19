@@ -24,7 +24,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
-use RegraAvaliacao_Model_Nota_TipoValor;
+use TipoValor;
 use RegraAvaliacao_Model_TipoParecerDescritivo;
 use RegraAvaliacao_Model_TipoPresenca;
 use RegraAvaliacao_Model_TipoProgressao;
@@ -84,7 +84,7 @@ class DiarioApiController extends ApiCoreController
 
     protected function validatesRegraAvaliacaoHasNota()
     {
-        $isValid = $this->serviceBoletim()->getRegra()->get('tipoNota') != RegraAvaliacao_Model_Nota_TipoValor::NENHUM;
+        $isValid = $this->serviceBoletim()->getRegra()->get('tipoNota') != TipoValor::NENHUM;
 
         if (!$isValid) {
             $this->messenger->append('Nota não lançada, pois a regra de avaliação não utiliza nota.');
@@ -1625,11 +1625,11 @@ class DiarioApiController extends ApiCoreController
     {
         $options = [];
 
-        if ($evaluationRule->tipo_nota != RegraAvaliacao_Model_Nota_TipoValor::NENHUM) {
+        if ($evaluationRule->tipo_nota != TipoValor::NENHUM) {
             $roudingValues = $roundingTable->roundingValues;
 
             foreach ($roudingValues as $index => $roudingValue) {
-                if ($evaluationRule->tipo_nota == RegraAvaliacao_Model_Nota_TipoValor::NUMERICA) {
+                if ($evaluationRule->tipo_nota == TipoValor::NUMERICA) {
                     $nota = str_replace(',', '.', (string) $roudingValue->nome);
                     $options[$nota] = $nota;
                 } else {
@@ -1682,13 +1682,13 @@ class DiarioApiController extends ApiCoreController
 
         $tpNota = $evaluationRule->tipo_nota;
 
-        if ($tpNota == RegraAvaliacao_Model_Nota_TipoValor::NENHUM) {
+        if ($tpNota == TipoValor::NENHUM) {
             $rule['tipo_nota'] = 'nenhum';
-        } elseif ($tpNota == RegraAvaliacao_Model_Nota_TipoValor::NUMERICA) {
+        } elseif ($tpNota == TipoValor::NUMERICA) {
             $rule['tipo_nota'] = 'numerica';
-        } elseif ($tpNota == RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL) {
+        } elseif ($tpNota == TipoValor::CONCEITUAL) {
             $rule['tipo_nota'] = 'conceitual';
-        } elseif ($tpNota == RegraAvaliacao_Model_Nota_TipoValor::NUMERICACONCEITUAL) {
+        } elseif ($tpNota == TipoValor::NUMERICACONCEITUAL) {
             $rule['tipo_nota'] = 'numericaconceitual';
         } else {
             $rule['tipo_nota'] = $tpNota;
@@ -1717,7 +1717,7 @@ class DiarioApiController extends ApiCoreController
 
         $rule['opcoes_notas'] = $this->getRoundingValues($evaluationRule, $evaluationRule->roundingTable);
 
-        if ($tpNota == RegraAvaliacao_Model_Nota_TipoValor::NUMERICACONCEITUAL) {
+        if ($tpNota == TipoValor::NUMERICACONCEITUAL) {
             $rule['opcoes_notas_conceituais'] = $this->getRoundingValues($evaluationRule, $evaluationRule->conceptualRoundingTable);
         }
 

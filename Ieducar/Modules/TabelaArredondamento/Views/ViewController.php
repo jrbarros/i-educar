@@ -1,11 +1,16 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageViewController.php';
-require_once 'TabelaArredondamento/Model/TabelaDataMapper.php';
+namespace iEducarLegacy\Modules\TabelaArredondamento\Views;
 
-class ViewController extends Core_Controller_Page_ViewController
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageViewController;
+
+/**
+ * Class ViewController
+ * @package iEducarLegacy\Modules\TabelaArredondamento\Views
+ */
+class ViewController extends CoreControllerPageViewController
 {
-    protected $_dataMapper = 'TabelaArredondamento_Model_TabelaDataMapper';
+    protected $_dataMapper = 'TabelaDataMapper';
     protected $_titulo = 'Detalhes da tabela de arredondamento';
     protected $_processoAp = 949;
     protected $_tableMap = [

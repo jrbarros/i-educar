@@ -27,7 +27,7 @@ $factory->defineAs(LegacyEvaluationRule::class, 'without-score', function (Faker
     $evaluationRule = $factory->raw(LegacyEvaluationRule::class);
 
     return array_merge($evaluationRule, [
-        'tipo_nota' => RegraAvaliacao_Model_Nota_TipoValor::NENHUM,
+        'tipo_nota' => TipoValor::NENHUM,
         'tipo_progressao' => RegraAvaliacao_Model_TipoProgressao::CONTINUADA,
         'tipo_presenca' => RegraAvaliacao_Model_TipoPresenca::POR_COMPONENTE,
     ]);
@@ -37,7 +37,7 @@ $factory->defineAs(LegacyEvaluationRule::class, 'media-presenca-sem-recuperacao'
     $evaluationRule = $factory->raw(LegacyEvaluationRule::class);
 
     return array_merge($evaluationRule, [
-        'tipo_nota' => RegraAvaliacao_Model_Nota_TipoValor::NUMERICA,
+        'tipo_nota' => TipoValor::NUMERICA,
         'tipo_progressao' => RegraAvaliacao_Model_TipoProgressao::NAO_CONTINUADA_MEDIA_PRESENCA,
         'tipo_presenca' => RegraAvaliacao_Model_TipoPresenca::GERAL,
         'media' => 7,
@@ -52,7 +52,7 @@ $factory->defineAs(LegacyEvaluationRule::class, 'progressao-continuada-nota-conc
     $evaluationRule = $factory->raw(LegacyEvaluationRule::class);
 
     return array_merge($evaluationRule, [
-        'tipo_nota' => RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL,
+        'tipo_nota' => TipoValor::CONCEITUAL,
         'tipo_progressao' => RegraAvaliacao_Model_TipoProgressao::CONTINUADA,
         'tipo_presenca' => RegraAvaliacao_Model_TipoPresenca::GERAL,
         'porcentagem_presenca' => 75,
@@ -66,7 +66,7 @@ $factory->defineAs(LegacyEvaluationRule::class, 'progressao-calculo-media-recupe
     $evaluationRule = $factory->raw(LegacyEvaluationRule::class);
 
     return array_merge($evaluationRule, [
-        'tipo_nota' => RegraAvaliacao_Model_Nota_TipoValor::NUMERICA,
+        'tipo_nota' => TipoValor::NUMERICA,
         'formula_recuperacao_id' => factory(LegacyAverageFormula::class, 'calculo-media-ponderada')->create(),
         'tipo_progressao' => RegraAvaliacao_Model_TipoProgressao::NAO_CONTINUADA_MEDIA_PRESENCA,
         'tipo_presenca' => RegraAvaliacao_Model_TipoPresenca::POR_COMPONENTE,

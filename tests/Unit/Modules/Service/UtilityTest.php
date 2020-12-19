@@ -65,7 +65,7 @@ class Avaliacao_Service_UtilityTest extends Avaliacao_Service_TestCommon
 
   public function testArredondaNotaConceitual()
   {
-    // Valores padrão dos atributos de TabelaArredondamento_Model_TabelaValor
+    // Valores padrão dos atributos de TabelaValor
     $data = array(
       'tabelaArredondamento' => 1,
       'nome'                 => NULL,
@@ -97,7 +97,7 @@ class Avaliacao_Service_UtilityTest extends Avaliacao_Service_TestCommon
     $tabelaValores[2]->valorMinimo = 8.01;
     $tabelaValores[2]->valorMaximo = 10.0;
 
-    $mock = $this->getCleanMock('TabelaArredondamento_Model_TabelaValorDataMapper');
+    $mock = $this->getCleanMock('TabelaValorDataMapper');
     $mock->expects($this->any())
          ->method('findAll')
          ->will($this->returnValue($tabelaValores));
@@ -107,32 +107,32 @@ class Avaliacao_Service_UtilityTest extends Avaliacao_Service_TestCommon
 
     $tabela = new TabelaArredondamento_Model_Tabela(array(
         'nome' => 'Conceituais',
-        'tipoNota' => RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL
+        'tipoNota' => TipoValor::CONCEITUAL
     ));
     $tabela->setDataMapper($tabelaDataMapper);
 
     $this->_setRegraOption('tabelaArredondamentoConceitual', $tabela);
 
-    $this->_setRegraOption('tipoNota', RegraAvaliacao_Model_Nota_TipoValor::NUMERICACONCEITUAL);
+    $this->_setRegraOption('tipoNota', TipoValor::NUMERICACONCEITUAL);
     $service = $this->_getServiceInstance();
     $nota = new Avaliacao_Model_NotaComponente([
         'nota' => 5.49
     ]);
-    $nota->componenteCurricular = RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL;
+    $nota->componenteCurricular = TipoValor::CONCEITUAL;
     $this->mockDbPreparedQuery([['tipo_nota' => TipoNota::CONCEITUAL]]);
     $this->assertEquals('I', $service->arredondaNota($nota));
 
     $nota = new Avaliacao_Model_NotaComponente([
         'nota' => 6.50
     ]);
-    $nota->componenteCurricular = RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL;
+    $nota->componenteCurricular = TipoValor::CONCEITUAL;
     $this->mockDbPreparedQuery([['tipo_nota' => TipoNota::CONCEITUAL]]);
     $this->assertEquals('S', $service->arredondaNota($nota));
 
     $nota = new Avaliacao_Model_NotaComponente([
         'nota' => 9.15
     ]);
-    $nota->componenteCurricular = RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL;
+    $nota->componenteCurricular = TipoValor::CONCEITUAL;
     $this->mockDbPreparedQuery([['tipo_nota' => TipoNota::CONCEITUAL]]);
     $this->assertEquals('O', $service->arredondaNota($nota));
   }

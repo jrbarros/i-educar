@@ -65,13 +65,13 @@ class Regra extends Entity
         ],
         'tabelaArredondamento' => [
             'value' => 1,
-            'class' => 'TabelaArredondamento_Model_TabelaDataMapper',
+            'class' => 'TabelaDataMapper',
             'file' => 'TabelaArredondamento/Model/TabelaDataMapper.php',
             'null' => true
         ],
         'tabelaArredondamentoConceitual' => [
             'value' => 1,
-            'class' => 'TabelaArredondamento_Model_TabelaDataMapper',
+            'class' => 'TabelaDataMapper',
             'file' => 'TabelaArredondamento/Model/TabelaDataMapper.php',
             'null' => true
         ],

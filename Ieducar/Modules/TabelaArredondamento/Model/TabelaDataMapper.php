@@ -1,13 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'TabelaArredondamento/Model/Tabela.php';
-require_once 'RegraAvaliacao/Model/Nota/TipoValor.php';
-require_once 'App/Model/Finder.php';
+namespace iEducarLegacy\Modules\TabelaArredondamento\Model;
 
-class TabelaArredondamento_Model_TabelaDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class TabelaDataMapper
+ * @package iEducarLegacy\Modules\TabelaArredondamento\Model
+ */
+class TabelaDataMapper extends DataMapper
 {
-    protected $_entityClass = 'TabelaArredondamento_Model_Tabela';
+    protected $_entityClass = 'Tabela';
     protected $_tableName = 'tabela_arredondamento';
     protected $_tableSchema = 'Modules';
 
@@ -25,18 +28,18 @@ class TabelaArredondamento_Model_TabelaDataMapper extends CoreExt_DataMapper
     ];
 
     /**
-     * @var TabelaArredondamento_Model_TabelaValorDataMapper
+     * @var TabelaValorDataMapper
      */
     protected $_tabelaValorDataMapper = null;
 
     /**
      * Setter.
      *
-     * @param TabelaArredondamento_Model_TabelaValorDataMapper $mapper
+     * @param TabelaValorDataMapper $mapper
      *
      * @return CoreExt_DataMapper Provê interface fluída
      */
-    public function setTabelaValorDataMapper(TabelaArredondamento_Model_TabelaValorDataMapper $mapper)
+    public function setTabelaValorDataMapper(TabelaValorDataMapper $mapper)
     {
         $this->_tabelaValorDataMapper = $mapper;
 
@@ -53,7 +56,7 @@ class TabelaArredondamento_Model_TabelaDataMapper extends CoreExt_DataMapper
         if (is_null($this->_tabelaValorDataMapper)) {
             require_once 'TabelaArredondamento/Model/TabelaValorDataMapper.php';
             $this->setTabelaValorDataMapper(
-                new TabelaArredondamento_Model_TabelaValorDataMapper()
+                new TabelaValorDataMapper()
             );
         }
 
@@ -61,13 +64,13 @@ class TabelaArredondamento_Model_TabelaDataMapper extends CoreExt_DataMapper
     }
 
     /**
-     * Finder para instâncias de TabelaArredondamento_Model_TabelaValor que tenham
-     * referências a instância TabelaArredondamento_Model_Tabela passada como
+     * Finder para instâncias de TabelaValor que tenham
+     * referências a instância Tabela passada como
      * parâmetro.
      *
-     * @param TabelaArredondamento_Model_Tabela $instance
+     * @param Tabela $instance
      *
-     * @return array Um array de instâncias TabelaArredondamento_Model_TabelaValor
+     * @return array Um array de instâncias TabelaValor
      */
     public function findTabelaValor(TabelaArredondamento_Model_Tabela $instance)
     {

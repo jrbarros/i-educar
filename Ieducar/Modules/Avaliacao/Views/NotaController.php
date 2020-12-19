@@ -190,7 +190,7 @@ class NotaController extends EditController
 
         $valores = [];
         foreach ($valoresArredondamento as $valor) {
-            if ($this->_service->getRegra()->get('tipoNota') == RegraAvaliacao_Model_Nota_TipoValor::NUMERICA) {
+            if ($this->_service->getRegra()->get('tipoNota') == TipoValor::NUMERICA) {
                 $valores[(string) $valor->nome] = $valor->nome;
             } else {
                 $valores[(string) $valor->valorMaximo] = $valor->nome . ' (' . $valor->descricao .  ')';

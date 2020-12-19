@@ -1,12 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'TabelaArredondamento/Model/TabelaValor.php';
-require_once 'App/Model/Finder.php';
+namespace iEducarLegacy\Modules\TabelaArredondamento\Model;
 
-class TabelaArredondamento_Model_TabelaValorDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class TabelaValorDataMapper
+ * @package iEducarLegacy\Modules\TabelaArredondamento\Model
+ */
+class TabelaValorDataMapper extends DataMapper
 {
-    protected $_entityClass = 'TabelaArredondamento_Model_TabelaValor';
+    protected $_entityClass = 'TabelaValor';
     protected $_tableName = 'tabela_arredondamento_valor';
     protected $_tableSchema = 'Modules';
 

@@ -1,16 +1,25 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'TabelaArredondamento/Model/TabelaDataMapper.php';
-require_once 'TabelaArredondamento/Model/TabelaValor.php';
-require_once 'TabelaArredondamento/Model/TipoArredondamentoMedia.php';
+namespace iEducarLegacy\Modules\TabelaArredondamento\Views;
 
-class EditController extends Core_Controller_Page_EditController
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageAbstract;
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageEditController;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
+use iEducarLegacy\Modules\RegraAvaliacao\Model\Nota\TipoValor;
+use iEducarLegacy\Modules\TabelaArredondamento\Model\TabelaValor;
+
+/**
+ * Class EditController
+ * @package iEducarLegacy\Modules\TabelaArredondamento\Views
+ */
+class EditController extends CoreControllerPageEditController
 {
-    protected $_dataMapper = 'TabelaArredondamento_Model_TabelaDataMapper';
+    protected $_dataMapper = 'TabelaDataMapper';
     protected $_titulo = 'Cadastro de tabela de arredondamento de notas';
     protected $_processoAp = 949;
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::INSTITUCIONAL;
+    protected $_nivelAcessoOption = NivelAcesso::INSTITUCIONAL;
     protected $_saveOption = true;
     protected $_deleteOption = false;
 
@@ -66,7 +75,7 @@ class EditController extends Core_Controller_Page_EditController
     ];
 
     /**
-     * Collection de instâncias TabelaArredondamento_Model_TabelaValor.
+     * Collection de instâncias TabelaValor.
      *
      * @var array
      */
@@ -103,7 +112,7 @@ class EditController extends Core_Controller_Page_EditController
      *
      * @param int $id
      *
-     * @return TabelaArredondamento_Model_TabelaValor
+     * @return TabelaValor
      */
     protected function _getValor($id)
     {
@@ -176,10 +185,10 @@ class EditController extends Core_Controller_Page_EditController
         );
 
         // Tipo de nota
-        $notaTipoValor = RegraAvaliacao_Model_Nota_TipoValor::getInstance();
+        $notaTipoValor = TipoValor::getInstance();
         $notaTipos = $notaTipoValor->getEnums();
-        unset($notaTipos[RegraAvaliacao_Model_Nota_TipoValor::NENHUM]);
-        unset($notaTipos[RegraAvaliacao_Model_Nota_TipoValor::NUMERICACONCEITUAL]);
+        unset($notaTipos[TipoValor::NENHUM]);
+        unset($notaTipos[TipoValor::NUMERICACONCEITUAL]);
 
         if ($this->getEntity()->id!='') {
             $this->campoTexto(
@@ -220,9 +229,9 @@ class EditController extends Core_Controller_Page_EditController
             // Quebra
             $this->campoQuebra();
 
-            if (RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL == $this->getEntity()->get('tipoNota')) {
+            if (TipoValor::CONCEITUAL == $this->getEntity()->get('tipoNota')) {
                 $this->carregaCamposNotasConceituais();
-            } elseif (RegraAvaliacao_Model_Nota_TipoValor::NUMERICA == $this->getEntity()->get('tipoNota')) {
+            } elseif (TipoValor::NUMERICA == $this->getEntity()->get('tipoNota')) {
                 $this->carregaCamposNotasNumericas();
             }
 

@@ -99,8 +99,8 @@ class Avaliacao_Service_InicializacaoTest extends Avaliacao_Service_TestCommon
     $service = $this->_getServiceInstance();
     $this->assertInstanceOf('Regra', $service->getRegra());
 
-    // TabelaArredondamento_Model_Tabela é recuperada através da instância de
+    // Tabela é recuperada através da instância de
     // Regra
-    $this->assertInstanceOf('TabelaArredondamento_Model_Tabela', $service->getRegraAvaliacaoTabelaArredondamento());
+    $this->assertInstanceOf('Tabela', $service->getRegraAvaliacaoTabelaArredondamento());
   }
 }

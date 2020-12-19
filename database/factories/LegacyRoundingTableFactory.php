@@ -19,7 +19,7 @@ $factory->defineAs(LegacyRoundingTable::class, 'numeric', function (Faker $faker
     $roundingTable = $factory->raw(LegacyRoundingTable::class);
 
     return array_merge($roundingTable, [
-        'tipo_nota' => RegraAvaliacao_Model_Nota_TipoValor::NUMERICA,
+        'tipo_nota' => TipoValor::NUMERICA,
     ]);
 });
 
@@ -27,6 +27,6 @@ $factory->defineAs(LegacyRoundingTable::class, 'conceitual', function () use ($f
     $roundingTable = $factory->raw(LegacyRoundingTable::class);
 
     return array_merge($roundingTable, [
-        'tipo_nota' => RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL,
+        'tipo_nota' => TipoValor::CONCEITUAL,
     ]);
 });

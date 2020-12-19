@@ -91,7 +91,7 @@ class FinderTest extends UnitBaseTest
       $tabelaValores[$i] = new TabelaArredondamento_Model_TabelaValor($data);
     }
 
-    $mapperMock = $this->getCleanMock('TabelaArredondamento_Model_TabelaValorDataMapper');
+    $mapperMock = $this->getCleanMock('TabelaValorDataMapper');
     $mapperMock->expects($this->any())
                ->method('findAll')
                ->will($this->returnValue($tabelaValores));
@@ -336,7 +336,7 @@ class FinderTest extends UnitBaseTest
     $expected = new Regra(array(
       'id'                   => 1,
       'nome'                 => 'Regra geral',
-      'tipoNota'             => RegraAvaliacao_Model_Nota_TipoValor::NUMERICA,
+      'tipoNota'             => TipoValor::NUMERICA,
       'tipoProgressao'       => RegraAvaliacao_Model_TipoProgressao::CONTINUADA,
       'tipoPresenca'         => RegraAvaliacao_Model_TipoPresenca::POR_COMPONENTE,
       'media'                => 6,
