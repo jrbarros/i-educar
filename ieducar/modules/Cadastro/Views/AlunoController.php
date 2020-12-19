@@ -3,6 +3,7 @@
 namespace iEducarLegacy\Modules\Cadastro\Views;
 
 use App\Services\UrlPresigner;
+use CadastroRaca;
 use iEducar\Modules\Addressing\LegacyAddressingFields;
 use iEducar\Modules\Educacenso\Model\PaisResidencia;
 use iEducar\Modules\Educacenso\Model\RecursosRealizacaoProvas;
@@ -15,11 +16,16 @@ use iEducarLegacy\Intranet\Source\Pessoa\Documento;
 use iEducarLegacy\Intranet\Source\Pessoa\Fisica;
 use iEducarLegacy\Intranet\Source\Pessoa\OrgaoEmissorRg;
 use iEducarLegacy\Intranet\Source\PmiEducar\ConfiguracoesGerais;
+use iEducarLegacy\Intranet\Source\PmiEducar\Instituicao;
 use iEducarLegacy\Lib\App\Model\NivelAcesso;
 use iEducarLegacy\Lib\Portabilis\Collection\Utils;
 use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
 
-
+/**
+ * Class AlunoController
+ * @package iEducarLegacy\Modules\Cadastro\Views
+ */
 class AlunoController extends EditController
 {
     use LegacyAddressingFields;
@@ -337,7 +343,7 @@ class AlunoController extends EditController
         $configuracoes = new ConfiguracoesGerais();
         $configuracoes = $configuracoes->detalhe();
 
-        $labels_botucatu = config('legacy.app.mostrar_aplicacao') == 'botucatu';
+        $labels_botucatu = config('legacy.app.mostrar_aplicacao') === 'botucatu';
 
         if ($configuracoes['justificativa_falta_documentacao_obrigatorio']) {
             $this->inputsHelper()->hidden('justificativa_falta_documentacao_obrigatorio');
@@ -1358,7 +1364,7 @@ class AlunoController extends EditController
         $this->CampoOculto('obrigar_documento_pessoa', (int) $obrigarDocumentoPessoa);
         $this->CampoOculto('obrigar_telefone_pessoa', (int) $obrigarTelefonePessoa);
 
-        $racas         = new clsCadastroRaca();
+        $racas         = new CadastroRaca();
         $racas         = $racas->lista(null, null, null, null, null, null, null, true);
 
         foreach ($racas as $raca) {
