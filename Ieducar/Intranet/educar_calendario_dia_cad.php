@@ -122,7 +122,7 @@ class indice extends clsCadastro
     }
 
     /**
-     * Verifica se existe uma instância de Calendario_Model_Turma.
+     * Verifica se existe uma instância de Turma.
      *
      * @access protected
      *
@@ -155,7 +155,7 @@ class indice extends clsCadastro
     }
 
     /**
-     * Retorna um array de instâncias de Calendario_Model_Turma para um dado
+     * Retorna um array de instâncias de Turma para um dado
      * calendário de ano letivo de escola em mês, dia e ano específicos.
      *
      * @access protected
@@ -165,7 +165,7 @@ class indice extends clsCadastro
      * @param int $dia
      * @param int $ano
      *
-     * @return array (cod_turma => Calendario_Model_Turma)
+     * @return array (cod_turma => Turma)
      */
     public function _getEntries($codCalendarioAnoLetivo, $mes, $dia, $ano)
     {
@@ -425,7 +425,7 @@ class indice extends clsCadastro
             }
         }
 
-        // Instâncias persistidas de Calendario_Model_Turma
+        // Instâncias persistidas de Turma
         $entries = $this->_getEntries(
         $this->ref_cod_calendario_ano_letivo,
         $this->mes,

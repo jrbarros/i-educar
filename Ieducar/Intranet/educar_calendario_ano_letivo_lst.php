@@ -194,7 +194,7 @@ class indice extends clsListagem
                 // Turmas da escola
                 $turmas = App_Model_IedFinder::getTurmas($registro['ref_cod_escola']);
 
-                // Mapper de Calendario_Model_TurmaDataMapper
+                // Mapper de TurmaDataMapper
                 $calendarioTurmaMapper = new Calendario_Model_TurmaDataMapper();
 
                 $obj_calendario = new clsCalendario();

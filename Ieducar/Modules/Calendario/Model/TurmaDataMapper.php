@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Calendario/Model/Turma.php';
+namespace iEducarLegacy\Modules\Calendario\Model;
 
-class Calendario_Model_TurmaDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class TurmaDataMapper
+ * @package iEducarLegacy\Modules\Calendario\Model
+ */
+class TurmaDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Calendario_Model_Turma';
+    protected $_entityClass = 'Turma';
 
     protected $_tableName = 'calendario_turma';
 
