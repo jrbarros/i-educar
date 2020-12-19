@@ -1,13 +1,18 @@
 <?php
 
+namespace iEducarLegacy\Modules\TransporteEscolar\Views;
 
+use iEducarLegacy\Intranet\Source\Modules\TipoVeiculo;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
 
-class VeiculoController extends Portabilis_Controller_Page_EditController
+class VeiculoController extends EditController
 {
     protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
     protected $_titulo = 'i-Educar - Motoristas';
 
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
     protected $_processoAp = 21237;
     protected $_deleteOption = true;
 
@@ -243,7 +248,7 @@ class VeiculoController extends Portabilis_Controller_Page_EditController
         // Tipo de veículo
         $tiposVeiculo = [null => 'Selecione um Tipo'];
 
-        $objTipo = new clsModulesTipoVeiculo();
+        $objTipo = new TipoVeiculo();
         $lista = $objTipo->lista();
         if (is_array($lista) && count($lista)) {
             foreach ($lista as $registro) {

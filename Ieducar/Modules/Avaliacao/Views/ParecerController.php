@@ -59,7 +59,7 @@ class ParecerController extends EditController
     protected $_dataMapper        = 'ParecerDescritivoGeralDataMapper';
     protected $_titulo            = 'Avaliação do aluno | Parecer Descritivo';
     protected $_processoAp        = 642;
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
     protected $_saveOption        = true;
     protected $_deleteOption      = false;
 

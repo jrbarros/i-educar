@@ -1,14 +1,21 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditController.php';
-require_once 'Usuario/Model/FuncionarioDataMapper.php';
+namespace iEducarLegacy\Modules\TransporteEscolar\Views;
 
-class MotoristaController extends Portabilis_Controller_Page_EditController
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+
+/**
+ * Class MotoristaController
+ * @package iEducarLegacy\Modules\TransporteEscolar\Views
+ */
+class MotoristaController extends EditController
 {
     protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
     protected $_titulo = 'i-Educar - Motoristas';
 
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
     protected $_processoAp = 21236;
     protected $_deleteOption = true;
 

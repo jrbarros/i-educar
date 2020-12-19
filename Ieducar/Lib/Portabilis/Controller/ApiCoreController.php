@@ -32,7 +32,7 @@ class ApiCoreController extends CoreControllerPageEditController
 
     protected $_processoAp = 0;
 
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::INSTITUCIONAL;
+    protected $_nivelAcessoOption = NivelAcesso::INSTITUCIONAL;
 
     public function __construct()
     {

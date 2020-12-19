@@ -1,15 +1,22 @@
 <?php
 
-require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
-require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditController.php';
-require_once 'Usuario/Model/FuncionarioDataMapper.php';
+namespace iEducarLegacy\Modules\TransporteEscolar\Views;
 
-class ItinerarioController extends Portabilis_Controller_Page_EditController
+use iEducarLegacy\Intranet\Source\Modules\RotaTransporteEscolar;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+
+/**
+ * Class ItinerarioController
+ * @package iEducarLegacy\Modules\TransporteEscolar\Views
+ */
+class ItinerarioController extends EditController
 {
     protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
     protected $_titulo = 'Cadastro de Rota';
 
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
     protected $_processoAp = 578;
     protected $_deleteOption = false;
 
@@ -129,7 +136,7 @@ class ItinerarioController extends Portabilis_Controller_Page_EditController
 
     public function verificaIdRota($id)
     {
-        $obj = new clsModulesRotaTransporteEscolar($id);
+        $obj = new RotaTransporteEscolar($id);
 
         return $obj->existe();
     }

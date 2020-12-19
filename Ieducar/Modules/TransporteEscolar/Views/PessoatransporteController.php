@@ -1,18 +1,22 @@
 <?php
 
+namespace iEducarLegacy\Modules\TransporteEscolar\Views;
+
 use iEducar\Support\View\SelectOptions;
+use iEducarLegacy\Intranet\Source\Modules\RotaTransporteEscolar;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
 
-require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditController.php';
-require_once 'Usuario/Model/FuncionarioDataMapper.php';
-require_once 'Source/Modules/clsModulesRotaTransporteEscolar.inc.php';
-require_once('Source/Banco.php');
-
-class PessoatransporteController extends Portabilis_Controller_Page_EditController
+/**
+ * Class PessoatransporteController
+ * @package iEducarLegacy\Modules\TransporteEscolar\Views
+ */
+class PessoatransporteController extends EditController
 {
     protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
     protected $_titulo = 'i-Educar - Usu&aacute;rios de transporte';
 
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
     protected $_processoAp = 21240;
     protected $_deleteOption = true;
 
@@ -89,7 +93,7 @@ class PessoatransporteController extends Portabilis_Controller_Page_EditControll
 
         // Montar o inputsHelper->select \/
         // Cria lista de rotas
-        $obj_rota = new clsModulesRotaTransporteEscolar();
+        $obj_rota = new RotaTransporteEscolar();
         $obj_rota->setOrderBy(' descricao asc ');
         $lista_rota = $obj_rota->lista();
         $rota_resources = ['' => 'Selecione uma rota'];

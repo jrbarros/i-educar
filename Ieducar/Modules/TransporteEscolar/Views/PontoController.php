@@ -1,19 +1,25 @@
 <?php
 
+namespace iEducarLegacy\Modules\TransporteEscolar\Views;
+
 use iEducar\Modules\Addressing\LegacyAddressingFields;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
+use iEducarLegacy\Lib\Portabilis\String\Utils;
+use iEducarLegacy\Lib\Portabilis\View\Helper\Application;
 
-require_once 'App/Model/ZonaLocalizacao.php';
-require_once 'lib/Portabilis/Controller/Page/CoreControllerPageEditController.php';
-require_once 'Usuario/Model/FuncionarioDataMapper.php';
-
-class PontoController extends Portabilis_Controller_Page_EditController
+/**
+ * Class PontoController
+ * @package iEducarLegacy\Modules\TransporteEscolar\Views
+ */
+class PontoController extends EditController
 {
     use LegacyAddressingFields;
 
     protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
     protected $_titulo = 'i-Educar - Pontos';
 
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::SOMENTE_ESCOLA;
+    protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
     protected $_processoAp = 21239;
     protected $_deleteOption = true;
 

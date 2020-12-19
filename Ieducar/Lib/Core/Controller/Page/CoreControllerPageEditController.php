@@ -38,7 +38,7 @@ abstract class CoreControllerPageEditController extends Cadastro implements Core
      *
      * @var int
      */
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::INSTITUCIONAL;
+    protected $_nivelAcessoOption = NivelAcesso::INSTITUCIONAL;
 
     /**
      * Determina um caminho para redirecionar o usuário caso seus privilégios de
