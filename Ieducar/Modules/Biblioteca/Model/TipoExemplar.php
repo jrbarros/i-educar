@@ -39,7 +39,7 @@ use iEducarLegacy\Lib\CoreExt\Entity;
  */
 
 /**
- * ComponenteCurricular_Model_Componente class.
+ * Componente class.
  *
  * @author      Lucas D'Avila <lucasdavila@portabilis.com.br>
  *

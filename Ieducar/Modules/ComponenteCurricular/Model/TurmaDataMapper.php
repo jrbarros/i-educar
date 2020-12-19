@@ -1,15 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Modules\ComponenteCurricular\Model;
+
 use App\Exceptions\SchoolClass\HasDataInDiario;
 use App\Models\LegacyDiscipline;
 use App\Services\iDiarioService;
+use iEducarLegacy\Lib\CoreExt\DataMapper;
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'ComponenteCurricular/Model/Turma.php';
-
-class ComponenteCurricular_Model_TurmaDataMapper extends CoreExt_DataMapper
+class TurmaDataMapper extends DataMapper
 {
-    protected $_entityClass = 'ComponenteCurricular_Model_Turma';
+    protected $_entityClass = 'Turma';
 
     protected $_tableName = 'componente_curricular_turma';
 
@@ -39,14 +39,14 @@ class ComponenteCurricular_Model_TurmaDataMapper extends CoreExt_DataMapper
 
     /**
      * Realiza uma operação de atualização em todas as instâncias persistidas de
-     * ComponenteCurricular_Model_Turma. A atualização envolve criar, atualizar
+     * Turma. A atualização envolve criar, atualizar
      * e/ou apagar instâncias persistidas.
      *
      * No exemplo de código a seguir, se uma instância de
-     * ComponenteCurricular_Model_Turma com uma referência a componenteCurricular
+     * Turma com uma referência a componenteCurricular
      * "1" existisse, esta teria seus atributos atualizados e persistidos
      * novamente. Se a referência não existisse, uma nova instância de
-     * ComponenteCurricular_Model_Turma seria criada e persistida. Caso uma
+     * Turma seria criada e persistida. Caso uma
      * referência a "2" existisse, esta seria apagada por não estar referenciada
      * no array $componentes.
      *
@@ -66,7 +66,7 @@ class ComponenteCurricular_Model_TurmaDataMapper extends CoreExt_DataMapper
      * @param array               $componentes    (id => integer, cargaHoraria => float|null)
      * @param iDiarioService|null $iDiarioService
      *
-     * @throws Exception
+     * @throws \Exception
      */
     public function bulkUpdate($anoEscolar, $escola, $turma, array $componentes, $iDiarioService = null)
     {
@@ -92,7 +92,7 @@ class ComponenteCurricular_Model_TurmaDataMapper extends CoreExt_DataMapper
                 continue;
             }
 
-            $insert[$id] = new ComponenteCurricular_Model_Turma([
+            $insert[$id] = new Turma([
                 'componenteCurricular' => $id,
                 'anoEscolar' => $anoEscolar,
                 'escola' => $escola,

@@ -7,7 +7,7 @@ require_once 'ComponenteCurricular/Model/CodigoEducacenso.php';
 
 class EditController extends Core_Controller_Page_EditController
 {
-    protected $_dataMapper = 'ComponenteCurricular_Model_ComponenteDataMapper';
+    protected $_dataMapper = 'ComponenteDataMapper';
 
     protected $_titulo = 'Cadastro de componente curricular';
 
@@ -140,7 +140,7 @@ class EditController extends Core_Controller_Page_EditController
         );
 
         // Código educacenso
-        $codigos = ComponenteCurricular_Model_CodigoEducacenso::getInstance();
+        $codigos = CodigoEducacenso::getInstance();
 
         $this->campoLista(
             'codigo_educacenso',

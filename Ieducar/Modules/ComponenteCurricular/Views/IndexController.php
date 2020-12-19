@@ -5,7 +5,7 @@ require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
 
 class IndexController extends Core_Controller_Page_ListController
 {
-    protected $_dataMapper = 'ComponenteCurricular_Model_ComponenteDataMapper';
+    protected $_dataMapper = 'ComponenteDataMapper';
 
     protected $_titulo = 'Listagem de componentes curriculares';
 

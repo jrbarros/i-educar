@@ -1,9 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'ComponenteCurricular/Model/TipoBase.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Model;
 
-class ComponenteCurricular_Model_AnoEscolar extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class AnoEscolar
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Model
+ */
+class AnoEscolar extends Entity
 {
     protected $_data = [
         'componenteCurricular' => null,
@@ -19,7 +24,7 @@ class ComponenteCurricular_Model_AnoEscolar extends CoreExt_Entity
     protected $_references = [
         'componenteCurricular' => [
             'value' => null,
-            'class' => 'ComponenteCurricular_Model_ComponenteDataMapper',
+            'class' => 'ComponenteDataMapper',
             'file' => 'ComponenteCurricular/Model/ComponenteDataMapper.php'
         ]
     ];
@@ -42,7 +47,7 @@ class ComponenteCurricular_Model_AnoEscolar extends CoreExt_Entity
     {
         if (is_null($this->_dataMapper)) {
             require_once 'ComponenteCurricular/Model/AnoEscolarDataMapper.php';
-            $this->setDataMapper(new ComponenteCurricular_Model_AnoEscolarDataMapper());
+            $this->setDataMapper(new AnoEscolarDataMapper());
         }
 
         return parent::getDataMapper();

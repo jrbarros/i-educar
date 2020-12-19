@@ -47,8 +47,8 @@ require_once 'Avaliacao/Service/Boletim.php';
  * - RegraAvaliacao_Model_RegraDataMapper: configuração ampla. Ver o array
  *   $_regraOptions e o método _setRegraOption para entender a configuração
  *   da instância
- * - ComponenteCurricular_Model_ComponenteDataMapper: mock que retorna
- *   diferentes instâncias de ComponenteCurricular_Model_Componente em cada
+ * - ComponenteDataMapper: mock que retorna
+ *   diferentes instâncias de Componente em cada
  *   chamada. Essas instâncias são definidas na opção 'componenteCurricular'
  *   do array $_config. Esses componentes correspondem com os valores
  *   retornados pelos mocks de classes legadas (configuradas nos métodos
@@ -992,8 +992,8 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
         if (is_null($this->_componenteDataMapperMock)) {
             $componentes = $this->_getConfigOptions('componenteCurricular');
 
-            // Mock para ComponenteCurricular_Model_ComponenteDataMapper
-            $mock = $this->getCleanMock('ComponenteCurricular_Model_ComponenteDataMapper');
+            // Mock para ComponenteDataMapper
+            $mock = $this->getCleanMock('ComponenteDataMapper');
             $mock->expects($this->any())
                 ->method('findComponenteCurricularAnoEscolar')
                 ->will(call_user_func_array([$this, 'onConsecutiveCalls'], $componentes));
@@ -1016,8 +1016,8 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
         if (is_null($this->_componenteTurmaDataMapperMock)) {
             $componentes = $this->_getConfigOptions('componentesTurma');
 
-            // Mock para ComponenteCurricular_Model_TurmaDataMapper
-            $mock = $this->getCleanMock('ComponenteCurricular_Model_TurmaDataMapper');
+            // Mock para TurmaDataMapper
+            $mock = $this->getCleanMock('TurmaDataMapper');
             $mock->expects($this->any())
                 ->method('findAll')
                 ->will(call_user_func_array([$this, 'onConsecutiveCalls'], $componentes));

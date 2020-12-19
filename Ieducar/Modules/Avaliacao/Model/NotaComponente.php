@@ -80,7 +80,7 @@ class NotaComponente extends Etapa
     ],
     'componenteCurricular' => [
       'value' => null,
-      'class' => 'ComponenteCurricular_Model_Componente',
+      'class' => 'Componente',
       'file'  => 'ComponenteCurricular/Model/Componente.php'
     ]
   ];

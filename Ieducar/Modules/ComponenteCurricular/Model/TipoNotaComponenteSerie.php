@@ -1,11 +1,17 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Model;
 
-class ComponenteSerie_Model_TipoNota extends Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class TipoNotaComponenteSerie
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Model
+ */
+class TipoNotaComponenteSerie extends Enum
 {
-    const NUMERICA = 1;
-    const CONCEITUAL = 2;
+    public const NUMERICA = 1;
+    public const CONCEITUAL = 2;
 
     protected $_data = [
         self::NUMERICA => 'Nota numérica',

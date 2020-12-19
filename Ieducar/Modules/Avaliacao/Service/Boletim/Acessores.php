@@ -101,7 +101,7 @@ trait Acessores
 
     /**
      * Componentes que o aluno cursa, indexado pelo id de
-     * ComponenteCurricular_Model_Componente.
+     * Componente.
      *
      * @var array
      */

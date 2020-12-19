@@ -1,10 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Modules\ComponenteCurricular\Model;
+
 use iEducar\Support\DescriptionValue;
+use iEducarLegacy\Lib\CoreExt\Enum;
 
-require_once 'CoreExt/Enum.php';
-
-class ComponenteCurricular_Model_CodigoEducacenso extends Enum
+/**
+ * Class CodigoEducacenso
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Model
+ */
+class CodigoEducacenso extends Enum
 {
     use DescriptionValue;
 

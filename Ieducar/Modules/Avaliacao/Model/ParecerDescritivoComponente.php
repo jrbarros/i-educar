@@ -65,7 +65,7 @@ class ParecerDescritivoComponente extends ParecerDescritivoAbstract
 
         $this->_references['componenteCurricular'] = [
             'value' => null,
-            'class' => 'ComponenteCurricular_Model_Componente',
+            'class' => 'Componente',
             'file' => 'ComponenteCurricular/Model/Componente.php'
         ];
 

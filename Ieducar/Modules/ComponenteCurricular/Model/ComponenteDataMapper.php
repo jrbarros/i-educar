@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'ComponenteCurricular/Model/Componente.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Model;
 
-class ComponenteCurricular_Model_ComponenteDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class ComponenteDataMapper
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Model
+ */
+class ComponenteDataMapper extends DataMapper
 {
-    protected $_entityClass = 'ComponenteCurricular_Model_Componente';
+    protected $_entityClass = 'Componente';
 
     protected $_tableName = 'componente_curricular';
 
@@ -46,7 +51,7 @@ class ComponenteCurricular_Model_ComponenteDataMapper extends CoreExt_DataMapper
      *
      * @param AreaConhecimento_Model_AreaDataMapper $mapper
      *
-     * @return ComponenteCurricular_Model_ComponenteDataMapper Provê interface fluída
+     * @return ComponenteDataMapper Provê interface fluída
      */
     public function setAreaDataMapper(AreaConhecimento_Model_AreaDataMapper $mapper)
     {

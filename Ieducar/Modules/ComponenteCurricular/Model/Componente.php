@@ -1,11 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
-require_once 'ComponenteCurricular/Model/TipoBase.php';
-require_once 'ComponenteCurricular/Model/CodigoEducacenso.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Model;
 
-class ComponenteCurricular_Model_Componente extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class Componente
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Model
+ */
+class Componente extends Entity
 {
     protected $_data = [
         'instituicao' => null,
@@ -26,12 +29,12 @@ class ComponenteCurricular_Model_Componente extends CoreExt_Entity
         ],
         'tipo_base' => [
             'value' => null,
-            'class' => 'ComponenteCurricular_Model_TipoBase',
+            'class' => 'TipoBase',
             'file' => 'ComponenteCurricular/Model/TipoBase.php'
         ],
         'codigo_educacenso' => [
             'value' => null,
-            'class' => 'ComponenteCurricular_Model_CodigoEducacenso',
+            'class' => 'CodigoEducacenso',
             'file' => 'ComponenteCurricular/Model/CodigoEducacenso.php'
         ]
     ];
@@ -40,7 +43,7 @@ class ComponenteCurricular_Model_Componente extends CoreExt_Entity
     {
         if (is_null($this->_dataMapper)) {
             require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
-            $this->setDataMapper(new ComponenteCurricular_Model_ComponenteDataMapper());
+            $this->setDataMapper(new ComponenteDataMapper());
         }
 
         return parent::getDataMapper();
@@ -50,10 +53,10 @@ class ComponenteCurricular_Model_Componente extends CoreExt_Entity
     {
         $instituicoes = array_keys(App_Model_IedFinder::getInstituicoes());
 
-        $tipoBase = ComponenteCurricular_Model_TipoBase::getInstance();
+        $tipoBase = TipoBase::getInstance();
         $tipos = $tipoBase->getKeys();
 
-        $codigoEducacenso = ComponenteCurricular_Model_CodigoEducacenso::getInstance();
+        $codigoEducacenso = CodigoEducacenso::getInstance();
         $codigos = $codigoEducacenso->getKeys();
 
         $areas = $this->getDataMapper()->findAreaConhecimento();

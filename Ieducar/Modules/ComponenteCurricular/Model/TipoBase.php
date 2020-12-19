@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Model;
 
-class ComponenteCurricular_Model_TipoBase extends Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class TipoBase
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Model
+ */
+class TipoBase extends Enum
 {
     const DEFAULT = self::COMUM;
     const COMUM = 1;

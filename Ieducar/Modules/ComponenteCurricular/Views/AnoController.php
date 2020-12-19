@@ -6,7 +6,7 @@ require_once 'ComponenteCurricular/Model/AnoEscolarDataMapper.php';
 
 class AnoController extends Core_Controller_Page_EditController
 {
-    protected $_dataMapper = 'ComponenteCurricular_Model_AnoEscolarDataMapper';
+    protected $_dataMapper = 'AnoEscolarDataMapper';
 
     protected $_titulo = 'Configuração de ano escolar';
 
@@ -15,7 +15,7 @@ class AnoController extends Core_Controller_Page_EditController
     protected $_formMap = [];
 
     /**
-     * Collection de instâncias ComponenteCurricular_Model_AnoEscolar.
+     * Collection de instâncias AnoEscolar.
      *
      * @var array
      */
@@ -60,7 +60,7 @@ class AnoController extends Core_Controller_Page_EditController
     }
 
     /**
-     * Verifica se uma instância ComponenteCurricular_Model_AnoEscolar identificada
+     * Verifica se uma instância AnoEscolar identificada
      * por $id existe.
      *
      * @param int $id

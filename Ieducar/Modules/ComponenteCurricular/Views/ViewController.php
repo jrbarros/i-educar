@@ -6,7 +6,7 @@ require_once 'Source/pmieducar/geral.inc.php';
 
 class ViewController extends Core_Controller_Page_ViewController
 {
-    protected $_dataMapper = 'ComponenteCurricular_Model_ComponenteDataMapper';
+    protected $_dataMapper = 'ComponenteDataMapper';
 
     protected $_titulo = 'Detalhes de área de conhecimento';
 

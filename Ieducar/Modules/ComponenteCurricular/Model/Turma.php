@@ -1,8 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Model;
 
-class ComponenteCurricular_Model_Turma extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Numeric;
+
+/**
+ * Class Turma
+ */
+class Turma extends Entity
 {
     protected $_data = [
         'componenteCurricular' => null,
@@ -23,7 +29,7 @@ class ComponenteCurricular_Model_Turma extends CoreExt_Entity
     protected $_references = [
         'componenteCurricular' => [
             'value' => null,
-            'class' => 'ComponenteCurricular_Model_ComponenteDataMapper',
+            'class' => 'ComponenteDataMapper',
             'file' => 'ComponenteCurricular/Model/ComponenteDataMapper.php'
         ]
     ];
@@ -45,8 +51,8 @@ class ComponenteCurricular_Model_Turma extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-            'cargaHoraria' => new _Validate_Numeric(['required' => false]),
-            'docenteVinculado' => new _Validate_Numeric(['required' => false])
+            'cargaHoraria' => new Numeric(['required' => false]),
+            'docenteVinculado' => new Numeric(['required' => false])
         ];
     }
 }

@@ -89,7 +89,7 @@ class Boletim implements CoreExtConfigurable
     /**
      * Retorna uma instância de NotaComponente.
      *
-     * @param int $id    O identificador de ComponenteCurricular_Model_Componente
+     * @param int $id    O identificador de Componente
      * @param int $etapa A etapa para o qual a nota foi lançada
      *
      * @return NotaComponente|NULL
@@ -134,7 +134,7 @@ class Boletim implements CoreExtConfigurable
     /**
      * Retorna uma instância de NotaGeral.
      *
-     * @param int $id    O identificador de ComponenteCurricular_Model_Componente
+     * @param int $id    O identificador de Componente
      * @param int $etapa A etapa para o qual a nota foi lançada
      *
      * @return Avaliacao_Model_NotaComponente|NULL
@@ -156,7 +156,7 @@ class Boletim implements CoreExtConfigurable
      * Retorna uma instância de Avaliacao_Model_FaltaAbstract.
      *
      * @param int $etapa A etapa para o qual a falta foi lançada
-     * @param int $id    O identificador de ComponenteCurricular_Model_Componente
+     * @param int $id    O identificador de Componente
      *
      * @return Avaliacao_Model_FaltaAbstract|NULL
      */
@@ -187,7 +187,7 @@ class Boletim implements CoreExtConfigurable
      * Retorna uma instância de ParecerDescritivoAbstract.
      *
      * @param int $etapa A etapa para o qual o parecer foi lançado
-     * @param int $id    O identificador de ComponenteCurricular_Model_Componente
+     * @param int $id    O identificador de Componente
      *
      * @return Avaliacao_Model_ParecerAbstract|NULL
      */
@@ -1152,7 +1152,7 @@ class Boletim implements CoreExtConfigurable
                     'quantidade'
                 ));
 
-                // Pega o id de ComponenteCurricular_Model_Componente da última etapa do array
+                // Pega o id de Componente da última etapa do array
                 $componenteEtapa = array_pop($falta);
 
                 $id = $componenteEtapa->get('componenteCurricular');
@@ -1658,7 +1658,7 @@ class Boletim implements CoreExtConfigurable
      * Verifica se existe alguma instância de ParecerDescritivoComponente
      * persistida para o aluno.
      *
-     * @param int $id Field identity de ComponenteCurricular_Model_Componente
+     * @param int $id Field identity de Componente
      *
      * @return bool
      */

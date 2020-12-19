@@ -35,7 +35,7 @@ class NotaComponenteMedia extends Entity
         ],
         'componenteCurricular' => [
             'value' => null,
-            'class' => 'ComponenteCurricular_Model_ComponenteDataMapper',
+            'class' => 'ComponenteDataMapper',
             'file'  => 'ComponenteCurricular/Model/ComponenteDataMapper.php'
         ]
     ];

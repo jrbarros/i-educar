@@ -105,8 +105,8 @@ class App_Model_IedFinderTest extends UnitBaseTest
   }
 
   /**
-   * Configura mocks para ComponenteCurricular_Model_ComponenteDataMapper e
-   * ComponenteCurricular_Model_TurmaDataMapper para o método getComponentesTurma().
+   * Configura mocks para ComponenteDataMapper e
+   * TurmaDataMapper para o método getComponentesTurma().
    *
    * @return array ('componenteMock', 'turmaMock', 'expected')
    */
@@ -123,7 +123,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
 
     $expected = $returnComponenteMock;
 
-    $componenteMock = $this->getCleanMock('ComponenteCurricular_Model_ComponenteDataMapper');
+    $componenteMock = $this->getCleanMock('ComponenteDataMapper');
     $componenteMock->expects($this->exactly(2))
                    ->method('findComponenteCurricularAnoEscolar')
                    ->will($this->onConsecutiveCalls(
@@ -139,7 +139,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
       )
     );
 
-    $turmaMock = $this->getCleanMock('ComponenteCurricular_Model_TurmaDataMapper');
+    $turmaMock = $this->getCleanMock('TurmaDataMapper');
     $turmaMock->expects($this->once())
               ->method('findAll')
               ->with(array(), array('turma' => 1))
@@ -273,7 +273,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
 
     $expected = $returnAnoEscolar;
 
-    $anoEscolarMock = $this->getCleanMock('ComponenteCurricular_Model_ComponenteDataMapper');
+    $anoEscolarMock = $this->getCleanMock('ComponenteDataMapper');
     $anoEscolarMock->expects($this->exactly(4))
                    ->method('findComponenteCurricularAnoEscolar')
                    ->will($this->onConsecutiveCalls(

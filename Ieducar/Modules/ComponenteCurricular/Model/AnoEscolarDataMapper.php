@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'ComponenteCurricular/Model/AnoEscolar.php';
+namespace iEducarLegacy\Modules\ComponenteCurricular\Model;
 
-class ComponenteCurricular_Model_AnoEscolarDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class AnoEscolarDataMapper
+ * @package iEducarLegacy\Modules\ComponenteCurricular\Model
+ */
+class AnoEscolarDataMapper extends DataMapper
 {
-    protected $_entityClass = 'ComponenteCurricular_Model_AnoEscolar';
+    protected $_entityClass = 'AnoEscolar';
 
     protected $_tableName = 'componente_curricular_ano_escolar';
 
@@ -25,18 +30,18 @@ class ComponenteCurricular_Model_AnoEscolarDataMapper extends CoreExt_DataMapper
     ];
 
     /**
-     * @var ComponenteCurricular_Model_ComponenteDataMapper
+     * @var ComponenteDataMapper
      */
     protected $_componenteDataMapper = null;
 
     /**
      * Setter.
      *
-     * @param ComponenteCurricular_Model_ComponenteDataMapper $mapper
+     * @param ComponenteDataMapper $mapper
      *
      * @return CoreExt_DataMapper Provê interface fluída
      */
-    public function setComponenteDataMapper(ComponenteCurricular_Model_ComponenteDataMapper $mapper)
+    public function setComponenteDataMapper(ComponenteDataMapper $mapper)
     {
         $this->_componenteDataMapper = $mapper;
 
@@ -46,13 +51,13 @@ class ComponenteCurricular_Model_AnoEscolarDataMapper extends CoreExt_DataMapper
     /**
      * Getter.
      *
-     * @return ComponenteCurricular_Model_ComponenteDataMapper
+     * @return ComponenteDataMapper
      */
     public function getComponenteDataMapper()
     {
         if (is_null($this->_componenteDataMapper)) {
             require_once 'ComponenteCurricular/Model/ComponenteDataMapper.php';
-            $this->_componenteDataMapper = new ComponenteCurricular_Model_ComponenteDataMapper();
+            $this->_componenteDataMapper = new ComponenteDataMapper();
         }
 
         return $this->_componenteDataMapper;

@@ -119,21 +119,21 @@ class Avaliacao_Service_UtilityTest extends Avaliacao_Service_TestCommon
         'nota' => 5.49
     ]);
     $nota->componenteCurricular = RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL;
-    $this->mockDbPreparedQuery([['tipo_nota' => ComponenteSerie_Model_TipoNota::CONCEITUAL]]);
+    $this->mockDbPreparedQuery([['tipo_nota' => TipoNota::CONCEITUAL]]);
     $this->assertEquals('I', $service->arredondaNota($nota));
 
     $nota = new Avaliacao_Model_NotaComponente([
         'nota' => 6.50
     ]);
     $nota->componenteCurricular = RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL;
-    $this->mockDbPreparedQuery([['tipo_nota' => ComponenteSerie_Model_TipoNota::CONCEITUAL]]);
+    $this->mockDbPreparedQuery([['tipo_nota' => TipoNota::CONCEITUAL]]);
     $this->assertEquals('S', $service->arredondaNota($nota));
 
     $nota = new Avaliacao_Model_NotaComponente([
         'nota' => 9.15
     ]);
     $nota->componenteCurricular = RegraAvaliacao_Model_Nota_TipoValor::CONCEITUAL;
-    $this->mockDbPreparedQuery([['tipo_nota' => ComponenteSerie_Model_TipoNota::CONCEITUAL]]);
+    $this->mockDbPreparedQuery([['tipo_nota' => TipoNota::CONCEITUAL]]);
     $this->assertEquals('O', $service->arredondaNota($nota));
   }
 

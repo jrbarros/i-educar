@@ -12,9 +12,12 @@ use iEducar\Modules\AcademicYear\Exceptions\DisciplineNotLinkedToRegistrationExc
 use iEducar\Modules\Enrollments\Exceptions\StudentNotEnrolledInSchoolClass;
 use iEducar\Modules\EvaluationRules\Exceptions\EvaluationRuleNotDefinedInLevel;
 use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\Portabilis\Utils\Database;
+use iEducarLegacy\Modules\ComponenteCurricular\Model\Componente;
+use iEducarLegacy\Modules\ComponenteCurricular\Model\ComponenteDataMapper;
+use iEducarLegacy\Modules\ComponenteCurricular\Model\TurmaDataMapper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-
 
 class Finder extends Entity
 {
@@ -476,13 +479,13 @@ class Finder extends Entity
      * Retorna array com as referências de pmieducar.escola_serie_disciplina
      * a Modules.componente_curricular ('ref_ref_cod_disciplina').
      *
-     * @param int                                             $serieId        O código do ano escolar/série.
-     * @param int                                             $escolaId
-     * @param ComponenteCurricular_Model_ComponenteDataMapper $mapper
-     * @param null                                            $disciplinaId
-     * @param null                                            $etapa
-     * @param bool                                            $trazerDetalhes
-     * @param null                                            $ano
+     * @param int                  $serieId        O código do ano escolar/série.
+     * @param int                  $escolaId
+     * @param ComponenteDataMapper $mapper
+     * @param null                 $disciplinaId
+     * @param null                 $etapa
+     * @param bool                 $trazerDetalhes
+     * @param null                 $ano
      *
      * @return array
      *
@@ -491,7 +494,7 @@ class Finder extends Entity
     public static function getEscolaSerieDisciplina(
         $serieId,
         $escolaId,
-        ComponenteCurricular_Model_ComponenteDataMapper $mapper = null,
+        ComponenteDataMapper $mapper = null,
         $disciplinaId = null,
         $etapa = null,
         $trazerDetalhes = true,
@@ -530,7 +533,7 @@ class Finder extends Entity
         $componentes = [];
 
         foreach ($disciplinas as $disciplina) {
-            $componente = new stdClass();
+            $componente = new \stdClass();
 
             $componente->id = $disciplina['ref_cod_disciplina'];
             $componente->cargaHoraria = $disciplina['carga_horaria'];
@@ -546,13 +549,17 @@ class Finder extends Entity
     }
 
     /**
-     * Retorna as instâncias de ComponenteCurricular_Model_Componente de uma turma.
+     * Retorna as instâncias de Componente de uma turma.
      *
-     * @param int                                             $serieId          O código do ano escolar/série da turma.
-     * @param int                                             $escola           O código da escola da turma.
-     * @param int                                             $turma            O código da turma.
-     * @param ComponenteCurricular_Model_TurmaDataMapper      $mapper
-     * @param ComponenteCurricular_Model_ComponenteDataMapper $componenteMapper
+     * @param int                       $serieId                O código do ano escolar/série da turma.
+     * @param int                       $escola                 O código da escola da turma.
+     * @param int                       $turma                  O código da turma.
+     * @param TurmaDataMapper|null      $mapper
+     * @param ComponenteDataMapper|null $componenteMapper
+     * @param null                      $componenteCurricularId
+     * @param null                      $etapa
+     * @param bool                      $trazerDetalhes
+     * @param null                      $ano
      *
      * @return array
      *
@@ -562,16 +569,15 @@ class Finder extends Entity
         $serieId,
         $escola,
         $turma,
-        ComponenteCurricular_Model_TurmaDataMapper $mapper = null,
-        ComponenteCurricular_Model_ComponenteDataMapper $componenteMapper = null,
+        TurmaDataMapper $mapper = null,
+        ComponenteDataMapper $componenteMapper = null,
         $componenteCurricularId = null,
         $etapa = null,
         $trazerDetalhes = true,
         $ano = null
     ) {
         if (is_null($mapper)) {
-            require_once 'ComponenteCurricular/Model/TurmaDataMapper.php';
-            $mapper = new ComponenteCurricular_Model_TurmaDataMapper();
+            $mapper = new TurmaDataMapper();
         }
 
         $where = ['turma' => $turma];
@@ -589,7 +595,7 @@ class Finder extends Entity
         $disciplinaDispensada = self::disciplinaDispensadaDaTurma($turma);
 
         // Não existem componentes específicos para a turma
-        if (0 == count($componentesTurma)) {
+        if (0 === count($componentesTurma)) {
             $componentesTurma = self::getEscolaSerieDisciplina(
                 $serieId,
                 $escola,
@@ -611,7 +617,7 @@ class Finder extends Entity
 
         $componentes = [];
         foreach ($componentesTurma as $componenteTurma) {
-            $componente = new stdClass();
+            $componente = new \stdClass();
 
             $componente->id = $componenteTurma->get('componenteCurricular');
             $componente->cargaHoraria = $componenteTurma->cargaHoraria;
@@ -648,7 +654,7 @@ class Finder extends Entity
                 AND componente_curricular_id = $2
             ';
 
-            $tipoNota = Portabilis_Utils_Database::fetchPreparedQuery($sql, ['params' => [$serieId, $componenteId], 'return_only' => 'first-row']);
+            $tipoNota = Database::fetchPreparedQuery($sql, ['params' => [$serieId, $componenteId], 'return_only' => 'first-row']);
 
             return $tipoNota['tipo_nota'] ?? 'null';
         });
@@ -657,25 +663,24 @@ class Finder extends Entity
     }
 
     /**
-     * Recupera instâncias persistidas de ComponenteCurricular_Model_Componente,
+     * Recupera instâncias persistidas de Componente,
      * retornando-as com a carga horária padrão caso o componente identificado
      * em $componentes possua uma carga horária (atributo cargaHoraria) nula.
      *
-     * @param array                                           $componentes
-     * @param int                                             $anoEscolar
-     * @param ComponenteCurricular_Model_ComponenteDataMapper $mapper
+     * @param array                     $componentes
+     * @param int                       $anoEscolar
+     * @param ComponenteDataMapper|null $mapper
      *
      * @return array
      *
-     * @throws Exception
      */
     protected static function _hydrateComponentes(
         array $componentes,
         $anoEscolar,
-        ComponenteCurricular_Model_ComponenteDataMapper $mapper = null
+        ComponenteDataMapper $mapper = null
     ) {
         $ids = array_map(function ($componente) {
-            return intval($componente->id);
+            return (int) $componente->id;
         }, $componentes);
 
         $key = json_encode(compact('anoEscolar', 'componentes'));
@@ -699,7 +704,7 @@ class Finder extends Entity
                 ->whereIn('id', $ids)
                 ->get()
                 ->map(function (LegacyDiscipline $discipline) use ($disciplinesAcademicYear, $componentes, $getCargaHoraria) {
-                    return new ComponenteCurricular_Model_Componente([
+                    return new Componente([
                         'id' => $discipline->id,
                         'instituicao' => $discipline->instituicao_id,
                         'nome' => $discipline->nome,
@@ -911,20 +916,20 @@ class Finder extends Entity
     }
 
     /**
-     * Retorna um array de instâncias ComponenteCurricular_Model_Componente ao
+     * Retorna um array de instâncias Componente ao
      * qual um aluno cursa através de sua matrícula.
      *
      * Exclui todas os componentes curriculares ao qual o aluno está dispensado
      * de cursar.
      *
-     * @param int                                             $codMatricula
-     * @param ComponenteCurricular_Model_ComponenteDataMapper $componenteMapper
-     * @param ComponenteCurricular_Model_TurmaDataMapper      $turmaMapper
-     * @param int|null                                        $componenteCurricularId
-     * @param int|null                                        $etapa
-     * @param int|null                                        $turma
-     * @param int|null                                        $matricula
-     * @param bool                                            $trazerDetalhes
+     * @param int                  $codMatricula
+     * @param ComponenteDataMapper $componenteMapper
+     * @param TurmaDataMapper      $turmaMapper
+     * @param int|null             $componenteCurricularId
+     * @param int|null             $etapa
+     * @param int|null             $turma
+     * @param int|null             $matricula
+     * @param bool                 $trazerDetalhes
      *
      * @return array
      *
@@ -932,8 +937,8 @@ class Finder extends Entity
      */
     public static function getComponentesPorMatricula(
         $codMatricula,
-        ComponenteCurricular_Model_ComponenteDataMapper $componenteMapper = null,
-        ComponenteCurricular_Model_TurmaDataMapper $turmaMapper = null,
+        ComponenteDataMapper $componenteMapper = null,
+        TurmaDataMapper $turmaMapper = null,
         $componenteCurricularId = null,
         $etapa = null,
         $turma = null,

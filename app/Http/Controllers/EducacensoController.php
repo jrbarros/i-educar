@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LegacyInstitution;
 use App\Repositories\EducacensoRepository;
-use ComponenteCurricular_Model_CodigoEducacenso;
+use CodigoEducacenso;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -89,7 +89,7 @@ class EducacensoController extends Controller
                     $disciplines = explode(',', substr($item->componentes, 1, -1));
 
                     $item->componentes = collect($disciplines)->unique()->map(function ($discipline) {
-                        return ComponenteCurricular_Model_CodigoEducacenso::getDescription($discipline);
+                        return CodigoEducacenso::getDescription($discipline);
                     })->toArray();
 
                     return $item;
