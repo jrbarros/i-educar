@@ -16,7 +16,7 @@ class PontoController extends EditController
 {
     use LegacyAddressingFields;
 
-    protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
+    protected $_dataMapper = 'FuncionarioDataMapper';
     protected $_titulo = 'i-Educar - Pontos';
 
     protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;

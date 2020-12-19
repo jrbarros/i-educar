@@ -1,10 +1,15 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
-require_once 'CoreExt/Validate/Email.php';
+namespace iEducarLegacy\Modules\Usuario\Model;
 
-class Usuario_Model_Funcionario extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Lib\CoreExt\Validate\Email;
+
+/**
+ * Class Funcionario
+ * @package iEducarLegacy\Modules\TransporteEscolar\Views
+ */
+class Funcionario extends Entity
 {
     protected $_data = [
         'Matricula' => null,
@@ -23,8 +28,7 @@ class Usuario_Model_Funcionario extends CoreExt_Entity
     public function getDataMapper()
     {
         if (is_null($this->_dataMapper)) {
-            require_once 'Usuario/Model/FuncionarioDataMapper.php';
-            $this->setDataMapper(new Usuario_Model_FuncionarioDataMapper());
+            $this->setDataMapper(new FuncionarioDataMapper());
         }
 
         return parent::getDataMapper();
@@ -33,7 +37,7 @@ class Usuario_Model_Funcionario extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         return [
-            'email' => new _Validate_Email()
+            'email' => new Email()
         ];
     }
 

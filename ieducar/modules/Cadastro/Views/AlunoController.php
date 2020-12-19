@@ -30,7 +30,7 @@ class AlunoController extends EditController
 {
     use LegacyAddressingFields;
 
-    protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
+    protected $_dataMapper = 'FuncionarioDataMapper';
 
     protected $_titulo = 'Cadastro de aluno';
 

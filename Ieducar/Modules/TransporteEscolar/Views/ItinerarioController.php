@@ -13,7 +13,7 @@ use iEducarLegacy\Lib\Portabilis\String\Utils;
  */
 class ItinerarioController extends EditController
 {
-    protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
+    protected $_dataMapper = 'FuncionarioDataMapper';
     protected $_titulo = 'Cadastro de Rota';
 
     protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;

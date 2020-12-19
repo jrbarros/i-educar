@@ -12,7 +12,7 @@ use iEducarLegacy\Lib\Portabilis\String\Utils;
  */
 class EmpresaController extends EditController
 {
-    protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
+    protected $_dataMapper = 'FuncionarioDataMapper';
     protected $_titulo = 'i-Educar - Empresas';
 
     protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;

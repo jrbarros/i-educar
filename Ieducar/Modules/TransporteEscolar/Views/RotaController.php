@@ -12,7 +12,7 @@ use iEducarLegacy\Lib\Portabilis\String\Utils;
  */
 class RotaController extends EditController
 {
-    protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
+    protected $_dataMapper = 'FuncionarioDataMapper';
     protected $_titulo = 'i-Educar - Rotas';
 
     protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;

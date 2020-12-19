@@ -13,7 +13,7 @@ use iEducarLegacy\Lib\Portabilis\Controller\Page\EditController;
  */
 class PessoatransporteController extends EditController
 {
-    protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
+    protected $_dataMapper = 'FuncionarioDataMapper';
     protected $_titulo = 'i-Educar - Usu&aacute;rios de transporte';
 
     protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;

@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'Usuario/Model/Funcionario.php';
+namespace iEducarLegacy\Modules\Usuario\Model;
 
-class Usuario_Model_FuncionarioDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class FuncionarioDataMapper
+ * @package iEducarLegacy\Modules\Usuario\Model
+ */
+class FuncionarioDataMapper extends DataMapper
 {
-    protected $_entityClass = 'Usuario_Model_Funcionario';
+    protected $_entityClass = 'Funcionario';
 
     protected $_tableName = 'funcionario';
 

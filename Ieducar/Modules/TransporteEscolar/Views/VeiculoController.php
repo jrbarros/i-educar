@@ -9,7 +9,7 @@ use iEducarLegacy\Lib\Portabilis\String\Utils;
 
 class VeiculoController extends EditController
 {
-    protected $_dataMapper = 'Usuario_Model_FuncionarioDataMapper';
+    protected $_dataMapper = 'FuncionarioDataMapper';
     protected $_titulo = 'i-Educar - Motoristas';
 
     protected $_nivelAcessoOption = NivelAcesso::SOMENTE_ESCOLA;
