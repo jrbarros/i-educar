@@ -1,5 +1,10 @@
 <?php
 
+namespace iEducarLegacy\Modules\FormulaMedia\Validate;
+
+
+use iEducarLegacy\Lib\CoreExt\CoreExtensionException;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,10 +39,8 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/CoreExtensionException.php';
-
 /**
- * FormulaMedia_Validate_Exception class.
+ * Exception class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -52,6 +55,6 @@ require_once 'CoreExt/CoreExtensionException.php';
  *
  * @version     @@package_version@@
  */
-class FormulaMedia_Validate_Exception extends CoreExtensionException
+class Exception extends CoreExtensionException
 {
 }

@@ -1,11 +1,17 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Modules\FormulaMedia\Model;
 
-class FormulaMedia_Model_TipoFormula extends Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class TipoFormula
+ * @package iEducarLegacy\Modules\FormulaMedia\Model
+ */
+class TipoFormula extends Enum
 {
-    const MEDIA_FINAL = 1;
-    const MEDIA_RECUPERACAO = 2;
+    public const MEDIA_FINAL = 1;
+    public const MEDIA_RECUPERACAO = 2;
 
     protected $_data = [
         self::MEDIA_FINAL => 'Média final',

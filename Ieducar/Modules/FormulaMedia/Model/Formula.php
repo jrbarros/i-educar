@@ -1,11 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
-require_once 'FormulaMedia/Model/TipoFormula.php';
-require_once 'FormulaMedia/Validate/Formula.php';
+namespace iEducarLegacy\Modules\FormulaMedia\Model;
 
-class FormulaMedia_Model_Formula extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class Formula
+ * @package iEducarLegacy\Modules\FormulaMedia\Model
+ */
+class Formula extends Entity
 {
     /**
      * Tokens válidos para ser utilizado pela fórmula.
@@ -77,8 +80,8 @@ class FormulaMedia_Model_Formula extends CoreExt_Entity
      */
     protected $_references = [
         'tipoFormula' => [
-            'value' => FormulaMedia_Model_TipoFormula::MEDIA_FINAL,
-            'class' => 'FormulaMedia_Model_TipoFormula',
+            'value' => TipoFormula::MEDIA_FINAL,
+            'class' => 'TipoFormula',
             'file' => 'FormulaMedia/Model/TipoFormula.php'
         ]
     ];
@@ -237,13 +240,13 @@ class FormulaMedia_Model_Formula extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         $instituicoes = array_keys(Finder::getInstituicoes());
-        $tipoFormula = FormulaMedia_Model_TipoFormula::getInstance();
+        $tipoFormula = TipoFormula::getInstance();
 
         // Se for de recuperação, inclui o token "Rc" como permitido.
 
         $formulaValidatorOptions = [];
 
-        if (FormulaMedia_Model_TipoFormula::MEDIA_RECUPERACAO == $this->get('tipoFormula')) {
+        if (TipoFormula::MEDIA_RECUPERACAO == $this->get('tipoFormula')) {
             $formulaValidatorOptions = ['excludeToken' => null];
         }
 

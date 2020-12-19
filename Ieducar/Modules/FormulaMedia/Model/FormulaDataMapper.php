@@ -1,11 +1,15 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'FormulaMedia/Model/Formula.php';
+namespace iEducarLegacy\Modules\FormulaMedia\Model;
 
-class FormulaMedia_Model_FormulaDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class FormulaDataMapper
+ */
+class FormulaDataMapper extends DataMapper
 {
-    protected $_entityClass = 'FormulaMedia_Model_Formula';
+    protected $_entityClass = 'Formula';
 
     protected $_tableName = 'formula_media';
 

@@ -1,5 +1,9 @@
 <?php
 
+namespace iEducarLegacy\Modules\FormulaMedia\Validate;
+
+use iEducarLegacy\Lib\CoreExt\Validate\Validate;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,11 +38,8 @@
  * @version     $Id$
  */
 
-
-require_once 'FormulaMedia/Model/Formula.php';
-
 /**
- * FormulaMedia_Validate_Formula class.
+ * Formula class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  *
@@ -53,12 +54,12 @@ require_once 'FormulaMedia/Model/Formula.php';
  *
  * @version     @@package_version@@
  */
-class FormulaMedia_Validate_Formula extends Validate
+class Formula extends Validate
 {
     /**
-     * Referência para instância da classe FormulaMedia_Model_Formula do model.
+     * Referência para instância da classe Formula do model.
      *
-     * @var FormulaMedia_Model_Formula
+     * @var Formula
      */
     protected static $_model = null;
 

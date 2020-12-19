@@ -1,18 +1,22 @@
 <?php
 
-require_once 'Core/Controller/Page/CoreControllerPageEditController.php';
-require_once 'FormulaMedia/Model/FormulaDataMapper.php';
-require_once 'FormulaMedia/Validate/Formula.php';
+namespace iEducarLegacy\Modules\FormulaMedia\Views;
 
 use App\Models\LegacyExamRule;
+use iEducarLegacy\Lib\App\Model\NivelAcesso;
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageEditController;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class EditController extends Core_Controller_Page_EditController
+/**
+ * Class EditController
+ * @package iEducarLegacy\Modules\FormulaMedia\Views
+ */
+class EditController extends CoreControllerPageEditController
 {
-    protected $_dataMapper        = 'FormulaMedia_Model_FormulaDataMapper';
+    protected $_dataMapper        = 'FormulaDataMapper';
     protected $_titulo            = 'Cadastro de fórmula de cálculo de média';
     protected $_processoAp        = 948;
-    protected $_nivelAcessoOption = App_Model_NivelAcesso::INSTITUCIONAL;
+    protected $_nivelAcessoOption = NivelAcesso::INSTITUCIONAL;
     protected $_saveOption        = true;
     protected $_deleteOption      = true;
 

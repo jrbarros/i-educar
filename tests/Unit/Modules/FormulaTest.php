@@ -99,7 +99,7 @@ class FormulaTest extends UnitBaseTest
     $validators = $this->_entity->getDefaultValidatorCollection();
     $this->assertInstanceOf('Choice', $validators['instituicao']);
     $this->assertInstanceOf('Text', $validators['nome']);
-    $this->assertInstanceOf('FormulaMedia_Validate_Formula', $validators['formulaMedia']);
+    $this->assertInstanceOf('Formula', $validators['formulaMedia']);
     $this->assertInstanceOf('Choice', $validators['tipoFormula']);
 
     // Se o tipo da fórmula for de média final, o validador irá lançar uma
@@ -112,7 +112,7 @@ class FormulaTest extends UnitBaseTest
     catch (Exception $e) {
     }
 
-    // Configura a instância de FormulaMedia_Model_Formula para ser do tipo
+    // Configura a instância de Formula para ser do tipo
     // "média recuperação", para verificar o validador.
     // Referências podem ter seus valores atribuídos apenas na instanciação
     // sendo assim imutáveis. Por isso, um novo objeto.

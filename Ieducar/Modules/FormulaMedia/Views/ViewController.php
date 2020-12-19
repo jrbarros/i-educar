@@ -1,5 +1,9 @@
 <?php
 
+namespace iEducarLegacy\Modules\FormulaMedia\Views;
+
+use iEducarLegacy\Lib\Core\Controller\Page\CoreControllerPageViewController;
+
 /**
  * i-Educar - Sistema de gestão escolar
  *
@@ -34,9 +38,6 @@
  * @version     $Id$
  */
 
-require_once 'Core/Controller/Page/CoreControllerPageViewController.php';
-require_once 'FormulaMedia/Model/FormulaDataMapper.php';
-
 /**
  * ViewController class.
  *
@@ -53,9 +54,9 @@ require_once 'FormulaMedia/Model/FormulaDataMapper.php';
  *
  * @version     @@package_version@@
  */
-class ViewController extends Core_Controller_Page_ViewController
+class ViewController extends CoreControllerPageViewController
 {
-    protected $_dataMapper = 'FormulaMedia_Model_FormulaDataMapper';
+    protected $_dataMapper = 'FormulaDataMapper';
     protected $_titulo     = 'Detalhes da fórmula de cálculo de média';
     protected $_processoAp = 948;
     protected $_tableMap   = [

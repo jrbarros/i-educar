@@ -25,9 +25,9 @@ class FormulaTest extends TestCase
     }
 
     /**
-     * @see FormulaMedia_Model_Formula::getTokens()
-     *
      * @return void
+     *@see Formula::getTokens()
+     *
      */
     public function testGetTokensMethod()
     {
@@ -35,9 +35,9 @@ class FormulaTest extends TestCase
     }
 
     /**
-     * @see FormulaMedia_Model_Formula::isNumericToken()
-     *
      * @return void
+     *@see Formula::isNumericToken()
+     *
      */
     public function testIsNumericTokenMethod()
     {
@@ -51,9 +51,9 @@ class FormulaTest extends TestCase
     }
 
     /**
-     * @see FormulaMedia_Model_Formula::replaceTokens()
-     *
      * @return void
+     *@see Formula::replaceTokens()
+     *
      */
     public function testReplaceTokensMethod()
     {
@@ -66,9 +66,9 @@ class FormulaTest extends TestCase
     }
 
     /**
-     * @see FormulaMedia_Model_Formula::replaceAliasTokens()
-     *
      * @return void
+     *@see Formula::replaceAliasTokens()
+     *
      */
     public function testReplaceAliasTokensMethod()
     {
@@ -80,9 +80,9 @@ class FormulaTest extends TestCase
     }
 
     /**
-     * @see FormulaMedia_Model_Formula::execFormulaMedia()
-     *
      * @return void
+     *@see Formula::execFormulaMedia()
+     *
      */
     public function testExecFormulaMediaMethod()
     {
@@ -107,9 +107,9 @@ class FormulaTest extends TestCase
     }
 
     /**
-     * @see FormulaMedia_Model_Formula::getDefaultValidatorCollection()
-     *
      * @return void
+     *@see Formula::getDefaultValidatorCollection()
+     *
      */
     public function testGetDefaultValidatorCollectionMethod()
     {

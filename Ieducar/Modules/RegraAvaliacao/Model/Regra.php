@@ -90,13 +90,13 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
         ],
         'formulaMedia' => [
             'value' => null,
-            'class' => 'FormulaMedia_Model_FormulaDataMapper',
+            'class' => 'FormulaDataMapper',
             'file' => 'FormulaMedia/Model/FormulaDataMapper.php',
             'null' => true
         ],
         'formulaRecuperacao' => [
             'value' => null,
-            'class' => 'FormulaMedia_Model_FormulaDataMapper',
+            'class' => 'FormulaDataMapper',
             'file' => 'FormulaMedia/Model/FormulaDataMapper.php',
             'null' => true
         ],

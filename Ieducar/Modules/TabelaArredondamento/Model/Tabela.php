@@ -157,12 +157,12 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
     /**
      * Prevê em qual range de arredondamento de acordo com um valor esperado. A
      * definição do valor a retornar é dada por uma instância de
-     * FormulaMedia_Model_Formula e um array com valores para as tokens da fórmula
+     * Formula e um array com valores para as tokens da fórmula
      * e o valor da variável a prever. Exemplo:
      *
      * <code>
      * <?php
-     * // Passa valores para as tokens disponíveis de FormulaMedia_Model_Formula
+     * // Passa valores para as tokens disponíveis de Formula
      * // e espera que o resultado do cálculo dê 6, usando como referência a
      * // variável "Rc"
      * $data = array(
@@ -182,7 +182,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
      * );
      * </code>
      *
-     * @param FormulaMedia_Model_Formula $formula
+     * @param Formula $formula
      * @param array                      $data
      *
      * @return TabelaArredondamento_Model_TabelaValor|NULL Retorna NULL caso
