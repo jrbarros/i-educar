@@ -1,7 +1,8 @@
 <?php
 
-#error_reporting(E_ALL);
-#ini_set("display_errors", 1);
+namespace iEducarLegacy\Modules\Biblioteca\Model;
+
+use iEducarLegacy\Lib\CoreExt\Entity;
 
 /**
  * i-Educar - Sistema de gestão escolar
@@ -37,10 +38,6 @@
  * @version     $Id$
  */
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
-require_once 'CoreExt/Validate/Email.php';
-
 /**
  * ComponenteCurricular_Model_Componente class.
  *
@@ -57,7 +54,7 @@ require_once 'CoreExt/Validate/Email.php';
  *
  * @version     @@package_version@@
  */
-class Biblioteca_Model_TipoExemplar extends CoreExt_Entity
+class TipoExemplar extends Entity
 {
     protected $_data = [
     'cod_exemplar_tipo'  => null,
@@ -82,7 +79,7 @@ class Biblioteca_Model_TipoExemplar extends CoreExt_Entity
     {
         if (is_null($this->_dataMapper)) {
             require_once 'Biblioteca/Model/TipoExemplarDataMapper.php';
-            $this->setDataMapper(new Biblioteca_Model_TipoExemplarDataMapper());
+            $this->setDataMapper(new TipoExemplarDataMapper());
         }
 
         return parent::getDataMapper();

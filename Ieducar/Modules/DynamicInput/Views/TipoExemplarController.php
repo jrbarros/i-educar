@@ -58,7 +58,7 @@ require_once 'Biblioteca/Model/TipoExemplarDataMapper.php';
  */
 class TipoExemplarController extends ApiCoreController
 {
-    protected $_dataMapper  = 'Biblioteca_Model_TipoExemplarDataMapper';
+    protected $_dataMapper  = 'TipoExemplarDataMapper';
 
     protected function canGetTiposExemplar()
     {
