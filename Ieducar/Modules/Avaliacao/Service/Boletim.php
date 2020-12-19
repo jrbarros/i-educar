@@ -2535,7 +2535,7 @@ class Boletim implements CoreExtConfigurable
     /**
      * Promove o aluno de etapa escolar caso esteja aprovado de acordo com o
      * necessário estabelecido por tipoProgressao de
-     * RegraAvaliacao_Model_Regra.
+     * Regra.
      *
      * @param bool $ok Caso a progressão não seja automática, é necessário uma
      *                 confirmação externa para a promoção do aluno.
@@ -3196,7 +3196,7 @@ class Boletim implements CoreExtConfigurable
      *
      * @return array
      *
-     * @see RegraAvaliacao_Model_Regra::findRegraRecuperacao()
+     * @see Regra::findRegraRecuperacao()
      * @deprecated
      *
      */

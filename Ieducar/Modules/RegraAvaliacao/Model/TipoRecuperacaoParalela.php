@@ -1,14 +1,19 @@
 <?php
 
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
+
 use App\Models\LegacyEvaluationRule;
+use iEducarLegacy\Lib\CoreExt\Enum;
 
-require_once 'CoreExt/Enum.php';
-
-class RegraAvaliacao_Model_TipoRecuperacaoParalela extends Enum
+/**
+ * Class TipoRecuperacaoParalela
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model
+ */
+class TipoRecuperacaoParalela extends Enum
 {
-    const NAO_USAR = LegacyEvaluationRule::PARALLEL_REMEDIAL_NONE;
-    const USAR_POR_ETAPA = LegacyEvaluationRule::PARALLEL_REMEDIAL_PER_STAGE;
-    const USAR_POR_ETAPAS_ESPECIFICAS = LegacyEvaluationRule::PARALLEL_REMEDIAL_PER_SPECIFIC_STAGE;
+    public const NAO_USAR = LegacyEvaluationRule::PARALLEL_REMEDIAL_NONE;
+    public const USAR_POR_ETAPA = LegacyEvaluationRule::PARALLEL_REMEDIAL_PER_STAGE;
+    public const USAR_POR_ETAPAS_ESPECIFICAS = LegacyEvaluationRule::PARALLEL_REMEDIAL_PER_SPECIFIC_STAGE;
 
     protected $_data = [
         LegacyEvaluationRule::PARALLEL_REMEDIAL_NONE => 'Não usar recuperação paralela',

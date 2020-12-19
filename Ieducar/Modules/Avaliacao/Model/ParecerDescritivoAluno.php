@@ -65,7 +65,7 @@ class ParecerDescritivoAluno extends Entity
     protected $_references = [
     'parecerDescritivo' => [
       'value' => null,
-      'class' => 'RegraAvaliacao_Model_TipoParecerDescritivo',
+      'class' => 'TipoParecerDescritivo',
       'file'  => 'RegraAvaliacao/Model/TipoParecerDescritivo.php'
     ]
   ];

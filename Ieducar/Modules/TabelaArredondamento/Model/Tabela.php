@@ -18,7 +18,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
     protected $_references = [
         'tipoNota' => [
             'value' => 1,
-            'class' => 'RegraAvaliacao_Model_Nota_TipoValor',
+            'class' => 'TipoValor',
             'file' => 'RegraAvaliacao/Model/Nota/TipoValor.php'
         ]
     ];

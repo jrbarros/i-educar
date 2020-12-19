@@ -1,9 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
-class RegraAvaliacao_Model_RegraRecuperacao extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class RegraRecuperacao
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model
+ */
+class RegraRecuperacao extends Entity
 {
     protected $_data = [
         'regraAvaliacao' => null,
@@ -23,7 +28,7 @@ class RegraAvaliacao_Model_RegraRecuperacao extends CoreExt_Entity
     protected $_references = [
         'regraAvaliacao' => [
             'value' => null,
-            'class' => 'RegraAvaliacao_Model_RegraDataMapper',
+            'class' => 'RegraDataMapper',
             'file' => 'RegraAvaliacao/Model/RegraDataMapper.php'
         ]
     ];
@@ -35,7 +40,7 @@ class RegraAvaliacao_Model_RegraRecuperacao extends CoreExt_Entity
     {
         if (is_null($this->_dataMapper)) {
             require_once 'RegraAvaliacao/Model/RegraRecuperacaoDataMapper.php';
-            $this->setDataMapper(new RegraAvaliacao_Model_RegraRecuperacaoDataMapper());
+            $this->setDataMapper(new RegraRecuperacaoDataMapper());
         }
 
         return parent::getDataMapper();

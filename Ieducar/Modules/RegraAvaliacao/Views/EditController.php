@@ -8,7 +8,7 @@ require_once 'RegraAvaliacao/Model/RegraRecuperacaoDataMapper.php';
 
 class EditController extends Core_Controller_Page_EditController
 {
-    protected $_dataMapper = 'RegraAvaliacao_Model_RegraDataMapper';
+    protected $_dataMapper = 'RegraDataMapper';
     protected $_titulo = 'Cadastro de regra de avaliação';
     protected $_processoAp = 947;
     protected $_nivelAcessoOption = App_Model_NivelAcesso::INSTITUCIONAL;
@@ -229,7 +229,7 @@ class EditController extends Core_Controller_Page_EditController
         }';
 
     /**
-     * Collection de instâncias RegraAvaliacao_Model_RegraRecuperacao.
+     * Collection de instâncias RegraRecuperacao.
      *
      * @var array
      */
@@ -266,7 +266,7 @@ class EditController extends Core_Controller_Page_EditController
      *
      * @param int $id
      *
-     * @return RegraAvaliacao_Model_RegraRecuperacao
+     * @return RegraRecuperacao
      */
     protected function _getRecuperacao($id)
     {
@@ -941,7 +941,7 @@ class EditController extends Core_Controller_Page_EditController
             if (null != ($instance = $this->_getRecuperacao($id))) {
                 $insert[$id] = $instance->setOptions($data);
             } else {
-                $instance = new RegraAvaliacao_Model_RegraRecuperacao($data);
+                $instance = new RegraRecuperacao($data);
                 if (!$instance->isNull()) {
                     if ($recuperacoes['excluir'][$i] && is_numeric($id)) {
                         $this->getDataMapper()

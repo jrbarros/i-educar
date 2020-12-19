@@ -836,14 +836,14 @@ class Finder extends Entity
     }
 
     /**
-     * Retorna uma instância de RegraAvaliacao_Model_Regra a partir dos dados
+     * Retorna uma instância de Regra a partir dos dados
      * da matrícula.
      *
      * @param int                                  $codMatricula
      * @param RegraAvaliacao_Model_RegraDataMapper $mapper
      * @param array                                $matricula
      *
-     * @return RegraAvaliacao_Model_Regra
+     * @return Regra
      *
      * @throws Exception
      */
@@ -883,13 +883,13 @@ class Finder extends Entity
     }
 
     /**
-     * Retorna uma instância de RegraAvaliacao_Model_Regra a partir dos dados
+     * Retorna uma instância de Regra a partir dos dados
      * da turma.
      *
      * @param int                                  $turmaId
      * @param RegraAvaliacao_Model_RegraDataMapper $mapper
      *
-     * @return RegraAvaliacao_Model_Regra
+     * @return Regra
      *
      * @throws Exception
      */

@@ -1,12 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'RegraAvaliacao/Model/Regra.php';
-require_once 'FormulaMedia/Model/TipoFormula.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
-class RegraAvaliacao_Model_RegraDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class RegraDataMapper
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model
+ */
+class RegraDataMapper extends DataMapper
 {
-    protected $_entityClass = 'RegraAvaliacao_Model_Regra';
+    protected $_entityClass = 'Regra';
 
     protected $_tableName = 'regra_avaliacao';
 
@@ -63,7 +67,7 @@ class RegraAvaliacao_Model_RegraDataMapper extends CoreExt_DataMapper
      *
      * @param FormulaMedia_Model_FormulaDataMapper $mapper
      *
-     * @return RegraAvaliacao_Model_RegraDataMapper
+     * @return RegraDataMapper
      */
     public function setFormulaDataMapper(FormulaMedia_Model_FormulaDataMapper $mapper)
     {
@@ -160,11 +164,11 @@ class RegraAvaliacao_Model_RegraDataMapper extends CoreExt_DataMapper
      * Finder para instâncias de TabelaArredondamento_Model_Tabela. Utiliza
      * o valor de instituição por instâncias que referenciem a mesma instituição.
      *
-     * @param RegraAvaliacao_Model_Regra $instance
+     * @param Regra $instance
      *
      * @return array
      */
-    public function findTabelaArredondamento(RegraAvaliacao_Model_Regra $instance, array $where = [])
+    public function findTabelaArredondamento(Regra $instance, array $where = [])
     {
         if (isset($instance->instituicao)) {
             $where['instituicao'] = $instance->instituicao;
@@ -174,18 +178,18 @@ class RegraAvaliacao_Model_RegraDataMapper extends CoreExt_DataMapper
     }
 
     /**
-     * @var RegraAvaliacao_Model_RegraRecuperacaoDataMapper
+     * @var RegraRecuperacaoDataMapper
      */
     protected $_regraRecuperacaoDataMapper = null;
 
     /**
      * Setter.
      *
-     * @param RegraAvaliacao_Model_RegraRecuperacaoDataMapper $mapper
+     * @param RegraRecuperacaoDataMapper $mapper
      *
      * @return CoreExt_DataMapper Provê interface fluída
      */
-    public function setRegraRecuperacaoDataMapper(RegraAvaliacao_Model_RegraRecuperacaoDataMapper $mapper)
+    public function setRegraRecuperacaoDataMapper(RegraRecuperacaoDataMapper $mapper)
     {
         $this->_regraRecuperacaoDataMapper = $mapper;
 
@@ -202,7 +206,7 @@ class RegraAvaliacao_Model_RegraDataMapper extends CoreExt_DataMapper
         if (is_null($this->_regraRecuperacaoDataMapper)) {
             require_once 'RegraAvaliacao/Model/RegraRecuperacaoDataMapper.php';
             $this->setRegraRecuperacaoDataMapper(
-                new RegraAvaliacao_Model_RegraRecuperacaoDataMapper()
+                new RegraRecuperacaoDataMapper()
             );
         }
 
@@ -210,15 +214,15 @@ class RegraAvaliacao_Model_RegraDataMapper extends CoreExt_DataMapper
     }
 
     /**
-     * Finder para instâncias de RegraAvaliacao_Model_RegraRecuperacao que tenham
-     * referências a instância RegraAvaliacao_Model_Regra passada como
+     * Finder para instâncias de RegraRecuperacao que tenham
+     * referências a instância Regra passada como
      * parâmetro.
      *
-     * @param RegraAvaliacao_Model_Regra $instance
+     * @param Regra $instance
      *
-     * @return array Um array de instâncias RegraAvaliacao_Model_RegraRecuperacao
+     * @return array Um array de instâncias RegraRecuperacao
      */
-    public function findRegraRecuperacao(RegraAvaliacao_Model_Regra $instance)
+    public function findRegraRecuperacao(Regra $instance)
     {
         $where = [
       'regraAvaliacao' => $instance->id

@@ -1,11 +1,17 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
-class RegraAvaliacao_Model_TipoPresenca extends Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class TipoPresenca
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model
+ */
+class TipoPresenca extends Enum
 {
-    const GERAL = 1;
-    const POR_COMPONENTE = 2;
+    public const GERAL = 1;
+    public const POR_COMPONENTE = 2;
 
     protected $_data = [
         self::GERAL => 'Apura falta no geral (unificada)',

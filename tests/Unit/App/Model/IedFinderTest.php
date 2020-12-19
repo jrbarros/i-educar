@@ -333,7 +333,7 @@ class FinderTest extends UnitBaseTest
 
   public function testGetRegraAvaliacaoPorMatricula()
   {
-    $expected = new RegraAvaliacao_Model_Regra(array(
+    $expected = new Regra(array(
       'id'                   => 1,
       'nome'                 => 'Regra geral',
       'tipoNota'             => RegraAvaliacao_Model_Nota_TipoValor::NUMERICA,
@@ -359,7 +359,7 @@ class FinderTest extends UnitBaseTest
     );
 
     // Mock para RegraAvaliacao_Model_DataMapper
-    $mapperMock = $this->getCleanMock('RegraAvaliacao_Model_RegraDataMapper');
+    $mapperMock = $this->getCleanMock('RegraDataMapper');
     $mapperMock->expects($this->once())
                ->method('find')
                ->with(1)

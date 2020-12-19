@@ -46,7 +46,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
 {
   protected function _setUpRegraAvaliacaoMock($tipoProgressao)
   {
-    $mock = $this->getCleanMock('RegraAvaliacao_Model_Regra');
+    $mock = $this->getCleanMock('Regra');
     $mock->expects($this->at(0))
          ->method('get')
          ->with('tipoProgressao')
@@ -96,7 +96,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $service = $this->setExcludedMethods(array('promover'))
                     ->getCleanMock('Boletim');
 
-    // Mock para RegraAvaliacao_Model_Regra
+    // Mock para Regra
     $service->expects($this->any())
             ->method('getRegraAvaliacaoTipoProgressao')
             ->will($this->returnValue(RegraAvaliacao_Model_TipoProgressao::CONTINUADA));
@@ -196,7 +196,7 @@ class Avaliacao_Service_PromocaoAlunoTest extends Avaliacao_Service_TestCommon
     $codMatricula = $this->_getConfigOption('Matricula', 'cod_matricula');
     $codUsuario   = $this->_getConfigOption('usuario', 'cod_usuario');
 
-    // Mock para RegraAvaliacao_Model_Regra
+    // Mock para Regra
 
     $service = $this->setExcludedMethods(array('promover'))
                     ->getCleanMock('Boletim');

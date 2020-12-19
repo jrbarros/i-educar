@@ -1,13 +1,13 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'RegraAvaliacao/Model/Nota/TipoValor.php';
-require_once 'RegraAvaliacao/Model/TipoProgressao.php';
-require_once 'RegraAvaliacao/Model/TipoParecerDescritivo.php';
-require_once 'RegraAvaliacao/Model/TipoPresenca.php';
-require_once 'RegraAvaliacao/Model/TipoRecuperacaoParalela.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
-class RegraAvaliacao_Model_Regra extends CoreExt_Entity
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\CoreExt\Entity;
+use iEducarLegacy\Modules\RegraAvaliacao\Model\Nota\TipoValor;
+
+
+class Regra extends Entity
 {
     protected $_data = [
         'instituicao' => null,
@@ -57,7 +57,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
     protected $_references = [
         'tipoNota' => [
             'value' => 1,
-            'class' => 'RegraAvaliacao_Model_Nota_TipoValor',
+            'class' => 'TipoValor',
             'file' => 'RegraAvaliacao/Model/Nota/TipoValor.php'
         ],
         'tabelaArredondamento' => [
@@ -74,18 +74,18 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
         ],
         'tipoProgressao' => [
             'value' => 1,
-            'class' => 'RegraAvaliacao_Model_TipoProgressao',
+            'class' => 'TipoProgressao',
             'file' => 'RegraAvaliacao/Model/TipoProgressao.php'
         ],
         'parecerDescritivo' => [
             'value' => 0,
-            'class' => 'RegraAvaliacao_Model_TipoParecerDescritivo',
+            'class' => 'TipoParecerDescritivo',
             'file' => 'RegraAvaliacao/Model/TipoParecerDescritivo.php',
             'null' => true
         ],
         'tipoPresenca' => [
             'value' => 1,
-            'class' => 'RegraAvaliacao_Model_TipoPresenca',
+            'class' => 'TipoPresenca',
             'file' => 'RegraAvaliacao/Model/TipoPresenca.php'
         ],
         'formulaMedia' => [
@@ -102,13 +102,13 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
         ],
         'tipoRecuperacaoParalela' => [
             'value' => 0,
-            'class' => 'RegraAvaliacao_Model_TipoRecuperacaoParalela',
+            'class' => 'TipoRecuperacaoParalela',
             'file' => 'RegraAvaliacao/Model/TipoRecuperacaoParalela.php',
             'null' => true
         ],
         'regraDiferenciada' => [
             'value' => null,
-            'class' => 'RegraAvaliacao_Model_RegraDataMapper',
+            'class' => 'RegraDataMapper',
             'file' => 'RegraAvaliacao/Model/RegraDataMapper.php',
             'null' => true
         ]
@@ -125,8 +125,8 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
     public function getDataMapper()
     {
         if (is_null($this->_dataMapper)) {
-            require_once 'RegraAvaliacao/Model/RegraDataMapper.php';
-            $this->setDataMapper(new RegraAvaliacao_Model_RegraDataMapper());
+
+            $this->setDataMapper(new RegraDataMapper());
         }
 
         return parent::getDataMapper();
@@ -138,29 +138,29 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
     public function getDefaultValidatorCollection()
     {
         // Enums
-        $tipoNotaValor = RegraAvaliacao_Model_Nota_TipoValor::getInstance();
-        $tipoProgressao = RegraAvaliacao_Model_TipoProgressao::getInstance();
-        $tipoParecerDescritivo = RegraAvaliacao_Model_TipoParecerDescritivo::getInstance();
-        $tipoPresenca = RegraAvaliacao_Model_TipoPresenca::getInstance();
-        $tipoRecuperacaoParalela = RegraAvaliacao_Model_TipoRecuperacaoParalela::getInstance();
+        $tipoNotaValor = TipoValor::getInstance();
+        $tipoProgressao = TipoProgressao::getInstance();
+        $tipoParecerDescritivo = TipoParecerDescritivo::getInstance();
+        $tipoPresenca = TipoPresenca::getInstance();
+        $tipoRecuperacaoParalela = TipoRecuperacaoParalela::getInstance();
 
         // ids de fórmulas de média
         $formulaMedia = $this->getDataMapper()->findFormulaMediaFinal();
-        $formulaMedia = CoreExt_Entity::entityFilterAttr($formulaMedia, 'id');
+        $formulaMedia = Entity::entityFilterAttr($formulaMedia, 'id');
 
         // ids de fórmulas de recuperação
         $formulaRecuperacao = $this->getDataMapper()->findFormulaMediaRecuperacao();
-        $formulaRecuperacao = CoreExt_Entity::entityFilterAttr($formulaRecuperacao, 'id');
+        $formulaRecuperacao = Entity::entityFilterAttr($formulaRecuperacao, 'id');
         $formulaRecuperacao[0] = null;
 
         // ids de regras diferenciadas
         $regraDiferenciada = $this->getDataMapper()->findAll();
-        $regraDiferenciada = CoreExt_Entity::entityFilterAttr($regraDiferenciada, 'id');
+        $regraDiferenciada = Entity::entityFilterAttr($regraDiferenciada, 'id');
         $regraDiferenciada[0] = null;
 
         // ids de tabelas de arredondamento
         $tabelas = $this->getDataMapper()->findTabelaArredondamento($this);
-        $tabelas = CoreExt_Entity::entityFilterAttr($tabelas, 'id');
+        $tabelas = Entity::entityFilterAttr($tabelas, 'id');
 
         // Instituições
         $instituicoes = array_keys(Finder::getInstituicoes());
@@ -171,7 +171,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
         // Média é obrigatória?
         $isMediaRequired = true;
 
-        if ($this->get('tipoNota') == RegraAvaliacao_Model_Nota_TipoValor::NENHUM) {
+        if ($this->get('tipoNota') == TipoValor::NENHUM) {
             $isFormulaMediaRequired = false;
             $isMediaRequired = false;
 
@@ -222,7 +222,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
             ]),
             'media' => $this->validateIfEquals(
                 'tipoProgressao',
-                RegraAvaliacao_Model_TipoProgressao::CONTINUADA,
+                TipoProgressao::CONTINUADA,
                 'Numeric',
                 ['required' => $isMediaRequired, 'min' => 1, 'max' => 10],
                 ['required' => $isMediaRequired, 'min' => 0, 'max' => 10]
@@ -232,7 +232,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
             ]),
             'mediaRecuperacao' => $this->validateIfEquals(
                 'tipoProgressao',
-                RegraAvaliacao_Model_TipoProgressao::CONTINUADA,
+                TipoProgressao::CONTINUADA,
                 'Numeric',
                 ['required' => $isMediaRequired, 'min' => 1, 'max' => 14],
                 ['required' => $isMediaRequired, 'min' => 0, 'max' => 14]
@@ -247,7 +247,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
     }
 
     /**
-     * Método finder para RegraAvaliacao_Model_RegraRecuperacao. Wrapper simples
+     * Método finder para RegraRecuperacao. Wrapper simples
      * para o mesmo método de RegraAvaliacao_Model_TabelaDataMapper.
      *
      * @return array
@@ -283,7 +283,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
     {
         $tipoRecuperacaoParalela = $this->get('tipoRecuperacaoParalela');
 
-        if ($tipoRecuperacaoParalela != RegraAvaliacao_Model_TipoRecuperacaoParalela::USAR_POR_ETAPAS_ESPECIFICAS) {
+        if ($tipoRecuperacaoParalela != TipoRecuperacaoParalela::USAR_POR_ETAPAS_ESPECIFICAS) {
             return $this->notaMaximaGeral;
         }
 

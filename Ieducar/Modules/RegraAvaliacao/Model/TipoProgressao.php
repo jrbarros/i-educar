@@ -1,14 +1,20 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
-class RegraAvaliacao_Model_TipoProgressao extends Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class TipoProgressao
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model
+ */
+class TipoProgressao extends Enum
 {
-    const CONTINUADA = 1;
-    const NAO_CONTINUADA_MEDIA_PRESENCA = 2;
-    const NAO_CONTINUADA_SOMENTE_MEDIA = 3;
-    const NAO_CONTINUADA_MANUAL = 4;
-    const NAO_CONTINUADA_MANUAL_CICLO = 5;
+    public const CONTINUADA = 1;
+    public const NAO_CONTINUADA_MEDIA_PRESENCA = 2;
+    public const NAO_CONTINUADA_SOMENTE_MEDIA = 3;
+    public const NAO_CONTINUADA_MANUAL = 4;
+    public const NAO_CONTINUADA_MANUAL_CICLO = 5;
 
     protected $_data = [
         self::CONTINUADA => 'Continuada',

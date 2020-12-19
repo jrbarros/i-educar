@@ -1,12 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'RegraAvaliacao/Model/RegraRecuperacao.php';
-require_once 'App/Model/Finder.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
-class RegraAvaliacao_Model_RegraRecuperacaoDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class RegraRecuperacaoDataMapper
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model
+ */
+class RegraRecuperacaoDataMapper extends DataMapper
 {
-    protected $_entityClass = 'RegraAvaliacao_Model_RegraRecuperacao';
+    protected $_entityClass = 'RegraRecuperacao';
     protected $_tableName = 'regra_avaliacao_recuperacao';
     protected $_tableSchema = 'Modules';
 

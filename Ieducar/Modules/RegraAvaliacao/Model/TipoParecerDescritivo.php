@@ -1,16 +1,22 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
-class RegraAvaliacao_Model_TipoParecerDescritivo extends Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class TipoParecerDescritivo
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model
+ */
+class TipoParecerDescritivo extends Enum
 {
-    const NENHUM = 0;
-    const ETAPA_DESCRITOR = 1;
-    const ETAPA_COMPONENTE = 2;
-    const ETAPA_GERAL = 3;
-    const ANUAL_DESCRITOR = 4;
-    const ANUAL_COMPONENTE = 5;
-    const ANUAL_GERAL = 6;
+    public const NENHUM = 0;
+    public const ETAPA_DESCRITOR = 1;
+    public const ETAPA_COMPONENTE = 2;
+    public const ETAPA_GERAL = 3;
+    public const ANUAL_DESCRITOR = 4;
+    public const ANUAL_COMPONENTE = 5;
+    public const ANUAL_GERAL = 6;
 
     protected $_data = [
         self::NENHUM => 'Não usar parecer descritivo',

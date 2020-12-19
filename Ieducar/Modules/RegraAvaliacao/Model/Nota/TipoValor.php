@@ -1,13 +1,19 @@
 <?php
 
-require_once 'CoreExt/Enum.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model\Nota;
 
-class RegraAvaliacao_Model_Nota_TipoValor extends Enum
+use iEducarLegacy\Lib\CoreExt\Enum;
+
+/**
+ * Class TipoValor
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model\Nota
+ */
+class TipoValor extends Enum
 {
-    const NENHUM = 0;
-    const NUMERICA = 1;
-    const CONCEITUAL = 2;
-    const NUMERICACONCEITUAL = 3;
+    public const NENHUM = 0;
+    public const NUMERICA = 1;
+    public const CONCEITUAL = 2;
+    public const NUMERICACONCEITUAL = 3;
 
     protected $_data = [
         self::NENHUM => 'Não usar nota',

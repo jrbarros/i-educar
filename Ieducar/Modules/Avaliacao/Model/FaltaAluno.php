@@ -64,7 +64,7 @@ class FaltaAluno extends Entity
     protected $_references = [
     'tipoFalta' => [
       'value' => null,
-      'class' => 'RegraAvaliacao_Model_TipoPresenca',
+      'class' => 'TipoPresenca',
       'file'  => 'RegraAvaliacao/Model/TipoPresenca.php'
     ]
   ];

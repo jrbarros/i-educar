@@ -1,9 +1,14 @@
 <?php
 
-require_once 'CoreExt/Entity.php';
-require_once 'App/Model/Finder.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
-class RegraAvaliacao_Model_SerieAno extends CoreExt_Entity
+use iEducarLegacy\Lib\CoreExt\Entity;
+
+/**
+ * Class SerieAno
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model
+ */
+class SerieAno extends Entity
 {
     protected $_data = [
         'regraAvaliacao' => null,

@@ -55,7 +55,7 @@ class Avaliacao_Service_SituacaoTest extends Avaliacao_Service_TestCommon
     $service = $this->setExcludedMethods(['getSituacaoAluno', 'getSituacaoNotaFalta'])
                     ->getCleanMock('Boletim');
 
-    $regra = $this->getCleanMock('RegraAvaliacao_Model_Regra');
+    $regra = $this->getCleanMock('Regra');
 
     $regra->expects($this->any())
         ->method('get')

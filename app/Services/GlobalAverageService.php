@@ -18,7 +18,7 @@ class GlobalAverageService
         return $this->getAverage($registration);
     }
 
-    private function isGlobalScore(\RegraAvaliacao_Model_Regra $evaluationRule)
+    private function isGlobalScore(\Regra $evaluationRule)
     {
         return $evaluationRule->notaGeralPorEtapa == 1;
     }

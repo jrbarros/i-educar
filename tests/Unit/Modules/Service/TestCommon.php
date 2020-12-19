@@ -44,7 +44,7 @@ require_once 'Avaliacao/Service/Boletim.php';
  * A configuração padrão do service é constituída de:
  * - Código do usuário: 1
  * - Código de matrícula: 1
- * - RegraAvaliacao_Model_RegraDataMapper: configuração ampla. Ver o array
+ * - RegraDataMapper: configuração ampla. Ver o array
  *   $_regraOptions e o método _setRegraOption para entender a configuração
  *   da instância
  * - ComponenteDataMapper: mock que retorna
@@ -65,7 +65,7 @@ require_once 'Avaliacao/Service/Boletim.php';
  *   vazio. Não existem faltas lançadas para o aluno.
  *   OBSERVAÇÃO: métodos que sobrescreverem este, devem estar conscientes de
  *   que é necessário configurar o mock para retornar objeto(s) de acordo
- *   com o 'tipoPresenca' da instância de 'RegraAvaliacao_Model_Regra'. Ver o
+ *   com o 'tipoPresenca' da instância de 'Regra'. Ver o
  *   array $_regraOptions para mais informações.
  *
  * Outro ponto fundamental é entender que boa parte da inicialização do service
@@ -98,7 +98,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
     protected $_regraDataMapperMock = null;
 
     /**
-     * Opções de configuração para RegraAvaliacao_Model_RegraDataMapper. Por
+     * Opções de configuração para RegraDataMapper. Por
      * padrão, a regra terá:
      *
      * - Identificador "1"
@@ -178,7 +178,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
             ->_setConfigOptions('faltaAluno', $this->_getFaltaAluno())
             ->_setConfigOptions('parecerDescritivoAluno', $this->_getParecerDescritivoAluno());
 
-        // Configura atributos de RegraAvaliacao_Model_Regra
+        // Configura atributos de Regra
         $this->_setRegraOption('formulaMedia', $this->_setUpFormulaMedia())
             ->_setRegraOption('formulaRecuperacao', $this->_setUpFormulaRecuperacao())
             ->_setRegraOption('tabelaArredondamento', $this->_setUpTabelaArredondamento())
@@ -812,16 +812,16 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
 
     /**
      * Configura e retorna um mock de RegraAvaliacaoDataMapper que retorna uma
-     * instância de RegraAvaliacao_Model_Regra configurada de acordo com as
+     * instância de Regra configurada de acordo com as
      * opções do array $_regraOptions.
      *
      * @return RegraAvaliacao_Model_RegraDataMapper
      */
     protected function _getRegraDataMapperMock()
     {
-        $regraAvaliacao = new RegraAvaliacao_Model_Regra($this->_regraOptions);
+        $regraAvaliacao = new Regra($this->_regraOptions);
 
-        $mock = $this->getCleanMock('RegraAvaliacao_Model_RegraDataMapper');
+        $mock = $this->getCleanMock('RegraDataMapper');
         $mock->expects($this->any())
             ->method('find')
             ->with(1)
@@ -832,7 +832,7 @@ abstract class Avaliacao_Service_TestCommon extends UnitBaseTest
 
     /**
      * Configura uma das opções a serem passadas durante a instanciação de
-     * RegraAvaliacao_Model_Regra.
+     * Regra.
      *
      * @param string $key
      * @param mixed $value

@@ -97,10 +97,10 @@ class Avaliacao_Service_InicializacaoTest extends Avaliacao_Service_TestCommon
   public function testInstanciaRegraDeAvaliacaoAtravesDeUmNumeroDeMatricula()
   {
     $service = $this->_getServiceInstance();
-    $this->assertInstanceOf('RegraAvaliacao_Model_Regra', $service->getRegra());
+    $this->assertInstanceOf('Regra', $service->getRegra());
 
     // TabelaArredondamento_Model_Tabela é recuperada através da instância de
-    // RegraAvaliacao_Model_Regra
+    // Regra
     $this->assertInstanceOf('TabelaArredondamento_Model_Tabela', $service->getRegraAvaliacaoTabelaArredondamento());
   }
 }

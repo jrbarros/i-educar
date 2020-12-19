@@ -1,11 +1,16 @@
 <?php
 
-require_once 'CoreExt/DataMapper.php';
-require_once 'RegraAvaliacao/Model/SerieAno.php';
+namespace iEducarLegacy\Modules\RegraAvaliacao\Model;
 
-class RegraAvaliacao_Model_SerieAnoDataMapper extends CoreExt_DataMapper
+use iEducarLegacy\Lib\CoreExt\DataMapper;
+
+/**
+ * Class SerieAnoDataMapper
+ * @package iEducarLegacy\Modules\RegraAvaliacao\Model
+ */
+class SerieAnoDataMapper extends DataMapper
 {
-    protected $_entityClass = 'RegraAvaliacao_Model_SerieAno';
+    protected $_entityClass = 'SerieAno';
     protected $_tableName = 'regra_avaliacao_serie_ano';
     protected $_tableSchema = 'Modules';
 

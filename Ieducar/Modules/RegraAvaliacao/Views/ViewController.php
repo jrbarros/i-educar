@@ -8,7 +8,7 @@ class ViewController extends Core_Controller_Page_ViewController
     /**
      * @var string
      */
-    protected $_dataMapper = 'RegraAvaliacao_Model_RegraDataMapper';
+    protected $_dataMapper = 'RegraDataMapper';
 
     /**
      * @var string
