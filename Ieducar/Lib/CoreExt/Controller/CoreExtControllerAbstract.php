@@ -2,6 +2,7 @@
 
 namespace iEducarLegacy\Lib\CoreExt\Controller;
 
+use iEducarLegacy\Lib\CoreExt\Controller\Request\RequestInterface;
 use iEducarLegacy\Lib\CoreExt\Session;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\RedirectResponse;
@@ -88,11 +89,11 @@ abstract class CoreExtControllerAbstract implements CoreExtControllerInterface
     /**
      * Setter.
      *
-     * @param CoreExt_Controller_Request_Interface $request
+     * @param RequestInterface $request
      *
-     * @return CoreExt_Controller_Interface
+     * @return CoreExtControllerInterface
      */
-    public function setRequest(CoreExt_Controller_Request_Interface $request)
+    public function setRequest(RequestInterface $request)
     {
         $this->_request = $request;
 

@@ -59,7 +59,7 @@ class Url extends View
     /**
      * Retorna uma instância singleton.
      *
-     * @return View
+     * @return self
      */
     public static function getInstance()
     {
