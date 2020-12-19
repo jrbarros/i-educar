@@ -1,5 +1,14 @@
 <?php
 
+namespace iEducarLegacy\Modules\DynamicInput\Views;
+
+use iEducarLegacy\Lib\Portabilis\Business\Professor;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class CursoController
+ * @package iEducarLegacy\Modules\DynamicInput\Views
+ */
 class CursoController extends ApiCoreController
 {
     protected function canGetCursos()
@@ -17,10 +26,10 @@ class CursoController extends ApiCoreController
             $escolaId = $this->getRequest()->escola_id;
             $ano = $this->getRequest()->ano;
 
-            $isOnlyProfessor = Portabilis_Business_Professor::isOnlyProfessor($instituicaoId, $userId);
+            $isOnlyProfessor = Professor::isOnlyProfessor($instituicaoId, $userId);
 
             if ($isOnlyProfessor) {
-                $cursos = Portabilis_Business_Professor::cursosAlocado($instituicaoId, $escolaId, $userId);
+                $cursos = Professor::cursosAlocado($instituicaoId, $escolaId, $userId);
             } else {
                 $params = [ $escolaId ];
 
@@ -33,7 +42,7 @@ class CursoController extends ApiCoreController
                         pmieducar.escola_curso ec
                     WHERE ec.ref_cod_escola = $1
                     AND ec.ref_cod_curso = c.cod_curso
-                    AND ec.ativo = 1 AND c.ativo = 1 
+                    AND ec.ativo = 1 AND c.ativo = 1
                 ';
 
                 if (!empty($ano)) {

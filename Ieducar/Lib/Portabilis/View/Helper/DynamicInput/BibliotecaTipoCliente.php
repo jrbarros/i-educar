@@ -17,7 +17,7 @@ class BibliotecaTipoCliente extends CoreSelect
         $bibliotecaId = $this->getBibliotecaId();
 
         if ($bibliotecaId and empty($resources)) {
-            $resources = App_Model_IedFinder::getBibliotecaTiposCliente($bibliotecaId);
+            $resources = Finder::getBibliotecaTiposCliente($bibliotecaId);
         }
 
         return $this->insertOption(null, 'Selecione um tipo de cliente', $resources);

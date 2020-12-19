@@ -90,7 +90,7 @@ class indice extends clsListagem
 
         $obj_calendario_dia_motivo = new CalendarioDiaMotivo();
 
-        if (App_Model_IedFinder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
+        if (Finder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
             $obj_calendario_dia_motivo->codUsuario = $this->pessoa_logada;
         }
 

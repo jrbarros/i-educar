@@ -51,7 +51,7 @@ class Componente extends Entity
 
     public function getDefaultValidatorCollection()
     {
-        $instituicoes = array_keys(App_Model_IedFinder::getInstituicoes());
+        $instituicoes = array_keys(Finder::getInstituicoes());
 
         $tipoBase = TipoBase::getInstance();
         $tipos = $tipoBase->getKeys();

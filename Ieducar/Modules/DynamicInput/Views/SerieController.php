@@ -1,8 +1,13 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Business/Professor.php';
+namespace iEducarLegacy\Modules\DynamicInput\Views;
 
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class SerieController
+ * @package iEducarLegacy\Modules\DynamicInput\Views
+ */
 class SerieController extends ApiCoreController
 {
     protected function canGetSeries()
@@ -27,9 +32,9 @@ class SerieController extends ApiCoreController
                 $resources = Portabilis_Business_Professor::seriesAlocado($instituicaoId, $escolaId, $cursoId, $userId);
                 $resources = Utils::setAsIdValue($resources, 'id', 'nome');
             } elseif ($escolaId && $cursoId && empty($resources)) {
-                $resources = App_Model_IedFinder::getSeries($instituicaoId = null, $escolaId, $cursoId, $ano);
+                $resources = Finder::getSeries($instituicaoId = null, $escolaId, $cursoId, $ano);
             } else {
-                $resources = App_Model_IedFinder::getSeries($instituicaoId = null, null, $cursoId, $ano);
+                $resources = Finder::getSeries($instituicaoId = null, null, $cursoId, $ano);
             }
 
             $options = [];

@@ -238,14 +238,14 @@ class Boletim implements CoreExtConfigurable
     protected function _setMatriculaInfo()
     {
         $codMatricula = $this->getOption('Matricula');
-        $matricula = App_Model_IedFinder::getMatricula($codMatricula);
-        $etapas = App_Model_IedFinder::getQuantidadeDeModulosMatricula($codMatricula, $matricula);
+        $matricula = Finder::getMatricula($codMatricula);
+        $etapas = Finder::getQuantidadeDeModulosMatricula($codMatricula, $matricula);
         $maiorEtapaUtilizada = $etapas;
 
         // Foi preciso adicionar esta validação pois é possível filtrar sem
         // selecionar um componente curricular, neste caso um erro SQL era gerado.
         if ($componenteCurricularId = $this->getComponenteCurricularId()) {
-            $ultimaEtapaEspecifica = App_Model_IedFinder::getUltimaEtapaComponente(
+            $ultimaEtapaEspecifica = Finder::getUltimaEtapaComponente(
                 $matricula['ref_cod_turma'],
                 $componenteCurricularId
             );
@@ -257,13 +257,13 @@ class Boletim implements CoreExtConfigurable
 
         $etapaAtual = ($_GET['etapa'] ?? null) == 'Rc' ? $maiorEtapaUtilizada : ($_GET['etapa'] ?? null);
 
-        $this->_setRegra(App_Model_IedFinder::getRegraAvaliacaoPorMatricula(
+        $this->_setRegra(Finder::getRegraAvaliacaoPorMatricula(
             $codMatricula,
             $this->getRegraDataMapper(),
             $matricula
         ));
 
-        $this->_setComponentes(App_Model_IedFinder::getComponentesPorMatricula($codMatricula, $this->getComponenteDataMapper(), $this->getComponenteTurmaDataMapper(), $componenteCurricularId, $etapaAtual, null, $matricula));
+        $this->_setComponentes(Finder::getComponentesPorMatricula($codMatricula, $this->getComponenteDataMapper(), $this->getComponenteTurmaDataMapper(), $componenteCurricularId, $etapaAtual, null, $matricula));
 
         $this->setOption('matriculaData', $matricula);
         $this->setOption('aprovado', $matricula['aprovado']);
@@ -496,7 +496,7 @@ class Boletim implements CoreExtConfigurable
 
         $componentes = [];
         foreach ($registrations as $registration) {
-            $buscaComponentes = App_Model_IedFinder::getComponentesPorMatricula($registration->getKey(), $this->getComponenteDataMapper(), $this->getComponenteTurmaDataMapper(), null, null, null, null);
+            $buscaComponentes = Finder::getComponentesPorMatricula($registration->getKey(), $this->getComponenteDataMapper(), $this->getComponenteTurmaDataMapper(), null, null, null, null);
             foreach ($buscaComponentes as $componente) {
                 $componentes[$componente->get('id') . '||' . $registration->getKey()] = $componente;
             }
@@ -580,7 +580,7 @@ class Boletim implements CoreExtConfigurable
     {
         $enrollment = $this->getOption('matriculaData');
 
-        $total = count(App_Model_IedFinder::getComponentesPorMatricula(
+        $total = count(Finder::getComponentesPorMatricula(
             $enrollment['cod_matricula'],
             $this->getComponenteDataMapper(),
             $this->getComponenteTurmaDataMapper(),
@@ -757,7 +757,7 @@ class Boletim implements CoreExtConfigurable
         $exemptedStages = $this->getExemptedStages($enrollmentId, $disciplineId);
 
         if ($this->getRegra()->get('definirComponentePorEtapa') == '1') {
-            $stages = App_Model_IedFinder::getEtapasComponente($classroomId, $disciplineId) ?? $stages;
+            $stages = Finder::getEtapasComponente($classroomId, $disciplineId) ?? $stages;
         }
 
         $stages = array_diff($stages, $exemptedStages);
@@ -846,7 +846,7 @@ class Boletim implements CoreExtConfigurable
         $mediasComponentes = $this->_loadMedias()->getMediasComponentes();
 
         // Mantém apenas lançamentos para componentes da matrícula
-        $componentesMatricula = App_Model_IedFinder::getComponentesPorMatricula($matriculaId, null, null, null, $this->getOption('etapaAtual'), $this->getOption('ref_cod_turma'), null, true, true);
+        $componentesMatricula = Finder::getComponentesPorMatricula($matriculaId, null, null, null, $this->getOption('etapaAtual'), $this->getOption('ref_cod_turma'), null, true, true);
         $mediasComponentes = array_intersect_key($mediasComponentes, $componentesMatricula);
 
         $mediasComponenentesTotal = $mediasComponentes;
@@ -948,7 +948,7 @@ class Boletim implements CoreExtConfigurable
             $lastStage = $this->getLastStage($matriculaId, $turmaId, $id);
 
             if ($this->getRegraAvaliacaoTipoProgressao() == RegraAvaliacao_Model_TipoProgressao::CONTINUADA) {
-                $getCountNotaCC = App_Model_IedFinder::verificaSeExisteNotasComponenteCurricular($matriculaId, $id);
+                $getCountNotaCC = Finder::verificaSeExisteNotasComponenteCurricular($matriculaId, $id);
 
                 if ($getCountNotaCC[0]['cc'] == 0) {
                     $etapa = 0;
@@ -2140,7 +2140,7 @@ class Boletim implements CoreExtConfigurable
     public function componenteUsaNotaConceitual($componenteId)
     {
         $serieId = $this->_options['matriculaData']['ref_ref_cod_serie'];
-        $tipoNota = App_Model_IedFinder::getTipoNotaComponenteSerie($componenteId, $serieId);
+        $tipoNota = Finder::getTipoNotaComponenteSerie($componenteId, $serieId);
 
         if ($tipoNota == ComponenteSerie_Model_TipoNota::CONCEITUAL) {
             return true;
@@ -2223,11 +2223,11 @@ class Boletim implements CoreExtConfigurable
         $qtdeEtapas = $this->getOption('etapas');
 
         if ($this->getRegraAvaliacaoDefinirComponentePorEtapa() == '1') {
-            $qtdeEtapaEspecifica = App_Model_IedFinder::getQtdeEtapasComponente($turmaId, $id, $infosMatricula['ref_cod_aluno']);
+            $qtdeEtapaEspecifica = Finder::getQtdeEtapasComponente($turmaId, $id, $infosMatricula['ref_cod_aluno']);
 
             $qtdeEtapas = ($qtdeEtapaEspecifica ? $qtdeEtapaEspecifica : $qtdeEtapas);
         }
-        $verificaDispensa = App_Model_IedFinder::validaDispensaPorMatricula($matriculaId, $serieId, $escolaId, $id);
+        $verificaDispensa = Finder::validaDispensaPorMatricula($matriculaId, $serieId, $escolaId, $id);
         $consideraEtapas = [];
 
         for ($i = 1; $i <= $qtdeEtapas; $i++) {
@@ -2520,7 +2520,7 @@ class Boletim implements CoreExtConfigurable
     protected function reloadComponentes()
     {
         $this->_setComponentes(
-            App_Model_IedFinder::getComponentesPorMatricula(
+            Finder::getComponentesPorMatricula(
                 $this->getOption('Matricula'),
                 $this->getComponenteDataMapper(),
                 $this->getComponenteTurmaDataMapper(),
@@ -2814,12 +2814,12 @@ class Boletim implements CoreExtConfigurable
                     $qtdeEtapas = $this->getOption('etapas');
 
                     if ($this->getRegraAvaliacaoDefinirComponentePorEtapa() == '1') {
-                        $qtdeEtapaEspecifica = App_Model_IedFinder::getQtdeEtapasComponente($turmaId, $id, $infosMatricula['ref_cod_aluno']);
+                        $qtdeEtapaEspecifica = Finder::getQtdeEtapasComponente($turmaId, $id, $infosMatricula['ref_cod_aluno']);
 
                         $qtdeEtapas = ($qtdeEtapaEspecifica ? $qtdeEtapaEspecifica : $qtdeEtapas);
                     }
 
-                    $verificaDispensa = App_Model_IedFinder::validaDispensaPorMatricula($matriculaId, $serieId, $escolaId, $id);
+                    $verificaDispensa = Finder::validaDispensaPorMatricula($matriculaId, $serieId, $escolaId, $id);
                     $consideraEtapas = [];
 
                     for ($i = 1; $i <= $qtdeEtapas; $i++) {
@@ -3005,7 +3005,7 @@ class Boletim implements CoreExtConfigurable
         $matriculaId = $this->getOption('Matricula');
         $serieId = $this->getOption('ref_cod_serie');
         $escolaId = $this->getOption('ref_cod_escola');
-        $instituicao = App_Model_IedFinder::getInstituicao($this->getRegraAvaliacaoInstituicao());
+        $instituicao = Finder::getInstituicao($this->getRegraAvaliacaoInstituicao());
 
         // Pelo que eu entendi, caso a opção `definirComponentePorEtapa` é
         // possível lançar notas para etapas futuras.
@@ -3014,18 +3014,18 @@ class Boletim implements CoreExtConfigurable
             return true;
         }
 
-        $etapasDispensadas = (array)App_Model_IedFinder::validaDispensaPorMatricula(
+        $etapasDispensadas = (array)Finder::validaDispensaPorMatricula(
             $matriculaId,
             $serieId,
             $escolaId,
             $componenteCurricularId
         );
 
-        $informacoesMatricula = (array)App_Model_IedFinder::getMatricula(
+        $informacoesMatricula = (array)Finder::getMatricula(
             $matriculaId
         );
 
-        $informacoesEtapas = (array)App_Model_IedFinder::getEtapasDaTurma(
+        $informacoesEtapas = (array)Finder::getEtapasDaTurma(
             $informacoesMatricula['ref_cod_turma']
         );
 
@@ -3088,7 +3088,7 @@ class Boletim implements CoreExtConfigurable
         $nomeDaEtapa = 'Etapa';
 
         if (count($informacoesEtapas)) {
-            $etapa = App_Model_IedFinder::getEtapa($informacoesEtapas[0]['cod_modulo']);
+            $etapa = Finder::getEtapa($informacoesEtapas[0]['cod_modulo']);
 
             if ($etapa) {
                 $nomeDaEtapa = $etapa['nm_tipo'];
@@ -3121,7 +3121,7 @@ class Boletim implements CoreExtConfigurable
         $serieId = $this->getOption('ref_cod_serie');
         $escolaId = $this->getOption('ref_cod_escola');
 
-        $existeEtapaDispensada = (array)App_Model_IedFinder::validaDispensaPorMatricula($matriculaId, $serieId, $escolaId, $componenteCurricularId);
+        $existeEtapaDispensada = (array)Finder::validaDispensaPorMatricula($matriculaId, $serieId, $escolaId, $componenteCurricularId);
 
         for ($etapa = 1; $etapa <= $etapaId; $etapa++) {
             $faltas = $this->getFaltaAtual($etapa, $componenteCurricularId);

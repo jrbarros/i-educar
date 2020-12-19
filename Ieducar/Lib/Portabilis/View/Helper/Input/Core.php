@@ -223,13 +223,13 @@ class Core
         }
 
         if (isset($this->viewInstance->ref_cod_escola) && is_numeric($this->viewInstance->ref_cod_escola)) {
-            $escola = App_Model_IedFinder::getEscola($this->viewInstance->ref_cod_escola);
+            $escola = Finder::getEscola($this->viewInstance->ref_cod_escola);
 
             return $escola['ref_cod_instituicao'];
         }
 
         if (isset($this->viewInstance->ref_cod_biblioteca) && is_numeric($this->viewInstance->ref_cod_biblioteca)) {
-            $biblioteca = App_Model_IedFinder::getBiblioteca($this->viewInstance->ref_cod_biblioteca);
+            $biblioteca = Finder::getBiblioteca($this->viewInstance->ref_cod_biblioteca);
 
             return $biblioteca['ref_cod_instituicao'];
         }
@@ -253,7 +253,7 @@ class Core
         }
 
         if (isset($this->viewInstance->ref_cod_biblioteca) && is_numeric($this->viewInstance->ref_cod_biblioteca)) {
-            $biblioteca = App_Model_IedFinder::getBiblioteca($this->viewInstance->ref_cod_biblioteca);
+            $biblioteca = Finder::getBiblioteca($this->viewInstance->ref_cod_biblioteca);
 
             return $biblioteca['ref_cod_escola'];
         }

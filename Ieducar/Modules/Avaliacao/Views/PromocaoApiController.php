@@ -431,7 +431,7 @@ class PromocaoApiController extends ApiCoreController
     {
         $matriculaId = $this->matriculaId();
 
-        foreach (App_Model_IedFinder::getComponentesPorMatricula($matriculaId) as $_componente) {
+        foreach (Finder::getComponentesPorMatricula($matriculaId) as $_componente) {
             $componenteId = $_componente->get('id');
 
             // FIXME #parameters

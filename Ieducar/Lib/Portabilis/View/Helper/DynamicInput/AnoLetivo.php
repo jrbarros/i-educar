@@ -34,7 +34,7 @@ class AnoLetivo extends CoreSelect
         $serieId = $this->getSerieId($options['serieId']);
 
         if ($serieId && $escolaId && empty($resources)) {
-            $resources = App_Model_IedFinder::getAnosLetivosEscolaSerie($escolaId, $serieId);
+            $resources = Finder::getAnosLetivosEscolaSerie($escolaId, $serieId);
         } elseif ($escolaId && empty($resources)) {
             $sql = "
                 select ano

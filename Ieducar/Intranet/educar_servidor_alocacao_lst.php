@@ -79,7 +79,7 @@ class indice extends clsListagem
 
         $obj_servidor_alocacao = new ServidorAlocacao();
 
-        if (App_Model_IedFinder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
+        if (Finder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
             $obj_servidor_alocacao->codUsuario = $this->pessoa_logada;
         }
 

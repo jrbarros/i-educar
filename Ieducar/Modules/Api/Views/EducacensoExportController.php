@@ -189,7 +189,7 @@ class EducacensoExportController extends ApiCoreController
 
     protected function getTurmas($escolaId, $ano)
     {
-        return App_Model_IedFinder::getTurmasEducacenso($escolaId, $ano);
+        return Finder::getTurmasEducacenso($escolaId, $ano);
     }
 
     protected function getServidores($escolaId, $ano, $data_ini, $data_fim)

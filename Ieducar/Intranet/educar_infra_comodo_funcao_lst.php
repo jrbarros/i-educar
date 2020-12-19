@@ -82,7 +82,7 @@ class indice extends clsListagem
 
         $obj_infra_comodo_funcao = new InfraComodoFuncao();
 
-        if (App_Model_IedFinder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
+        if (Finder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
             $obj_infra_comodo_funcao->codUsuario = $this->pessoa_logada;
         }
 

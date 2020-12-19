@@ -55,7 +55,7 @@ class indice extends clsListagem
         $objPessoa = new clsPessoaJuridica();
         $db = new Banco();
 
-        if (App_Model_IedFinder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
+        if (Finder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
             $objPessoa->codUsuario = $this->pessoa_logada;
         }
 

@@ -1,8 +1,15 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Business/Professor.php';
+namespace iEducarLegacy\Modules\DynamicInput\Views;
 
+use iEducarLegacy\Intranet\Source\PmiEducar\EscolaAnoLetivo;
+use iEducarLegacy\Lib\Portabilis\Business\Professor;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
+
+/**
+ * Class TurmaController
+ * @package iEducarLegacy\Modules\DynamicInput\Views
+ */
 class TurmaController extends ApiCoreController
 {
     protected function canGetTurmas()
@@ -33,10 +40,10 @@ class TurmaController extends ApiCoreController
             $ano = $this->getRequest()->ano;
             $anoEmAndamento = $this->getRequest()->ano_em_andamento;
 
-            $isOnlyProfessor = Portabilis_Business_Professor::isOnlyProfessor($instituicaoId, $userId);
+            $isOnlyProfessor = Professor::isOnlyProfessor($instituicaoId, $userId);
 
             if ($isOnlyProfessor) {
-                $turmas = Portabilis_Business_Professor::turmasAlocado($instituicaoId, $escolaId, $serieId, $userId);
+                $turmas = Professor::turmasAlocado($instituicaoId, $escolaId, $serieId, $userId);
             } else {
                 if (is_numeric($ano)) {
                     $sql = '

@@ -89,11 +89,11 @@ class AnoController extends EditController
      */
     protected function _getSeriesAgrupadasPorCurso()
     {
-        $series = App_Model_IedFinder::getSeries($this->getEntity()->instituicao);
+        $series = Finder::getSeries($this->getEntity()->instituicao);
         $cursos = [];
 
         foreach ($series as $id => $nome) {
-            $serie = App_Model_IedFinder::getSerie($id);
+            $serie = Finder::getSerie($id);
             $codCurso = $serie['ref_cod_curso'];
             $cursos[$codCurso][$id] = $nome;
         }
@@ -110,7 +110,7 @@ class AnoController extends EditController
      */
     protected function _getCursoNome($id)
     {
-        return App_Model_IedFinder::getCurso($id);
+        return Finder::getCurso($id);
     }
 
     /**

@@ -271,7 +271,7 @@ class indice extends clsCadastro
         // Componentes curriculares da série
         $componentesTurma = [];
         try {
-            $componentesTurma = App_Model_IedFinder::getComponentesTurma(
+            $componentesTurma = Finder::getComponentesTurma(
           $this->ref_ref_cod_serie,
           $this->ref_cod_escola,
           $this->ref_cod_turma
@@ -672,7 +672,7 @@ class indice extends clsCadastro
 
             $componentesTurma = [];
             try {
-                $componentesTurma = App_Model_IedFinder::getComponentesTurma(
+                $componentesTurma = Finder::getComponentesTurma(
             $this->ref_ref_cod_serie,
             $this->ref_cod_escola,
             $this->ref_cod_turma
@@ -792,7 +792,7 @@ class indice extends clsCadastro
 
             $componentesTurma = [];
             try {
-                $componentesTurma = App_Model_IedFinder::getComponentesTurma(
+                $componentesTurma = Finder::getComponentesTurma(
             $this->ref_ref_cod_serie,
             $this->ref_cod_escola,
             $this->ref_cod_turma

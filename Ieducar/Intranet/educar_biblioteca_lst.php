@@ -86,7 +86,7 @@ class indice extends clsListagem
 
         $obj_biblioteca = new Biblioteca();
 
-        if (App_Model_IedFinder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
+        if (Finder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
             $obj_biblioteca->codUsuario = $this->pessoa_logada;
         }
 

@@ -895,7 +895,7 @@ class HistoricoEscolar extends Model
 
     private function arredondaNota($codMatricula, $nota, $tipoNota)
     {
-        $regraAvaliacao = App_Model_IedFinder::getRegraAvaliacaoPorMatricula(
+        $regraAvaliacao = Finder::getRegraAvaliacaoPorMatricula(
             $codMatricula
         );
 

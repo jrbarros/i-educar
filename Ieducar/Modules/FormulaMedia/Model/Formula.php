@@ -236,7 +236,7 @@ class FormulaMedia_Model_Formula extends CoreExt_Entity
      */
     public function getDefaultValidatorCollection()
     {
-        $instituicoes = array_keys(App_Model_IedFinder::getInstituicoes());
+        $instituicoes = array_keys(Finder::getInstituicoes());
         $tipoFormula = FormulaMedia_Model_TipoFormula::getInstance();
 
         // Se for de recuperação, inclui o token "Rc" como permitido.

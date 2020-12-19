@@ -25,7 +25,7 @@ class Curso extends CoreSelect
             $cursos = Portabilis_Business_Professor::cursosAlocado($instituicaoId, $escolaId, $userId);
             $resources = Utils::setAsIdValue($cursos, 'id', 'nome');
         } elseif ($escolaId && empty($resources)) {
-            $resources = App_Model_IedFinder::getCursos($escolaId);
+            $resources = Finder::getCursos($escolaId);
         }
 
         return $this->insertOption(null, 'Selecione um curso', $resources);

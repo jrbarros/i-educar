@@ -61,7 +61,7 @@ if (is_numeric($_GET['cur']) || is_numeric($_GET['ser'])) {
 if (is_numeric($_GET['esc']) && is_numeric($_GET['ser'])) {
     require_once 'App/Model/Finder.php';
 
-    $componentes = App_Model_IedFinder::getEscolaSerieDisciplina(
+    $componentes = Finder::getEscolaSerieDisciplina(
       $_GET['ser'],
       $_GET['esc']
   );

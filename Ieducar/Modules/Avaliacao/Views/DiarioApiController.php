@@ -1175,7 +1175,7 @@ class DiarioApiController extends ApiCoreController
         $componenteCurricularId = $this->getRequest()->componente_curricular_id;
         $etapa = $this->getRequest()->etapa;
 
-        $_componentesCurriculares = App_Model_IedFinder::getComponentesPorMatricula($matriculaId, null, null, $componenteCurricularId, $etapa, $turmaId);
+        $_componentesCurriculares = Finder::getComponentesPorMatricula($matriculaId, null, null, $componenteCurricularId, $etapa, $turmaId);
 
         $turmaId = $this->getRequest()->turma_id;
         $situacoes = $this->getSituacaoComponentes();
@@ -1185,7 +1185,7 @@ class DiarioApiController extends ApiCoreController
         foreach ($_componentesCurriculares as $_componente) {
             $componente = [];
             $componenteId = $_componente->get('id');
-            $tipoNota = App_Model_IedFinder::getTipoNotaComponenteSerie($componenteId, $serieId);
+            $tipoNota = Finder::getTipoNotaComponenteSerie($componenteId, $serieId);
 
             if (Turma::verificaDisciplinaDispensada($turmaId, $componenteId)) {
                 continue;
@@ -1199,7 +1199,7 @@ class DiarioApiController extends ApiCoreController
             $componente['parecer_atual'] = $this->getParecerAtual($componente['id']);
             $componente['situacao'] = $this->safeString($situacoes[$componente['id']]);
             $componente['tipo_nota'] = $tipoNota;
-            $componente['ultima_etapa'] = App_Model_IedFinder::getUltimaEtapaComponente($turmaId, $componenteId);
+            $componente['ultima_etapa'] = Finder::getUltimaEtapaComponente($turmaId, $componenteId);
             $gravaNotaExame = ($componente['situacao'] == 'Em exame' || $componente['situacao'] == 'Aprovado após exame' || $componente['situacao'] == 'Retido');
 
             $componente['nota_necessaria_exame'] = ($gravaNotaExame ? $this->getNotaNecessariaExame($componente['id']) : null);
@@ -1530,7 +1530,7 @@ class DiarioApiController extends ApiCoreController
         $regra = $this->serviceBoletim()->getRegra();
         $defineComponentePorEtapa = $regra->get('definirComponentePorEtapa') == 1;
         $ultimaEtapa = $this->getRequest()->etapa == $this->serviceBoletim()->getOption('etapas');
-        $ultimaEtapaComponente = App_Model_IedFinder::getUltimaEtapaComponente($turmaId, $componenteCurricularId);
+        $ultimaEtapaComponente = Finder::getUltimaEtapaComponente($turmaId, $componenteCurricularId);
 
         // somente recupera nota de exame se estiver buscando as matriculas da ultima etapa
         // se existe nota de exame, esta é recuperada mesmo que a regra de avaliação não use mais exame

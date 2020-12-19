@@ -3,13 +3,13 @@
 namespace App\Services;
 
 use App\Models\LegacyRegistration;
-use App_Model_IedFinder;
+use Finder;
 
 class GlobalAverageService
 {
     public function getGlobalAverage(LegacyRegistration $registration)
     {
-        $evaluationRule = App_Model_IedFinder::getRegraAvaliacaoPorMatricula($registration->getKey());
+        $evaluationRule = Finder::getRegraAvaliacaoPorMatricula($registration->getKey());
 
         if ($this->isGlobalScore($evaluationRule)) {
             return  $this->getAverageGlobalScore($registration);

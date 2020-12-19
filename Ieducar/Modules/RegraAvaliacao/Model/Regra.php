@@ -163,7 +163,7 @@ class RegraAvaliacao_Model_Regra extends CoreExt_Entity
         $tabelas = CoreExt_Entity::entityFilterAttr($tabelas, 'id');
 
         // Instituições
-        $instituicoes = array_keys(App_Model_IedFinder::getInstituicoes());
+        $instituicoes = array_keys(Finder::getInstituicoes());
 
         // Fórmula de média é obrigatória?
         $isFormulaMediaRequired = true;

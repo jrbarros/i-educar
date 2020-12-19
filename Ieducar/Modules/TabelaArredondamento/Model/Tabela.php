@@ -53,7 +53,7 @@ class TabelaArredondamento_Model_Tabela extends CoreExt_Entity
      */
     public function getDefaultValidatorCollection()
     {
-        $instituicoes = array_keys(App_Model_IedFinder::getInstituicoes());
+        $instituicoes = array_keys(Finder::getInstituicoes());
 
         // Tipo nota
         $tipoNota = RegraAvaliacao_Model_Nota_TipoValor::getInstance();

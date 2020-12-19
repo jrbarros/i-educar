@@ -19,7 +19,7 @@ class Area extends Entity
 
     public function getDefaultValidatorCollection()
     {
-        $instituicoes = array_keys(App_Model_IedFinder::getInstituicoes());
+        $instituicoes = array_keys(Finder::getInstituicoes());
 
         return [
             'instituicao' => new _Validate_Choice(['choices' => $instituicoes]),

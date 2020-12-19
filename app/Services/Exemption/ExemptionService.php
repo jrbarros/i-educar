@@ -14,7 +14,7 @@ use App\Models\LegacyRegistration;
 use App\Models\LegacySchoolStage;
 use App\Services\PromotionService;
 use App\User;
-use App_Model_IedFinder;
+use Finder;
 use Avaliacao_Model_FaltaAlunoDataMapper;
 use Avaliacao_Model_FaltaComponenteDataMapper;
 use Avaliacao_Model_NotaAlunoDataMapper;
@@ -119,7 +119,7 @@ class ExemptionService
     private function existeComponenteSerie($serieId, $escolaId, $disciplinaId)
     {
         try {
-            App_Model_IedFinder::getEscolaSerieDisciplina(
+            Finder::getEscolaSerieDisciplina(
                 $serieId,
                 $escolaId,
                 null,

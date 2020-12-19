@@ -1,10 +1,8 @@
 <?php
 
-// error_reporting(E_ALL);
-// ini_set("display_errors", 1);
+namespace iEducarLegacy\Modules\DynamicInput\Views;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'App/Model/Finder.php';
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
 /**
  * AreaConhecimento class.

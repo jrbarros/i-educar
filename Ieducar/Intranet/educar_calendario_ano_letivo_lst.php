@@ -192,7 +192,7 @@ class indice extends clsListagem
                 $fim_ano = explode('/', dataFromPgToBr($fim_ano));
 
                 // Turmas da escola
-                $turmas = App_Model_IedFinder::getTurmas($registro['ref_cod_escola']);
+                $turmas = Finder::getTurmas($registro['ref_cod_escola']);
 
                 // Mapper de TurmaDataMapper
                 $calendarioTurmaMapper = new Calendario_Model_TurmaDataMapper();

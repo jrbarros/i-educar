@@ -312,7 +312,7 @@ class indice extends clsCadastro
 
         $seletor = '<label><input id="_turmas_sel" onclick="new ied_forms.checkAll(document, \'formcadastro\', \'turmas\')" type="checkbox" /> Selecionar todas</label>';
         $this->campoRotulo('turmas_rotulo', 'Turmas', $seletor);
-        $turmas = App_Model_IedFinder::getTurmas($ref_cod_escola, null, $this->ano);
+        $turmas = Finder::getTurmas($ref_cod_escola, null, $this->ano);
 
         foreach ($turmas as $codTurma => $nomeTurma) {
             $checked = $this->_hasEntry(

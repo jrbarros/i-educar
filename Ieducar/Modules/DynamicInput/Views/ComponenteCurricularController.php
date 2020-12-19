@@ -1,10 +1,15 @@
 <?php
 
+namespace iEducarLegacy\Modules\DynamicInput\Views;
+
 use App\Services\SchoolGradeDisciplineService;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'Portabilis/Business/Professor.php';
 
+/**
+ * Class ComponenteCurricularController
+ * @package iEducarLegacy\Modules\DynamicInput\Views
+ */
 class ComponenteCurricularController extends ApiCoreController
 {
     protected function canGetComponentesCurriculares()

@@ -1,6 +1,8 @@
 <?php
 
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
+namespace iEducarLegacy\Modules\DynamicInput\Views;
+
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
 /**
  * EscolaDestinoTransporteEscolarController class.

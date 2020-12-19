@@ -8,7 +8,7 @@ use iEducar\Modules\Educacenso\Model\ModalidadeCurso;
 use iEducar\Modules\Educacenso\Model\TipoAtendimentoTurma;
 use App_Model_TipoMediacaoDidaticoPedagogico;
 use App_Model_LocalFuncionamentoDiferenciado;
-use App_Model_IedFinder;
+use Finder;
 
 class Registro20 implements RegistroEducacenso
 {
@@ -418,7 +418,7 @@ class Registro20 implements RegistroEducacenso
     public function componentes()
     {
         if (!isset($this->componentes)) {
-            $this->componentes = App_Model_IedFinder::getComponentesTurma($this->codSerie, $this->codEscola, $this->codTurma, null, null, null, null, true, $this->anoTurma);
+            $this->componentes = Finder::getComponentesTurma($this->codSerie, $this->codEscola, $this->codTurma, null, null, null, null, true, $this->anoTurma);
         }
 
         return $this->componentes;

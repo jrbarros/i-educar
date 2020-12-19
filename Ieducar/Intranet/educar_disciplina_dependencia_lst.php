@@ -164,7 +164,7 @@ class indice extends clsListagem
         $opcoes = ['' => 'Selecione'];
 
         // Escola série disciplina
-        $componentes = App_Model_IedFinder::getComponentesTurma(
+        $componentes = Finder::getComponentesTurma(
         $this->ref_cod_serie,
         $this->ref_cod_escola,
         $this->ref_cod_turma

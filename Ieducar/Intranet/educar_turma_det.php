@@ -441,7 +441,7 @@ class indice extends clsDetalhe
         $this->tabela3    = '';
 
         try {
-            $lista = App_Model_IedFinder::getEscolaSerieDisciplina(
+            $lista = Finder::getEscolaSerieDisciplina(
                 $this->ref_ref_cod_serie,
                 $this->ref_ref_cod_escola,
                 null,

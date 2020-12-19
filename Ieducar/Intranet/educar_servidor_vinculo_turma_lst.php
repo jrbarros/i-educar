@@ -143,7 +143,7 @@ class indice extends clsListagem
 
         $obj_vinculo = new clsModulesProfessorTurma();
 
-        if (App_Model_IedFinder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
+        if (Finder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
             $obj_vinculo->codUsuario = $this->pessoa_logada;
         }
 

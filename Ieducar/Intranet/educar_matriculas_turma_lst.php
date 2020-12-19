@@ -94,7 +94,7 @@ class indice extends clsListagem
             $this->ano = date('Y');
         }
 
-        if (App_Model_IedFinder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
+        if (Finder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
             $obj_turma->codUsuario = $this->pessoa_logada;
         }
 

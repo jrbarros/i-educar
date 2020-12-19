@@ -50,7 +50,7 @@ require_once 'ComponenteCurricular/Model/TurmaDataMapper.php';
 require_once 'AreaConhecimento/Model/AreaDataMapper.php';
 
 /**
- * App_Model_IedFinderTest class.
+ * FinderTest class.
  *
  * @author      Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
  * @category    i-Educar
@@ -60,7 +60,7 @@ require_once 'AreaConhecimento/Model/AreaDataMapper.php';
  * @since       Classe disponível desde a versão 1.1.0
  * @version     @@package_version@@
  */
-class App_Model_IedFinderTest extends UnitBaseTest
+class FinderTest extends UnitBaseTest
 {
   /**
    * @todo Refatorar método para uma classe stub, no diretório do módulo
@@ -168,10 +168,10 @@ class App_Model_IedFinderTest extends UnitBaseTest
          ->will($this->returnValue($returnValue));
 
     // Registra a instância no repositório de classes de Entity
-    $instance = App_Model_IedFinder::addClassToStorage(
+    $instance = Finder::addClassToStorage(
       'Curso', $mock, NULL, TRUE);
 
-    $curso = App_Model_IedFinder::getCurso(1);
+    $curso = Finder::getCurso(1);
     $this->assertEquals(
       $returnValue['nm_curso'], $curso,
       '::getCurso() retorna o nome do curso através de uma busca pelo código.'
@@ -189,10 +189,10 @@ class App_Model_IedFinderTest extends UnitBaseTest
          ->will($this->returnValue($returnValue));
 
     // Registra a instância no repositório de classes de Entity
-    $instance = App_Model_IedFinder::addClassToStorage(
+    $instance = Finder::addClassToStorage(
       'Instituicao', $mock);
 
-    $instituicoes = App_Model_IedFinder::getInstituicoes();
+    $instituicoes = Finder::getInstituicoes();
     $this->assertEquals(
       $expected, $instituicoes,
       '::getInstituicoes() retorna todas as instituições cadastradas.'
@@ -215,7 +215,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
     $instance = CoreExt_Entity::addClassToStorage(
       'Serie', $mock, NULL, TRUE);
 
-    $series = App_Model_IedFinder::getSeries();
+    $series = Finder::getSeries();
     $this->assertEquals(
     array(
         1 => 'PRÉ',
@@ -224,7 +224,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
       '::getSeries() retorna todas as séries cadastradas.'
     );
 
-    $series = App_Model_IedFinder::getSeries(1);
+    $series = Finder::getSeries(1);
     $this->assertEquals(
       array(1 => 'PRÉ'), $series,
       '::getSeries() retorna todas as séries de uma instituição.'
@@ -245,7 +245,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
     $instance = CoreExt_Entity::addClassToStorage(
       'Turma', $mock, NULL, TRUE);
 
-    $turmas = App_Model_IedFinder::getTurmas(1);
+    $turmas = Finder::getTurmas(1);
     $this->assertEquals(
       $expected, $turmas,
       '::getTurmas() retorna todas as turmas de uma escola.'
@@ -295,13 +295,13 @@ class App_Model_IedFinderTest extends UnitBaseTest
                ->with(1, 1, NULL, 1)
                ->will($this->returnValue($returnEscolaSerieDisciplina));
 
-    App_Model_IedFinder::addClassToStorage('EscolaSerieDisciplina', $escolaMock, NULL, TRUE);
+    Finder::addClassToStorage('EscolaSerieDisciplina', $escolaMock, NULL, TRUE);
 
     // O primeiro componente tem uma carga horária definida em escola-série.
     $expected[1] = clone $returnAnoEscolar[1];
     $expected[1]->cargaHoraria = 80;
 
-    $componentes = App_Model_IedFinder::getEscolaSerieDisciplina(1, 1, $anoEscolarMock);
+    $componentes = Finder::getEscolaSerieDisciplina(1, 1, $anoEscolarMock);
     $this->assertEquals(
       $expected, $componentes,
       '::getEscolaSerieDisciplina() retorna os componentes de um escola-série.'
@@ -314,7 +314,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
       $this->markTestSkipped();
     $mocks = $this->_getComponentesTurmaMock();
 
-    $componentes = App_Model_IedFinder::getComponentesTurma(
+    $componentes = Finder::getComponentesTurma(
       1, 1, 1, $mocks['turmaMock'], $mocks['componenteMock']
     );
 
@@ -328,7 +328,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
   {
     $this->expectException(StudentNotEnrolledInSchoolClass::class);
     $this->expectExceptionMessage('Aluno não enturmado.');
-    App_Model_IedFinder::getMatricula(1);
+    Finder::getMatricula(1);
   }
 
   public function testGetRegraAvaliacaoPorMatricula()
@@ -365,7 +365,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
                ->with(1)
                ->will($this->returnValue($expected));
 
-    $regraAvaliacao = App_Model_IedFinder::getRegraAvaliacaoPorMatricula(1, $mapperMock, $returnMatricula);
+    $regraAvaliacao = Finder::getRegraAvaliacaoPorMatricula(1, $mapperMock, $returnMatricula);
     $this->assertEquals(
       $expected, $regraAvaliacao,
       '::getRegraAvaliacaoPorMatricula() retorna a regra de avaliação de uma matrícula.'
@@ -373,7 +373,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
   }
 
   /**
-   * @depends App_Model_IedFinderTest::testGetRegraAvaliacaoPorMatricula
+   * @depends FinderTest::testGetRegraAvaliacaoPorMatricula
    */
   public function testGetComponentesPorMatricula()
   {
@@ -405,7 +405,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
         'dependencia'        => null
     ];
 
-    $componentes = App_Model_IedFinder::getComponentesPorMatricula(
+    $componentes = Finder::getComponentesPorMatricula(
       1, $mocks['componenteMock'], $mocks['turmaMock'], null, null, null, $matricula
     );
 
@@ -419,7 +419,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
   }
 
   /**
-   * @depends App_Model_IedFinderTest::testGetRegraAvaliacaoPorMatricula
+   * @depends FinderTest::testGetRegraAvaliacaoPorMatricula
    */
   public function testGetQuantidadeDeModulosMatricula()
   {
@@ -485,17 +485,17 @@ class App_Model_IedFinderTest extends UnitBaseTest
                ->will($this->returnValue($returnTurmaModulo));
 
     // Adiciona mocks ao repositório estático
-    App_Model_IedFinder::addClassToStorage('EscolaAnoLetivo',
+    Finder::addClassToStorage('EscolaAnoLetivo',
       $escolaAnoMock, NULL, TRUE);
-    App_Model_IedFinder::addClassToStorage('clsPmieducarAnoLetivoModulo',
+    Finder::addClassToStorage('clsPmieducarAnoLetivoModulo',
       $anoLetivoMock, NULL, TRUE);
-    App_Model_IedFinder::addClassToStorage('MatriculaTurma',
+    Finder::addClassToStorage('MatriculaTurma',
       $matriculaTurmaMock, NULL, TRUE);
-    App_Model_IedFinder::addClassToStorage('Modulo',
+    Finder::addClassToStorage('Modulo',
       $moduloMock, NULL, TRUE);
-    App_Model_IedFinder::addClassToStorage('Curso',
+    Finder::addClassToStorage('Curso',
       $cursoMock, NULL, TRUE);
-    App_Model_IedFinder::addClassToStorage('TurmaModulo',
+    Finder::addClassToStorage('TurmaModulo',
         $turmaModuloMock, NULL, TRUE);
 
     $matricula = [
@@ -504,7 +504,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
         'ref_cod_turma'      => 1,
         'ano'                => 2018
     ];
-    $modulos = App_Model_IedFinder::getQuantidadeDeModulosMatricula(1, $matricula);
+    $modulos = Finder::getQuantidadeDeModulosMatricula(1, $matricula);
 
     $this->assertEquals(
       4, $modulos,
@@ -513,7 +513,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
   }
 
   /**
-   * @depends App_Model_IedFinderTest::testGetRegraAvaliacaoPorMatricula
+   * @depends FinderTest::testGetRegraAvaliacaoPorMatricula
    */
   public function testGetQuantidadeDeModulosMatriculaCursoAnoNaoPadrao()
   {
@@ -542,7 +542,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
                     ->with(1)
                     ->will($this->returnValue($returnTurmaModulo));
 
-    App_Model_IedFinder::addClassToStorage('TurmaModulo',
+    Finder::addClassToStorage('TurmaModulo',
       $turmaModuloMock, NULL, TRUE);
 
     $matricula = [
@@ -551,7 +551,7 @@ class App_Model_IedFinderTest extends UnitBaseTest
         'ref_cod_turma'      => 1,
         'ano'                => 2018
     ];
-    $etapas = App_Model_IedFinder::getQuantidadeDeModulosMatricula(1, $matricula);
+    $etapas = Finder::getQuantidadeDeModulosMatricula(1, $matricula);
 
     $this->assertEquals(
       4, $etapas,

@@ -1,7 +1,9 @@
 <?php
 
-#error_reporting(E_ALL);
-#ini_set("display_errors", 1);
+namespace iEducarLegacy\Modules\DynamicInput\Views;
+
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Lib\Portabilis\Controller\ApiCoreController;
 
 /**
  * i-Educar - Sistema de gestão escolar
@@ -36,9 +38,6 @@
  *
  * @version   $Id$
  */
-
-require_once 'lib/Portabilis/Controller/ApiCoreController.php';
-require_once 'lib/App/Model/Finder.php';
 
 /**
  * AnoLetivoController class.
@@ -103,7 +102,7 @@ class AnoLetivoController extends ApiCoreController
     protected function getAnosLetivosPorEscolaSerie()
     {
         if ($this->canGetAnosLetivos()) {
-            $anosLetivos = App_Model_IedFinder::getAnosLetivosEscolaSerie($this->getRequest()->escola_id, $this->getRequest()->serie_id);
+            $anosLetivos = Finder::getAnosLetivosEscolaSerie($this->getRequest()->escola_id, $this->getRequest()->serie_id);
             asort($anosLetivos);
 
             return [ 'options' => $anosLetivos ];

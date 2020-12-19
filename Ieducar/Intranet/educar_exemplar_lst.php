@@ -181,7 +181,7 @@ class indice extends clsListagem
 
         $obj_exemplar = new Exemplar();
 
-        if (App_Model_IedFinder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
+        if (Finder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
             $obj_exemplar->codUsuario = $this->pessoa_logada;
         }
 

@@ -159,7 +159,7 @@ class indice extends clsCadastro
 
         // Seleciona os componentes curriculares da turma
         try {
-            $componentes = App_Model_IedFinder::getComponentesTurma(
+            $componentes = Finder::getComponentesTurma(
                 $this->ref_cod_serie,
                 $this->ref_cod_escola,
                 $this->ref_cod_turma
@@ -211,7 +211,7 @@ class indice extends clsCadastro
     public function existeComponenteSerie($serieId, $escolaId, $disciplinaId)
     {
         try {
-            App_Model_IedFinder::getEscolaSerieDisciplina(
+            Finder::getEscolaSerieDisciplina(
                 $serieId,
                 $escolaId,
                 null,

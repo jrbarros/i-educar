@@ -154,7 +154,7 @@ class EditController extends Core_Controller_Page_EditController
         $this->campoOculto('id', $this->getEntity()->id);
 
         // Instituição
-        $instituicoes = App_Model_IedFinder::getInstituicoes();
+        $instituicoes = Finder::getInstituicoes();
         $this->campoLista(
             'instituicao',
             $this->_getLabel('instituicao'),

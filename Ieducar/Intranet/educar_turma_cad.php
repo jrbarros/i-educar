@@ -692,7 +692,7 @@ class indice extends clsCadastro
             $conteudo = '';
 
             try {
-                $lista = App_Model_IedFinder::getEscolaSerieDisciplina(
+                $lista = Finder::getEscolaSerieDisciplina(
                     $this->ref_cod_serie,
                     $this->ref_cod_escola,
                     null,

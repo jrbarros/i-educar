@@ -641,7 +641,7 @@ class EscolaController extends ApiCoreController
             $nivel == App_Model_NivelTipoUsuario::BIBLIOTECA
         ) {
             $escolas_usuario = [];
-            $escolasUser = App_Model_IedFinder::getEscolasUser($userId);
+            $escolasUser = Finder::getEscolasUser($userId);
 
             foreach ($escolasUser as $e) {
                 $escolas_usuario['__'.$e['ref_cod_escola']] = strtoupper($e['nome']);
@@ -651,7 +651,7 @@ class EscolaController extends ApiCoreController
         }
 
         $instituicao = $this->getRequest()->instituicao;
-        $escolasInstituicao = App_Model_IedFinder::getEscolas($instituicao);
+        $escolasInstituicao = Finder::getEscolas($instituicao);
 
         foreach ($escolasInstituicao as $id => $nome) {
             $escolas['__'.$id] = strtoupper($this->toUtf8($nome));

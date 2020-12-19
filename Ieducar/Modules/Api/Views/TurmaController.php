@@ -179,7 +179,7 @@ class TurmaController extends ApiCoreController
 
     protected function getTipoBoletim()
     {
-        $turma = App_Model_IedFinder::getTurma($codTurma = $this->getRequest()->id);
+        $turma = Finder::getTurma($codTurma = $this->getRequest()->id);
         $tipo = $turma['tipo_boletim'];
         $tipoDiferenciado = $turma['tipo_boletim_diferenciado'];
 

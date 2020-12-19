@@ -68,7 +68,7 @@ class User
             return true;
         }
 
-        $escolas = App_Model_IedFinder::getEscolasUser(self::currentUserId());
+        $escolas = Finder::getEscolasUser(self::currentUserId());
 
         foreach ($escolas as $escola) {
             if ($escola['ref_cod_escola'] == $id) {

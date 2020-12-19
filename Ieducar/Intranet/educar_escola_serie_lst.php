@@ -65,7 +65,7 @@ class indice extends clsListagem
         $obj_escola_serie->setOrderby('nm_serie ASC');
         $obj_escola_serie->setLimite($this->limite, $this->offset);
 
-        if (App_Model_IedFinder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
+        if (Finder::usuarioNivelBibliotecaEscolar($this->pessoa_logada)) {
             $obj_escola_serie->codUsuario = $this->pessoa_logada;
         }
 
