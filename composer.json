@@ -21,7 +21,7 @@
         "composer/semver": "^1.4",
         "cossou/jasperphp": "^2.7",
         "doctrine/dbal": "^2.9",
-        "edersoares/laravel-plug-and-play": "^1.1",
+        "edersoares/laravel-plug-and-play": "1.2.0",
         "fideloper/proxy": "^4.0",
         "google/recaptcha": "^1.2",
         "guzzlehttp/guzzle": "^6.3",
@@ -60,17 +60,16 @@
         "classmap": [
           "database/seeds",
           "database/factories",
-          "Ieducar/Intranet/Source",
-          "Ieducar/Lib"
+          "ieducar/Intranet/Source",
+          "ieducar/Lib"
         ],
         "files": [
-          "Ieducar/Intranet/Source/funcoes.php"
+          "ieducar/Intranet/Source/funcoes.php"
         ],
         "psr-4": {
             "App\\": "app/",
             "iEducar\\": "src",
-            "iEducarLegacy\\": "Ieducar",
-            "iEducar\\Packages\\Reports\\": "Ieducar/Modules/Reports/src"
+            "iEducarLegacy\\": "ieducar"
         }
     },
     "autoload-dev": {
@@ -82,10 +81,10 @@
         ]
     },
     "include-path": [
-      "Ieducar",
-      "Ieducar/Intranet",
-      "Ieducar/Lib",
-      "Ieducar/Modules"
+      "ieducar",
+      "ieducar/Intranet",
+      "ieducar/Lib",
+      "ieducar/Modules"
     ],
     "extra": {
         "laravel": {

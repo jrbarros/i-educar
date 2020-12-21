@@ -6,9 +6,10 @@ use iEducar\Modules\Educacenso\Model\LocalFuncionamento;
 use iEducar\Modules\Educacenso\Model\PaisResidencia;
 use iEducar\Modules\Educacenso\Model\TipoAtendimentoTurma;
 use iEducar\Modules\Educacenso\Model\TipoMediacaoDidaticoPedagogico;
-use Transporte_Model_Responsavel;
+use iEducarLegacy\Lib\App\Model\Educacenso\LocalFuncionamentoDiferenciado;
+use iEducarLegacy\Modules\Transporte\Model\Responsavel;
 
-require_once __DIR__ . '/../../../Ieducar/Modules/Transporte/Model/Responsavel.php';
+require_once __DIR__ . '/../../../ieducar/Modules/Transporte/Model/Responsavel.php';
 
 class Registro60 implements RegistroEducacenso, ItemOfRegistro30
 {
@@ -131,8 +132,8 @@ class Registro60 implements RegistroEducacenso, ItemOfRegistro30
     public function veiculoTransporteEscolarRequired()
     {
         $transportePublico = [
-            Transporte_Model_Responsavel::MUNICIPAL,
-            Transporte_Model_Responsavel::ESTADUAL,
+            Responsavel::MUNICIPAL,
+            Responsavel::ESTADUAL,
         ];
 
         return in_array($this->transportePublico, $transportePublico);
@@ -149,10 +150,10 @@ class Registro60 implements RegistroEducacenso, ItemOfRegistro30
      */
     public function recebeEscolarizacaoOutroEspacoIsRequired()
     {
-        return $this->tipoAtendimentoTurma == TipoAtendimentoTurma::ESCOLARIZACAO &&
-            $this->tipoMediacaoTurma == TipoMediacaoDidaticoPedagogico::PRESENCIAL &&
-            $this->localFuncionamentoDiferenciadoTurma == \App_Model_LocalFuncionamentoDiferenciado::NAO_ESTA &&
-            $this->localFuncionamentoDiferenciadoTurma == \App_Model_LocalFuncionamentoDiferenciado::SALA_ANEXA;
+        return $this->tipoAtendimentoTurma === TipoAtendimentoTurma::ESCOLARIZACAO &&
+            $this->tipoMediacaoTurma === TipoMediacaoDidaticoPedagogico::PRESENCIAL &&
+            $this->localFuncionamentoDiferenciadoTurma === LocalFuncionamentoDiferenciado::NAO_ESTA &&
+            $this->localFuncionamentoDiferenciadoTurma === LocalFuncionamentoDiferenciado::SALA_ANEXA;
     }
 
     public function getCodigoPessoa()
@@ -172,7 +173,7 @@ class Registro60 implements RegistroEducacenso, ItemOfRegistro30
 
 
     /**
-     * @param $column
+     * @param $arrayColumns
      */
     public function hydrateModel($arrayColumns)
     {

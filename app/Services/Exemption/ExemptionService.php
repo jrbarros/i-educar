@@ -2,26 +2,20 @@
 
 namespace App\Services\Exemption;
 
-require_once __DIR__ . '/../../../Ieducar/Modules/Avaliacao/Model/NotaAlunoDataMapper.php';
-require_once __DIR__ . '/../../../Ieducar/Modules/Avaliacao/Model/NotaComponenteDataMapper.php';
-require_once __DIR__ . '/../../../Ieducar/Modules/Avaliacao/Model/FaltaAlunoDataMapper.php';
-require_once __DIR__ . '/../../../Ieducar/Modules/Avaliacao/Model/FaltaComponente.php';
-require_once __DIR__ . '/../../../Ieducar/Modules/Avaliacao/Views/PromocaoApiController.php';
-
 use App\Models\LegacyDiscipline;
 use App\Models\LegacyDisciplineExemption;
 use App\Models\LegacyRegistration;
 use App\Models\LegacySchoolStage;
 use App\Services\PromotionService;
 use App\User;
-use Finder;
-use Avaliacao_Model_FaltaAlunoDataMapper;
-use Avaliacao_Model_FaltaComponenteDataMapper;
-use Avaliacao_Model_NotaAlunoDataMapper;
-use Avaliacao_Model_NotaComponenteDataMapper;
-use DispensaDisciplina;
-use DispensaDisciplinaEtapa;
 use Exception;
+use iEducarLegacy\Intranet\Source\PmiEducar\DispensaDisciplina;
+use iEducarLegacy\Intranet\Source\PmiEducar\DispensaDisciplinaEtapa;
+use iEducarLegacy\Lib\App\Model\Finder;
+use iEducarLegacy\Modules\Avaliacao\Model\FaltaAlunoDataMapper;
+use iEducarLegacy\Modules\Avaliacao\Model\FaltaComponente;
+use iEducarLegacy\Modules\Avaliacao\Model\NotaAlunoDataMapper;
+use iEducarLegacy\Modules\Avaliacao\Model\NotaComponenteDataMapper;
 
 class ExemptionService
 {
@@ -161,7 +155,7 @@ class ExemptionService
             return false;
         }
 
-        $notaAlunoMapper = new Avaliacao_Model_NotaAlunoDataMapper();
+        $notaAlunoMapper = new NotaAlunoDataMapper();
         $notaAluno = $notaAlunoMapper->findAll([], ['matricula_id' => $matriculaId]);
 
         if (empty($notaAluno)) {
@@ -169,7 +163,7 @@ class ExemptionService
         }
 
         $notaAluno = $notaAluno[0]->id;
-        $notaComponenteCurricularMapper = new Avaliacao_Model_NotaComponenteDataMapper();
+        $notaComponenteCurricularMapper = new NotaComponenteDataMapper();
         $notaComponenteCurricular = $notaComponenteCurricularMapper->findAll([], [
             'nota_aluno_id' => $notaAluno,
             'componente_curricular_id' => $disciplinaId,
@@ -189,14 +183,14 @@ class ExemptionService
             return false;
         }
 
-        $faltaAlunoMapper = new Avaliacao_Model_FaltaAlunoDataMapper();
+        $faltaAlunoMapper = new FaltaAlunoDataMapper();
         $faltaAluno = $faltaAlunoMapper->findAll([], ['matricula_id' => $matriculaId]);
         if (empty($faltaAluno)) {
             return false;
         }
 
         $faltaAluno = $faltaAluno[0]->id;
-        $faltaComponenteCurricularMapper = new Avaliacao_Model_FaltaComponenteDataMapper();
+        $faltaComponenteCurricularMapper = new FaltaComponente();
         $faltaComponenteCurricular = $faltaComponenteCurricularMapper->findAll([], [
             'falta_aluno_id' => $faltaAluno,
             'componente_curricular_id' => $disciplinaId,
@@ -229,7 +223,7 @@ class ExemptionService
 
         for ($i = 1; $i <= $totalEtapas['total']; $i++)
         {
-            $arrayEtapas[$i] = strval($i);
+            $arrayEtapas[$i] = (string) ($i);
         }
 
         $arrayEtapas = array_diff($arrayEtapas, $stages);
